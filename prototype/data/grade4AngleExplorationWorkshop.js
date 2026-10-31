@@ -1,0 +1,88 @@
+const freeze = (value) => Object.freeze(value);
+
+export const GRADE4_ANGLE_EXPLORATION_WORKSHOP = freeze({
+  activityId: 'ACT-G4-MATH-ANGLE-EXPLORATION-CANDIDATE',
+  revision: 1,
+  gradeId: 'grade-4',
+  subjectId: 'mathematics',
+  sourceId: 'mathematics',
+  sourceKind: 'candidate_learning_activity_not_textbook',
+  status: 'candidate_pending_teacher_review',
+  title: '角度探險基地：量一量、估一估、畫一畫',
+  curriculumMapId: 'math-grade4-angle-measurement-and-rotation',
+  curriculumCodes: ['N-4-10', 'S-4-1', 'S-4-2', 'n-II-9', 's-II-4'],
+  curriculumScope: '部分對應：估測、螢幕量角器中心與基準線分步對齊、左右兩側 0° 起始讀值、旋轉射線作指定角，以及鐘面順逆時針轉角操作。N-4-10 與 S-4-1 是官方明示同一角度內容；S-4-2 是另一項旋轉角內容。本活動是數位模擬，不取代實體量角器／鐘面教具操作；未涵蓋180°至360°角合成、周角、旋轉角計算情境的廣泛變化。四年級入口是專案年級配置，非課綱學期進度。',
+  learningSubitemClaims: [
+    'SUB-MATH-G4-N4-10-PROTRACTOR-ESTIMATE-READ-DRAW',
+    'SUB-MATH-G4-S4-2-CLOCKWISE-COUNTERCLOCKWISE-ROTATION',
+  ],
+  coverage: {
+    status: 'partial',
+    subitemIds: [
+      'SUB-MATH-G4-N4-10-PROTRACTOR-ESTIMATE-READ-DRAW',
+      'SUB-MATH-G4-S4-2-CLOCKWISE-COUNTERCLOCKWISE-ROTATION',
+    ],
+    limitation: '只支援 0°–180°的估測、讀值與作圖，以及不超過360°的鐘面旋轉；量角器、鐘面與射線均為螢幕模型，未評量實物工具操作、角合成教學或真實課堂遷移。',
+  },
+  learningObjective: {
+    objectiveId: 'LO-G4-MATH-ANGLE-TOOLS-AND-ROTATION-CANDIDATE-01',
+    statement: '以角的開口估測度數，對齊量角器中心與基準線並由指定一側讀值，轉動射線畫出指定角，並以鐘面操作辨別順時針、逆時針旋轉角。',
+    status: 'candidate_pending_teacher_review',
+  },
+  instructions: '先看角的開口，再使用螢幕量角器完成中心、基準線對齊及讀值，接著轉動射線作角，最後在鐘面上操作旋轉方向與角度。這是互動模擬，不是實際量角器或鐘面教具操作。',
+  completionReward: '角度觀察員候選徽章',
+  openQuestions: [
+    '需教師確認量角器刻度呈現、操作步驟及四年級學生的先備經驗。',
+    '課綱規定為第二學習階段；校本年級、學期與教材順序未由本活動推定。',
+    '數位拖曳／對齊模擬不能證明學生能在紙本或實體量角器上正確量角、估角或作圖。',
+    'S-4-2 另包含旋轉角操作與計算；本活動只覆蓋鐘面模型的方向與轉角辨認，未涵蓋多樣計算問題。',
+  ],
+  evidencePolicy: freeze({ persistence: 'memory_only_no_student_records_no_localStorage', completionIsMastery: false, hintAssistedResponseIsIndependentEvidence: false }),
+  teacherReview: freeze({ status: 'not_reviewed', reviewer: null, reviewedAt: null }),
+  reinforcementActivityIds: freeze([]),
+  reinforcementStatus: '尚無連結的補強活動',
+  stages: [
+    {
+      stageId: 'estimate-opening-angle', interaction: 'angle_exploration', prompt: '觀察這個角的開口，估一估大約幾度。兩邊長短不同時，請比較開口，不要用線段長度猜角度。',
+      hints: ['先和直角 90° 的開口比較：這個角比直角小。', '估測不必完全精確；想一個接近 35° 的五度刻度。'],
+      incorrectFeedback: '回到開口大小和直角基準。角的邊畫得長或短，不會改變兩邊的開口。',
+      correctFeedback: '估測落在合理範圍。現在揭示的圖形角為 35°；估測只反映這一次判斷。',
+      angleRules: { mode: 'estimate', targetDegrees: 35, tolerance: 5, valueRange: { min: 0, max: 180, step: 5 }, initialDegrees: null, rayLength: 60 },
+    },
+    {
+      stageId: 'measure-from-right-zero', interaction: 'angle_exploration', prompt: '量角器中心有偏移、基準線也未對齊。先把中心移到頂點、基準線調平，再選右側 0° 起點讀出角度。',
+      hints: ['先讓量角器中心標記與角的頂點重合；再讓基準線與角的一邊重合。', '中心目前偏左 2 格、基準線偏轉 10°；對齊後選右側 0°，讀另一邊射線。'],
+      incorrectFeedback: '逐項檢查：中心是否在頂點、基準線是否重合、是否從指定的右側 0° 開始讀刻度。',
+      correctFeedback: '中心與基準線都對齊，並由右側 0° 刻度讀出 40°。螢幕操作不能證明實物量角器技能。',
+      angleRules: { mode: 'measure', targetDegrees: 40, expectedSide: 'right', centerRange: 2, initialCenterOffset: -2, baselineRange: 15, initialBaselineOffset: 10, baselineStep: 5, readingStep: 5 },
+    },
+    {
+      stageId: 'measure-from-left-zero', interaction: 'angle_exploration', prompt: '換一個方向的角：中心和基準線要再次對齊，這次從左側 0° 刻度讀值。',
+      hints: ['量角器中心仍要放在頂點；方向改變不會改變中心位置原則。', '基準邊朝左時，從左端的 0° 刻度開始讀，讀到另一條射線。'],
+      incorrectFeedback: '確認你使用的是左側 0° 起始刻度；也要檢查中心與基準線是否都已對齊。',
+      correctFeedback: '你完成左側起始的量角器讀值：65°。同一量角器有內外刻度，需從基準邊的 0° 開始。',
+      angleRules: { mode: 'measure', targetDegrees: 65, expectedSide: 'left', centerRange: 2, initialCenterOffset: 2, baselineRange: 15, initialBaselineOffset: -10, baselineStep: 5, readingStep: 5 },
+    },
+    {
+      stageId: 'draw-specified-angle', interaction: 'angle_exploration', prompt: '把橘色射線轉到 115°，畫出指定角。調整射線時觀察角度差。',
+      hints: ['115°比直角 90°大一些。', '使用 5°刻度逐步轉動射線，讓目前角度接近 115°。'],
+      incorrectFeedback: '比較目前角度與 115°目標；橘色射線太靠近或太遠時，繼續沿刻度調整。',
+      correctFeedback: '射線已畫到指定角度。換題後仍須重新讀目標並調整，不代表已掌握所有作圖情境。',
+      angleRules: { mode: 'draw', targetDegrees: 115, tolerance: 2, valueRange: { min: 0, max: 180, step: 5 }, initialDegrees: 65 },
+    },
+    {
+      stageId: 'clockwise-quarter-turn', interaction: 'angle_exploration', prompt: '鐘面指針從 12 時方向順時針轉到 3 時方向。選方向並操作轉過的角度。',
+      hints: ['鐘面正常走動方向是順時針。', '從 12 到 3 經過四分之一圈；一周角 360°，四分之一是 90°。'],
+      incorrectFeedback: '檢查鐘面方向：順時針沿著 12、1、2、3 的方向前進；四分之一圈是 90°。',
+      correctFeedback: '順時針從 12 到 3 轉過 90°。這個情境只檢查本次操作，不代表熟練所有旋轉角計算。',
+      angleRules: { mode: 'rotation', targetDegrees: 90, expectedDirection: 'clockwise', rotationStep: 15, initialDegrees: 0, startHour: 12, endHour: 3 },
+    },
+    {
+      stageId: 'counterclockwise-three-quarter-turn', interaction: 'angle_exploration', prompt: '再看一個不同路徑：從 12 時方向逆時針轉三刻鐘，射線會到 3 時方向。操作方向和角度。',
+      hints: ['逆時針方向與鐘面平常前進方向相反。', '三刻鐘是一周角 360° 的四分之三；轉過 270°，不超過一周。'],
+      incorrectFeedback: '這條路徑是逆時針走較長的一圈，從 12 到 3 轉過 270°；請同時核對方向與角度。',
+      correctFeedback: '逆時針轉過 270°後，終邊到達 3 時方向。旋轉量仍在 0°至360°內。',
+      angleRules: { mode: 'rotation', targetDegrees: 270, expectedDirection: 'counterclockwise', rotationStep: 15, initialDegrees: 0, startHour: 12, endHour: 3 },
+    },
+  ].map(freeze),
+});

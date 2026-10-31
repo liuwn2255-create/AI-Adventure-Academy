@@ -1,0 +1,3511 @@
+{
+  "schemaVersion": 1,
+  "status": "partial_project_decomposition",
+  "boundary": "這些是依已登錄官方學習內容整理的專案子項，不是新增或改寫的官方條文。尚未列出的焦點須保留未細分狀態；活動關聯不等同涵蓋證據。",
+  "definitions": [
+    {
+      "subitemId": "SUB-MATH-G3-N3-13-S3-1-ANGLE-OPENING-COMPARISON",
+      "focusId": "math-grade3-n-3-13-s-3-1-angle",
+      "subject": "mathematics",
+      "officialCode": "N-3-13",
+      "officialCodes": [
+        "N-3-13",
+        "S-3-1"
+      ],
+      "officialPerformanceCode": "n-II-9",
+      "sourceText": "角與角度（同 S-3-1）：以具體操作為主。初步認識角和角度。角度的直接比較與間接比較。認識直角。",
+      "sourceNotes": "用直尺或三角板的直角來認識與複製直角。教學應處理角大小與邊長長短或面積大小混淆之常見錯誤。N-3-13 與 S-3-1 保留為兩個官方代碼；官方明示同內容。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 N-3-13、S-3-1，官方數學領綱 PDF 頁序27；同表對應第二學習階段表現 n-II-9。"
+      },
+      "projectSubitem": "以圖形選取角、旋轉射線比較不同開口、以直角模型作基準、配對相同開口，以及在簡化生活線稿中辨認角。這是專案自行拆解的候選互動，不是官方新增細目；只提供螢幕角形操作證據。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-ANGLE-EXPLORER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "identify-angle-vertex-and-rays",
+        "compare-rotatable-angle-openings",
+        "compare-with-right-angle-card",
+        "rotate-ray-to-match-opening",
+        "find-angle-in-life-picture",
+        "integrated-match-equal-openings"
+      ],
+      "notCovered": [
+        "實際使用直尺或三角板直角工具及紙片描角進行直接／間接比較",
+        "真實環境中自主觀察與指出角",
+        "量角器精密測量與角度數值計算",
+        "教師觀察、正式教學審查及學生學習成效證據"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G4-N4-9-KILOMETER-SENSE-AND-CONVERSION-CANDIDATE",
+      "focusId": "math-grade4-kilometer-route-and-conversion",
+      "subject": "mathematics",
+      "officialCode": "N-4-9",
+      "sourceText": "長度：「公里」。生活實例之應用。含其他長度單位的換算與計算。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026_10_24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 N-4-9，PDF頁序29；同表表現 n-II-9，表現表 PDF頁序12。"
+      },
+      "projectSubitem": "在數位路線情境中估計公里距離、於公里數線定位，並以 1 公里 = 1000 公尺換算及合併整數公里路段。此為專案分析，不是官方新增條文；未涵蓋實地測距或其他長度單位完整換算。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G4-MATH-KILOMETER-ROUTE-AND-CONVERSION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-park-route-kilometers",
+        "place-five-kilometer-waypoint",
+        "convert-and-combine-route-length"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G4-N4-11-SQUARE-METER-ESTIMATE-AND-AREA-MODEL-CANDIDATE",
+      "focusId": "math-grade4-square-meter-floor-planner",
+      "subject": "mathematics",
+      "officialCode": "N-4-11",
+      "sourceText": "面積：「平方公尺」。實測、量感、估測與計算。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026_10_24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 N-4-11，PDF頁序29；同表表現 n-II-9，表現表 PDF頁序12；備註不含平方公分換算平方公尺及複名數。"
+      },
+      "projectSubitem": "先估量矩形區域面積，再以每格代表 1 平方公尺的數位陣列操作和計算面積。此為專案分析，不是官方新增條文；數位模型不涵蓋實物實測及完整量感活動。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G4-MATH-SQUARE-METER-FLOOR-PLANNER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-rectangular-floor-area",
+        "tile-six-square-meter-floor",
+        "transfer-twelve-square-meter-floor"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G2-N2-9-SHARING-AND-PACKING-MODEL",
+      "focusId": "math-grade2-division-sharing-n2-9",
+      "subject": "mathematics",
+      "officialCode": "N-2-9",
+      "sourceText": "解題：分裝與平分。以操作活動為主。除法前置經驗。理解分裝與平分之意義與方法。引導學生在解題過程，發現問題和乘法模式的關連。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026_10_24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "二年級學習內容表 N-2-9，PDF頁序23；同表表現 n-I-4，表現表 PDF頁序11。"
+      },
+      "projectSubitem": "以逐件分配模型區分給定人數時的每份量與給定每包數時的組數，並用乘法關係回看總數。僅依官方備註使用十十乘法範圍內的整除情境；不列除式、不談餘數。此為專案分析，不是官方新增條文。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G2-MATH-SHARE-AND-PACK-PORT-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "share-twelve-snacks-among-three",
+        "pack-twelve-snacks-three-per-bag"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-4-DIVISION-GROUPS-EQUATION-CHECK",
+      "focusId": "math-division-meaning-application-m3-ops-03",
+      "subject": "mathematics",
+      "officialCode": "N-3-4",
+      "sourceText": "除法：除法的意義與應用。基於 N-2-9 之學習，透過幾個一數的解題方法，理解如何用乘法解決除法問題。熟練十十乘法範圍的除法，做為估商的基礎。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026_10_24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 N-3-4，PDF頁序25–26（跨頁）；同表表現 n-II-3，表現表 PDF頁序11。"
+      },
+      "projectSubitem": "以等量分組模型連結總數、每組量與組數，先檢查整除，再依官方說明中的先整除後有餘數建議建立餘數模型，以乘法加餘數驗算。此為專案分析，不是官方新增條文。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G3-MATH-DIVISION-GROUPS-MULTIPLICATION-CHECK-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "model-eighteen-supply-packs",
+        "write-exact-division-equation",
+        "model-thirteen-supply-packs",
+        "check-remainder-equation"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G1-N1-1-ZERO-PLACEHOLDER",
+      "focusId": "math-grade1-count-place-value",
+      "subject": "mathematics",
+      "officialCode": "N-1-1",
+      "sourceText": "一百以內的數：含操作活動。用數表示多少與順序。結合數數、位值表徵、位值表。位值單位「個」和「十」。位值單位換算。認識 0 的位值意義。",
+      "sourceTextKind": "curriculum-map.json registered text; not newly verified in this run",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "伍／學習重點／二、學習內容／一年級表 N-1-1，官方 PDF 頁序22；既有登錄標示該內容已對原文核對。"
+      },
+      "projectSubitem": "以個與十的位值表徵，辨認個位寫0表示該位沒有個位單位；不把此子項擴張為完整一百以內數能力。",
+      "decompositionKind": "project_decomposition_from_registered_official_clause",
+      "activityIds": [
+        "ACT-G1-MATH-ZERO-PLACEHOLDER-EXPLORER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "sort-zero-ones-cards",
+        "explain-twenty-versus-two"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G1-N1-2-COMPARISON-DIFFERENCE",
+      "focusId": "math-grade1-add-sub-meaning",
+      "subject": "mathematics",
+      "officialCode": "N-1-2",
+      "sourceText": "N-1-2：加法和減法的意義與應用，含添加型、併加型、拿走型、比較型等應用問題。官方附註指出一年級不做加數、被加數、減數、被減數未知題型。",
+      "sourceTextKind": "official_pdf_clause_and_note_checked_this_run; project description is a faithful summary",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "官方數學領綱伍／二／一年級學習內容表 N-1-2，PDF頁序21；一年級不作未知加數／被加數／減數／被減數的附註同表。對應第一學習階段表現 n-I-2，PDF頁序13。PDF頁序以1起算。"
+      },
+      "projectSubitem": "在小數量比較情境中操作比較結果（差量）並辨認相應減法算式；不設未知加數、被加數、減數、被減數題型，也不涵蓋全部比較型情境或自主列式。",
+      "decompositionKind": "project_decomposition_from_registered_official_clause",
+      "activityIds": [
+        "ACT-G1-MATH-COMPARISON-DIFFERENCE-NUMBER-LINE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "place-sticker-difference",
+        "choose-comparison-equation"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G2-N2-2-ZERO-PLACEHOLDER-CALCULATION",
+      "focusId": "math-grade2-place-value-add-sub",
+      "subject": "mathematics",
+      "officialCode": "N-2-2",
+      "sourceText": "N-2-2：加減算式與直式計算，使用位值理解多位數加減計算原理與方法；加法含二次進位、減法限一次退位，須處理數字中有0的題型。",
+      "sourceTextKind": "official_pdf_clause_checked_this_run; project description is a faithful summary",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "官方數學領綱伍／二／二年級學習內容表 N-2-2，PDF頁序22；對應第一學習階段表現 n-I-2，PDF頁序13。官方並要求先在有位值的表格中學習記錄與計算。PDF頁序以1起算。"
+      },
+      "projectSubitem": "在加法中處理含0十位，並追蹤另一加數及個位進位如何形成十位結果；不代表涵蓋其他含0題型或減法。",
+      "decompositionKind": "project_decomposition_from_registered_official_clause",
+      "activityIds": [
+        "ACT-G2-MATH-ZERO-TENS-ADDITION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "add-305-127",
+        "add-402-36"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G2-N2-2-UP-TO-TWO-CARRIES",
+      "focusId": "math-grade2-place-value-add-sub",
+      "subject": "mathematics",
+      "officialCode": "N-2-2",
+      "sourceText": "N-2-2：加減算式與直式計算，使用位值理解多位數加減計算原理與方法；加法含二次進位、減法限一次退位，須處理數字中有0的題型。",
+      "sourceTextKind": "official_pdf_clause_checked_this_run; project description is a faithful summary",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "官方數學領綱伍／二／二年級學習內容表 N-2-2，PDF頁序22；對應第一學習階段表現 n-I-2，PDF頁序13。官方並要求先在有位值的表格中學習記錄與計算。PDF頁序以1起算。"
+      },
+      "projectSubitem": "以兩個多位數加法例子追蹤最多兩次進位時的本位剩餘量與左位增加量；未涵蓋減法、所有數字組合或完整自主計算。",
+      "decompositionKind": "project_decomposition_from_registered_official_clause",
+      "activityIds": [
+        "ACT-G2-MATH-TWO-CARRY-ADDITION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "relay-178-146",
+        "relay-286-157"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-11-NUMBER-LINE-ADDITION-SUBTRACTION",
+      "focusId": "math-integer-number-line-m3-num-04",
+      "subject": "mathematics",
+      "officialCode": "N-3-11",
+      "sourceText": "整數數線：認識數線，含報讀與標示。連結數序、長度、尺的經驗，理解在數線上做比較、加、減的意義。備註：數線須從0開始。",
+      "sourceTextKind": "existing curriculum-map verified official text; reused, not rechecked in this turn",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "既有 curriculum-map.json 核對定位：伍／二／三年級學習內容 N-3-11，官方 PDF 解析定位 P26；第二學習階段表現 n-II-8 定位 P11。沿用既有登錄，非本輪重新核對。"
+      },
+      "projectSubitem": "在從0開始、每格代表100的螢幕數線上，分別以向右與向左移動表示一個整百加法與減法結果；不代表涵蓋所有數線刻度或實際尺具操作。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_clause",
+      "activityIds": [
+        "ACT-G3-MATH-INTEGER-NUMBER-LINE-MOVEMENT-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "move-forward-300-plus-200",
+        "move-back-800-minus-300"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-15-CAPACITY-ESTIMATION",
+      "focusId": "math-capacity-measurement",
+      "subject": "mathematics",
+      "officialCode": "N-3-15",
+      "sourceText": "容量：「公升」、「毫升」。實測、量感、估測與計算。單位換算。",
+      "sourceTextKind": "existing curriculum-map verified official text; reused, not rechecked in this turn",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "既有 curriculum-map.json 核對定位：伍／學習重點／學習內容 N-3-15，官方 PDF 第27頁；第二學習階段表現 n-II-9。沿用既有登錄，非本輪重新核對。"
+      },
+      "projectSubitem": "專案拆解：以參照值作容量估測；以按鍵增減液量模擬裝填、讀取刻度、比較外形不同容器的容量、計算同單位毫升差量及組成限定補給量。未涵蓋真實實測、感官量感、完整容量計算或系統性公升／毫升換算。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_clause",
+      "activityIds": [
+        "ACT-G3-MATH-CAPACITY-ESTIMATION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-two-bottles",
+        "fill-to-mark-600-ml",
+        "read-offset-meniscus-450-ml",
+        "compare-short-wide-and-tall-vessels",
+        "find-remaining-capacity",
+        "build-rescue-water-supply"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-CHINESE-STAGE2-PASSAGE-STRUCTURE-EVIDENCE",
+      "focusId": "chinese-reading-comprehension",
+      "subject": "chinese_language",
+      "officialCode": "Ad-Ⅱ-2",
+      "sourceText": "篇章的大意、主旨與簡單結構。",
+      "sourceTextKind": "existing curriculum-map verified official text; reused, not rechecked in this turn",
+      "sourceRef": {
+        "sourceId": "chinese-language",
+        "pageOrSection": "既有 curriculum-map.json 核對定位：伍／二／學習內容／篇章／第二學習階段 Ad-Ⅱ-2，文件印刷第16頁、PDF頁序第19頁；參照 5-Ⅱ-4（PDF頁序14）及 5-Ⅱ-8。沿用既有登錄，非本輪重新核對。"
+      },
+      "projectSubitem": "以原創短文排序三個明示事件，並選取兩句支持一個概括句；不代表學生能獨立生成摘要或完整解讀篇章。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_clause",
+      "activityIds": [
+        "ACT-G3-CHINESE-PASSAGE-STRUCTURE-TRAIL-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "order-planting-events",
+        "collect-main-idea-evidence"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-ENGLISH-STAGE2-DAILY-RESPONSE-ASSEMBLY",
+      "focusId": "english-daily-communication-stage2",
+      "subject": "english_language",
+      "officialCode": "B-Ⅱ-1",
+      "sourceText": "第二學習階段所學字詞及句型的生活溝通。",
+      "sourceTextKind": "existing curriculum-map verified official text; reused, not rechecked in this turn",
+      "sourceRef": {
+        "sourceId": "english-language",
+        "pageOrSection": "既有 curriculum-map.json 核對定位：伍／二／學習內容／溝通功能 B-Ⅱ-1，官方 PDF 頁序第20頁；參照表現 2-Ⅱ-5（日常生活用語，PDF頁序第12頁）。沿用既有登錄，非本輪重新核對。"
+      },
+      "projectSubitem": "在問候與教室借文具的書面情境中，從語塊組合簡短回應；不代表聽力、口語發音或獨立真實溝通能力。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_clause",
+      "activityIds": [
+        "ACT-G3-ENGLISH-DAILY-RESPONSE-ASSEMBLY-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "respond-to-greeting",
+        "ask-for-a-pencil"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-D3-1-TWO-WAY-TABLE-CONSTRUCTION",
+      "focusId": "math-grade3-d-3-1-data-tables",
+      "subject": "mathematics",
+      "officialCode": "D-3-1",
+      "sourceText": "以操作活動報讀、說明與製作生活中的一維、二維表格；二維表格含列聯表，可用於數量模式觀察。",
+      "sourceTextKind": "existing curriculum-map verified official text; reused, not rechecked in this turn",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "curriculum-map.json 既有核對定位：伍／二／三年級學習內容表 D-3-1，官方數學領綱 PDF 頁序 28；對應表現 d-II-1 見同表。沿用登錄，非本輪重核。"
+      },
+      "projectSubitem": "先逐張收集專案提供的模擬紀錄，再依兩項分類線索把紀錄分類至二維交叉表，從即時表格計數檢查整理結果。這是專案拆解，不是新增官方條文。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_clause",
+      "activityIds": [
+        "ACT-G3-MATH-CROSS-TABLE-BUILDER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "place-survey-cards-in-cross-table",
+        "read-walk-sunny-cell"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-D3-1-TWO-WAY-TABLE-READING",
+      "focusId": "math-grade3-d-3-1-data-tables",
+      "subject": "mathematics",
+      "officialCode": "D-3-1",
+      "sourceText": "以操作活動報讀、說明與製作生活中的一維、二維表格；二維表格含列聯表，可用於數量模式觀察。",
+      "sourceTextKind": "existing curriculum-map verified official text; reused, not rechecked in this turn",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "curriculum-map.json 既有核對定位：伍／二／三年級學習內容表 D-3-1，官方數學領綱 PDF 頁序 28；對應表現 d-II-1 見同表。沿用登錄，非本輪重核。"
+      },
+      "projectSubitem": "在已提供的二維表格中定位列、欄交叉格，並區分交叉格與列／欄合計。未評量學生獨立製表或表外推論。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_clause",
+      "activityIds": [
+        "ACT-G3-MATH-CROSS-TABLE-INTERPRETER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "locate-garden-cross-cell",
+        "distinguish-cell-and-margin-total"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-D3-1-TABLE-ERROR-CHECK-REPAIR",
+      "focusId": "math-grade3-d-3-1-data-tables",
+      "subject": "mathematics",
+      "officialCode": "D-3-1",
+      "sourceText": "以操作活動報讀、說明與製作生活中的一維、二維表格；二維表格含列聯表，可用於數量模式觀察。",
+      "sourceTextKind": "existing curriculum-map verified official text; reused, not rechecked in this turn",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "curriculum-map.json 既有核對定位：伍／二／三年級學習內容表 D-3-1，官方數學領綱 PDF 頁序 28；對應表現 d-II-1 見同表。沿用登錄，非本輪重核。"
+      },
+      "projectSubitem": "檢查每筆模擬分類紀錄的兩項線索，定位並修正放錯交叉格的紀錄；這是專案設計的查錯練習，不是官方另列的子項。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_clause",
+      "activityIds": [
+        "ACT-G3-MATH-CROSS-TABLE-BUILDER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "repair-misfiled-survey-card"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-D3-1-TABLE-QUANTITY-PATTERN",
+      "focusId": "math-grade3-d-3-1-data-tables",
+      "subject": "mathematics",
+      "officialCode": "D-3-1",
+      "sourceText": "以操作活動報讀、說明與製作生活中的一維、二維表格；二維表格含列聯表，可用於數量模式觀察。",
+      "sourceTextKind": "existing curriculum-map verified official text; reused, not rechecked in this turn",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "curriculum-map.json 既有核對定位：伍／二／三年級學習內容表 D-3-1，官方數學領綱 PDF 頁序 28；對應表現 d-II-1 見同表。沿用登錄，非本輪重核。"
+      },
+      "projectSubitem": "比較二維表格中的列合計，依數量排序並指出有限資料中可支持的增減描述；不把有限觀察外推成因果或未來保證。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_clause",
+      "activityIds": [
+        "ACT-G3-MATH-CROSS-TABLE-PATTERN-INVESTIGATOR-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "order-days-by-recycle-total",
+        "choose-supported-table-pattern"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-ANIMAL-FORM-EVIDENCE",
+      "focusId": "science-animal-observation",
+      "subject": "natural_science",
+      "officialCode": "INb-Ⅱ-5",
+      "sourceText": "常見動物的外部形態主要分為頭、軀幹和肢，但不同類別動物之各部位特徵和名稱有差異。",
+      "sourceTextKind": "existing curriculum-map registered official clause; not rechecked in this run",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "既有 curriculum-map.json 登錄：伍／學習重點，學習內容 INb-Ⅱ-5，官方 PDF 第102頁；參照觀察表現 po-Ⅱ-1 見 PDF 第15頁。沿用既有核對，不是本輪重查。"
+      },
+      "projectSubitem": "比較模擬紀錄中的共同與不同外部部位，選取直接支持分類的紀錄，再以新摘要運用分類依據；屬專案整理，不是官方新增條文。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_clause",
+      "activityIds": [
+        "ACT-G3-SCIENCE-ANIMAL-EVIDENCE-ATLAS-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "compare-shared-and-variable-features",
+        "choose-record-evidence",
+        "transfer-new-record"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-HPE-STAGE2-SPORT-SAFETY-RESPONSE",
+      "focusId": "health-pe-stage2-sport-safety",
+      "subject": "health_and_physical_education",
+      "officialCode": "Cb-Ⅱ-1",
+      "sourceText": "運動安全規則、運動增進生長知識。",
+      "sourceTextKind": "existing curriculum-map registered text; exact text type not newly checked",
+      "sourceRef": {
+        "sourceId": "health-physical-education",
+        "pageOrSection": "既有 curriculum-map.json 登錄：伍／二／國民小學學習內容 Cb-Ⅱ-1，官方 PDF 頁序第18頁（頁腳印刷頁16）。沿用既有核對，不是本輪重查。"
+      },
+      "projectSubitem": "依文字化模擬線索辨認需停止並求助的場地或器材狀況，排序基本應對步驟，並用於新情境；不評量實際安全行為。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_clause",
+      "activityIds": [
+        "ACT-G4-HPE-SPORT-SAFETY-DECISION-ROUTE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "inspect-simulated-equipment",
+        "order-safe-response",
+        "transfer-wet-area"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-INTEGRATIVE-STAGE2-LEARNING-METHOD-AND-REVIEW",
+      "focusId": "integrative-stage2-learning-methods",
+      "subject": "integrative_activities",
+      "officialCode": "Ab-II-1",
+      "sourceText": "有效的學習方法。",
+      "sourceTextKind": "existing curriculum-map registered text; not rechecked in this run",
+      "sourceRef": {
+        "sourceId": "integrative-activities",
+        "pageOrSection": "既有 curriculum-map.json 登錄：伍／學習重點／自主學習與管理，Ab-II-1、Ab-II-2 與表現 1b-II-1，官方 PDF 頁序第69–70頁（頁腳印刷頁66–67）。沿用既有核對，不是本輪重查。"
+      },
+      "projectSubitem": "依具體學習目標選擇可檢查的方法、排序行動，並利用目標相關紀錄調整下一步；屬專案整理，不是官方新增條文。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_clause",
+      "activityIds": [
+        "ACT-G4-INTEGRATIVE-LEARNING-METHOD-CHOICE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "choose-method-for-map-symbols",
+        "plan-and-review-learning-actions",
+        "select-evidence-for-next-action"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SOCIAL-STAGE2-NEIGHBORHOOD-CHANGE-CAUSE-EVIDENCE",
+      "focusId": "social-neighborhood-change-stage2",
+      "subject": "social_studies",
+      "officialCode": "Ca-Ⅱ-1",
+      "sourceText": "居住地方的環境隨著社會與經濟的發展而改變。",
+      "sourceTextKind": "existing_curriculum-map verified clause; official PDF not rechecked this run",
+      "sourceRef": {
+        "sourceId": "social-studies",
+        "pageOrSection": "既有 curriculum-map.json 登錄：伍／二學習內容 Ca-Ⅱ-1，官方 PDF 頁序101、印刷頁97；對應表現 3b-Ⅱ-2 頁序11。沿用既有核對，非本輪重新取得或重核。"
+      },
+      "projectSubitem": "在明確標示為虛構的前後社區紀錄及說明卡中，整理環境變化、服務需求與資料明示的關聯；不把案例推論為普遍因果或真實地方事實。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_clause",
+      "activityIds": [
+        "ACT-G3-SOCIAL-CHANGE-CAUSE-EVIDENCE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "collect-change-and-demand-records",
+        "separate-supported-and-unsupported-causes",
+        "order-evidence-chain"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-PLANT-PARTS-AND-EXTERNAL-FORM",
+      "focusId": "science-grade4-plant-structure-observation",
+      "subject": "natural_science",
+      "officialCode": "INb-Ⅱ-6",
+      "sourceText": "常見植物的外部形態主要由根、莖、葉、花、果實及種子所組成；說明列出依莖特徵區分木本、草本與藤本。",
+      "sourceTextKind": "official PDF directly rechecked this run; project subitem is an analysis, not official wording",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "本輪直接核對官方 PDF：伍／二學習內容 INb-Ⅱ-6，PDF 頁序103；該學習內容列根、莖、葉、花、果實及種子。INb-Ⅱ-4 位於 PDF 頁序101–102，未作本活動對應。"
+      },
+      "projectSubitem": "依文字模擬紀錄辨認根、莖、葉三類外部形態線索並套用到新描述；不代表花、果實、種子、木本／草本／藤本或實物觀察。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_clause",
+      "activityIds": [
+        "ACT-G4-SCIENCE-PLANT-PARTS-OBSERVATION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "sort-plant-part-clues",
+        "collect-plant-part-evidence",
+        "transfer-new-plant-record"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-PLANT-FLOWER-FRUIT-SEED-AND-STEM-FORMS",
+      "focusId": "science-grade4-plant-structure-observation",
+      "subject": "natural_science",
+      "officialCode": "INb-Ⅱ-6",
+      "sourceText": "常見植物的外部形態主要由根、莖、葉、花、果實及種子所組成；說明列出依莖特徵區分木本、草本與藤本。",
+      "sourceTextKind": "official_pdf_clause_and_explanatory_note_rechecked_this_run; project wording is not official",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "國教院自然科學領綱官方 PDF：伍／二／第二學習階段 INb-Ⅱ-6，PDF 頁序103（文件印刷頁101）；同頁學習內容說明6-1列實際觀察範圍：根的軸根／鬚根、莖的草本／木本／藤本、葉緣／葉脈／葉序、花部及開花後結果與種子。此活動只做部分文字模擬，未滿足實際觀察要求；未推定單一年級或學期。"
+      },
+      "projectSubitem": "在模擬文字卡中辨認花、果實、種子，依莖部線索分類木本、草本與藤本，再從新紀錄選取直接證據；未涵蓋根的類型、葉緣／葉脈／葉序、花各部位及開花結果關係，且未進行官方說明所述實際觀察。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_clause",
+      "activityIds": [
+        "ACT-G4-SCIENCE-PLANT-EXTERNAL-FORMS-TRANSFER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "sort-flower-fruit-seed-records",
+        "classify-stem-forms",
+        "collect-vine-classification-evidence"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE3-MEASUREMENT-CONSISTENT-METHOD",
+      "focusId": "science-grade5-measurement-methods",
+      "subject": "natural_science",
+      "officialCode": "INc-Ⅲ-1",
+      "sourceText": "生活及探究中常用的測量工具和方法。",
+      "sourceTextKind": "existing curriculum-map verified clause; official PDF not rechecked this run",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "既有 curriculum-map.json 登錄：伍／學習重點／國民小學第三學習階段學習內容 INc-Ⅲ-1、INc-Ⅲ-4，官方 PDF 頁序20。沿用既有核對，非本輪重新核對。"
+      },
+      "projectSubitem": "以文字模擬排序尺具測量流程、辨認零刻度起點或單位不一致的紀錄，並將相同方法用於另一比較任務；不評量真實尺具操作或完整測量工具方法。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_clause",
+      "activityIds": [
+        "ACT-G5-SCIENCE-FAIR-RULER-METHOD-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "order-ruler-measurement-protocol",
+        "classify-comparable-records",
+        "transfer-same-unit-plan"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-STAGE3-N5-4-EQUIVALENT-FRACTIONS-COMPARISON",
+      "focusId": "math-grade5-fraction-equivalence-candidate",
+      "subject": "mathematics",
+      "officialCode": "N-5-4",
+      "sourceText": "異分母分數：用約分、擴分處理等值分數並做比較。用通分做異分母分數的加減。",
+      "sourceTextKind": "official_pdf_clause_checked_this_run; project subitem is an analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "官方數學領綱伍／二／五年級學習內容 N-5-4，PDF頁序31–32；對應 n-III-4 位於伍／一第三學習階段表現，PDF頁序12。"
+      },
+      "projectSubitem": "以等分拼片表示 1/2=2/4、1/3=2/6，再將 1/2 和 2/3 化為六等分比較；未練習官方條文所列異分母加減及完整約分／擴分方法。",
+      "decompositionKind": "project_decomposition_from_official_clause",
+      "activityIds": [
+        "ACT-G5-MATH-FRACTION-EQUIVALENCE-PIECES-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "compose-half-with-fourths",
+        "compare-third-and-half"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SOCIAL-STAGE3-BA3-1-EXPERIENCE-AND-PERSPECTIVE",
+      "focusId": "social-grade5-background-perspectives-candidate",
+      "subject": "social_studies",
+      "officialCode": "Ba-Ⅲ-1",
+      "sourceText": "每個人不同的生活背景與經驗，會使其對社會事務的觀點與感受產生差異。",
+      "sourceTextKind": "official_pdf_clause_checked_this_run; project subitem is an analysis",
+      "sourceRef": {
+        "sourceId": "social-studies",
+        "pageOrSection": "官方社會領綱伍／二／學習內容 Ba-Ⅲ-1，PDF頁序99。"
+      },
+      "projectSubitem": "由虛構角色明示的交通／接送經驗，分類其對同一公共服務時間的偏好，並選取支持兩種觀點的線索；不概括真實群體。",
+      "decompositionKind": "project_decomposition_from_official_clause",
+      "activityIds": [
+        "ACT-G5-SOCIAL-PERSPECTIVE-EVIDENCE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "sort-experience-linked-views",
+        "collect-viewpoint-evidence"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE3-PE3-1-FAIR-TEST-PLANNING",
+      "focusId": "science-grade5-fair-test-planning-candidate",
+      "subject": "natural_science",
+      "officialCode": "INc-Ⅲ-1",
+      "sourceText": "生活及探究中常用的測量工具和方法。",
+      "sourceTextKind": "official_pdf_clause_checked_this_run; project subitem is an analysis",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "官方自然科學領綱伍／二／第三學習階段學習內容 INc-Ⅲ-1，PDF頁序20；僅作局部測量方法關聯。任務相關表現 pe-Ⅲ-1 位於伍／一 PDF頁序15–16。pe-Ⅲ-2要求實際安全操作與記錄，本活動不主張涵蓋。"
+      },
+      "projectSubitem": "在模擬斜坡車情境辨認改變的表面、測量距離、固定起點與高度，排定重複測量流程；沒有執行真實實驗或測量。",
+      "decompositionKind": "project_decomposition_from_official_clause",
+      "activityIds": [
+        "ACT-G5-SCIENCE-FAIR-TEST-PLANNER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "identify-test-variables",
+        "order-fair-test-plan"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-STAGE3-D6-2-COMPARE-LIKELIHOOD-FROM-DATA",
+      "focusId": "math-grade6-data-likelihood-candidate",
+      "subject": "mathematics",
+      "officialCode": "D-6-2",
+      "sourceText": "解題：可能性。從統計圖表資料，回答可能性問題。機率前置經驗，使用「很有可能」、「很不可能」、「A比B可能」等語句；需根據資料，不作為結果必然的保證。",
+      "sourceTextKind": "official_pdf_clause_checked_this_run; project subitem is an analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "官方數學領綱伍／二／六年級學習內容 D-6-2，PDF頁序37；對應 d-III-2，PDF頁序12。"
+      },
+      "projectSubitem": "依三組虛構次數紀錄分類相對多寡，再就新紀錄選出不將結果說成必然的比較句；不涉及精確機率、真實抽樣或不明顯差異。",
+      "decompositionKind": "project_decomposition_from_official_clause",
+      "activityIds": [
+        "ACT-G6-MATH-DATA-LIKELIHOOD-READER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "classify-sample-count-evidence",
+        "compare-new-likelihood-record"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G1-S1-2-COPY-PLANE-TILE-PATTERN",
+      "focusId": "math-grade1-shape-operation",
+      "subject": "mathematics",
+      "officialCode": "S-1-2",
+      "sourceText": "S-1-2：形體的操作以操作活動為主，包含描繪、複製、拼貼、堆疊，並涉及平面圖形、立體形體或兩者互動。",
+      "sourceTextKind": "official_pdf_clause_checked_this_run; project subitem is an analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "官方數學領綱伍／二／一年級學習內容表 S-1-2，PDF頁序22；表列對應表現 s-I-1。"
+      },
+      "projectSubitem": "使用畫面圖形片填滿2×2及3×2平面格形，依提示複製圖形排列；不涵蓋描繪、實體拼貼、堆疊或立體形體操作。",
+      "decompositionKind": "project_decomposition_from_official_clause",
+      "activityIds": [
+        "ACT-G1-MATH-SHAPE-COPY-STUDIO-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "copy-two-by-two-square",
+        "copy-three-by-two-rectangle"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G2-N2-8-ORDERED-TWO-STEP-OPERATIONS",
+      "focusId": "math-grade2-two-step-applications",
+      "subject": "mathematics",
+      "officialCode": "N-2-8",
+      "sourceText": "N-2-8：兩步驟應用問題，包含加減混合、加與乘、減與乘；不含併式及連乘。",
+      "sourceTextKind": "official_pdf_clause_checked_this_run; project subitem is an analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "官方數學領綱伍／二／二年級學習內容表 N-2-8，PDF頁序23；對應表現 n-I-5。"
+      },
+      "projectSubitem": "在一個先乘後加情境與一個先加後減新情境中，分兩個步驟排列算式並保留中間結果；未涵蓋減與乘及其他策略，不使用併式或連乘。",
+      "decompositionKind": "project_decomposition_from_official_clause",
+      "activityIds": [
+        "ACT-G2-MATH-TWO-STEP-MARKET-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "calculate-boxes-then-extras",
+        "add-and-then-give-away"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-LIVING-STAGE1-6-I-3-RULE-PURPOSE-AND-ACTION",
+      "focusId": "living-curriculum-stage1-shared-rules",
+      "subject": "living_curriculum",
+      "officialCode": "6-I-3",
+      "sourceText": "6-I-3：覺察生活中的規範與禮儀，探究其意義，並願意遵守。",
+      "sourceTextKind": "official_pdf_clause_checked_this_run; project subitem is an analysis",
+      "sourceRef": {
+        "sourceId": "living-curriculum",
+        "pageOrSection": "官方生活課程領綱伍／一／學習表現6-I-3，PDF頁序10（頁腳印刷頁8）；相關學習內容E-I-2列於PDF頁序12（頁腳印刷頁10）。"
+      },
+      "projectSubitem": "在虛構共讀情境分類有助或妨礙輪流參與的行動，並選出恢復輪流約定的做法；不等於實際行為改變或不同場合禮儀能力。",
+      "decompositionKind": "project_decomposition_from_official_clause",
+      "activityIds": [
+        "ACT-G2-LIVING-RULES-REASON-QUEST-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "classify-shared-reading-actions",
+        "choose-rule-purpose-and-repair"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-HPE-STAGE1-BA-I-1-PLAYGROUND-SCHOOL-ROUTE-SAFETY",
+      "focusId": "health-pe-stage1-playground-and-school-route-safety",
+      "subject": "health_and_physical_education",
+      "officialCode": "Ba-Ⅰ-1",
+      "sourceText": "遊戲場所與上下學情境的安全須知。",
+      "sourceTextKind": "official_text_verified_this_run; project subitem is an analytical decomposition, not official wording",
+      "sourceRef": {
+        "sourceId": "health-physical-education",
+        "pageOrSection": "健康與體育領綱伍／四／（一）第一學習階段／2.學習內容，Ba-Ⅰ-1；印刷頁14、官方解析標記P16。"
+      },
+      "projectSubitem": "在虛構校園與遊戲場所情境中分類需停下避開的風險、排序告知並留在可信任成人身旁的步驟，再於新情境運用；不代表真實移動技能、現場危險辨識或個人上下學安全能力。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_23",
+      "activityIds": [
+        "ACT-G1-HPE-PLAYGROUND-SAFETY-ROUTE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "inspect-playground-and-school-route-scenes",
+        "order-response-to-blocked-route",
+        "transfer-to-unfamiliar-playground-scene"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE3-ANIMAL-STRUCTURE-MOVEMENT-RELATION",
+      "focusId": "science-grade6-animal-structure-behavior",
+      "subject": "natural_science",
+      "officialCode": "INb-Ⅲ-6",
+      "sourceText": "動物的形態特徵與行為相關，動物身體的構造不同，有不同的運動方式。",
+      "sourceTextKind": "official_pdf_clause_verified_this_run; project subitem is an analysis",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "官方自然科學領綱伍／二／跨科概念 INb-Ⅲ-6，PDF解析頁籤 P103–P104。"
+      },
+      "projectSubitem": "在虛構資料卡中依明示構造分類移動方式，選取直接證據，並於新卡片區分記錄支持與未提供資訊；未涵蓋進食構造、生命史、保護色、骨骼肌肉或真實觀察。",
+      "decompositionKind": "project_decomposition_from_official_clause_not_official_subclause",
+      "activityIds": [
+        "ACT-G6-SCIENCE-ANIMAL-STRUCTURE-MOVEMENT-EVIDENCE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "classify-movement-records",
+        "select-structure-evidence",
+        "transfer-new-animal-record"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE3-INB3-7-STRUCTURE-FUNCTION",
+      "focusId": "science-grade6-plant-structure-function",
+      "subject": "natural_science",
+      "officialCode": "INb-Ⅲ-7",
+      "sourceText": "植物各部位的構造和所具有的功能有關，有些植物產生特化的構造以適應環境。",
+      "sourceTextKind": "official_pdf_clause_verified_this_run; project subitem is an analysis",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "官方自然科學領綱伍／二／跨科概念 INb-Ⅲ-7，PDF解析頁籤 P104–P105；參照說明 7-1、7-3。"
+      },
+      "projectSubitem": "以文字模擬卡配對根、莖、葉與功能，選取特化構造和作用的直接證據，並限制一個例子可支持的結論範圍；未涵蓋完整器官機制、所有特化構造或實物觀察。",
+      "decompositionKind": "project_decomposition_from_official_clause_not_official_subclause",
+      "activityIds": [
+        "ACT-G6-SCIENCE-PLANT-STRUCTURE-FUNCTION-EVIDENCE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "match-plant-parts-and-functions",
+        "choose-special-structure-evidence",
+        "transfer-function-with-boundary"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SOCIAL-STAGE3-AF3-1-ISSUE-SCALE-EVIDENCE",
+      "focusId": "social-grade6-global-issue-evidence",
+      "subject": "social_studies",
+      "officialCode": "Af-Ⅲ-1",
+      "sourceText": "為確保基本人權、維護生態環境永續發展，全球須共同關心許多議題；說明舉飢餓、犯罪、疾病、環境保護、生物保育、尊嚴勞動、經貿或科技研究為例，並可考量全球、區域、國內外尺度。",
+      "sourceTextKind": "curriculum-map.json existing registered text; clause not re-downloaded this run; project subitem is an analysis",
+      "sourceRef": {
+        "sourceId": "social-studies",
+        "pageOrSection": "沿用 curriculum-map.json 已登錄第三學習階段 Af-Ⅲ-1 來源位置；本輪未重新開啟社會領綱 PDF 核對，保留既有核對狀態。"
+      },
+      "projectSubitem": "以明示為虛構的校園／社區／跨地區卡片分類範圍，檢查資料期間與單位是否可比，並以新例子限制結論；未涵蓋真實全球議題資料、成因、政策或公民行動。",
+      "decompositionKind": "project_decomposition_from_existing_registered_official_clause_not_reverified_this_run",
+      "activityIds": [
+        "ACT-G6-SOCIAL-GLOBAL-ISSUE-SCALE-COMPARISON-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "sort-issue-scales",
+        "choose-supported-comparison",
+        "transfer-scope-limit"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-HPE-STAGE3-BB3-1-STOP-CHECK-CONSULT",
+      "focusId": "health-pe-grade6-medication-safety",
+      "subject": "health_and_physical_education",
+      "officialCode": "Bb-Ⅲ-1",
+      "sourceText": "藥物種類、正確用藥核心能力與用藥諮詢。",
+      "sourceTextKind": "official_pdf_clause_verified_2026-10-23; project subitem is an analysis",
+      "sourceRef": {
+        "sourceId": "health-physical-education",
+        "pageOrSection": "官方健康與體育領綱伍／四／國民小學學習內容藥物教育 Bb-Ⅲ-1；官方 PDF 解析頁籤 P26。"
+      },
+      "projectSubitem": "在不提供藥品或劑量指引的假設情境中，排列停止使用、向可信任成人求助、詢問醫藥專業人員步驟，並組成安全求助句；未涵蓋藥物種類全貌、劑量判斷或真實用藥行為。",
+      "decompositionKind": "project_decomposition_from_official_clause_not_official_subclause",
+      "activityIds": [
+        "ACT-G6-HPE-MEDICATION-INFORMATION-CONSULT-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "order-safe-consult-steps",
+        "assemble-consult-question",
+        "transfer-peer-offer"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE3-ENERGY-CONVERSION-CHAIN",
+      "focusId": "science-grade6-energy-conversion",
+      "subject": "natural_science",
+      "officialCode": "INa-Ⅲ-5",
+      "sourceText": "不同形式的能量可以互相轉換，但總量不變。",
+      "sourceTextKind": "official_pdf_clause_verified_this_run; project subitem is an analysis",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "官方自然科學領綱伍／二／INa-Ⅲ-5，PDF解析頁籤P96–P97；說明5-1、5-2。"
+      },
+      "projectSubitem": "從資料卡辨認裝置輸入與輸出的能量形式，排列化學能或動能轉為電能再轉為光／熱的路徑；未做實物測量或總量計算。",
+      "decompositionKind": "project_decomposition_from_official_clause_not_official_subclause",
+      "activityIds": [
+        "ACT-G6-SCIENCE-ENERGY-TRANSFER-MODEL-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "identify-lamp-energy-evidence",
+        "order-battery-lamp-conversion",
+        "transfer-hand-crank-generator"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE3-STABLE-STATE-EXTERNAL-FACTOR",
+      "focusId": "science-grade6-stable-state-change",
+      "subject": "natural_science",
+      "officialCode": "INd-Ⅲ-1",
+      "sourceText": "自然界中存在著各種的穩定狀態；當有新的外加因素時，可能造成改變，再達到新的穩定狀態。",
+      "sourceTextKind": "official_pdf_clause_verified_this_run; project subitem is an analysis",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "官方自然科學領綱伍／二／INd-Ⅲ-1，PDF解析頁籤P20–P21。"
+      },
+      "projectSubitem": "以流入／流出差額模型辨認原平衡、外加調整、狀態變化及重新平衡；僅為一個簡化系統模型，不等同自然系統實驗。",
+      "decompositionKind": "project_decomposition_from_official_clause_not_official_subclause",
+      "activityIds": [
+        "ACT-G6-SCIENCE-STABLE-STATE-CHANGE-MODEL-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "classify-water-level-records",
+        "select-disturbance-evidence",
+        "transfer-new-balance"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE3-TECHNOLOGY-APPLICATION-IMPACT",
+      "focusId": "science-grade6-technology-impact",
+      "subject": "natural_science",
+      "officialCode": "INf-Ⅲ-2",
+      "sourceText": "科技在生活中的應用與對環境與人體的影響。",
+      "sourceTextKind": "official_pdf_clause_verified_this_run; project subitem is an analysis",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "官方自然科學領綱伍／二／INf-Ⅲ-2，PDF解析頁籤P125–P126；表列位置P23。"
+      },
+      "projectSubitem": "以明示為模擬的案例卡辨認生活用途及卡片描述的環境／人體影響，並限制結論在資料範圍內；未做實際產品或健康評估。",
+      "decompositionKind": "project_decomposition_from_official_clause_not_official_subclause",
+      "activityIds": [
+        "ACT-G6-SCIENCE-TECHNOLOGY-IMPACT-EVIDENCE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "classify-technology-records",
+        "collect-bounded-impact-evidence",
+        "transfer-balanced-tech-note"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE3-BEAK-FEEDING-RELATION",
+      "focusId": "science-grade6-animal-feeding-structure",
+      "subject": "natural_science",
+      "officialCode": "INb-Ⅲ-6",
+      "sourceText": "動物的形態特徵與行為相關，動物身體的構造不同，有不同的運動方式。",
+      "sourceTextKind": "official_pdf_clause_and_explanation_6-1_verified_this_run; project subitem is an analysis",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "官方自然科學領綱伍／二／INb-Ⅲ-6，PDF解析頁籤P103–P104；說明6-1舉例比較動物進食方式與口／口器形態。"
+      },
+      "projectSubitem": "以簡化鳥喙文字卡比較喙形與記載的取食行為，辨別支持與未支持的推論；未涵蓋真實觀察、鳥類多樣性或全部適應關係。",
+      "decompositionKind": "project_decomposition_from_official_clause_not_official_subclause",
+      "activityIds": [
+        "ACT-G6-SCIENCE-BEAK-FEEDING-STRUCTURE-EVIDENCE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "classify-beak-records",
+        "select-beak-food-evidence",
+        "transfer-unobserved-behavior"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G1-N1-4-MONEY-COUNT-CHANGE",
+      "focusId": "math-grade1-money-count-exchange",
+      "subject": "mathematics",
+      "officialCode": "N-1-4",
+      "officialCodes": [
+        "N-1-4"
+      ],
+      "sourceText": "解題：1 元、5 元、10 元、50 元、100 元。以操作活動為主。數錢、換錢、找錢。容許多元策略，以利建立數感，教師不應視為單純的加減單元。",
+      "sourceTextKind": "official_pdf_clause_checked_2026-10-23; project decomposition is not official subclause",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "伍／二／一年級學習內容表 N-1-4，PDF頁序21；對應學習表現 n-I-3 同表。"
+      },
+      "projectSubitem": "畫面錢幣選取及一個找零情境；不含實體錢幣操作、所有等值換錢策略或真實購物。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_23",
+      "activityIds": [
+        "ACT-G1-MATH-MONEY-COUNT-EXCHANGE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "pay-seventeen-with-coins",
+        "choose-change-for-twenty"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G2-N2-13-CLOCK-HOUR-MINUTE-HANDS",
+      "focusId": "math-grade2-clock-time-read",
+      "subject": "mathematics",
+      "officialCode": "N-2-13",
+      "officialCodes": [
+        "N-2-13"
+      ],
+      "sourceText": "鐘面的時刻：以操作活動為主。以鐘面時針與分針之位置認識「幾時幾分」。含兩整時時刻之間的整時點數（時間加減的前置經驗）。同時加強「五個一數」、「十個一數」。本活動不含秒針教學。整時的點數教學須配合鐘面進行。",
+      "sourceTextKind": "official_pdf_clause_checked_2026-10-23; project decomposition is not official subclause",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "伍／二／二年級學習內容表 N-2-13，PDF頁序24；對應第一學習階段表現 n-I-9 同表。"
+      },
+      "projectSubitem": "螢幕鐘面手動調整與整時點數；不含秒、經過時間計算及實體鐘面操作。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_23",
+      "activityIds": [
+        "ACT-G2-MATH-CLOCK-HANDS-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "set-three-twenty-clock",
+        "set-four-forty-five-clock",
+        "count-full-hours-between"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G4-S4-4-UNIT-CUBE-STACKED-VOLUME",
+      "focusId": "math-grade4-cube-volume-operation",
+      "subject": "mathematics",
+      "officialCode": "N-4-12",
+      "officialCodes": [
+        "N-4-12",
+        "S-4-4"
+      ],
+      "sourceText": "N-4-12：體積與「立方公分」：以具體操作為主。體積認識基於1立方公分之正方體。S-4-4：體積：以具體操作為主。在活動中認識體積的意義與比較。認識1立方公分之正方體，能理解並計數正方體堆疊的體積。",
+      "sourceTextKind": "official_pdf_clause_checked_2026-10-23; project decomposition is not official subclause",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "伍／二／四年級學習內容表 N-4-12，PDF頁序29；S-4-4，頁序30；對應第二學習階段表現 n-II-9。"
+      },
+      "projectSubitem": "螢幕模型調整列、欄、層並計算規則方塊數；不含實物堆疊、實體量感、非規則形體比較或公式推導。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_23",
+      "activityIds": [
+        "ACT-G4-MATH-UNIT-CUBE-VOLUME-BUILDER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "build-eight-cube-solid",
+        "build-twelve-cube-solid"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G6-N6-8-EXCHANGE-REFERENCE-QUANTITIES",
+      "focusId": "math-grade6-base-comparison-ratio",
+      "subject": "mathematics",
+      "officialCode": "N-6-8",
+      "officialCodes": [
+        "N-6-8"
+      ],
+      "sourceText": "解題：基準量與比較量。比和比值的應用。含交換基準時之關係。所謂交換基準如以哥哥身高為1，弟弟身高為4/5，則以弟弟身高為1，哥哥身高為5/4。",
+      "sourceTextKind": "official_pdf_clause_checked_2026-10-23; project decomposition is not official subclause",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "伍／二／六年級學習內容表 N-6-8，PDF頁序35–36；對應第三學習階段表現 n-III-9 同表。"
+      },
+      "projectSubitem": "使用一組官方例示數據練習交換基準的比值關係；不涵蓋多樣生活應用或完整比例推理。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_23",
+      "activityIds": [
+        "ACT-G6-MATH-BASE-COMPARISON-RATIO-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "younger-relative-to-older",
+        "older-relative-to-younger"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G1-N1-5-COMPARE-STRAIGHT-CURVED-LENGTH",
+      "focusId": "math-grade1-length-compare",
+      "subject": "mathematics",
+      "officialCode": "N-1-5",
+      "officialCodes": [
+        "N-1-5",
+        "S-1-1"
+      ],
+      "sourceText": "長度（同 S-1-1）：以操作活動為主。初步認識、直接比較、間接比較（含個別單位）。活動內容含直線與曲線。本條目教學無常用單位（N-2-11）。",
+      "sourceTextKind": "official_pdf_clause_checked_2026-10-23; project decomposition is not official subclause",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "伍／二／一年級學習內容 N-1-5、S-1-1，PDF頁序21–22；對應第一學習階段表現 n-I-7，PDF頁序11。"
+      },
+      "projectSubitem": "以螢幕路徑圖直接比較及用相同小段單位核對；不含實際繩測、常用單位、尺測或估測。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_23",
+      "activityIds": [
+        "ACT-G1-MATH-LENGTH-COMPARE-ROPE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "compare-straight-and-curved-paths",
+        "verify-with-common-units"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G5-S5-4-COMPLETE-AXIAL-MIRROR-GRID",
+      "focusId": "math-grade5-line-symmetry",
+      "subject": "mathematics",
+      "officialCode": "S-5-4",
+      "officialCodes": [
+        "S-5-4"
+      ],
+      "sourceText": "線對稱：線對稱的意義。「對稱軸」、「對稱點」、「對稱邊」、「對稱角」。由操作活動知道特殊平面圖形的線對稱性質。利用線對稱做簡單幾何推理。製作或繪製線對稱圖形。",
+      "sourceTextKind": "official_pdf_clause_checked_2026-10-23; project decomposition is not official subclause",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "伍／二／五年級學習內容表 S-5-4，PDF頁序33–34；對應第三學習階段表現 s-III-6，PDF頁序12。"
+      },
+      "projectSubitem": "在方格上補齊垂直軸鏡射圖形；不含對稱邊角性質、多種圖形辨識及實體折紙。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_23",
+      "activityIds": [
+        "ACT-G5-MATH-LINE-SYMMETRY-MIRROR-GRID-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "mirror-three-marker-cells",
+        "mirror-new-pattern"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G5-D5-1-PLOT-AND-READ-LINE-CHART",
+      "focusId": "math-grade5-line-chart",
+      "subject": "mathematics",
+      "officialCode": "D-5-1",
+      "officialCodes": [
+        "D-5-1"
+      ],
+      "sourceText": "製作折線圖：製作生活中的折線圖。分辨折線圖之使用時機。",
+      "sourceTextKind": "official_pdf_clause_checked_2026-10-23; project decomposition is not official subclause",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "伍／二／五年級學習內容表 D-5-1，PDF頁序34；對應第三學習階段表現 d-III-1，PDF頁序12。"
+      },
+      "projectSubitem": "以兩組標示為模擬的時間序列資料建點並觀察升降；不含實際調查、圖表使用時機比較與圓形圖。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_23",
+      "activityIds": [
+        "ACT-G5-MATH-LINE-CHART-PLOT-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "plot-plant-growth-week",
+        "plot-daylight-hours"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G1-D1-1-SAME-DATA-TWO-CLASSIFICATIONS",
+      "focusId": "math-grade1-simple-classification",
+      "subject": "mathematics",
+      "officialCode": "D-1-1",
+      "sourceText": "簡單分類：以操作活動為主。能蒐集、分類、記錄、呈現日常生活物品，報讀、說明已處理好之分類。觀察分類的模式，知道同一組資料可有不同的分類方式。",
+      "sourceTextKind": "official_pdf_clause_checked_this_run; project subitem is analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "官方數學領綱一年級學習內容表 D-1-1，PDF頁序22；對應表現 d-I-1，PDF頁序15。"
+      },
+      "projectSubitem": "使用同一組四張模擬物品卡，先按顏色、再按形狀分類，並辨認分類依據改變；不把模擬卡片當成真實蒐集或自由製作資料呈現。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_23",
+      "activityIds": [
+        "ACT-G1-MATH-SIMPLE-CLASSIFICATION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "sort-same-set-by-colour",
+        "re-sort-same-set-by-shape",
+        "identify-classification-rule"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G2-N2-12-COMPARE-CAPACITY-WEIGHT-AREA",
+      "focusId": "math-grade2-capacity-weight-area-compare",
+      "subject": "mathematics",
+      "officialCode": "N-2-12",
+      "sourceText": "容量、重量、面積：以操作活動為主。此階段量的教學應包含初步認識、直接比較、間接比較（含個別單位）。不同的量應分不同的單元學習。",
+      "sourceTextKind": "official_pdf_clause_checked_this_run; project subitem is analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "官方數學領綱二年級學習內容表 N-2-12，PDF頁序24；對應表現 n-I-8，PDF頁序15。"
+      },
+      "projectSubitem": "在容量、重量、面積三個分開情境中，根據相同非標準單位的模擬量值，操作分類比較關係；不把讀取模擬資料宣稱為實物直接測量或量感。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G2-MATH-CAPACITY-WEIGHT-AREA-COMPARISON-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "compare-area-unit-squares",
+        "compare-capacity-cup-units",
+        "compare-weight-balance-units"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G4-N4-6-EQUIVALENT-FRACTIONS-MODEL-TRANSFER",
+      "focusId": "math-grade4-equivalent-fractions",
+      "subject": "mathematics",
+      "officialCode": "N-4-6",
+      "sourceText": "等值分數：由操作活動中理解等值分數的意義。簡單異分母分數的比較、加、減的意義。簡單分數與小數的互換。",
+      "sourceTextKind": "official_pdf_clause_checked_2026-10-24; project subitem is analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 N-4-6，PDF頁序29；對應 n-II-6，PDF頁序12（印刷頁10）。"
+      },
+      "projectSubitem": "以相同大小的整體操作兩種等分表示，先配對 1/2 與 2/4，再將 2/5 遷移到 4/10，最後在新分割的 6 格帶上重建一半。這是專案分析，不是另造官方細目。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G4-MATH-FRACTION-EQUIVALENCE-MODEL-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "match-half-with-two-fourths",
+        "match-two-fifths-with-four-tenths",
+        "transfer-half-to-sixths"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G4-N4-1-LARGE-NUMBER-PLACE-VALUE-REPRESENTATION",
+      "focusId": "math-grade4-large-number-place-value",
+      "subject": "mathematics",
+      "officialCode": "N-4-1",
+      "sourceText": "一億以內的數：位值單位「萬」、「十萬」、「百萬」、「千萬」。建立應用大數時之計算習慣，如「30萬1200」與「21萬300」的加減法。",
+      "sourceTextKind": "official_pdf_clause_checked_2026-10-24; project subitem is analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 N-4-1，PDF頁序28；同表表現 n-II-1，PDF頁序12。"
+      },
+      "projectSubitem": "從位值部分卡拆解一個一億以內的大數，並依數值排列不同數字；此專案子項不涵蓋大數應用加減。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G4-MATH-LARGE-NUMBER-PLACE-VALUE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "decompose-large-number",
+        "order-cargo"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G4-N4-2-PLACE-VALUE-CALCULATION-STEPS",
+      "focusId": "math-grade4-multi-digit-multiply-divide",
+      "subject": "mathematics",
+      "officialCode": "N-4-2",
+      "sourceText": "較大位數之乘除計算：處理乘數與除數為多位數之乘除直式計算。教師用位值的概念說明直式計算的合理性。",
+      "sourceTextKind": "official_pdf_clause_checked_2026-10-24; project subitem is analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 N-4-2，PDF頁序28；同表表現 n-II-2、n-II-3，PDF頁序12。"
+      },
+      "projectSubitem": "選取多位數乘法及除法中的分步中間值，以位值與乘除關係檢查結果；此為螢幕步驟選取，不等於完整直式計算或估商能力。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G4-MATH-MULTI-DIGIT-MULTIPLY-DIVIDE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "multiply-by-place",
+        "divide-by-place"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G4-N4-5-FRACTION-BAR-REPRESENT-COMPARE",
+      "focusId": "math-grade4-common-denominator-fractions",
+      "subject": "mathematics",
+      "officialCode": "N-4-5",
+      "sourceText": "同分母分數：一般同分母分數教學（包括「真分數」、「假分數」、「帶分數」名詞引入）。假分數和帶分數之變換。同分母分數的比較、加、減與整數倍。",
+      "sourceTextKind": "official_pdf_clause_checked_2026-10-24; project subitem is analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 N-4-5，PDF頁序28–29；同表表現 n-II-6，PDF頁序12。"
+      },
+      "projectSubitem": "以等大分數帶選取拼片表示真分數、比較同分母分數，並在不同分母的新帶上表示一個分數；未涵蓋假／帶分數、加減與整數倍。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G4-MATH-FRACTION-TILES-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "shade-three-sixths",
+        "compare-fifths",
+        "build-four-fifths-transfer"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-STAGE3-N5-6-INTEGER-DIVISION-AS-FRACTION",
+      "focusId": "math-grade5-integer-division-fraction-representation",
+      "subject": "mathematics",
+      "officialCode": "N-5-6",
+      "sourceText": "整數相除之分數表示：從分裝（測量）和平分的觀點，分別說明整數相除為分數之意義與合理性。",
+      "sourceTextKind": "official_pdf_clause_checked_2026-10-24; project subitem is analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "五年級學習內容表 N-5-6，PDF頁序32；對應 n-III-5。"
+      },
+      "projectSubitem": "使用拼片先把3個整體平均分給4人，為一人組合3個四分之一；再將3個等單位片放入由4份構成的一個測量單位，表達3÷4=3/4。這是專案分析，不是額外官方條文。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G5-MATH-INTEGER-DIVISION-FRACTION-MODEL-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "share-three-wholes-four-people",
+        "measure-three-units-of-four"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G6-N6-2-SHORT-DIVISION-AND-FRACTION-SIMPLIFICATION",
+      "focusId": "math-grade6-gcd-lcm-short-division-candidate",
+      "subject": "mathematics",
+      "officialCode": "N-6-2",
+      "sourceText": "最大公因數與最小公倍數：質因數分解法與短除法。兩數互質。運用到分數的約分與通分。",
+      "sourceTextKind": "official_pdf_clause_checked_2026-10-24; project subitem is analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "六年級學習內容表 N-6-2，PDF頁序35；同表對應 n-III-3。"
+      },
+      "projectSubitem": "在螢幕步驟中逐列選取兩數共同除以質因數後的商，從共同除數與最後兩商組成GCD/LCM；再以共同因數化簡分數，並把方法轉移到12與30的週期情境。此為專案分析，不是額外官方條文。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G6-MATH-GCD-LCM-SHORT-DIVISION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "short-divide-eighteen-and-twenty-four",
+        "simplify-eighteen-twenty-four",
+        "transfer-twelve-and-thirty"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G6-N6-1-PRIME-CLASSIFICATION-AND-FACTORS",
+      "focusId": "math-grade6-prime-factor-candidate",
+      "subject": "mathematics",
+      "officialCode": "N-6-1",
+      "sourceText": "20 以內的質數和質因數分解：小於 20 的質數與合數。2、3、5 的質因數判別法。以短除法做質因數的分解。",
+      "sourceTextKind": "official_pdf_clause_checked_2026-10-24; project subitem is analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "六年級學習內容表 N-6-1，PDF頁序35；同表對應 n-III-3。第三學習階段含五、六年級。"
+      },
+      "projectSubitem": "依正因數個數分類部分小於20的質數與合數，並將18組成質數乘積。未操作完整短除法或官方備註列出的完整判別範圍。此為專案分析，不是額外官方條文。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G6-MATH-PRIME-FACTOR-EXPLORER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "classify-small-numbers",
+        "assemble-eighteen-prime-factors"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G6-N6-5-INTEGER-MULTI-STEP-AND-SEQUENCING",
+      "focusId": "math-grade6-multistep-applications-candidate",
+      "subject": "mathematics",
+      "officialCode": "N-6-5",
+      "sourceText": "解題：整數、分數、小數的四則應用問題。二到三步驟的應用解題。含使用概數協助解題。",
+      "sourceTextKind": "official_pdf_clause_checked_2026-10-24; project subitem is analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "六年級學習內容表 N-6-5，PDF頁序35；同表對應 n-III-2、r-III-2。第三學習階段含五、六年級。"
+      },
+      "projectSubitem": "以一個整數補給情境逐步計算兩批數量、合併、扣除使用量，並排列依賴中間結果的步驟。未涵蓋官方要求的分數、小數、概數及多種情境。此為專案分析，不是額外官方條文。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G6-MATH-MULTI-STEP-REASONING-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "calculate-expedition-supplies",
+        "order-reasoning-steps"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G4-N4-8-NUMBER-LINE-DECIMAL-FRACTION-TRANSFER",
+      "focusId": "math-grade4-number-line-fraction-decimal",
+      "subject": "mathematics",
+      "officialCode": "N-4-8",
+      "sourceText": "數線與分數、小數：連結分小數長度量的經驗。以標記和簡單的比較與計算，建立整數、分數、小數一體的認識。官方備註限制一位小數與分母不大於5的分數，且不處理分數和小數混合計算。",
+      "sourceTextKind": "official_pdf_clause_checked_2026-10-24; project subitem is analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 N-4-8，PDF頁序29；同表表現 n-II-8，表現表 PDF頁序12。"
+      },
+      "projectSubitem": "以0至1數線定位0.6並連結3/5，再在0至2數線定位1.4；只代表上述兩個操作情境，非官方原文拆分。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G4-MATH-INTEGER-FRACTION-DECIMAL-NUMBER-LINE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "locate-six-tenths",
+        "connect-six-tenths-five-thirds",
+        "locate-fourteen-tenths"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G4-N4-13-CROSS-PERIOD-ELAPSED-TIME",
+      "focusId": "math-grade4-elapsed-time-add-subtract",
+      "subject": "mathematics",
+      "officialCode": "N-4-13",
+      "sourceText": "解題：日常生活的時間加減問題。跨時、跨午、跨日、24小時制。含時間單位換算。官方備註要求涵蓋各種類型的時間加減，並建議避免直接談時差。",
+      "sourceTextKind": "official_pdf_clause_checked_2026-10-24; project subitem is analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 N-4-13，PDF頁序29；同表表現 n-II-10，表現表 PDF頁序12。"
+      },
+      "projectSubitem": "將時間加法分成到整點／午夜及剩餘時間，處理一個跨午和一個跨日的24小時制班車情境；未涵蓋時間減法、單位換算及多種日常情境。此為專案分析，不是額外官方條文。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G4-MATH-ELAPSED-TIME-TRANSIT-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "split-noon-crossing-journey",
+        "select-noon-crossing-arrival",
+        "split-midnight-crossing-journey",
+        "select-next-day-arrival"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-S3-4-PLANAR-RECOMPOSITION-AND-CUBE-NET-OPERATION",
+      "focusId": "math-grade3-s-3-4-geometry-operations",
+      "subject": "mathematics",
+      "officialCode": "S-3-4",
+      "officialPerformanceCode": "s-II-4",
+      "sourceText": "幾何形體之操作：以操作活動為主。平面圖形的分割與重組。初步體驗展開圖如何黏合成立體形體。知道不同之展開圖可能黏合成同一形狀之立體形體。",
+      "officialNotes": "以操作體驗平面圖形關係與空間感為目標；不作數學知識歸納；展開圖只作初步體驗，不做過多複雜推理；不作操作以外的紙筆評量。參考教具欄：多種展開圖。",
+      "sourceTextKind": "verbatim_official_pdf_clause_and_note_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "十二年國教數學領綱伍／二／三年級學習內容表 S-3-4，官方 PDF 頁序27–28（條文與跨頁備註、參考教具）；對應第二學習階段表現 s-II-4，PDF頁序12。官方 PDF：https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf"
+      },
+      "projectSubitem": "螢幕移動／旋轉拼片重組方形與長方形；選擇不同六面展開排列並模擬摺合，再依可視立體判斷兩面是否共邊。此為專案設計的操作子項，不是額外官方條文；模擬不取代實體剪貼摺合。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026-10-24",
+      "activityIds": [
+        "ACT-G3-MATH-GEOMETRY-SPLIT-RECOMPOSE-NET-FOLD-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "recompose-square-from-two-dominoes",
+        "recompose-rectangle-from-two-l-pieces",
+        "fold-two-cube-nets-and-observe-adjacency",
+        "compare-another-cube-net-and-face-neighbors"
+      ],
+      "status": "candidate_partial_interaction",
+      "notCovered": [
+        "實體剪裁黏貼摺紙",
+        "所有平面圖形分割方式",
+        "複雜展開圖推理及幾何性質歸納"
+      ]
+    },
+    {
+      "subitemId": "SUB-MATH-G4-N4-10-PROTRACTOR-ESTIMATE-READ-DRAW",
+      "focusId": "math-grade4-angle-measurement-and-rotation",
+      "subject": "mathematics",
+      "officialCode": "N-4-10",
+      "officialCodes": [
+        "N-4-10",
+        "S-4-1"
+      ],
+      "officialPerformanceCode": "n-II-9",
+      "sourceText": "角度：「度」（同 S-4-1）。量角器的操作。實測、估測與計算。以角的合成認識180度到360度之間的角度。「平角」、「周角」。指定角度作圖。",
+      "officialNotes": "量角器教學須包括從量角器左右兩側進行量角之活動。S-4-1明示與N-4-10同一角度內容。參考教具：量角器。",
+      "sourceTextKind": "verbatim_official_pdf_clause_and_note_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "十二年國教數學領綱四年級學習內容表 N-4-10，官方 PDF 頁序29–30；S-4-1 同內容列於 PDF 頁序29–30；對應第二學習階段表現 n-II-9，PDF 頁序11。官方 PDF：https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf"
+      },
+      "projectSubitem": "以螢幕角圖練習估測，以可調中心偏移／基準線偏轉操作量角器對齊，選左右起點讀取角度，並轉動射線作指定角。此為專案拆解，非官方新增條文；不含實物量角器、180°以上角合成、平角／周角學習。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G4-MATH-ANGLE-EXPLORATION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-opening-angle",
+        "measure-from-right-zero",
+        "measure-from-left-zero",
+        "draw-specified-angle"
+      ],
+      "status": "candidate_partial_interaction",
+      "notCovered": [
+        "實物量角器中心／基準線對齊及真實量測",
+        "180°至360°角合成與平角／周角",
+        "多種角度計算與不同工具情境",
+        "校本年級、學期與教材進度確認"
+      ]
+    },
+    {
+      "subitemId": "SUB-MATH-G4-S4-2-CLOCKWISE-COUNTERCLOCKWISE-ROTATION",
+      "focusId": "math-grade4-angle-measurement-and-rotation",
+      "subject": "mathematics",
+      "officialCode": "S-4-2",
+      "officialPerformanceCode": "s-II-4",
+      "sourceText": "解題：旋轉角。以具體操作為主，並結合計算。以鐘面為模型討論從始邊轉到終邊所轉的角度。旋轉有兩個方向：「順時針」、「逆時針」。「平角」、「周角」。",
+      "officialNotes": "不處理超過360度的問題。參考教具：鐘面教具、量角器。",
+      "sourceTextKind": "verbatim_official_pdf_clause_and_note_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "十二年國教數學領綱四年級學習內容表 S-4-2，官方 PDF 頁序30；對應第二學習階段表現 s-II-4，PDF 頁序11。官方 PDF：https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf"
+      },
+      "projectSubitem": "以可旋轉鐘面射線比較順時針90°與逆時針270°兩個轉向情境；此為專案設計的操作子項，不是官方新增要求，數位鐘面不能取代鐘面教具或廣泛旋轉角計算。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G4-MATH-ANGLE-EXPLORATION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "clockwise-quarter-turn",
+        "counterclockwise-three-quarter-turn"
+      ],
+      "status": "candidate_partial_interaction",
+      "notCovered": [
+        "多種始邊／終邊旋轉角計算情境",
+        "平角、周角的完整探究",
+        "鐘面教具實體操作",
+        "大於360°內容（官方明示不處理）"
+      ]
+    },
+    {
+      "subitemId": "SUB-MATH-G4-N4-4-ROUND-AND-ESTIMATE-CANDIDATE",
+      "focusId": "math-grade4-rounding-estimation",
+      "subject": "mathematics",
+      "officialCode": "N-4-4",
+      "officialPerformanceCode": "n-II-4",
+      "sourceText": "解題：對大數取概數。具體生活情境。四捨五入法、無條件進入、無條件捨去。含運用概數做估算。近似符號「≈」的使用。",
+      "officialNotes": "估算解題的布題應貼近生活情境。以概數協助估算須包含四則估算。",
+      "sourceTextKind": "verbatim_official_pdf_clause_and_note_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 N-4-4，PDF頁序28；第二學習階段表現 n-II-4，PDF頁序11。官方 PDF：https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf"
+      },
+      "projectSubitem": "以三個大數生活情境練習四捨五入至千位或百位後，提交合理估算區間。此為專案設計子項，不是官方原文；未練無條件進入／捨去、近似符號及四則估算完整型態。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026-10-24",
+      "activityIds": [
+        "ACT-G4-MATH-ROUNDING-ESTIMATION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-festival-supplies",
+        "estimate-school-trip-distance",
+        "estimate-boxes-for-four-teams"
+      ],
+      "status": "candidate_partial_interaction",
+      "notCovered": [
+        "無條件進入及無條件捨去",
+        "近似符號≈的書寫與運用",
+        "加減乘除四類估算及完整問題解決",
+        "教師確認年級與先備運算適切性"
+      ]
+    },
+    {
+      "subitemId": "SUB-MATH-G4-S4-5-CONSTRUCT-PARALLEL-PERPENDICULAR-CANDIDATE",
+      "focusId": "math-grade4-parallel-perpendicular-lines",
+      "subject": "mathematics",
+      "officialCode": "S-4-5",
+      "officialPerformanceCode": "s-II-3",
+      "sourceText": "垂直與平行：以具體操作為主。直角是90度。直角常用記號。垂直於一線的兩線相互平行。平行線間距離處處相等。作垂直線；作平行線。",
+      "officialNotes": "以具體操作及觀察認識平行線間距離處處相等，不需形式證明。",
+      "sourceTextKind": "verbatim_official_pdf_clause_and_note_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 S-4-5，PDF頁序30；第二學習階段表現 s-II-3，PDF頁序11。官方 PDF：https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf"
+      },
+      "projectSubitem": "以7×7互動格點建構通過指定點的垂直線或平行線，並觀察其中平行線的格點距離。此為專案設計操作，不是官方原文；螢幕構圖不等於實物尺、三角板作圖。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026-10-24",
+      "activityIds": [
+        "ACT-G4-MATH-PARALLEL-PERPENDICULAR-LINE-BUILDER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "construct-perpendicular-through-crossing",
+        "construct-parallel-and-compare-spacing",
+        "construct-perpendicular-to-diagonal"
+      ],
+      "status": "candidate_partial_interaction",
+      "notCovered": [
+        "紙上使用尺與三角板的實物作圖",
+        "直角記號的規範使用",
+        "任意方向與一般圖形中的垂直平行判斷",
+        "教師現場觀察與校本進度確認"
+      ]
+    },
+    {
+      "subitemId": "SUB-MATH-G4-N4-7-DECIMAL-PLACE-OPERATIONS-CANDIDATE",
+      "focusId": "math-grade4-decimal-hundredths-operations",
+      "subject": "mathematics",
+      "officialCode": "N-4-7",
+      "officialPerformanceCode": "n-II-7",
+      "sourceText": "二位小數：位值單位「百分位」。位值單位換算。比較、計算與解題。用直式計算二位小數的加、減與整數倍。",
+      "officialNotes": "小數之學習必須與整數經驗緊密連繫。直式計算應注意小數點位置的教學。小數應用情境以連續量為主。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 N-4-7，PDF頁序29；第二學習階段表現 n-II-7。"
+      },
+      "projectSubitem": "使用個位、十分位、百分位增減控制，建模兩位小數加法、減法及一種整數倍情境。此為專案設計子項，不是官方另立要求。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026-10-24",
+      "activityIds": [
+        "ACT-G4-MATH-DECIMAL-HUNDREDTHS-OPERATIONS-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "add-decimals-regroup-hundredths",
+        "subtract-across-tenths-and-hundredths",
+        "double-decimal-quantity-transfer"
+      ],
+      "status": "candidate_partial_interaction",
+      "notCovered": [
+        "完整紙筆直式算法與小數點對位書寫",
+        "廣泛比較題型及二位小數加減、整數倍的全範圍",
+        "教師確認先備及校本授課安排"
+      ]
+    },
+    {
+      "subitemId": "SUB-MATH-G4-S4-6-CONGRUENCE-TRANSFORM-CANDIDATE",
+      "focusId": "math-grade4-congruent-figure-transform",
+      "subject": "mathematics",
+      "officialCode": "S-4-6",
+      "officialPerformanceCode": "s-II-2",
+      "sourceText": "平面圖形的全等：以具體操作為主。形狀大小一樣的兩圖形全等。能用平移、旋轉、翻轉做全等疊合。全等圖形之對應角相等、對應邊相等。",
+      "officialNotes": "在具有平移或旋轉對稱特性的圖形上，學生可察覺豐富的全等模式。平移、旋轉、翻轉描述操作的方式，非名詞教學，名詞不應出現。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 S-4-6，PDF頁序30；第二學習階段表現 s-II-2。"
+      },
+      "projectSubitem": "以相同四格拼片分別執行平移、90度旋轉、左右翻轉，與不同目標位置作疊合。此為專案設計的離散網格操作，不是官方新增要求。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026-10-24",
+      "activityIds": [
+        "ACT-G4-MATH-CONGRUENT-FIGURE-TRANSFORM-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "translate-congruent-tile",
+        "rotate-congruent-tile",
+        "flip-congruent-tile-transfer"
+      ],
+      "status": "candidate_partial_interaction",
+      "notCovered": [
+        "一般連續圖形的對應角與對應邊判讀／比較",
+        "實物透明片、剪拼或紙片疊合",
+        "教師觀察下的操作說明"
+      ]
+    },
+    {
+      "subitemId": "SUB-MATH-G4-N4-3-TWO-STEP-MULTIPLICATION-DIVISION-MODEL",
+      "focusId": "math-grade4-multiplicative-two-step",
+      "subject": "mathematics",
+      "officialCode": "N-4-3",
+      "sourceText": "解題：兩步驟應用問題（乘除，連除）。乘與除、連除之應用解題。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24; project subitem is analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 N-4-3，PDF頁序28；同表 n-II-5，表現表 PDF頁序12。"
+      },
+      "projectSubitem": "先以陣列表示相同組數與每組量並組成乘法算式，再把中間結果用於等分除；新情境以每包量已知求組數，並將所得組數再次分裝，呈現等分除與包含除兩種未知量。情境均為整除。本拆解是專案分析，不是官方子條文。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G4-MATH-TWO-STEP-SUPPLY-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "model-six-cartons-four-packs",
+        "record-carton-multiplication",
+        "share-twenty-four-packs",
+        "model-five-crates-six-packs",
+        "count-five-pack-bundles",
+        "chain-divide-packets-into-trays"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G4-R4-1-COMPOUND-EXPRESSION-ORDER-CANDIDATE",
+      "focusId": "math-grade4-compound-expression-order",
+      "subject": "mathematics",
+      "officialCode": "R-4-1",
+      "sourceText": "兩步驟問題併式：併式是代數學習的重要基礎。含四則混合計算的約定（由左往右算、先乘除後加減、括號先算）。學習逐次減項計算。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24; project subitem is analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 R-4-1，PDF頁序30–31（跨頁備註）；同表 r-II-3，PDF頁序11。"
+      },
+      "projectSubitem": "從三種整數情境依順序組出 3×4+5、(8+4)×3、36÷6÷2，再分別完成中間值計算，操作先乘除後加減、括號先算與同級左往右。尚未涵蓋全套四則組合與完整逐次減項練習。本拆解是專案分析，不是官方子條文。",
+      "decompositionKind": "project_decomposition_from_official_clause_checked_2026_10_24",
+      "activityIds": [
+        "ACT-G4-MATH-COMPOUND-EXPRESSION-ORDER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "assemble-multiply-before-add",
+        "calculate-multiply-before-add",
+        "assemble-parentheses-first",
+        "calculate-parentheses-first",
+        "assemble-left-to-right-division",
+        "calculate-left-to-right-division"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G4-D4-1-BUILD-AND-READ-BAR-CHART-CANDIDATE",
+      "focusId": "math-grade4-data-bar-chart-builder",
+      "subject": "mathematics",
+      "officialCode": "D-4-1",
+      "officialPerformanceCode": "d-II-1",
+      "sourceText": "報讀長條圖與折線圖以及製作長條圖：報讀與說明生活中的長條圖與折線圖。配合其他領域課程，學習製作長條圖。",
+      "officialNotes": "教學與示例應注意處理「分類資料」與「有序變化性資料」之差別。",
+      "sourceTextKind": "verbatim_official_pdf_clause_from_existing_verified_grade4_batch; project subitem is analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 D-4-1，PDF頁序31；第二學習階段表現 d-II-1，PDF頁序11。"
+      },
+      "projectSubitem": "在提供的兩組分類資料中，逐類調整長條高度並以新資料重建；再讀取提供的有序折線資料，辨識變化方向。此拆解是專案分析，不是官方新增條文。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_grade4_clause",
+      "activityIds": [
+        "ACT-G4-MATH-DATA-BAR-CHART-BUILDER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "build-favorite-fruit-bars",
+        "transfer-library-survey-bars",
+        "read-ordered-weather-change"
+      ],
+      "notCovered": [
+        "未涵蓋學生自行蒐集資料、正式標題與座標軸刻度設計、真實生活圖表報讀及分類資料與有序變化資料的完整辨析。"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G4-S4-7-CLASSIFY-AND-CONSTRUCT-TRIANGLES-CANDIDATE",
+      "focusId": "math-grade4-special-triangle-construction",
+      "subject": "mathematics",
+      "officialCode": "S-4-7",
+      "officialPerformanceCode": "s-II-3",
+      "sourceText": "三角形：以邊與角的特徵認識特殊三角形並能作圖。如正三角形、等腰三角形、直角三角形、銳角三角形、鈍角三角形。",
+      "officialNotes": "",
+      "sourceTextKind": "verbatim_official_pdf_clause_from_existing_verified_grade4_batch; project subitem is analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 S-4-7，PDF頁序30；第二學習階段表現 s-II-3，PDF頁序11。"
+      },
+      "projectSubitem": "在格點上選三個不共線頂點，建構等腰、直角、銳角與鈍角三角形；以座標向量／平方距離驗證邊長或角分類。此拆解是專案分析，不是官方新增條文。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_grade4_clause",
+      "activityIds": [
+        "ACT-G4-MATH-SPECIAL-TRIANGLE-CONSTRUCTION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "construct-isosceles-triangle",
+        "construct-right-triangle",
+        "construct-acute-triangle",
+        "construct-obtuse-triangle"
+      ],
+      "notCovered": [
+        "未涵蓋正三角形作圖、尺規／量角器實物作圖、自由畫圖與完整性質說明；螢幕格點不等同實物作圖。"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G4-S4-8-CONSTRUCT-SPECIAL-QUADRILATERALS-CANDIDATE",
+      "focusId": "math-grade4-special-quadrilateral-construction",
+      "subject": "mathematics",
+      "officialCode": "S-4-8",
+      "officialPerformanceCode": "s-II-3",
+      "sourceText": "四邊形：以邊與角的特徵（含平行）認識特殊四邊形並能作圖。如正方形、長方形、平行四邊形、菱形、梯形。",
+      "officialNotes": "作圖包含正方形、長方形、平行四邊形。",
+      "sourceTextKind": "verbatim_official_pdf_clause_from_grade4_batch_checked_2026_10_24; project_subitem_is_analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 S-4-8，PDF頁序30；同表表現 s-II-3，PDF頁序11。"
+      },
+      "projectSubitem": "沿四邊形外框依序點選格點頂點，建構正方形、長方形與平行四邊形；以格點向量檢查直角、邊長及對邊平行。這是專案操作拆解，不是官方新增要求。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade4_clause",
+      "activityIds": [
+        "ACT-G4-MATH-QUADRILATERAL-FEATURE-CONSTRUCTION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "construct-square-on-grid",
+        "construct-rectangle-on-grid",
+        "construct-parallelogram-on-grid"
+      ],
+      "notCovered": [
+        "未涵蓋菱形與梯形辨認、無支架辨認、學生自行口頭說明及實體尺規作圖；格點操作為螢幕模型。"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G4-S4-3-RECTANGLE-AREA-PERIMETER-ARRAY-MODEL-CANDIDATE",
+      "focusId": "math-grade4-rectangle-area-perimeter-model",
+      "subject": "mathematics",
+      "officialCode": "S-4-3",
+      "officialPerformanceCode": "s-II-1",
+      "sourceText": "正方形與長方形的面積與周長：理解邊長與周長或面積的關係，並能理解其公式與應用。簡單複合圖形。",
+      "officialNotes": "邊長限整數。最後學生的計算是依據定義以乘法計算，而非測量合成之結果。簡單複合圖形限兩圖形之組合。",
+      "sourceTextKind": "verbatim_official_pdf_clause_from_grade4_batch_checked_2026_10_24; project_subitem_is_analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 S-4-3，PDF頁序30；同表表現 s-II-1，PDF頁序11。"
+      },
+      "projectSubitem": "以 3×4 及 2×5 方格陣列表示長方形面積，另以長與寬逐步計算其中一個圖形周長，區分內部單位方格數與外框長度。此為專案分析，不是官方新增條文。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade4_clause",
+      "activityIds": [
+        "ACT-G4-MATH-AREA-PERIMETER-ARRAY-MODEL-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "build-3-by-4-array",
+        "calculate-rectangle-perimeter",
+        "transfer-2-by-5-area-perimeter"
+      ],
+      "notCovered": [
+        "未涵蓋正方形獨立情境、簡單兩圖形複合圖形、廣泛公式應用、實物測量及學生自行表述公式。"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G4-R4-2-COMPUTATION-PROPERTY-TRANSFORM-CANDIDATE",
+      "focusId": "math-grade4-computation-properties",
+      "subject": "mathematics",
+      "officialCode": "R-4-2",
+      "officialPerformanceCode": "r-II-4",
+      "sourceText": "四則計算規律（I）：兩步驟計算規則。加減混合計算、乘除混合計算。在四則混合計算中運用數的運算性質。",
+      "sourceTextKind": "verbatim_official_pdf_clause_from_verified_grade4_batch_2026-10-24; project_subitem_is_analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 R-4-2，PDF頁序31；同表 r-II-4，第二學習階段表現表 PDF頁序11。"
+      },
+      "projectSubitem": "以情境算式片段組式，重排三數乘法因數與乘除次序，並逐步計算；另練一種加減等值重排。這是專案分析，不是官方條文。未涵蓋所有運算性質或自由書寫證據。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade4_clause",
+      "activityIds": [
+        "ACT-G4-MATH-COMPUTATION-PROPERTY-TRANSFORM-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "translate-supply-story-to-product",
+        "reorder-factors-for-easy-product",
+        "calculate-regrouped-product",
+        "translate-multiply-then-divide-story",
+        "reorder-multiply-divide-equivalently",
+        "calculate-equivalent-multiply-divide",
+        "reorder-add-subtract-mixed-expression",
+        "calculate-reordered-add-subtract"
+      ],
+      "notCovered": [
+        "限本活動中的乘法因數換序、先乘後除／先除後乘及一種加減重排。官方備註明示不做 a−(b−c) 去括號；活動不涵蓋其他四則規律與自由列式。"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G4-R4-3-TEXT-AND-SYMBOL-FORMULA-CANDIDATE",
+      "focusId": "math-grade4-text-formula-application",
+      "subject": "mathematics",
+      "officialCode": "R-4-3",
+      "officialPerformanceCode": "r-II-5",
+      "sourceText": "以文字表示數學公式：理解以文字和運算符號聯合表示的數學公式，並能應用公式。可併入其他教學活動（如 S-4-3）。",
+      "sourceTextKind": "verbatim_official_pdf_clause_from_verified_grade4_batch_2026-10-24; project_subitem_is_analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 R-4-3，PDF頁序31；同表 r-II-5，第二學習階段表現表 PDF頁序11。S-4-3 為官方列舉的關聯示例。"
+      },
+      "projectSubitem": "以文字片段與運算符號組成長方形面積＝長×寬、正方形周長＝邊長×4，再代入不同邊長計算。這是專案分析，不是官方條文。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade4_clause",
+      "activityIds": [
+        "ACT-G4-MATH-TEXT-FORMULA-BUILDER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "assemble-rectangle-area-formula",
+        "apply-rectangle-area-formula",
+        "assemble-square-perimeter-formula",
+        "apply-square-perimeter-formula"
+      ],
+      "notCovered": [
+        "僅練官方列舉的兩個公式示例及數值代入；未涵蓋其他公式、自由書寫／口頭表述或實物量測。S-4-3 只作關聯示例，不宣稱完整涵蓋。"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G4-R4-4-TWO-DIMENSIONAL-PATTERN-REASONING-CANDIDATE",
+      "focusId": "math-grade4-two-dimensional-number-patterns",
+      "subject": "mathematics",
+      "officialCode": "R-4-4",
+      "officialPerformanceCode": "r-II-2",
+      "sourceText": "數量模式與推理（II）：以操作活動為主。二維變化模式之觀察與推理，如二維數字圖之推理。奇數與偶數，及其加、減、乘模式。",
+      "sourceTextKind": "verbatim_official_pdf_clause_from_verified_grade4_batch_2026-10-24; project_subitem_is_analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "四年級學習內容表 R-4-4，PDF頁序31；同表 r-II-2，第二學習階段表現表 PDF頁序11。"
+      },
+      "projectSubitem": "操作兩張具行列變化的小型數字圖補空格，再以三個奇偶數加、減、乘例子分類並選擇理由。此為專案分析，不是官方條文。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade4_clause",
+      "activityIds": [
+        "ACT-G4-MATH-TWO-DIMENSIONAL-NUMBER-PATTERN-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "fill-row-and-column-number-pattern",
+        "transfer-calendar-like-grid-pattern",
+        "observe-odd-even-operation-patterns",
+        "choose-evidence-based-parity-reason"
+      ],
+      "notCovered": [
+        "只涵蓋兩種小型二維數字圖及奇偶數加、減、乘各一例；未覆蓋百數表／月曆的多種模式、全部奇偶運算模式及自由說明。依官方備註不使用公式。"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-7-ADD-THEN-EQUAL-SHARE-STEPS",
+      "focusId": "math-grade3-n-3-7-two-step-problems",
+      "subject": "mathematics",
+      "officialCode": "N-3-7",
+      "officialPerformanceCode": "n-II-5",
+      "sourceText": "解題：兩步驟應用問題（加減與除、連乘）。連乘、加與除、減與除之應用解題。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24; project subitem is analysis",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 N-3-7，PDF頁序26；同表 n-II-5 對應第二學習階段表現。官方條文不指定三年級學期順序。"
+      },
+      "projectSubitem": "在一個加法後平均分裝情境中，先操作湊整十的分步計算並保留總數，再以該中間結果完成平均分裝。此為專案設計的局部練習，不是官方新增條文。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-TWO-STEP-SUPPLY-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "add-arriving-supplies",
+        "share-supplies-equally"
+      ],
+      "notCovered": [
+        "連乘情境",
+        "減法後除法情境",
+        "併式",
+        "不同除法未知量與非整除情境",
+        "教師確認先備知識、教材順序及學生獨立理解"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-8-LIFE-ESTIMATE-RANGE-AND-REASONABLENESS",
+      "focusId": "math-grade3-n-3-8-estimation",
+      "subject": "mathematics",
+      "officialCode": "N-3-8",
+      "officialPerformanceCode": "n-II-4",
+      "sourceText": "解題：四則估算。具體生活情境。較大位數之估算策略。能用估算檢驗計算結果的合理性。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-23",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 N-3-8，官方 PDF 頁序26；同表對應第二學習階段表現 n-II-4。"
+      },
+      "projectSubitem": "以滑桿在四個生活情境調整估值，包含加、減、乘及簡單除法估算，再比較一題估值範圍與點算結果的合理性。接受範圍是專案候選設計，非官方標準。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-ESTIMATION-ADVENTURE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-seed-bags",
+        "estimate-water-left",
+        "estimate-boxes-total",
+        "estimate-simple-sharing",
+        "check-estimate-reasonableness"
+      ],
+      "notCovered": [
+        "較大位數的多種估算策略與情境遷移仍有限",
+        "可接受估算範圍與提示尚待教師檢視",
+        "不構成所有四則估算能力或學生學習成效證據"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-10-TENTHS-NUMBER-LINE-MARKER",
+      "focusId": "math-grade3-n-3-10-one-decimal",
+      "subject": "mathematics",
+      "officialCode": "N-3-10",
+      "officialPerformanceCode": "n-II-7",
+      "sourceText": "一位小數：認識小數與小數點。結合點數、位值表徵、位值表。位值單位「十分位」。位值單位換算。比較、加減（含直式計算）與解題。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-23",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 N-3-10，官方 PDF 頁序26；同表對應第二學習階段表現 n-II-7。"
+      },
+      "projectSubitem": "在 0–1 與 1–2 的十分位數線上移動標記，定位 0.4 與 1.6；每小格代表十分之一。這是專案局部表徵練習，不是完整小數課程。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-DECIMAL-NUMBER-LINE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "place-four-tenths",
+        "place-six-tenths-after-one"
+      ],
+      "notCovered": [
+        "小數點與位值表徵的完整教學",
+        "一位小數比較、加減、直式計算與應用解題",
+        "多種情境遷移及正式學習檢核"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-S3-2-SHAPE-SIDE-ANGLE-FEATURE-MODEL",
+      "focusId": "math-grade3-s-3-2-square-rectangle",
+      "subject": "mathematics",
+      "officialCode": "S-3-2",
+      "officialPerformanceCode": "s-II-1",
+      "sourceText": "正方形和長方形：以邊與角的特徵來定義正方形和長方形。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-23",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 S-3-2，官方 PDF 頁序27；同表對應第二學習階段表現 s-II-1。"
+      },
+      "projectSubitem": "依視覺直角記號與邊長特徵挑選圖形，包含斜置圖形，再用等大方格片建造正方形與長方形。是專案局部操作拆解，不是官方新增條文。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-GEOMETRY-CONSTRUCTION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "identify-four-right-angles",
+        "identify-square-properties",
+        "build-square-on-grid",
+        "build-rectangle-on-grid"
+      ],
+      "notCovered": [
+        "學生以自己的語言完整說明定義及理由",
+        "實體方格片與直角工具操作",
+        "更廣泛圖形例子的概念遷移與正式評量"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-S3-3-CIRCLE-RADIUS-DIGITAL-MODEL",
+      "focusId": "math-circle-elements-m3-geo-02",
+      "subject": "mathematics",
+      "officialCode": "S-3-3",
+      "officialPerformanceCode": "s-II-3",
+      "sourceText": "圓：「圓心」、「圓周」、「半徑」與「直徑」。能使用圓規畫指定半徑的圓。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-23",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 S-3-3，官方 PDF 頁序27；同表對應第二學習階段表現 s-II-3。"
+      },
+      "projectSubitem": "操作半徑滑桿更新數位示意圓，並辨認圓心、圓周、半徑與直徑的圖示名稱；僅為專案數位示意練習。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-CIRCLE-PATTERN-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "adjust-compass-radius",
+        "identify-circle-center",
+        "identify-circle-radius",
+        "identify-circle-diameter"
+      ],
+      "notCovered": [
+        "實際使用圓規畫指定半徑的圓",
+        "圓心不屬於圓的實物／圖形操作探究仍有限",
+        "正式作圖精度、教師觀察及學習成效證據"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-17-SET-AND-READ-ANALOG-CLOCK",
+      "focusId": "math-grade3-n-3-17-time",
+      "subject": "mathematics",
+      "officialCode": "N-3-17",
+      "officialPerformanceCode": "n-II-10",
+      "sourceText": "時間：「日」、「時」、「分」、「秒」。實測、量感、估測與計算。時間單位的換算。認識時間加減問題的類型。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "教育部十二年國教數學領綱三年級學習內容表 N-3-17，PDF 頁序27；同表對應第二學習階段表現 n-II-10。"
+      },
+      "projectSubitem": "在 5 分鐘刻度的螢幕鐘面上調整時針與分針，觀察時針隨分針推進而移動，並把固定鐘面讀值配對至數位時刻。此為專案分析的有限精度互動證據，不代表實體鐘具操作或官方完整條目涵蓋。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-TIMEKEEPER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "set-analog-clock-to-320",
+        "match-analog-clock-to-digital-time"
+      ],
+      "notCovered": [
+        "1 分鐘或秒的鐘面精度",
+        "實體鐘面操作與教師觀察",
+        "日、時、分、秒的實測及量感檢核",
+        "課綱條目中其他時間換算與加減類型"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-17-ESTIMATE-ACTIVITY-DURATION",
+      "focusId": "math-grade3-n-3-17-time",
+      "subject": "mathematics",
+      "officialCode": "N-3-17",
+      "officialPerformanceCode": "n-II-10",
+      "sourceText": "時間：「日」、「時」、「分」、「秒」。實測、量感、估測與計算。時間單位的換算。認識時間加減問題的類型。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "教育部十二年國教數學領綱三年級學習內容表 N-3-17，PDF 頁序27；同表對應第二學習階段表現 n-II-10。"
+      },
+      "projectSubitem": "在虛構地圖閱讀情境中提交 3 至 10 分鐘的合理估計區間，系統接受區間內估值並回饋參考模擬值 7 分鐘；這是專案設計的估計練習，不是實際計時或學生時間量感評量。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-TIMEKEEPER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-map-reading-duration"
+      ],
+      "notCovered": [
+        "學生真實完成活動的計時及紀錄",
+        "不同學生或真實情境的時間量感觀察",
+        "秒、時、日單位的估測與換算"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-17-ELAPSED-MINUTES-SAME-HOUR",
+      "focusId": "math-grade3-n-3-17-time",
+      "subject": "mathematics",
+      "officialCode": "N-3-17",
+      "officialPerformanceCode": "n-II-10",
+      "sourceText": "時間：「日」、「時」、「分」、「秒」。實測、量感、估測與計算。時間單位的換算。認識時間加減問題的類型。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "教育部十二年國教數學領綱三年級學習內容表 N-3-17；同表備註將三年級時間加減限於同單位時間量，或時、分複名數加減且無進退位；對應第二學習階段表現 n-II-10，PDF 頁序27及表現表頁序11。"
+      },
+      "projectSubitem": "在時間線上以 5 分鐘間隔調整標記，處理 9:10 至 9:35、10:05 至 10:50 及讀鐘後的同小時分鐘間隔，並以錯誤回饋與重試驗證目標。此為專案窄範圍操作，不將它擴大解讀為完整時間加減課程。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-TIMEKEEPER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "timeline-elapsed-0910-to-0935",
+        "timeline-elapsed-1005-to-1050",
+        "integrated-read-clock-and-elapsed-time"
+      ],
+      "notCovered": [
+        "跨小時進退位及時、分複名數計算",
+        "日、時、分、秒單位換算",
+        "不同時間加減問題類型的完整情境分類",
+        "真實活動計時與實體操作"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-R3-2-INDEPENDENT-PATTERN-CONSTRUCTION",
+      "focusId": "math-grade3-r-3-2-pattern",
+      "subject": "mathematics",
+      "officialCode": "R-3-2",
+      "officialPerformanceCode": "r-II-2",
+      "sourceText": "數量模式與推理（I）：以操作活動為主。一維變化模式之觀察與推理，例如數列、一維圖表等。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 R-3-2，PDF頁序28；同表對應表現 r-II-2。"
+      },
+      "projectSubitem": "專案分析：學生自選兩種圖形形成兩格單位並重複建構，再自行設定起始數與固定增加量、逐項建立兩種長度的數列；系統逐對檢查重複位置或相鄰差。此為有限數位任務示例，不是官方新增條文。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-CIRCLE-PATTERN-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "build-own-repeating-shape-unit",
+        "build-fixed-increase-sequence",
+        "build-longer-fixed-increase-sequence"
+      ],
+      "notCovered": [
+        "一維圖表中的變化推理",
+        "其他變化模式",
+        "完整口語或書寫理由評量"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-R3-2-PATTERN-ERROR-DETECTION-AND-REPAIR",
+      "focusId": "math-grade3-r-3-2-pattern",
+      "subject": "mathematics",
+      "officialCode": "R-3-2",
+      "officialPerformanceCode": "r-II-2",
+      "sourceText": "數量模式與推理（I）：以操作活動為主。一維變化模式之觀察與推理，例如數列、一維圖表等。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 R-3-2，PDF頁序28；同表對應表現 r-II-2。"
+      },
+      "projectSubitem": "專案分析：在已明示重複規則或固定增加量的一維圖形、數列中，定位一處錯誤並操作材料修正；正確後檢查各相鄰項是否符合規則。這是可自動判定的候選練習，不等同學生自主提出所有規則。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-CIRCLE-PATTERN-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "find-and-repair-shape-pattern-error",
+        "find-and-repair-number-pattern-error"
+      ],
+      "notCovered": [
+        "未給規則時自主推論多種模式",
+        "一維圖表的錯誤判讀",
+        "學生口頭說理的教師觀察"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-3-PLACE-VALUE-MULTIPLICATION",
+      "focusId": "math-grade3-n-3-3-one-digit-multiplication",
+      "subject": "mathematics",
+      "officialCode": "N-3-3",
+      "officialPerformanceCode": "n-II-2",
+      "sourceText": "乘以一位數：乘法直式計算。教師用位值的概念說明直式計算的合理性。被乘數為二、三位數。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 N-3-3，PDF頁序25；同表對應表現 n-II-2。"
+      },
+      "projectSubitem": "依個、十、百位完成一位數乘二／三位數的中間步驟，將部分積、進位及被乘數含0的位值位置分開處理，再用不同數例檢查遷移。這是專案分析，不是官方新增條文。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-MULTIPLICATION-DIVISION-CALCULATION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "multiply-236-by-3",
+        "multiply-304-by-2-transfer"
+      ],
+      "notCovered": [
+        "所有乘法直式情境",
+        "學生自行書寫算法並口頭說明其合理性",
+        "教師確認課程先備與年級安排"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-5-PLACE-VALUE-DIVISION",
+      "focusId": "math-grade3-n-3-5-one-digit-division",
+      "subject": "mathematics",
+      "officialCode": "N-3-5",
+      "officialPerformanceCode": "n-II-3",
+      "sourceText": "除以一位數：除法直式計算。教師用位值的概念說明直式計算的合理性。被除數為二、三位數。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 N-3-5，PDF頁序26；同表對應表現 n-II-3。"
+      },
+      "projectSubitem": "按位值逐步分配二／三位數被除數，保留商中的0，並以新數例檢查各位分配及商的組合。這是專案分析，不是官方新增條文。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-MULTIPLICATION-DIVISION-CALCULATION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "divide-408-by-2",
+        "divide-636-by-3-transfer"
+      ],
+      "notCovered": [
+        "非整除除法與餘數算法",
+        "所有除法直式情境",
+        "學生自行書寫算法並口頭說明其合理性"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-6-UNKNOWN-GROUPS-INVERSE-RELATION",
+      "focusId": "math-grade3-n-3-6-mult-div-application",
+      "subject": "mathematics",
+      "officialCode": "N-3-6",
+      "officialPerformanceCode": "n-II-2",
+      "sourceText": "解題：乘除應用問題。乘數、被乘數、除數、被除數未知之應用解題。連結乘與除的關係（R-3-1）。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 N-3-6，PDF頁序26；對應表現 n-II-2、n-II-3。"
+      },
+      "projectSubitem": "在等量陣列與每組量已知的分裝情境中，先組合「未知組數×每組量=總數」關係，再以除法求未知組數並核對乘法。這只代表一種未知量情境。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-MULTIPLICATION-ARRAY-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "build-three-by-four-seed-array",
+        "model-unknown-number-of-trays",
+        "find-unknown-number-of-trays"
+      ],
+      "notCovered": [
+        "乘數、被乘數、除數、被除數其他未知型態",
+        "多樣生活應用及學生自主列式解釋"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-R3-1-MULTIPLICATION-DIVISION-INVERSE",
+      "focusId": "math-grade3-r-3-1-mult-div-inverse",
+      "subject": "mathematics",
+      "officialCode": "R-3-1",
+      "officialPerformanceCode": "r-II-1",
+      "sourceText": "乘法與除法的關係：乘除互逆。應用於驗算與解題。理解例如「3的幾倍是15」、「什麼數的4倍是12」要用除法列式解題。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 R-3-1，PDF頁序28；同表對應表現 r-II-1。"
+      },
+      "projectSubitem": "把未知組數、每組量與總數組合成乘法關係，再用除法解出未知組數並以乘法驗算；只練習一種等量分組情境。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-MULTIPLICATION-ARRAY-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "model-unknown-number-of-trays",
+        "find-unknown-number-of-trays"
+      ],
+      "notCovered": [
+        "多種乘除互逆題型",
+        "學生獨立選擇並解釋驗算策略"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-R3-2-ONE-DIMENSIONAL-PATTERN-TRANSFER",
+      "focusId": "math-grade3-r-3-2-pattern",
+      "subject": "mathematics",
+      "officialCode": "R-3-2",
+      "officialPerformanceCode": "r-II-2",
+      "sourceText": "數量模式與推理（I）：以操作活動為主。一維變化模式之觀察與推理，例如數列、一維圖表等。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 R-3-2，PDF頁序28；同表對應表現 r-II-2。"
+      },
+      "projectSubitem": "操作延伸一維交替圖形模式與固定增加量數列，並選取能符合操作結果的簡單規則說明卡；此為專案依官方文字整理的示例，不是官方逐字子項，也不代表學生能自主提出規則或完成口頭推理。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-CIRCLE-PATTERN-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "extend-alternating-shape-pattern",
+        "identify-shape-pattern-rule",
+        "extend-growing-number-sequence",
+        "identify-number-sequence-change"
+      ],
+      "notCovered": [
+        "其他變化規則與一維圖表推理",
+        "學生自主提出規則及完整口頭說明未被評量"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-1-PLACE-VALUE-BLOCK-EXCHANGE",
+      "focusId": "math-number-place-value-m3-num-01",
+      "subject": "mathematics",
+      "officialCode": "N-3-1",
+      "officialPerformanceCode": "n-II-1",
+      "sourceText": "一萬以內的數：含位值積木操作活動。結合點數、位值表徵、位值表。位值單位「千」。位值單位換算。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 N-3-1，PDF頁序25；同表對應表現 n-II-1，PDF頁序11。官方備註：教學可到一萬但不得超過。"
+      },
+      "projectSubitem": "學生用數位千、百、十、個積木組成指定數，操作一個千換十個百或一個百換十個十，並核對交換前後的總值。此為專案分析；僅涵蓋幾種位值表徵與等值交換示例，不取代實體積木、點數活動、完整讀寫範圍或教師觀察。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-PLACE-VALUE-EXCHANGE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "compose-2408-with-place-value-blocks",
+        "exchange-one-hundred-for-ten-tens",
+        "exchange-one-thousand-for-ten-hundreds"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-2-VERTICAL-REGROUPING-STEPS",
+      "focusId": "math-grade3-n-3-2-add-sub",
+      "subject": "mathematics",
+      "officialCode": "N-3-2",
+      "officialPerformanceCode": "n-II-2",
+      "sourceText": "加減直式計算：含加、減法多次進、退位。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 N-3-2，PDF頁序25；同表對應表現 n-II-2，PDF頁序11。官方備註要求處理數字中有0，並可先在位值表中學習。"
+      },
+      "projectSubitem": "學生逐欄設定加減直式的結果數字與進位／退位記錄，練習多次進位、含0加法、跨0連續退位。此為數位步驟模型，不涵蓋所有題型、實體位值表操作或完整 n-II-2 表現範圍。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-VERTICAL-REGROUPING-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "repair-multiple-carry-addition",
+        "repair-addition-with-zero",
+        "repair-subtraction-across-zero"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-9-FRACTION-PIECE-MODEL-OPERATIONS",
+      "focusId": "math-grade3-n-3-9-common-denominator-fractions",
+      "subject": "mathematics",
+      "officialCode": "N-3-9",
+      "officialPerformanceCode": "n-II-6",
+      "sourceText": "簡單同分母分數：結合操作活動與整數經驗。簡單同分母分數比較、加、減的意義。牽涉之分數與運算結果皆不超過2。以單位分數之點數為基礎，連結整數之比較、加、減。知道「和等於1」的意義。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 N-3-9，PDF頁序26；同表對應第二學習階段表現 n-II-6。官方備註以連續量為主，未指定學期。"
+      },
+      "projectSubitem": "以相同完整整體與等分的連續量模型表示一個同分母分數，建構左右模型比較大小，將同分母拼片合併或取走，並把兩組拼片合成一個完整整體。這是專案分析，不是新增官方條文。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-FRACTION-MODEL-EXPLORATION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "build-three-sixths-with-equal-whole",
+        "compare-three-eighths-and-five-eighths",
+        "combine-two-eighths-and-three-eighths",
+        "remove-two-sixths-from-five-sixths",
+        "combine-two-sixths-and-four-sixths-to-one"
+      ],
+      "notCovered": [
+        "同分母分數的多種生活應用解題",
+        "所有分數及結果不超過2的情境範圍",
+        "整數比較、加減經驗的完整連結教學",
+        "實體分數片操作及教師觀察",
+        "正式學習檢核與教學成效證據"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-12-MILLIMETER-ESTIMATE-RULER-AND-CONVERSION",
+      "focusId": "math-grade3-n-3-12-millimeter",
+      "subject": "mathematics",
+      "officialCode": "N-3-12",
+      "officialPerformanceCode": "n-II-9",
+      "sourceText": "長度：「毫米」。實測、量感、估測與計算。單位換算。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-20",
+      "sourceNotes": "基於 N-3-1 的限制，單位換算時，公尺數限個位數。自3年級後，量的計算可使用複名數協助加減計算（複名數不做乘除）。",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 N-3-12，官方 PDF 頁序26–27（跨頁續文）；同表對應第二學習階段表現 n-II-9。三年級入口不代表學期進度。"
+      },
+      "projectSubitem": "以毫米先估測，操作螢幕尺移動零點至物件起點，讀取非零起點物件長度，量取兩個模擬物件後比較差值，並把毫米轉成公分與毫米複名數。此為專案分析，不是官方新增條文；畫面模擬不取代實物尺測量。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-LENGTH-MEASUREMENT-ADVENTURE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-map-ribbon-length",
+        "align-zero-and-read-offset-ribbon",
+        "compare-two-simulated-lengths",
+        "convert-millimeters-to-compound-centimeters",
+        "integrated-measure-compare-and-convert"
+      ],
+      "notCovered": [
+        "使用實體尺測量真實物件與量感活動",
+        "完整估測策略及教師觀察",
+        "含公尺換算的公尺數限制情境",
+        "複名數乘除（官方備註不做）"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-14-UNIT-SQUARE-AREA-CONSTRUCTION",
+      "focusId": "math-grade3-n-3-14-area",
+      "subject": "mathematics",
+      "officialCode": "N-3-14",
+      "officialPerformanceCode": "n-II-9",
+      "sourceText": "面積：「平方公分」。實測、量感、估測與計算。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceNotes": "應用平方公分板（百格圖），協助點數簡單圖形如正方形、長方形、三角形之面積，但不發展一般公式。",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 N-3-14，官方 PDF 頁序27；同表對應第二學習階段表現 n-II-9。"
+      },
+      "projectSubitem": "以可點選加入或取下的 1 平方公分方格，在螢幕模型中留下矩形面積估測、覆蓋與點數簡單輪廓、建造不同形狀但方格數相同的連通區域、補格、比較及依限制建造。這是專案拆解，不是官方新增條文；不推定學期順序。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-AREA-GRID-CONSTRUCTION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-and-cover-rectangle",
+        "count-irregular-unit-square-region",
+        "build-different-shape-same-area",
+        "fill-missing-area-grid-cells",
+        "compare-built-area-regions",
+        "integrated-build-area-constrained-garden"
+      ],
+      "notCovered": [
+        "以實體平方公分板、紙片及真實物件進行實測與量感",
+        "不規則邊界或部分方格的估測",
+        "三角形面積操作（本關沒有實作）",
+        "一般面積公式（官方備註不發展）",
+        "周長與面積辨別（不以本活動宣稱涵蓋）",
+        "教師核定評量規準、教學審查及學習成效證據"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-16-WEIGHT-ESTIMATE-MEASURE-COMPARE-CONVERT",
+      "focusId": "math-grade3-n-3-16-weight",
+      "subject": "mathematics",
+      "officialCode": "N-3-16",
+      "officialPerformanceCode": "n-II-9",
+      "sourceText": "重量：「公斤」、「公克」。實測、量感、估測與計算。單位換算。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceNotes": "基於 N-3-1 的限制，單位換算公斤數限個位數。可使用複名數協助加減計算（複名數不做乘除）。",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "教育部十二年國教數學領綱三年級學習內容表 N-3-16，PDF 頁序27；同表對應第二學習階段表現 n-II-9。"
+      },
+      "projectSubitem": "以螢幕砝碼模型做估測後核對、調整兩盤砝碼至平衡、移動模擬秤指針讀值、比較兩個秤重紀錄及差值、把公克拆成公斤與公克，並組合模擬補給重量。這是專案學習子項，不是官方新增要求；畫面數值不等同實物量測。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-WEIGHT-MEASUREMENT-ADVENTURE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-mountain-supply",
+        "balance-pans-with-weights",
+        "read-pointer-scale",
+        "compare-two-crates",
+        "compare-equal-packs",
+        "convert-one-kilogram-and-grams",
+        "pack-the-rescue-kit"
+      ],
+      "notCovered": [
+        "以真實公斤秤或電子秤量測真實物件",
+        "重量量感與實物估測的教師觀察",
+        "不同秤具校正及測量誤差",
+        "公斤數超出個位數的單位換算",
+        "複名數乘除（官方備註不做）",
+        "正式學習檢核、教師審查及學習成效證據"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G3-N3-17-ORDER-DISPLAYED-TIME-LABELS",
+      "focusId": "math-grade3-n-3-17-time",
+      "subject": "mathematics",
+      "officialCode": "N-3-17",
+      "officialPerformanceCode": "n-II-10",
+      "sourceText": "時間：「日」、「時」、「分」、「秒」。實測、量感、估測與計算。時間單位的換算。認識時間加減問題的類型。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-24",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "三年級學習內容表 N-3-17，PDF頁序27；同表對應第二學習階段表現 n-II-10。"
+      },
+      "projectSubitem": "依任務卡上以24小時制標示的三個時刻，將事件按時間由早到晚排列，並先比較小時、再比較分鐘。這是專案自行拆解的窄範圍操作，僅有已顯示時刻的先後排序證據，不代表能讀鐘面或完成官方條目的其他時間能力。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade3_clause",
+      "activityIds": [
+        "ACT-G3-MATH-TIMEKEEPER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "order-journey-events"
+      ],
+      "notCovered": [
+        "日、時、分、秒的實測、量感與估測",
+        "時間單位換算",
+        "讀取類比或數位時鐘並理解時刻",
+        "同單位時間量或時分複名數的時間加減與各類問題情境",
+        "實際時間觀察、教師檢核與學習成效證據"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G2-N2-3-UNKNOWN-ADDEND-AND-SUBTRACTION-QUANTITIES",
+      "focusId": "math-grade2-unknown-quantity-applications",
+      "subject": "mathematics",
+      "officialCode": "N-2-3",
+      "officialPerformanceCode": "n-I-3",
+      "sourceText": "解題：加減應用問題。加數、被加數、減數、被減數未知之應用解題。連結加與減的關係（R-2-4）。",
+      "sourceTextKind": "verbatim_official_pdf_clause_from_existing_verified_batch_not_rechecked_this_turn",
+      "sourceNotes": "教師可用花片模型、線段圖、空格算式或加減互逆協助理解與轉化；不發展成固定答題格式。此條目不須另立單元教學。",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "二年級學習內容表 N-2-3，PDF頁序22–23（跨頁，對應表現欄在續頁）；對應表現 n-I-3，PDF頁序11。"
+      },
+      "projectSubitem": "以補給 counters 分別建模未知加數、未知被加數、未知減數，透過逐一增減物件使等式數量關係成立。這是專案分析，不是官方拆分條文；數位計數操作不等同實物花片。",
+      "decompositionKind": "project_decomposition_from_verified_official_clause_existing_record",
+      "activityIds": [
+        "ACT-G2-MATH-UNKNOWN-QUANTITY-MODEL-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "find-missing-addend",
+        "find-missing-minuend",
+        "find-missing-subtrahend"
+      ],
+      "notCovered": [
+        "未涵蓋多樣生活情境或開放式策略",
+        "未要求學生自主列式、完整口頭說明或教師觀察",
+        "螢幕模型不取代實物花片操作"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G2-R2-4-INVERSE-ADDITION-CHECK",
+      "focusId": "math-grade2-unknown-quantity-applications",
+      "subject": "mathematics",
+      "officialCode": "R-2-4",
+      "officialPerformanceCode": "r-I-3",
+      "sourceText": "加法與減法的關係：加減互逆。應用於驗算與解題。",
+      "sourceTextKind": "verbatim_official_pdf_clause_from_existing_verified_batch_not_rechecked_this_turn",
+      "sourceNotes": "官方備註：用加法驗算減法答案，但不用減法驗算加法答案。",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "二年級學習內容表 R-2-4，PDF頁序25；對應表現 n-I-3、r-I-3，PDF頁序11。"
+      },
+      "projectSubitem": "在已建模的減法情境中，以加法把剩下與拿走的數量合回原有總數；本階段只提供一個驗算例，不代表涵蓋所有加減互逆策略。這是專案分析，不是官方新增條文。",
+      "decompositionKind": "project_decomposition_from_verified_official_clause_existing_record",
+      "activityIds": [
+        "ACT-G2-MATH-UNKNOWN-QUANTITY-MODEL-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "verify-subtraction-with-addition"
+      ],
+      "notCovered": [
+        "未練習多類減法情境與學生自行說明驗算策略",
+        "沒有教師觀察或正式學習成效證據"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G2-D2-1-COLLECT-CLASSIFY-AND-REFINE-GEOMETRIC-OBJECTS",
+      "focusId": "math-grade2-data-classification-presentation",
+      "subject": "mathematics",
+      "officialCode": "D-2-1",
+      "officialPerformanceCode": "d-I-1",
+      "sourceText": "分類與呈現：以操作活動為主。能蒐集、分類、記錄、呈現資料、生活物件或幾何形體。討論分類之中還可以再分類的情況。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceNotes": "非正式表格與統計圖表教學；可配合平面圖形與立體形體教學（S-2-2）。",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "二年級學習內容表 D-2-1，官方 PDF 頁序25；同表對應第一學習階段表現 d-I-1，PDF頁序11。"
+      },
+      "projectSubitem": "從混合模擬觀察卡收集平面幾何物件，先依顏色分類，再把紅色類別依形狀細分，並以分組盤呈現各組。這是專案分析，不是官方新增子項；依官方備註不教正式表格或統計圖表。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade2_clause",
+      "activityIds": [
+        "ACT-G2-MATH-DATA-CLASSIFICATION-NESTED-GROUPS-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "collect-geometric-object-cards",
+        "classify-geometric-cards-by-color",
+        "refine-red-group-by-shape"
+      ],
+      "notCovered": [
+        "學生於真實環境主動蒐集資料及觀察記錄",
+        "正式表格或統計圖表（官方備註排除於本條目教學）",
+        "分類方法的完整口頭說明與教師觀察",
+        "生活物件及其他資料類型的廣泛遷移"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G2-N2-10-UNIT-FRACTION-CONTINUOUS-STRIP",
+      "focusId": "math-grade2-unit-fraction-continuous-quantity",
+      "subject": "mathematics",
+      "officialCode": "N-2-10",
+      "officialPerformanceCode": "n-I-6",
+      "sourceText": "單位分數的認識：從等分配的活動（如摺紙）認識單部分為全部的「幾分之一」。知道日常語言「的一半」、「的二分之一」、「的四分之一」的溝通意義。在已等分割之格圖中，能說明一格為全部的「幾分之一」。",
+      "sourceTextKind": "verbatim_official_pdf_clause_from_existing_verified_batch_not_rechecked_this_turn",
+      "sourceNotes": "二年級限連續量；長方形紙摺半可做出分母2、4、8，圓形為分母2或4；分數用語限活動與溝通，不作分數乘法。",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "二年級學習內容表 N-2-10，PDF頁序23–24（備註與參考教具欄跨頁）；對應表現 n-I-6，PDF頁序11。"
+      },
+      "projectSubitem": "在螢幕長方形紙帶上設定等分為2、4、8份並把一片移入完整整體模型，連結一份與整體的幾分之一。此拆分為專案分析，不是官方原文或官方子項。",
+      "decompositionKind": "project_decomposition_from_existing_verified_official_clause",
+      "activityIds": [
+        "ACT-G2-MATH-UNIT-FRACTION-PAPER-FOLD-MODEL-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "build-one-half-paper-strip",
+        "build-one-fourth-paper-strip",
+        "build-one-eighth-paper-strip"
+      ],
+      "notCovered": [
+        "實體摺紙操作與教師觀察",
+        "圓形連續量模型及已等分格圖的自主說明",
+        "離散量、分數運算及正式學習成效證據"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G2-N2-4-ROUND-HUNDREDS-LIFE-ESTIMATION",
+      "focusId": "math-grade2-life-add-sub-estimation",
+      "subject": "mathematics",
+      "officialCode": "N-2-4",
+      "officialPerformanceCode": "n-I-3",
+      "sourceText": "解題：簡單加減估算。具體生活情境。以百位數估算為主。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_in_existing_grade2_batch",
+      "sourceNotes": "估算解題的布題應貼近生活情境。",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "伍／二年級學習內容表 N-2-4，PDF頁序23。；對應表現 n-I-3"
+      },
+      "projectSubitem": "在三個生活情境中依百位估算線索調整估值滑桿，判斷估算是否落在情境可支持的範圍；此為專案拆解，合理範圍非官方誤差標準。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade2_clause",
+      "activityIds": [
+        "ACT-G2-MATH-LIFE-ESTIMATION-HUNDREDS-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-class-library-books",
+        "estimate-school-fair-change",
+        "estimate-sports-day-supplies"
+      ],
+      "notCovered": [
+        "學生自主選擇並口頭說明估算策略",
+        "更廣泛的生活情境及教師觀察"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G2-N2-11-CM-MEASURE-ESTIMATE-CONVERT",
+      "focusId": "math-grade2-length-measure-estimate-calculate-convert",
+      "subject": "mathematics",
+      "officialCode": "N-2-11",
+      "officialPerformanceCode": "n-I-7",
+      "sourceText": "長度：「公分」、「公尺」。實測、量感、估測與計算。單位換算。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_in_existing_grade2_batch",
+      "sourceNotes": "基於N-2-1的限制，單位換算時公尺數限個位數。長度的加減問題必須包含和數線加減可以連結之題材（N-3-11）。",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "伍／二年級學習內容表 N-2-11，PDF頁序24。；對應表現 n-I-7"
+      },
+      "projectSubitem": "以螢幕尺模型估測公分、將尺零刻度對齊非零起點並讀值、比較兩長度與差值，並使用個位數公尺練習公尺公分換算。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade2_clause",
+      "activityIds": [
+        "ACT-G2-MATH-LENGTH-MEASURE-CONVERT-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-ribbon-centimeters",
+        "align-ruler-zero-and-read-bookmark",
+        "compare-and-find-centimeter-difference",
+        "convert-two-meters-to-centimeters",
+        "combine-meters-and-centimeters"
+      ],
+      "notCovered": [
+        "真實物件實測與實體尺規操作",
+        "曲線量測、個人量感及教師觀察"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-MATH-G2-N2-5-OPERATE-DENOMINATION-COMBINATIONS",
+      "focusId": "math-grade2-money-combination-problem-solving",
+      "subject": "mathematics",
+      "officialCode": "N-2-5",
+      "officialPerformanceCode": "n-I-3",
+      "sourceText": "解題：100元、500元、1000元。以操作活動為主兼及計算。容許多元策略，協助建立數感。包含已學習之更小幣值。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_in_existing_grade2_batch",
+      "sourceNotes": "本單元的進行可與估算連結（N-2-4）。",
+      "sourceRef": {
+        "sourceId": "mathematics",
+        "pageOrSection": "同表 N-2-5，PDF頁序23。；對應表現 n-I-3"
+      },
+      "projectSubitem": "在模擬市集用可多選面額卡組成100、500、1000元付款，查看即時加總，並以不同面額組合表示相同總額；接受組合是專案選例，不是官方策略清單。",
+      "decompositionKind": "project_decomposition_from_verified_official_grade2_clause",
+      "activityIds": [
+        "ACT-G2-MATH-MONEY-COMBINATION-MARKET-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "pay-market-basket-one-hundred",
+        "pay-market-basket-five-hundred",
+        "pay-market-basket-one-thousand"
+      ],
+      "notCovered": [
+        "實體錢幣/紙鈔操作與真實購物",
+        "找零、所有可能的等值組合與自主策略說明",
+        "教師觀察與實際數感"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INc-II-3-FORCE-MAGNITUDE",
+      "focusId": "science-stage2-inc-ⅱ-3-concepts",
+      "subject": "natural_science",
+      "officialCode": "INc-Ⅱ-3",
+      "sourceText": "力的表示法，包括大小、方向與作用點等。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25; project decomposition is not an official subclause",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "伍／二／課題1 自然界的組成與特性／系統與尺度（INc）第二學習階段欄，INc-Ⅱ-3列；PDF頁序20，印刷頁16"
+      },
+      "projectSubitem": "力的大小表示。此為追蹤用專案拆解，尚未有活動或互動證據。",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INc-II-3-FORCE-DIRECTION",
+      "focusId": "science-stage2-inc-ⅱ-3-concepts",
+      "subject": "natural_science",
+      "officialCode": "INc-Ⅱ-3",
+      "sourceText": "力的表示法，包括大小、方向與作用點等。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25; project decomposition is not an official subclause",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "伍／二／課題1 自然界的組成與特性／系統與尺度（INc）第二學習階段欄，INc-Ⅱ-3列；PDF頁序20，印刷頁16"
+      },
+      "projectSubitem": "力的方向表示。此為追蹤用專案拆解，尚未有活動或互動證據。",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INc-II-3-FORCE-POINT",
+      "focusId": "science-stage2-inc-ⅱ-3-concepts",
+      "subject": "natural_science",
+      "officialCode": "INc-Ⅱ-3",
+      "sourceText": "力的表示法，包括大小、方向與作用點等。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25; project decomposition is not an official subclause",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "伍／二／課題1 自然界的組成與特性／系統與尺度（INc）第二學習階段欄，INc-Ⅱ-3列；PDF頁序20，印刷頁16"
+      },
+      "projectSubitem": "力的作用點表示。此為追蹤用專案拆解，尚未有活動或互動證據。",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INc-II-10-CELESTIAL-DAILY-MOTION",
+      "focusId": "science-stage2-inc-ⅱ-10-concepts",
+      "subject": "natural_science",
+      "officialCode": "INc-Ⅱ-10",
+      "sourceText": "天空中天體有東升西落的現象，月亮有盈虧的變化，星星則是有些亮有些暗。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25; project decomposition is not an official subclause",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "伍／二／課題1 自然界的組成與特性／系統與尺度（INc）第二學習階段欄，INc-Ⅱ-10列；PDF頁序21，印刷頁17"
+      },
+      "projectSubitem": "觀察天體東升西落現象。此為追蹤用專案拆解，尚未有活動或互動證據。",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INc-II-10-MOON-PHASE-CHANGE",
+      "focusId": "science-stage2-inc-ⅱ-10-concepts",
+      "subject": "natural_science",
+      "officialCode": "INc-Ⅱ-10",
+      "sourceText": "天空中天體有東升西落的現象，月亮有盈虧的變化，星星則是有些亮有些暗。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25; project decomposition is not an official subclause",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "伍／二／課題1 自然界的組成與特性／系統與尺度（INc）第二學習階段欄，INc-Ⅱ-10列；PDF頁序21，印刷頁17"
+      },
+      "projectSubitem": "觀察月亮盈虧變化。此為追蹤用專案拆解，尚未有活動或互動證據。",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INc-II-10-STAR-BRIGHTNESS",
+      "focusId": "science-stage2-inc-ⅱ-10-concepts",
+      "subject": "natural_science",
+      "officialCode": "INc-Ⅱ-10",
+      "sourceText": "天空中天體有東升西落的現象，月亮有盈虧的變化，星星則是有些亮有些暗。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25; project decomposition is not an official subclause",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "伍／二／課題1 自然界的組成與特性／系統與尺度（INc）第二學習階段欄，INc-Ⅱ-10列；PDF頁序21，印刷頁17"
+      },
+      "projectSubitem": "比較星星明暗差異。此為追蹤用專案拆解，尚未有活動或互動證據。",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INd-II-1-EXTERNAL-FACTOR-CHANGE",
+      "focusId": "science-stage2-ind-ⅱ-1-concepts",
+      "subject": "natural_science",
+      "officialCode": "INd-Ⅱ-1",
+      "sourceText": "當受外在因素作用時，物質或自然現象可能會改變。改變有些較快、有些較慢；有些可以回復，有些則不能。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25; project decomposition is not an official subclause",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，INd-Ⅱ-1列；PDF頁序21，印刷頁17"
+      },
+      "projectSubitem": "辨認外在因素作用後的改變。此為追蹤用專案拆解，尚未有活動或互動證據。",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INd-II-1-CHANGE-RATE",
+      "focusId": "science-stage2-ind-ⅱ-1-concepts",
+      "subject": "natural_science",
+      "officialCode": "INd-Ⅱ-1",
+      "sourceText": "當受外在因素作用時，物質或自然現象可能會改變。改變有些較快、有些較慢；有些可以回復，有些則不能。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25; project decomposition is not an official subclause",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，INd-Ⅱ-1列；PDF頁序21，印刷頁17"
+      },
+      "projectSubitem": "比較改變快慢。此為追蹤用專案拆解，尚未有活動或互動證據。",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INd-II-1-REVERSIBILITY",
+      "focusId": "science-stage2-ind-ⅱ-1-concepts",
+      "subject": "natural_science",
+      "officialCode": "INd-Ⅱ-1",
+      "sourceText": "當受外在因素作用時，物質或自然現象可能會改變。改變有些較快、有些較慢；有些可以回復，有些則不能。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25; project decomposition is not an official subclause",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，INd-Ⅱ-1列；PDF頁序21，印刷頁17"
+      },
+      "projectSubitem": "區分可以回復與不能回復的改變。此為追蹤用專案拆解，尚未有活動或互動證據。",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INd-II-8-FORECAST-DATA-FIELDS",
+      "focusId": "science-stage2-ind-ⅱ-8-concepts",
+      "subject": "natural_science",
+      "officialCode": "INd-Ⅱ-8",
+      "sourceText": "天氣預報常用雨量、溫度、風向、風速等資料來表達天氣狀態，這些資料可以使用適當儀器測得。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25; project decomposition is not an official subclause",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，INd-Ⅱ-8列；PDF頁序22，印刷頁18"
+      },
+      "projectSubitem": "辨識雨量、溫度、風向與風速等天氣資料欄位。此為追蹤用專案拆解，尚未有活動或互動證據。",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INd-II-8-INSTRUMENT-MEASUREMENT",
+      "focusId": "science-stage2-ind-ⅱ-8-concepts",
+      "subject": "natural_science",
+      "officialCode": "INd-Ⅱ-8",
+      "sourceText": "天氣預報常用雨量、溫度、風向、風速等資料來表達天氣狀態，這些資料可以使用適當儀器測得。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25; project decomposition is not an official subclause",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，INd-Ⅱ-8列；PDF頁序22，印刷頁18"
+      },
+      "projectSubitem": "理解資料可由適當儀器測得。此為追蹤用專案拆解，尚未有活動或互動證據。",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INd-II-9-FORCE-FORMS",
+      "focusId": "science-stage2-ind-ⅱ-9-concepts",
+      "subject": "natural_science",
+      "officialCode": "INd-Ⅱ-9",
+      "sourceText": "力有各種不同的形式。施力可能會使物體改變運動情形或形狀；當物體受力變形時，有的可恢復原狀，有的不能恢復原狀。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25; project decomposition is not an official subclause",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，INd-Ⅱ-9列；PDF頁序22，印刷頁18"
+      },
+      "projectSubitem": "辨認不同形式的力。此為追蹤用專案拆解，尚未有活動或互動證據。",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INd-II-9-FORCE-MOTION-SHAPE-EFFECT",
+      "focusId": "science-stage2-ind-ⅱ-9-concepts",
+      "subject": "natural_science",
+      "officialCode": "INd-Ⅱ-9",
+      "sourceText": "力有各種不同的形式。施力可能會使物體改變運動情形或形狀；當物體受力變形時，有的可恢復原狀，有的不能恢復原狀。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25; project decomposition is not an official subclause",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，INd-Ⅱ-9列；PDF頁序22，印刷頁18"
+      },
+      "projectSubitem": "觀察施力對運動或形狀的影響。此為追蹤用專案拆解，尚未有活動或互動證據。",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INd-II-9-ELASTICITY-RECOVERY",
+      "focusId": "science-stage2-ind-ⅱ-9-concepts",
+      "subject": "natural_science",
+      "officialCode": "INd-Ⅱ-9",
+      "sourceText": "力有各種不同的形式。施力可能會使物體改變運動情形或形狀；當物體受力變形時，有的可恢復原狀，有的不能恢復原狀。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25; project decomposition is not an official subclause",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，INd-Ⅱ-9列；PDF頁序22，印刷頁18"
+      },
+      "projectSubitem": "比較受力後可恢復與不能恢復原狀。此為追蹤用專案拆解，尚未有活動或互動證據。",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-1-PROJECT-1",
+      "focusId": "science-stage2-ine-ⅱ-1-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-1",
+      "officialCodes": [
+        "INe-Ⅱ-1"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "自然界的物體、生物、環境間常會相互影響。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-1；PDF頁序23；印刷頁19"
+      },
+      "projectSubitem": "自然界物體、生物與環境相互影響",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-2-PROJECT-1",
+      "focusId": "science-stage2-ine-ⅱ-2-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-2",
+      "officialCodes": [
+        "INe-Ⅱ-2"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "溫度會影響物質在水中溶解的程度（定性）及物質燃燒、生鏽、發酵等現象。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-2；PDF頁序23；印刷頁19"
+      },
+      "projectSubitem": "溫度對物質在水中溶解程度的影響",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-2-PROJECT-2",
+      "focusId": "science-stage2-ine-ⅱ-2-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-2",
+      "officialCodes": [
+        "INe-Ⅱ-2"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "溫度會影響物質在水中溶解的程度（定性）及物質燃燒、生鏽、發酵等現象。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-2；PDF頁序23；印刷頁19"
+      },
+      "projectSubitem": "溫度對燃燒、生鏽、發酵等現象的影響",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-3-PROJECT-1",
+      "focusId": "science-stage2-ine-ⅱ-3-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-3",
+      "officialCodes": [
+        "INe-Ⅱ-3"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "有些物質溶於水中，有些物質不容易溶於水中。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-3；PDF頁序23；印刷頁19"
+      },
+      "projectSubitem": "物質在水中容易溶解與不易溶解的比較",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-4-PROJECT-1",
+      "focusId": "science-stage2-ine-ⅱ-4-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-4",
+      "officialCodes": [
+        "INe-Ⅱ-4"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "常見食物的酸鹼性有時可利用氣味、觸覺、味覺簡單區分，花卉、菜葉會因接觸到酸鹼而改變顏色。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-4；PDF頁序23；印刷頁19"
+      },
+      "projectSubitem": "以感官簡單區分常見食物酸鹼性",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-4-PROJECT-2",
+      "focusId": "science-stage2-ine-ⅱ-4-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-4",
+      "officialCodes": [
+        "INe-Ⅱ-4"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "常見食物的酸鹼性有時可利用氣味、觸覺、味覺簡單區分，花卉、菜葉會因接觸到酸鹼而改變顏色。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-4；PDF頁序23；印刷頁19"
+      },
+      "projectSubitem": "花卉或菜葉接觸酸鹼後的顏色變化",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-5-PROJECT-1",
+      "focusId": "science-stage2-ine-ⅱ-5-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-5",
+      "officialCodes": [
+        "INe-Ⅱ-5"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "生活周遭有各種的聲音；物體振動會產生聲音，聲音可以透過固體、液體、氣體傳播。不同的動物會發出不同的聲音，並且作為溝通的方式。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-5；PDF頁序23；印刷頁19"
+      },
+      "projectSubitem": "物體振動產生聲音",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-5-PROJECT-2",
+      "focusId": "science-stage2-ine-ⅱ-5-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-5",
+      "officialCodes": [
+        "INe-Ⅱ-5"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "生活周遭有各種的聲音；物體振動會產生聲音，聲音可以透過固體、液體、氣體傳播。不同的動物會發出不同的聲音，並且作為溝通的方式。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-5；PDF頁序23；印刷頁19"
+      },
+      "projectSubitem": "聲音透過固體、液體、氣體傳播",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-5-PROJECT-3",
+      "focusId": "science-stage2-ine-ⅱ-5-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-5",
+      "officialCodes": [
+        "INe-Ⅱ-5"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "生活周遭有各種的聲音；物體振動會產生聲音，聲音可以透過固體、液體、氣體傳播。不同的動物會發出不同的聲音，並且作為溝通的方式。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-5；PDF頁序23；印刷頁19"
+      },
+      "projectSubitem": "不同動物聲音作為溝通方式",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-6-PROJECT-1",
+      "focusId": "science-stage2-ine-ⅱ-6-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-6",
+      "officialCodes": [
+        "INe-Ⅱ-6"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "光線以直線前進，反射時有一定的方向。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-6；PDF頁序23；印刷頁19"
+      },
+      "projectSubitem": "光線直線前進",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-6-PROJECT-2",
+      "focusId": "science-stage2-ine-ⅱ-6-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-6",
+      "officialCodes": [
+        "INe-Ⅱ-6"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "光線以直線前進，反射時有一定的方向。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-6；PDF頁序23；印刷頁19"
+      },
+      "projectSubitem": "光反射的方向",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-7-PROJECT-1",
+      "focusId": "science-stage2-ine-ⅱ-7-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-7",
+      "officialCodes": [
+        "INe-Ⅱ-7"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "磁鐵具有兩極，同極相斥，異極相吸；磁鐵會吸引含鐵的物體。磁力強弱可由吸起含鐵物質數量多寡得知。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-7；PDF頁序23；印刷頁19"
+      },
+      "projectSubitem": "磁鐵兩極同極相斥、異極相吸及吸引含鐵物體",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-7-PROJECT-2",
+      "focusId": "science-stage2-ine-ⅱ-7-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-7",
+      "officialCodes": [
+        "INe-Ⅱ-7"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "磁鐵具有兩極，同極相斥，異極相吸；磁鐵會吸引含鐵的物體。磁力強弱可由吸起含鐵物質數量多寡得知。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-7；PDF頁序23；印刷頁19"
+      },
+      "projectSubitem": "以吸起含鐵物質數量比較磁力強弱",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-8-PROJECT-1",
+      "focusId": "science-stage2-ine-ⅱ-8-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-8",
+      "officialCodes": [
+        "INe-Ⅱ-8"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "物質可分為電的良導體和不良導體，將電池用電線或良導體接成通路，可使燈泡發光、馬達轉動。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-8；PDF頁序23；印刷頁19"
+      },
+      "projectSubitem": "電的良導體與不良導體",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-8-PROJECT-2",
+      "focusId": "science-stage2-ine-ⅱ-8-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-8",
+      "officialCodes": [
+        "INe-Ⅱ-8"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "物質可分為電的良導體和不良導體，將電池用電線或良導體接成通路，可使燈泡發光、馬達轉動。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-8；PDF頁序23；印刷頁19"
+      },
+      "projectSubitem": "以電池、導線和良導體接通電路，使燈泡發光或馬達轉動",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-9-PROJECT-1",
+      "focusId": "science-stage2-ine-ⅱ-9-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-9",
+      "officialCodes": [
+        "INe-Ⅱ-9"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "電池或燈泡可以有串聯和並聯的接法，不同的接法會產生不同的效果。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-9；PDF頁序23；印刷頁19"
+      },
+      "projectSubitem": "電池或燈泡串聯、並聯接法及不同效果",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-10-PROJECT-1",
+      "focusId": "science-stage2-ine-ⅱ-10-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-10",
+      "officialCodes": [
+        "INe-Ⅱ-10"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "動物的感覺器官接受外界刺激會引起生理和行為反應。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-10；PDF頁序23；印刷頁19"
+      },
+      "projectSubitem": "動物感覺器官接受刺激後的生理與行為反應",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-11-PROJECT-1",
+      "focusId": "science-stage2-ine-ⅱ-11-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-11",
+      "officialCodes": [
+        "INe-Ⅱ-11"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "環境的變化會影響植物生長。",
+      "sourceNotes": "官方條目完整原文保留於 bounded batch；此句是便於追蹤教學範圍的專案拆解，不是官方子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe 第二學習階段 INe-Ⅱ-11；PDF頁序23–24；印刷頁19–20"
+      },
+      "projectSubitem": "環境變化對植物生長的影響",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "notCovered": [
+        "尚無此專案拆解的直接互動證據；需要時應使用可靠觀察材料或實體器材。"
+      ],
+      "status": "inventory_only_not_implemented"
+    },
+    {
+      "subitemId": "SUB-SOCIAL-STAGE2-BA2-1-COMMONALITY-DIFFERENCE-CANDIDATE",
+      "focusId": "social-grade4-perspective-compare",
+      "subject": "social_studies",
+      "officialCode": "Ba-Ⅱ-1",
+      "officialCodes": [
+        "Ba-Ⅱ-1"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "人們對社會事物的認識、感受與意見有相同之處，亦有差異性。",
+      "sourceNotes": "逐字核對社會領域官方 PDF 印刷頁96、PDF頁序100；此專案拆解不表示官方細分子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "social-studies",
+        "pageOrSection": "伍／二／國民小學學習內容表／B.差異與多元／a.個體差異／Ba-Ⅱ-1，PDF頁序100、印刷頁96。"
+      },
+      "projectSubitem": "依兩位虛構人物明說的需求，分類其中核心需要相同或主要請求不同，並回到文字證據檢查判斷。",
+      "decompositionKind": "project_decomposition_from_verified_official_clause_not_official_subclause",
+      "activityIds": [
+        "ACT-G4-SOCIAL-DIFFERENT-VIEWPOINTS-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "compare-shared-and-different-viewpoints"
+      ],
+      "notCovered": [
+        "真實居民訪談、觀點成因、口語協商、公共決策與教師觀察。"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-7-MAGNET-POLES",
+      "focusId": "science-stage2-ine-ⅱ-7-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-7",
+      "officialCodes": [
+        "INe-Ⅱ-7"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "磁鐵具有兩極，同極相斥，異極相吸；磁鐵會吸引含鐵的物體。磁力強弱可由吸起含鐵物質數量多寡得知。",
+      "sourceNotes": "完整官方原文保留於 INe 批次；本列為專案拆解，並非官方另列子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe-Ⅱ-7，PDF頁序23、印刷頁19。"
+      },
+      "projectSubitem": "辨認並操作兩磁鐵相對磁極，觀察同極相斥、異極相吸。",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [
+        "ACT-G4-SCIENCE-MAGNET-INTERACTION-DOCK-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "magnet-poles-and-forces"
+      ],
+      "notCovered": [
+        "真實磁鐵及含鐵材料的操作與觀察。",
+        "實物中磁力強弱的量測、控制變因與教師觀察。"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-7-IRON-MATERIALS",
+      "focusId": "science-stage2-ine-ⅱ-7-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-7",
+      "officialCodes": [
+        "INe-Ⅱ-7"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "磁鐵具有兩極，同極相斥，異極相吸；磁鐵會吸引含鐵的物體。磁力強弱可由吸起含鐵物質數量多寡得知。",
+      "sourceNotes": "完整官方原文保留於 INe 批次；本列為專案拆解，並非官方另列子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe-Ⅱ-7，PDF頁序23、印刷頁19。"
+      },
+      "projectSubitem": "將磁鐵移近不同材料，先觀察吸引結果，再依結果分類含鐵物與未受吸引物。",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [
+        "ACT-G4-SCIENCE-MAGNET-INTERACTION-DOCK-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "test-magnetic-materials"
+      ],
+      "notCovered": [
+        "真實磁鐵及含鐵材料的操作與觀察。",
+        "實物中磁力強弱的量測、控制變因與教師觀察。"
+      ],
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "subitemId": "SUB-SCIENCE-STAGE2-INe-II-7-STRENGTH-COUNTS",
+      "focusId": "science-stage2-ine-ⅱ-7-concepts",
+      "subject": "natural_science",
+      "officialCode": "INe-Ⅱ-7",
+      "officialCodes": [
+        "INe-Ⅱ-7"
+      ],
+      "officialPerformanceCode": null,
+      "sourceText": "磁鐵具有兩極，同極相斥，異極相吸；磁鐵會吸引含鐵的物體。磁力強弱可由吸起含鐵物質數量多寡得知。",
+      "sourceNotes": "完整官方原文保留於 INe 批次；本列為專案拆解，並非官方另列子條文。",
+      "sourceTextKind": "verbatim_official_pdf_clause_checked_2026-10-25",
+      "sourceRef": {
+        "sourceId": "natural-science",
+        "pageOrSection": "INe-Ⅱ-7，PDF頁序23、印刷頁19。"
+      },
+      "projectSubitem": "在固定數位情境下比較兩磁鐵可吸起的含鐵物件數量，作為磁力強弱的模擬比較。",
+      "decompositionKind": "project_decomposition_from_verified_official_stage_clause_not_official_subclause",
+      "activityIds": [
+        "ACT-G4-SCIENCE-MAGNET-INTERACTION-DOCK-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "compare-magnet-strength-counts"
+      ],
+      "notCovered": [
+        "真實磁鐵及含鐵材料的操作與觀察。",
+        "實物中磁力強弱的量測、控制變因與教師觀察。"
+      ],
+      "status": "candidate_partial_interaction"
+    }
+  ]
+}

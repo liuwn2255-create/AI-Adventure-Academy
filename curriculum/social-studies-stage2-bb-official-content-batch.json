@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "batchId": "social-studies-stage2-bb-environment-difference-pdf-page-100",
+  "status": "verified_bounded_official_content_subsection_not_full_document_inventory",
+  "sourceId": "social-studies",
+  "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－社會領域",
+  "publicationInfo": "教育部107年9月發布；官方 PDF 封面標示中華民國107年10月。",
+  "documentVersion": "官方 PDF 封面日期為107年10月；未確認獨立版本標籤，不推定修訂版號。",
+  "sourceUrl": "https://stv.naer.edu.tw/data/course_outline/pta_18535_6408773_60398.pdf",
+  "sourceLocation": "伍／二／國民小學學習內容表／B.差異與多元／b.環境差異／第二學習階段欄，PDF頁序100、文件印刷頁碼96。",
+  "applicability": {
+    "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+    "grade": null,
+    "semester": null,
+    "gradeApplicabilityStatus": "official_stage_only_not_individual_grade"
+  },
+  "reviewMethod": "核對官方 PDF 學習內容表頁序100（印刷頁96）B.差異與多元／b.環境差異／第二學習階段欄 Bb-Ⅱ-1 原文及表格列；未將相鄰階段內容併入。",
+  "clauses": [
+    {
+      "code": "Bb-Ⅱ-1",
+      "officialText": "居民的生活空間與生活方式具有地區性的差異。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 100,
+      "printedPage": 96,
+      "sourceLocator": "伍／二／國民小學學習內容表／B.差異與多元／b.環境差異／第二學習階段欄／Bb-Ⅱ-1",
+      "reviewStatus": "verified_against_official_pdf_text_and_registered_page_evidence_2026-10-26",
+      "relatedPerformanceCodes": [],
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "activityEvidence": [],
+      "limitations": [
+        "檢視現有社會領域活動未找到直接比較居民生活空間與生活方式之地區差異的任務；不以 Ba-Ⅱ-1 個體觀點活動代替。",
+        "官方只列第二學習階段，不指定個別年級或學期。"
+      ]
+    }
+  ],
+  "boundary": "本批只登錄 B.差異與多元／b.環境差異中第二學習階段 Bb-Ⅱ-1 一條學習內容；Ba-Ⅱ-1 保留於既有獨立批次，本批不含其他階段或社會領域完整枚舉。",
+  "nextWorkPosition": "社會領域接續 B.差異與多元／b.環境差異表格下一條，先回查官方 PDF 頁面與列界再擷取。"
+}

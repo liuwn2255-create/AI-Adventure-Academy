@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "registryId": "project-unit-id-history",
+  "historyRevision": 1,
+  "reservedUnitIds": [
+    {
+      "unitId": "M3-NUM-01",
+      "firstReservedAt": "2026-10-20T18:21:48+08:00",
+      "reason": "建立一筆候選單元登錄所需的永久識別碼保留記錄；此保留不代表單元核准。",
+      "lastKnownStatus": "candidate",
+      "retiredAt": null,
+      "replacementUnitId": null
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#87d5ff" />
+    <meta name="description" content="數學候選活動教師審查工作台；資料留在目前瀏覽器，不上傳學生資料。" />
+    <title>數學候選活動教師審查工作台｜智慧探險學園</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./teacherReviewPage.js"></script>
+  </head>
+  <body>
+    <div class="sky-scene" aria-hidden="true">
+      <span class="sun"></span><span class="cloud cloud-one"></span><span class="cloud cloud-two"></span>
+      <div class="mountain mountain-back"></div><div class="mountain mountain-front"></div>
+    </div>
+    <header class="topbar">
+      <a class="brand" href="./index.html" aria-label="返回智慧探險學園首頁"><span class="brand-mark">✦</span><span>智慧探險學園</span></a>
+      <a class="text-button" href="./index.html">← 返回遊戲</a>
+    </header>
+    <main class="teacher-review-page">
+      <p class="eyebrow">教師使用・候選內容審查</p>
+      <h1>數學候選活動教師審查工作台</h1>
+      <p class="screen-lead">檢視數學候選活動的題目、課綱參照與先備能力；教師填寫的內容只記錄審查意見，不會核准課程或發布題目。</p>
+      <div class="teacher-review-guardrails" role="note">
+        <strong>資料與狀態界線</strong>
+        <ul>
+          <li>工作台資料與遊戲進度使用不同資料鍵；不會修改分數、星星、徽章、解鎖或精熟度。</li>
+          <li>目前活動均為候選／待教師審查；標記「通過內容審查」不等於課程核准或正式發布。</li>
+          <li>「接受修改建議」只記錄教師逐題意見；「建議進入試用評估」不等於准予試用。修訂版本不會套用至遊戲。</li>
+          <li>教師審查草稿與候選修訂分別保存在目前瀏覽器的不同本機資料鍵；不跨裝置同步。修訂須另行匯出備份。</li>
+          <li>不填寫學生姓名或個人資料，也不會自動上傳。</li>
+        </ul>
+      </div>
+      <div id="teacher-review-root"></div>
+      <p class="prototype-note">Stage 0 維持 not_passed。工作台本身不代表教師已完成實際審查。</p>
+    </main>
+    <footer class="site-footer"><span>教師審查資料請由教師核對與保管</span><span>本機原型</span></footer>
+  </body>
+</html>

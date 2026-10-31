@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "modelId": "student-chapter-learning-progress",
+  "implementationStatus": "specification_only_not_implemented",
+  "records": [],
+  "recordSchema": {
+    "recordId": "string; 每筆紀錄唯一且不可重用",
+    "learnerRef": "string; 不透明假名參照，不得存姓名、聯絡方式或其他直接識別資料",
+    "learningUnitId": "string; 必須引用 learning-objectives.json 中的學習單元",
+    "learningUnitRevision": "positive integer; 固定指向實際存在的學習單元 revision",
+    "gradeId": "string",
+    "semesterId": "string|null; 無校本證據時為 null",
+    "subjectId": "string",
+    "chapterId": "string",
+    "state": "states[].id",
+    "stateHistory": "array of {from,to,changedAt,evidenceRefs}; 每次轉換追加，不覆寫歷史",
+    "evidenceRefs": "array of {evidenceId,type,recordedAt,sourceRef}; 每個狀態轉換都須能追溯",
+    "updatedAt": "ISO 8601 timestamp"
+  },
+  "states": [
+    {
+      "id": "not_started",
+      "meaning": "尚未開始；沒有本章學習活動紀錄。",
+      "requiredEvidence": []
+    },
+    {
+      "id": "in_progress",
+      "meaning": "學習中；已有開始學習或補強活動的紀錄。",
+      "requiredEvidence": [
+        "learning_activity_started"
+      ]
+    },
+    {
+      "id": "activity_completed",
+      "meaning": "活動已完成；只表示指定活動完成，不表示檢核通過。",
+      "requiredEvidence": [
+        "learning_activity_completed"
+      ]
+    },
+    {
+      "id": "needs_review",
+      "meaning": "需要複習；檢核未通過、表現不穩或教師判定需補強。",
+      "requiredEvidence": [
+        "learning_check_result",
+        "teacher_observation",
+        "learner_request"
+      ]
+    },
+    {
+      "id": "check_passed",
+      "meaning": "已通過一項已核定的學習檢核；不等同長期掌握或目標達成。",
+      "requiredEvidence": [
+        "approved_learning_check_result"
+      ]
+    },
+    {
+      "id": "objective_achieved",
+      "meaning": "依教師核定的成果規準及多次可追溯證據判定已達成學習目標。",
+      "requiredEvidence": [
+        "approved_objective_criteria",
+        "multiple_learning_evidence",
+        "educator_review"
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "from": "not_started",
+      "to": "in_progress",
+      "requires": [
+        "learning_activity_started"
+      ]
+    },
+    {
+      "from": "in_progress",
+      "to": "activity_completed",
+      "requires": [
+        "learning_activity_completed"
+      ]
+    },
+    {
+      "from": "in_progress",
+      "to": "needs_review",
+      "requires": [
+        "learning_check_result",
+        "teacher_observation",
+        "learner_request"
+      ]
+    },
+    {
+      "from": "activity_completed",
+      "to": "in_progress",
+      "requires": [
+        "learning_activity_started"
+      ]
+    },
+    {
+      "from": "activity_completed",
+      "to": "needs_review",
+      "requires": [
+        "learning_check_result",
+        "teacher_observation"
+      ]
+    },
+    {
+      "from": "activity_completed",
+      "to": "check_passed",
+      "requires": [
+        "approved_learning_check_result"
+      ]
+    },
+    {
+      "from": "needs_review",
+      "to": "in_progress",
+      "requires": [
+        "reinforcement_activity_started"
+      ]
+    },
+    {
+      "from": "needs_review",
+      "to": "check_passed",
+      "requires": [
+        "approved_learning_check_result"
+      ]
+    },
+    {
+      "from": "check_passed",
+      "to": "needs_review",
+      "requires": [
+        "later_learning_check_result",
+        "teacher_observation"
+      ]
+    },
+    {
+      "from": "check_passed",
+      "to": "objective_achieved",
+      "requires": [
+        "approved_objective_criteria",
+        "multiple_learning_evidence",
+        "educator_review"
+      ]
+    },
+    {
+      "from": "objective_achieved",
+      "to": "needs_review",
+      "requires": [
+        "later_learning_check_result",
+        "teacher_observation"
+      ]
+    }
+  ],
+  "evidencePolicy": {
+    "permittedTypes": [
+      "learning_activity_started",
+      "learning_activity_completed",
+      "learning_check_result",
+      "approved_learning_check_result",
+      "reinforcement_activity_started",
+      "teacher_observation",
+      "learner_request",
+      "later_learning_check_result",
+      "approved_objective_criteria",
+      "multiple_learning_evidence",
+      "educator_review"
+    ],
+    "gameSignalsAloneAreInsufficient": [
+      "score",
+      "stars",
+      "badge",
+      "level_completion"
+    ],
+    "checkPassedIsNotObjectiveAchieved": true,
+    "objectiveAchievedThreshold": "由教育專業人員依核定成果規準決定；本規格不預設題數、比例或間隔。",
+    "appendOnlyHistory": true,
+    "noRealStudentRecordsCreated": true
+  }
+}

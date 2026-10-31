@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "batchId": "natural-science-stage2-inb-content-slice-pdf-page-20",
+  "status": "verified_bounded_official_content_subsection_not_full_document_inventory",
+  "sourceId": "natural-science",
+  "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－自然科學領域",
+  "publicationInfo": "教育部107年11月2日以臺教授國部字第1070119882B號令發布。",
+  "sourceUrl": "https://stv.naer.edu.tw/data/course_outline/pta_18538_240851_60502.pdf",
+  "sourceLocation": "伍／二、學習內容／課題1 自然界的組成與特性／跨科概念構造與功能（INb），第二學習階段欄，PDF頁序20（序號由1起算），。表格在同一頁序延續至INc；本批只擷取INb-II小節。 （官方頁尾影像核對）。 （官方頁尾影像核對）。 （官方頁尾影像核對）。 （官方頁尾影像核對）。 文件印刷頁碼16（官方頁尾影像核對）。",
+  "applicability": {
+    "learningStage": "第二學習階段（三、四年級）",
+    "grade": null,
+    "semester": null
+  },
+  "reviewMethod": "本輪直接核讀國教院官方自然科學領綱PDF頁序20之課題1表格，辨認跨科概念INb列與第二學習階段七個代碼及逐列原文；並與前後頁表格邊界核對。文件印刷頁碼據頁尾標記17。活動狀態依本機已註冊任務的實際互動核對，不由名稱單獨推定。",
+  "clauses": [
+    {
+      "code": "INb-II-1",
+      "officialText": "物質或物體各有不同的功能或用途。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 20,
+      "printedPage": 16,
+      "sourceLocator": "伍／二／課題1／跨科概念構造與功能（INb）第二學習階段欄，INb-II-1列；文件印刷頁碼16",
+      "reviewStatus": "directly_read_from_official_pdf_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "尚未找到以物質或物體功能／用途為目標的具體互動證據"
+      ]
+    },
+    {
+      "code": "INb-II-2",
+      "officialText": "物質性質上的差異性可用來區分或分離物質。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 20,
+      "printedPage": 16,
+      "sourceLocator": "伍／二／課題1／跨科概念構造與功能（INb）第二學習階段欄，INb-II-2列；文件印刷頁碼16",
+      "reviewStatus": "directly_read_from_official_pdf_this_turn",
+      "activityIds": [
+        "ACT-G4-SCIENCE-MATERIAL-SORT-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "partial",
+      "limitations": [
+        "現有活動只以模擬吸水觀察紀錄分類；不是真實材料測試，也未涵蓋依性質分離物質"
+      ]
+    },
+    {
+      "code": "INb-II-3",
+      "officialText": "虹吸現象可用來將容器中的水吸出；連通管可測水平。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 20,
+      "printedPage": 16,
+      "sourceLocator": "伍／二／課題1／跨科概念構造與功能（INb）第二學習階段欄，INb-II-3列；文件印刷頁碼16",
+      "reviewStatus": "directly_read_from_official_pdf_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "未有虹吸或連通管模型操作活動；此列不以一般容量題替代"
+      ]
+    },
+    {
+      "code": "INb-II-4",
+      "officialText": "生物體的構造與功能是互相配合的。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 20,
+      "printedPage": 16,
+      "sourceLocator": "伍／二／課題1／跨科概念構造與功能（INb）第二學習階段欄，INb-II-4列；文件印刷頁碼16",
+      "reviewStatus": "directly_read_from_official_pdf_this_turn",
+      "activityIds": [
+        "ACT-G4-SCIENCE-PLANT-STRUCTURE-ATLAS-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "limitations": [
+        "植物圖鑑雖宣告INb-II-4，但已檢閱的核心互動是文字線索辨識與莖分類，未操作構造—功能配對；故僅列關聯，不作互動涵蓋"
+      ]
+    },
+    {
+      "code": "INb-II-5",
+      "officialText": "常見動物的外部形態主要分為頭、軀幹和肢，但不同類別動物之各部位特徵和名稱有差異。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 20,
+      "printedPage": 16,
+      "sourceLocator": "伍／二／課題1／跨科概念構造與功能（INb）第二學習階段欄，INb-II-5列；文件印刷頁碼16",
+      "reviewStatus": "directly_read_from_official_pdf_this_turn",
+      "activityIds": [
+        "ACT-G3-SCIENCE-ANIMAL-EVIDENCE-ATLAS-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "partial",
+      "limitations": [
+        "活動比較一般動物、魚類與昆蟲的文字紀錄；不含真實動物觀察、更多動物類別或全部部位變異"
+      ]
+    },
+    {
+      "code": "INb-II-6",
+      "officialText": "常見植物的外部形態主要由根、莖、葉、花、果實及種子所組成。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 20,
+      "printedPage": 16,
+      "sourceLocator": "伍／二／課題1／跨科概念構造與功能（INb）第二學習階段欄，INb-II-6列；文件印刷頁碼16",
+      "reviewStatus": "directly_read_from_official_pdf_this_turn",
+      "activityIds": [
+        "ACT-G4-SCIENCE-PLANT-PARTS-OBSERVATION-CANDIDATE",
+        "ACT-G4-SCIENCE-PLANT-EXTERNAL-FORMS-TRANSFER-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "partial",
+      "limitations": [
+        "兩活動用文字模擬紀錄辨認部分根莖葉及花果種子；不含真實植物觀察、標本操作、根型葉部特徵及花部完整觀察"
+      ]
+    },
+    {
+      "code": "INb-II-7",
+      "officialText": "動植物體的外部形態和內部構造，與其生長、行為、繁衍後代和適應環境有關。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 20,
+      "printedPage": 16,
+      "sourceLocator": "伍／二／課題1／跨科概念構造與功能（INb）第二學習階段欄，INb-II-7列；文件印刷頁碼16",
+      "reviewStatus": "directly_read_from_official_pdf_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "現有動植物形態分類未實際連結生長、行為、繁衍或適應環境；未找到符合此條核心關係的遊戲"
+      ]
+    }
+  ],
+  "boundary": "本批只涵蓋自然科學領綱課題1之構造與功能（INb）第二學習階段七條學習內容；不是自然科學完整清冊，也不把階段內容指定為三年級、四年級或學期進度。活動僅以實際互動階段作部分證據，文字模擬不等同真實觀察、標本操作或實驗。",
+  "nextWorkPosition": "INb第二學習階段小節已核讀；下一批應接續PDF頁序20同表下一跨科概念系統與尺度（INc）第二學習階段欄，先確認該欄起訖及跨頁續文，再逐列核對。",
+  "pageImageLocatorCorrection": "INb PDF頁序20之官方頁尾為印刷頁碼16；修正先前來源定位記錄。"
+}

@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "batchId": "natural-science-stage2-inc-content-slice-pdf-pages-20-21",
+  "status": "verified_bounded_official_content_subsection_not_full_document_inventory",
+  "sourceId": "natural-science",
+  "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－自然科學領域",
+  "publicationInfo": "教育部107年11月2日以臺教授國部字第1070119882B號令發布。",
+  "sourceUrl": "https://stv.naer.edu.tw/data/course_outline/pta_18538_240851_60502.pdf",
+  "documentVersion": "來源 PDF 未確認獨立版本標籤；保留文件標題及教育部發布日期／文號，不推定版本名稱。",
+  "sourceLocation": "伍／二／課題1 自然界的組成與特性／系統與尺度（INc）第二學習階段欄，PDF頁序20–21，文件印刷頁碼16–17。",
+  "applicability": {
+    "learningStage": "第二學習階段（三、四年級）",
+    "grade": null,
+    "semester": null
+  },
+  "reviewMethod": "下載官方來源 PDF 後，以版面影像直接核對表格標題、第二學習階段欄、跨頁續文及頁尾印刷頁碼；逐列抄錄INc-Ⅱ 條文並與 PDF 文字擷取交叉檢視。活動狀態依已註冊任務的互動步驟判定，不以活動名稱推斷；未將階段指定為單一年級或學期。",
+  "clauses": [
+    {
+      "code": "INc-Ⅱ-1",
+      "officialText": "使用工具或自訂參考標準可量度與比較。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 20,
+      "printedPage": 16,
+      "sourceLocator": "伍／二／課題1 自然界的組成與特性／系統與尺度（INc）第二學習階段欄，INc-Ⅱ-1列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [
+        "ACT-G4-SCIENCE-PLANT-GROWTH-MEASUREMENTS-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "limitations": [
+        "豆苗活動只操作既有模擬讀值與數線標記，沒有讓學生選擇工具或參考標準並實際量度、比較。"
+      ]
+    },
+    {
+      "code": "INc-Ⅱ-2",
+      "officialText": "生活中常見的測量單位與度量。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 20,
+      "printedPage": 16,
+      "sourceLocator": "伍／二／課題1 自然界的組成與特性／系統與尺度（INc）第二學習階段欄，INc-Ⅱ-2列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [
+        "ACT-G4-SCIENCE-WEATHER-RECORD-BOARD-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "limitations": [
+        "天氣資料板只分類預先提供的單位資料，未把常見單位與實際度量作為學習目標；數據為虛構。"
+      ]
+    },
+    {
+      "code": "INc-Ⅱ-3",
+      "officialText": "力的表示法，包括大小、方向與作用點等。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 20,
+      "printedPage": 16,
+      "sourceLocator": "伍／二／課題1 自然界的組成與特性／系統與尺度（INc）第二學習階段欄，INc-Ⅱ-3列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "目前自然科學活動未提供學生操作力的大小、方向及作用點表示。"
+      ]
+    },
+    {
+      "code": "INc-Ⅱ-4",
+      "officialText": "方向、距離可用以表示物體位置。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 20,
+      "printedPage": 16,
+      "sourceLocator": "伍／二／課題1 自然界的組成與特性／系統與尺度（INc）第二學習階段欄，INc-Ⅱ-4列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "目前自然科學活動未提供以方向和距離定位物體的操作。"
+      ]
+    },
+    {
+      "code": "INc-Ⅱ-5",
+      "officialText": "水和空氣可以傳送動力讓物體移動。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 20,
+      "printedPage": 16,
+      "sourceLocator": "伍／二／課題1 自然界的組成與特性／系統與尺度（INc）第二學習階段欄，INc-Ⅱ-5列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "未找到水或空氣傳送動力使物體移動的自然科學互動；其他學科的運算或圖表活動不替代此內容。"
+      ]
+    },
+    {
+      "code": "INc-Ⅱ-6",
+      "officialText": "水有三態變化及毛細現象。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 20,
+      "printedPage": 16,
+      "sourceLocator": "伍／二／課題1 自然界的組成與特性／系統與尺度（INc）第二學習階段欄，INc-Ⅱ-6列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "未找到水三態變化或毛細現象的具體互動證據；數位模型亦不能替代實驗觀察。"
+      ]
+    },
+    {
+      "code": "INc-Ⅱ-7",
+      "officialText": "利用適當的工具觀察不同大小、距離位置的物體。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 20,
+      "printedPage": 16,
+      "sourceLocator": "伍／二／課題1 自然界的組成與特性／系統與尺度（INc）第二學習階段欄，INc-Ⅱ-7列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [
+        "ACT-G4-SCIENCE-PLANT-GROWTH-MEASUREMENTS-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "limitations": [
+        "豆苗活動在數線標記已給定的模擬高度，沒有選用工具觀察不同大小或距離位置的物體。"
+      ]
+    },
+    {
+      "code": "INc-Ⅱ-8",
+      "officialText": "不同的環境有不同的生物生存。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 20,
+      "printedPage": 16,
+      "sourceLocator": "伍／二／課題1 自然界的組成與特性／系統與尺度（INc）第二學習階段欄，INc-Ⅱ-8列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "現有動植物活動未操作環境差異與生物生存關係。"
+      ]
+    },
+    {
+      "code": "INc-Ⅱ-9",
+      "officialText": "地表具有岩石、砂、土壤等不同環境，各有特徵，可以分辨。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 21,
+      "printedPage": 17,
+      "sourceLocator": "伍／二／課題1 自然界的組成與特性／系統與尺度（INc）第二學習階段欄，INc-Ⅱ-9列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [
+        "ACT-G4-SCIENCE-MATERIAL-SORT-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "limitations": [
+        "材料分類活動只使用模擬吸水資料，沒有辨識岩石、砂與土壤的特徵或實地觀察。"
+      ]
+    },
+    {
+      "code": "INc-Ⅱ-10",
+      "officialText": "天空中天體有東升西落的現象，月亮有盈虧的變化，星星則是有些亮有些暗。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 21,
+      "printedPage": 17,
+      "sourceLocator": "伍／二／課題1 自然界的組成與特性／系統與尺度（INc）第二學習階段欄，INc-Ⅱ-10列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "未找到涵蓋日行現象、月相變化及星星明暗的天文觀察活動；不得以靜態文字題替代長期觀察。"
+      ]
+    }
+  ],
+  "boundary": "本批只涵蓋課題1「系統與尺度（INc）」第二學習階段10條學習內容；不包含第三學習階段欄或自然科學完整清冊。頁序20列INc-II-1至8，頁序21續列INc-II-9至10。",
+  "nextWorkPosition": "INc第二學習階段已逐列核讀；接續同一官方文件課題2「改變與穩定（INd）」第二學習階段欄，先核定完整跨頁邊界。"
+}

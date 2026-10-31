@@ -1,0 +1,145 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { CURRICULUM_GAME_CATALOG, PICKER_CHALLENGE_MODES } from '../prototype/data/curriculumGameCatalog.js';
+import {
+  describeCurriculumPickerEmptyState,
+  filterCurriculumGames,
+  getCurriculumGameAvailability,
+  getPickerObjectiveOptions,
+  validateCurriculumGameCatalog,
+} from '../prototype/curriculumGamePicker.js';
+import { GRADE_CATALOG } from '../prototype/data/gradeCatalog.js';
+import { MATH_LEVEL_DIRECTORY } from '../prototype/data/mathLevelDirectory.js';
+
+const readJson = (path) => JSON.parse(readFileSync(new URL(path, import.meta.url), 'utf8'));
+const learningMap = readJson('../curriculum/learning-map.json');
+const curriculumMap = readJson('../curriculum/curriculum-map.json');
+const learningObjectives = readJson('../curriculum/learning-objectives.json');
+const activities = readJson('../curriculum/learning-activity-map.json');
+const referenceData = { grades: GRADE_CATALOG, learningMap, curriculumMap, learningObjectives, activities, levelDirectory: MATH_LEVEL_DIRECTORY };
+
+test('picker catalog references resolve to existing grade, curriculum map, objectives and prototype activity', () => {
+  assert.deepEqual(validateCurriculumGameCatalog(CURRICULUM_GAME_CATALOG, referenceData), []);
+});
+
+test('grade catalog exposes all six grades and the indexed elementary courses for the picker', () => {
+  assert.deepEqual(GRADE_CATALOG.map(({ gradeId }) => gradeId), ['grade-1', 'grade-2', 'grade-3', 'grade-4', 'grade-5', 'grade-6']);
+  assert.ok(GRADE_CATALOG[2].subjects.some(({ subjectId }) => subjectId === 'chinese-language'));
+  assert.ok(GRADE_CATALOG[2].subjects.some(({ subjectId }) => subjectId === 'mathematics'));
+  assert.ok(GRADE_CATALOG[2].subjects.some(({ subjectId }) => subjectId === 'natural-science'));
+});
+
+test('grade 3 math, all semesters, place-value objective and sequential mode returns only the existing candidate', () => {
+  const games = filterCurriculumGames(CURRICULUM_GAME_CATALOG, {
+    gradeId: 'grade-3', subjectId: 'mathematics', semesterId: 'all',
+    learningObjectiveId: 'LO-M3-NUM-PLACE-VALUE-01', challengeMode: 'sequential_challenge',
+  });
+  assert.deepEqual(games.map(({ levelId }) => levelId), ['number-secret-challenge']);
+});
+
+test('unconfirmed semester placement is not assigned to either semester', () => {
+  for (const semesterId of ['semester-1', 'semester-2']) {
+    assert.deepEqual(filterCurriculumGames(CURRICULUM_GAME_CATALOG, {
+      gradeId: 'grade-3', subjectId: 'mathematics', semesterId,
+      learningObjectiveId: 'LO-M3-NUM-PLACE-VALUE-01', challengeMode: 'sequential_challenge',
+    }), []);
+  }
+  assert.match(describeCurriculumPickerEmptyState({ gradeId: 'grade-3', subjectId: 'mathematics', semesterId: 'semester-1', challengeMode: 'sequential_challenge' }, true), /學期安排尚未確認/);
+});
+
+test('candidate prototype stays pending and links only back to the existing map route', () => {
+  const game = CURRICULUM_GAME_CATALOG[0];
+  const availability = getCurriculumGameAvailability(game);
+  assert.equal(availability.kind, 'candidate_prototype');
+  assert.equal(game.reviewStatus, 'pending_teacher_review');
+  assert.equal(game.publicationStatus, 'not_approved');
+  assert.equal(game.formalUnitStatus, 'candidate');
+  assert.equal(game.entryRoute.targetScreen, 'select');
+  assert.equal(game.entryRoute.directLaunch, false);
+  assert.equal(game.entryRoute.unlockMissionId, 'task-find-number-obelisk');
+});
+
+test('planning placeholder is not launchable as a game', () => {
+  const availability = getCurriculumGameAvailability({ developmentStatus: 'pending_development' });
+  assert.equal(availability.available, false);
+  assert.equal(availability.kind, 'pending_development');
+});
+
+test('empty results explain missing planning content instead of producing a blank list', () => {
+  assert.match(describeCurriculumPickerEmptyState({
+    gradeId: 'grade-1', subjectId: 'mathematics', semesterId: 'all', challengeMode: 'sequential_challenge',
+  }, false), /尚無已登錄的可選學習目標或遊戲.*待開發/);
+  assert.match(describeCurriculumPickerEmptyState({ gradeId: 'grade-1', subjectId: 'mathematics' }, false), /待開發/);
+  assert.match(describeCurriculumPickerEmptyState({
+    gradeId: 'grade-3', subjectId: 'mathematics', semesterId: 'all', challengeMode: 'advanced_challenge',
+  }, true), /沒有此挑戰方式/);
+});
+
+test('missing curriculum map and objective references are reported as data errors', () => {
+  const invalid = [{ ...CURRICULUM_GAME_CATALOG[0], curriculumItemIds: ['missing-map'], learningObjectiveIds: ['missing-objective'] }];
+  const errors = validateCurriculumGameCatalog(invalid, referenceData);
+  assert.ok(errors.some((error) => error.includes('missing_curriculum_map_ref:missing-map')));
+  assert.ok(errors.some((error) => error.includes('missing_learning_objective:missing-objective')));
+});
+
+test('course-code references must exist in the referenced curriculum map item', () => {
+  const invalid = [{ ...CURRICULUM_GAME_CATALOG[0], curriculumCodeRefs: [{ code: 'N-3-999', codeType: 'learning_content' }] }];
+  const errors = validateCurriculumGameCatalog(invalid, referenceData);
+  assert.ok(errors.some((error) => error.includes('missing_curriculum_code:N-3-999')));
+});
+
+test('candidate unit cannot be marked published without all formal gates', () => {
+  const invalid = [{ ...CURRICULUM_GAME_CATALOG[0], publicationStatus: 'approved' }];
+  const errors = validateCurriculumGameCatalog(invalid, referenceData);
+  assert.ok(errors.some((error) => error.endsWith('publication_gate_incomplete')));
+  assert.ok(errors.some((error) => error.endsWith('candidate_unit_cannot_be_published')));
+});
+
+test('an approved label alone cannot bypass the formal publication guard', () => {
+  const approvedLookingGame = {
+    developmentStatus: 'approved', reviewStatus: 'approved_for_publication',
+    publicationStatus: 'approved', formalUnitStatus: 'approved',
+  };
+  assert.equal(getCurriculumGameAvailability(approvedLookingGame).available, false);
+  assert.equal(getCurriculumGameAvailability(approvedLookingGame, { formalGateVerified: true }).available, true);
+});
+
+test('picker challenge modes are explicit and only sequential challenge is connected', () => {
+  assert.deepEqual(PICKER_CHALLENGE_MODES.map(({ id }) => id), ['basic_practice', 'sequential_challenge', 'advanced_challenge']);
+  assert.deepEqual(CURRICULUM_GAME_CATALOG[0].supportedChallengeModes, ['sequential_challenge']);
+  assert.deepEqual(filterCurriculumGames(CURRICULUM_GAME_CATALOG, {
+    gradeId: 'grade-3', subjectId: 'mathematics', semesterId: 'all',
+    learningObjectiveId: 'LO-M3-NUM-PLACE-VALUE-01', challengeMode: 'basic_practice',
+  }), []);
+});
+
+test('future games with unmet learning prerequisites are filtered from sequential challenges', () => {
+  const dependent = { ...CURRICULUM_GAME_CATALOG[0], prerequisiteIds: ['LO-PREREQUISITE'] };
+  const selection = {
+    gradeId: 'grade-3', subjectId: 'mathematics', semesterId: 'all',
+    learningObjectiveId: 'LO-M3-NUM-PLACE-VALUE-01', challengeMode: 'sequential_challenge',
+  };
+  assert.deepEqual(filterCurriculumGames([dependent], selection), []);
+  assert.equal(filterCurriculumGames([dependent], selection, { completedPrerequisiteIds: ['LO-PREREQUISITE'] }).length, 1);
+});
+
+test('objective options are sourced from existing candidate objective IDs', () => {
+  const options = getPickerObjectiveOptions(CURRICULUM_GAME_CATALOG, 'grade-3', 'mathematics');
+  assert.deepEqual(options.map(({ id }) => id), [
+    'LO-M3-NUM-PLACE-VALUE-01', 'LO-M3-NUM-PLACE-VALUE-02', 'LO-M3-NUM-PLACE-VALUE-03',
+  ]);
+  const source = learningObjectives.learningUnits.find(({ learningUnitId }) => learningUnitId === 'learning-unit:chapter-scope-m3-math-number-place-value');
+  for (const option of options) {
+    const official = source.observableOutcomes.candidateObjectives.find(({ objectiveId }) => objectiveId === option.id);
+    assert.equal(official.statement, option.text);
+  }
+});
+
+test('selected learning objective has an accessible full-text summary outside the native select', () => {
+  const markup = readFileSync(new URL('../prototype/index.html', import.meta.url), 'utf8');
+  const appSource = readFileSync(new URL('../prototype/app.js', import.meta.url), 'utf8');
+  assert.match(markup, /id="picker-objective-summary"[^>]*aria-live="polite"/);
+  assert.match(appSource, /getElementById\('picker-objective-summary'\)/);
+  assert.match(appSource, /已選目標：\$\{selectedObjective\.text\}/);
+});

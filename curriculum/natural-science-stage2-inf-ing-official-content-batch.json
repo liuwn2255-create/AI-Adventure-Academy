@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "batchId": "natural-science-stage2-inf-ing-content-slice-pdf-page-24",
+  "status": "verified_bounded_official_content_subsection_not_full_document_inventory",
+  "sourceId": "natural-science",
+  "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－自然科學領域",
+  "publicationInfo": "教育部107年11月2日以臺教授國部字第1070119882B號令發布。",
+  "documentVersion": "官方 PDF 封面標示中華民國107年11月；未確認獨立版本標籤，不推定修訂版號。",
+  "sourceUrl": "https://stv.naer.edu.tw/data/course_outline/pta_18538_240851_60502.pdf",
+  "sourceLocation": "伍／二／國民小學學習內容／課題3「自然界的永續發展」／跨科概念「科學與生活（INf）」及「資源與永續性（INg）」第二學習階段欄，PDF頁序24、文件印刷頁碼20。",
+  "applicability": {
+    "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+    "grade": null,
+    "semester": null,
+    "gradeApplicabilityStatus": "official_stage_only_not_individual_grade"
+  },
+  "reviewMethod": "逐頁檢視官方 PDF 原始頁面影像（PDF頁序24／印刷頁20），確認課題3表頭、INf與INg列、第二學習階段欄及該頁表尾；另以官方 PDF 文字層交叉核對10筆原文。該範圍同頁結束，無跨頁續文。",
+  "relatedPerformanceCodes": [],
+  "performanceLinkStatus": "此學習內容表未逐列明示學習表現代碼；不自行推定關聯。",
+  "clauses": [
+    {
+      "code": "INf-Ⅱ-1",
+      "officialText": "日常生活中常見的科技產品。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 24,
+      "printedPage": 20,
+      "sourceLocator": "伍／二／課題3「自然界的永續發展」／科學與生活（INf）／第二學習階段欄／INf-Ⅱ-1",
+      "reviewStatus": "verified_against_official_pdf_rendered_page_and_text_layer_2026-10-26",
+      "relatedPerformanceCodes": [],
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "activityEvidence": [],
+      "limitations": [
+        "本次檢視的自然科學活動沒有讓學生操作、比較日常科技產品的功能或使用情境。",
+        "官方只列第二學習階段；本批不指定三年級、四年級或學期。",
+        "活動資料中的對應狀態不代表教師審查或學生學習成效。"
+      ]
+    },
+    {
+      "code": "INf-Ⅱ-2",
+      "officialText": "不同的環境影響人類食物的種類、來源與飲食習慣。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 24,
+      "printedPage": 20,
+      "sourceLocator": "伍／二／課題3「自然界的永續發展」／科學與生活（INf）／第二學習階段欄／INf-Ⅱ-2",
+      "reviewStatus": "verified_against_official_pdf_rendered_page_and_text_layer_2026-10-26",
+      "relatedPerformanceCodes": [],
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "activityEvidence": [],
+      "limitations": [
+        "未找到操作環境條件、食物來源與飲食習慣關係的直接活動。",
+        "官方只列第二學習階段；本批不指定三年級、四年級或學期。",
+        "活動資料中的對應狀態不代表教師審查或學生學習成效。"
+      ]
+    },
+    {
+      "code": "INf-Ⅱ-3",
+      "officialText": "自然的規律與變化對人類生活應用與美感的啟發。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 24,
+      "printedPage": 20,
+      "sourceLocator": "伍／二／課題3「自然界的永續發展」／科學與生活（INf）／第二學習階段欄／INf-Ⅱ-3",
+      "reviewStatus": "verified_against_official_pdf_rendered_page_and_text_layer_2026-10-26",
+      "relatedPerformanceCodes": [],
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "activityEvidence": [],
+      "limitations": [
+        "未找到以自然規律或變化作為生活應用／美感設計依據的自然科學互動。",
+        "官方只列第二學習階段；本批不指定三年級、四年級或學期。",
+        "活動資料中的對應狀態不代表教師審查或學生學習成效。"
+      ]
+    },
+    {
+      "code": "INf-Ⅱ-4",
+      "officialText": "季節的變化與人類生活的關係。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 24,
+      "printedPage": 20,
+      "sourceLocator": "伍／二／課題3「自然界的永續發展」／科學與生活（INf）／第二學習階段欄／INf-Ⅱ-4",
+      "reviewStatus": "verified_against_official_pdf_rendered_page_and_text_layer_2026-10-26",
+      "relatedPerformanceCodes": [],
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "activityEvidence": [],
+      "limitations": [
+        "未找到比較季節變化及其生活關係的自然科學活動。",
+        "官方只列第二學習階段；本批不指定三年級、四年級或學期。",
+        "活動資料中的對應狀態不代表教師審查或學生學習成效。"
+      ]
+    },
+    {
+      "code": "INf-Ⅱ-5",
+      "officialText": "人類活動對環境造成影響。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 24,
+      "printedPage": 20,
+      "sourceLocator": "伍／二／課題3「自然界的永續發展」／科學與生活（INf）／第二學習階段欄／INf-Ⅱ-5",
+      "reviewStatus": "verified_against_official_pdf_rendered_page_and_text_layer_2026-10-26",
+      "relatedPerformanceCodes": [],
+      "activityIds": [
+        "ACT-G6-INTEGRATIVE-RESOURCE-PLANNER-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "activityEvidence": [
+        {
+          "activityId": "ACT-G6-INTEGRATIVE-RESOURCE-PLANNER-CANDIDATE",
+          "evidenceKind": "reviewed_registered_activity_content",
+          "limit": "該活動規劃虛構班級展覽可用資源，未操作人類活動對自然環境影響的證據。"
+        }
+      ],
+      "limitations": [
+        "該活動規劃虛構班級展覽可用資源，未操作人類活動對自然環境影響的證據。",
+        "官方只列第二學習階段；本批不指定三年級、四年級或學期。",
+        "活動資料中的對應狀態不代表教師審查或學生學習成效。"
+      ]
+    },
+    {
+      "code": "INf-Ⅱ-6",
+      "officialText": "地震會造成嚴重的災害，平時的準備與防震能降低損害。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 24,
+      "printedPage": 20,
+      "sourceLocator": "伍／二／課題3「自然界的永續發展」／科學與生活（INf）／第二學習階段欄／INf-Ⅱ-6",
+      "reviewStatus": "verified_against_official_pdf_rendered_page_and_text_layer_2026-10-26",
+      "relatedPerformanceCodes": [],
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "activityEvidence": [],
+      "limitations": [
+        "未找到地震防災準備與防震操作／決策活動；現有運動安全情境不是地震防災。",
+        "官方只列第二學習階段；本批不指定三年級、四年級或學期。",
+        "活動資料中的對應狀態不代表教師審查或學生學習成效。"
+      ]
+    },
+    {
+      "code": "INf-Ⅱ-7",
+      "officialText": "水與空氣污染會對生物產生影響。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 24,
+      "printedPage": 20,
+      "sourceLocator": "伍／二／課題3「自然界的永續發展」／科學與生活（INf）／第二學習階段欄／INf-Ⅱ-7",
+      "reviewStatus": "verified_against_official_pdf_rendered_page_and_text_layer_2026-10-26",
+      "relatedPerformanceCodes": [],
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "activityEvidence": [],
+      "limitations": [
+        "未找到水或空氣污染影響生物的證據判讀或變因模擬活動。",
+        "官方只列第二學習階段；本批不指定三年級、四年級或學期。",
+        "活動資料中的對應狀態不代表教師審查或學生學習成效。"
+      ]
+    },
+    {
+      "code": "INg-Ⅱ-1",
+      "officialText": "自然環境中有許多資源。人類生存與生活需依賴自然環境中的各種資源，但自然資源都是有限的，需要珍惜使用。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 24,
+      "printedPage": 20,
+      "sourceLocator": "伍／二／課題3「自然界的永續發展」／資源與永續性（INg）／第二學習階段欄／INg-Ⅱ-1",
+      "reviewStatus": "verified_against_official_pdf_rendered_page_and_text_layer_2026-10-26",
+      "relatedPerformanceCodes": [],
+      "activityIds": [
+        "ACT-G6-INTEGRATIVE-RESOURCE-PLANNER-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "activityEvidence": [
+        {
+          "activityId": "ACT-G6-INTEGRATIVE-RESOURCE-PLANNER-CANDIDATE",
+          "evidenceKind": "reviewed_registered_activity_content",
+          "limit": "該活動整理學校／班級服務資源，未比較自然資源的有限性與依賴關係。"
+        }
+      ],
+      "limitations": [
+        "該活動整理學校／班級服務資源，未比較自然資源的有限性與依賴關係。",
+        "官方只列第二學習階段；本批不指定三年級、四年級或學期。",
+        "活動資料中的對應狀態不代表教師審查或學生學習成效。"
+      ]
+    },
+    {
+      "code": "INg-Ⅱ-2",
+      "officialText": "地球資源永續可結合日常生活中低碳與節水方法做起。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 24,
+      "printedPage": 20,
+      "sourceLocator": "伍／二／課題3「自然界的永續發展」／資源與永續性（INg）／第二學習階段欄／INg-Ⅱ-2",
+      "reviewStatus": "verified_against_official_pdf_rendered_page_and_text_layer_2026-10-26",
+      "relatedPerformanceCodes": [],
+      "activityIds": [
+        "ACT-G6-INTEGRATIVE-RESOURCE-PLANNER-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "activityEvidence": [
+        {
+          "activityId": "ACT-G6-INTEGRATIVE-RESOURCE-PLANNER-CANDIDATE",
+          "evidenceKind": "reviewed_registered_activity_content",
+          "limit": "該活動沒有操作低碳或節水方法，也未比較其資源效果。"
+        }
+      ],
+      "limitations": [
+        "該活動沒有操作低碳或節水方法，也未比較其資源效果。",
+        "官方只列第二學習階段；本批不指定三年級、四年級或學期。",
+        "活動資料中的對應狀態不代表教師審查或學生學習成效。"
+      ]
+    },
+    {
+      "code": "INg-Ⅱ-3",
+      "officialText": "可利用垃圾減量、資源回收、節約能源等方法來保護環境。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 24,
+      "printedPage": 20,
+      "sourceLocator": "伍／二／課題3「自然界的永續發展」／資源與永續性（INg）／第二學習階段欄／INg-Ⅱ-3",
+      "reviewStatus": "verified_against_official_pdf_rendered_page_and_text_layer_2026-10-26",
+      "relatedPerformanceCodes": [],
+      "activityIds": [
+        "ACT-G6-INTEGRATIVE-RESOURCE-PLANNER-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "activityEvidence": [
+        {
+          "activityId": "ACT-G6-INTEGRATIVE-RESOURCE-PLANNER-CANDIDATE",
+          "evidenceKind": "reviewed_registered_activity_content",
+          "limit": "該活動規劃展覽用品，沒有垃圾減量、回收或節能決策操作。"
+        }
+      ],
+      "limitations": [
+        "該活動規劃展覽用品，沒有垃圾減量、回收或節能決策操作。",
+        "官方只列第二學習階段；本批不指定三年級、四年級或學期。",
+        "活動資料中的對應狀態不代表教師審查或學生學習成效。"
+      ]
+    }
+  ],
+  "boundary": "本批只含 PDF 頁序24／印刷頁20課題3 INf、INg 的第二學習階段10條學習內容；不含課題3第三學習階段、課題4、學習表現或自然科學整份文件清冊。",
+  "nextWorkPosition": "同一自然科學官方 PDF，接續課題3第三學習階段欄，再核對該表標題、邊界及續頁；不得推定頁碼或代碼。"
+}

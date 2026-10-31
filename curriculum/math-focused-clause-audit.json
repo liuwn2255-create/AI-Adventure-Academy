@@ -1,0 +1,3609 @@
+{
+  "schemaVersion": 1,
+  "auditStatus": "verified_grade1_to_grade6_contiguous_content_table_batches_full_math_inventory_incomplete",
+  "sourceId": "mathematics",
+  "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域",
+  "publicationInfo": "教育部 107 年 7 月 26 日發布，臺教授國部字第1070066476B號。",
+  "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+  "reviewedAt": "2026-10-23",
+  "reviewMethod": "直接查閱國教院官方 PDF 原頁及表格文字；目前逐條核對8項學習內容及完整列錄國小第一至第三學習階段58項學習表現。PDF 頁序以 1 起算。官方內容代碼標示年級表，學習表現代碼則標示學習階段；不得據此推定學期或教材順序。 本輪另逐列核對三年級學習內容表PDF頁序25–28，共24個唯一代碼；只表示該連續表格範圍已逐列核查，不表示全數學內容清冊已完成。 本輪另逐列核對三年級學習內容表PDF頁序25–28，共24個唯一代碼；只表示該連續表格範圍已逐列核查，不表示全數學內容清冊已完成。 本輪另逐列核對三年級學習內容表PDF頁序25–28，共24個唯一代碼；只表示該連續表格範圍已逐列核查，不表示全數學內容清冊已完成。 本輪另逐列核對三年級學習內容表PDF頁序25–28，共24個唯一代碼；只表示該連續表格範圍已逐列核查，不表示全數學內容清冊已完成。 另逐列核對一年級學習內容表PDF頁序21–22，11個官方代碼（其中N-1-5與S-1-1明示同內容，按概念不重複計數）；含跨頁、備註及對應表現欄。官方全數學內容清冊仍未完成。 另逐列核對二年級學習內容表PDF頁序22–25，24個官方代碼列，讀取原文、備註、參考教具、同表表現欄及跨頁續文；N-2-12/S-2-5為部分內容關係，保留兩代碼且不當作別名。官方完整數學清冊仍未完成。 另逐列核對四年級學習內容表 PDF 頁序28–31，共26個唯一官方代碼列、24個概念（N-4-10/S-4-1同內容；N-4-12/S-4-4為相關體積列）；本表完成不代表數學領綱全清冊完成。 另逐列核對五年級學習內容表 PDF 頁序31–34，共27個官方代碼列、27個條目；N-5-4、N-5-11、S-5-4跨頁續文已追蹤。本表批次不代表完整數學領綱。 另逐列核對六年級學習內容表 PDF頁序35–37，共19個官方代碼列、18個不同概念（N-6-9/R-6-4由官方明示同內容）；逐表追至頁序38七年級表頭確認終點。六個年級學習內容表批次均已登錄，但數學領綱完整清冊仍未完成。",
+  "officialInventoryTotal": null,
+  "clauses": [
+    {
+      "code": "N-1-4",
+      "clauseType": "learning_content",
+      "officialText": "解題：1元、5元、10元、50元、100元。以操作活動為主。數錢、換錢、找錢。容許多元策略，以利建立數感，教師不應視為單純的加減單元。",
+      "sourceLocation": "同表 N-1-4，PDF頁序21。",
+      "applicability": {
+        "officialGradeTable": 1,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "projectInterpretation": "畫面錢幣選取與一個找零情境；非官方細目、非實體錢幣操作。",
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "officialNotes": "",
+      "officialPerformanceLinks": [
+        "n-I-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "auditBatchId": "math-grade1-content-table-pdf-pages-21-to-22"
+    },
+    {
+      "code": "N-2-13",
+      "clauseType": "learning_content",
+      "officialText": "鐘面的時刻：以操作活動為主。以鐘面時針與分針之位置認識「幾時幾分」。含兩整時時刻之間的整時點數（時間加減的前置經驗）。同時加強「五個一數」、「十個一數」。本活動不含秒針教學。整時的點數教學須配合鐘面進行。",
+      "sourceLocation": "同表 N-2-13，PDF頁序24。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "projectInterpretation": "螢幕鐘面調整時針、分針並數整時點；未含秒、經過時間計算或實體鐘面操作。",
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "officialNotes": "",
+      "referenceTools": "鐘面教具",
+      "officialPerformanceLinks": [
+        "n-I-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "N-4-12",
+      "clauseType": "learning_content",
+      "officialText": "體積與「立方公分」：以具體操作為主。體積認識基於1立方公分之正方體。",
+      "sourceLocation": "同表 N-4-12，PDF頁序29。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": "以螢幕單位方塊組成立方體並計數；不等同實際拿取、堆疊或量感評量。",
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "officialNotes": "教學應注意體積不容易做直接與間接比較，應和1立方公分之正方體一起教學。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "S-4-4"
+      ],
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "S-4-4",
+      "clauseType": "learning_content",
+      "officialText": "體積：以具體操作為主。在活動中認識體積的意義與比較。認識1立方公分之正方體，能理解並計數正方體堆疊的體積。",
+      "sourceLocation": "同表 S-4-4，PDF頁序30；與N-4-12共用體積概念與備註，不合併官方代碼。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": "螢幕以列、欄、層建造單位方塊模型，比較兩個規則長方體；未涵蓋真實體積量感、任意形體或公式推導。",
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "officialNotes": "同 N-4-12 備註。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-4-12"
+      ],
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "N-6-8",
+      "clauseType": "learning_content",
+      "officialText": "解題：基準量與比較量。比和比值的應用。含交換基準時之關係。",
+      "sourceLocation": "六年級學習內容表 N-6-8，PDF頁序35–36；備註跨頁至頁序36表頭前。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": "用官方說明中的一組數字演練交換基準的分子分母關係；不是完整比例應用或所有生活情境。",
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "officialNotes": "所謂交換基準如以哥哥身高為 1，弟弟身高為 4/5，則以弟弟身高為 1，哥哥身高為 5/4。",
+      "referenceTools": null,
+      "officialPerformanceLinks": [
+        "n-III-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "N-1-5",
+      "clauseType": "learning_content",
+      "officialText": "長度（同 S-1-1）：以操作活動為主。初步認識、直接比較、間接比較（含個別單位）。",
+      "sourceLocation": "同表 N-1-5，PDF頁序21；表格跨頁續文見S-1-1（PDF頁序21–22）。",
+      "applicability": {
+        "officialGradeTable": 1,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "projectInterpretation": "本輪活動以畫面路徑的直接比較及相同小段單位核對；非官方子項，且不包含常用單位或實物測量。",
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "officialNotes": "活動內容含直線與曲線。本條目教學無常用單位（N-2-11）。",
+      "officialPerformanceLinks": [
+        "n-I-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": "S-1-1",
+      "auditBatchId": "math-grade1-content-table-pdf-pages-21-to-22"
+    },
+    {
+      "code": "S-5-4",
+      "clauseType": "learning_content",
+      "officialText": "線對稱：線對稱的意義。「對稱軸」、「對稱點」、「對稱邊」、「對稱角」。由操作活動知道特殊平面圖形的線對稱性質。利用線對稱做簡單幾何推理。製作或繪製線對稱圖形。",
+      "sourceLocation": "同表 S-5-4，PDF頁序33–34（備註跨頁續文）。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": "本輪只在方格上補垂直軸鏡射圖形；未涵蓋對稱邊角性質、特殊圖形性質或實體折疊。",
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "officialNotes": "從操作活動察覺正三角形、等腰三角形、正方形、長方形、菱形、箏形（箏形指圖形，名詞不出現）、等腰梯形是線對稱圖形（避免告知）。在教學呈現時，線對稱軸應為垂直或平行（操作活動不在此限）。可處理正多邊形。備註跨頁續至PDF頁序34。",
+      "officialPerformanceLinks": [
+        "s-III-6"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "D-5-1",
+      "clauseType": "learning_content",
+      "officialText": "製作折線圖：製作生活中的折線圖。分辨折線圖之使用時機。",
+      "sourceLocation": "同表 D-5-1，PDF頁序34；五年級表格末列，頁序35為六年級表頭。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": "本輪以兩組明確標示為模擬的時間序列資料互動建點及連線；不代表蒐集真實資料或已理解圖表使用時機。",
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "officialNotes": "",
+      "officialPerformanceLinks": [
+        "d-III-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "S-3-4",
+      "clauseType": "learning_content",
+      "officialText": "幾何形體之操作：以操作活動為主。平面圖形的分割與重組。初步體驗展開圖如何黏合成立體形體。知道不同之展開圖可能黏合成同一形狀之立體形體。",
+      "officialNotes": "以操作體驗平面圖形關係與空間感為目標，啟發學生探討與發現之興趣，但不做任何數學知識的歸納。展開圖活動只是初步體驗，勿做過多複雜推理活動。本條目不做操作以外的紙筆評量。",
+      "officialPerformanceLinks": [
+        "s-II-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 S-3-4，PDF頁序27–28（跨頁續註）。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+    "projectInterpretation": "ACT-G3-MATH-GEOMETRY-SPLIT-RECOMPOSE-NET-FOLD-CANDIDATE 以螢幕操作兩種平面拼片重組，並模擬摺合兩種立方體展開圖、觀察面鄰接；這是操作型數位模擬的部分證據。仍未涵蓋實體剪裁、黏貼與摺合，也不取代教師觀察；不作超出官方備註的複雜推理或幾何性質歸納。",
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-3-1",
+      "clauseType": "learning_content",
+      "officialText": "一萬以內的數：含位值積木操作活動。結合點數、位值表徵、位值表。位值單位「千」。位值單位換算。",
+      "officialNotes": "教學可進行到最後的「一萬」，但不進行超過一萬的教學。",
+      "officialPerformanceLinks": [
+        "n-II-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "伍／學習重點／二、學習內容／三年級學習內容表 N-3-1，PDF頁序25。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-3-2",
+      "clauseType": "learning_content",
+      "officialText": "加減直式計算：含加、減法多次進、退位。",
+      "officialNotes": "須處理數字中有0的題型。教學可先在有位值的表格中學習計算。",
+      "officialPerformanceLinks": [
+        "n-II-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-3-2，PDF頁序25。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-3-3",
+      "clauseType": "learning_content",
+      "officialText": "乘以一位數：乘法直式計算。教師用位值的概念說明直式計算的合理性。被乘數為二、三位數。",
+      "officialNotes": "須處理被乘數有0的題型；教學可先在有位值的表格中學習計算，最後須能以一列算出答案。多位數乘以一位數隱含之分配律來自操作經驗與數感，而非分配律教學。",
+      "officialPerformanceLinks": [
+        "n-II-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-3-3，PDF頁序25。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-3-4",
+      "clauseType": "learning_content",
+      "officialText": "除法：除法的意義與應用。基於 N-2-9 之學習，透過幾個一數的解題方法，理解如何用乘法解決除法問題。熟練十十乘法範圍的除法，做為估商的基礎。",
+      "officialNotes": "建議先處理整除情境，再處理有餘數的情境。教學中應有乘、除法並陳之單元，讓學生能主動察覺乘法與除法問題的差異。",
+      "officialPerformanceLinks": [
+        "n-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-3-4，PDF頁序25–26（跨頁）。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-3-5",
+      "clauseType": "learning_content",
+      "officialText": "除以一位數：除法直式計算。教師用位值的概念說明直式計算的合理性。被除數為二、三位數。",
+      "officialNotes": "須處理被除數有0的題型。",
+      "officialPerformanceLinks": [
+        "n-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-5，PDF頁序26。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-3-6",
+      "clauseType": "learning_content",
+      "officialText": "解題：乘除應用問題。乘數、被乘數、除數、被除數未知之應用解題。連結乘與除的關係（R-3-1）。",
+      "officialNotes": "可使用解題策略協助學生理解與轉化問題（例如「倍」的語言、空格算式、乘除互逆等）。本條目不須另立單元教學。",
+      "officialPerformanceLinks": [
+        "n-II-2",
+        "n-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-6，PDF頁序26。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-3-7",
+      "clauseType": "learning_content",
+      "officialText": "解題：兩步驟應用問題（加減與除、連乘）。連乘、加與除、減與除之應用解題。",
+      "officialNotes": "不含併式。乘除混合、連除在四年級（N-4-3）。",
+      "officialPerformanceLinks": [
+        "n-II-5"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-7，PDF頁序26。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-3-8",
+      "clauseType": "learning_content",
+      "officialText": "解題：四則估算。具體生活情境。較大位數之估算策略。能用估算檢驗計算結果的合理性。",
+      "officialNotes": "估算解題的布題應貼近生活情境。本年級剛學除法，因此估算問題須簡單。",
+      "officialPerformanceLinks": [
+        "n-II-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-8，PDF頁序26。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-3-9",
+      "clauseType": "learning_content",
+      "officialText": "簡單同分母分數：結合操作活動與整數經驗。簡單同分母分數比較、加、減的意義。牽涉之分數與運算結果皆不超過2。以單位分數之點數為基礎，連結整數之比較、加、減。知道「和等於1」的意義。",
+      "officialNotes": "本年級分數教學只用「分數」一詞，不出現「真分數」與「假分數」的名詞，也不含帶分數的教學（N-4-5）。初步認識分數的應用時，情境應以連續量為主。若處理離散量，須與連續模型強烈結合，計數單位須為以整體數量為分母的單位分數。",
+      "officialPerformanceLinks": [
+        "n-II-6"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-9，PDF頁序26。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-3-10",
+      "clauseType": "learning_content",
+      "officialText": "一位小數：認識小數與小數點。結合點數、位值表徵、位值表。位值單位「十分位」。位值單位換算。比較、加減（含直式計算）與解題。",
+      "officialNotes": "小數之學習必須與整數經驗緊密連繫。小數應用情境應以連續量為主。",
+      "officialPerformanceLinks": [
+        "n-II-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-10，PDF頁序26。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-3-11",
+      "clauseType": "learning_content",
+      "officialText": "整數數線：認識數線，含報讀與標示。連結數序、長度、尺的經驗，理解在數線上做比較、加、減的意義。",
+      "officialNotes": "數線須從0開始。運用長度加減法（N-2-11），理解在數線上做加、減的意義。",
+      "officialPerformanceLinks": [
+        "n-II-8"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-11，PDF頁序26。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-3-12",
+      "clauseType": "learning_content",
+      "officialText": "長度：「毫米」。實測、量感、估測與計算。單位換算。",
+      "officialNotes": "基於 N-3-1 的限制，單位換算時，公尺數限個位數。自3年級後，量的計算可使用複名數協助加減計算（複名數不做乘除）。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-12，PDF頁序26–27（跨頁續文）。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-3-13",
+      "clauseType": "learning_content",
+      "officialText": "角與角度（同 S-3-1）：以具體操作為主。初步認識角和角度。角度的直接比較與間接比較。認識直角。",
+      "officialNotes": "用直尺或三角板的直角來認識與複製直角。教學應處理角大小與邊長長短或面積大小混淆之常見錯誤。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-13，PDF頁序27。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-3-14",
+      "clauseType": "learning_content",
+      "officialText": "面積：「平方公分」。實測、量感、估測與計算。",
+      "officialNotes": "應用平方公分板（百格圖），協助點數簡單圖形如正方形、長方形、三角形之面積，但不發展一般公式。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-14，PDF頁序27。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-3-15",
+      "clauseType": "learning_content",
+      "officialText": "容量：「公升」、「毫升」。實測、量感、估測與計算。單位換算。",
+      "officialNotes": "基於 N-3-1 的限制，單位換算公升數限個位數。可使用複名數協助加減計算（複名數不做乘除）。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-15，PDF頁序27。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-3-16",
+      "clauseType": "learning_content",
+      "officialText": "重量：「公斤」、「公克」。實測、量感、估測與計算。單位換算。",
+      "officialNotes": "基於 N-3-1 的限制，單位換算公斤數限個位數。可使用複名數協助加減計算（複名數不做乘除）。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-16，PDF頁序27。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-3-17",
+      "clauseType": "learning_content",
+      "officialText": "時間：「日」、「時」、「分」、「秒」。實測、量感、估測與計算。時間單位的換算。認識時間加減問題的類型。",
+      "officialNotes": "時間加減問題以認識加減問題類型為原則（較深入者見 N-4-13），處理時刻或時間量等常見加減問題。本年級加減限（1）同單位時間量；（2）時、分複名數加減（無進、退位）。",
+      "officialPerformanceLinks": [
+        "n-II-10"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-17，PDF頁序27。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "S-3-1",
+      "clauseType": "learning_content",
+      "officialText": "角與角度（同 N-3-13）：以具體操作為主。初步認識角和角度。角度的直接比較與間接比較。認識直角。",
+      "officialNotes": "同 N-3-13 備註。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 S-3-1，PDF頁序27。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "S-3-2",
+      "clauseType": "learning_content",
+      "officialText": "正方形和長方形：以邊與角的特徵來定義正方形和長方形。",
+      "officialNotes": "知道如何判斷斜擺的長方形或正方形依舊是長方形或正方形。",
+      "officialPerformanceLinks": [
+        "s-II-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 S-3-2，PDF頁序27。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "S-3-3",
+      "clauseType": "learning_content",
+      "officialText": "圓：「圓心」、「圓周」、「半徑」與「直徑」。能使用圓規畫指定半徑的圓。",
+      "officialNotes": "知道圓心是認識圓的重要定義元素，但是圓心並不屬於圓。",
+      "officialPerformanceLinks": [
+        "s-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 S-3-3，PDF頁序27。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "R-3-1",
+      "clauseType": "learning_content",
+      "officialText": "乘法與除法的關係：乘除互逆。應用於驗算與解題。理解例如「3的幾倍是15」、「什麼數的4倍是12」要用除法列式解題。",
+      "officialNotes": "",
+      "officialPerformanceLinks": [
+        "r-II-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 R-3-1，PDF頁序28。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "R-3-2",
+      "clauseType": "learning_content",
+      "officialText": "數量模式與推理（I）：以操作活動為主。一維變化模式之觀察與推理，例如數列、一維圖表等。",
+      "officialNotes": "含學生之簡單推理與說明。本教學活動不可出現公式，此非本條目之學習目標。可結合表格教學（D-3-1）。",
+      "officialPerformanceLinks": [
+        "r-II-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 R-3-2，PDF頁序28。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "D-3-1",
+      "clauseType": "learning_content",
+      "officialText": "一維表格與二維表格：以操作活動為主。報讀、說明與製作生活中的表格。二維表格含列聯表。",
+      "officialNotes": "製作表格不限於日常資料統計性題材，也可應用於觀察數量模式的變化（R-3-2）。",
+      "officialPerformanceLinks": [
+        "d-II-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 D-3-1，PDF頁序28。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade3-content-table-pdf-pages-25-to-28"
+    },
+    {
+      "code": "N-1-1",
+      "clauseType": "learning_content",
+      "officialText": "一百以內的數：含操作活動。用數表示多少與順序。結合數數、位值表徵、位值表。位值單位「個」和「十」。位值單位換算。認識 0 的位值意義。",
+      "officialNotes": "教學可數到最後的「一百」，但不進行超過一百的教學。可點數代表一和十的積木進行位值教學。學習 0 的位值意義以便順利連結日後直式計算之學習。",
+      "officialPerformanceLinks": [
+        "n-I-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "sourceLocation": "伍／學習重點／二、學習內容／一年級學習內容表 N-1-1，PDF頁序21。",
+      "applicability": {
+        "officialGradeTable": 1,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade1-content-table-pdf-pages-21-to-22"
+    },
+    {
+      "code": "N-1-2",
+      "clauseType": "learning_content",
+      "officialText": "加法和減法：加法和減法的意義與應用。含「添加型」、「併加型」、「拿走型」、「比較型」等應用問題。加法和減法算式。",
+      "officialNotes": "強調「併加型」（合成型）的學習以理解加法交換律。處理「0」的加減。應含加、減法並陳之單元，使學生主動察覺加法和減法問題的差異。一年級不做加數、被加數、減數、被減數未知題型（N-2-3）。",
+      "officialPerformanceLinks": [
+        "n-I-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "sourceLocation": "同表 N-1-2，PDF頁序21。",
+      "applicability": {
+        "officialGradeTable": 1,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade1-content-table-pdf-pages-21-to-22"
+    },
+    {
+      "code": "N-1-3",
+      "clauseType": "learning_content",
+      "officialText": "基本加減法：以操作活動為主。以熟練為目標。指 1 到 10 之數與 1 到 10 之數的加法，及反向的減法計算。",
+      "officialNotes": "在活動過程中，可能練習到兩步驟以上的加減混合數算，這是活動的常態，其中自然延伸之計算策略與數感建立更值得鼓勵，這種活動不是兩步驟計算的正式教學。",
+      "officialPerformanceLinks": [
+        "n-I-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "sourceLocation": "同表 N-1-3，PDF頁序21。",
+      "applicability": {
+        "officialGradeTable": 1,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade1-content-table-pdf-pages-21-to-22"
+    },
+    {
+      "code": "N-1-6",
+      "clauseType": "learning_content",
+      "officialText": "日常時間用語：以操作活動為主。簡單日期報讀「幾月幾日」；「明天」、「今天」、「昨天」；「上午」、「中午」、「下午」、「晚上」。簡單時刻報讀「整點」與「半點」。",
+      "officialNotes": "活動以教師和學生在教室中溝通之時間用語為原則，非時間單位結構之教學（N-2-13、N-2-14）。簡單日期指日曆之「幾月幾日」，不含曆法結構。時刻須以鐘面教學。簡單鐘面時刻限「整點」與「半點」。",
+      "officialPerformanceLinks": [
+        "n-I-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "sourceLocation": "同表 N-1-6，PDF頁序21。",
+      "applicability": {
+        "officialGradeTable": 1,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade1-content-table-pdf-pages-21-to-22"
+    },
+    {
+      "code": "S-1-1",
+      "clauseType": "learning_content",
+      "officialText": "長度（同 N-1-5）：以操作活動為主。初步認識、直接比較、間接比較（含個別單位）。",
+      "officialNotes": "同 N-1-5 備註。",
+      "officialPerformanceLinks": [
+        "n-I-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": "N-1-5",
+      "sourceLocation": "同表 S-1-1，PDF頁序21–22（跨頁）；明示與N-1-5同一內容。",
+      "applicability": {
+        "officialGradeTable": 1,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade1-content-table-pdf-pages-21-to-22"
+    },
+    {
+      "code": "S-1-2",
+      "clauseType": "learning_content",
+      "officialText": "形體的操作：以操作活動為主。描繪、複製、拼貼、堆疊。",
+      "officialNotes": "應包含平面圖形、立體形體或兩者互動之活動，豐富學生之幾何操作經驗。",
+      "officialPerformanceLinks": [
+        "s-I-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "sourceLocation": "一年級學習內容表 S-1-2，PDF頁序22。",
+      "applicability": {
+        "officialGradeTable": 1,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade1-content-table-pdf-pages-21-to-22"
+    },
+    {
+      "code": "R-1-1",
+      "clauseType": "learning_content",
+      "officialText": "算式與符號：含加減算式中的數、加號、減號、等號。以說、讀、聽、寫、做檢驗學生的理解。適用於後續階段。",
+      "officialNotes": "此條目包括小學之後的學習，不再另列條目。本條目應在加減法單元中完成，不須另立獨立單元教學。",
+      "officialPerformanceLinks": [
+        "r-I-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "sourceLocation": "一年級學習內容表 R-1-1，PDF頁序22。",
+      "applicability": {
+        "officialGradeTable": 1,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade1-content-table-pdf-pages-21-to-22"
+    },
+    {
+      "code": "R-1-2",
+      "clauseType": "learning_content",
+      "officialText": "兩數相加的順序不影響其和：加法交換律。可併入其他教學活動。",
+      "officialNotes": "先用「併加型」（合成型）情境說明，再應用於其他情境。不出現「加法交換律」一詞。",
+      "officialPerformanceLinks": [
+        "r-I-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "sourceLocation": "同表 R-1-2，PDF頁序22。",
+      "applicability": {
+        "officialGradeTable": 1,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade1-content-table-pdf-pages-21-to-22"
+    },
+    {
+      "code": "D-1-1",
+      "clauseType": "learning_content",
+      "officialText": "簡單分類：以操作活動為主。能蒐集、分類、記錄、呈現日常生活物品，報讀、說明已處理好之分類。觀察分類的模式，知道同一組資料可有不同的分類方式。",
+      "officialNotes": "本條目活動中呈現之說明圖表皆出自學生的創意，並非正式表格（D-3-1）與統計圖表的教學（D-4-1以後）。",
+      "officialPerformanceLinks": [
+        "d-I-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "sourceLocation": "同表 D-1-1，PDF頁序22。",
+      "applicability": {
+        "officialGradeTable": 1,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade1-content-table-pdf-pages-21-to-22"
+    },
+    {
+      "code": "N-2-1",
+      "clauseType": "learning_content",
+      "officialText": "一千以內的數：含位值積木操作活動。結合點數、位值表徵、位值表。位值單位「百」。位值單位換算。",
+      "officialNotes": "教學可數到最後的「一千」，但不進行超過一千的教學。學生能局部從某數開始前後數數。須點數表示位值之積木，並熟練「十個一數」、「百個一數」的數數模式。",
+      "referenceTools": "位值表、位值積木",
+      "officialPerformanceLinks": [
+        "n-I-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "伍／二、學習內容／二年級表 N-2-1，PDF頁序22。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "N-2-2",
+      "clauseType": "learning_content",
+      "officialText": "加減算式與直式計算：用位值理解多位數加減計算的原理與方法。初期可操作、橫式、直式等方法並陳，二年級最後歸結於直式計算，做為後續更大位數計算之基礎。直式計算的基礎為位值概念與基本加減法，教師須說明直式計算的合理性。",
+      "officialNotes": "不論橫式或直式，加法含二次進位，減法限一次退位。須處理數字中有0的題型。為了熟悉位值與直式計算的關係，應先在有位值的表格中學習記錄與計算。",
+      "referenceTools": "有位值的表格",
+      "officialPerformanceLinks": [
+        "n-I-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-2-2，PDF頁序22。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "N-2-3",
+      "clauseType": "learning_content",
+      "officialText": "解題：加減應用問題。加數、被加數、減數、被減數未知之應用解題。連結加與減的關係（R-2-4）。",
+      "officialNotes": "教師使用解題策略協助學生理解與轉化問題（花片模型、線段圖、空格算式或加減互逆等），但不發展成學生答題之固定格式。本條目不須另立單元教學。",
+      "referenceTools": "",
+      "officialPerformanceLinks": [
+        "n-I-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "R-2-4"
+      ],
+      "sourceLocation": "同表 N-2-3，PDF頁序22–23（列跨頁，續列對應表現見頁序23表格欄）。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "N-2-4",
+      "clauseType": "learning_content",
+      "officialText": "解題：簡單加減估算。具體生活情境。以百位數估算為主。",
+      "officialNotes": "估算解題的布題應貼近生活情境。",
+      "referenceTools": "",
+      "officialPerformanceLinks": [
+        "n-I-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "伍／二年級學習內容表 N-2-4，PDF頁序23。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "N-2-5",
+      "clauseType": "learning_content",
+      "officialText": "解題：100元、500元、1000元。以操作活動為主兼及計算。容許多元策略，協助建立數感。包含已學習之更小幣值。",
+      "officialNotes": "本單元的進行可與估算連結（N-2-4）。",
+      "referenceTools": "錢幣",
+      "officialPerformanceLinks": [
+        "n-I-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-2-4"
+      ],
+      "sourceLocation": "同表 N-2-5，PDF頁序23。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "N-2-6",
+      "clauseType": "learning_content",
+      "officialText": "乘法：乘法的意義與應用。在學習乘法過程，逐步發展「倍」的概念，做為統整乘法應用情境的語言。",
+      "officialNotes": "可在乘法解題脈絡中，自然使用連加算式，不限步驟。最後能以行列模型理解乘法交換律（R-2-3）。",
+      "referenceTools": "花片、陣列教具（格狀圖）",
+      "officialPerformanceLinks": [
+        "n-I-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "R-2-3"
+      ],
+      "sourceLocation": "同表 N-2-6，PDF頁序23。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "N-2-7",
+      "clauseType": "learning_content",
+      "officialText": "十十乘法：乘除直式計算的基礎，以熟練為目標。",
+      "officialNotes": "本單元應和乘法概念的學習同時進行，不可要求學生死背乘法表。本條目的學習可協助在除法情境（如N-2-9）中察覺乘與除的關係。",
+      "referenceTools": "",
+      "officialPerformanceLinks": [
+        "n-I-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-2-9"
+      ],
+      "sourceLocation": "同表 N-2-7，PDF頁序23。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "N-2-8",
+      "clauseType": "learning_content",
+      "officialText": "解題：兩步驟應用問題（加、減、乘）。加減混合、加與乘、減與乘之應用解題。不含併式。不含連乘。連乘在三年級（N-3-7）。",
+      "officialNotes": "",
+      "referenceTools": "",
+      "officialPerformanceLinks": [
+        "n-I-5"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-3-7"
+      ],
+      "sourceLocation": "同表 N-2-8，PDF頁序23。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "N-2-9",
+      "clauseType": "learning_content",
+      "officialText": "解題：分裝與平分。以操作活動為主。除法前置經驗。理解分裝與平分之意義與方法。引導學生在解題過程，發現問題和乘法模式的關連。",
+      "officialNotes": "本條目非除法教學，不列除式，不用「除」的名稱（N-3-4）。限相當於整除的問題。教學應在「十十乘法」範圍中進行。可用幾個一數或連減協助，但不可成為答題格式。",
+      "referenceTools": "花片",
+      "officialPerformanceLinks": [
+        "n-I-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-2-7"
+      ],
+      "sourceLocation": "同表 N-2-9，PDF頁序23。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "N-2-10",
+      "clauseType": "learning_content",
+      "officialText": "單位分數的認識：從等分配的活動（如摺紙）認識單部分為全部的「幾分之一」。知道日常語言「的一半」、「的二分之一」、「的四分之一」的溝通意義。在已等分割之格圖中，能說明一格為全部的「幾分之一」。",
+      "officialNotes": "學生應知道等分配活動之目的。二年級之分數活動與教學限連續量，不處理離散量，避免和N-2-9混淆。摺紙限「摺半」操作：例如用長方形摺出分母2、4、8的單位分數；用圓摺出分母2或4之單位分數。已等分割之格圖應呼應等分割活動，以長方形或圓形為主。「的幾分之一」的用語僅限於活動與溝通，不是分數乘法問題。",
+      "referenceTools": "摺紙所需之圓與長方形；已分割之分數圓形圖與長方形",
+      "officialPerformanceLinks": [
+        "n-I-6"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-2-10，PDF頁序23–24（備註與教具欄跨頁續列）。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "N-2-11",
+      "clauseType": "learning_content",
+      "officialText": "長度：「公分」、「公尺」。實測、量感、估測與計算。單位換算。",
+      "officialNotes": "基於N-2-1的限制，單位換算時公尺數限個位數。長度的加減問題必須包含和數線加減可以連結之題材（N-3-11）。",
+      "referenceTools": "直尺、三角板、捲尺（彎曲物體）",
+      "officialPerformanceLinks": [
+        "n-I-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-3-11"
+      ],
+      "sourceLocation": "伍／二年級學習內容表 N-2-11，PDF頁序24。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "N-2-12",
+      "clauseType": "learning_content",
+      "officialText": "容量、重量、面積：以操作活動為主。此階段量的教學應包含初步認識、直接比較、間接比較（含個別單位）。不同的量應分不同的單元學習。",
+      "officialNotes": "雖然重量部分的教學主要使用天平，但學生仍須實際體驗重量的量感。本條目教學無常用單位（N-3-14、N-3-15、N-3-16）。",
+      "referenceTools": "容器（含等容量不同形狀）、天平與砝碼、同大小不等重物體、百格圖",
+      "officialPerformanceLinks": [
+        "n-I-8"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "S-2-5"
+      ],
+      "sourceLocation": "同表 N-2-12，PDF頁序24；另見S-2-5備註明示其僅為此條目面積部分。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "N-2-14",
+      "clauseType": "learning_content",
+      "officialText": "時間：「年」、「月」、「星期」、「日」。理解所列時間單位之關係與約定。",
+      "officialNotes": "本條目可包含簡單計算問題（如暑假的總天數）。不做時間間隔問題。可觀察月曆結構模式。可教「閏年」，但只談「四年一閏」。",
+      "referenceTools": "月曆、日曆",
+      "officialPerformanceLinks": [
+        "n-I-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-2-14，PDF頁序24。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "S-2-1",
+      "clauseType": "learning_content",
+      "officialText": "物體之幾何特徵：以操作活動為主。進行辨認與描述之活動。藉由實際物體認識簡單幾何形體（包含平面圖形與立體形體），並連結幾何概念（如長、短、大、小等）。",
+      "officialNotes": "本條目之活動以實際物體為主。幾何特徵指非嚴格定義的頂點、角、邊、面、周界、內外。",
+      "referenceTools": "",
+      "officialPerformanceLinks": [
+        "s-I-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 S-2-1，PDF頁序24。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "S-2-2",
+      "clauseType": "learning_content",
+      "officialText": "簡單幾何形體：以操作活動為主。包含平面圖形與立體形體。辨認與描述平面圖形與立體形體的幾何特徵並做分類。",
+      "officialNotes": "可做溝通使用之命名教學，但勿發展為嚴格定義之學習（S-4-7、S-4-8）。可配合資料分類與呈現之教學（D-2-1）。",
+      "referenceTools": "各種簡單幾何形體",
+      "officialPerformanceLinks": [
+        "s-I-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "D-2-1"
+      ],
+      "sourceLocation": "同表 S-2-2，PDF頁序24。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "S-2-3",
+      "clauseType": "learning_content",
+      "officialText": "直尺操作：測量長度。報讀公分數。指定長度之線段作圖。",
+      "officialNotes": "由此開始建立學習與使用測量工具的良好習慣。測量都會有誤差，教師教學和評量時應注意區分誤差和錯誤的差別。",
+      "referenceTools": "直尺",
+      "officialPerformanceLinks": [
+        "n-I-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 S-2-3，PDF頁序24。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "S-2-4",
+      "clauseType": "learning_content",
+      "officialText": "平面圖形的邊長：以操作活動與直尺實測為主。認識特殊幾何圖形的邊長關係。含周長的計算活動。",
+      "officialNotes": "周長計算為簡單加法連加，不受限於兩步驟加法的限制。本條目強調操作與簡單計算，但不處理公式。",
+      "referenceTools": "直尺",
+      "officialPerformanceLinks": [
+        "n-I-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 S-2-4，PDF頁序24–25（跨頁表格續行）。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "S-2-5",
+      "clauseType": "learning_content",
+      "officialText": "面積：以具體操作為主。初步認識、直接比較、間接比較（含個別單位）。",
+      "officialNotes": "本條目相當於N-2-12的部分。",
+      "referenceTools": "",
+      "officialPerformanceLinks": [
+        "n-I-8"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-2-12"
+      ],
+      "sourceLocation": "同表 S-2-5，PDF頁序25；備註明示僅為N-2-12的部分內容，非同條目別名。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "R-2-1",
+      "clauseType": "learning_content",
+      "officialText": "大小關係與遞移律：「>」與「<」符號在算式中的意義，大小的遞移關係。",
+      "officialNotes": "教學不出現「遞移律」一詞。本階段應在加減法單元中完成，不須獨立單元教學。",
+      "referenceTools": "",
+      "officialPerformanceLinks": [
+        "r-I-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 R-2-1，PDF頁序25。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "R-2-2",
+      "clauseType": "learning_content",
+      "officialText": "三數相加，順序改變不影響其和：加法交換律和結合律的綜合。可併入其他教學活動。",
+      "officialNotes": "先在加法的「併加型」（合成型）情境中說明。教學不出現「結合律」一詞。",
+      "referenceTools": "",
+      "officialPerformanceLinks": [
+        "r-I-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 R-2-2，PDF頁序25。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "R-2-3",
+      "clauseType": "learning_content",
+      "officialText": "兩數相乘的順序不影響其積：乘法交換律。可併入其他教學活動。",
+      "officialNotes": "「乘法交換律」不宜太早教學，建議在二年級後期，以行列模型教學。教學不出現「乘法交換律」一詞。",
+      "referenceTools": "",
+      "officialPerformanceLinks": [
+        "r-I-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-2-6",
+        "N-2-7"
+      ],
+      "sourceLocation": "同表 R-2-3，PDF頁序25。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "R-2-4",
+      "clauseType": "learning_content",
+      "officialText": "加法與減法的關係：加減互逆。應用於驗算與解題。",
+      "officialNotes": "應用加減互逆到驗算時，只用加法驗算減法答案，但不用減法驗算加法答案。",
+      "referenceTools": "",
+      "officialPerformanceLinks": [
+        "n-I-3",
+        "r-I-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-2-3"
+      ],
+      "sourceLocation": "同表 R-2-4，PDF頁序25；同時關聯n-I-3及r-I-3。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "D-2-1",
+      "clauseType": "learning_content",
+      "officialText": "分類與呈現：以操作活動為主。能蒐集、分類、記錄、呈現資料、生活物件或幾何形體。討論分類之中還可以再分類的情況。",
+      "officialNotes": "非正式表格與統計圖表教學（見D-1-1備註）。可配合平面圖形與立體形體教學（S-2-2）。",
+      "referenceTools": "簡單平面圖形與立體形體（同顏色）",
+      "officialPerformanceLinks": [
+        "d-I-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "S-2-2"
+      ],
+      "sourceLocation": "二年級學習內容表 D-2-1，PDF頁序25；表格跨頁續行後至三年級標頭前。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade2-content-table-pdf-pages-22-to-25"
+    },
+    {
+      "code": "N-4-1",
+      "clauseType": "learning_content",
+      "officialText": "一億以內的數：位值單位「萬」、「十萬」、「百萬」、「千萬」。建立應用大數時之計算習慣，如「30萬1200」與「21萬300」的加減法。",
+      "officialNotes": "教學可進行到最後的「一億」，但不進行超過一億的教學。",
+      "officialPerformanceLinks": [
+        "n-II-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "四年級學習內容表 N-4-1，PDF頁序28。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "N-4-2",
+      "clauseType": "learning_content",
+      "officialText": "較大位數之乘除計算：處理乘數與除數為多位數之乘除直式計算。教師用位值的概念說明直式計算的合理性。",
+      "officialNotes": "直式計算乘數與除數限三位。直式計算須注意0的教學。較大位數除法須進行估商的教學。知道如「1600×200」與「60000÷400」這類算式，可發展出更簡單的計算方法。",
+      "officialPerformanceLinks": [
+        "n-II-2",
+        "n-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-4-2，PDF頁序28。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "N-4-3",
+      "clauseType": "learning_content",
+      "officialText": "解題：兩步驟應用問題（乘除，連除）。乘與除、連除之應用解題。",
+      "officialNotes": "由於除法有等分除和包含除兩種類型，教學應注意題型的多元性。可和併式學習一起進行（R-4-1）。",
+      "officialPerformanceLinks": [
+        "n-II-5",
+        "r-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "R-4-1"
+      ],
+      "sourceLocation": "同表 N-4-3，PDF頁序28。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "N-4-4",
+      "clauseType": "learning_content",
+      "officialText": "解題：對大數取概數。具體生活情境。四捨五入法、無條件進入、無條件捨去。含運用概數做估算。近似符號「≈」的使用。",
+      "officialNotes": "估算解題的布題應貼近生活情境。以概數協助估算須包含四則估算。",
+      "officialPerformanceLinks": [
+        "n-II-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-4-4，PDF頁序28。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "N-4-5",
+      "clauseType": "learning_content",
+      "officialText": "同分母分數：一般同分母分數教學（包括「真分數」、「假分數」、「帶分數」名詞引入）。假分數和帶分數之變換。同分母分數的比較、加、減與整數倍。",
+      "officialNotes": "本條目教學，分子和分母的數字都不用太大，以能流暢學習同分母分數計算為目標。帶分數整數倍教學不宜強迫學生化成假分數進行，其中隱含之分配律思維來自操作經驗與數感，此非分配律教學。",
+      "officialPerformanceLinks": [
+        "n-II-6"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-4-5，PDF頁序28–29（備註跨頁續列）。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "N-4-6",
+      "clauseType": "learning_content",
+      "officialText": "等值分數：由操作活動中理解等值分數的意義。簡單異分母分數的比較、加、減的意義。簡單分數與小數的互換。",
+      "officialNotes": "簡單異分母分數指一分母為另一分母之倍數。與小數互換之簡單分數指分母為2、5、10、100。",
+      "officialPerformanceLinks": [
+        "n-II-6"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-4-6，PDF頁序29。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "N-4-7",
+      "clauseType": "learning_content",
+      "officialText": "二位小數：位值單位「百分位」。位值單位換算。比較、計算與解題。用直式計算二位小數的加、減與整數倍。",
+      "officialNotes": "小數之學習必須與整數經驗緊密連繫。直式計算應注意小數點位置的教學。小數應用情境以連續量為主。",
+      "officialPerformanceLinks": [
+        "n-II-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-4-7，PDF頁序29。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "N-4-8",
+      "clauseType": "learning_content",
+      "officialText": "數線與分數、小數：連結分小數長度量的經驗。以標記和簡單的比較與計算，建立整數、分數、小數一體的認識。",
+      "officialNotes": "標記限一位小數（相當於分母等於10）與分母不大於5的分數。以等值分數思維（N-4-6）協助學生認識整數、分數、小數為一體。因初學等值分數，本條目不處理分數和小數的混合計算問題。",
+      "officialPerformanceLinks": [
+        "n-II-8"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-4-6"
+      ],
+      "sourceLocation": "同表 N-4-8，PDF頁序29。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "N-4-9",
+      "clauseType": "learning_content",
+      "officialText": "長度：「公里」。生活實例之應用。含其他長度單位的換算與計算。",
+      "officialNotes": "量的大單位教學仍應協助學生建立基本量感。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-4-9，PDF頁序29。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "N-4-10",
+      "clauseType": "learning_content",
+      "officialText": "角度：「度」（同 S-4-1）。量角器的操作。實測、估測與計算。以角的合成認識180度到360度之間的角度。「平角」、「周角」。指定角度作圖。",
+      "officialNotes": "量角器教學須包括從量角器左右兩側進行量角之活動。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": "S-4-1",
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-4-10，PDF頁序29–30；S-4-1明示同一內容。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "N-4-11",
+      "clauseType": "learning_content",
+      "officialText": "面積：「平方公尺」。實測、量感、估測與計算。",
+      "officialNotes": "基於 N-4-2，本條目不做「平方公分」換到「平方公尺」的問題。不用複名數進行計算。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-4-11，PDF頁序29。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "N-4-13",
+      "clauseType": "learning_content",
+      "officialText": "解題：日常生活的時間加減問題。跨時、跨午、跨日、24小時制。含時間單位換算。",
+      "officialNotes": "教學須包含各種類型的時間加減問題。建議不直接談時差，與時差有關問題可在布題時先處理。",
+      "officialPerformanceLinks": [
+        "n-II-10"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-4-13，PDF頁序29。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "S-4-1",
+      "clauseType": "learning_content",
+      "officialText": "角度：「度」（同 N-4-10）。量角器的操作。實測、估測與計算。以角的合成認識180度到360度之間的角度。「平角」、「周角」。指定角度作圖。",
+      "officialNotes": "同 N-4-10 備註。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": "N-4-10",
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 S-4-1，PDF頁序29–30（跨頁）；明示與N-4-10同一內容。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "S-4-2",
+      "clauseType": "learning_content",
+      "officialText": "解題：旋轉角。以具體操作為主，並結合計算。以鐘面為模型討論從始邊轉到終邊所轉的角度。旋轉有兩個方向：「順時針」、「逆時針」。「平角」、「周角」。",
+      "officialNotes": "不處理超過360度的問題。",
+      "officialPerformanceLinks": [
+        "s-II-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 S-4-2，PDF頁序30。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "S-4-3",
+      "clauseType": "learning_content",
+      "officialText": "正方形與長方形的面積與周長：理解邊長與周長或面積的關係，並能理解其公式與應用。簡單複合圖形。",
+      "officialNotes": "邊長限整數。最後學生的計算是依據定義以乘法計算，而非測量合成之結果。簡單複合圖形限兩圖形之組合。",
+      "officialPerformanceLinks": [
+        "s-II-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 S-4-3，PDF頁序30。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "S-4-5",
+      "clauseType": "learning_content",
+      "officialText": "垂直與平行：以具體操作為主。直角是90度。直角常用記號。垂直於一線的兩線相互平行。平行線間距離處處相等。作垂直線；作平行線。",
+      "officialNotes": "透過操作和觀察知道平行線間距離處處相等，非數學證明。",
+      "officialPerformanceLinks": [
+        "s-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 S-4-5，PDF頁序30。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "S-4-6",
+      "clauseType": "learning_content",
+      "officialText": "平面圖形的全等：以具體操作為主。形狀大小一樣的兩圖形全等。能用平移、旋轉、翻轉做全等疊合。全等圖形之對應角相等、對應邊相等。",
+      "officialNotes": "在具有平移或旋轉對稱特性的圖形上，學生可察覺豐富的全等模式。平移、旋轉、翻轉描述操作的方式，非名詞教學，名詞不應出現。",
+      "officialPerformanceLinks": [
+        "s-II-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 S-4-6，PDF頁序30。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "S-4-7",
+      "clauseType": "learning_content",
+      "officialText": "三角形：以邊與角的特徵認識特殊三角形並能作圖。如正三角形、等腰三角形、直角三角形、銳角三角形、鈍角三角形。",
+      "officialNotes": "",
+      "officialPerformanceLinks": [
+        "s-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 S-4-7，PDF頁序30。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "S-4-8",
+      "clauseType": "learning_content",
+      "officialText": "四邊形：以邊與角的特徵（含平行）認識特殊四邊形並能作圖。如正方形、長方形、平行四邊形、菱形、梯形。",
+      "officialNotes": "作圖包含正方形、長方形、平行四邊形。",
+      "officialPerformanceLinks": [
+        "s-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 S-4-8，PDF頁序30。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "R-4-1",
+      "clauseType": "learning_content",
+      "officialText": "兩步驟問題併式：併式是代數學習的重要基礎。含四則混合計算的約定（由左往右算、先乘除後加減、括號先算）。學習逐次減項計算。",
+      "officialNotes": "限整數。2、3年級已學習之兩步驟問題（N-2-8、N-3-7），也應複習並進行併式學習。",
+      "officialPerformanceLinks": [
+        "r-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-2-8",
+        "N-3-7"
+      ],
+      "sourceLocation": "同表 R-4-1，PDF頁序30–31（備註跨頁續列）。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "R-4-2",
+      "clauseType": "learning_content",
+      "officialText": "四則計算規律（I）：兩步驟計算規則。加減混合計算、乘除混合計算。在四則混合計算中運用數的運算性質。",
+      "officialNotes": "加減部分，不做 a−(b−c) 之去括號。乘除只做「三數相乘，順序改變不影響其積」、「先乘後除與先除後乘的結果相同」。必須呈現將應用問題轉化成算式後，再利用計算規律調整算式進行計算解題的範例，其中調整後的算式已無法以原情境解釋。",
+      "officialPerformanceLinks": [
+        "r-II-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 R-4-2，PDF頁序31。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "R-4-3",
+      "clauseType": "learning_content",
+      "officialText": "以文字表示數學公式：理解以文字和運算符號聯合表示的數學公式，並能應用公式。可併入其他教學活動（如 S-4-3）。",
+      "officialNotes": "如 S-4-3 的「長方形面積＝長×寬」、「正方形周長＝邊長×4」等。",
+      "officialPerformanceLinks": [
+        "r-II-5"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "S-4-3"
+      ],
+      "sourceLocation": "同表 R-4-3，PDF頁序31。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "R-4-4",
+      "clauseType": "learning_content",
+      "officialText": "數量模式與推理（II）：以操作活動為主。二維變化模式之觀察與推理，如二維數字圖之推理。奇數與偶數，及其加、減、乘模式。",
+      "officialNotes": "含學生之簡單推理與說明。如百數表模式、月曆模式之數字模式等。不可出現公式，此非本條目之學習目標。",
+      "officialPerformanceLinks": [
+        "r-II-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 R-4-4，PDF頁序31。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "D-4-1",
+      "clauseType": "learning_content",
+      "officialText": "報讀長條圖與折線圖以及製作長條圖：報讀與說明生活中的長條圖與折線圖。配合其他領域課程，學習製作長條圖。",
+      "officialNotes": "教學與示例應注意處理「分類資料」與「有序變化性資料」之差別。",
+      "officialPerformanceLinks": [
+        "d-II-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 D-4-1，PDF頁序31；五年級表頭隨後開始。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade4-content-table-pdf-pages-28-to-31"
+    },
+    {
+      "code": "N-5-1",
+      "clauseType": "learning_content",
+      "officialText": "十進位的位值系統：「兆位」至「千分位」。整合整數與小數。理解基於位值系統可延伸表示更大的數和更小的數。熟練十進位系統「乘以十」、「除以十」所延伸的計算如「300×1200」與「600000÷4000」之處理。",
+      "officialNotes": "",
+      "officialPerformanceLinks": [
+        "n-III-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-5-1，PDF頁序31。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "N-5-2",
+      "clauseType": "learning_content",
+      "officialText": "解題：多步驟應用問題。除「平均」之外，原則上為三步驟解題應用。",
+      "officialNotes": "以學生較熟悉、能直接併式之問題為原則。本條目要求併式。須含分配律情境之三步驟問題，以和分配律教學連結（R-5-2）。",
+      "officialPerformanceLinks": [
+        "n-III-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "R-5-2"
+      ],
+      "sourceLocation": "同表 N-5-2，PDF頁序31。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "N-5-3",
+      "clauseType": "learning_content",
+      "officialText": "公因數和公倍數：因數、倍數、公因數、公倍數、最大公因數、最小公倍數的意義。",
+      "officialNotes": "以概念認識為主，不用短除法（N-6-1、N-6-2）。",
+      "officialPerformanceLinks": [
+        "n-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-6-1",
+        "N-6-2"
+      ],
+      "sourceLocation": "同表 N-5-3，PDF頁序31。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "N-5-4",
+      "clauseType": "learning_content",
+      "officialText": "異分母分數：用約分、擴分處理等值分數並做比較。用通分做異分母分數的加減。養成利用約分化簡分數計算習慣。",
+      "officialNotes": "通分不鼓勵以分母直接相乘。通分數字限（1）分母均為一位數；（2）一分母為另一分母的倍數，且兩數小於100；（3）乘以2、3、4、5就可以找到兩分母之公倍數（如12與18）。備註及條文跨頁續至PDF頁序32。",
+      "officialPerformanceLinks": [
+        "n-III-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-5-4，PDF頁序31–32（備註跨頁續文）。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "N-5-5",
+      "clauseType": "learning_content",
+      "officialText": "分數的乘法：整數乘以分數、分數乘以分數的意義。知道用約分簡化乘法計算。處理乘積一定比被乘數大的錯誤類型。透過分數計算的公式，知道乘法交換律在分數也成立。建立例如「的1/2」和「1/2倍」的關連。",
+      "officialNotes": "",
+      "officialPerformanceLinks": [
+        "n-III-6"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-5-5，PDF頁序32。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "N-5-6",
+      "clauseType": "learning_content",
+      "officialText": "整數相除之分數表示：從分裝（測量）和平分的觀點，分別說明整數相除為分數之意義與合理性。",
+      "officialNotes": "本條目的困難在於概念理解而非計算，教師應積極協助學生突破整數除法有餘數之固定想法，並轉化成商為分數的合理性。包含除可和「比率」的課題結合（N-5-10）。",
+      "officialPerformanceLinks": [
+        "n-III-5"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-5-10"
+      ],
+      "sourceLocation": "同表 N-5-6，PDF頁序32。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "N-5-7",
+      "clauseType": "learning_content",
+      "officialText": "分數除以整數：分數除以整數的意義。最後將問題轉化為乘以單位分數。",
+      "officialNotes": "等分除教學可運用乘法分數倍之經驗（N-5-5）。包含除可和「比率」的課題結合（N-5-10）。",
+      "officialPerformanceLinks": [
+        "n-III-6"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-5-5",
+        "N-5-10"
+      ],
+      "sourceLocation": "同表 N-5-7，PDF頁序32。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "N-5-8",
+      "clauseType": "learning_content",
+      "officialText": "小數的乘法：整數乘以小數、小數乘以小數的意義。乘數為小數的直式計算。教師用位值的概念說明直式計算的合理性。處理乘積一定比被乘數大的錯誤類型。",
+      "officialNotes": "先連結「乘以0.1」和「乘以0.01」的意義和乘法直式計算的經驗再做推廣。小數乘法直式計算的方法和整數類似，但須留意小數點記法和小數加減時記法不同。",
+      "officialPerformanceLinks": [
+        "n-III-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-5-8，PDF頁序32。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "N-5-9",
+      "clauseType": "learning_content",
+      "officialText": "整數、小數除以整數（商為小數）：整數除以整數（商為小數）、小數除以整數的意義。教師用位值的概念說明直式計算的合理性。能用概數協助處理除不盡的情況。熟悉分母為2、4、5、8之真分數所對應的小數。",
+      "officialNotes": "原則上只處理商限三位小數的情況。可讓學生從計算中發現可能有除不盡的循環現象，教師以概數處理這類問題（N-5-11），不處理「循環小數」的命名與課題。",
+      "officialPerformanceLinks": [
+        "n-III-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-5-11"
+      ],
+      "sourceLocation": "同表 N-5-9，PDF頁序32。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "N-5-10",
+      "clauseType": "learning_content",
+      "officialText": "解題：比率與應用。整數相除的應用。含「百分率」、「折」、「成」。",
+      "officialNotes": "本條目限結果不大於1（100%）的應用情境（大於1之延伸情境見N-6-8）。",
+      "officialPerformanceLinks": [
+        "n-III-5",
+        "n-III-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-5-6",
+        "N-5-7"
+      ],
+      "sourceLocation": "同表 N-5-10，PDF頁序32。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "N-5-11",
+      "clauseType": "learning_content",
+      "officialText": "解題：對小數取概數。具體生活情境。四捨五入法。知道商除不盡的處理。理解近似的意義。",
+      "officialNotes": "教學討論近似問題時，不出現「誤差」、「近似值」之用語。備註跨頁續至PDF頁序33。",
+      "officialPerformanceLinks": [
+        "n-III-8"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-5-9"
+      ],
+      "sourceLocation": "同表 N-5-11，PDF頁序32–33（備註跨頁續文）。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "N-5-12",
+      "clauseType": "learning_content",
+      "officialText": "面積：「公畝」、「公頃」、「平方公里」。生活實例之應用。含與「平方公尺」的換算與計算。使用概數。",
+      "officialNotes": "針對量的大單位教學，教師應運用學生熟悉的生活示例，體會各單位的量感。",
+      "officialPerformanceLinks": [
+        "n-III-11"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-5-12，PDF頁序33。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "N-5-13",
+      "clauseType": "learning_content",
+      "officialText": "重量：「公噸」。生活實例之應用。含與「公斤」的換算與計算。使用概數。",
+      "officialNotes": "教師應運用學生熟悉的生活示例，體會各單位的量感。",
+      "officialPerformanceLinks": [
+        "n-III-11"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-5-13，PDF頁序33。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "N-5-14",
+      "clauseType": "learning_content",
+      "officialText": "體積：「立方公尺」。簡單實測、量感、估測與計算。",
+      "officialNotes": "不用複名數進行計算。1立方公尺與1立方公分的換算較龐雜，不須評量。",
+      "officialPerformanceLinks": [
+        "n-III-11"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-5-14，PDF頁序33。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "N-5-15",
+      "clauseType": "learning_content",
+      "officialText": "解題：容積。容量、容積和體積間的關係。知道液體體積的意義。",
+      "officialNotes": "教學中須包含如何以容積的想法求不規則物體的體積。",
+      "officialPerformanceLinks": [
+        "n-III-12"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-5-15，PDF頁序33。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "N-5-16",
+      "clauseType": "learning_content",
+      "officialText": "解題：時間的乘除問題。在分數和小數學習的範圍內，解決與時間相關的乘除問題。",
+      "officialNotes": "含以分數和小數表示的時間量。如15分是1/4時（15/60=1/4）；1/5時是12分（60×1/5=12）。可含工程問題。",
+      "officialPerformanceLinks": [
+        "n-III-11"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 N-5-16，PDF頁序33。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "S-5-1",
+      "clauseType": "learning_content",
+      "officialText": "三角形與四邊形的性質：操作活動與簡單推理。含三角形三內角和為180度。三角形任意兩邊和大於第三邊。平行四邊形的對邊相等、對角相等。",
+      "officialNotes": "簡單推理，例如：四邊形四內角和為360度，三角形不可能有兩鈍角。",
+      "officialPerformanceLinks": [
+        "s-III-5"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 S-5-1，PDF頁序33。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "S-5-2",
+      "clauseType": "learning_content",
+      "officialText": "三角形與四邊形的面積：操作活動與推理。利用切割重組，建立面積公式，並能應用。",
+      "officialNotes": "計算面積的問題，若採用分數或小數之邊長與高，必須在分數和小數的乘法後教學（N-5-5、N-5-8）。",
+      "officialPerformanceLinks": [
+        "s-III-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-5-5",
+        "N-5-8"
+      ],
+      "sourceLocation": "同表 S-5-2，PDF頁序33。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "S-5-3",
+      "clauseType": "learning_content",
+      "officialText": "扇形：扇形的定義。「圓心角」。扇形可視為圓的一部分。將扇形與分數結合（幾分之幾圓）。能畫出指定扇形。",
+      "officialNotes": "扇形含圓心角大於180度的情況。理解如「圓心角90度的扇形是1/4圓」等的結論。畫出指定扇形包括「給定一圓，能畫出1/3圓、1/6圓等扇形」、「畫出指定半徑與圓心角的扇形」。",
+      "officialPerformanceLinks": [
+        "s-III-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 S-5-3，PDF頁序33。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "S-5-5",
+      "clauseType": "learning_content",
+      "officialText": "正方體和長方體：計算正方體和長方體的體積與表面積。正方體與長方體的體積公式。",
+      "officialNotes": "能算長方體的表面積，但不記成公式。",
+      "officialPerformanceLinks": [
+        "s-III-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 S-5-5，PDF頁序34。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "S-5-6",
+      "clauseType": "learning_content",
+      "officialText": "空間中面與面的關係：以操作活動為主。生活中面與面平行或垂直的現象。正方體（長方體）中面與面的平行或垂直關係。用正方體（長方體）檢查面與面的平行與垂直。",
+      "officialNotes": "強調操作與概念的合理性，不做嚴格定義。不用三角板檢查面與面的垂直，因為學生容易誤用。",
+      "officialPerformanceLinks": [
+        "s-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 S-5-6，PDF頁序34。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "S-5-7",
+      "clauseType": "learning_content",
+      "officialText": "球、柱體與錐體：以操作活動為主。認識球、（直）圓柱、（直）角柱、（直）角錐、（直）圓錐。認識柱體和錐體之構成要素與展開圖。檢查柱體兩底面平行；檢查柱體側面和底面垂直，錐體側面和底面不垂直。",
+      "officialNotes": "應知球的截面截痕是圓、球的球心與半徑（「截面」「截痕」一詞不出現）。「直」或「正」之用語可不出現。角柱只介紹三角柱、四角柱、五角柱、六角柱。角錐只介紹三角錐、四角錐、五角錐、六角錐（S-9-13）。",
+      "officialPerformanceLinks": [
+        "s-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "同表 S-5-7，PDF頁序34。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "R-5-1",
+      "clauseType": "learning_content",
+      "officialText": "三步驟問題併式：建立將計算步驟併式的習慣，以三步驟為主。介紹「平均」。與分配律連結。",
+      "officialNotes": "學習併式不表示此後所有解題教學都必須併式（N-6-9）。",
+      "officialPerformanceLinks": [
+        "r-III-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-5-2",
+        "R-5-2",
+        "N-6-9"
+      ],
+      "sourceLocation": "同表 R-5-1，PDF頁序34。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "R-5-2",
+      "clauseType": "learning_content",
+      "officialText": "四則計算規律（II）：乘除混合計算。「乘法對加法或減法的分配律」。將計算規律應用於簡化混合計算。熟練整數四則混合計算。",
+      "officialNotes": "乘除混合：含「連除兩數等於除以兩數之積」；不做a÷(b÷c)之去括號。必須呈現以下原則的範例：將應用問題轉化成算式後，再利用計算規律調整算式進行計算解題（其中調整後的算式已無法以原情境來解釋）。",
+      "officialPerformanceLinks": [
+        "r-III-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "N-5-2",
+        "R-5-1"
+      ],
+      "sourceLocation": "同表 R-5-2，PDF頁序34。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "R-5-3",
+      "clauseType": "learning_content",
+      "officialText": "以符號表示數學公式：國中代數的前置經驗。初步體驗符號之使用，隱含「符號代表數」、「符號與運算符號的結合」的經驗。應併入其他教學活動。",
+      "officialNotes": "藉由幾何圖形的面積與體積公式較易進行。也可在分數乘法中運用。本條目並非取代「文字表示公式」（R-4-3），後者較易理解之優點仍可保持。",
+      "officialPerformanceLinks": [
+        "r-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "S-5-2",
+        "S-5-5",
+        "R-4-3"
+      ],
+      "sourceLocation": "同表 R-5-3，PDF頁序34。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade5-content-table-pdf-pages-31-to-34"
+    },
+    {
+      "code": "N-6-1",
+      "clauseType": "learning_content",
+      "officialText": "20 以內的質數和質因數分解：小於 20 的質數與合數。2、3、5 的質因數判別法。以短除法做質因數的分解。",
+      "officialNotes": "被分解數的因數，在扣除 2、3、5 或其次方的部分後，只剩一因數，且此數除了 49、77 或 91 之外，只能是 11、13、17 或 19。",
+      "referenceTools": null,
+      "officialPerformanceLinks": [
+        "n-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "六年級學習內容表 N-6-1，PDF頁序35；條文與備註同頁。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "N-6-2",
+      "clauseType": "learning_content",
+      "officialText": "最大公因數與最小公倍數：質因數分解法與短除法。兩數互質。運用到分數的約分與通分。",
+      "officialNotes": "不做三數的最大公因數與最小公倍數。應包含練習將分數化成最簡分數的問題。",
+      "referenceTools": null,
+      "officialPerformanceLinks": [
+        "n-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "六年級學習內容表 N-6-2，PDF頁序35。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "N-6-3",
+      "clauseType": "learning_content",
+      "officialText": "分數的除法：整數除以分數、分數除以分數的意義。最後理解除以一數等於乘以其倒數之公式。",
+      "officialNotes": "可不處理餘數問題。若要處理，限於具體合理的生活情境。餘數問題不評量。",
+      "referenceTools": null,
+      "officialPerformanceLinks": [
+        "n-III-6"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "六年級學習內容表 N-6-3，PDF頁序35。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "N-6-4",
+      "clauseType": "learning_content",
+      "officialText": "小數的除法：整數除以小數、小數除以小數的意義。直式計算。教師用位值的概念說明直式計算的合理性。處理商一定比被除數小的錯誤類型。",
+      "officialNotes": "可不處理餘數問題；若要處理，限於具體合理的生活情境，商限定為整數，並小心在直式計算中處理餘數問題。餘數問題不評量。",
+      "referenceTools": null,
+      "officialPerformanceLinks": [
+        "n-III-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "六年級學習內容表 N-6-4，PDF頁序35。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "N-6-5",
+      "clauseType": "learning_content",
+      "officialText": "解題：整數、分數、小數的四則應用問題。二到三步驟的應用解題。含使用概數協助解題。",
+      "officialNotes": "含處理分數和小數混合乘除計算之常用技巧。",
+      "referenceTools": null,
+      "officialPerformanceLinks": [
+        "n-III-2",
+        "r-III-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "六年級學習內容表 N-6-5，PDF頁序35。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "N-6-6",
+      "clauseType": "learning_content",
+      "officialText": "比與比值：異類量的比與同類量的比之比值的意義。理解相等的比中牽涉到的兩種倍數關係（比例思考的基礎）。解決比的應用問題。",
+      "officialNotes": "比中各數原則上為整數，但也可包含簡單之小數與分數。",
+      "referenceTools": null,
+      "officialPerformanceLinks": [
+        "n-III-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "六年級學習內容表 N-6-6，PDF頁序35。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "N-6-7",
+      "clauseType": "learning_content",
+      "officialText": "解題：速度。比和比值的應用。速度的意義。能做單位換算（大單位到小單位）。含不同時間區段的平均速度。含「距離＝速度×時間」公式。用比例思考協助解題。",
+      "officialNotes": "除不同時間區段的平均速度問題外，小學速度問題的假設都是等速運動。含速度固定，時間為幾倍，距離即為幾倍的問題。含時間固定，速度為幾倍，距離即為幾倍的問題。所謂「大單位到小單位」，指的是不論是長度或時間，都只做大單位到小單位的換算。",
+      "referenceTools": null,
+      "officialPerformanceLinks": [
+        "n-III-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "六年級學習內容表 N-6-7，PDF頁序35；備註同頁續列至頁序36前。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "N-6-9",
+      "clauseType": "learning_content",
+      "officialText": "解題：由問題中的數量關係，列出恰當的算式解題（同 R-6-4）。可包含（1）較複雜的模式（如座位排列模式）；（2）較複雜的計數：乘法原理、加法原理或其混合；（3）較複雜之情境：如年齡問題、流水問題、和差問題、雞兔問題。連結 R-6-2、R-6-3。",
+      "officialNotes": "乘法原理如 3 件上衣與 5 件裙子的搭配方式；加法原理如允許重複，1、2、3 可排出幾種二位奇數；乘法原理與加法原理混合如 1、2、3 可排出幾種三位奇數。乘法原理和加法原理旨在初步學習計數的觀點，而非複雜的計數問題。本條目不要求併式。",
+      "referenceTools": null,
+      "officialPerformanceLinks": [
+        "n-III-10",
+        "r-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": "R-6-4",
+      "relatedOfficialCodes": [
+        "R-6-2",
+        "R-6-3"
+      ],
+      "sourceLocation": "六年級學習內容表 N-6-9，PDF頁序36；表內明示同 R-6-4，詳見 R-6-4 頁序37。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "S-6-1",
+      "clauseType": "learning_content",
+      "officialText": "放大與縮小：比例思考的應用。「幾倍放大圖」、「幾倍縮小圖」。知道縮放時，對應角相等，對應邊成比例。",
+      "officialNotes": "知道常見平面圖形的縮放仍然是同一類圖形（含圓），並能說明其原因。",
+      "referenceTools": null,
+      "officialPerformanceLinks": [
+        "s-III-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "六年級學習內容表 S-6-1，PDF頁序36。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "S-6-2",
+      "clauseType": "learning_content",
+      "officialText": "解題：地圖比例尺。地圖比例尺之意義、記號與應用。地圖上兩邊長的比和實際兩邊長的比相等。",
+      "officialNotes": "含處理兩張地圖之間的長度關係。處理以為「比例分母愈大，相對邊長也愈大」的常見錯誤。",
+      "referenceTools": "地圖",
+      "officialPerformanceLinks": [
+        "n-III-9",
+        "s-III-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "六年級學習內容表 S-6-2，PDF頁序36。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "S-6-3",
+      "clauseType": "learning_content",
+      "officialText": "圓周率、圓周長、圓面積、扇形面積：用分割說明圓面積公式。求扇形弧長與面積。知道以下三個比相等：（1）圓心角：360；（2）扇形弧長：圓周長；（3）扇形面積：圓面積，但應用問題只處理用（1）求弧長或面積。",
+      "officialNotes": "由於圓周率取成 3.14，在計算時應以概念理解為原則，避免陷入複雜計算。可利用活動說明一般不規則區域的面積要如何理解和估計，但不評量。扇形面積與弧長只處理直接問題（如已知幾分之幾圓或圓心角求面積或弧長），不處理逆推或過多推理步驟的問題（屬於國中範圍，S-9-5）。",
+      "referenceTools": "圓形分割圖（說明面積）",
+      "officialPerformanceLinks": [
+        "s-III-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "六年級學習內容表 S-6-3，PDF頁序36；備註續至頁序37前。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "S-6-4",
+      "clauseType": "learning_content",
+      "officialText": "柱體體積與表面積：含角柱和圓柱。利用簡單柱體，理解「柱體體積＝底面積×高」的公式。簡單複合形體體積。",
+      "officialNotes": "柱體體積不用說明所有情況，即可告知體積公式為底面積×高。柱體限三角柱、四角柱、圓柱。複合形體之體積以兩形體組合為限。柱體表面積只處理底面為圓、長方形、直角三角形、平行四邊形的情況，且應注意底面邊長的正確性。表面積不宜過度評量。表面積不處理複合形體。",
+      "referenceTools": "柱體（含挖空）",
+      "officialPerformanceLinks": [
+        "s-III-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "六年級學習內容表 S-6-4，PDF頁序36–37；參考教具欄延續至頁序37。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "R-6-1",
+      "clauseType": "learning_content",
+      "officialText": "數的計算規律：小學最後應認識（1）整數、小數、分數都是數，享有一樣的計算規律。（2）整數乘除計算及規律，因分數運算更容易理解。（3）逐漸體會乘法和除法的計算實為一體。",
+      "officialNotes": "須理解小數和分數乘除混合計算時，常用的約分規則。在生活解題上，乘法和除法意義不同，但在計算上兩者實為一體，學生因此可提高數學認識之抽象層次。乘法和除法視為一體的好處是計算規律大為簡化。本條目不須另立獨立單元教學。",
+      "referenceTools": null,
+      "officialPerformanceLinks": [
+        "r-III-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "六年級學習內容表 R-6-1，PDF頁序37。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "R-6-2",
+      "clauseType": "learning_content",
+      "officialText": "數量關係：代數與函數的前置經驗。從具體情境或數量模式之活動出發，做觀察、推理、說明。",
+      "officialNotes": "可以運用表格或統計圖協助發現規律。可以簡單公式說明其中的數量關係。",
+      "referenceTools": null,
+      "officialPerformanceLinks": [
+        "r-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "六年級學習內容表 R-6-2，PDF頁序37。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "R-6-3",
+      "clauseType": "learning_content",
+      "officialText": "數量關係的表示：代數與函數的前置經驗。將具體情境或模式中的數量關係，學習以文字或符號列出數量關係的關係式。",
+      "officialNotes": "數量關係的表示例如：晝長夜長的關係可列成晝長+夜長=24。連結 R-6-2。含部分運用符號的教學，連結國中「符號代表數」或「未知數」教學，其教學重點在「關係的表示」，而非抽象的「代數符號運算」。",
+      "referenceTools": null,
+      "officialPerformanceLinks": [
+        "r-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "R-6-2"
+      ],
+      "sourceLocation": "六年級學習內容表 R-6-3，PDF頁序37。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "R-6-4",
+      "clauseType": "learning_content",
+      "officialText": "解題：由問題中的數量關係，列出恰當的算式解題（同 N-6-9）。可包含（1）較複雜的模式（如座位排列模式）；（2）較複雜的計數：乘法原理、加法原理或其混合；（3）較複雜之情境：如年齡問題、流水問題、和差問題、雞兔問題。連結 R-6-2、R-6-3。",
+      "officialNotes": "複雜解題旨在思考，不要要求步驟的併式；其他見 N-6-9 備註。",
+      "referenceTools": null,
+      "officialPerformanceLinks": [
+        "r-III-3",
+        "n-III-10"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": "N-6-9",
+      "relatedOfficialCodes": [
+        "R-6-2",
+        "R-6-3"
+      ],
+      "sourceLocation": "六年級學習內容表 R-6-4，PDF頁序37；與N-6-9同一解題內容，N-6-9備註參照本列續註。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "D-6-1",
+      "clauseType": "learning_content",
+      "officialText": "圓形圖：報讀、說明與製作生活中的圓形圖。包含以百分率分配之圓形圖（製作時應提供學生已分成百格的圓形圖）。",
+      "officialNotes": "處理部分／全體性質之資料。分辨不同統計圖之使用時機。",
+      "referenceTools": "圓形百格圖（畫百分圓形圖）",
+      "officialPerformanceLinks": [
+        "d-III-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [],
+      "sourceLocation": "六年級學習內容表 D-6-1，PDF頁序37。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    },
+    {
+      "code": "D-6-2",
+      "clauseType": "learning_content",
+      "officialText": "解題：可能性。從統計圖表資料，回答可能性問題。機率前置經驗。「很有可能」、「很不可能」、「A比B可能」。",
+      "officialNotes": "「A比B可能」限兩者差異大的情況。僅從資料數量的多寡來回答。本條目非古典機率教學（D-9-3）。",
+      "referenceTools": null,
+      "officialPerformanceLinks": [
+        "d-III-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": null,
+      "relatedOfficialCodes": [
+        "D-9-3"
+      ],
+      "sourceLocation": "六年級學習內容表 D-6-2，PDF頁序37；頁序38開始七年級表格。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "projectInterpretation": null,
+      "reviewStatus": "verified_against_official_pdf_this_run",
+      "auditBatchId": "math-grade6-content-table-pdf-pages-35-to-37"
+    }
+  ],
+  "learningPerformanceClauses": [
+    {
+      "code": "n-I-1",
+      "officialText": "理解一千以內數的位值結構，據以做為四則運算之基礎。",
+      "learningStage": "第一學習階段（一、二年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-I-2",
+      "officialText": "理解加法和減法的意義，熟練基本加減法並能流暢計算。",
+      "learningStage": "第一學習階段（一、二年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-I-3",
+      "officialText": "應用加法和減法的計算或估算於日常應用解題。",
+      "learningStage": "第一學習階段（一、二年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-I-4",
+      "officialText": "理解乘法的意義，熟練十十乘法，並初步進行分裝與平分的除法活動。",
+      "learningStage": "第一學習階段（一、二年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-I-5",
+      "officialText": "在具體情境中，解決簡單兩步驟應用問題。",
+      "learningStage": "第一學習階段（一、二年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-I-6",
+      "officialText": "認識單位分數。",
+      "learningStage": "第一學習階段（一、二年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-I-7",
+      "officialText": "理解長度及其常用單位，並做實測、估測與計算。",
+      "learningStage": "第一學習階段（一、二年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-I-8",
+      "officialText": "認識容量、重量、面積。",
+      "learningStage": "第一學習階段（一、二年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-I-9",
+      "officialText": "認識時刻與時間常用單位。",
+      "learningStage": "第一學習階段（一、二年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "s-I-1",
+      "officialText": "從操作活動，初步認識物體與常見幾何形體的幾何特徵。",
+      "learningStage": "第一學習階段（一、二年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "r-I-1",
+      "officialText": "學習數學語言中的運算符號、關係符號、算式約定。",
+      "learningStage": "第一學習階段（一、二年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "r-I-2",
+      "officialText": "認識加法和乘法的運算規律。",
+      "learningStage": "第一學習階段（一、二年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "r-I-3",
+      "officialText": "認識加減互逆，並能應用與解題。",
+      "learningStage": "第一學習階段（一、二年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "d-I-1",
+      "officialText": "認識分類的模式，能主動蒐集資料、分類，並做簡單的呈現與說明。",
+      "learningStage": "第一學習階段（一、二年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-II-1",
+      "officialText": "理解一億以內數的位值結構，並據以作為各種運算與估算之基礎。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-II-2",
+      "officialText": "熟練較大位數之加、減、乘計算或估算，並能應用於日常解題。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-II-3",
+      "officialText": "理解除法的意義，能做計算與估算，並能應用於日常解題。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-II-4",
+      "officialText": "解決四則估算之日常應用問題。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-II-5",
+      "officialText": "在具體情境中，解決兩步驟應用問題。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-II-6",
+      "officialText": "理解同分母分數的加、減、整數倍的意義、計算與應用。認識等值分數的意義，並應用於認識簡單異分母分數之比較與加減的意義。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-II-7",
+      "officialText": "理解小數的意義與位值結構，並能做加、減、整數倍的直式計算與應用。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-II-8",
+      "officialText": "能在數線標示整數、分數、小數並做比較與加減，理解整數、分數、小數都是數。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-II-9",
+      "officialText": "理解長度、角度、面積、容量、重量的常用單位與換算，培養量感與估測能力，並能做計算和應用解題。認識體積。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-II-10",
+      "officialText": "理解時間的加減運算，並應用於日常的時間加減問題。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "s-II-1",
+      "officialText": "理解正方形和長方形的面積與周長公式與應用。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "s-II-2",
+      "officialText": "認識平面圖形全等的意義。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "s-II-3",
+      "officialText": "透過平面圖形的構成要素，認識常見三角形、常見四邊形與圓。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "s-II-4",
+      "officialText": "在活動中，認識幾何概念的應用，如旋轉角、展開圖與空間形體。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "r-II-1",
+      "officialText": "理解乘除互逆，並能應用與解題。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "r-II-2",
+      "officialText": "認識一維及二維之數量模式，並能說明與簡單推理。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "r-II-3",
+      "officialText": "理解兩步驟問題的併式計算與四則混合計算之約定。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "r-II-4",
+      "officialText": "認識兩步驟計算中加減與部分乘除計算的規則並能應用。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "r-II-5",
+      "officialText": "理解以文字表示之數學公式。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "d-II-1",
+      "officialText": "報讀與製作一維表格、二維表格與長條圖，報讀折線圖，並據以做簡單推論。",
+      "learningStage": "第二學習階段（三、四年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序11；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-III-1",
+      "officialText": "理解數的十進位的位值結構，並能據以延伸認識更大與更小的數。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-III-2",
+      "officialText": "在具體情境中，解決三步驟以上之常見應用問題。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-III-3",
+      "officialText": "認識因數、倍數、質數、最大公因數、最小公倍數的意義、計算與應用。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-III-4",
+      "officialText": "理解約分、擴分、通分的意義，並應用於異分母分數的加減。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-III-5",
+      "officialText": "理解整數相除的分數表示的意義。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-III-6",
+      "officialText": "理解分數乘法和除法的意義、計算與應用。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-III-7",
+      "officialText": "理解小數乘法和除法的意義，能做直式計算與應用。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-III-8",
+      "officialText": "理解以四捨五入取概數，並進行合理估算。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-III-9",
+      "officialText": "理解比例關係的意義，並能據以觀察、表述、計算與解題，如比率、比例尺、速度、基準量等。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-III-10",
+      "officialText": "嘗試將較複雜的情境或模式中的數量關係以算式正確表述，並據以推理或解題。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-III-11",
+      "officialText": "認識量的常用單位及其換算，並處理相關的應用問題。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "n-III-12",
+      "officialText": "理解容量、容積和體積之間的關係，並做應用。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "s-III-1",
+      "officialText": "理解三角形、平行四邊形與梯形的面積計算。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "s-III-2",
+      "officialText": "認識圓周率的意義，理解圓面積、圓周長、扇形面積與弧長之計算方式。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "s-III-3",
+      "officialText": "從操作活動，理解空間中面與面的關係與簡單立體形體的性質。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "s-III-4",
+      "officialText": "理解角柱（含正方體、長方體）與圓柱的體積與表面積的計算方式。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "s-III-5",
+      "officialText": "以簡單推理，理解幾何形體的性質。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "s-III-6",
+      "officialText": "認識線對稱的意義與其推論。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "s-III-7",
+      "officialText": "認識平面圖形縮放的意義與應用。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "r-III-1",
+      "officialText": "理解各種計算規則（含分配律），並協助四則混合計算與應用解題。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "r-III-2",
+      "officialText": "熟練數（含分數、小數）的四則混合計算。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "r-III-3",
+      "officialText": "觀察情境或模式中的數量關係，並用文字或符號正確表述，協助推理與解題。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "d-III-1",
+      "officialText": "報讀圓形圖，製作折線圖與圓形圖，並據以做簡單推論。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    },
+    {
+      "code": "d-III-2",
+      "officialText": "能從資料或圖表的資料數據，解決關於「可能性」的簡單問題。",
+      "learningStage": "第三學習階段（五、六年級）",
+      "sourceLocation": "肆／學習重點／一、學習表現／依學習階段排序之學習表現，PDF頁序12；原文只定義學習階段，並不指定學期或教材順序。",
+      "reviewStatus": "verified_against_official_pdf_this_run"
+    }
+  ],
+  "limitations": [
+    "目前八條學習內容是可追溯的核對子集；所有58條國小學習表現已由官方表格逐條核對。學習內容六年級別完整清冊仍待完成。",
+    "官方條目總數尚未核實，故不提供全國小數學課綱覆蓋率。",
+    "活動對應、程式驗收與教師審查是不同證據；此資料不代表教師認可或學生成效。"
+  ],
+  "performanceClauseAudit": {
+    "status": "all_elementary_stage_learning_performance_rows_enumerated_from_official_pdf",
+    "verifiedCount": 58,
+    "byStage": {
+      "1": 14,
+      "2": 20,
+      "3": 24
+    },
+    "sourceLocation": "伍／一／依學習階段排序之學習表現；第一、二學習階段 PDF頁序11，第三學習階段 PDF頁序12。",
+    "note": "本批次完整列入官方國小第一至第三學習階段的學習表現條文；不是學習內容總清冊，不表示對應活動完整或教學已完成。"
+  },
+  "officialContentClauseCount": 131,
+  "contentInventoryBatches": [
+    {
+      "batchId": "math-grade3-content-table-pdf-pages-25-to-28",
+      "status": "verified_contiguous_grade_table_batch_not_full_math_inventory",
+      "sourceId": "mathematics",
+      "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域",
+      "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+      "publicationInfo": "PDF封面載中華民國107年6月；教育部以臺教授國部字第1070066476B號令於107年7月26日發布。",
+      "sourceLocation": "伍／學習重點／二、學習內容／三年級學習內容表，PDF頁序25–28（PDF頁序以1起算）；逐列對照表格的編碼、學習內容條目及說明、備註與對應學習表現欄。",
+      "applicability": {
+        "officialGradeTable": 3,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "reviewMethod": "逐列閱讀官方PDF三年級學習內容表，確認表頭、各列原文、附註、對應學習表現及跨頁續文；此批完整性僅指PDF頁序25–28的三年級表格，不代表數學領綱全部條目完成。",
+      "verifiedCodeCount": 24,
+      "codes": [
+        "N-3-1",
+        "N-3-2",
+        "N-3-3",
+        "N-3-4",
+        "N-3-5",
+        "N-3-6",
+        "N-3-7",
+        "N-3-8",
+        "N-3-9",
+        "N-3-10",
+        "N-3-11",
+        "N-3-12",
+        "N-3-13",
+        "N-3-14",
+        "N-3-15",
+        "N-3-16",
+        "N-3-17",
+        "S-3-1",
+        "S-3-2",
+        "S-3-3",
+        "S-3-4",
+        "R-3-1",
+        "R-3-2",
+        "D-3-1"
+      ],
+      "nextWorkPosition": "同一官方 PDF 的一年級學習內容表（PDF頁序21起），逐列核對代碼、原文、附註、對應表現及跨頁內容；目前仍非全國小數學完整清冊。"
+    },
+    {
+      "batchId": "math-grade1-content-table-pdf-pages-21-to-22",
+      "status": "verified_contiguous_grade_table_batch_not_full_math_inventory",
+      "sourceId": "mathematics",
+      "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域",
+      "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+      "publicationInfo": "PDF封面載中華民國107年6月；教育部以臺教授國部字第1070066476B號令於107年7月26日發布。",
+      "sourceLocation": "伍／學習重點／二、學習內容／一年級學習內容表，PDF頁序21–22（PDF頁序以1起算）；逐列讀取代碼、學習內容、備註、參考教具、對應學習表現及跨頁續行。",
+      "applicability": {
+        "officialGradeTable": 1,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewMethod": "直接查閱國教院官方數學領綱PDF一年級表格原頁（P21–22）及表頭，逐列核對所有代碼和表格欄位；N-1-5與S-1-1為官方明示同一長度內容，保留兩個官方代碼並標記同內容別名，概念層統計不得重複計數。此批完整性只限一年級學習內容表，不代表完整數學領綱清冊。",
+      "verifiedCodeCount": 11,
+      "codes": [
+        "N-1-1",
+        "N-1-2",
+        "N-1-3",
+        "N-1-4",
+        "N-1-5",
+        "N-1-6",
+        "S-1-1",
+        "S-1-2",
+        "R-1-1",
+        "R-1-2",
+        "D-1-1"
+      ],
+      "duplicateConceptAliases": [
+        {
+          "code": "N-1-5",
+          "equivalentOfficialCode": "S-1-1"
+        },
+        {
+          "code": "S-1-1",
+          "equivalentOfficialCode": "N-1-5"
+        }
+      ],
+      "nextWorkPosition": "二年級學習內容表，官方數學領綱PDF頁序22–25；依同一表格流程逐列核對，續文跨頁須回查。"
+    },
+    {
+      "batchId": "math-grade2-content-table-pdf-pages-22-to-25",
+      "status": "verified_contiguous_grade_table_batch_not_full_math_inventory",
+      "sourceId": "mathematics",
+      "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域",
+      "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+      "publicationInfo": "PDF封面載中華民國107年6月；教育部以臺教授國部字第1070066476B號令於107年7月26日發布。",
+      "sourceLocation": "伍／學習重點／二、學習內容／二年級學習內容表，PDF頁序22–25；從頁序22的「2年級」表頭起，逐列至頁序25的D-2-1，並追蹤N-2-3、N-2-10、S-2-4跨頁欄位及頁序25表頭後的D-2-1完整列。PDF頁序以1起算。",
+      "applicability": {
+        "officialGradeTable": 2,
+        "learningStage": "第一學習階段（一、二年級）",
+        "semester": null
+      },
+      "reviewMethod": "直接核對國教院官方PDF頁序22–25之二年級表格，讀取代碼、學習內容、備註、參考教具與同表對應學習表現欄；對跨頁續列回查相鄰頁文本與表格位置。官方表格列出24個代碼列；N-2-12與S-2-5為備註明示的部分內容關係，不合併代碼或概念統計；本批只完成二年級表，不代表第一學習階段或全國數學清冊完整。",
+      "verifiedCodeCount": 24,
+      "codes": [
+        "N-2-1",
+        "N-2-2",
+        "N-2-3",
+        "N-2-4",
+        "N-2-5",
+        "N-2-6",
+        "N-2-7",
+        "N-2-8",
+        "N-2-9",
+        "N-2-10",
+        "N-2-11",
+        "N-2-12",
+        "N-2-13",
+        "N-2-14",
+        "S-2-1",
+        "S-2-2",
+        "S-2-3",
+        "S-2-4",
+        "S-2-5",
+        "R-2-1",
+        "R-2-2",
+        "R-2-3",
+        "R-2-4",
+        "D-2-1"
+      ],
+      "duplicateConceptAliases": [],
+      "partialConceptRelationships": [
+        {
+          "code": "N-2-3",
+          "relatedCode": "R-2-4",
+          "note": "教師使用解題策略協助學生理解與轉化問題（花片模型、線段圖、空格算式或加減互逆等），但不發展成學生答題之固定格式。本條目不須另立單元教學。"
+        },
+        {
+          "code": "N-2-5",
+          "relatedCode": "N-2-4",
+          "note": "本單元的進行可與估算連結（N-2-4）。"
+        },
+        {
+          "code": "N-2-6",
+          "relatedCode": "R-2-3",
+          "note": "可在乘法解題脈絡中，自然使用連加算式，不限步驟。最後能以行列模型理解乘法交換律（R-2-3）。"
+        },
+        {
+          "code": "N-2-7",
+          "relatedCode": "N-2-9",
+          "note": "本單元應和乘法概念的學習同時進行，不可要求學生死背乘法表。本條目的學習可協助在除法情境（如N-2-9）中察覺乘與除的關係。"
+        },
+        {
+          "code": "N-2-8",
+          "relatedCode": "N-3-7",
+          "note": ""
+        },
+        {
+          "code": "N-2-9",
+          "relatedCode": "N-2-7",
+          "note": "本條目非除法教學，不列除式，不用「除」的名稱（N-3-4）。限相當於整除的問題。教學應在「十十乘法」範圍中進行。可用幾個一數或連減協助，但不可成為答題格式。"
+        },
+        {
+          "code": "N-2-11",
+          "relatedCode": "N-3-11",
+          "note": "基於N-2-1的限制，單位換算時公尺數限個位數。長度的加減問題必須包含和數線加減可以連結之題材（N-3-11）。"
+        },
+        {
+          "code": "N-2-12",
+          "relatedCode": "S-2-5",
+          "note": "雖然重量部分的教學主要使用天平，但學生仍須實際體驗重量的量感。本條目教學無常用單位（N-3-14、N-3-15、N-3-16）。"
+        },
+        {
+          "code": "S-2-2",
+          "relatedCode": "D-2-1",
+          "note": "可做溝通使用之命名教學，但勿發展為嚴格定義之學習（S-4-7、S-4-8）。可配合資料分類與呈現之教學（D-2-1）。"
+        },
+        {
+          "code": "S-2-5",
+          "relatedCode": "N-2-12",
+          "note": "本條目相當於N-2-12的部分。"
+        },
+        {
+          "code": "R-2-3",
+          "relatedCode": "N-2-6",
+          "note": "「乘法交換律」不宜太早教學，建議在二年級後期，以行列模型教學。教學不出現「乘法交換律」一詞。"
+        },
+        {
+          "code": "R-2-3",
+          "relatedCode": "N-2-7",
+          "note": "「乘法交換律」不宜太早教學，建議在二年級後期，以行列模型教學。教學不出現「乘法交換律」一詞。"
+        },
+        {
+          "code": "R-2-4",
+          "relatedCode": "N-2-3",
+          "note": "應用加減互逆到驗算時，只用加法驗算減法答案，但不用減法驗算加法答案。"
+        },
+        {
+          "code": "D-2-1",
+          "relatedCode": "S-2-2",
+          "note": "非正式表格與統計圖表教學（見D-1-1備註）。可配合平面圖形與立體形體教學（S-2-2）。"
+        }
+      ],
+      "nextWorkPosition": "已完成二年級學習內容表PDF頁序22–25；下一步為四年級表，官方PDF頁序28從「4年級」表頭與N-4-1開始，續至五年級表頭前，逐列核對跨頁續文。"
+    },
+    {
+      "batchId": "math-grade4-content-table-pdf-pages-28-to-31",
+      "status": "verified_contiguous_grade_table_batch_not_full_math_inventory",
+      "sourceId": "mathematics",
+      "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域",
+      "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+      "publicationInfo": "PDF封面載中華民國107年6月；教育部以臺教授國部字第1070066476B號令於107年7月26日發布。",
+      "sourceLocation": "伍／學習重點／二、學習內容／四年級學習內容表，PDF頁序28–31（PDF頁序以1起算）；從頁序28「4年級」表頭及N-4-1，逐列至頁序31的D-4-1，五年級表頭前；追蹤N-4-5、N-4-13、S-4-1、R-4-1跨頁文字與備註。",
+      "applicability": {
+        "officialGradeTable": 4,
+        "learningStage": "第二學習階段（三、四年級）",
+        "semester": null
+      },
+      "reviewMethod": "直接核對國教院官方數學領綱PDF之四年級表格原頁與PDF文字層，讀取所有表格代碼、條文、備註、參考教具、同表對應學習表現及跨頁續文。四年級表格逐列記錄26個代碼；N-4-10/S-4-1明示為同一角度內容，N-4-12/S-4-4共用體積內容與備註；仍保留官方各代碼，概念統計不得重複。此批只表示四年級學習內容表完成，不代表第二學習階段或完整數學領綱完成。",
+      "verifiedCodeCount": 26,
+      "codes": [
+        "N-4-1",
+        "N-4-2",
+        "N-4-3",
+        "N-4-4",
+        "N-4-5",
+        "N-4-6",
+        "N-4-7",
+        "N-4-8",
+        "N-4-9",
+        "N-4-10",
+        "N-4-11",
+        "N-4-12",
+        "N-4-13",
+        "S-4-1",
+        "S-4-2",
+        "S-4-3",
+        "S-4-4",
+        "S-4-5",
+        "S-4-6",
+        "S-4-7",
+        "S-4-8",
+        "R-4-1",
+        "R-4-2",
+        "R-4-3",
+        "R-4-4",
+        "D-4-1"
+      ],
+      "uniqueConceptCount": 24,
+      "conceptRelationships": [
+        {
+          "kind": "official_same_content_alias",
+          "codes": [
+            "N-4-10",
+            "S-4-1"
+          ],
+          "evidence": "兩列官方文字互指同一角度內容。保留兩個代碼，概念數只計1。"
+        },
+        {
+          "kind": "official_same_content_related_rows",
+          "codes": [
+            "N-4-12",
+            "S-4-4"
+          ],
+          "evidence": "兩列官方文字均規定體積、以1立方公分正方體具體操作，且互引備註；不是刪除或合併代碼。概念數只計1。"
+        }
+      ],
+      "nextWorkPosition": "同一官方 PDF 五年級學習內容表：從四年級表末 PDF 頁序31之後的「5年級」表頭開始，逐列記錄至六年級表頭前；確認跨頁附註與同表學習表現。"
+    },
+    {
+      "batchId": "math-grade5-content-table-pdf-pages-31-to-34",
+      "status": "verified_contiguous_grade_table_batch_not_full_math_inventory",
+      "sourceId": "mathematics",
+      "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域",
+      "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+      "publicationInfo": "PDF封面載中華民國107年6月；教育部以臺教授國部字第1070066476B號令於107年7月26日發布。",
+      "sourceLocation": "伍／學習重點／二、學習內容／五年級學習內容表，PDF頁序31–34（PDF頁序以1起算）；包含N-5-4備註由頁序31續至32、N-5-11備註由頁序32續至33、S-5-4備註由頁序33續至34；頁序35為六年級表頭。",
+      "applicability": {
+        "officialGradeTable": 5,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "reviewMethod": "以國教院官方數學領綱 PDF 原始文件文字層按表格列核對五年級 N、S、R、D 學習內容代碼、條目原文、備註、參考教具及同表對應學習表現；另檢查 N-5-4、N-5-11、S-5-4 跨頁續文，並依表頭/表尾核定起訖。這是官方年級表的連續批次，不表示官方指定學期，也不代表完整數學領綱清冊。",
+      "verifiedCodeCount": 27,
+      "codes": [
+        "N-5-1",
+        "N-5-2",
+        "N-5-3",
+        "N-5-4",
+        "N-5-5",
+        "N-5-6",
+        "N-5-7",
+        "N-5-8",
+        "N-5-9",
+        "N-5-10",
+        "N-5-11",
+        "N-5-12",
+        "N-5-13",
+        "N-5-14",
+        "N-5-15",
+        "N-5-16",
+        "S-5-1",
+        "S-5-2",
+        "S-5-3",
+        "S-5-4",
+        "S-5-5",
+        "S-5-6",
+        "S-5-7",
+        "R-5-1",
+        "R-5-2",
+        "R-5-3",
+        "D-5-1"
+      ],
+      "uniqueConceptCount": 27,
+      "nextWorkPosition": "同一官方數學領綱 PDF 六年級學習內容表：頁序35「6年級」表頭與N-6-1開始，逐列核對至六年級表格結束，追蹤表格跨頁續文及備註。"
+    },
+    {
+      "batchId": "math-grade6-content-table-pdf-pages-35-to-37",
+      "status": "verified_contiguous_grade_table_batch_not_full_math_inventory",
+      "sourceId": "mathematics",
+      "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域",
+      "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+      "publicationInfo": "PDF封面載中華民國107年6月；教育部以臺教授國部字第1070066476B號令於107年7月26日發布。",
+      "sourceLocation": "伍／學習重點／二、學習內容／六年級學習內容表，PDF頁序35–37（PDF頁序以1起算）；從頁序35「6年級」表頭及N-6-1至頁序37的D-6-2完整列，頁序38開始「7年級」。跨頁續列、備註、參考教具及對應學習表現均依官方表格欄位核對。",
+      "applicability": {
+        "officialGradeTable": 6,
+        "learningStage": "第三學習階段（五、六年級）",
+        "semester": null
+      },
+      "reviewMethod": "直接核對國教院官方數學領綱PDF頁序35–37六年級學習內容表，逐列讀取代碼、學習內容、備註、參考教具與同表對應學習表現；續讀至頁序38的七年級表頭以確認六年級表格終點。N-6-9與R-6-4由官方原文明示為相同解題內容，保留兩個官方代碼並在概念統計中標為同一概念；其他代碼仍各自保留。此批只完成六年級表格，不代表數學領綱完整清冊。",
+      "verifiedCodeCount": 19,
+      "codes": [
+        "N-6-1",
+        "N-6-2",
+        "N-6-3",
+        "N-6-4",
+        "N-6-5",
+        "N-6-6",
+        "N-6-7",
+        "N-6-8",
+        "N-6-9",
+        "S-6-1",
+        "S-6-2",
+        "S-6-3",
+        "S-6-4",
+        "R-6-1",
+        "R-6-2",
+        "R-6-3",
+        "R-6-4",
+        "D-6-1",
+        "D-6-2"
+      ],
+      "uniqueConceptCount": 18,
+      "conceptRelationships": [
+        {
+          "kind": "same_official_learning_content_explicitly_cross_referenced",
+          "codes": [
+            "N-6-9",
+            "R-6-4"
+          ],
+          "uniqueConceptCount": 1,
+          "evidence": "兩列官方原文均明示同另一代碼；同一六年級表格兩處列示，不合併或刪除官方代碼。"
+        },
+        {
+          "kind": "related_but_distinct_official_content",
+          "codes": [
+            "N-6-6",
+            "N-6-7",
+            "N-6-8"
+          ],
+          "uniqueConceptCount": 3,
+          "evidence": "同屬比與比例應用脈絡，但分別規定一般比值與等比、速度、基準量交換，不視為同一條目。"
+        }
+      ],
+      "activityAuditCounts": {
+        "partial": 5,
+        "relation_only": 4,
+        "uncovered": 10,
+        "needs_verification": 0
+      },
+      "nextWorkPosition": "六年級學習內容表 PDF頁序35–37已逐列核對；一至六年級內容表批次均在。下一步為跨年級數學內容與學習表現整合、重複概念／活動證據稽核及尚未逐條盤點的其他領綱範圍；勿宣稱完整數學領綱或全國課綱已完成。"
+    }
+  ]
+}

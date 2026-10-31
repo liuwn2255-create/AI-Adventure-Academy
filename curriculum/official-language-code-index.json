@@ -1,0 +1,2152 @@
+{
+  "schemaVersion": 1,
+  "extractionStatus": "official_pdf_text_index_extraction_clause_by_clause_review_pending",
+  "generatedAt": "2026-10-23",
+  "method": "pdfplumber extraction from retrieved official 111 implementation PDFs; tokenized code references only; no claim of complete clause transcription or manual semantic validation",
+  "documents": [
+    {
+      "sourceId": "local-minnan",
+      "documentTitle": "十二年國民基本教育課程綱要語文領域－本土語文（閩南語文）",
+      "officialLawRecordUrl": "https://edu.law.moe.gov.tw/LawContent.aspx?id=GL002132",
+      "publishedDate": "2021-11-26",
+      "pdfPageCount": 38,
+      "learningPerformancePageRange": [
+        7,
+        9
+      ],
+      "learningContentPageRange": [
+        10,
+        14
+      ],
+      "elementaryStageCodeReferenceCount": 64,
+      "elementaryCodeReferences": [
+        {
+          "code": "Aa-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Aa-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Aa-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Aa-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Aa-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ab-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ab-Ⅰ-2",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ab-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ab-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ab-Ⅱ-3",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ab-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ab-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ab-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ab-Ⅲ-4",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ac-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ac-Ⅰ-2",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ac-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ac-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ac-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ac-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ba-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ba-Ⅰ-2",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ba-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ba-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ba-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ba-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ba-Ⅲ-4",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bb-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bb-Ⅰ-2",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bb-Ⅰ-3",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bb-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bb-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bb-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bb-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bb-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bc-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bc-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bd-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bd-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bd-Ⅱ-3",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bd-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bd-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bd-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Be-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Be-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Be-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Be-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bf-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bf-Ⅰ-2",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bf-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bf-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bf-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bf-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bg-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bg-Ⅰ-2",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bg-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bg-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Bg-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            13
+          ]
+        },
+        {
+          "code": "Bg-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            13
+          ]
+        },
+        {
+          "code": "Bg-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            13
+          ]
+        },
+        {
+          "code": "Bh-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            13
+          ]
+        },
+        {
+          "code": "Bh-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            13
+          ]
+        },
+        {
+          "code": "Bh-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            13
+          ]
+        },
+        {
+          "code": "Bh-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            13
+          ]
+        }
+      ]
+    },
+    {
+      "sourceId": "local-hakka",
+      "documentTitle": "十二年國民基本教育課程綱要語文領域－本土語文（客語文）",
+      "officialLawRecordUrl": "https://edu.law.moe.gov.tw/LawContent.aspx?id=GL002131",
+      "publishedDate": "2021-11-26",
+      "pdfPageCount": 39,
+      "learningPerformancePageRange": [
+        7,
+        8
+      ],
+      "learningContentPageRange": [
+        9,
+        14
+      ],
+      "elementaryStageCodeReferenceCount": 82,
+      "elementaryCodeReferences": [
+        {
+          "code": "4-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            9
+          ]
+        },
+        {
+          "code": "4-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            9
+          ]
+        },
+        {
+          "code": "4-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            9
+          ]
+        },
+        {
+          "code": "Aa-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            9
+          ]
+        },
+        {
+          "code": "Aa-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            9
+          ]
+        },
+        {
+          "code": "Ab-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            9
+          ]
+        },
+        {
+          "code": "Ab-Ⅰ-2",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            9
+          ]
+        },
+        {
+          "code": "Ab-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            9
+          ]
+        },
+        {
+          "code": "Ab-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            9
+          ]
+        },
+        {
+          "code": "Ab-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            9
+          ]
+        },
+        {
+          "code": "Ab-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            9
+          ]
+        },
+        {
+          "code": "Ab-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            9
+          ]
+        },
+        {
+          "code": "Ac-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ac-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ac-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ac-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ac-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ad-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ad-Ⅰ-2",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ad-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ad-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ad-Ⅱ-3",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ad-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ad-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ad-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ae-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ae-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ae-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ae-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ae-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ae-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ba-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ba-Ⅰ-2",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ba-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ba-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            10
+          ]
+        },
+        {
+          "code": "Ba-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ba-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Ba-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bb-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bb-Ⅰ-2",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bb-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bb-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bb-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bb-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bc-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bc-Ⅰ-2",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bc-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bc-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bc-Ⅱ-3",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bc-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bc-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bc-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bd-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bd-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Bd-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Be-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Be-Ⅰ-2",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            11
+          ]
+        },
+        {
+          "code": "Be-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Be-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Be-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Be-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Ca-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Ca-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Ca-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Ca-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Ca-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Cb-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Cb-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Cb-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Cb-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Cc-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Cc-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Cc-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Cc-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Cc-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Cc-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Cd-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Cd-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Cd-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Cd-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Ce-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            12
+          ]
+        },
+        {
+          "code": "Ce-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            13
+          ]
+        }
+      ]
+    },
+    {
+      "sourceId": "local-indigenous",
+      "documentTitle": "十二年國民基本教育課程綱要語文領域－本土語文（原住民族語文）",
+      "officialLawRecordUrl": "https://edu.law.moe.gov.tw/LawContent.aspx?id=GL002133",
+      "publishedDate": "2021-11-26",
+      "pdfPageCount": 44,
+      "learningPerformancePageRange": [
+        9,
+        12
+      ],
+      "learningContentPageRange": [
+        13,
+        19
+      ],
+      "elementaryStageCodeReferenceCount": 63,
+      "elementaryCodeReferences": [
+        {
+          "code": "Aa-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            13
+          ]
+        },
+        {
+          "code": "Aa-Ⅰ-2",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            13
+          ]
+        },
+        {
+          "code": "Aa-Ⅰ-3",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            13
+          ]
+        },
+        {
+          "code": "Aa-Ⅰ-4",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            13
+          ]
+        },
+        {
+          "code": "Aa-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            13
+          ]
+        },
+        {
+          "code": "Aa-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            13
+          ]
+        },
+        {
+          "code": "Aa-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            13
+          ]
+        },
+        {
+          "code": "Ab-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ab-Ⅰ-2",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ab-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ab-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ab-Ⅱ-3",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ab-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ab-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ab-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ac-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ac-Ⅰ-2",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ac-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ac-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ad-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ad-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ad-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ad-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ad-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ad-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ba-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ba-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ba-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ba-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ba-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ba-Ⅲ-4",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ba-Ⅲ-5",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            14
+          ]
+        },
+        {
+          "code": "Ba-Ⅲ-6",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            15
+          ]
+        },
+        {
+          "code": "Bb-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            15
+          ]
+        },
+        {
+          "code": "Bb-Ⅰ-2",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            15
+          ]
+        },
+        {
+          "code": "Bb-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            15
+          ]
+        },
+        {
+          "code": "Bb-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            15
+          ]
+        },
+        {
+          "code": "Bb-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            15
+          ]
+        },
+        {
+          "code": "Bb-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            15
+          ]
+        },
+        {
+          "code": "Bb-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            15
+          ]
+        },
+        {
+          "code": "Bb-Ⅲ-4",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            15
+          ]
+        },
+        {
+          "code": "Bc-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            15
+          ]
+        },
+        {
+          "code": "Bc-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            15
+          ]
+        },
+        {
+          "code": "Bc-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            15
+          ]
+        },
+        {
+          "code": "Bd-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            15
+          ]
+        },
+        {
+          "code": "Bd-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            15
+          ]
+        },
+        {
+          "code": "Be-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            15
+          ]
+        },
+        {
+          "code": "Be-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            15
+          ]
+        },
+        {
+          "code": "Be-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            15
+          ]
+        },
+        {
+          "code": "Bf-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            16
+          ]
+        },
+        {
+          "code": "Bf-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            16
+          ]
+        },
+        {
+          "code": "Bf-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            16
+          ]
+        },
+        {
+          "code": "Bf-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            16
+          ]
+        },
+        {
+          "code": "Bg-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            16
+          ]
+        },
+        {
+          "code": "Bg-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            16
+          ]
+        },
+        {
+          "code": "Bg-Ⅱ-2",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            16
+          ]
+        },
+        {
+          "code": "Bg-Ⅱ-3",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            16
+          ]
+        },
+        {
+          "code": "Bg-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            16
+          ]
+        },
+        {
+          "code": "Bg-Ⅲ-2",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            16
+          ]
+        },
+        {
+          "code": "Bh-Ⅰ-1",
+          "learningStage": "first",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            16
+          ]
+        },
+        {
+          "code": "Bh-Ⅱ-1",
+          "learningStage": "second",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            16
+          ]
+        },
+        {
+          "code": "Bh-Ⅲ-1",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            16
+          ]
+        },
+        {
+          "code": "Bh-Ⅲ-3",
+          "learningStage": "third",
+          "sections": [
+            "learning_content"
+          ],
+          "pdfPages": [
+            16
+          ]
+        }
+      ]
+    }
+  ]
+}

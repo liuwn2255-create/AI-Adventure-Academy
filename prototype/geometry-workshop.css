@@ -1,0 +1,45 @@
+.geometry-recomposition-panel,.geometry-net-panel{display:grid;gap:12px;min-width:0;margin:14px 0;padding:14px;border:2px solid #a9c9d2;border-radius:16px;background:#f5fbfc}
+.geometry-recomposition-board{display:grid;gap:4px;width:min(100%,440px);margin:4px auto;padding:8px;border:2px solid #668b98;border-radius:12px;background:#eaf3f5;touch-action:manipulation}
+.geometry-recomposition-cell{display:grid;place-items:center;min-width:0;aspect-ratio:1;border:1px solid #a5bbc1;border-radius:5px;background:#fff;color:#56727a;font-size:clamp(.5rem,2.3vw,.8rem);overflow:hidden}
+.geometry-recomposition-cell.is-target{outline:2px dashed #24947f;outline-offset:-4px;background:#e5f6ef}
+.geometry-recomposition-cell.is-piece{border:2px solid #286f86;background:#8fd0d4;color:#15556b;font-size:1.25rem}
+.geometry-recomposition-cell.is-piece.is-selected{background:#f6c76f;border-color:#a45f15;box-shadow:inset 0 0 0 2px #fff}
+.geometry-move-controls{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;max-width:560px;margin:0 auto;width:100%}
+.geometry-control{min-width:0;width:100%;padding:9px 4px;white-space:normal}
+.geometry-net-candidates{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,145px),1fr));gap:9px;min-width:0}
+.geometry-net-choice{display:grid;justify-items:center;gap:8px;min-width:0;width:100%;padding:10px;border:2px solid #c4d8dd;border-radius:12px;background:#fff;color:#254b58;cursor:pointer}
+.geometry-net-choice.is-selected{border-color:#168c76;background:#e4f6ef;box-shadow:0 0 0 2px #b8e2d5}
+.geometry-net-choice strong{overflow-wrap:anywhere;text-align:center}
+.geometry-net-board{display:grid;gap:3px;width:min(100%,150px);aspect-ratio:1.35}
+.geometry-net-face{display:grid;place-items:center;min-width:0;aspect-ratio:1;border:1px solid #447b8b;border-radius:4px;background:#c8e7ed;font-size:.8rem;font-weight:900}
+.geometry-net-face.is-empty{border-color:transparent;background:transparent}
+.geometry-fold-button{justify-self:center;min-width:min(100%,210px)}
+.geometry-fold-result{margin:0;padding:10px;border-radius:10px;font-weight:850}
+.geometry-fold-result.is-valid{background:#e2f4e9;color:#155b3c}
+.geometry-fold-result.is-invalid{background:#fff0df;color:#8d4618}
+.geometry-fold-scene{display:grid;place-items:center;min-height:150px;padding:15px;perspective:560px}
+.geometry-fold-cube{position:relative;width:88px;height:88px;transform-style:preserve-3d;transform:rotateX(-23deg) rotateY(-32deg)}
+.geometry-cube-face{position:absolute;display:grid;place-items:center;width:88px;height:88px;border:2px solid #276277;background:rgba(138,205,213,.9);font-size:1.5rem;font-weight:900;color:#164b60;backface-visibility:hidden}
+.geometry-cube-face.front{transform:translateZ(44px)}
+.geometry-cube-face.back{transform:rotateY(180deg) translateZ(44px)}
+.geometry-cube-face.right{transform:rotateY(90deg) translateZ(44px);background:rgba(247,199,111,.92)}
+.geometry-cube-face.left{transform:rotateY(-90deg) translateZ(44px);background:rgba(180,220,192,.92)}
+.geometry-cube-face.top{transform:rotateX(90deg) translateZ(44px);background:rgba(206,190,235,.92)}
+.geometry-cube-face.bottom{transform:rotateX(-90deg) translateZ(44px);background:rgba(234,177,174,.92)}
+.geometry-adjacency-question{text-align:center;font-weight:800}
+.geometry-adjacency-answers{justify-content:center}
+.angle-exploration-panel{display:grid;gap:12px;min-width:0;margin:14px 0;padding:14px;border:2px solid #a9c9d2;border-radius:16px;background:#f5fbfc}
+.angle-exploration-diagram{display:block;width:min(100%,420px);height:auto;margin:0 auto;border:1px solid #d7e6eb;border-radius:12px;background:#fff}
+.angle-control-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;min-width:0}
+.angle-slider-label{display:grid;gap:8px;font-weight:800;color:#254b58}
+.angle-slider{width:100%;min-width:0;accent-color:#147d85}
+.angle-exploration-panel .candidate-token-list{justify-content:center}
+.angle-exploration-panel button{max-width:100%;white-space:normal}
+.angle-option-list,.angle-comparison-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,135px),1fr));gap:8px;min-width:0}
+.angle-option-list .candidate-token,.angle-relation-controls .candidate-token{width:100%;min-width:0;padding:9px 7px;text-align:center}
+.angle-comparison-controls{grid-template-columns:repeat(2,minmax(0,1fr));padding:8px;border-radius:12px;background:#fff}
+.angle-comparison-controls label{min-width:0;font-size:.92rem}
+.angle-exploration-panel small{display:block;color:#536e77;line-height:1.5;overflow-wrap:anywhere}
+@media(max-width:360px){.angle-exploration-panel{padding:9px}.angle-comparison-controls{grid-template-columns:minmax(0,1fr)}.angle-option-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}.angle-option-list .candidate-token,.angle-relation-controls .candidate-token{font-size:.82rem;padding:8px 4px}}
+@media(max-width:600px){.geometry-recomposition-panel,.geometry-net-panel{padding:10px}.geometry-net-candidates{grid-template-columns:repeat(2,minmax(0,1fr))}.geometry-net-choice{padding:7px}.geometry-move-controls{grid-template-columns:repeat(3,minmax(0,1fr))}.geometry-move-controls .geometry-control:last-child{grid-column:span 3}.geometry-fold-scene{min-height:130px}.geometry-fold-cube{transform:scale(.82) rotateX(-23deg) rotateY(-32deg)}}
+@media(max-width:360px){.geometry-net-candidates{grid-template-columns:minmax(0,1fr)}.geometry-recomposition-board{gap:3px;padding:5px}.geometry-control{font-size:.85rem}}

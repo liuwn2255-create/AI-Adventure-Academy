@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "registryId": "project-units",
+  "registryRevision": 1,
+  "units": [
+    {
+      "unitId": "M3-NUM-01",
+      "revision": 1,
+      "title": "一萬以內的數與位值（候選單元）",
+      "subject": "mathematics",
+      "gradeScope": {
+        "grades": [
+          3
+        ],
+        "scopeType": "proposed_grade",
+        "notes": "三年級是本專案提案範圍；不是校本年級分配或實際授課證據。"
+      },
+      "curriculumMapIds": [
+        "math-number-place-value-m3-num-01"
+      ],
+      "scopeDescription": "候選範圍依課綱地圖 N-3-1：一萬以內的數、點數、位值表徵與位值表，位值單位「千」及位值單位換算；官方限制為不教超過一萬。三年級全年實際授課範圍、順序及教材適切性尚待專業確認。",
+      "exclusions": [
+        "大於一萬的數",
+        "未經校本教材及教師確認的上下學期順序、授課週次或學生已學結論"
+      ],
+      "textbookEvidence": [],
+      "evidenceNote": "尚未取得目標學校實際教材版本、冊次、單元及頁碼；不得以康軒公開簡介或課綱資料代替實際教材證據。",
+      "prerequisites": [],
+      "exceptions": [],
+      "status": "candidate",
+      "reviewRecords": [],
+      "statusHistory": [
+        {
+          "unitRevision": 1,
+          "fromStatus": null,
+          "toStatus": "candidate",
+          "changedAt": "2026-10-20T18:21:48+08:00",
+          "actor": "Codex",
+          "actorRole": "資料建置",
+          "reason": "建立最小候選單元登錄；未填入教師審查、教材或實際授課證據。",
+          "reviewRecordIds": []
+        }
+      ],
+      "revisionHistory": [],
+      "createdAt": "2026-10-20T18:21:48+08:00",
+      "updatedAt": "2026-10-20T18:21:48+08:00",
+      "supersedesRevision": null,
+      "changeSummary": null
+    }
+  ],
+  "classroomUseRecords": []
+}

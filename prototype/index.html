@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#87d5ff" />
+    <meta name="description" content="台灣國小 AI 智慧探險學園的本機可玩原型。" />
+    <title>台灣國小 AI 智慧探險學園｜原型</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./geometry-workshop.css" />
+    <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <div class="sky-scene" aria-hidden="true">
+      <span class="sun"></span><span class="cloud cloud-one"></span><span class="cloud cloud-two"></span>
+      <div class="mountain mountain-back"></div><div class="mountain mountain-front"></div>
+      <div class="island"><span class="island-path"></span><span class="tree tree-one"></span><span class="tree tree-two"></span><span class="flag">★</span></div>
+    </div>
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="回到學園首頁"><span class="brand-mark">✦</span><span>智慧探險學園</span></a>
+      <div class="prototype-badge">原型示範・非正式題庫</div>
+    </header>
+
+    <main id="app" class="app-shell">
+      <section id="home-screen" class="screen home-screen" aria-labelledby="home-title">
+        <div class="hero-copy">
+          <p class="eyebrow">小小探險家，準備出發！</p>
+          <h1 id="home-title">台灣國小<br /><span>AI 智慧探險學園</span></h1>
+          <p class="hero-description">動動腦、找線索，讓每一次學習都變成一場冒險！</p>
+          <button id="start-button" class="button button-primary button-large">開始探險 <span aria-hidden="true">➜</span></button>
+          <button id="curriculum-picker-button" class="button button-secondary button-large" type="button">依課綱選遊戲 <span aria-hidden="true">⌄</span></button>
+          <a class="button button-secondary button-large teacher-workbench-entry" href="./teacher-review.html">教師審查工作台</a>
+        </div>
+        <div class="hero-art">
+          <div class="art-orbit orbit-one" aria-hidden="true"></div><div class="art-orbit orbit-two" aria-hidden="true"></div>
+          <div class="art-book" aria-hidden="true">📖</div><div class="art-star star-a" aria-hidden="true">✦</div><div class="art-star star-b" aria-hidden="true">✦</div>
+          <div class="explorer-character-pending" role="img" aria-label="羅盤佔位圖。孫子角色素材待提供，尚無照片參考或三維模型。">
+            <span aria-hidden="true">🧭</span><small>角色素材待提供</small>
+          </div>
+          <div id="explorer-message" class="art-bubble" role="status" aria-live="polite">今天要探索哪一座島呢？</div>
+        </div>
+        <p class="prototype-note">這是可操作原型。示範題與星星只供體驗，不代表正式課程評量。</p>
+      </section>
+
+      <section id="curriculum-game-screen" class="screen curriculum-game-screen" aria-labelledby="curriculum-game-title" hidden>
+        <div class="game-topline"><button class="text-button" data-go="home" type="button">← 回到首頁</button><span class="score-pill">課程範圍選擇</span></div>
+        <p class="eyebrow">依課綱選遊戲</p>
+        <h1 id="curriculum-game-title">找到適合的探險</h1>
+        <p class="screen-lead">請依序選擇範圍。準備中的內容會標示待開發或待核對，不會當成已完成課程。</p>
+        <div class="curriculum-picker-fields">
+          <label>1. 年級<select id="picker-grade"><option value="">請選年級</option></select></label>
+          <label>2. 科目<select id="picker-subject"><option value="">請選科目</option></select></label>
+          <label>3. 學期<select id="picker-semester"><option value="">請選學期</option><option value="all">全部學期</option><option value="semester-1">上學期</option><option value="semester-2">下學期</option></select></label>
+          <label>4. 課綱學習目標<select id="picker-objective"><option value="">請先選年級與科目</option></select><small id="picker-objective-summary" class="picker-objective-summary" aria-live="polite" hidden></small></label>
+          <label>5. 挑戰方式<select id="picker-challenge"><option value="">請選挑戰方式</option></select></label>
+        </div>
+        <p id="curriculum-picker-scope-note" class="curriculum-picker-scope-note" aria-live="polite"></p>
+        <section class="curriculum-game-results" aria-labelledby="curriculum-game-results-title">
+          <h2 id="curriculum-game-results-title">符合條件的遊戲</h2>
+          <div id="curriculum-game-list" class="curriculum-game-list" aria-live="polite"></div>
+        </section>
+        <p class="prototype-note">課綱條目、學年適用性、學期進度、教材證據、教師審查與正式發布是不同狀態。本入口不判定精熟度；遊戲星星不是學習成果證據。</p>
+      </section>
+
+      <section id="reading-quest-screen" class="screen reading-quest-screen" aria-labelledby="reading-quest-title" hidden>
+        <div class="game-topline"><button class="text-button" data-go="select" type="button">← 返回學園課程目錄</button><span class="score-pill">閱讀候選任務</span></div>
+        <p class="eyebrow">故事森林・互動閱讀探險</p>
+        <h1 id="reading-quest-title" tabindex="-1">故事森林：花圃線索任務</h1>
+        <p class="reading-quest-note">原創短篇候選試作｜課綱參照為第二學習階段閱讀內容，不代表三年級學期進度已確認。活動完成不是正式評量或精熟證據。</p>
+        <div id="reading-quest-content" aria-live="polite"></div>
+      </section>
+
+      <section id="english-quest-screen" class="screen reading-quest-screen candidate-task-screen" aria-labelledby="english-quest-title" hidden>
+        <div class="game-topline"><button class="text-button" data-go="select" type="button">← 返回學園課程目錄</button><span class="score-pill">英語候選任務</span></div>
+        <p class="eyebrow">英語情境冒險・校園小幫手</p>
+        <h1 id="english-quest-title" tabindex="-1">英語情境冒險：校園小幫手</h1>
+        <p class="reading-quest-note">原創文字候選試作｜第二學習階段課綱參照；不代表三年級學期進度已確認。沒有音訊，不評量聽力或發音；完成活動不是正式評量或精熟證據。</p>
+        <div id="english-quest-content" aria-live="polite"></div>
+      </section>
+
+      <section id="science-quest-screen" class="screen reading-quest-screen candidate-task-screen" aria-labelledby="science-quest-title" hidden>
+        <div class="game-topline"><button class="text-button" data-go="select" type="button">← 返回學園課程目錄</button><span class="score-pill">自然科學候選任務</span></div>
+        <p class="eyebrow">自然探索谷・觀察紀錄站</p>
+        <h1 id="science-quest-title" tabindex="-1">自然探索谷：動物觀察紀錄站</h1>
+        <p class="reading-quest-note">依官方第二學習階段條文設計的候選模擬｜畫面提供文字觀察紀錄，不是真實動物觀察；三年級授課時序待教師確認。</p>
+        <div id="science-quest-content" aria-live="polite"></div>
+      </section>
+
+      <section id="social-quest-screen" class="screen reading-quest-screen candidate-task-screen" aria-labelledby="social-quest-title" hidden>
+        <div class="game-topline"><button class="text-button" data-go="select" type="button">← 返回學園課程目錄</button><span class="score-pill">社會領域候選任務</span></div>
+        <p class="eyebrow">社區觀察隊・資料判讀任務</p>
+        <h1 id="social-quest-title" tabindex="-1">社區觀察隊：資料裡的改變</h1>
+        <p class="reading-quest-note">虛構社區資料的候選探險｜參照社會領域第二學習階段條文，實際年級／學期進度待教師確認。這不是地方實地調查，活動完成不是正式評量或精熟證據。</p>
+        <div id="social-quest-content" aria-live="polite"></div>
+      </section>
+
+      <section id="math-data-quest-screen" class="screen reading-quest-screen candidate-task-screen" aria-labelledby="math-data-quest-title" hidden>
+        <div class="game-topline"><button class="text-button" data-go="select" type="button">← 返回學園課程目錄</button><span class="score-pill">數學資料表候選任務</span></div>
+        <p class="eyebrow">數字島・資料整理工作坊</p>
+        <h1 id="math-data-quest-title" tabindex="-1">資料小隊：建造最愛水果表</h1>
+        <p class="reading-quest-note">原創虛構資料候選活動｜參照三年級 D-3-1 與第二學習階段 d-II-1；不表示班級進度已確認。作答只在記憶體，不是正式評量或精熟證據。</p>
+        <div id="math-data-quest-content" aria-live="polite"></div>
+      </section>
+
+      <section id="arts-quest-screen" class="screen reading-quest-screen candidate-task-screen" aria-labelledby="arts-quest-title" hidden>
+        <div class="game-topline"><button class="text-button" data-go="select" type="button">← 返回學園課程目錄</button><span class="score-pill">藝術候選任務</span></div>
+        <p class="eyebrow">藝術工坊・節奏拼組</p>
+        <h1 id="arts-quest-title" tabindex="-1">節奏小工坊：拼出自己的節奏</h1>
+        <p class="reading-quest-note">依第二學習階段藝術領域條文設計的視覺拼組候選活動；無音訊，不評量演奏、聽力或節拍表現。年級／學期進度待教師確認。</p>
+        <div id="arts-quest-content" aria-live="polite"></div>
+      </section>
+
+      <section id="catalog-task-screen" class="screen reading-quest-screen candidate-task-screen" aria-labelledby="catalog-task-title" hidden>
+        <div class="game-topline"><button class="text-button" data-go="select" type="button">← 返回學園課程目錄</button><span class="score-pill">跨領域候選任務</span></div>
+        <p class="eyebrow">學習世界・候選原型</p>
+        <h1 id="catalog-task-title" tabindex="-1">候選學習任務</h1>
+        <p class="reading-quest-note">本任務使用共用學習任務引擎。作答與完成獎章只存在本次頁面記憶體，不寫入正式學生進度、成績、精熟度或解鎖；候選課綱參照不代表教師核准或校本進度已確認。</p>
+        <div id="catalog-task-content" aria-live="polite"></div>
+      </section>
+
+      <section id="select-screen" class="screen select-screen map-screen" aria-labelledby="select-title" hidden>
+        <button class="text-button back-home" data-go="home">← 回到首頁</button>
+        <section class="grade-picker" aria-labelledby="grade-picker-title">
+          <div class="grade-picker-heading"><p class="eyebrow">全年級架構</p><h2 id="grade-picker-title">選擇年級</h2><p>六個年級都已建立入口；準備中的內容會清楚標示，尚未開放遊玩。</p></div>
+          <div id="grade-options" class="grade-options" role="group" aria-label="選擇年級"></div>
+        </section>
+        <section id="grade-preparation-panel" class="grade-preparation-panel" aria-labelledby="grade-preparation-title" hidden>
+          <div class="grade-preparation-heading"><div><p id="grade-development-status" class="eyebrow">準備中</p><h2 id="grade-preparation-title"></h2></div><span id="grade-preparation-badge" class="grade-preparation-badge">內容尚未開放</span></div>
+          <p id="grade-preparation-note" class="grade-preparation-note"></p>
+          <p class="curriculum-framework-note">領域索引依教育部總綱表 3、表 4 建立；卡片會列出資料狀態。索引不表示該領域在此年級的實際授課範圍或教材進度已核實。</p>
+          <section id="grade-candidate-route-panel" class="grade-candidate-route-panel" aria-labelledby="grade-candidate-route-title" hidden></section>
+          <div id="grade-semester-list" class="grade-semester-list"></div>
+          <h3 class="grade-directory-title">學習領域與科目</h3>
+          <div id="grade-subject-directory" class="grade-subject-directory" aria-label="選擇學習領域或科目"></div>
+          <section id="grade-subject-detail" class="grade-subject-detail" aria-live="polite" hidden>
+            <div><p id="grade-subject-detail-status" class="eyebrow"></p><h3 id="grade-subject-detail-title"></h3></div>
+            <p id="grade-subject-detail-copy"></p>
+            <div id="grade-subject-task-list" class="grade-subject-task-list"></div>
+            <div id="grade-subject-extra-activities" class="grade-subject-extra-activities" aria-label="可遊玩的候選任務"></div>
+            <button id="grade-subject-open-map" class="button button-primary" type="button" hidden>前往三年級數學冒險地圖</button>
+            <button id="grade-subject-open-reading" data-activity-id="ACT-G3-CHINESE-READING-GARDEN-CANDIDATE" class="button button-primary" type="button" hidden>開始故事森林閱讀任務</button>
+            <button id="grade-subject-open-english" data-activity-id="ACT-G3-ENGLISH-CLASSROOM-CONVERSATION-CANDIDATE" class="button button-primary" type="button" hidden>開始英語情境冒險</button>
+            <button id="grade-subject-open-science" data-activity-id="ACT-G3-SCIENCE-ANIMAL-FORM-OBSERVATION-CANDIDATE" class="button button-primary" type="button" hidden>開始自然觀察探索</button>
+            <button id="grade-subject-open-social" data-activity-id="ACT-G3-SOCIAL-NEIGHBORHOOD-CHANGE-CANDIDATE" class="button button-primary" type="button" hidden>開始社區資料探險</button>
+            <button id="grade-subject-open-math-data" data-activity-id="ACT-G3-MATH-DATA-TABLE-WORKSHOP-CANDIDATE" class="button button-primary" type="button" hidden>開始資料表建造任務</button>
+            <button id="grade-subject-open-arts" data-activity-id="ACT-G3-ARTS-RHYTHM-WORKSHOP-CANDIDATE" class="button button-primary" type="button" hidden>開始節奏小工坊</button>
+          </section>
+          <p class="prototype-note">出版社、版本、冊別、頁碼、年級細目、學期順序、實際授課進度及教師審查均不由這個目錄推定。課程骨架的學習進度介面目前僅為規格。</p>
+        </section>
+        <div id="grade3-experience">
+        <section id="grade3-math-adventure-map" class="grade3-math-adventure-map" aria-labelledby="grade3-math-adventure-title">
+          <div class="grade3-math-adventure-heading"><div><p class="eyebrow">候選學習路徑・不改變正式解鎖</p><h2 id="grade3-math-adventure-title">三年級數學冒險地圖</h2></div><button id="grade3-math-map-return-directory" class="text-button" type="button">返回年級／科目目錄</button></div>
+          <p class="grade3-math-adventure-note">關卡依目前已註冊的三年級數學候選活動動態列出。可玩表示有共用任務引擎入口，不代表課綱完整涵蓋、教師核准或正式精熟；完成狀態只在本次記憶體流程中使用。</p>
+          <div id="grade3-math-repair-mainline" class="grade3-math-repair-mainline" aria-live="polite"></div>
+          <div id="grade3-math-adventure-regions" class="grade3-math-adventure-regions" aria-live="polite"></div>
+        </section>
+        <div class="map-heading">
+          <div><p class="eyebrow">第一站・學習島</p><h1 id="select-title">三年級探險地圖</h1></div>
+          <p class="map-progress-note" id="map-progress-note" aria-live="polite">星星只保存在這台裝置的示範進度中。</p>
+        </div>
+        <p class="screen-lead">先從三年級數學冒險地圖選擇一個可玩的候選關卡；其他年級與領域依各自狀態顯示。</p>
+        <div class="map-explorer-hint"><span aria-hidden="true">🧭</span><span id="map-explorer-message" aria-live="polite">今天要探索哪一座島呢？</span></div>
+
+        <div class="adventure-map" aria-label="探險地圖">
+          <svg class="map-art" viewBox="0 0 1000 600" role="img" aria-labelledby="map-art-title map-art-desc">
+            <title id="map-art-title">三年級探險地圖</title>
+            <desc id="map-art-desc">明亮的低多邊形地圖，包含故事森林、數字島與自然探索谷，路線以小路和河流連接。</desc>
+            <defs>
+              <linearGradient id="water-gradient" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#8ddfff"/><stop offset="1" stop-color="#55bfe3"/></linearGradient>
+              <linearGradient id="grass-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9add75"/><stop offset="1" stop-color="#43ad7b"/></linearGradient>
+            </defs>
+            <rect width="1000" height="600" rx="34" fill="url(#water-gradient)"/>
+            <path d="M0 411 Q170 340 293 399T546 408T773 376T1000 418V600H0Z" fill="#55b9d7" opacity=".45"/>
+            <path d="M105 500 Q320 430 440 489T708 484T929 520" fill="none" stroke="#b8f0ff" stroke-width="30" stroke-linecap="round"/>
+            <path d="M105 500 Q320 430 440 489T708 484T929 520" fill="none" stroke="#71d2eb" stroke-width="14" stroke-linecap="round"/>
+            <!-- story forest island -->
+            <path d="M52 347 96 213 186 169 262 126 354 158 401 236 373 332 310 388 202 410 106 393Z" fill="url(#grass-gradient)" stroke="#e1f5a5" stroke-width="12"/>
+            <path d="m88 300 57-86 47 59-32 81Zm121-119 59-43 39 75-70 18Zm102 118 58-52 28 71-63 44Z" fill="#77c864"/>
+            <path d="m139 332 66-59 49 58-52 61Zm125-98 61 15 17 60-74-6Z" fill="#a9e185"/>
+            <!-- number island -->
+            <path d="m310 458 22-111 92-72 98 8 71 55 35 111-62 77-107 25-101-30Z" fill="#81cd69" stroke="#e6f3a7" stroke-width="13"/>
+            <path d="m355 441 70-114 61 53 49-45 63 88-76 98-99 9Z" fill="#6dbd69"/>
+            <path d="m425 327 50 53-57 42-63-28Zm61 53 49-45 28 54-55 34Zm-68 42 57-42 18 90-62 35Z" fill="#a2db79"/>
+            <!-- nature valley -->
+            <path d="m587 343 34-102 77-49 91 29 53 74 106 22 28 83-70 57-118-10-83 25-105-43Z" fill="#91d279" stroke="#e1f5a5" stroke-width="12"/>
+            <path d="m624 250 63-112 58 112Zm133-12 57-105 62 141Zm-33 94 82-82 44 100-77 42Z" fill="#76bca6"/>
+            <path d="m636 250 51-91 26 91Zm133-12 45-83 40 108Zm-45 85 74-73 15 57-58 42Z" fill="#a4d9ba"/>
+            <!-- connecting paths -->
+            <path d="M195 335 C282 430 329 393 422 410 C554 435 609 326 726 287" fill="none" stroke="#f8e39a" stroke-width="22" stroke-linecap="round" stroke-dasharray="3 4"/>
+            <path d="M195 335 C282 430 329 393 422 410 C554 435 609 326 726 287" fill="none" stroke="#fff7d5" stroke-width="11" stroke-linecap="round" stroke-dasharray="2 3"/>
+            <!-- low-poly trees -->
+            <g class="map-tree"><path d="M153 324h12v36h-12Z" fill="#9a6741"/><path d="m159 273 38 62h-76Z" fill="#278d68"/><path d="m159 273 38 62h-38Z" fill="#49aa6d"/></g>
+            <g class="map-tree"><path d="M301 282h11v32h-11Z" fill="#9a6741"/><path d="m306 235 33 56h-66Z" fill="#278d68"/><path d="m306 235 33 56h-33Z" fill="#49aa6d"/></g>
+            <g class="map-tree"><path d="M817 365h12v34h-12Z" fill="#9a6741"/><path d="m823 315 36 61h-72Z" fill="#278d68"/><path d="m823 315 36 61h-36Z" fill="#49aa6d"/></g>
+            <!-- treasure chest -->
+            <g transform="translate(518 494)"><path d="M0 9h52v31H0Z" fill="#ae6d32" stroke="#75451f" stroke-width="4"/><path d="M2 8a24 16 0 0 1 48 0Z" fill="#d9953c" stroke="#75451f" stroke-width="4"/><path d="M23 15h9v14h-9Z" fill="#ffdf62"/><circle cx="27.5" cy="22" r="2.8" fill="#8a582a"/></g>
+            <g fill="#fff3a5"><path d="m121 127 6 13 14 2-10 9 3 14-13-7-12 7 2-14-10-9 14-2Zm795 190 5 10 11 1-8 7 2 11-10-6-10 6 2-11-8-7 11-1Z"/></g>
+            <!-- visible route markers in the illustration -->
+            <g fill="#fff" stroke="#198ab1" stroke-width="9"><circle cx="195" cy="335" r="22"/><circle cx="468" cy="407" r="24"/><circle cx="726" cy="287" r="22"/></g>
+            <circle cx="468" cy="407" r="10" fill="#f5bd38"/>
+          </svg>
+          <button class="map-node map-node-locked map-node-story" type="button" disabled aria-label="國語文：故事森林，尚未開放">
+            <span class="map-node-icon" aria-hidden="true">📚</span><span class="map-node-subject">國語文</span><strong>故事森林</strong><span class="map-node-state">🔒 尚未開放</span>
+          </button>
+          <button id="level-start-button" class="map-node map-node-active map-node-math" type="button" aria-label="開始數學：數字島，五題原型示範關卡">
+            <span class="map-node-icon" aria-hidden="true">🔢</span><span class="map-node-subject">數學</span><strong>數字島</strong><span id="map-math-state" class="map-node-state">數字與位值・開始</span>
+          </button>
+          <button class="map-node map-node-locked map-node-nature" type="button" disabled aria-label="自然科學：自然探索谷，尚未開放">
+            <span class="map-node-icon" aria-hidden="true">🌿</span><span class="map-node-subject">自然科學</span><strong>自然探索谷</strong><span class="map-node-state">🔒 尚未開放</span>
+          </button>
+        </div>
+
+        <div class="map-route-key" aria-label="學科路線">
+          <div><span class="route-dot route-dot-language"></span><span><strong>國語文</strong>・故事森林</span><small>關卡尚未開放</small></div>
+          <div><span class="route-dot route-dot-math"></span><span><strong>數學</strong>・數字島</span><small id="map-math-summary">原型示範關卡：數字與位值（5 題）</small></div>
+          <div><span class="route-dot route-dot-science"></span><span><strong>自然科學</strong>・自然探索谷</span><small>關卡尚未開放</small></div>
+        </div>
+        <section class="map-level-list" aria-labelledby="math-levels-title">
+          <div><p class="eyebrow">數字島・關卡目錄</p><h2 id="math-levels-title">數學探險</h2></div>
+          <div id="math-level-directory-list" class="math-level-directory-list" aria-label="數學關卡與規劃中主題"></div>
+          <p class="prototype-note">目前可玩內容都是本機原型示範，不是正式題庫。規劃中主題僅供資訊瀏覽，不會開放遊玩。</p>
+        </section>
+        <section id="comparison-learning-unit-panel" class="number-secret-panel shared-learning-unit-panel" aria-labelledby="comparison-learning-unit-title" hidden>
+          <div class="number-secret-heading"><div><p class="eyebrow">候選學習單元・待教師審查</p><h2 id="comparison-learning-unit-title">數的大小比較</h2></div><button class="text-button" type="button" data-comparison-unit-action="close">返回關卡目錄</button></div>
+          <p id="comparison-learning-unit-progress" class="number-secret-progress"></p>
+          <div id="comparison-learning-unit-content"></div>
+          <div id="comparison-learning-unit-feedback" class="number-secret-feedback" role="status" aria-live="polite" hidden></div>
+          <div id="comparison-learning-unit-actions" class="number-secret-actions"></div>
+        </section>
+        <section id="capacity-learning-unit-panel" class="number-secret-panel shared-learning-unit-panel" aria-labelledby="capacity-learning-unit-title" hidden>
+          <div class="number-secret-heading"><div><p class="eyebrow">容量互動原型・候選／待教師審查</p><h2 id="capacity-learning-unit-title">容量刻度判讀</h2></div><button class="text-button" type="button" data-capacity-unit-action="close">返回關卡目錄</button></div>
+          <p id="capacity-learning-unit-progress" class="number-secret-progress"></p>
+          <div id="capacity-learning-unit-content"></div>
+          <div id="capacity-learning-unit-feedback" class="number-secret-feedback" role="status" aria-live="polite" hidden></div>
+          <div id="capacity-learning-unit-actions" class="number-secret-actions"></div>
+        </section>
+        <section id="integer-number-line-learning-unit-panel" class="number-secret-panel shared-learning-unit-panel" aria-labelledby="integer-number-line-learning-unit-title" hidden>
+          <div class="number-secret-heading"><div><p class="eyebrow">數線候選互動試作・待教師審查</p><h2 id="integer-number-line-learning-unit-title">整數數線定位</h2></div><button class="text-button" type="button" data-number-line-unit-action="close">返回關卡目錄</button></div>
+          <p id="integer-number-line-learning-unit-progress" class="number-secret-progress"></p>
+          <div id="integer-number-line-learning-unit-content"></div>
+          <div id="integer-number-line-learning-unit-feedback" class="number-secret-feedback" role="status" aria-live="polite" hidden></div>
+          <div id="integer-number-line-learning-unit-actions" class="number-secret-actions"></div>
+        </section>
+        <section id="millimeter-ruler-learning-unit-panel" class="number-secret-panel shared-learning-unit-panel" aria-labelledby="millimeter-ruler-learning-unit-title" hidden>
+          <div class="number-secret-heading"><div><p class="eyebrow">長度候選互動試作・待教師審查</p><h2 id="millimeter-ruler-learning-unit-title">長度：毫米刻度</h2></div><button class="text-button" type="button" data-millimeter-ruler-action="close">返回關卡目錄</button></div>
+          <p id="millimeter-ruler-learning-unit-progress" class="number-secret-progress"></p>
+          <div id="millimeter-ruler-learning-unit-content"></div>
+          <div id="millimeter-ruler-learning-unit-feedback" class="number-secret-feedback" role="status" aria-live="polite" hidden></div>
+          <div id="millimeter-ruler-learning-unit-actions" class="number-secret-actions"></div>
+        </section>
+        <section id="weight-kg-g-learning-unit-panel" class="number-secret-panel shared-learning-unit-panel" aria-labelledby="weight-kg-g-learning-unit-title" hidden>
+          <div class="number-secret-heading"><div><p class="eyebrow">重量候選互動試作・待教師審查</p><h2 id="weight-kg-g-learning-unit-title">重量：公克與公斤</h2></div><button class="text-button" type="button" data-weight-kg-g-action="close">返回關卡目錄</button></div>
+          <p id="weight-kg-g-learning-unit-progress" class="number-secret-progress"></p>
+          <div id="weight-kg-g-learning-unit-content"></div>
+          <div id="weight-kg-g-learning-unit-feedback" class="number-secret-feedback" role="status" aria-live="polite" hidden></div>
+          <div id="weight-kg-g-learning-unit-actions" class="number-secret-actions"></div>
+        </section>
+          <section id="square-centimeter-area-learning-unit-panel" class="number-secret-panel shared-learning-unit-panel" aria-labelledby="square-centimeter-area-learning-unit-title" hidden>
+            <div class="number-secret-heading"><div><p class="eyebrow">候選面積互動原型・待教師審查</p><h2 id="square-centimeter-area-learning-unit-title">面積建造師：平方公分探險</h2></div><button class="text-button" type="button" data-area-unit-action="close">返回關卡目錄</button></div>
+            <p id="square-centimeter-area-learning-unit-progress" class="number-secret-progress"></p>
+            <div id="square-centimeter-area-learning-unit-content"></div>
+            <div id="square-centimeter-area-learning-unit-feedback" class="number-secret-feedback" role="status" aria-live="polite" hidden></div>
+            <div id="square-centimeter-area-learning-unit-actions" class="number-secret-actions"></div>
+          </section>
+          <section id="fraction-treasure-learning-unit-panel" class="number-secret-panel shared-learning-unit-panel" aria-labelledby="fraction-treasure-learning-unit-title" hidden>
+            <div class="number-secret-heading"><div><p class="eyebrow">分數候選互動原型・待教師審查</p><h2 id="fraction-treasure-learning-unit-title">分數寶藏島：同分母分數探險</h2></div><button class="text-button" type="button" data-fraction-treasure-action="close">返回關卡目錄</button></div>
+            <p id="fraction-treasure-learning-unit-progress" class="number-secret-progress"></p>
+            <div id="fraction-treasure-learning-unit-content"></div>
+            <div id="fraction-treasure-learning-unit-feedback" class="number-secret-feedback" role="status" aria-live="polite" hidden></div>
+            <div id="fraction-treasure-learning-unit-actions" class="number-secret-actions"></div>
+          </section>
+          <section id="addition-subtraction-learning-unit-panel" class="number-secret-panel shared-learning-unit-panel" aria-labelledby="addition-subtraction-learning-unit-title" hidden>
+            <div class="number-secret-heading"><div><p class="eyebrow">加減法候選互動原型・待教師審查</p><h2 id="addition-subtraction-learning-unit-title">加減法大挑戰：多位數加減探險</h2></div><button class="text-button" type="button" data-addition-subtraction-action="close">返回關卡目錄</button></div>
+            <p id="addition-subtraction-learning-unit-progress" class="number-secret-progress"></p>
+            <div id="addition-subtraction-learning-unit-content"></div>
+            <div id="addition-subtraction-learning-unit-feedback" class="number-secret-feedback" role="status" aria-live="polite" hidden></div>
+            <div id="addition-subtraction-learning-unit-actions" class="number-secret-actions"></div>
+          </section>
+        <section class="mission-board" aria-labelledby="mission-title">
+          <div class="mission-board-heading"><div><p class="eyebrow">小小任務</p><h2 id="mission-title">探險家任務</h2></div><p id="mission-reward-total" class="mission-reward-total">探索徽章 0 枚</p></div>
+          <p class="mission-board-note">完成真實遊戲任務來收集徽章；徽章和當次星星、最佳星數分開計算。</p>
+          <ul id="mission-list" class="mission-list" aria-label="任務進度"></ul>
+        </section>
+        <aside class="thinking-tag"><span aria-hidden="true">✨</span><span><strong>思考挑戰</strong> 是額外的遊戲玩法分類，不是正式課綱學科。</span></aside>
+        <p class="prototype-note">星星、任務徽章與完成狀態只保存在本機示範進度中，不是正式學習紀錄；關卡仍使用本機示範題，未連結正式題庫。</p>
+        </div>
+      </section>
+
+      <section id="capacity-screen" class="screen capacity-screen" aria-labelledby="capacity-title" hidden>
+        <div class="game-topline"><button id="capacity-return" class="text-button" type="button">← 返回探險地圖</button><span class="score-pill">容量互動原型</span></div>
+        <p class="eyebrow">開發測試入口・非正式關卡</p>
+        <h1 id="capacity-title">探險隊水壺補給站</h1>
+        <p class="screen-lead">用量杯刻度找線索，看看今天想挑戰哪一種容量任務！</p>
+        <p class="capacity-review-note">互動原型／待教師審查。課綱參照：N-3-15、n-II-9；年級進度與教材範圍尚待確認。</p>
+        <section id="capacity-guide" class="capacity-guide" aria-labelledby="capacity-guide-title" hidden>
+          <p class="eyebrow">第一次來嗎？</p><h2 id="capacity-guide-title">讀懂量杯小祕訣</h2>
+          <ol><li><strong>1 公升 = 1000 毫升。</strong></li><li>每一個小刻度代表 100 毫升。</li><li>從容器底部的 0 開始，往上看水面碰到哪一格。</li></ol>
+          <div class="capacity-guide-actions"><button id="capacity-guide-start" class="button button-primary" type="button">開始練習</button><button id="capacity-guide-skip" class="button button-secondary" type="button">略過引導</button></div>
+        </section>
+        <section id="capacity-mode-select" class="capacity-mode-select" aria-labelledby="capacity-mode-select-title" hidden>
+          <h2 id="capacity-mode-select-title">選擇今天的練習</h2>
+          <div class="capacity-mode-cards"><button id="capacity-choose-refill" class="capacity-mode-card" type="button"><strong>水壺補給站</strong><span>調整水量到指定刻度</span></button><button id="capacity-choose-practice" class="capacity-mode-card" type="button"><strong>刻度練習</strong><span>看得到水量，對照刻度練習</span></button><button id="capacity-choose-challenge" class="capacity-mode-card" type="button"><strong>刻度挑戰</strong><span>先藏起水量，自己判讀看看</span></button></div>
+        </section>
+        <div id="capacity-mode-switch" class="capacity-mode-switch" role="group" aria-label="切換容量互動模式" hidden>
+          <button id="capacity-refill-mode-button" class="capacity-mode-button is-active" type="button" aria-pressed="true">水壺補給站</button>
+          <button id="capacity-observation-mode-button" class="capacity-mode-button" type="button" aria-pressed="false">刻度觀察員</button>
+        </div>
+        <div id="capacity-refill-mode" hidden>
+        <div class="capacity-mission-card">
+          <p class="capacity-target">補給目標：<strong>500 毫升</strong></p>
+          <div class="capacity-workspace">
+            <div class="capacity-scale" aria-label="水壺容量刻度">
+              <div class="capacity-vessel" role="img" aria-label="水壺中的水位">
+                <div id="capacity-water" class="capacity-water"></div><span class="vessel-shine" aria-hidden="true"></span>
+              </div>
+              <div class="capacity-ticks" aria-hidden="true"><span>1000 mL</span><span>750 mL</span><span>500 mL</span><span>250 mL</span><span>0 mL</span></div>
+            </div>
+            <div class="capacity-controls">
+              <p id="capacity-amount" class="capacity-amount" aria-live="polite">0 毫升</p>
+              <p class="capacity-limit">容器容量：1 公升（1000 毫升）</p>
+              <label for="capacity-slider">調整水量</label>
+              <input id="capacity-slider" type="range" min="0" max="1000" step="50" value="0" aria-describedby="capacity-limit-copy" />
+              <span id="capacity-limit-copy" class="capacity-helper">可用滑桿、鍵盤方向鍵，或按鈕調整。</span>
+              <div class="capacity-adjust-buttons"><button id="capacity-minus" class="button button-secondary" type="button" aria-label="減少 100 毫升">− 100 mL</button><button id="capacity-plus" class="button button-secondary" type="button" aria-label="增加 100 毫升">+ 100 mL</button></div>
+              <div id="capacity-feedback" class="capacity-feedback" role="status" aria-live="polite">準備好了就按「確認水量」。</div>
+              <div class="capacity-actions"><button id="capacity-confirm" class="button button-primary" type="button">確認水量</button><button id="capacity-restart" class="button button-secondary" type="button">重新開始</button></div>
+            </div>
+          </div>
+          <p class="capacity-unit-note">小知識：1 公升等於 1000 毫升。本互動只練習看刻度設定水量，不代表課程或題目已核准。</p>
+          <p id="capacity-reward" class="capacity-reward" hidden>補給成功！獲得一枚原型任務徽章 ✨（僅本次開啟期間顯示，不會寫入學習進度）</p>
+        </div>
+        </div>
+        <section id="capacity-observation-mode" class="capacity-observation-card" aria-labelledby="observation-title" hidden>
+          <div class="observation-heading"><div><p class="eyebrow">容量互動原型・待教師審查</p><h2 id="observation-title">刻度觀察員</h2></div><p id="observation-progress" class="observation-progress" aria-live="polite">情境 1／3</p></div>
+          <p id="observation-prompt" class="observation-prompt">觀察水面對到哪一條刻度，再選出量杯裡的水量。</p>
+          <div id="observation-workspace" class="observation-workspace">
+            <div class="observation-scale-wrap">
+              <div id="observation-vessel" class="observation-vessel" role="img" aria-label="透明量杯，水面位於其中一條刻度；目前隱藏數字">
+                <div id="observation-water" class="observation-water"></div>
+                <div id="observation-ticks" class="observation-ticks" aria-hidden="true"></div>
+              </div>
+              <div class="observation-labels" aria-hidden="true"><span>1000 mL</span><span>800 mL</span><span>600 mL</span><span>400 mL</span><span>200 mL</span><span>0 mL</span></div>
+            </div>
+            <div class="observation-controls">
+              <div class="observation-amount-row"><p id="observation-amount" class="observation-amount" aria-live="polite">先觀察刻度再判斷</p><button id="observation-toggle-amount" class="button button-secondary" type="button" aria-pressed="true">顯示水量</button></div>
+              <p class="capacity-limit">量杯容量：1 公升（1000 毫升）；小刻度每格 100 毫升。</p>
+              <fieldset class="observation-answer-set"><legend>你觀察到多少水？</legend><div id="observation-options" class="observation-options"></div></fieldset>
+              <button id="observation-check" class="button button-primary observation-check" type="button" disabled>確認答案</button>
+              <p id="observation-feedback" class="capacity-feedback" role="status" aria-live="polite">選一個答案後確認。</p>
+              <div class="observation-actions"><button id="observation-next" class="button button-secondary" type="button" hidden>下一個刻度情境 ➜</button><button id="observation-restart" class="button button-secondary" type="button">重新開始</button><button id="observation-back-to-modes" class="button button-secondary" type="button">返回模式選擇</button></div>
+            </div>
+          </div>
+          <section id="observation-review" class="observation-review" aria-labelledby="observation-review-title" hidden>
+            <p class="eyebrow">這一輪的學習回顧</p><h3 id="observation-review-title">刻度觀察完成！</h3>
+            <div class="observation-review-stats"><p>完成情境：<strong id="review-completed-count">0</strong></p><p>正確判讀：<strong id="review-correct-count">0</strong></p><p>首次答對：<strong id="review-first-try-count">0</strong></p><p>經提示後答對：<strong id="review-after-hint-count">0</strong></p></div>
+            <p id="review-needs-practice" class="review-needs-practice"></p><ul id="review-scenario-list" class="review-scenario-list"></ul>
+            <div class="observation-review-actions"><button id="observation-review-retry" class="button button-primary" type="button">再練一次</button><button id="observation-review-map" class="button button-secondary" type="button">返回地圖</button><button id="observation-review-modes" class="button button-secondary" type="button">返回模式選擇</button></div>
+          </section>
+          <p class="capacity-unit-note">1 公升等於 1000 毫升。刻度情境僅為固定互動原型，不代表正式課程或題目已核准。</p>
+        </section>
+      </section>
+
+      <section id="explore-screen" class="screen explore-screen" aria-labelledby="explore-title" hidden>
+        <div class="game-topline explore-topline">
+          <button class="text-button" data-go="select">← 返回探險地圖</button>
+          <span class="score-pill explore-star-count" id="exploration-star-count" aria-live="polite">場景星星 0 / 1</span>
+        </div>
+        <div class="explore-heading"><p class="eyebrow">數學路線・自由探索</p><h1 id="explore-title">數字島</h1><p class="screen-lead">用方向鍵或下方按鈕移動。靠近物件後，按 E 或點「互動」。</p></div>
+        <section id="explore-control-guide" class="explore-control-guide" aria-label="探索操作教學" hidden>
+          <div class="explore-control-guide-copy">
+            <strong>探險移動小教學</strong>
+            <div class="direction-key-list" aria-label="方向鍵與 WASD 對照">
+              <span><kbd>↑</kbd>／<kbd>W</kbd> 向上移動</span>
+              <span><kbd>↓</kbd>／<kbd>S</kbd> 向下／後退</span>
+              <span><kbd>←</kbd>／<kbd>A</kbd> 向左移動</span>
+              <span><kbd>→</kbd>／<kbd>D</kbd> 向右移動</span>
+            </div>
+            <small>手機或平板：按住方向按鈕可以連續移動。走近物件後按 E 或點「互動」。</small>
+          </div>
+          <button id="explore-guide-dismiss" class="button button-secondary" type="button">知道了</button>
+        </section>
+        <div id="island-world" class="island-world" role="region" aria-label="數字島探索場景">
+          <div class="world-river" aria-hidden="true"></div>
+          <div class="world-hill hill-one" aria-hidden="true"></div><div class="world-hill hill-two" aria-hidden="true"></div>
+          <div class="world-tree tree-a" aria-hidden="true">🌲</div><div class="world-tree tree-b" aria-hidden="true">🌳</div><div class="world-tree tree-c" aria-hidden="true">🌲</div>
+          <button class="world-object object-stone" type="button" data-object-id="number-obelisk" aria-label="數字石碑，走近後可互動" disabled><span aria-hidden="true">🪨</span><strong>數字石碑</strong><small>靠近查看</small></button>
+          <button class="world-object object-chest" type="button" data-object-id="treasure-chest" aria-label="寶箱，走近後可互動" disabled><span aria-hidden="true">🧰</span><strong>寶箱</strong><small>靠近查看</small></button>
+          <button class="world-object object-star" type="button" data-object-id="island-star-1" aria-label="星星收集點，走近後可互動" disabled><span aria-hidden="true">⭐</span><strong>星星收集點</strong><small>靠近查看</small></button>
+          <div id="explorer-avatar" class="island-explorer" role="img" aria-label="正在載入 3D 探險家" aria-live="polite"><span id="explorer-avatar-fallback" class="explorer-avatar-fallback">正在載入 3D 探險家…</span></div>
+          <div id="nearby-prompt" class="nearby-prompt" role="status" aria-live="polite">島上有石碑、寶箱和星星，四處看看吧！</div>
+        </div>
+        <div class="explore-controls" aria-label="數字島操作控制">
+          <div class="direction-pad" role="group" aria-label="按住方向按鈕連續移動">
+            <button type="button" data-move="up" aria-label="向上移動" title="向上移動">▲<small>上</small></button>
+            <button type="button" data-move="left" aria-label="向左移動" title="向左移動">◀<small>左</small></button>
+            <button type="button" data-move="down" aria-label="向下或後退移動" title="向下／後退">▼<small>下</small></button>
+            <button type="button" data-move="right" aria-label="向右移動" title="向右移動">▶<small>右</small></button>
+          </div>
+          <div class="explore-action-group"><button id="interact-button" class="button button-primary" type="button" disabled>互動（E）</button><button id="start-quiz-button" class="button button-secondary" type="button">開始數字與位值關卡</button></div>
+        </div>
+        <section id="number-secret-panel" class="number-secret-panel" aria-labelledby="number-secret-title" hidden>
+          <div class="number-secret-heading"><div><p class="eyebrow">數字島・任務</p><h2 id="number-secret-title" tabindex="-1">千位數的秘密</h2></div><button id="number-secret-close" class="text-button" type="button">返回探索</button></div>
+          <p class="number-secret-status">待教師審核的示範題・不是正式核准題庫</p>
+          <div id="number-secret-intro" class="number-secret-view">
+            <p id="number-secret-intro-copy"></p>
+            <p>每題選一個答案；看完解析，再按「下一題」繼續。</p>
+            <div class="number-secret-actions">
+              <button id="number-secret-start" class="button button-secondary" type="button">直接開始原挑戰</button>
+              <button id="number-secret-learning-start" class="button button-primary" type="button">開始完整學習單元</button>
+            </div>
+          </div>
+          <div id="number-secret-learning-view" class="number-secret-view learning-unit-view" hidden aria-live="polite">
+            <p class="prototype-note">完整學習流程原型・候選／待教師審查；不產生正式學習紀錄</p>
+            <p id="learning-unit-progress" class="number-secret-progress"></p>
+            <div id="learning-unit-content"></div>
+            <div id="learning-unit-feedback" class="number-secret-feedback" role="status" aria-live="polite" hidden></div>
+            <div id="learning-unit-actions" class="number-secret-actions"></div>
+          </div>
+          <div id="number-secret-challenge-view" class="number-secret-view" hidden>
+            <p id="number-secret-progress" class="number-secret-progress"></p>
+            <h3 id="number-secret-question" class="number-secret-question" tabindex="-1"></h3>
+            <div id="number-secret-options" class="number-secret-options" role="group" aria-label="千位數挑戰答案"></div>
+            <div id="number-secret-feedback" class="number-secret-feedback" role="status" aria-live="polite" hidden></div>
+            <button id="number-secret-next" class="button button-primary" type="button" hidden>下一題</button>
+          </div>
+          <div id="number-secret-result" class="number-secret-view number-secret-result" hidden>
+            <div class="number-secret-reward" aria-hidden="true">🎉 🧰 ✨</div>
+            <h3>寶箱打開了！</h3>
+            <p id="number-secret-result-copy"></p>
+            <p class="prototype-note">本次答對數與最佳紀錄是遊戲回饋，不是正式學習評量。</p>
+            <div class="number-secret-actions"><button id="number-secret-retry" class="button button-primary" type="button">重新挑戰 ↻</button><button id="number-secret-finish" class="button button-secondary" type="button">返回探索</button></div>
+          </div>
+        </section>
+        <p class="prototype-note">場景物件是遊戲互動示意，不代表正式課綱核准或教師審查。場景星星、任務徽章、答題得分及最佳星數分開記錄。</p>
+      </section>
+
+      <section id="game-screen" class="screen game-screen" aria-labelledby="question-title" hidden>
+        <div class="game-topline"><button class="text-button" data-go="select">← 關卡選擇</button><div class="score-pill" aria-live="polite"><span aria-hidden="true">⭐</span> <span id="score-value">0</span> 顆星</div></div>
+        <div class="game-heading"><div><p id="question-eyebrow" class="eyebrow">數學探險・原型示範題</p><h1 id="question-title">數字與位值</h1></div><div id="progress-label" class="progress-label">第 1 題，共 5 題</div></div>
+        <div class="progress-track" role="progressbar" aria-label="探險進度" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"><span id="progress-fill"></span></div>
+        <article class="question-card">
+          <p id="question-prompt" class="question-prompt" tabindex="-1"></p>
+          <button id="question-hint-button" class="button button-secondary question-hint-button" type="button" hidden>查看提示</button>
+          <p id="question-hint" class="question-hint" role="status" aria-live="polite" hidden></p>
+          <div id="answer-options" class="answer-options" role="group" aria-label="選擇一個答案"></div>
+          <div id="answer-feedback" class="answer-feedback" aria-live="polite" hidden>
+            <div class="feedback-heading"><span id="feedback-icon" aria-hidden="true"></span><strong id="feedback-title"></strong></div>
+            <p id="answer-explanation"></p>
+          </div>
+          <div class="question-actions"><span class="keyboard-hint">小提示：也可以按鍵盤 1、2、3、4 作答</span><button id="continue-button" class="button button-primary" hidden>下一題 ➜</button></div>
+        </article>
+        <p class="prototype-note">星星是遊戲回饋，不是正式學習評量。答案由固定規則判定，不使用 AI。</p>
+      </section>
+
+      <section id="complete-screen" class="screen complete-screen" aria-labelledby="complete-title" hidden>
+        <div class="completion-medal" aria-hidden="true">🏆</div><p class="eyebrow">探險完成！</p><h1 id="complete-title">你完成數字島任務了！</h1>
+        <p id="completion-score" class="completion-score"></p><p id="completion-message" class="screen-lead"></p>
+        <div class="completion-actions"><button id="retry-button" class="button button-primary button-large">重新挑戰 ↻</button><button id="choose-again-button" class="button button-secondary button-large">選擇其他探險</button></div>
+        <p class="prototype-note">完成紀錄只保存在這台裝置的示範進度中，不會上傳，也不代表正式學習成績。</p>
+      </section>
+      <div id="mission-toast" class="mission-toast" role="status" aria-live="polite" hidden></div>
+    </main>
+    <footer class="site-footer"><span>用好奇心，發現學習新世界</span><span>本機互動原型</span></footer>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "batchId": "social-studies-stage2-ba-a-individual-difference-pdf-page-100",
+  "status": "verified_bounded_official_content_subsection_not_full_document_inventory",
+  "sourceId": "social-studies",
+  "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－社會領域",
+  "publicationInfo": "沿用來源登錄：教育部107年9月發布；官方 PDF 封面標示中華民國107年10月。",
+  "documentVersion": "官方 PDF 封面日期為107年10月；未確認獨立版本標籤，不推定修訂版號。",
+  "sourceUrl": "https://stv.naer.edu.tw/data/course_outline/pta_18535_6408773_60398.pdf",
+  "sourceLocation": "伍／二／國民小學學習內容表／B.差異與多元／a.個體差異／第二學習階段欄，PDF頁序100、文件印刷頁碼96。",
+  "applicability": {
+    "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+    "grade": null,
+    "semester": null,
+    "gradeApplicabilityStatus": "official_stage_only_not_individual_grade"
+  },
+  "reviewMethod": "下載官方社會領域 PDF，目視核對印刷頁96的 B.差異與多元／a.個體差異表格中第二學習階段的 Ba-Ⅱ-1 原文與條目邊界，並檢查同頁第三學習階段條目以免跨階段混錄。",
+  "clauses": [
+    {
+      "code": "Ba-Ⅱ-1",
+      "officialText": "人們對社會事物的認識、感受與意見有相同之處，亦有差異性。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 100,
+      "printedPage": 96,
+      "sourceLocator": "伍／二／國民小學學習內容表／B.差異與多元／a.個體差異／第二學習階段欄／Ba-Ⅱ-1。",
+      "reviewStatus": "verified_against_official_pdf_and_rendered_table_2026-10-25",
+      "relatedPerformanceCodes": [],
+      "activityIds": [
+        "ACT-G4-SOCIAL-DIFFERENT-VIEWPOINTS-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "partial",
+      "activityEvidence": [
+        {
+          "activityId": "ACT-G4-SOCIAL-DIFFERENT-VIEWPOINTS-CANDIDATE",
+          "stageIds": [
+            "compare-shared-and-different-viewpoints"
+          ],
+          "evidenceKind": "candidate_interaction_compares_explicitly_stated_viewpoint_pairs",
+          "browserAcceptanceReport": "artifacts/social-ba2-browser-acceptance-20261025/acceptance-report.json",
+          "browserAcceptanceStatus": "passed_three_viewports_this_turn"
+        }
+      ],
+      "limitations": [
+        "僅以虛構角色語句分類相同核心需要與不同請求；未評量真實觀點形成原因、訪談、口語協商或公共決策。",
+        "官方適用範圍是學習階段，未證明四年級特定學期或校本課程順序。",
+        "候選互動尚待教師審查，不是學生學習成效證據。"
+      ]
+    }
+  ],
+  "boundary": "本批只逐條登錄 B.差異與多元／a.個體差異中第二學習階段的一條官方學習內容 Ba-Ⅱ-1；不含同表第三學習階段，也不代表社會領域文件完整清冊。",
+  "nextWorkPosition": "社會領域下一個有界範圍：B.差異與多元／b.環境差異／第二學習階段 Bb-Ⅱ-1；重新核對表格及印刷頁碼後再登錄。"
+}

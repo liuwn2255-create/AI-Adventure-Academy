@@ -1,0 +1,58 @@
+export const CONTEXT_WORD_SENTENCE_WORKSHOP = Object.freeze({
+  activityId: 'ACT-G3-CHINESE-CONTEXT-WORD-SENTENCE-CANDIDATE',
+  revision: 1,
+  title: '語詞工坊：讀懂語境，拼好句子',
+  gradeId: 'grade-3',
+  subjectId: 'chinese-language',
+  status: 'candidate_pending_teacher_review',
+  sourceKind: 'original_prototype_text_not_from_textbook',
+  curriculumMapId: 'chinese-contextual-vocabulary-sentence',
+  sourceId: 'chinese-language',
+  curriculumCodes: ['4-Ⅱ-5', 'Ab-Ⅱ-6', 'Ac-Ⅱ-2'],
+  curriculumScope: '依字義推論詞義、常用語詞使用與基本句型作局部候選練習；相關條文屬第二學習階段，不指定三年級學期。',
+  learningObjective: Object.freeze({
+    objectiveId: 'LO-G3-CHINESE-CONTEXT-WORD-SENTENCE-CANDIDATE-01',
+    statement: '利用短句上下文推測語詞意思，再排列語塊組成通順且符合情境的句子。',
+    status: 'candidate_pending_teacher_review',
+  }),
+  instructions: '先讀前後文找語詞線索，再用語塊組成合乎情境的句子。語塊需依點選順序排列。',
+  stages: Object.freeze([
+    Object.freeze({
+      stageId: 'lost-and-found-context', interaction: 'choose_response',
+      context: Object.freeze([
+        Object.freeze({ speaker: '公告', text: '請把撿到的水壺交到辦公室。失物招領處會協助物品回到主人手中。' }),
+      ]),
+      prompt: '依照前後句，「失物招領處」最可能協助什麼事？',
+      options: Object.freeze([
+        Object.freeze({ id: 'lost-found-return', text: '把別人遺失的物品交還給主人。', feedback: '前一句說把撿到的水壺交到辦公室，後一句說物品回到主人手中。' }),
+        Object.freeze({ id: 'lost-found-repair', text: '替每個人的水壺修理裂縫。', feedback: '上下文談的是撿到及交還物品，沒有提到修理。' }),
+        Object.freeze({ id: 'lost-found-display', text: '把水壺排好供大家欣賞。', feedback: '公告沒有說要展示水壺；請看「交到辦公室」與「回到主人手中」。' }),
+      ]),
+      correctOptionIds: Object.freeze(['lost-found-return']),
+      hints: Object.freeze(['先看「失物」和「回到主人手中」這些詞句。', '把前後兩句的動作串起來，想想物品原本在哪裡、最後要去哪裡。']),
+      incorrectFeedback: '重新讀前後句，以「撿到」和「回到主人手中」推測詞語意思，不要加入文本沒有的情節。',
+      correctFeedback: '你用上下文線索推測語詞的意思，而非只看詞語外觀。',
+    }),
+    Object.freeze({
+      stageId: 'return-pencil-sentence', interaction: 'assemble_response',
+      context: Object.freeze([
+        Object.freeze({ speaker: '情境', text: '小安在走廊撿到一支鉛筆，想把鉛筆交還給失主。' }),
+      ]),
+      prompt: '依照點選順序組成一句符合情境的話。',
+      tokens: Object.freeze([
+        Object.freeze({ id: 'pencil-owner', text: '把鉛筆交給失主。' }),
+        Object.freeze({ id: 'pencil-an', text: '小安' }),
+        Object.freeze({ id: 'pencil-found', text: '撿到鉛筆後，' }),
+      ]),
+      correctOptionIds: Object.freeze(['pencil-an', 'pencil-found', 'pencil-owner']),
+      hints: Object.freeze(['先找出這句話要說的主角，再想接著發生的事。', '句子順序可先放人物，再接「撿到鉛筆後」，最後放交還的動作。']),
+      incorrectFeedback: '檢查語塊順序：先說誰，再說發生什麼，最後說他做了什麼。',
+      correctFeedback: '你把人物、事件和後續動作依合適順序組成句子。',
+    }),
+  ]),
+  reinforcementActivityIds: Object.freeze([]),
+  reinforcementStatus: '尚無連結的補強活動',
+  evidencePolicy: Object.freeze({ persistence: 'memory_only_no_student_records_no_localStorage', completionIsMastery: false, hintAssistedResponseIsIndependentEvidence: false }),
+  teacherReview: Object.freeze({ status: 'not_reviewed', reviewer: null, reviewedAt: null }),
+  openQuestions: Object.freeze(['語詞是否屬目標班級已接觸範圍及閱讀負擔是否適切，待教師確認。', '條文是第二學習階段範圍，不代表三年級授課時序。']),
+});

@@ -1,0 +1,4001 @@
+{
+  "schemaVersion": 1,
+  "datasetId": "chapter-learning-objectives",
+  "datasetStatus": "draft_model_grade3_existing_scope_only",
+  "generatedAt": "2026-10-21",
+  "scope": {
+    "grades": [
+      3
+    ],
+    "chapterCount": 26,
+    "otherGrades": "未建立目標內容；參照 learning-map.json 架構空槽。"
+  },
+  "boundaries": {
+    "learningUnitIdIsNotFormalUnitId": true,
+    "curriculumDefinitionsAreSeparateFromStudentProgress": true,
+    "officialSourceReviewDoesNotImplyGradeScheduleOrTeacherApproval": true,
+    "gameCompletionStarsBadgesAndScoreAreNotMasteryEvidence": true,
+    "stage0Status": "not_passed"
+  },
+  "learningUnits": [
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-number-place-value",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-number-place-value",
+      "chapterTitle": "一萬以內的數與位值",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-number-place-value",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-number-place-value",
+        "curriculumMapIds": [
+          "math-number-place-value-m3-num-01"
+        ]
+      },
+      "formalUnitRef": {
+        "unitId": "M3-NUM-01",
+        "unitRevision": 1,
+        "unitStatus": "candidate",
+        "note": "正式單元登錄參照；不代表此學習目標或題目已核准。"
+      },
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "N-3-1",
+            "codeType": "learning_content",
+            "location": "伍、學習重點；N-3-1：3年級學習內容表，專案記錄官方 PDF 解析定位 P25；n-II-1：第二學習階段學習表現，專案記錄官方 PDF 解析定位 P11。印刷頁碼未核定。"
+          },
+          {
+            "code": "n-II-1",
+            "codeType": "learning_performance",
+            "location": "伍、學習重點；N-3-1：3年級學習內容表，專案記錄官方 PDF 解析定位 P25；n-II-1：第二學習階段學習表現，專案記錄官方 PDF 解析定位 P11。印刷頁碼未核定。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "verified_in_official_guideline_stage_and_grade_scope",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "現有地圖記載一萬以內數、位值積木操作、點數、位值表徵與位值表，位值單位為千，並依地圖所載備註不超過一萬。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "verified_in_official_guideline_stage_and_grade_scope"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "現有地圖記載一萬以內數、位值積木操作、點數、位值表徵與位值表，位值單位為千，並依地圖所載備註不超過一萬。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-number-place-value-m3-num-01",
+        "contentCodes": [
+          "N-3-1"
+        ],
+        "performanceCodes": [
+          "n-II-1"
+        ],
+        "status": "verified_in_official_guideline_stage_and_grade_scope"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "現有地圖記載一萬以內數、位值積木操作、點數、位值表徵與位值表，位值單位為千，並依地圖所載備註不超過一萬。",
+        "sourceStatementRef": "scope-m3-math-number-place-value.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO-M3-NUM-PLACE-VALUE-01",
+            "statement": "在 3,000 中辨認數字 3 位於千位，並說出它表示 3 個千。",
+            "basis": "existing_prototype_question_content_analysis",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-number-place-value-m3-num-01"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [
+              "secret-thousands-01"
+            ],
+            "observableCriteria": [],
+            "alignmentNote": "與現有 N-3-1 範圍摘要相近；逐題與年級適切性仍待教師審查。"
+          },
+          {
+            "objectiveId": "LO-M3-NUM-PLACE-VALUE-02",
+            "statement": "將 4 個千的數量表徵連結為數字 4,000。",
+            "basis": "existing_prototype_question_content_analysis",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-number-place-value-m3-num-01"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [
+              "secret-thousands-02"
+            ],
+            "observableCriteria": [],
+            "alignmentNote": "概念連結屬候選解讀；教材呈現、先備能力與課綱對應待教師審查。"
+          },
+          {
+            "objectiveId": "LO-M3-NUM-PLACE-VALUE-03",
+            "statement": "把 2,000 與 500 合成 2,500。",
+            "basis": "existing_prototype_question_content_analysis",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-number-place-value-m3-num-01"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [
+              "secret-thousands-03"
+            ],
+            "observableCriteria": [],
+            "alignmentNote": "題目同時涉及數量合成／加法；不能只因位值單元名稱便推定直接受 N-3-1 支持，須另行審查。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "representation_matching",
+          "place_value_puzzle"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-integer-number-line",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-integer-number-line",
+      "chapterTitle": "整數數線",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-integer-number-line",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-integer-number-line",
+        "curriculumMapIds": [
+          "math-integer-number-line-m3-num-04"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "N-3-11",
+            "codeType": "learning_content",
+            "location": "伍、學習重點；N-3-11：3年級學習內容表，專案記錄官方 PDF 解析定位 P26；n-II-8：第二學習階段學習表現，專案記錄官方 PDF 解析定位 P11。印刷頁碼未核定。"
+          },
+          {
+            "code": "n-II-8",
+            "codeType": "learning_performance",
+            "location": "伍、學習重點；N-3-11：3年級學習內容表，專案記錄官方 PDF 解析定位 P26；n-II-8：第二學習階段學習表現，專案記錄官方 PDF 解析定位 P11。印刷頁碼未核定。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "verified_in_official_guideline_stage_and_grade_scope",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "現有地圖記載認識數線、報讀與標示，連結數序、長度及尺的經驗，並涉及數線上的比較、加減；地圖備註數線從 0 開始。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "verified_in_official_guideline_stage_and_grade_scope"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "現有地圖記載認識數線、報讀與標示，連結數序、長度及尺的經驗，並涉及數線上的比較、加減；地圖備註數線從 0 開始。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-integer-number-line-m3-num-04",
+        "contentCodes": [
+          "N-3-11"
+        ],
+        "performanceCodes": [
+          "n-II-8"
+        ],
+        "status": "verified_in_official_guideline_stage_and_grade_scope"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "現有地圖記載認識數線、報讀與標示，連結數序、長度及尺的經驗，並涉及數線上的比較、加減；地圖備註數線從 0 開始。",
+        "sourceStatementRef": "scope-m3-math-integer-number-line.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-integer-number-line:01",
+            "statement": "現有地圖記載認識數線、報讀與標示，連結數序、長度及尺的經驗，並涉及數線上的比較、加減；地圖備註數線從 0 開始。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-integer-number-line-m3-num-04"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "number_line_placement"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-capacity",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-capacity",
+      "chapterTitle": "容量：公升與毫升",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-capacity",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-capacity",
+        "curriculumMapIds": [
+          "math-capacity-measurement"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "N-3-15",
+            "codeType": "learning_content",
+            "location": "伍、學習重點；N-3-15，專案登錄 PDF 第27頁；印刷頁碼待核定。"
+          },
+          {
+            "code": "n-II-9",
+            "codeType": "learning_performance",
+            "location": "伍、學習重點；N-3-15，專案登錄 PDF 第27頁；印刷頁碼待核定。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "verified_in_official_guideline_stage_and_grade_scope",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "容量「公升」「毫升」的實測、量感、估測與計算及單位換算；官方備註規定換算公升數限個位數，複名數可協助加減但不做乘除。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "verified_in_official_guideline_stage_and_grade_scope"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "容量「公升」「毫升」的實測、量感、估測與計算及單位換算；官方備註規定換算公升數限個位數，複名數可協助加減但不做乘除。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-capacity-measurement",
+        "contentCodes": [
+          "N-3-15"
+        ],
+        "performanceCodes": [
+          "n-II-9"
+        ],
+        "status": "verified_in_official_guideline_stage_and_grade_scope"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "容量「公升」「毫升」的實測、量感、估測與計算及單位換算；官方備註規定換算公升數限個位數，複名數可協助加減但不做乘除。",
+        "sourceStatementRef": "scope-m3-math-capacity.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-capacity:01",
+            "statement": "容量「公升」「毫升」的實測、量感、估測與計算及單位換算；官方備註規定換算公升數限個位數，複名數可協助加減但不做乘除。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-capacity-measurement"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "capacity_measurement_simulation",
+          "graduated_scale_reading"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-chinese-reading-comprehension",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "chinese_language",
+      "chapterId": "chapter-scope-m3-chinese-reading-comprehension",
+      "chapterTitle": "閱讀理解：句段意義、主要概念與文本理解策略",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-chinese-reading-comprehension",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-chinese-reading-comprehension",
+        "curriculumMapIds": [
+          "chinese-reading-comprehension"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "chinese-language",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校語文領域－國語文（教育部107年1月25日發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/9/doc/1267/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1%E8%AA%9E%E6%96%87%E9%A0%98%E5%9F%9F-%E5%9C%8B%E8%AA%9E%E6%96%87.pdf",
+        "codeRefs": [
+          {
+            "code": "Ad-Ⅱ-2",
+            "codeType": "learning_content",
+            "location": "伍／一／學習表現／閱讀／第二學習階段（5-Ⅱ-4、5-Ⅱ-8）：文件印刷第11頁、PDF頁序第14頁；伍／二／學習內容／篇章／第二學習階段（Ad-Ⅱ-2）：文件印刷第16頁、PDF頁序第19頁。"
+          },
+          {
+            "code": "5-Ⅱ-4",
+            "codeType": "learning_performance",
+            "location": "伍／一／學習表現／閱讀／第二學習階段（5-Ⅱ-4、5-Ⅱ-8）：文件印刷第11頁、PDF頁序第14頁；伍／二／學習內容／篇章／第二學習階段（Ad-Ⅱ-2）：文件印刷第16頁、PDF頁序第19頁。"
+          },
+          {
+            "code": "5-Ⅱ-8",
+            "codeType": "learning_performance",
+            "location": "伍／一／學習表現／閱讀／第二學習階段（5-Ⅱ-4、5-Ⅱ-8）：文件印刷第11頁、PDF頁序第14頁；伍／二／學習內容／篇章／第二學習階段（Ad-Ⅱ-2）：文件印刷第16頁、PDF頁序第19頁。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "verified_in_official_guideline_stage_scope",
+        "gradeApplicabilityStatus": "stage_scope_only_grade3_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_stage_level_grade3_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "現有地圖記載掌握句段意義及主要概念，並運用預測、推論、提問理解文本；目前屬第二學習階段整理。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "verified_in_official_guideline_stage_scope"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "現有地圖記載掌握句段意義及主要概念，並運用預測、推論、提問理解文本；目前屬第二學習階段整理。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "chinese-reading-comprehension",
+        "contentCodes": [
+          "Ad-Ⅱ-2"
+        ],
+        "performanceCodes": [
+          "5-Ⅱ-4",
+          "5-Ⅱ-8"
+        ],
+        "status": "verified_in_official_guideline_stage_scope"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "現有地圖記載掌握句段意義及主要概念，並運用預測、推論、提問理解文本；目前屬第二學習階段整理。",
+        "sourceStatementRef": "scope-m3-chinese-reading-comprehension.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-chinese-reading-comprehension:01",
+            "statement": "現有地圖記載掌握句段意義及主要概念，並運用預測、推論、提問理解文本；目前屬第二學習階段整理。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "chinese-reading-comprehension"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "passage_idea_matching"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "三年級適用內容與文本難度的課程專業判定",
+          "出版社教材、文本、單元及頁次",
+          "校本學期安排與實際授課紀錄",
+          "教師對先備能力與年級適切性的審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-science-animal-observation",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "natural_science",
+      "chapterId": "chapter-scope-m3-science-animal-observation",
+      "chapterTitle": "觀察察覺問題與常見動物外部形態",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-science-animal-observation",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-science-animal-observation",
+        "curriculumMapIds": [
+          "science-animal-observation"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "natural-science",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－自然科學領域（教育部107年11月2日臺教授國部字第1070119882B號令發布）",
+        "sourceUrl": "https://stv.naer.edu.tw/data/course_outline/pta_18538_240851_60502.pdf",
+        "codeRefs": [
+          {
+            "code": "INb-Ⅱ-5",
+            "codeType": "learning_content",
+            "location": "伍、學習重點；來源登錄記載學習表現 PDF 第15頁、學習內容 PDF 第102頁。"
+          },
+          {
+            "code": "po-Ⅱ-1",
+            "codeType": "learning_performance",
+            "location": "伍、學習重點；來源登錄記載學習表現 PDF 第15頁、學習內容 PDF 第102頁。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "verified_in_official_guideline_stage_scope",
+        "gradeApplicabilityStatus": "stage_scope_only_grade3_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_stage_level_grade3_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "現有地圖記載由觀察察覺問題，以及常見動物外部形態；目前是第二學習階段整理。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "verified_in_official_guideline_stage_scope"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "現有地圖記載由觀察察覺問題，以及常見動物外部形態；目前是第二學習階段整理。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "science-animal-observation",
+        "contentCodes": [
+          "INb-Ⅱ-5"
+        ],
+        "performanceCodes": [
+          "po-Ⅱ-1"
+        ],
+        "status": "verified_in_official_guideline_stage_scope"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "現有地圖記載由觀察察覺問題，以及常見動物外部形態；目前是第二學習階段整理。",
+        "sourceStatementRef": "scope-m3-science-animal-observation.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-science-animal-observation:01",
+            "statement": "現有地圖記載由觀察察覺問題，以及常見動物外部形態；目前是第二學習階段整理。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "science-animal-observation"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "observation_clue_sorting"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "三年級實際涵蓋的自然科學學習內容及年級適用性專業判定",
+          "出版社教材、單元及頁次",
+          "校本進度、實際活動及授課紀錄",
+          "教師對先備能力的確認"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-division",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-division",
+      "chapterTitle": "除法意義與應用",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-division",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-division",
+        "curriculumMapIds": [
+          "math-division-meaning-application-m3-ops-03"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "N-3-4",
+            "codeType": "learning_content",
+            "location": "伍、學習重點；來源登錄記載 N-3-4 PDF 解析定位 P25、n-II-3 P15；印刷頁碼未核定。"
+          },
+          {
+            "code": "n-II-3",
+            "codeType": "learning_performance",
+            "location": "伍、學習重點；來源登錄記載 N-3-4 PDF 解析定位 P25、n-II-3 P15；印刷頁碼未核定。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "現有待核對地圖項目記載除法意義與應用，並引用以幾個一數及乘法理解除法等內容；分組／包含分類尚待教師確認。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "現有待核對地圖項目記載除法意義與應用，並引用以幾個一數及乘法理解除法等內容；分組／包含分類尚待教師確認。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-division-meaning-application-m3-ops-03",
+        "contentCodes": [
+          "N-3-4"
+        ],
+        "performanceCodes": [
+          "n-II-3"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "現有待核對地圖項目記載除法意義與應用，並引用以幾個一數及乘法理解除法等內容；分組／包含分類尚待教師確認。",
+        "sourceStatementRef": "scope-m3-math-division.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-division:01",
+            "statement": "現有待核對地圖項目記載除法意義與應用，並引用以幾個一數及乘法理解除法等內容；分組／包含分類尚待教師確認。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-division-meaning-application-m3-ops-03"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "equal_grouping_model"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-circle-elements",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-circle-elements",
+      "chapterTitle": "圓的元素",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-circle-elements",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-circle-elements",
+        "curriculumMapIds": [
+          "math-circle-elements-m3-geo-02"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "S-3-3",
+            "codeType": "learning_content",
+            "location": "伍、學習重點；來源登錄記載 S-3-3 PDF 解析定位 P27、s-II-3 P17；印刷頁碼未核定。"
+          },
+          {
+            "code": "s-II-3",
+            "codeType": "learning_performance",
+            "location": "伍、學習重點；來源登錄記載 S-3-3 PDF 解析定位 P27、s-II-3 P17；印刷頁碼未核定。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "現有待核對地圖項目記載圓心、圓周、半徑、直徑及圓規作圖；作圖精度與裝置條件未由現有資料核定。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "現有待核對地圖項目記載圓心、圓周、半徑、直徑及圓規作圖；作圖精度與裝置條件未由現有資料核定。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-circle-elements-m3-geo-02",
+        "contentCodes": [
+          "S-3-3"
+        ],
+        "performanceCodes": [
+          "s-II-3"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "現有待核對地圖項目記載圓心、圓周、半徑、直徑及圓規作圖；作圖精度與裝置條件未由現有資料核定。",
+        "sourceStatementRef": "scope-m3-math-circle-elements.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-circle-elements:01",
+            "statement": "現有待核對地圖項目記載圓心、圓周、半徑、直徑及圓規作圖；作圖精度與裝置條件未由現有資料核定。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-circle-elements-m3-geo-02"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "circle_feature_identification"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-addition-subtraction",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-addition-subtraction",
+      "chapterTitle": "加減直式計算",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-addition-subtraction",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-addition-subtraction",
+        "curriculumMapIds": [
+          "math-grade3-n-3-2-add-sub"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "N-3-2",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 N-3-2，官方 PDF 頁序P25；對應表現欄 n-II-2。"
+          },
+          {
+            "code": "n-II-2",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 N-3-2，官方 PDF 頁序P25；對應表現欄 n-II-2。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "加、減直式計算，包含多次進位、退位及算式中有0的題型；N-3-2條文本身未單列位數上限。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "加、減直式計算，包含多次進位、退位及算式中有0的題型；N-3-2條文本身未單列位數上限。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-n-3-2-add-sub",
+        "contentCodes": [
+          "N-3-2"
+        ],
+        "performanceCodes": [
+          "n-II-2"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "加、減直式計算，包含多次進位、退位及算式中有0的題型；N-3-2條文本身未單列位數上限。",
+        "sourceStatementRef": "scope-m3-math-addition-subtraction.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-addition-subtraction:01",
+            "statement": "加、減直式計算，包含多次進位、退位及算式中有0的題型；N-3-2條文本身未單列位數上限。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-n-3-2-add-sub"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "operation_path_choice"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-one-digit-multiplication",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-one-digit-multiplication",
+      "chapterTitle": "一位數乘法",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-one-digit-multiplication",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-one-digit-multiplication",
+        "curriculumMapIds": [
+          "math-grade3-n-3-3-one-digit-multiplication"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "N-3-3",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 N-3-3，官方 PDF 頁序P25；對應表現欄 n-II-2。"
+          },
+          {
+            "code": "n-II-2",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 N-3-3，官方 PDF 頁序P25；對應表現欄 n-II-2。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "一位數乘以二位數或三位數的乘法直式計算，含 0 的處理。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "一位數乘以二位數或三位數的乘法直式計算，含 0 的處理。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-n-3-3-one-digit-multiplication",
+        "contentCodes": [
+          "N-3-3"
+        ],
+        "performanceCodes": [
+          "n-II-2"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "一位數乘以二位數或三位數的乘法直式計算，含 0 的處理。",
+        "sourceStatementRef": "scope-m3-math-one-digit-multiplication.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-one-digit-multiplication:01",
+            "statement": "一位數乘以二位數或三位數的乘法直式計算，含 0 的處理。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-n-3-3-one-digit-multiplication"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "array_model_matching"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-one-digit-division",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-one-digit-division",
+      "chapterTitle": "一位數除法計算",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-one-digit-division",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-one-digit-division",
+        "curriculumMapIds": [
+          "math-grade3-n-3-5-one-digit-division"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "N-3-5",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 N-3-5，官方 PDF 頁序P26；對應表現欄 n-II-3。"
+          },
+          {
+            "code": "n-II-3",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 N-3-5，官方 PDF 頁序P26；對應表現欄 n-II-3。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "二位數或三位數除以一位數的除法直式計算，含 0 的處理。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "二位數或三位數除以一位數的除法直式計算，含 0 的處理。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-n-3-5-one-digit-division",
+        "contentCodes": [
+          "N-3-5"
+        ],
+        "performanceCodes": [
+          "n-II-3"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "二位數或三位數除以一位數的除法直式計算，含 0 的處理。",
+        "sourceStatementRef": "scope-m3-math-one-digit-division.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-one-digit-division:01",
+            "statement": "二位數或三位數除以一位數的除法直式計算，含 0 的處理。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-n-3-5-one-digit-division"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "division_model_matching"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-multiplication-division-application",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-multiplication-division-application",
+      "chapterTitle": "乘除應用與未知數",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-multiplication-division-application",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-multiplication-division-application",
+        "curriculumMapIds": [
+          "math-grade3-n-3-6-mult-div-application"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "N-3-6",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 N-3-6，官方 PDF 頁序P26；對應表現欄 n-II-2、n-II-3。"
+          },
+          {
+            "code": "n-II-2",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 N-3-6，官方 PDF 頁序P26；對應表現欄 n-II-2、n-II-3。"
+          },
+          {
+            "code": "n-II-3",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 N-3-6，官方 PDF 頁序P26；對應表現欄 n-II-2、n-II-3。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "乘數、被乘數、除數或被除數未知的乘除應用解題，連結乘法與除法關係（R-3-1）。官方備註允許使用策略協助理解與轉化，且指出本條目不須另立單元教學。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "乘數、被乘數、除數或被除數未知的乘除應用解題，連結乘法與除法關係（R-3-1）。官方備註允許使用策略協助理解與轉化，且指出本條目不須另立單元教學。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-n-3-6-mult-div-application",
+        "contentCodes": [
+          "N-3-6"
+        ],
+        "performanceCodes": [
+          "n-II-2",
+          "n-II-3"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "乘數、被乘數、除數或被除數未知的乘除應用解題，連結乘法與除法關係（R-3-1）。官方備註允許使用策略協助理解與轉化，且指出本條目不須另立單元教學。",
+        "sourceStatementRef": "scope-m3-math-multiplication-division-application.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-multiplication-division-application:01",
+            "statement": "乘數、被乘數、除數或被除數未知的乘除應用解題，連結乘法與除法關係（R-3-1）。官方備註允許使用策略協助理解與轉化，且指出本條目不須另立單元教學。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-n-3-6-mult-div-application"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "unknown_box_story"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-two-step-problems",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-two-step-problems",
+      "chapterTitle": "兩步驟應用問題",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-two-step-problems",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-two-step-problems",
+        "curriculumMapIds": [
+          "math-grade3-n-3-7-two-step-problems"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "N-3-7",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 N-3-7，官方 PDF 頁序P26；對應表現欄 n-II-5。"
+          },
+          {
+            "code": "n-II-5",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 N-3-7，官方 PDF 頁序P26；對應表現欄 n-II-5。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "兩步驟應用問題限加減與除、連乘，不含併式；乘除混合及連除屬四年級 N-4-3，不納入此條目。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "兩步驟應用問題限加減與除、連乘，不含併式；乘除混合及連除屬四年級 N-4-3，不納入此條目。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-n-3-7-two-step-problems",
+        "contentCodes": [
+          "N-3-7"
+        ],
+        "performanceCodes": [
+          "n-II-5"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "兩步驟應用問題限加減與除、連乘，不含併式；乘除混合及連除屬四年級 N-4-3，不納入此條目。",
+        "sourceStatementRef": "scope-m3-math-two-step-problems.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-two-step-problems:01",
+            "statement": "兩步驟應用問題限加減與除、連乘，不含併式；乘除混合及連除屬四年級 N-4-3，不納入此條目。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-n-3-7-two-step-problems"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "two_step_route_planning"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-estimation",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-estimation",
+      "chapterTitle": "四則估算與合理性",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-estimation",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-estimation",
+        "curriculumMapIds": [
+          "math-grade3-n-3-8-estimation"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "N-3-8",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 N-3-8，官方 PDF 頁序P26；對應表現欄 n-II-4。"
+          },
+          {
+            "code": "n-II-4",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 N-3-8，官方 PDF 頁序P26；對應表現欄 n-II-4。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "在生活情境中進行四則估算並判斷答案合理性；除法為本年級新學內容，須遵守官方對情境與難度的限制。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "在生活情境中進行四則估算並判斷答案合理性；除法為本年級新學內容，須遵守官方對情境與難度的限制。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-n-3-8-estimation",
+        "contentCodes": [
+          "N-3-8"
+        ],
+        "performanceCodes": [
+          "n-II-4"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "在生活情境中進行四則估算並判斷答案合理性；除法為本年級新學內容，須遵守官方對情境與難度的限制。",
+        "sourceStatementRef": "scope-m3-math-estimation.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-estimation:01",
+            "statement": "在生活情境中進行四則估算並判斷答案合理性；除法為本年級新學內容，須遵守官方對情境與難度的限制。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-n-3-8-estimation"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "estimate_then_check"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-common-denominator-fractions",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-common-denominator-fractions",
+      "chapterTitle": "同分母分數",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-common-denominator-fractions",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-common-denominator-fractions",
+        "curriculumMapIds": [
+          "math-grade3-n-3-9-common-denominator-fractions"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "N-3-9",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 N-3-9，官方 PDF 頁序P26；對應表現欄 n-II-6。"
+          },
+          {
+            "code": "n-II-6",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 N-3-9，官方 PDF 頁序P26；對應表現欄 n-II-6。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "認識簡單同分母分數及其比較、加減與生活應用；官方備註限制結果範圍，且不延伸至帶分數或分數類型術語。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "認識簡單同分母分數及其比較、加減與生活應用；官方備註限制結果範圍，且不延伸至帶分數或分數類型術語。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-n-3-9-common-denominator-fractions",
+        "contentCodes": [
+          "N-3-9"
+        ],
+        "performanceCodes": [
+          "n-II-6"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "認識簡單同分母分數及其比較、加減與生活應用；官方備註限制結果範圍，且不延伸至帶分數或分數類型術語。",
+        "sourceStatementRef": "scope-m3-math-common-denominator-fractions.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-common-denominator-fractions:01",
+            "statement": "認識簡單同分母分數及其比較、加減與生活應用；官方備註限制結果範圍，且不延伸至帶分數或分數類型術語。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-n-3-9-common-denominator-fractions"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "fraction_model_matching"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-decimals-tenths",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-decimals-tenths",
+      "chapterTitle": "一位小數與十分位",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-decimals-tenths",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-decimals-tenths",
+        "curriculumMapIds": [
+          "math-grade3-n-3-10-one-decimal"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "N-3-10",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 N-3-10，官方 PDF 頁序P26；對應表現欄 n-II-7。"
+          },
+          {
+            "code": "n-II-7",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 N-3-10，官方 PDF 頁序P26；對應表現欄 n-II-7。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "認識一位小數及十分位位值，進行大小比較、加減與簡單應用。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "認識一位小數及十分位位值，進行大小比較、加減與簡單應用。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-n-3-10-one-decimal",
+        "contentCodes": [
+          "N-3-10"
+        ],
+        "performanceCodes": [
+          "n-II-7"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "認識一位小數及十分位位值，進行大小比較、加減與簡單應用。",
+        "sourceStatementRef": "scope-m3-math-decimals-tenths.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-decimals-tenths:01",
+            "statement": "認識一位小數及十分位位值，進行大小比較、加減與簡單應用。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-n-3-10-one-decimal"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "decimal_place_matching"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-length-millimeter",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-length-millimeter",
+      "chapterTitle": "長度：毫米",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-length-millimeter",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-length-millimeter",
+        "curriculumMapIds": [
+          "math-grade3-n-3-12-millimeter"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "N-3-12",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 N-3-12，官方 PDF 頁序P26–P27（跨頁）；對應表現欄 n-II-9。文件印刷頁碼本輪未另行核定。"
+          },
+          {
+            "code": "n-II-9",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 N-3-12，官方 PDF 頁序P26–P27（跨頁）；對應表現欄 n-II-9。文件印刷頁碼本輪未另行核定。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "以毫米為單位進行長度測量、估測及單位換算，範圍依官方條文與備註。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "以毫米為單位進行長度測量、估測及單位換算，範圍依官方條文與備註。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-n-3-12-millimeter",
+        "contentCodes": [
+          "N-3-12"
+        ],
+        "performanceCodes": [
+          "n-II-9"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "以毫米為單位進行長度測量、估測及單位換算，範圍依官方條文與備註。",
+        "sourceStatementRef": "scope-m3-math-length-millimeter.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-length-millimeter:01",
+            "statement": "以毫米為單位進行長度測量、估測及單位換算，範圍依官方條文與備註。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-n-3-12-millimeter"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "measurement_tool_reading"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-angle-measure",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-angle-measure",
+      "chapterTitle": "角與角度",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-angle-measure",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-angle-measure",
+        "curriculumMapIds": [
+          "math-grade3-n-3-13-s-3-1-angle"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "N-3-13",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 N-3-13（同 S-3-1），官方 PDF 頁序P27；對應表現欄 n-II-9。"
+          },
+          {
+            "code": "S-3-1",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 N-3-13（同 S-3-1），官方 PDF 頁序P27；對應表現欄 n-II-9。"
+          },
+          {
+            "code": "n-II-9",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 N-3-13（同 S-3-1），官方 PDF 頁序P27；對應表現欄 n-II-9。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "N-3-13與S-3-1均列角與角度：以具體操作初步認識角和角度、直接與間接比較並認識直角；官方備註要求處理角大小與邊長長短或面積大小的常見混淆。兩代碼保留可分別追溯。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "N-3-13與S-3-1均列角與角度：以具體操作初步認識角和角度、直接與間接比較並認識直角；官方備註要求處理角大小與邊長長短或面積大小的常見混淆。兩代碼保留可分別追溯。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-n-3-13-s-3-1-angle",
+        "contentCodes": [
+          "N-3-13",
+          "S-3-1"
+        ],
+        "performanceCodes": [
+          "n-II-9"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "N-3-13與S-3-1均列角與角度：以具體操作初步認識角和角度、直接與間接比較並認識直角；官方備註要求處理角大小與邊長長短或面積大小的常見混淆。兩代碼保留可分別追溯。",
+        "sourceStatementRef": "scope-m3-math-angle-measure.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-angle-measure:01",
+            "statement": "N-3-13與S-3-1均列角與角度：以具體操作初步認識角和角度、直接與間接比較並認識直角；官方備註要求處理角大小與邊長長短或面積大小的常見混淆。兩代碼保留可分別追溯。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-n-3-13-s-3-1-angle"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "angle_observation"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-area-square-centimeter",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-area-square-centimeter",
+      "chapterTitle": "面積：平方公分",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-area-square-centimeter",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-area-square-centimeter",
+        "curriculumMapIds": [
+          "math-grade3-n-3-14-area"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "N-3-14",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 N-3-14，官方 PDF 頁序P27；對應表現欄 n-II-9。"
+          },
+          {
+            "code": "n-II-9",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 N-3-14，官方 PDF 頁序P27；對應表現欄 n-II-9。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "以平方公分為單位認識面積，透過具體覆蓋、方格或點數處理簡單圖形；不推定一般面積公式。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "以平方公分為單位認識面積，透過具體覆蓋、方格或點數處理簡單圖形；不推定一般面積公式。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-n-3-14-area",
+        "contentCodes": [
+          "N-3-14"
+        ],
+        "performanceCodes": [
+          "n-II-9"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "以平方公分為單位認識面積，透過具體覆蓋、方格或點數處理簡單圖形；不推定一般面積公式。",
+        "sourceStatementRef": "scope-m3-math-area-square-centimeter.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-area-square-centimeter:01",
+            "statement": "以平方公分為單位認識面積，透過具體覆蓋、方格或點數處理簡單圖形；不推定一般面積公式。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-n-3-14-area"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "area_unit_covering"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-weight-kg-g",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-weight-kg-g",
+      "chapterTitle": "重量：公斤與公克",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-weight-kg-g",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-weight-kg-g",
+        "curriculumMapIds": [
+          "math-grade3-n-3-16-weight"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "N-3-16",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 N-3-16，官方 PDF 頁序P27；對應表現欄 n-II-9。"
+          },
+          {
+            "code": "n-II-9",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 N-3-16，官方 PDF 頁序P27；對應表現欄 n-II-9。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "重量「公斤」「公克」的實測、量感、估測與計算及單位換算；官方備註規定換算公斤數限個位數，複名數可協助加減但不做乘除。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "重量「公斤」「公克」的實測、量感、估測與計算及單位換算；官方備註規定換算公斤數限個位數，複名數可協助加減但不做乘除。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-n-3-16-weight",
+        "contentCodes": [
+          "N-3-16"
+        ],
+        "performanceCodes": [
+          "n-II-9"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "重量「公斤」「公克」的實測、量感、估測與計算及單位換算；官方備註規定換算公斤數限個位數，複名數可協助加減但不做乘除。",
+        "sourceStatementRef": "scope-m3-math-weight-kg-g.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-weight-kg-g:01",
+            "statement": "重量「公斤」「公克」的實測、量感、估測與計算及單位換算；官方備註規定換算公斤數限個位數，複名數可協助加減但不做乘除。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-n-3-16-weight"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "weight_scale_reading"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-time-units",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-time-units",
+      "chapterTitle": "時間單位與計算",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-time-units",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-time-units",
+        "curriculumMapIds": [
+          "math-grade3-n-3-17-time"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "N-3-17",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 N-3-17，官方 PDF 頁序P27；對應表現欄 n-II-10。"
+          },
+          {
+            "code": "n-II-10",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 N-3-17，官方 PDF 頁序P27；對應表現欄 n-II-10。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "日、時、分、秒的實測、量感、估測、計算與單位換算，並認識時間加減問題類型；本年級加減限同單位時間量，或時、分複名數且不進退位，較深入內容見 N-4-13。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "日、時、分、秒的實測、量感、估測、計算與單位換算，並認識時間加減問題類型；本年級加減限同單位時間量，或時、分複名數且不進退位，較深入內容見 N-4-13。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-n-3-17-time",
+        "contentCodes": [
+          "N-3-17"
+        ],
+        "performanceCodes": [
+          "n-II-10"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "日、時、分、秒的實測、量感、估測、計算與單位換算，並認識時間加減問題類型；本年級加減限同單位時間量，或時、分複名數且不進退位，較深入內容見 N-4-13。",
+        "sourceStatementRef": "scope-m3-math-time-units.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-time-units:01",
+            "statement": "日、時、分、秒的實測、量感、估測、計算與單位換算，並認識時間加減問題類型；本年級加減限同單位時間量，或時、分複名數且不進退位，較深入內容見 N-4-13。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-n-3-17-time"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "clock_and_time_sequence"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-square-rectangle-properties",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-square-rectangle-properties",
+      "chapterTitle": "正方形與長方形的性質",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-square-rectangle-properties",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-square-rectangle-properties",
+        "curriculumMapIds": [
+          "math-grade3-s-3-2-square-rectangle"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "S-3-2",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 S-3-2，官方 PDF 頁序P27；對應表現欄 s-II-1。文件印刷頁碼本輪未另行核定。"
+          },
+          {
+            "code": "s-II-1",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 S-3-2，官方 PDF 頁序P27；對應表現欄 s-II-1。文件印刷頁碼本輪未另行核定。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "依邊與角等構成要素認識正方形、長方形及不同方向呈現的圖形。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "依邊與角等構成要素認識正方形、長方形及不同方向呈現的圖形。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-s-3-2-square-rectangle",
+        "contentCodes": [
+          "S-3-2"
+        ],
+        "performanceCodes": [
+          "s-II-1"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "依邊與角等構成要素認識正方形、長方形及不同方向呈現的圖形。",
+        "sourceStatementRef": "scope-m3-math-square-rectangle-properties.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-square-rectangle-properties:01",
+            "statement": "依邊與角等構成要素認識正方形、長方形及不同方向呈現的圖形。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-s-3-2-square-rectangle"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "shape_feature_sorting"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-geometry-compose-decompose",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-geometry-compose-decompose",
+      "chapterTitle": "平面圖形分割、重組與立體展開",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-geometry-compose-decompose",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-geometry-compose-decompose",
+        "curriculumMapIds": [
+          "math-grade3-s-3-4-geometry-operations"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "S-3-4",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 S-3-4，官方 PDF 頁序P27–P28（跨頁）；對應表現欄 s-II-4。文件印刷頁碼本輪未另行核定。"
+          },
+          {
+            "code": "s-II-4",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 S-3-4，官方 PDF 頁序P27–P28（跨頁）；對應表現欄 s-II-4。文件印刷頁碼本輪未另行核定。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "透過操作分割、重組圖形及體驗立體形體展開；依官方備註不擴大成額外紙筆評量要求。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "透過操作分割、重組圖形及體驗立體形體展開；依官方備註不擴大成額外紙筆評量要求。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-s-3-4-geometry-operations",
+        "contentCodes": [
+          "S-3-4"
+        ],
+        "performanceCodes": [
+          "s-II-4"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "透過操作分割、重組圖形及體驗立體形體展開；依官方備註不擴大成額外紙筆評量要求。",
+        "sourceStatementRef": "scope-m3-math-geometry-compose-decompose.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-geometry-compose-decompose:01",
+            "statement": "透過操作分割、重組圖形及體驗立體形體展開；依官方備註不擴大成額外紙筆評量要求。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-s-3-4-geometry-operations"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "shape_composition_and_unfolding"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-multiplication-division-inverse",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-multiplication-division-inverse",
+      "chapterTitle": "乘除互逆關係",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-multiplication-division-inverse",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-multiplication-division-inverse",
+        "curriculumMapIds": [
+          "math-grade3-r-3-1-mult-div-inverse"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "R-3-1",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 R-3-1，官方 PDF 頁序P28；對應表現欄 r-II-1。"
+          },
+          {
+            "code": "r-II-1",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 R-3-1，官方 PDF 頁序P28；對應表現欄 r-II-1。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "理解乘法與除法互逆關係，並在應用或驗算情境中運用；此關係與 N-3-6 應用內容有連結。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "理解乘法與除法互逆關係，並在應用或驗算情境中運用；此關係與 N-3-6 應用內容有連結。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-r-3-1-mult-div-inverse",
+        "contentCodes": [
+          "R-3-1"
+        ],
+        "performanceCodes": [
+          "r-II-1"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "理解乘法與除法互逆關係，並在應用或驗算情境中運用；此關係與 N-3-6 應用內容有連結。",
+        "sourceStatementRef": "scope-m3-math-multiplication-division-inverse.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-multiplication-division-inverse:01",
+            "statement": "理解乘法與除法互逆關係，並在應用或驗算情境中運用；此關係與 N-3-6 應用內容有連結。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-r-3-1-mult-div-inverse"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "inverse_operation_matching"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-pattern-reasoning",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-pattern-reasoning",
+      "chapterTitle": "一維變化模式與推理",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-pattern-reasoning",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-pattern-reasoning",
+        "curriculumMapIds": [
+          "math-grade3-r-3-2-pattern"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "R-3-2",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 R-3-2，官方 PDF 頁序P28；對應表現欄 r-II-2。"
+          },
+          {
+            "code": "r-II-2",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 R-3-2，官方 PDF 頁序P28；對應表現欄 r-II-2。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "觀察一維變化模式並以簡單推理說明或延伸；不引入公式化的模式表達。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "觀察一維變化模式並以簡單推理說明或延伸；不引入公式化的模式表達。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-r-3-2-pattern",
+        "contentCodes": [
+          "R-3-2"
+        ],
+        "performanceCodes": [
+          "r-II-2"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "觀察一維變化模式並以簡單推理說明或延伸；不引入公式化的模式表達。",
+        "sourceStatementRef": "scope-m3-math-pattern-reasoning.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-pattern-reasoning:01",
+            "statement": "觀察一維變化模式並以簡單推理說明或延伸；不引入公式化的模式表達。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-r-3-2-pattern"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "pattern_continuation"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-data-tables",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "mathematics",
+      "chapterId": "chapter-scope-m3-math-data-tables",
+      "chapterTitle": "一維與二維資料表",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-math-data-tables",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-math-data-tables",
+        "curriculumMapIds": [
+          "math-grade3-d-3-1-data-tables"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "mathematics",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域（教育部107年7月26日臺教授國部字第1070066476B號令發布）",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+        "codeRefs": [
+          {
+            "code": "D-3-1",
+            "codeType": "learning_content",
+            "location": "伍／二／三年級學習內容表 D-3-1，官方 PDF 頁序P28；對應表現欄 d-II-1。"
+          },
+          {
+            "code": "d-II-1",
+            "codeType": "learning_performance",
+            "location": "伍／二／三年級學習內容表 D-3-1，官方 PDF 頁序P28；對應表現欄 d-II-1。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "grade_content_explicit_in_official_table_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_grade3_content_verified_local_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "讀取、說明及製作一維或二維表格，含二維交叉分類表的資料整理。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "讀取、說明及製作一維或二維表格，含二維交叉分類表的資料整理。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "math-grade3-d-3-1-data-tables",
+        "contentCodes": [
+          "D-3-1"
+        ],
+        "performanceCodes": [
+          "d-II-1"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "讀取、說明及製作一維或二維表格，含二維交叉分類表的資料整理。",
+        "sourceStatementRef": "scope-m3-math-data-tables.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-math-data-tables:01",
+            "statement": "讀取、說明及製作一維或二維表格，含二維交叉分類表的資料整理。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "math-grade3-d-3-1-data-tables"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "data_table_reading"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "教材版本、冊次、單元與頁次",
+          "校本學期順序與實際授課紀錄",
+          "教師對三年級適切性、先備能力及題型範圍的專業審查"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    },
+    {
+      "learningUnitId": "learning-unit:chapter-scope-m3-chinese-text-supporting-reasons",
+      "revision": 1,
+      "gradeId": "grade-3",
+      "gradeNumber": 3,
+      "semesterId": null,
+      "semesterStatus": "pending_school_and_textbook_evidence",
+      "subjectId": "chinese_language",
+      "chapterId": "chapter-scope-m3-chinese-text-supporting-reasons",
+      "chapterTitle": "依文本觀點找出支持理由",
+      "sourceRefs": {
+        "learningMapDataset": "elementary-grade-learning-map",
+        "chapterId": "chapter-scope-m3-chinese-text-supporting-reasons",
+        "gradeScopeDataset": "grade3-year-scope.json",
+        "scopeItemId": "scope-m3-chinese-text-supporting-reasons",
+        "curriculumMapIds": [
+          "chinese-reading-supporting-reasons-5-ii-7"
+        ]
+      },
+      "formalUnitRef": null,
+      "officialCurriculum": {
+        "sourceId": "chinese-language",
+        "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校語文領域－國語文",
+        "sourceUrl": "https://www.naer.edu.tw/upload/1/9/doc/1267/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1%E8%AA%9E%E6%96%87%E9%A0%98%E5%9F%9F-%E5%9C%8B%E8%AA%9E%E6%96%87.pdf",
+        "codeRefs": [
+          {
+            "code": "5-Ⅱ-7",
+            "codeType": "learning_performance",
+            "location": "伍／一／學習表現／閱讀／第二學習階段 5-Ⅱ-7；文件印刷第11頁、PDF頁序第14頁。"
+          }
+        ],
+        "officialTextReviewStatus": "verified_against_official_text_from_prior_direct_pdf_review",
+        "mapReviewStatus": "pending_review",
+        "gradeApplicabilityStatus": "stage_scope_only_grade3_annual_allocation_unconfirmed",
+        "sourceRegistryReviewStatus": "clauses_verified_stage_level_grade3_schedule_pending",
+        "claimBoundary": "保留既有專案記錄狀態；階段指標、三年級全年分配及教師核准彼此分開。"
+      },
+      "learningFocus": {
+        "summary": "學習表現 5-Ⅱ-7 要求就文本觀點找出支持理由；屬第二學習階段整體要求，不單獨指定三年級年級或學期安排。",
+        "basis": "existing_project_scope_summary",
+        "approvalStatus": "pending_professional_review",
+        "curriculumMapStatus": "pending_review"
+      },
+      "learningPurpose": {
+        "candidatePurpose": "學習表現 5-Ⅱ-7 要求就文本觀點找出支持理由；屬第二學習階段整體要求，不單獨指定三年級年級或學期安排。",
+        "status": "pending_professional_review"
+      },
+      "coreLearningPoints": {
+        "curriculumMapId": "chinese-reading-supporting-reasons-5-ii-7",
+        "contentCodes": [],
+        "performanceCodes": [
+          "5-Ⅱ-7"
+        ],
+        "status": "pending_review"
+      },
+      "prerequisites": {
+        "status": "not_assessed",
+        "items": []
+      },
+      "observableOutcomes": {
+        "status": "pending_teacher_review",
+        "candidateStatement": "學習表現 5-Ⅱ-7 要求就文本觀點找出支持理由；屬第二學習階段整體要求，不單獨指定三年級年級或學期安排。",
+        "sourceStatementRef": "scope-m3-chinese-text-supporting-reasons.learningFocusSummary",
+        "candidateObjectives": [
+          {
+            "objectiveId": "LO:chapter-scope-m3-chinese-text-supporting-reasons:01",
+            "statement": "學習表現 5-Ⅱ-7 要求就文本觀點找出支持理由；屬第二學習階段整體要求，不單獨指定三年級年級或學期安排。",
+            "basis": "existing_project_scope_summary",
+            "status": "candidate_pending_teacher_review",
+            "curriculumMapIds": [
+              "chinese-reading-supporting-reasons-5-ii-7"
+            ],
+            "curriculumAlignmentStatus": "pending_teacher_review",
+            "linkedQuestionIds": [],
+            "observableCriteria": [],
+            "alignmentNote": "沿用既有章節摘要作為候選陳述，沒有教師核定的可觀察規準。"
+          }
+        ],
+        "measurableCriteria": [],
+        "note": "尚無教師核定的可觀察成果與達標門檻。"
+      },
+      "learningActivities": {
+        "status": "design_suggestion_only",
+        "suggestedActivityTypes": [
+          "text_evidence_selection"
+        ],
+        "linkedFormalLevelIds": []
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "methods": [],
+        "passCriteria": null,
+        "evidenceRequirements": []
+      },
+      "commonErrors": {
+        "status": "not_collected",
+        "items": []
+      },
+      "errorDiagnosis": {
+        "status": "not_designed",
+        "rules": []
+      },
+      "reinforcement": {
+        "status": "not_designed",
+        "activities": []
+      },
+      "evidence": {
+        "textbook": {
+          "status": "pending_review",
+          "records": []
+        },
+        "schoolSchedule": {
+          "status": "pending_school_and_textbook_evidence",
+          "semesterId": null,
+          "weeks": null
+        },
+        "classroomTeaching": {
+          "status": "not_recorded",
+          "records": []
+        },
+        "teacherProfessionalReview": {
+          "status": "pending_review",
+          "records": []
+        },
+        "missingEvidence": [
+          "curriculum-map.json 對應項目尚未建立",
+          "三年級適用性與年級難度專業判定",
+          "出版社教材、文本與可定位頁次",
+          "校本進度及實際授課紀錄"
+        ]
+      },
+      "review": {
+        "dataStatus": "draft",
+        "teacherReviewStatus": "pending_review",
+        "reviewRecords": []
+      },
+      "updateHistory": [
+        {
+          "revision": 1,
+          "date": "2026-10-21",
+          "actorRole": "資料模型建置",
+          "changeSummary": "依現有三年級學習地圖建立候選目標欄位；未新增課綱主張、學期安排或教師審查。"
+        }
+      ]
+    }
+  ]
+}

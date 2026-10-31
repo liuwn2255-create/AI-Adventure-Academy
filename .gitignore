@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+tmp/
+temp/
+
+# Coverage / caches
+coverage/
+.cache/
+.parcel-cache/
+.vite/
+
+# Editors
+.vscode/
+.idea/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local browser acceptance profiles
+artifacts/learning-subitems-browser-acceptance/isolated-edge-profile-*/
+
+# Local machine path record
+artifacts/g2-data-classification-profile-path.txt
+
+# Local browser / E2E acceptance outputs
+artifacts/browser/
+artifacts/*browser-acceptance*/
+artifacts/*browser-acceptance*.json
+artifacts/temp-grade2-money-browser-pids.json
+artifacts/grade3-math-repair-mainline-full-e2e.json
+
+# Local teacher-review UI acceptance screenshots
+artifacts/teacher-review-acceptance/

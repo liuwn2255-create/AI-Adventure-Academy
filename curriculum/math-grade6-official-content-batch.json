@@ -1,0 +1,423 @@
+{
+  "schemaVersion": 1,
+  "batchId": "math-grade6-content-table-pdf-pages-35-to-37",
+  "status": "verified_contiguous_grade_table_batch_not_full_math_inventory",
+  "sourceId": "mathematics",
+  "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域",
+  "publicationInfo": "PDF封面載中華民國107年6月；教育部以臺教授國部字第1070066476B號令於107年7月26日發布。",
+  "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+  "sourceLocation": "伍／學習重點／二、學習內容／六年級學習內容表，PDF頁序35–37（PDF頁序以1起算）；從頁序35「6年級」表頭及N-6-1至頁序37的D-6-2完整列，頁序38開始「7年級」。跨頁續列、備註、參考教具及對應學習表現均依官方表格欄位核對。",
+  "applicability": {
+    "officialGradeTable": 6,
+    "learningStage": "第三學習階段（五、六年級）",
+    "semester": null
+  },
+  "reviewMethod": "直接核對國教院官方數學領綱PDF頁序35–37六年級學習內容表，逐列讀取代碼、學習內容、備註、參考教具與同表對應學習表現；續讀至頁序38的七年級表頭以確認六年級表格終點。N-6-9與R-6-4由官方原文明示為相同解題內容，保留兩個官方代碼並在概念統計中標為同一概念；其他代碼仍各自保留。此批只完成六年級表格，不代表數學領綱完整清冊。",
+  "clauses": [
+    {
+      "code": "N-6-1",
+      "officialText": "20 以內的質數和質因數分解：小於 20 的質數與合數。2、3、5 的質因數判別法。以短除法做質因數的分解。",
+      "officialNotes": "被分解數的因數，在扣除 2、3、5 或其次方的部分後，只剩一因數，且此數除了 49、77 或 91 之外，只能是 11、13、17 或 19。",
+      "officialPerformanceLinks": [
+        "n-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "六年級學習內容表 N-6-1，PDF頁序35；條文與備註同頁。"
+    },
+    {
+      "code": "N-6-2",
+      "officialText": "最大公因數與最小公倍數：質因數分解法與短除法。兩數互質。運用到分數的約分與通分。",
+      "officialNotes": "不做三數的最大公因數與最小公倍數。應包含練習將分數化成最簡分數的問題。",
+      "officialPerformanceLinks": [
+        "n-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "六年級學習內容表 N-6-2，PDF頁序35。"
+    },
+    {
+      "code": "N-6-3",
+      "officialText": "分數的除法：整數除以分數、分數除以分數的意義。最後理解除以一數等於乘以其倒數之公式。",
+      "officialNotes": "可不處理餘數問題。若要處理，限於具體合理的生活情境。餘數問題不評量。",
+      "officialPerformanceLinks": [
+        "n-III-6"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "六年級學習內容表 N-6-3，PDF頁序35。"
+    },
+    {
+      "code": "N-6-4",
+      "officialText": "小數的除法：整數除以小數、小數除以小數的意義。直式計算。教師用位值的概念說明直式計算的合理性。處理商一定比被除數小的錯誤類型。",
+      "officialNotes": "可不處理餘數問題；若要處理，限於具體合理的生活情境，商限定為整數，並小心在直式計算中處理餘數問題。餘數問題不評量。",
+      "officialPerformanceLinks": [
+        "n-III-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "六年級學習內容表 N-6-4，PDF頁序35。"
+    },
+    {
+      "code": "N-6-5",
+      "officialText": "解題：整數、分數、小數的四則應用問題。二到三步驟的應用解題。含使用概數協助解題。",
+      "officialNotes": "含處理分數和小數混合乘除計算之常用技巧。",
+      "officialPerformanceLinks": [
+        "n-III-2",
+        "r-III-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "六年級學習內容表 N-6-5，PDF頁序35。"
+    },
+    {
+      "code": "N-6-6",
+      "officialText": "比與比值：異類量的比與同類量的比之比值的意義。理解相等的比中牽涉到的兩種倍數關係（比例思考的基礎）。解決比的應用問題。",
+      "officialNotes": "比中各數原則上為整數，但也可包含簡單之小數與分數。",
+      "officialPerformanceLinks": [
+        "n-III-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "六年級學習內容表 N-6-6，PDF頁序35。"
+    },
+    {
+      "code": "N-6-7",
+      "officialText": "解題：速度。比和比值的應用。速度的意義。能做單位換算（大單位到小單位）。含不同時間區段的平均速度。含「距離＝速度×時間」公式。用比例思考協助解題。",
+      "officialNotes": "除不同時間區段的平均速度問題外，小學速度問題的假設都是等速運動。含速度固定，時間為幾倍，距離即為幾倍的問題。含時間固定，速度為幾倍，距離即為幾倍的問題。所謂「大單位到小單位」，指的是不論是長度或時間，都只做大單位到小單位的換算。",
+      "officialPerformanceLinks": [
+        "n-III-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "六年級學習內容表 N-6-7，PDF頁序35；備註同頁續列至頁序36前。"
+    },
+    {
+      "code": "N-6-8",
+      "officialText": "解題：基準量與比較量。比和比值的應用。含交換基準時之關係。",
+      "officialNotes": "所謂交換基準如以哥哥身高為 1，弟弟身高為 4/5，則以弟弟身高為 1，哥哥身高為 5/4。",
+      "officialPerformanceLinks": [
+        "n-III-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "六年級學習內容表 N-6-8，PDF頁序35–36；備註跨頁至頁序36表頭前。"
+    },
+    {
+      "code": "N-6-9",
+      "officialText": "解題：由問題中的數量關係，列出恰當的算式解題（同 R-6-4）。可包含（1）較複雜的模式（如座位排列模式）；（2）較複雜的計數：乘法原理、加法原理或其混合；（3）較複雜之情境：如年齡問題、流水問題、和差問題、雞兔問題。連結 R-6-2、R-6-3。",
+      "officialNotes": "乘法原理如 3 件上衣與 5 件裙子的搭配方式；加法原理如允許重複，1、2、3 可排出幾種二位奇數；乘法原理與加法原理混合如 1、2、3 可排出幾種三位奇數。乘法原理和加法原理旨在初步學習計數的觀點，而非複雜的計數問題。本條目不要求併式。",
+      "officialPerformanceLinks": [
+        "n-III-10",
+        "r-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": "R-6-4",
+      "relatedOfficialCodes": [
+        "R-6-2",
+        "R-6-3"
+      ],
+      "sourceLocation": "六年級學習內容表 N-6-9，PDF頁序36；表內明示同 R-6-4，詳見 R-6-4 頁序37。"
+    },
+    {
+      "code": "S-6-1",
+      "officialText": "放大與縮小：比例思考的應用。「幾倍放大圖」、「幾倍縮小圖」。知道縮放時，對應角相等，對應邊成比例。",
+      "officialNotes": "知道常見平面圖形的縮放仍然是同一類圖形（含圓），並能說明其原因。",
+      "officialPerformanceLinks": [
+        "s-III-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "六年級學習內容表 S-6-1，PDF頁序36。"
+    },
+    {
+      "code": "S-6-2",
+      "officialText": "解題：地圖比例尺。地圖比例尺之意義、記號與應用。地圖上兩邊長的比和實際兩邊長的比相等。",
+      "officialNotes": "含處理兩張地圖之間的長度關係。處理以為「比例分母愈大，相對邊長也愈大」的常見錯誤。",
+      "referenceTools": "地圖",
+      "officialPerformanceLinks": [
+        "n-III-9",
+        "s-III-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "六年級學習內容表 S-6-2，PDF頁序36。"
+    },
+    {
+      "code": "S-6-3",
+      "officialText": "圓周率、圓周長、圓面積、扇形面積：用分割說明圓面積公式。求扇形弧長與面積。知道以下三個比相等：（1）圓心角：360；（2）扇形弧長：圓周長；（3）扇形面積：圓面積，但應用問題只處理用（1）求弧長或面積。",
+      "officialNotes": "由於圓周率取成 3.14，在計算時應以概念理解為原則，避免陷入複雜計算。可利用活動說明一般不規則區域的面積要如何理解和估計，但不評量。扇形面積與弧長只處理直接問題（如已知幾分之幾圓或圓心角求面積或弧長），不處理逆推或過多推理步驟的問題（屬於國中範圍，S-9-5）。",
+      "referenceTools": "圓形分割圖（說明面積）",
+      "officialPerformanceLinks": [
+        "s-III-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "六年級學習內容表 S-6-3，PDF頁序36；備註續至頁序37前。"
+    },
+    {
+      "code": "S-6-4",
+      "officialText": "柱體體積與表面積：含角柱和圓柱。利用簡單柱體，理解「柱體體積＝底面積×高」的公式。簡單複合形體體積。",
+      "officialNotes": "柱體體積不用說明所有情況，即可告知體積公式為底面積×高。柱體限三角柱、四角柱、圓柱。複合形體之體積以兩形體組合為限。柱體表面積只處理底面為圓、長方形、直角三角形、平行四邊形的情況，且應注意底面邊長的正確性。表面積不宜過度評量。表面積不處理複合形體。",
+      "referenceTools": "柱體（含挖空）",
+      "officialPerformanceLinks": [
+        "s-III-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "六年級學習內容表 S-6-4，PDF頁序36–37；參考教具欄延續至頁序37。"
+    },
+    {
+      "code": "R-6-1",
+      "officialText": "數的計算規律：小學最後應認識（1）整數、小數、分數都是數，享有一樣的計算規律。（2）整數乘除計算及規律，因分數運算更容易理解。（3）逐漸體會乘法和除法的計算實為一體。",
+      "officialNotes": "須理解小數和分數乘除混合計算時，常用的約分規則。在生活解題上，乘法和除法意義不同，但在計算上兩者實為一體，學生因此可提高數學認識之抽象層次。乘法和除法視為一體的好處是計算規律大為簡化。本條目不須另立獨立單元教學。",
+      "officialPerformanceLinks": [
+        "r-III-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "六年級學習內容表 R-6-1，PDF頁序37。"
+    },
+    {
+      "code": "R-6-2",
+      "officialText": "數量關係：代數與函數的前置經驗。從具體情境或數量模式之活動出發，做觀察、推理、說明。",
+      "officialNotes": "可以運用表格或統計圖協助發現規律。可以簡單公式說明其中的數量關係。",
+      "officialPerformanceLinks": [
+        "r-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "六年級學習內容表 R-6-2，PDF頁序37。"
+    },
+    {
+      "code": "R-6-3",
+      "officialText": "數量關係的表示：代數與函數的前置經驗。將具體情境或模式中的數量關係，學習以文字或符號列出數量關係的關係式。",
+      "officialNotes": "數量關係的表示例如：晝長夜長的關係可列成晝長+夜長=24。連結 R-6-2。含部分運用符號的教學，連結國中「符號代表數」或「未知數」教學，其教學重點在「關係的表示」，而非抽象的「代數符號運算」。",
+      "officialPerformanceLinks": [
+        "r-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "R-6-2"
+      ],
+      "sourceLocation": "六年級學習內容表 R-6-3，PDF頁序37。"
+    },
+    {
+      "code": "R-6-4",
+      "officialText": "解題：由問題中的數量關係，列出恰當的算式解題（同 N-6-9）。可包含（1）較複雜的模式（如座位排列模式）；（2）較複雜的計數：乘法原理、加法原理或其混合；（3）較複雜之情境：如年齡問題、流水問題、和差問題、雞兔問題。連結 R-6-2、R-6-3。",
+      "officialNotes": "複雜解題旨在思考，不要要求步驟的併式；其他見 N-6-9 備註。",
+      "officialPerformanceLinks": [
+        "r-III-3",
+        "n-III-10"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": "N-6-9",
+      "relatedOfficialCodes": [
+        "R-6-2",
+        "R-6-3"
+      ],
+      "sourceLocation": "六年級學習內容表 R-6-4，PDF頁序37；與N-6-9同一解題內容，N-6-9備註參照本列續註。"
+    },
+    {
+      "code": "D-6-1",
+      "officialText": "圓形圖：報讀、說明與製作生活中的圓形圖。包含以百分率分配之圓形圖（製作時應提供學生已分成百格的圓形圖）。",
+      "officialNotes": "處理部分／全體性質之資料。分辨不同統計圖之使用時機。",
+      "referenceTools": "圓形百格圖（畫百分圓形圖）",
+      "officialPerformanceLinks": [
+        "d-III-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "六年級學習內容表 D-6-1，PDF頁序37。"
+    },
+    {
+      "code": "D-6-2",
+      "officialText": "解題：可能性。從統計圖表資料，回答可能性問題。機率前置經驗。「很有可能」、「很不可能」、「A比B可能」。",
+      "officialNotes": "「A比B可能」限兩者差異大的情況。僅從資料數量的多寡來回答。本條目非古典機率教學（D-9-3）。",
+      "officialPerformanceLinks": [
+        "d-III-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "D-9-3"
+      ],
+      "sourceLocation": "六年級學習內容表 D-6-2，PDF頁序37；頁序38開始七年級表格。"
+    }
+  ],
+  "conceptRelationships": [
+    {
+      "kind": "same_official_learning_content_explicitly_cross_referenced",
+      "codes": [
+        "N-6-9",
+        "R-6-4"
+      ],
+      "uniqueConceptCount": 1,
+      "evidence": "兩列官方原文均明示同另一代碼；同一六年級表格兩處列示，不合併或刪除官方代碼。"
+    },
+    {
+      "kind": "related_but_distinct_official_content",
+      "codes": [
+        "N-6-6",
+        "N-6-7",
+        "N-6-8"
+      ],
+      "uniqueConceptCount": 3,
+      "evidence": "同屬比與比例應用脈絡，但分別規定一般比值與等比、速度、基準量交換，不視為同一條目。"
+    }
+  ],
+  "activityAudit": [
+    {
+      "code": "N-6-1",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G6-MATH-PRIME-FACTOR-EXPLORER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "classify-small-numbers",
+        "assemble-eighteen-prime-factors"
+      ],
+      "reason": "有小於20數字分類與18質因數乘積組合；未操作短除法完整程序，亦未包含官方備註所列判別範圍。"
+    },
+    {
+      "code": "N-6-2",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G6-MATH-GCD-LCM-SHORT-DIVISION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "short-divide-eighteen-and-twenty-four",
+        "simplify-eighteen-twenty-four",
+        "transfer-twelve-and-thirty"
+      ],
+      "reason": "新增逐步短除商數選取、GCD/LCM與分數約分互動，並以另一組數字做情境遷移；未評量自行排寫短除法、完整通分或三數情況。"
+    },
+    {
+      "code": "N-6-3",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在六年級數學活動中未找到整數除分數及分數除分數意義的操作任務。"
+    },
+    {
+      "code": "N-6-4",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "未找到小數除法位值直式及「商不一定小於被除數」的互動任務。"
+    },
+    {
+      "code": "N-6-5",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G6-MATH-MULTI-STEP-REASONING-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "calculate-expedition-supplies",
+        "order-reasoning-steps"
+      ],
+      "reason": "以整數情境計算與排序中間步驟；未涵蓋分數／小數混合乘除、概數及多種應用情境。"
+    },
+    {
+      "code": "N-6-6",
+      "status": "relation_only",
+      "activityIds": [
+        "ACT-G6-MATH-BASE-COMPARISON-RATIO-CANDIDATE"
+      ],
+      "evidenceStageIds": [],
+      "reason": "比值活動與比／比例概念相關，但其操作只處理交換基準，沒有異類量與同類量比值及相等比倍數關係的證據。"
+    },
+    {
+      "code": "N-6-7",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "未找到速度、距離＝速度×時間、平均速度區段或大單位到小單位換算的數學互動。"
+    },
+    {
+      "code": "N-6-8",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G6-MATH-BASE-COMPARISON-RATIO-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "younger-relative-to-older",
+        "older-relative-to-younger"
+      ],
+      "reason": "以150與120的基準交換完成兩次比值運算；未涵蓋其他生活情境或完整比值應用。"
+    },
+    {
+      "code": "N-6-9",
+      "status": "relation_only",
+      "activityIds": [
+        "ACT-G6-MATH-MULTI-STEP-REASONING-CANDIDATE"
+      ],
+      "evidenceStageIds": [],
+      "reason": "多步驟任務有問題分解關聯，但未提供排列計數、加法／乘法原理或官方列舉的複雜情境操作。"
+    },
+    {
+      "code": "S-6-1",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "未找到六年級數學任務操作幾倍放大／縮小、對應角與對應邊比例。"
+    },
+    {
+      "code": "S-6-2",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "未找到地圖比例尺、地圖與實際距離或不同比例尺地圖比較任務。"
+    },
+    {
+      "code": "S-6-3",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "未找到以圓分割模型理解圓面積或依圓心角求扇形弧長／面積的六年級數學活動。"
+    },
+    {
+      "code": "S-6-4",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "未找到角柱／圓柱體積、表面積或兩個形體組合的互動；相關內容仍需模型及實體操作。"
+    },
+    {
+      "code": "R-6-1",
+      "status": "relation_only",
+      "activityIds": [
+        "ACT-G6-MATH-MULTI-STEP-REASONING-CANDIDATE"
+      ],
+      "evidenceStageIds": [],
+      "reason": "整數多步驟計算只有廣義計算關聯，未呈現整數、小數、分數共通運算規律及乘除互逆的互動證據。"
+    },
+    {
+      "code": "R-6-2",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "未找到由具體數量情境或模式出發，觀察、推理並說明規律的六年級數學活動。"
+    },
+    {
+      "code": "R-6-3",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "未找到將六年級情境數量關係以文字或符號表示成關係式的互動。"
+    },
+    {
+      "code": "R-6-4",
+      "status": "relation_only",
+      "activityIds": [
+        "ACT-G6-MATH-MULTI-STEP-REASONING-CANDIDATE"
+      ],
+      "evidenceStageIds": [],
+      "reason": "與N-6-9為官方同內容，但現有多步驟整數任務沒有模式、計數原理或複雜情境解題證據。"
+    },
+    {
+      "code": "D-6-1",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "未找到報讀、說明、製作百分率圓形圖及辨別統計圖使用時機的六年級數學互動。"
+    },
+    {
+      "code": "D-6-2",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G6-MATH-DATA-LIKELIHOOD-READER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "classify-sample-count-evidence",
+        "compare-new-likelihood-record"
+      ],
+      "reason": "依標為虛構的統計次數資料比較可能程度；不是古典機率、實際隨機試驗或未來結果保證。"
+    }
+  ],
+  "nextWorkPosition": "六年級學習內容表 PDF頁序35–37已逐列核對；一至六年級內容表批次均在。下一步為跨年級數學內容與學習表現整合、重複概念／活動證據稽核及尚未逐條盤點的其他領綱範圍；勿宣稱完整數學領綱或全國課綱已完成。"
+}

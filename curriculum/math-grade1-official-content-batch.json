@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "batchId": "math-grade1-content-table-pdf-pages-21-to-22",
+  "status": "verified_contiguous_grade_table_batch_not_full_math_inventory",
+  "sourceId": "mathematics",
+  "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域",
+  "publicationInfo": "PDF封面載中華民國107年6月；教育部以臺教授國部字第1070066476B號令於107年7月26日發布。",
+  "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+  "sourceLocation": "伍／學習重點／二、學習內容／一年級學習內容表，PDF頁序21–22（PDF頁序以1起算）；逐列讀取代碼、學習內容、備註、參考教具、對應學習表現及跨頁續行。",
+  "applicability": {
+    "officialGradeTable": 1,
+    "learningStage": "第一學習階段（一、二年級）",
+    "semester": null
+  },
+  "reviewMethod": "直接查閱國教院官方數學領綱PDF一年級表格原頁（P21–22）及表頭，逐列核對所有代碼和表格欄位；N-1-5與S-1-1為官方明示同一長度內容，保留兩個官方代碼並標記同內容別名，概念層統計不得重複計數。此批完整性只限一年級學習內容表，不代表完整數學領綱清冊。",
+  "clauses": [
+    {"code":"N-1-1","officialText":"一百以內的數：含操作活動。用數表示多少與順序。結合數數、位值表徵、位值表。位值單位「個」和「十」。位值單位換算。認識 0 的位值意義。","officialNotes":"教學可數到最後的「一百」，但不進行超過一百的教學。可點數代表一和十的積木進行位值教學。學習 0 的位值意義以便順利連結日後直式計算之學習。","officialPerformanceLinks":["n-I-1"],"relationshipKind":"explicit_same_table_corresponding_performance","sourceLocation":"伍／學習重點／二、學習內容／一年級學習內容表 N-1-1，PDF頁序21。"},
+    {"code":"N-1-2","officialText":"加法和減法：加法和減法的意義與應用。含「添加型」、「併加型」、「拿走型」、「比較型」等應用問題。加法和減法算式。","officialNotes":"強調「併加型」（合成型）的學習以理解加法交換律。處理「0」的加減。應含加、減法並陳之單元，使學生主動察覺加法和減法問題的差異。一年級不做加數、被加數、減數、被減數未知題型（N-2-3）。","officialPerformanceLinks":["n-I-2"],"relationshipKind":"explicit_same_table_corresponding_performance","sourceLocation":"同表 N-1-2，PDF頁序21。"},
+    {"code":"N-1-3","officialText":"基本加減法：以操作活動為主。以熟練為目標。指 1 到 10 之數與 1 到 10 之數的加法，及反向的減法計算。","officialNotes":"在活動過程中，可能練習到兩步驟以上的加減混合數算，這是活動的常態，其中自然延伸之計算策略與數感建立更值得鼓勵，這種活動不是兩步驟計算的正式教學。","officialPerformanceLinks":["n-I-2"],"relationshipKind":"explicit_same_table_corresponding_performance","sourceLocation":"同表 N-1-3，PDF頁序21。"},
+    {"code":"N-1-4","officialText":"解題：1元、5元、10元、50元、100元。以操作活動為主。數錢、換錢、找錢。容許多元策略，以利建立數感，教師不應視為單純的加減單元。","officialNotes":"","officialPerformanceLinks":["n-I-3"],"relationshipKind":"explicit_same_table_corresponding_performance","sourceLocation":"同表 N-1-4，PDF頁序21。"},
+    {"code":"N-1-5","officialText":"長度（同 S-1-1）：以操作活動為主。初步認識、直接比較、間接比較（含個別單位）。","officialNotes":"活動內容含直線與曲線。本條目教學無常用單位（N-2-11）。","officialPerformanceLinks":["n-I-7"],"relationshipKind":"explicit_same_table_corresponding_performance","equivalentOfficialCode":"S-1-1","sourceLocation":"同表 N-1-5，PDF頁序21；表格跨頁續文見S-1-1（PDF頁序21–22）。"},
+    {"code":"N-1-6","officialText":"日常時間用語：以操作活動為主。簡單日期報讀「幾月幾日」；「明天」、「今天」、「昨天」；「上午」、「中午」、「下午」、「晚上」。簡單時刻報讀「整點」與「半點」。","officialNotes":"活動以教師和學生在教室中溝通之時間用語為原則，非時間單位結構之教學（N-2-13、N-2-14）。簡單日期指日曆之「幾月幾日」，不含曆法結構。時刻須以鐘面教學。簡單鐘面時刻限「整點」與「半點」。","officialPerformanceLinks":["n-I-9"],"relationshipKind":"explicit_same_table_corresponding_performance","sourceLocation":"同表 N-1-6，PDF頁序21。"},
+    {"code":"S-1-1","officialText":"長度（同 N-1-5）：以操作活動為主。初步認識、直接比較、間接比較（含個別單位）。","officialNotes":"同 N-1-5 備註。","officialPerformanceLinks":["n-I-7"],"relationshipKind":"explicit_same_table_corresponding_performance","equivalentOfficialCode":"N-1-5","sourceLocation":"同表 S-1-1，PDF頁序21–22（跨頁）；明示與N-1-5同一內容。"},
+    {"code":"S-1-2","officialText":"形體的操作：以操作活動為主。描繪、複製、拼貼、堆疊。","officialNotes":"應包含平面圖形、立體形體或兩者互動之活動，豐富學生之幾何操作經驗。","officialPerformanceLinks":["s-I-1"],"relationshipKind":"explicit_same_table_corresponding_performance","sourceLocation":"一年級學習內容表 S-1-2，PDF頁序22。"},
+    {"code":"R-1-1","officialText":"算式與符號：含加減算式中的數、加號、減號、等號。以說、讀、聽、寫、做檢驗學生的理解。適用於後續階段。","officialNotes":"此條目包括小學之後的學習，不再另列條目。本條目應在加減法單元中完成，不須另立獨立單元教學。","officialPerformanceLinks":["r-I-1"],"relationshipKind":"explicit_same_table_corresponding_performance","sourceLocation":"一年級學習內容表 R-1-1，PDF頁序22。"},
+    {"code":"R-1-2","officialText":"兩數相加的順序不影響其和：加法交換律。可併入其他教學活動。","officialNotes":"先用「併加型」（合成型）情境說明，再應用於其他情境。不出現「加法交換律」一詞。","officialPerformanceLinks":["r-I-2"],"relationshipKind":"explicit_same_table_corresponding_performance","sourceLocation":"同表 R-1-2，PDF頁序22。"},
+    {"code":"D-1-1","officialText":"簡單分類：以操作活動為主。能蒐集、分類、記錄、呈現日常生活物品，報讀、說明已處理好之分類。觀察分類的模式，知道同一組資料可有不同的分類方式。","officialNotes":"本條目活動中呈現之說明圖表皆出自學生的創意，並非正式表格（D-3-1）與統計圖表的教學（D-4-1以後）。","officialPerformanceLinks":["d-I-1"],"relationshipKind":"explicit_same_table_corresponding_performance","sourceLocation":"同表 D-1-1，PDF頁序22。"}
+  ],
+  "nextWorkPosition":"已核對一年級學習內容表 PDF 頁序21–22；下一步為二年級學習內容表 PDF 頁序22–25，需逐列核對跨頁續文。"
+}

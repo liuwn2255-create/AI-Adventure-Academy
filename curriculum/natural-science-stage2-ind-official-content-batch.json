@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "batchId": "natural-science-stage2-ind-content-slice-pdf-pages-21-22",
+  "status": "verified_bounded_official_content_subsection_not_full_document_inventory",
+  "sourceId": "natural-science",
+  "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－自然科學領域",
+  "publicationInfo": "教育部107年11月2日以臺教授國部字第1070119882B號令發布。",
+  "sourceUrl": "https://stv.naer.edu.tw/data/course_outline/pta_18538_240851_60502.pdf",
+  "documentVersion": "來源 PDF 未確認獨立版本標籤；保留文件標題及教育部發布日期／文號，不推定版本名稱。",
+  "sourceLocation": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，PDF頁序21–22，文件印刷頁碼17–18。",
+  "applicability": {
+    "learningStage": "第二學習階段（三、四年級）",
+    "grade": null,
+    "semester": null
+  },
+  "reviewMethod": "下載官方來源 PDF 後，以版面影像直接核對表格標題、第二學習階段欄、跨頁續文及頁尾印刷頁碼；逐列抄錄INd-Ⅱ 條文並與 PDF 文字擷取交叉檢視。活動狀態依已註冊任務的互動步驟判定，不以活動名稱推斷；未將階段指定為單一年級或學期。",
+  "clauses": [
+    {
+      "code": "INd-Ⅱ-1",
+      "officialText": "當受外在因素作用時，物質或自然現象可能會改變。改變有些較快、有些較慢；有些可以回復，有些則不能。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 21,
+      "printedPage": 17,
+      "sourceLocator": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，INd-Ⅱ-1列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [
+        "ACT-G4-SCIENCE-PLANT-GROWTH-MEASUREMENTS-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "limitations": [
+        "豆苗模擬紀錄呈現隨時間改變的高度，但沒有比較外在因素、改變快慢或可逆／不可逆。"
+      ]
+    },
+    {
+      "code": "INd-Ⅱ-2",
+      "officialText": "物質或自然現象的改變情形，可以運用測量的工具和方法得知。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 21,
+      "printedPage": 17,
+      "sourceLocator": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，INd-Ⅱ-2列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [
+        "ACT-G4-SCIENCE-PLANT-GROWTH-MEASUREMENTS-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "partial",
+      "limitations": [
+        "學生排序預先提供的模擬測量紀錄並把標記放到高度數線；沒有實際操作尺具、種植或自行收集測量資料。"
+      ]
+    },
+    {
+      "code": "INd-Ⅱ-3",
+      "officialText": "生物從出生、成長到死亡有一定的壽命，透過生殖繁衍下一代。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 21,
+      "printedPage": 17,
+      "sourceLocator": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，INd-Ⅱ-3列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "未找到實際涵蓋生物生命歷程及生殖繁衍關係的互動。"
+      ]
+    },
+    {
+      "code": "INd-Ⅱ-4",
+      "officialText": "空氣流動產生風。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 22,
+      "printedPage": 18,
+      "sourceLocator": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，INd-Ⅱ-4列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [
+        "ACT-G4-SCIENCE-WEATHER-RECORD-BOARD-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "limitations": [
+        "天氣資料板可分類風向資料，但沒有操作空氣流動如何產生風的因果模型或觀察。"
+      ]
+    },
+    {
+      "code": "INd-Ⅱ-5",
+      "officialText": "自然環境中有砂石及土壤，會因水流、風而發生改變。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 22,
+      "printedPage": 18,
+      "sourceLocator": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，INd-Ⅱ-5列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "未找到水流或風改變砂石、土壤的觀察或模型活動。"
+      ]
+    },
+    {
+      "code": "INd-Ⅱ-6",
+      "officialText": "一年四季氣溫會有所變化，天氣也會有所不同。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 22,
+      "printedPage": 18,
+      "sourceLocator": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，INd-Ⅱ-6列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [
+        "ACT-G4-SCIENCE-WEATHER-DATA-STATION-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "limitations": [
+        "活動只有少數虛構日期資料，未比較四季氣溫或天氣差異，不能推作季節結論。"
+      ]
+    },
+    {
+      "code": "INd-Ⅱ-7",
+      "officialText": "氣象報告可以讓我們知道天氣的可能變化。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 22,
+      "printedPage": 18,
+      "sourceLocator": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，INd-Ⅱ-7列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [
+        "ACT-G4-SCIENCE-WEATHER-DATA-STATION-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "limitations": [
+        "現有活動整理有限的虛構觀測資料，未閱讀氣象報告或推估可能變化。"
+      ]
+    },
+    {
+      "code": "INd-Ⅱ-8",
+      "officialText": "天氣預報常用雨量、溫度、風向、風速等資料來表達天氣狀態，這些資料可以使用適當儀器測得。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 22,
+      "printedPage": 18,
+      "sourceLocator": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，INd-Ⅱ-8列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [
+        "ACT-G4-SCIENCE-WEATHER-RECORD-BOARD-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "partial",
+      "limitations": [
+        "資料板可分類雨量、溫度及風向紀錄並選取受資料支持的敘述；未涵蓋風速、天氣預報、儀器操作與實測。"
+      ]
+    },
+    {
+      "code": "INd-Ⅱ-9",
+      "officialText": "力有各種不同的形式。施力可能會使物體改變運動情形或形狀；當物體受力變形時，有的可恢復原狀，有的不能恢復原狀。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 22,
+      "printedPage": 18,
+      "sourceLocator": "伍／二／課題2 自然界的現象、規律及作用／改變與穩定（INd）第二學習階段欄，INd-Ⅱ-9列",
+      "reviewStatus": "directly_read_from_downloaded_official_pdf_and_rendered_table_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "未找到學生實際比較不同力的形式、運動／形狀改變及恢復原狀情形的活動。"
+      ]
+    }
+  ],
+  "boundary": "本批只涵蓋課題2「改變與穩定（INd）」第二學習階段9條學習內容；不包含第三學習階段欄或自然科學完整清冊。頁序21列INd-II-1至3，頁序22續列INd-II-4至9。",
+  "nextWorkPosition": "INd第二學習階段已逐列核讀；下一個同文件待核工作為課題2下一跨科概念 INe「交互作用」第二學習階段欄，需先檢查其表格起訖、續頁及頁尾定位。"
+}

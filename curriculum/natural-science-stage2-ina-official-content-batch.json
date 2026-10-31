@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "batchId": "natural-science-stage2-ina-content-slice-pdf-page-19",
+  "status": "verified_bounded_official_content_subsection_not_full_document_inventory",
+  "sourceId": "natural-science",
+  "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－自然科學領域",
+  "publicationInfo": "教育部107年11月2日以臺教授國部字第1070119882B號令發布。",
+  "sourceUrl": "https://stv.naer.edu.tw/data/course_outline/pta_18538_240851_60502.pdf",
+  "sourceLocation": "伍／二、學習內容／課題1 自然界的組成與特性／跨科概念物質與能量（INa），PDF頁序19（PDF序號由1起算）。 （官方頁尾影像核對）。 （官方頁尾影像核對）。 （官方頁尾影像核對）。 （官方頁尾影像核對）。 文件印刷頁碼15（官方頁尾影像核對）。",
+  "applicability": {
+    "learningStage": "第二學習階段（三、四年級）",
+    "grade": null,
+    "semester": null
+  },
+  "reviewMethod": "直接讀取國教院愛學網官方自然科學領綱PDF頁序19之INa表格；只登錄該明確小節的八條第二學習階段學習內容，不表示整份文件已完成逐條枚舉。",
+  "clauses": [
+    {
+      "code": "INa-II-1",
+      "officialText": "自然界（包含生物與非生物）是由不同物質所組成。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 19,
+      "sourceLocator": "伍／二、學習內容／課題1／物質與能量（INa）表格，INa-II-1列；文件印刷頁碼15",
+      "reviewStatus": "directly_read_from_official_pdf_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "未建立本條目對應活動"
+      ],
+      "printedPage": 15
+    },
+    {
+      "code": "INa-II-2",
+      "officialText": "在地球上，物質具有重量，佔有體積。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 19,
+      "sourceLocator": "伍／二、學習內容／課題1／物質與能量（INa）表格，INa-II-2列；文件印刷頁碼15",
+      "reviewStatus": "directly_read_from_official_pdf_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "未建立本條目對應活動"
+      ],
+      "printedPage": 15
+    },
+    {
+      "code": "INa-II-3",
+      "officialText": "物質各有其特性，並可以依其特性與用途進行分類。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 19,
+      "sourceLocator": "伍／二、學習內容／課題1／物質與能量（INa）表格，INa-II-3列；文件印刷頁碼15",
+      "reviewStatus": "directly_read_from_official_pdf_this_turn",
+      "activityIds": [
+        "ACT-G4-SCIENCE-MATERIAL-SORT-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "partial",
+      "limitations": [
+        "活動以模擬吸水觀察卡分類；未涵蓋多種物質特性與用途分類，也不是真實材料實驗"
+      ],
+      "printedPage": 15
+    },
+    {
+      "code": "INa-II-4",
+      "officialText": "物質的形態會因溫度的不同而改變。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 19,
+      "sourceLocator": "伍／二、學習內容／課題1／物質與能量（INa）表格，INa-II-4列；文件印刷頁碼15",
+      "reviewStatus": "directly_read_from_official_pdf_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "未建立本條目對應活動"
+      ],
+      "printedPage": 15
+    },
+    {
+      "code": "INa-II-5",
+      "officialText": "太陽照射、物質燃燒和摩擦等可以使溫度升高，運用測量的方法可知溫度高低。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 19,
+      "sourceLocator": "伍／二、學習內容／課題1／物質與能量（INa）表格，INa-II-5列；文件印刷頁碼15",
+      "reviewStatus": "directly_read_from_official_pdf_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "未建立本條目對應活動；真實溫度測量須實作"
+      ],
+      "printedPage": 15
+    },
+    {
+      "code": "INa-II-6",
+      "officialText": "太陽是地球能量的主要來源，提供生物的生長需要，能量可以各種形式呈現。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 19,
+      "sourceLocator": "伍／二、學習內容／課題1／物質與能量（INa）表格，INa-II-6列；文件印刷頁碼15",
+      "reviewStatus": "directly_read_from_official_pdf_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "未建立本條目對應活動"
+      ],
+      "printedPage": 15
+    },
+    {
+      "code": "INa-II-7",
+      "officialText": "生物需要能量（養分）、陽光、空氣、水和土壤，維持生命、生長與活動。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 19,
+      "sourceLocator": "伍／二、學習內容／課題1／物質與能量（INa）表格，INa-II-7列；文件印刷頁碼15",
+      "reviewStatus": "directly_read_from_official_pdf_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "未建立本條目對應活動"
+      ],
+      "printedPage": 15
+    },
+    {
+      "code": "INa-II-8",
+      "officialText": "日常生活中常用的能源。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（三、四年級）",
+      "pdfPageSequence": 19,
+      "sourceLocator": "伍／二、學習內容／課題1／物質與能量（INa）表格，INa-II-8列；文件印刷頁碼15",
+      "reviewStatus": "directly_read_from_official_pdf_this_turn",
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "limitations": [
+        "未建立本條目對應活動"
+      ],
+      "printedPage": 15
+    }
+  ],
+  "boundary": "本批為官方文件中一個明確小節的八條學習內容，不是自然科學完整條目總數；學習階段適用三、四年級整體，不拆分成單一年級或學期。",
+  "pageImageLocatorCorrection": "INa PDF頁序19之官方頁尾為印刷頁碼15；修正先前來源定位記錄。"
+}

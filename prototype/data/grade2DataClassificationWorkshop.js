@@ -1,0 +1,76 @@
+const candidate = 'candidate_pending_teacher_review';
+const evidencePolicy = Object.freeze({ persistence: 'memory_only_no_student_records_no_localStorage', completionIsMastery: false, hintAssistedResponseIsIndependentEvidence: false });
+const teacherReview = Object.freeze({ status: 'not_reviewed', reviewer: null, reviewedAt: null });
+
+export const GRADE2_DATA_CLASSIFICATION_WORKSHOP = Object.freeze({
+  activityId: 'ACT-G2-MATH-DATA-CLASSIFICATION-NESTED-GROUPS-CANDIDATE',
+  revision: 1,
+  title: '幾何物件分類工坊：先分組，再細分',
+  gradeId: 'grade-2',
+  subjectId: 'mathematics',
+  status: candidate,
+  sourceKind: 'official_focus_interactive_candidate_not_textbook',
+  runtimeModule: 'prototype/data/grade2DataClassificationWorkshop.js',
+  curriculumMapId: 'math-grade2-data-classification-presentation',
+  sourceId: 'mathematics',
+  curriculumCodes: ['D-2-1', 'd-I-1'],
+  learningSubitemClaims: ['SUB-MATH-G2-D2-1-COLLECT-CLASSIFY-AND-REFINE-GEOMETRIC-OBJECTS'],
+  reinforcementStatus: '尚無連結的補強活動',
+  curriculumScope: '依官方 D-2-1 的操作活動要求，學生先從混合物件卡收集幾何形體，再依顏色分類，並在指定顏色組中依形狀再分類。資料為預先設計的螢幕模擬樣本；不是學生實地蒐集。遵循官方備註，不教正式表格或統計圖表。',
+  learningObjective: { objectiveId: 'LO-G2-MATH-DATA-CLASSIFY-NESTED-01', statement: '從生活物件觀察卡蒐集幾何形體，依一個特徵分組，再把其中一組依另一特徵細分，並用分類結果檢查呈現。', status: candidate },
+  instructions: '在分類港完成三步：收集幾何物件卡、把形體依顏色放進分組盤，再將紅色組依形狀細分。卡片是模擬觀察資料，不是正式統計表或真實班級調查。',
+  evidencePolicy,
+  teacherReview,
+  openQuestions: Object.freeze([
+    '官方 D-2-1 要求操作活動中的蒐集、分類、記錄、呈現及分類中再分類；本候選只以螢幕物件卡和分組盤提供有限操作證據。',
+    '資料為專案設計的模擬樣本，尚未評量學生在真實環境自主蒐集資料或口頭說明分類方法。',
+    '依官方備註不進行正式表格或統計圖表教學；本遊戲不代表完整課綱或教師審查。',
+  ]),
+  stages: Object.freeze([
+    Object.freeze({
+      stageId: 'collect-geometric-object-cards',
+      interaction: 'collect_evidence',
+      prompt: '觀察桌上混合的生活物件卡，收集所有「平面幾何形體」卡，先把資料找齊。',
+      options: Object.freeze([
+        { id: 'red-circle', text: '紅色圓形片' }, { id: 'blue-triangle', text: '藍色三角形片' },
+        { id: 'red-square', text: '紅色正方形片' }, { id: 'green-rectangle', text: '綠色長方形片' },
+        { id: 'toy-car', text: '玩具車' }, { id: 'red-triangle', text: '紅色三角形片' },
+        { id: 'blue-cube', text: '藍色積木' }, { id: 'yellow-circle', text: '黃色圓形片' },
+      ]),
+      correctOptionIds: Object.freeze(['red-circle', 'blue-triangle', 'red-square', 'green-rectangle', 'red-triangle', 'yellow-circle']),
+      hints: Object.freeze(['逐張看物件卡：任務要收集的是平面幾何形體，不是所有生活物件。', '圓形片、三角形片、正方形片和長方形片都要收集；玩具車和立體積木先留在觀察桌。']),
+      incorrectFeedback: '檢查你收集的卡片種類：先找平面形體卡，別把生活物件或立體積木混進來。',
+      correctFeedback: '你從混合資料中收集出平面形體樣本。接著用一個共同特徵整理它們。',
+    }),
+    Object.freeze({
+      stageId: 'classify-geometric-cards-by-color',
+      interaction: 'classify_observations',
+      prompt: '把收集到的形體卡依顏色放進分組盤。每張卡只能放在一個顏色盤。',
+      observations: Object.freeze([
+        { id: 'obs-red-circle', text: '紅色圓形片' }, { id: 'obs-blue-triangle', text: '藍色三角形片' },
+        { id: 'obs-red-square', text: '紅色正方形片' }, { id: 'obs-green-rectangle', text: '綠色長方形片' },
+        { id: 'obs-red-triangle', text: '紅色三角形片' }, { id: 'obs-yellow-circle', text: '黃色圓形片' },
+      ]),
+      categories: Object.freeze([{ id: 'red', label: '紅色盤' }, { id: 'blue', label: '藍色盤' }, { id: 'green', label: '綠色盤' }, { id: 'yellow', label: '黃色盤' }]),
+      correctAssignments: Object.freeze({ 'obs-red-circle': 'red', 'obs-blue-triangle': 'blue', 'obs-red-square': 'red', 'obs-green-rectangle': 'green', 'obs-red-triangle': 'red', 'obs-yellow-circle': 'yellow' }),
+      hints: Object.freeze(['先看每張卡的顏色，不要被形狀名稱影響。', '紅色盤有三張；藍、綠、黃盤各有一張。']),
+      incorrectFeedback: '有卡片被放進不符合顏色的分組盤。逐張比對卡片顏色與盤子標籤，再修正。',
+      correctFeedback: '形體已依顏色分組；分組盤呈現了各類卡片，但不是正式統計圖表。',
+    }),
+    Object.freeze({
+      stageId: 'refine-red-group-by-shape',
+      interaction: 'classify_observations',
+      prompt: '現在只看紅色盤。把紅色形體再依形狀分到不同小盤，完成「分類裡再分類」。',
+      observations: Object.freeze([
+        { id: 'red-circle-refine', text: '紅色圓形片' },
+        { id: 'red-square-refine', text: '紅色正方形片' },
+        { id: 'red-triangle-refine', text: '紅色三角形片' },
+      ]),
+      categories: Object.freeze([{ id: 'circle', label: '圓形小盤' }, { id: 'square', label: '正方形小盤' }, { id: 'triangle', label: '三角形小盤' }]),
+      correctAssignments: Object.freeze({ 'red-circle-refine': 'circle', 'red-square-refine': 'square', 'red-triangle-refine': 'triangle' }),
+      hints: Object.freeze(['先限制觀察範圍：只整理紅色盤裡的卡片。', '紅色盤有圓形、正方形、三角形各一張，按形狀名稱放進相同的小盤。']),
+      incorrectFeedback: '這一步要在紅色類別內再看形狀。確認每張卡仍屬紅色組，再按形狀分到小盤。',
+      correctFeedback: '你先分類，再把其中一類細分，並以分組盤呈現結果。可以換一種特徵重新整理同一批資料。',
+    }),
+  ]),
+});

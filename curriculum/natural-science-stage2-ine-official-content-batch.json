@@ -1,0 +1,303 @@
+{
+  "schemaVersion": 1,
+  "batchId": "natural-science-stage2-ine-content-slice-pdf-pages-23-24",
+  "status": "verified_bounded_official_content_subsection_not_full_document_inventory",
+  "sourceId": "natural-science",
+  "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－自然科學領域",
+  "publicationInfo": "教育部107年11月2日以臺教授國部字第1070119882B號令發布。",
+  "documentVersion": "官方 PDF 封面標示中華民國107年11月；未確認獨立版本標籤，不推定修訂版號。",
+  "sourceUrl": "https://stv.naer.edu.tw/data/course_outline/pta_18538_240851_60502.pdf",
+  "sourceLocation": "伍／二／課題2 自然界的現象、規律及作用／交互作用（INe）第二學習階段欄，PDF頁序23–24、文件印刷頁碼19–20。",
+  "applicability": {
+    "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+    "grade": null,
+    "semester": null,
+    "gradeApplicabilityStatus": "official_stage_only_not_individual_grade"
+  },
+  "reviewMethod": "下載現行登錄的國教院官方 PDF，逐頁目視核對課題標題、第二學習階段欄、INe-Ⅱ-11 跨頁續文及頁尾印刷頁碼，再與 PDF 文字擷取交叉檢查。未把學習階段拆成指定年級或學期。",
+  "relatedPerformanceCodes": [],
+  "performanceLinkStatus": "官方學習內容表未逐列明示學習表現代碼；本批不自行推定關聯。",
+  "clauses": [
+    {
+      "code": "INe-Ⅱ-1",
+      "officialText": "自然界的物體、生物、環境間常會相互影響。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 23,
+      "printedPage": 19,
+      "sourceLocator": "伍／二／課題2「自然界的現象、規律及作用」／交互作用（INe）第二學習階段欄，INe-Ⅱ-1",
+      "reviewStatus": "verified_against_official_pdf_and_rendered_table_2026-10-25",
+      "relatedPerformanceCodes": [],
+      "activityIds": [
+        "ACT-G3-SCIENCE-ANIMAL-EVIDENCE-ATLAS-CANDIDATE",
+        "ACT-G4-SCIENCE-PLANT-GROWTH-MEASUREMENTS-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "activityEvidence": [
+        {
+          "activityId": "ACT-G3-SCIENCE-ANIMAL-EVIDENCE-ATLAS-CANDIDATE",
+          "evidenceKind": "reviewed_registered_activity_content",
+          "limit": "既有活動整理動植物形態或預先提供的成長紀錄，未操作物體、生物與環境之間的相互影響。"
+        },
+        {
+          "activityId": "ACT-G4-SCIENCE-PLANT-GROWTH-MEASUREMENTS-CANDIDATE",
+          "evidenceKind": "reviewed_registered_activity_content",
+          "limit": "既有活動整理動植物形態或預先提供的成長紀錄，未操作物體、生物與環境之間的相互影響。"
+        }
+      ],
+      "limitations": [
+        "既有活動整理動植物形態或預先提供的成長紀錄，未操作物體、生物與環境之間的相互影響。"
+      ]
+    },
+    {
+      "code": "INe-Ⅱ-2",
+      "officialText": "溫度會影響物質在水中溶解的程度（定性）及物質燃燒、生鏽、發酵等現象。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 23,
+      "printedPage": 19,
+      "sourceLocator": "伍／二／課題2「自然界的現象、規律及作用」／交互作用（INe）第二學習階段欄，INe-Ⅱ-2",
+      "reviewStatus": "verified_against_official_pdf_and_rendered_table_2026-10-25",
+      "relatedPerformanceCodes": [],
+      "activityIds": [
+        "ACT-G4-SCIENCE-MATERIAL-SORT-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "activityEvidence": [
+        {
+          "activityId": "ACT-G4-SCIENCE-MATERIAL-SORT-CANDIDATE",
+          "evidenceKind": "reviewed_registered_activity_content",
+          "limit": "既有活動比較水滴吸收資料，沒有操控溫度或觀察溶解、燃燒、生鏽、發酵。"
+        }
+      ],
+      "limitations": [
+        "既有活動比較水滴吸收資料，沒有操控溫度或觀察溶解、燃燒、生鏽、發酵。"
+      ]
+    },
+    {
+      "code": "INe-Ⅱ-3",
+      "officialText": "有些物質溶於水中，有些物質不容易溶於水中。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 23,
+      "printedPage": 19,
+      "sourceLocator": "伍／二／課題2「自然界的現象、規律及作用」／交互作用（INe）第二學習階段欄，INe-Ⅱ-3",
+      "reviewStatus": "verified_against_official_pdf_and_rendered_table_2026-10-25",
+      "relatedPerformanceCodes": [],
+      "activityIds": [
+        "ACT-G4-SCIENCE-MATERIAL-SORT-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "activityEvidence": [
+        {
+          "activityId": "ACT-G4-SCIENCE-MATERIAL-SORT-CANDIDATE",
+          "evidenceKind": "reviewed_registered_activity_content",
+          "limit": "既有材料分類依水滴吸收紀錄，不是比較物質在水中的溶解情形。"
+        }
+      ],
+      "limitations": [
+        "既有材料分類依水滴吸收紀錄，不是比較物質在水中的溶解情形。"
+      ]
+    },
+    {
+      "code": "INe-Ⅱ-4",
+      "officialText": "常見食物的酸鹼性有時可利用氣味、觸覺、味覺簡單區分，花卉、菜葉會因接觸到酸鹼而改變顏色。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 23,
+      "printedPage": 19,
+      "sourceLocator": "伍／二／課題2「自然界的現象、規律及作用」／交互作用（INe）第二學習階段欄，INe-Ⅱ-4",
+      "reviewStatus": "verified_against_official_pdf_and_rendered_table_2026-10-25",
+      "relatedPerformanceCodes": [],
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "activityEvidence": [],
+      "limitations": [
+        "沒有適當活動支持安全地辨認食物酸鹼，或觀察花葉接觸酸鹼後變色；不得以文字選項冒充感官或實驗操作。"
+      ]
+    },
+    {
+      "code": "INe-Ⅱ-5",
+      "officialText": "生活周遭有各種的聲音；物體振動會產生聲音，聲音可以透過固體、液體、氣體傳播。不同的動物會發出不同的聲音，並且作為溝通的方式。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 23,
+      "printedPage": 19,
+      "sourceLocator": "伍／二／課題2「自然界的現象、規律及作用」／交互作用（INe）第二學習階段欄，INe-Ⅱ-5",
+      "reviewStatus": "verified_against_official_pdf_and_rendered_table_2026-10-25",
+      "relatedPerformanceCodes": [],
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "activityEvidence": [],
+      "limitations": [
+        "沒有操作物體振動、固液氣傳聲或動物聲音溝通的活動；本專案未提供聲音輸入／聽力評量證據。"
+      ]
+    },
+    {
+      "code": "INe-Ⅱ-6",
+      "officialText": "光線以直線前進，反射時有一定的方向。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 23,
+      "printedPage": 19,
+      "sourceLocator": "伍／二／課題2「自然界的現象、規律及作用」／交互作用（INe）第二學習階段欄，INe-Ⅱ-6",
+      "reviewStatus": "verified_against_official_pdf_and_rendered_table_2026-10-25",
+      "relatedPerformanceCodes": [],
+      "activityIds": [],
+      "activityEvidenceStatus": "uncovered",
+      "activityEvidence": [],
+      "limitations": [
+        "沒有操作光線直線前進或鏡面反射方向的活動；角度遊戲不等同光學探究。"
+      ]
+    },
+    {
+      "code": "INe-Ⅱ-7",
+      "officialText": "磁鐵具有兩極，同極相斥，異極相吸；磁鐵會吸引含鐵的物體。磁力強弱可由吸起含鐵物質數量多寡得知。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 23,
+      "printedPage": 19,
+      "sourceLocator": "伍／二／課題2「自然界的現象、規律及作用」／交互作用（INe）第二學習階段欄，INe-Ⅱ-7",
+      "reviewStatus": "verified_against_official_pdf_and_rendered_table_2026-10-25",
+      "relatedPerformanceCodes": [],
+      "activityIds": [
+        "ACT-G4-SCIENCE-MAGNET-INTERACTION-DOCK-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "partial",
+      "activityEvidence": [
+        {
+          "activityId": "ACT-G4-SCIENCE-MAGNET-INTERACTION-DOCK-CANDIDATE",
+          "stageIds": [
+            "magnet-poles-and-forces"
+          ],
+          "evidenceKind": "interactive_pole_flip_updates_repulsion_attraction_and_requires_opposite_poles",
+          "description": "學生翻轉可操作磁鐵；模型即時呈現同極相斥或異極相吸，並以異極相吸作為本站完成條件。"
+        },
+        {
+          "activityId": "ACT-G4-SCIENCE-MAGNET-INTERACTION-DOCK-CANDIDATE",
+          "stageIds": [
+            "test-magnetic-materials"
+          ],
+          "evidenceKind": "interactive_material_test_records_observed_attraction_then_classification",
+          "description": "學生逐件測試五種模擬材料，先觀察是否移動，再分類；僅限本模型預設材料結果。"
+        },
+        {
+          "activityId": "ACT-G4-SCIENCE-MAGNET-INTERACTION-DOCK-CANDIDATE",
+          "stageIds": [
+            "compare-magnet-strength-counts"
+          ],
+          "evidenceKind": "interactive_equal_condition_simulation_compares_lifted_iron_piece_counts",
+          "description": "學生在畫面指定的相同模擬條件下測試兩磁鐵，觀察吸起數量並選擇較多者。"
+        }
+      ],
+      "limitations": [
+        "本活動僅提供三站候選數位互動：磁極翻轉觀察、五種預設模擬材料測試與分類、相同模擬條件下依吸起含鐵圓片數比較兩磁鐵。",
+        "材料吸引結果與磁鐵吸起數量是固定模擬資料，不能取代真實磁鐵與材料的實物操作及觀察。",
+        "尚未實作真實材料辨識、距離／方向等變因控制或實物磁力測量；工程互動不代表學生精熟或教師審查完成。",
+        "官方適用範圍為第二學習階段；本項不指定個別年級或學期。"
+      ]
+    },
+    {
+      "code": "INe-Ⅱ-8",
+      "officialText": "物質可分為電的良導體和不良導體，將電池用電線或良導體接成通路，可使燈泡發光、馬達轉動。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 23,
+      "printedPage": 19,
+      "sourceLocator": "伍／二／課題2「自然界的現象、規律及作用」／交互作用（INe）第二學習階段欄，INe-Ⅱ-8",
+      "reviewStatus": "verified_against_official_pdf_and_rendered_table_2026-10-25",
+      "relatedPerformanceCodes": [],
+      "activityIds": [
+        "ACT-G6-SCIENCE-ENERGY-TRANSFER-MODEL-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "activityEvidence": [
+        {
+          "activityId": "ACT-G6-SCIENCE-ENERGY-TRANSFER-MODEL-CANDIDATE",
+          "evidenceKind": "reviewed_registered_activity_content",
+          "limit": "既有能量路徑卡只呈現電池至燈泡輸出，未建構導體／不良導體電路，也未接線點亮燈泡或馬達。"
+        }
+      ],
+      "limitations": [
+        "既有能量路徑卡只呈現電池至燈泡輸出，未建構導體／不良導體電路，也未接線點亮燈泡或馬達。"
+      ]
+    },
+    {
+      "code": "INe-Ⅱ-9",
+      "officialText": "電池或燈泡可以有串聯和並聯的接法，不同的接法會產生不同的效果。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 23,
+      "printedPage": 19,
+      "sourceLocator": "伍／二／課題2「自然界的現象、規律及作用」／交互作用（INe）第二學習階段欄，INe-Ⅱ-9",
+      "reviewStatus": "verified_against_official_pdf_and_rendered_table_2026-10-25",
+      "relatedPerformanceCodes": [],
+      "activityIds": [
+        "ACT-G6-SCIENCE-ENERGY-TRANSFER-MODEL-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "activityEvidence": [
+        {
+          "activityId": "ACT-G6-SCIENCE-ENERGY-TRANSFER-MODEL-CANDIDATE",
+          "evidenceKind": "reviewed_registered_activity_content",
+          "limit": "既有能量卡沒有操作或比較電池／燈泡的串聯、並聯接法與效果。"
+        }
+      ],
+      "limitations": [
+        "既有能量卡沒有操作或比較電池／燈泡的串聯、並聯接法與效果。"
+      ]
+    },
+    {
+      "code": "INe-Ⅱ-10",
+      "officialText": "動物的感覺器官接受外界刺激會引起生理和行為反應。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 23,
+      "printedPage": 19,
+      "sourceLocator": "伍／二／課題2「自然界的現象、規律及作用」／交互作用（INe）第二學習階段欄，INe-Ⅱ-10",
+      "reviewStatus": "verified_against_official_pdf_and_rendered_table_2026-10-25",
+      "relatedPerformanceCodes": [],
+      "activityIds": [
+        "ACT-G6-SCIENCE-ANIMAL-STRUCTURE-MOVEMENT-EVIDENCE-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "activityEvidence": [
+        {
+          "activityId": "ACT-G6-SCIENCE-ANIMAL-STRUCTURE-MOVEMENT-EVIDENCE-CANDIDATE",
+          "evidenceKind": "reviewed_registered_activity_content",
+          "limit": "既有活動比對動物構造與移動線索，未操作感覺器官接受刺激後的生理或行為反應。"
+        }
+      ],
+      "limitations": [
+        "既有活動比對動物構造與移動線索，未操作感覺器官接受刺激後的生理或行為反應。"
+      ]
+    },
+    {
+      "code": "INe-Ⅱ-11",
+      "officialText": "環境的變化會影響植物生長。",
+      "itemType": "learning_content",
+      "learningStage": "第二學習階段（官方課綱所列三、四年級；未指定個別年級或學期）",
+      "pdfPageSequence": 24,
+      "printedPage": 20,
+      "sourceLocator": "伍／二／課題2「自然界的現象、規律及作用」／交互作用（INe）第二學習階段欄，INe-Ⅱ-11；條文跨頁，頁序23起、24頁首續完",
+      "reviewStatus": "verified_against_official_pdf_and_rendered_table_2026-10-25",
+      "relatedPerformanceCodes": [],
+      "activityIds": [
+        "ACT-G4-SCIENCE-PLANT-GROWTH-MEASUREMENTS-CANDIDATE"
+      ],
+      "activityEvidenceStatus": "relation_only",
+      "activityEvidence": [
+        {
+          "activityId": "ACT-G4-SCIENCE-PLANT-GROWTH-MEASUREMENTS-CANDIDATE",
+          "evidenceKind": "reviewed_registered_activity_content",
+          "limit": "既有活動排序預先提供的豆苗高度並標記時間，未比較環境條件或證明環境變化造成生長差異。"
+        }
+      ],
+      "limitations": [
+        "既有活動排序預先提供的豆苗高度並標記時間，未比較環境條件或證明環境變化造成生長差異。"
+      ]
+    }
+  ],
+  "boundary": "本批僅含課題2「交互作用（INe）」第二學習階段11條學習內容；不含第三學習階段欄與其他小節，不代表自然科學文件完整清冊。INe-Ⅱ-11 在頁序23末起句並於頁序24頁首續完。",
+  "nextWorkPosition": "同一官方 PDF 課題3「自然界的永續發展」之第二學習階段欄；先確認 INf、INg 各表起訖與跨頁邊界，再逐列核讀。"
+}

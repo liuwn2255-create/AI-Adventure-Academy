@@ -1,0 +1,80 @@
+export const NEIGHBORHOOD_CHANGE_EXPLORATION = Object.freeze({
+  activityId: 'ACT-G3-SOCIAL-NEIGHBORHOOD-CHANGE-CANDIDATE',
+  revision: 1,
+  title: '社區觀察隊：資料裡的改變',
+  gradeId: 'grade-3',
+  subjectId: 'social-studies',
+  status: 'candidate_pending_teacher_review',
+  sourceKind: 'fictional_observation_records_original_candidate_not_textbook',
+  curriculumMapId: 'social-neighborhood-change-stage2',
+  sourceId: 'social-studies',
+  curriculumCodes: ['1a-Ⅱ-1', '3b-Ⅱ-2'],
+  curriculumScope: '官方社會領域課綱第二學習階段（國小三、四年級）學習表現的候選局部參照；不宣稱涵蓋 Ca-Ⅱ-1 的社會經濟變遷內容，也不代表三年級授課順序已確認。',
+  learningObjective: {
+    objectiveId: 'LO-G3-SOCIAL-CANDIDATE-01',
+    statement: '閱讀一組明確標示為虛構的社區觀察紀錄，摘取可直接支持的重點，並區分紀錄中的事實與尚無證據的推論。',
+    status: 'candidate_pending_teacher_review',
+  },
+  instructions: '這是一組虛構社區的練習紀錄，不是真實地方調查。先比較兩次紀錄，再根據資料判斷哪些說法有直接證據。',
+  stages: Object.freeze([
+    Object.freeze({
+      stageId: 'compare-neighborhood-records',
+      interaction: 'classify_observations',
+      prompt: '依兩次觀察紀錄，把每項整理到「紀錄有變化」或「紀錄相同」。',
+      evidenceRecords: Object.freeze([
+        Object.freeze({ title: '第一次紀錄（虛構）', text: '巷口公車站：0 個；沿街店家：2 間；路旁大樹：1 棵。' }),
+        Object.freeze({ title: '第二次紀錄（虛構）', text: '巷口公車站：1 個；沿街店家：4 間；路旁大樹：1 棵。' }),
+      ]),
+      observations: Object.freeze([
+        Object.freeze({ id: 'change-bus-stop', text: '巷口公車站數量不同。' }),
+        Object.freeze({ id: 'change-shops', text: '沿街店家數量不同。' }),
+        Object.freeze({ id: 'same-tree', text: '路旁大樹數量相同。' }),
+      ]),
+      categories: Object.freeze([
+        Object.freeze({ id: 'recorded-change', label: '紀錄有變化' }),
+        Object.freeze({ id: 'recorded-same', label: '紀錄相同' }),
+      ]),
+      correctAssignments: Object.freeze({ 'change-bus-stop': 'recorded-change', 'change-shops': 'recorded-change', 'same-tree': 'recorded-same' }),
+      hints: Object.freeze([
+        '逐項比較第一次和第二次紀錄中的數量，不要先猜改變的原因。',
+        '只有前後數量不同的項目才放在「紀錄有變化」；相同數量放在另一類。',
+      ]),
+      incorrectFeedback: '請把每個項目在兩次紀錄中的數量逐一對照。這一關只判斷資料是否不同，還沒有判斷變化原因。',
+      correctFeedback: '你根據兩次紀錄整理出哪些項目改變、哪些相同。資料比較本身不能證明改變的原因。',
+    }),
+    Object.freeze({
+      stageId: 'separate-record-and-inference',
+      interaction: 'classify_observations',
+      prompt: '把說法分到「紀錄直接支持」或「資料尚不足以支持」。',
+      evidenceRecords: Object.freeze([
+        Object.freeze({ title: '可查對的紀錄', text: '第一次有 2 間沿街店家，第二次有 4 間；兩次都記錄到 1 棵路旁大樹。' }),
+      ]),
+      observations: Object.freeze([
+        Object.freeze({ id: 'claim-shop-count', text: '第二次紀錄的沿街店家比第一次多。' }),
+        Object.freeze({ id: 'claim-tree-stays', text: '兩次紀錄都記錄到一棵路旁大樹。' }),
+        Object.freeze({ id: 'claim-bus-caused-shops', text: '公車站一定是店家增加的原因。' }),
+        Object.freeze({ id: 'claim-residents-like', text: '所有居民都喜歡這些變化。' }),
+      ]),
+      categories: Object.freeze([
+        Object.freeze({ id: 'supported-by-record', label: '紀錄直接支持' }),
+        Object.freeze({ id: 'not-established', label: '資料尚不足以支持' }),
+      ]),
+      correctAssignments: Object.freeze({ 'claim-shop-count': 'supported-by-record', 'claim-tree-stays': 'supported-by-record', 'claim-bus-caused-shops': 'not-established', 'claim-residents-like': 'not-established' }),
+      hints: Object.freeze([
+        '問自己：這句話能不能在觀察紀錄中找到直接相同的資訊？',
+        '資料只列出前後數量；原因和居民感受都沒有被記錄，不能當成觀察事實。',
+      ]),
+      incorrectFeedback: '請分開「紀錄中看得到的內容」和「需要其他資料才能判斷的原因或感受」。一份前後紀錄不會自動證明因果或所有人的想法。',
+      correctFeedback: '你把資料支持的描述和仍需其他證據的推論分開。這是虛構資料的練習，不代表真實社區調查。',
+    }),
+  ]),
+  reinforcementActivityIds: Object.freeze([]),
+  reinforcementStatus: '尚無連結的補強活動',
+  evidencePolicy: Object.freeze({ persistence: 'memory_only_no_student_records_no_localStorage', completionIsMastery: false, hintAssistedResponseIsIndependentEvidence: false }),
+  teacherReview: Object.freeze({ status: 'not_reviewed', reviewer: null, reviewedAt: null }),
+  openQuestions: Object.freeze([
+    '第二學習階段涵蓋三、四年級；需教師確認目標班級是否已接觸資料摘取、事實與意見區分及地方環境變化等內容。',
+    '虛構數據只用來示範證據判讀，不能代替學生觀察真實居住地方。',
+    '本活動未實際探究社會經濟發展如何造成環境改變，故不對應或宣稱涵蓋 Ca-Ⅱ-1；活動僅是資料摘取與事實／推論區分的候選練習。',
+  ]),
+});

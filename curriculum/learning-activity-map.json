@@ -1,0 +1,1039 @@
+{
+  "schemaVersion": 1,
+  "datasetId": "learning-objective-activity-check-map",
+  "datasetStatus": "pilot_candidate_not_teacher_approved",
+  "generatedFrom": [
+    "learning-objectives.json",
+    "prototype/data/numberSecretQuestions.js",
+    "prototype/data/levelCatalog.js",
+    "prototype/data/numberSecretLearningUnit.js",
+    "prototype/data/squareCentimeterAreaLearningUnit.js",
+    "prototype/data/fractionTreasureLearningUnit.js",
+    "prototype/data/additionSubtractionLearningUnit.js",
+    "prototype/data/areaGridConstructionWorkshop.js",
+    "prototype/data/weightMeasurementAdventure.js"
+  ],
+  "boundaries": {
+    "formalCurriculumApproved": false,
+    "formalQuestionSet": false,
+    "studentRecordsCreated": false,
+    "prototypeCompletionIsLearningCheck": false,
+    "starsScoresBadgesAreMasteryEvidence": false,
+    "stage0Status": "not_passed"
+  },
+  "activities": [
+    {
+      "activityId": "ACT-M3-AREA-SQUARE-CENTIMETER-CANDIDATE",
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-area-square-centimeter",
+      "learningObjectiveIds": [
+        "LO:chapter-scope-m3-math-area-square-centimeter:01"
+      ],
+      "activityType": "practice",
+      "title": "面積建造師：平方公分探險",
+      "purpose": "以候選方格圖示試作單位方格點數、簡單圖形面積比較及平方公分單位辨認；不作正式評量或章節達標判定。",
+      "learnerActions": [
+        "觀察相同大小的完整方格圖",
+        "點數或比較單位方格",
+        "查看候選回饋並可重試"
+      ],
+      "runtimeReference": {
+        "kind": "candidate_learning_unit_runtime",
+        "learningUnitId": "learning-unit:chapter-scope-m3-math-area-square-centimeter",
+        "levelId": null,
+        "module": "prototype/data/squareCentimeterAreaLearningUnit.js",
+        "prototypeEntry": "數學地圖的候選試玩按鈕",
+        "questionIds": [
+          "AREA-DRAFT-M3-N314-01",
+          "AREA-DRAFT-M3-N314-02",
+          "AREA-DRAFT-M3-N314-03",
+          "AREA-DRAFT-M3-N314-04"
+        ]
+      },
+      "questionObjectiveCoverage": [
+        {
+          "questionId": "AREA-DRAFT-M3-N314-01",
+          "learningObjectiveId": "LO:chapter-scope-m3-math-area-square-centimeter:01",
+          "candidateCapability": "點數矩形中的完整單位方格",
+          "responseEvidenceType": "practice_response_only",
+          "learningCheckStatus": "not_a_formal_check"
+        },
+        {
+          "questionId": "AREA-DRAFT-M3-N314-02",
+          "learningObjectiveId": "LO:chapter-scope-m3-math-area-square-centimeter:01",
+          "candidateCapability": "點數不規則排列但完整的單位方格",
+          "responseEvidenceType": "practice_response_only",
+          "learningCheckStatus": "not_a_formal_check"
+        },
+        {
+          "questionId": "AREA-DRAFT-M3-N314-03",
+          "learningObjectiveId": "LO:chapter-scope-m3-math-area-square-centimeter:01",
+          "candidateCapability": "以相同單位方格數比較簡單圖形",
+          "responseEvidenceType": "practice_response_only",
+          "learningCheckStatus": "not_a_formal_check"
+        },
+        {
+          "questionId": "AREA-DRAFT-M3-N314-04",
+          "learningObjectiveId": "LO:chapter-scope-m3-math-area-square-centimeter:01",
+          "candidateCapability": "辨認邊長一公分單位正方形所對應的平方公分單位",
+          "responseEvidenceType": "practice_response_only",
+          "learningCheckStatus": "not_a_formal_check"
+        }
+      ],
+      "activityCompletion": {
+        "condition": "本次記憶體候選練習到達結果頁",
+        "evidenceType": "prototype_activity_completed",
+        "doesNotImply": [
+          "learning_check_passed",
+          "objective_achieved",
+          "chapter_mastery"
+        ]
+      },
+      "learningCheck": {
+        "status": "not_designed_pending_teacher_review",
+        "method": null,
+        "passCondition": null,
+        "note": "候選練習不是獨立學習檢核；通過條件尚未由教師制定。"
+      },
+      "errorHypotheses": [
+        {
+          "questionId": "AREA-DRAFT-M3-N314-01",
+          "possibleMisconception": "作答差異可能來自點數、格線辨識或面積單位理解；需觀察作答過程驗證。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        },
+        {
+          "questionId": "AREA-DRAFT-M3-N314-02",
+          "possibleMisconception": "轉彎圖形可能造成漏數或重數，但也可能是圖像辨識或題意影響。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        },
+        {
+          "questionId": "AREA-DRAFT-M3-N314-03",
+          "possibleMisconception": "可能依外形大小而非單位方格數比較；僅作待驗證假設。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        },
+        {
+          "questionId": "AREA-DRAFT-M3-N314-04",
+          "possibleMisconception": "可能混淆長度單位與面積單位；須先確認相關教學是否完成。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        }
+      ],
+      "reinforcementActivityIds": [],
+      "reviewStatus": "candidate_pending_teacher_review",
+      "evidenceSources": [
+        {
+          "type": "candidate_learning_objective",
+          "ref": "learning-objectives.json#LO:chapter-scope-m3-math-area-square-centimeter:01"
+        },
+        {
+          "type": "prototype_question_data",
+          "ref": "prototype/data/squareCentimeterAreaLearningUnit.js#AREA-DRAFT-M3-N314-01..04"
+        },
+        {
+          "type": "official_curriculum_registry_reference",
+          "sourceId": "mathematics",
+          "curriculumMapId": "math-grade3-n-3-14-area",
+          "codes": [
+            "N-3-14",
+            "n-II-9"
+          ],
+          "claimBoundary": "沿用專案既有官方來源登錄；題目逐項課程對應、年級／學期進度及教師審查仍待確認。"
+        }
+      ],
+      "missingCoverage": [
+        "實物覆蓋、面積量感、估測及測量工具操作",
+        "部分方格處理與估算",
+        "周長與面積辨別",
+        "一般面積公式（本原型刻意不納入）",
+        "教師核定的評量規準及學習成效證據"
+      ]
+    },
+    {
+      "activityId": "ACT-G3-MATH-AREA-GRID-CONSTRUCTION-CANDIDATE",
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-area-square-centimeter",
+      "learningObjectiveIds": [
+        "LO:chapter-scope-m3-math-area-square-centimeter:01"
+      ],
+      "activityType": "manipulation",
+      "title": "方格面積建造工坊：鋪設、比較與補格",
+      "purpose": "以可點選新增與取下的單位方格，在螢幕模型中估測、覆蓋、計數、改造同面積形狀、補格及比較簡單區域；不作正式學習檢核。",
+      "learnerActions": [
+        "先留下簡單矩形的面積估測，再逐格鋪滿輪廓",
+        "點選單位方格建立或移除方格並觀察即時數量",
+        "建造與參考形狀不同但方格數相同的連通圖形",
+        "補齊缺格並比較兩個已建造區域",
+        "在面積限制下規劃連通方格配置"
+      ],
+      "runtimeReference": {
+        "kind": "catalog_task_runtime",
+        "activityId": "ACT-G3-MATH-AREA-GRID-CONSTRUCTION-CANDIDATE",
+        "module": "prototype/data/areaGridConstructionWorkshop.js",
+        "prototypeEntry": "三年級數學目錄候選路徑第 9 站",
+        "stageIds": [
+          "estimate-and-cover-rectangle",
+          "count-irregular-unit-square-region",
+          "build-different-shape-same-area",
+          "fill-missing-area-grid-cells",
+          "compare-built-area-regions",
+          "integrated-build-area-constrained-garden"
+        ]
+      },
+      "questionObjectiveCoverage": [],
+      "activityCompletion": {
+        "condition": "記憶體中的候選建造任務全部完成",
+        "evidenceType": "prototype_activity_completed",
+        "doesNotImply": [
+          "learning_check_passed",
+          "objective_achieved",
+          "chapter_mastery"
+        ]
+      },
+      "learningCheck": {
+        "status": "not_designed_pending_teacher_review",
+        "method": null,
+        "passCondition": null,
+        "note": "操作紀錄只支持候選練習證據；教師需決定是否及如何評量。"
+      },
+      "errorHypotheses": [
+        {
+          "possibleMisconception": "可能把外形或排列方式當成面積大小，而未依相同單位方格計數；須由教師觀察驗證。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        }
+      ],
+      "reinforcementActivityIds": [],
+      "reviewStatus": "candidate_pending_teacher_review",
+      "evidenceSources": [
+        {
+          "type": "candidate_learning_objective",
+          "ref": "learning-objectives.json#LO:chapter-scope-m3-math-area-square-centimeter:01"
+        },
+        {
+          "type": "catalog_task_runtime",
+          "ref": "prototype/data/areaGridConstructionWorkshop.js#estimate-and-cover-rectangle..integrated-build-area-constrained-garden"
+        },
+        {
+          "type": "official_curriculum_registry_reference",
+          "sourceId": "mathematics",
+          "curriculumMapId": "math-grade3-n-3-14-area",
+          "codes": [
+            "N-3-14",
+            "n-II-9"
+          ],
+          "claimBoundary": "官方條文支持平方公分的實測、量感、估測與計算，並建議平方公分板點數簡單圖形且不發展一般公式；本活動為螢幕候選模型，不代表實物操作、教師審查或正式進度。"
+        }
+      ],
+      "missingCoverage": [
+        "實體平方公分板、紙片與真實物件的實測及量感",
+        "部分方格估測及不規則邊界面積",
+        "三角形面積的官方建議操作（本關未實作）",
+        "一般面積公式（依官方備註不發展）",
+        "周長與面積辨別（未列為本條目本關學習目標）",
+        "教師核定的評量規準及學習成效證據"
+      ]
+    },
+    {
+      "activityId": "ACT-M3-FRACTION-TREASURE-SAME-DENOMINATOR-CANDIDATE",
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-common-denominator-fractions",
+      "learningObjectiveIds": [
+        "LO:chapter-scope-m3-math-common-denominator-fractions:01"
+      ],
+      "activityType": "practice",
+      "title": "分數寶藏島：同分母分數探險",
+      "purpose": "以等分連續圖像候選試作分數表示讀取、分母意義及同分母比較；不涉及加減運算、正式評量或章節達標判定。",
+      "learnerActions": [
+        "觀察同一大小整體的等分圖形",
+        "辨認圖像所示分數或分數記號資訊",
+        "在相同整體與相同分母條件下比較部分",
+        "查看候選回饋並可重試"
+      ],
+      "runtimeReference": {
+        "kind": "candidate_learning_unit_runtime",
+        "learningUnitId": "learning-unit:chapter-scope-m3-math-common-denominator-fractions",
+        "levelId": null,
+        "module": "prototype/data/fractionTreasureLearningUnit.js",
+        "prototypeEntry": "數學地圖候選活動入口",
+        "questionIds": [
+          "FRACTION-DRAFT-M3-N39-01",
+          "FRACTION-DRAFT-M3-N39-02",
+          "FRACTION-DRAFT-M3-N39-03",
+          "FRACTION-DRAFT-M3-N39-04",
+          "FRACTION-DRAFT-M3-N39-05"
+        ]
+      },
+      "questionObjectiveCoverage": [
+        {
+          "questionId": "FRACTION-DRAFT-M3-N39-01",
+          "learningObjectiveId": "LO:chapter-scope-m3-math-common-denominator-fractions:01",
+          "candidateCapability": "由等分連續模型讀出所選取部分的分數表示",
+          "responseEvidenceType": "practice_response_only",
+          "learningCheckStatus": "not_a_formal_check"
+        },
+        {
+          "questionId": "FRACTION-DRAFT-M3-N39-02",
+          "learningObjectiveId": "LO:chapter-scope-m3-math-common-denominator-fractions:01",
+          "candidateCapability": "辨認分母為整體平均分成的相等部分總數",
+          "responseEvidenceType": "practice_response_only",
+          "learningCheckStatus": "not_a_formal_check"
+        },
+        {
+          "questionId": "FRACTION-DRAFT-M3-N39-03",
+          "learningObjectiveId": "LO:chapter-scope-m3-math-common-denominator-fractions:01",
+          "candidateCapability": "以相同整體、相同分母的連續圖形比較分數量",
+          "responseEvidenceType": "practice_response_only",
+          "learningCheckStatus": "not_a_formal_check"
+        },
+        {
+          "questionId": "FRACTION-DRAFT-M3-N39-04",
+          "learningObjectiveId": "LO:chapter-scope-m3-math-common-denominator-fractions:01",
+          "candidateCapability": "將圖像比較策略轉用至符號形式的同分母比較",
+          "responseEvidenceType": "practice_response_only",
+          "learningCheckStatus": "not_a_formal_check"
+        },
+        {
+          "questionId": "FRACTION-DRAFT-M3-N39-05",
+          "learningObjectiveId": "LO:chapter-scope-m3-math-common-denominator-fractions:01",
+          "candidateCapability": "在連續量生活語境中比較同分母分數",
+          "responseEvidenceType": "practice_response_only",
+          "learningCheckStatus": "not_a_formal_check"
+        }
+      ],
+      "activityCompletion": {
+        "condition": "本次記憶體候選練習到達結果頁",
+        "evidenceType": "prototype_activity_completed",
+        "doesNotImply": [
+          "learning_check_passed",
+          "objective_achieved",
+          "chapter_mastery"
+        ]
+      },
+      "learningCheck": {
+        "status": "not_designed_pending_teacher_review",
+        "method": null,
+        "passCondition": null,
+        "note": "候選練習不是獨立學習檢核；沒有教師核定的通過門檻。"
+      },
+      "errorHypotheses": [
+        {
+          "questionId": "FRACTION-DRAFT-M3-N39-01",
+          "possibleMisconception": "作答可能受等份辨認、圖像點數或分子／分母位置理解影響；需觀察驗證。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        },
+        {
+          "questionId": "FRACTION-DRAFT-M3-N39-02",
+          "possibleMisconception": "可能把斜線部分數與整體等份總數混淆，也可能只是讀圖或讀題影響。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        },
+        {
+          "questionId": "FRACTION-DRAFT-M3-N39-03",
+          "possibleMisconception": "可能未確認兩整體相同或未比較選取部分數；單次錯答不構成診斷。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        },
+        {
+          "questionId": "FRACTION-DRAFT-M3-N39-04",
+          "possibleMisconception": "可能受符號讀取、分數記號或比較策略影響；需觀察作答過程。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        },
+        {
+          "questionId": "FRACTION-DRAFT-M3-N39-05",
+          "possibleMisconception": "可能受人物敘述理解、整體對應或分數比較影響；需教師觀察。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        }
+      ],
+      "reinforcementActivityIds": [],
+      "reviewStatus": "candidate_pending_teacher_review",
+      "evidenceSources": [
+        {
+          "type": "candidate_learning_objective",
+          "ref": "learning-objectives.json#LO:chapter-scope-m3-math-common-denominator-fractions:01"
+        },
+        {
+          "type": "prototype_question_data",
+          "ref": "prototype/data/fractionTreasureLearningUnit.js#FRACTION-DRAFT-M3-N39-01..05"
+        },
+        {
+          "type": "official_curriculum_registry_reference",
+          "sourceId": "mathematics",
+          "curriculumMapId": "math-grade3-n-3-9-common-denominator-fractions",
+          "codes": [
+            "N-3-9",
+            "n-II-6"
+          ],
+          "claimBoundary": "官方 N-3-9 原文與位置已核對；本候選只局部涉及圖示分數及同分母比較。學期順序、教材、先備能力及逐題適切性仍待教師確認。"
+        }
+      ],
+      "missingCoverage": [
+        "同分母分數加法、減法及結果範圍（含不超過2）",
+        "和等於1的意義",
+        "非連續量情境的官方條件與應用",
+        "單位分數操作經驗及其他分數目標",
+        "教師核定的獨立學習檢核、評量規準與學習成效證據"
+      ]
+    },
+    {
+      "activityId": "ACT-M3-NUM-PLACE-VALUE-THOUSANDS-SECRET",
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-number-place-value",
+      "learningObjectiveIds": [
+        "LO-M3-NUM-PLACE-VALUE-01",
+        "LO-M3-NUM-PLACE-VALUE-02",
+        "LO-M3-NUM-PLACE-VALUE-03"
+      ],
+      "activityType": "practice",
+      "title": "千位數的秘密｜三題練習原型",
+      "purpose": "觀察三題本機示範練習各自觸及的候選目標，供教師檢視題目覆蓋範圍；不作章節達標判定。",
+      "learnerActions": [
+        "依題目選擇一個答案。",
+        "查看答對或答錯回饋與解析。",
+        "完成三題後可看到原型任務結果。"
+      ],
+      "runtimeReference": {
+        "kind": "prototype_level",
+        "levelId": "number-secret-challenge",
+        "prototypeEntry": "數字島石碑任務入口",
+        "unlockCondition": {
+          "type": "completed_mission",
+          "missionId": "task-find-number-obelisk"
+        },
+        "questionSetModule": "prototype/data/numberSecretQuestions.js",
+        "questionIds": [
+          "secret-thousands-01",
+          "secret-thousands-02",
+          "secret-thousands-03"
+        ],
+        "levelAvailability": "existing_playable_prototype_pending_teacher_review"
+      },
+      "questionObjectiveCoverage": [
+        {
+          "questionId": "secret-thousands-01",
+          "learningObjectiveId": "LO-M3-NUM-PLACE-VALUE-01",
+          "candidateCapability": "辨認 3,000 中數字 3 的千位意義。",
+          "responseEvidenceType": "practice_response_only",
+          "learningCheckStatus": "not_a_formal_check"
+        },
+        {
+          "questionId": "secret-thousands-02",
+          "learningObjectiveId": "LO-M3-NUM-PLACE-VALUE-02",
+          "candidateCapability": "將 4 個千與數字 4,000 連結。",
+          "responseEvidenceType": "practice_response_only",
+          "learningCheckStatus": "not_a_formal_check"
+        },
+        {
+          "questionId": "secret-thousands-03",
+          "learningObjectiveId": "LO-M3-NUM-PLACE-VALUE-03",
+          "candidateCapability": "組合 2,000 與 500 得到 2,500。",
+          "responseEvidenceType": "practice_response_only",
+          "learningCheckStatus": "not_a_formal_check"
+        }
+      ],
+      "activityCompletion": {
+        "condition": "現有遊戲流程發出三題任務完成事件。",
+        "evidenceType": "prototype_activity_completed",
+        "doesNotImply": [
+          "learning_check_passed",
+          "objective_achieved",
+          "chapter_mastery"
+        ]
+      },
+      "learningCheck": {
+        "status": "not_designed_pending_teacher_review",
+        "method": null,
+        "passCondition": null,
+        "note": "遊戲關卡完成條件不是學習檢核通過條件；目前沒有核准的檢核工具或門檻。"
+      },
+      "errorHypotheses": [
+        {
+          "questionId": "secret-thousands-01",
+          "wrongOptionIds": [
+            "secret-01-b",
+            "secret-01-c"
+          ],
+          "possibleMisconception": "可能混淆千、百、十的位值單位。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        },
+        {
+          "questionId": "secret-thousands-02",
+          "wrongOptionIds": [
+            "secret-02-a",
+            "secret-02-c"
+          ],
+          "possibleMisconception": "可能混淆千位數量與數字表示中的位數。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        },
+        {
+          "questionId": "secret-thousands-03",
+          "wrongOptionIds": [
+            "secret-03-a",
+            "secret-03-c"
+          ],
+          "possibleMisconception": "可能混淆不同位值數量的合成方式；單次錯答不足以診斷學生。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        }
+      ],
+      "reinforcementActivityIds": [
+        "ACT-M3-NUM-PLACE-VALUE-BLOCKS-REINFORCEMENT",
+        "ACT-M3-NUM-PLACE-VALUE-THOUSAND-GROUPS-REINFORCEMENT",
+        "ACT-M3-NUM-PLACE-VALUE-COMPOSITION-REINFORCEMENT"
+      ],
+      "reviewStatus": "candidate_pending_teacher_review",
+      "evidenceSources": [
+        {
+          "type": "learning_objective_candidate",
+          "ref": "learning-objectives.json#LO-M3-NUM-PLACE-VALUE-01..03"
+        },
+        {
+          "type": "prototype_question_data",
+          "ref": "prototype/data/numberSecretQuestions.js#secret-thousands-01..03"
+        },
+        {
+          "type": "official_curriculum_registry_reference",
+          "sourceId": "mathematics",
+          "curriculumMapId": "math-number-place-value-m3-num-01",
+          "codes": [
+            "N-3-1",
+            "n-II-1"
+          ],
+          "claimBoundary": "僅保留既有地圖記錄；不是本輪重新核實、逐題核准或實際授課證據。"
+        }
+      ],
+      "missingCoverage": [
+        "以不同數字或不同表示方式辨認位值的遷移表現。",
+        "以位值表、積木或圖像表徵互相轉換的能力。",
+        "含 0 佔位情形與其他千位數範圍的表現。",
+        "在不同情境中獨立作答及延後檢核的證據。",
+        "教師核定的成果規準、正式檢核方法與通過條件。"
+      ]
+    },
+    {
+      "activityId": "ACT-M3-NUM-PLACE-VALUE-BLOCKS-REINFORCEMENT",
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-number-place-value",
+      "learningObjectiveIds": [
+        "LO-M3-NUM-PLACE-VALUE-01"
+      ],
+      "activityType": "reinforcement",
+      "title": "位值積木再練習（設計候選）",
+      "purpose": "作為可能的位值辨識補強活動，具體教材表徵待教師確認。",
+      "learnerActions": [
+        "辨認 3,000 中數字 3 的位置",
+        "依提示找出千位"
+      ],
+      "runtimeReference": {
+        "kind": "learning_unit_runtime",
+        "learningUnitActivityId": "ACT-M3-NUM-PLACE-VALUE-BLOCKS-REINFORCEMENT",
+        "module": "prototype/learningUnitFlow.js",
+        "levelId": null,
+        "prototypeEntry": "千位數的秘密完整學習流程"
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "method": null,
+        "passCondition": null
+      },
+      "errorHypotheses": [],
+      "reinforcementActivityIds": [],
+      "reviewStatus": "candidate_pending_teacher_review",
+      "evidenceSources": [
+        {
+          "type": "candidate_learning_objective",
+          "ref": "LO-M3-NUM-PLACE-VALUE-01"
+        }
+      ]
+    },
+    {
+      "activityId": "ACT-M3-NUM-PLACE-VALUE-THOUSAND-GROUPS-REINFORCEMENT",
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-number-place-value",
+      "learningObjectiveIds": [
+        "LO-M3-NUM-PLACE-VALUE-02"
+      ],
+      "activityType": "reinforcement",
+      "title": "千的數量分組再練習（設計候選）",
+      "purpose": "作為可能的數量與數字連結補強活動；操作方式及先備要求待教師確認。",
+      "learnerActions": [
+        "操作四組 1,000 的數量關係",
+        "需要時使用循序提示"
+      ],
+      "runtimeReference": {
+        "kind": "learning_unit_runtime",
+        "learningUnitActivityId": "ACT-M3-NUM-PLACE-VALUE-THOUSAND-GROUPS-REINFORCEMENT",
+        "module": "prototype/learningUnitFlow.js",
+        "levelId": null,
+        "prototypeEntry": "千位數的秘密完整學習流程"
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "method": null,
+        "passCondition": null
+      },
+      "errorHypotheses": [],
+      "reinforcementActivityIds": [],
+      "reviewStatus": "candidate_pending_teacher_review",
+      "evidenceSources": [
+        {
+          "type": "candidate_learning_objective",
+          "ref": "LO-M3-NUM-PLACE-VALUE-02"
+        }
+      ]
+    },
+    {
+      "activityId": "ACT-M3-NUM-PLACE-VALUE-COMPOSITION-REINFORCEMENT",
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-number-place-value",
+      "learningObjectiveIds": [
+        "LO-M3-NUM-PLACE-VALUE-03"
+      ],
+      "activityType": "reinforcement",
+      "title": "位值合成再練習（設計候選）",
+      "purpose": "作為可能的數量合成補強活動；數值範圍、加法先備及課綱界線待教師確認。",
+      "learnerActions": [
+        "分開查看千與百的數量",
+        "合成數量並說明想法"
+      ],
+      "runtimeReference": {
+        "kind": "learning_unit_runtime",
+        "learningUnitActivityId": "ACT-M3-NUM-PLACE-VALUE-COMPOSITION-REINFORCEMENT",
+        "module": "prototype/learningUnitFlow.js",
+        "levelId": null,
+        "prototypeEntry": "千位數的秘密完整學習流程"
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "method": null,
+        "passCondition": null
+      },
+      "errorHypotheses": [],
+      "reinforcementActivityIds": [],
+      "reviewStatus": "candidate_pending_teacher_review",
+      "evidenceSources": [
+        {
+          "type": "candidate_learning_objective",
+          "ref": "LO-M3-NUM-PLACE-VALUE-03"
+        }
+      ]
+    },
+    {
+      "activityId": "ACT-M3-NUM-PLACE-VALUE-BLOCK-MAPPING-REINFORCEMENT",
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-number-place-value",
+      "learningObjectiveIds": [
+        "LO-M3-NUM-PLACE-VALUE-01",
+        "LO-M3-NUM-PLACE-VALUE-02"
+      ],
+      "activityType": "reinforcement",
+      "title": "把積木放回位值欄（候選補強）",
+      "purpose": "針對位值積木表徵與欄位對應提供候選補強；單次錯答僅是線索，不作迷思診斷。",
+      "learnerActions": [
+        "觀察十積木的形狀與組數",
+        "依表格欄名選擇相符的位值欄"
+      ],
+      "runtimeReference": {
+        "kind": "learning_unit_runtime",
+        "learningUnitActivityId": "ACT-M3-NUM-PLACE-VALUE-BLOCK-MAPPING-REINFORCEMENT",
+        "module": "prototype/learningUnitFlow.js",
+        "levelId": null,
+        "prototypeEntry": "千位數的秘密完整學習流程"
+      },
+      "learningCheck": {
+        "status": "not_designed",
+        "method": null,
+        "passCondition": null
+      },
+      "errorHypotheses": [
+        {
+          "possibleMisconception": "可能尚未將積木表徵對應到位值欄；也可能受圖像辨識或題意理解影響。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        }
+      ],
+      "reinforcementActivityIds": [],
+      "reviewStatus": "candidate_pending_teacher_review",
+      "evidenceSources": [
+        {
+          "type": "candidate_learning_objective",
+          "ref": "LO-M3-NUM-PLACE-VALUE-01..02"
+        }
+      ]
+    },
+    {
+      "activityId": "ACT-M3-ADD-SUB-VERTICAL-CANDIDATE",
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-addition-subtraction",
+      "learningObjectiveIds": [
+        "LO:chapter-scope-m3-math-addition-subtraction:01"
+      ],
+      "activityType": "practice",
+      "title": "加減法大挑戰：多位數加減探險",
+      "purpose": "以四題計算結果選擇及一題已給定情境的策略說明選擇，試作多次進位、退位及含 0 算式；兩類證據分開，不作正式評量、精熟度或章節達標判定。",
+      "learnerActions": [
+        "依位值對齊直式",
+        "選擇多位數加減計算結果",
+        "選擇已給定進位情境的重新分組說明",
+        "查看候選回饋與解析並可重試"
+      ],
+      "runtimeReference": {
+        "kind": "candidate_learning_unit_runtime",
+        "learningUnitId": "learning-unit:chapter-scope-m3-math-addition-subtraction",
+        "levelId": null,
+        "module": "prototype/data/additionSubtractionLearningUnit.js",
+        "prototypeEntry": "數學地圖的候選試玩按鈕",
+        "questionIds": [
+          "ADD-SUB-DRAFT-M3-N32-01",
+          "ADD-SUB-DRAFT-M3-N32-02",
+          "ADD-SUB-DRAFT-M3-N32-03",
+          "ADD-SUB-DRAFT-M3-N32-04",
+          "ADD-SUB-DRAFT-M3-N32-05-STRATEGY"
+        ]
+      },
+      "questionObjectiveCoverage": [
+        {
+          "questionId": "ADD-SUB-DRAFT-M3-N32-01",
+          "learningObjectiveId": "LO:chapter-scope-m3-math-addition-subtraction:01",
+          "candidateCapability": "多次進位的直式加法結果；不能單獨證明策略理解",
+          "responseDimension": "calculation_result",
+          "responseEvidenceType": "practice_response_only",
+          "learningCheckStatus": "not_a_formal_check"
+        },
+        {
+          "questionId": "ADD-SUB-DRAFT-M3-N32-02",
+          "learningObjectiveId": "LO:chapter-scope-m3-math-addition-subtraction:01",
+          "candidateCapability": "含 0 算式的多次進位直式加法結果",
+          "responseDimension": "calculation_result",
+          "responseEvidenceType": "practice_response_only",
+          "learningCheckStatus": "not_a_formal_check"
+        },
+        {
+          "questionId": "ADD-SUB-DRAFT-M3-N32-03",
+          "learningObjectiveId": "LO:chapter-scope-m3-math-addition-subtraction:01",
+          "candidateCapability": "多次退位的直式減法結果；不能單獨證明退位理解",
+          "responseDimension": "calculation_result",
+          "responseEvidenceType": "practice_response_only",
+          "learningCheckStatus": "not_a_formal_check"
+        },
+        {
+          "questionId": "ADD-SUB-DRAFT-M3-N32-04",
+          "learningObjectiveId": "LO:chapter-scope-m3-math-addition-subtraction:01",
+          "candidateCapability": "含 0 且跨位值重新分解的直式減法結果",
+          "responseDimension": "calculation_result",
+          "responseEvidenceType": "practice_response_only",
+          "learningCheckStatus": "not_a_formal_check"
+        },
+        {
+          "questionId": "ADD-SUB-DRAFT-M3-N32-05-STRATEGY",
+          "learningObjectiveId": "LO:chapter-scope-m3-math-addition-subtraction:01",
+          "candidateCapability": "辨認已給定 14 個一時，10 個一重新分組為 1 個十的說明；非自行計算或穩定策略理解證據",
+          "responseDimension": "strategy_explanation",
+          "responseEvidenceType": "practice_response_only",
+          "learningCheckStatus": "not_a_formal_check"
+        }
+      ],
+      "activityCompletion": {
+        "condition": "本次記憶體候選練習到達結果頁",
+        "evidenceType": "prototype_activity_completed",
+        "doesNotImply": [
+          "learning_check_passed",
+          "objective_achieved",
+          "chapter_mastery"
+        ]
+      },
+      "learningCheck": {
+        "status": "not_designed_pending_teacher_review",
+        "method": null,
+        "passCondition": null,
+        "note": "候選練習不是獨立學習檢核；未核定通過條件。"
+      },
+      "errorHypotheses": [
+        {
+          "questionId": "ADD-SUB-DRAFT-M3-N32-01",
+          "possibleMisconception": "錯答可能與進位延續或位值對齊有關，也可能是基本加法計算差異。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        },
+        {
+          "questionId": "ADD-SUB-DRAFT-M3-N32-02",
+          "possibleMisconception": "錯答可能與含 0 的欄位或進位記錄有關；須觀察過程驗證。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        },
+        {
+          "questionId": "ADD-SUB-DRAFT-M3-N32-03",
+          "possibleMisconception": "錯答可能與跨欄退位追蹤、直式對齊或基本減法有關。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        },
+        {
+          "questionId": "ADD-SUB-DRAFT-M3-N32-04",
+          "possibleMisconception": "錯答可能與跨過 0 的重新分解或欄位記錄有關；不能單次診斷。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        },
+        {
+          "questionId": "ADD-SUB-DRAFT-M3-N32-05-STRATEGY",
+          "possibleMisconception": "錯答可能與重新分組或位值單位關係有關，也可能是文字理解因素；須由作答過程驗證。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        }
+      ],
+      "reinforcementActivityIds": [],
+      "reviewStatus": "candidate_pending_teacher_review",
+      "evidenceSources": [
+        {
+          "type": "candidate_learning_objective",
+          "ref": "learning-objectives.json#LO:chapter-scope-m3-math-addition-subtraction:01"
+        },
+        {
+          "type": "prototype_question_data",
+          "ref": "prototype/data/additionSubtractionLearningUnit.js#ADD-SUB-DRAFT-M3-N32-01..05-STRATEGY"
+        },
+        {
+          "type": "official_curriculum_registry_reference",
+          "sourceId": "mathematics",
+          "curriculumMapId": "math-grade3-n-3-2-add-sub",
+          "codes": [
+            "N-3-2",
+            "n-II-2"
+          ],
+          "claimBoundary": "N-3-2 與對應欄 n-II-2 的官方條文及 PDF 定位已直接核對；n-II-2 為第二學習階段表現，不表示三年級學期順序。個別題目、教材、先備與教師審查仍待確認。"
+        }
+      ],
+      "missingCoverage": [
+        "學生自行書寫／口述並在新算式運用進退位策略的證據；候選選擇式說明題不足以證明穩定理解",
+        "估算與日常應用解題",
+        "教師核定的獨立檢核與通過條件",
+        "真正連結的補強活動"
+      ]
+    },
+    {
+      "activityId": "ACT-G3-MATH-WEIGHT-MEASUREMENT-ADVENTURE-CANDIDATE",
+      "learningUnitId": "learning-unit:chapter-scope-m3-math-weight-kg-g",
+      "learningObjectiveIds": [
+        "LO:chapter-scope-m3-math-weight-kg-g:01"
+      ],
+      "activityType": "manipulation",
+      "title": "重量測量與秤重探險站：估一估、秤一秤、比一比",
+      "purpose": "以數位秤重模型進行估測核對、砝碼平衡、刻度讀值、重量比較、公斤公克轉換與模擬補給組合；不取代真實秤重。",
+      "learnerActions": [
+        "操作估測滑桿並與模擬讀值比較",
+        "在天平兩側新增或取下砝碼直到重量相等",
+        "調整秤面指針並記錄讀值",
+        "分別讀取兩件模擬物品、選比較關係並計算差值",
+        "操作公斤與公克數值表示總重量",
+        "選取不同模擬物品組合至指定重量"
+      ],
+      "runtimeReference": {
+        "kind": "catalog_task_runtime",
+        "activityId": "ACT-G3-MATH-WEIGHT-MEASUREMENT-ADVENTURE-CANDIDATE",
+        "module": "prototype/data/weightMeasurementAdventure.js",
+        "prototypeEntry": "三年級數學科目目錄候選活動入口",
+        "stageIds": [
+          "estimate-mountain-supply",
+          "balance-pans-with-weights",
+          "read-pointer-scale",
+          "compare-two-crates",
+          "compare-equal-packs",
+          "convert-one-kilogram-and-grams",
+          "pack-the-rescue-kit"
+        ]
+      },
+      "questionObjectiveCoverage": [],
+      "activityCompletion": {
+        "condition": "全部七個記憶體候選互動階段完成",
+        "evidenceType": "prototype_activity_completed",
+        "doesNotImply": [
+          "learning_check_passed",
+          "objective_achieved",
+          "chapter_mastery"
+        ]
+      },
+      "learningCheck": {
+        "status": "not_designed_pending_teacher_review",
+        "method": null,
+        "passCondition": null,
+        "note": "工程互動可驗證操作與答案判定；不構成教師核定檢核或學習成效證據。"
+      },
+      "errorHypotheses": [
+        {
+          "possibleMisconception": "估測、秤面讀值、比較關係與單位換算可能被混淆；需由教師觀察驗證。",
+          "diagnosisStatus": "hypothesis_only_needs_teacher_review"
+        }
+      ],
+      "reinforcementActivityIds": [],
+      "reviewStatus": "candidate_pending_teacher_review",
+      "evidenceSources": [
+        {
+          "type": "catalog_task_runtime",
+          "ref": "prototype/data/weightMeasurementAdventure.js#estimate-mountain-supply..pack-the-rescue-kit"
+        },
+        {
+          "type": "official_curriculum_registry_reference",
+          "sourceId": "mathematics",
+          "curriculumMapId": "math-grade3-n-3-16-weight",
+          "codes": [
+            "N-3-16",
+            "n-II-9"
+          ],
+          "claimBoundary": "N-3-16明列公斤、公克、實測、量感、估測、計算與單位換算；換算公斤數限個位數。此螢幕模擬僅支持局部候選練習，不能代替實體秤重或教師觀察。"
+        }
+      ],
+      "missingCoverage": [
+        "實體秤具與真實物件秤重、重量量感及教師觀察",
+        "實際測量誤差、秤具種類與校正",
+        "官方備註界定下未作複名數乘除",
+        "教師核定檢核及學習成效證據"
+      ]
+    }
+  ],
+  "runtimeLearningUnitPrototype": {
+    "activityId": "ACT-M3-NUM-PLACE-VALUE-LEARNING-UNIT-PROTOTYPE",
+    "conceptLessonActivityId": "ACT-M3-NUM-PLACE-VALUE-CONCEPT-LESSON",
+    "practiceActivityId": "ACT-M3-NUM-PLACE-VALUE-THOUSANDS-SECRET",
+    "candidateCheckActivityId": "ACT-M3-NUM-PLACE-VALUE-CANDIDATE-LEARNING-CHECK",
+    "learningUnitId": "learning-unit:chapter-scope-m3-math-number-place-value",
+    "unitRevision": 1,
+    "formalUnitRef": {
+      "unitId": "M3-NUM-01",
+      "unitRevision": 1,
+      "status": "candidate"
+    },
+    "learningObjectiveIds": [
+      "LO-M3-NUM-PLACE-VALUE-01",
+      "LO-M3-NUM-PLACE-VALUE-02",
+      "LO-M3-NUM-PLACE-VALUE-03"
+    ],
+    "runtimeModule": "prototype/learningUnitFlow.js",
+    "contentModule": "prototype/data/numberSecretLearningUnit.js",
+    "status": "implemented_prototype_candidate_pending_teacher_review",
+    "flowStages": [
+      "objective_intro",
+      "concept_visualization",
+      "scaffolded_practice",
+      "error_feedback",
+      "targeted_reinforcement",
+      "independent_candidate_check",
+      "result_and_next_step",
+      "unit_review_and_replay"
+    ],
+    "practiceQuestionIds": [
+      "secret-thousands-01",
+      "secret-thousands-02",
+      "secret-thousands-03",
+      "DRAFT-M3-NUM-01-01"
+    ],
+    "candidatePracticeQuestionCoverage": [
+      {
+        "questionId": "DRAFT-M3-NUM-01-01",
+        "learningObjectiveIds": [
+          "LO-M3-NUM-PLACE-VALUE-01",
+          "LO-M3-NUM-PLACE-VALUE-02"
+        ],
+        "capability": "依千、百、十、個積木組數轉換為位值數字；位值表是會直接呈現數字的教學支架。",
+        "status": "candidate_guided_practice_pending_teacher_review",
+        "responseEvidenceType": "candidate_practice_response_only",
+        "learningCheckStatus": "not_a_formal_check"
+      }
+    ],
+    "reinforcementActivityIds": [
+      "ACT-M3-NUM-PLACE-VALUE-BLOCKS-REINFORCEMENT",
+      "ACT-M3-NUM-PLACE-VALUE-THOUSAND-GROUPS-REINFORCEMENT",
+      "ACT-M3-NUM-PLACE-VALUE-COMPOSITION-REINFORCEMENT",
+      "ACT-M3-NUM-PLACE-VALUE-BLOCK-MAPPING-REINFORCEMENT"
+    ],
+    "candidateCheckQuestionIds": [
+      "CAND-CHECK-M3-NUM-01-01",
+      "CAND-CHECK-M3-NUM-01-02",
+      "CAND-CHECK-M3-NUM-01-03"
+    ],
+    "candidateCheckCoverage": [
+      {
+        "questionId": "CAND-CHECK-M3-NUM-01-01",
+        "learningObjectiveIds": [
+          "LO-M3-NUM-PLACE-VALUE-01"
+        ],
+        "capability": "不同數值下辨認千位所表示的千數量",
+        "status": "candidate_mapping_pending_teacher_review"
+      },
+      {
+        "questionId": "CAND-CHECK-M3-NUM-01-02",
+        "learningObjectiveIds": [
+          "LO-M3-NUM-PLACE-VALUE-02"
+        ],
+        "capability": "將千的組數連結到數字表示",
+        "status": "candidate_mapping_pending_teacher_review"
+      },
+      {
+        "questionId": "CAND-CHECK-M3-NUM-01-03",
+        "learningObjectiveIds": [
+          "LO-M3-NUM-PLACE-VALUE-03"
+        ],
+        "capability": "新數量合成情境",
+        "status": "candidate_mapping_needs_curriculum_and_teacher_review"
+      }
+    ],
+    "evidencePolicy": {
+      "activityCompletion": "recorded_in_memory_only_and_does_not_imply_check_pass",
+      "practiceAttempt": "unique_submission_id; first independent, hint-assisted, retry-correct and incorrect are separate",
+      "candidateCheck": "result_only_not_formal_check_pass",
+      "objectiveAchievement": "not_assessed_without_teacher_approved_criteria_and_review",
+      "persistence": "memory_only_no_student_records_no_localStorage"
+    },
+    "coverageDirections": [
+      {
+        "id": "quantity-number-link",
+        "status": "candidate_practice_coverage_pending_teacher_review"
+      },
+      {
+        "id": "thousands-place-value",
+        "status": "candidate_practice_coverage_pending_teacher_review"
+      },
+      {
+        "id": "number-composition",
+        "status": "partial_candidate_coverage"
+      },
+      {
+        "id": "equivalent-representations",
+        "status": "not_assessed"
+      },
+      {
+        "id": "zero-placeholder",
+        "status": "pending_teacher_scope_review"
+      },
+      {
+        "id": "transfer",
+        "status": "candidate_check_only_not_validated"
+      }
+    ],
+    "learningCheck": {
+      "status": "candidate_design_not_teacher_approved",
+      "passCondition": null
+    },
+    "formalCurriculumApproved": false,
+    "formalQuestionSet": false,
+    "studentRecordsCreated": false
+  },
+  "evidenceModel": {
+    "implementationStatus": "prototype_flow_memory_only_no_student_records",
+    "eventTypes": {
+      "activityCompletion": "prototype_activity_completed; activity status only",
+      "questionAttempt": "question_attempt; records activityId, questionId, submissionId, attemptNumber, result, hintUse, cumulative per-question hintViewed, attemptStage and timestamp",
+      "learningCheck": "learning_check_result; only created by a separately teacher-approved check",
+      "objectiveDecision": "objective_assessment; requires approved objective criteria and educator review",
+      "chapterProgress": "chapter_progress_transition; references progress model and appended evidence"
+    },
+    "questionAttemptRecordShape": {
+      "submissionId": "unique idempotency key per answer submission; duplicate key is rejected and never counted again",
+      "attemptId": "unique attempt identifier within question/session",
+      "questionId": "existing prototype question id",
+      "result": "correct|incorrect",
+      "hintUse": "none|hint_used",
+      "hintViewed": "boolean; true once a hint has been displayed for this activityId+questionId in the current in-memory session",
+      "attemptStage": "first_independent|after_hint|retry|after_remediation; after_remediation takes precedence over after_hint, while hintUse records an immediately viewed hint",
+      "responseClass": "derived from result and attemptStage: first_try_independent|correct_after_hint|correct_after_retry|correct_after_remediation|incorrect",
+      "occurredAt": "ISO 8601 timestamp",
+      "evidenceSource": "prototype level/question reference"
+    },
+    "deduplication": "submissionId must be unique; a repeated answer submission cannot create a second evidence event. New attempts remain separate practice events and do not by themselves create independent learning-check evidence.",
+    "evidenceBoundaries": [
+      "活動完成、題目作答、檢核結果、目標達成及章節進度是不同紀錄類型。",
+      "result records correctness; attemptStage records the stage, hintViewed records cumulative per-item exposure, and responseClass is derived from result and attemptStage.",
+      "after_remediation takes precedence in attemptStage when the original item is resumed after reinforcement; hintUse and hintViewed preserve hint exposure separately.",
+      "原題與補強題必須依 activityId 分開彙總；整體合計不得冒充原題答對率或正式精熟度。",
+      "首次獨立答對、提示後答對、重試答對、補強後答對及答錯須分開保存。",
+      "未審查候選活動的作答只能是練習證據，不能更新 check_passed 或 objective_achieved。",
+      "重複提交不得重複計算；同一題不同次重試仍不是多份獨立檢核證據。",
+      "未通過可建議補強，再由新的、可追溯檢核事件重新判斷；不得自動升格。"
+    ],
+    "progressStatesRef": "student-progress-model.json#states",
+    "noStudentRecords": true
+  },
+  "reviewBoundary": {
+    "curriculumStatus": "source_and_map_reference_only_teacher_alignment_pending",
+    "teacherReviewStatus": "pending_teacher_review",
+    "publicationStatus": "not_approved_not_published",
+    "stage0Status": "not_passed"
+  }
+}

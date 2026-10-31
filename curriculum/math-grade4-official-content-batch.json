@@ -1,0 +1,689 @@
+{
+  "schemaVersion": 1,
+  "batchId": "math-grade4-content-table-pdf-pages-28-to-31",
+  "status": "verified_contiguous_grade_table_batch_not_full_math_inventory",
+  "sourceId": "mathematics",
+  "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域",
+  "publicationInfo": "PDF封面載中華民國107年6月；教育部以臺教授國部字第1070066476B號令於107年7月26日發布。",
+  "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+  "sourceAccessNote": "本批逐列核對同一國教院官方數學領綱PDF之原頁文字／表格定位（PDF頁序28–31），沒有以搜尋摘要或二手教材代替。",
+  "sourceLocation": "伍／學習重點／二、學習內容／四年級學習內容表，PDF頁序28–31（PDF頁序以1起算）；從頁序28「4年級」表頭及N-4-1，逐列至頁序31的D-4-1，五年級表頭前；追蹤N-4-5、N-4-13、S-4-1、R-4-1跨頁文字與備註。",
+  "applicability": {
+    "officialGradeTable": 4,
+    "learningStage": "第二學習階段（三、四年級）",
+    "semester": null
+  },
+  "reviewMethod": "直接核對國教院官方數學領綱PDF之四年級表格原頁與PDF文字層，讀取所有表格代碼、條文、備註、參考教具、同表對應學習表現及跨頁續文。四年級表格逐列記錄26個代碼；N-4-10/S-4-1明示為同一角度內容，概念統計去重一次；N-4-12/S-4-4雖互相關聯，仍屬兩個官方學習內容，不合併概念數。此批只表示四年級學習內容表完成，不代表第二學習階段或完整數學領綱完成。",
+  "clauses": [
+    {
+      "code": "N-4-1",
+      "officialText": "一億以內的數：位值單位「萬」、「十萬」、「百萬」、「千萬」。建立應用大數時之計算習慣，如「30萬1200」與「21萬300」的加減法。",
+      "officialNotes": "教學可進行到最後的「一億」，但不進行超過一億的教學。",
+      "referenceTools": "位值表",
+      "officialPerformanceLinks": [
+        "n-II-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "四年級學習內容表 N-4-1，PDF頁序28。"
+    },
+    {
+      "code": "N-4-2",
+      "officialText": "較大位數之乘除計算：處理乘數與除數為多位數之乘除直式計算。教師用位值的概念說明直式計算的合理性。",
+      "officialNotes": "直式計算乘數與除數限三位。直式計算須注意0的教學。較大位數除法須進行估商的教學。知道如「1600×200」與「60000÷400」這類算式，可發展出更簡單的計算方法。",
+      "officialPerformanceLinks": [
+        "n-II-2",
+        "n-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-4-2，PDF頁序28。"
+    },
+    {
+      "code": "N-4-3",
+      "officialText": "解題：兩步驟應用問題（乘除，連除）。乘與除、連除之應用解題。",
+      "officialNotes": "由於除法有等分除和包含除兩種類型，教學應注意題型的多元性。可和併式學習一起進行（R-4-1）。",
+      "officialPerformanceLinks": [
+        "n-II-5",
+        "r-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "R-4-1"
+      ],
+      "sourceLocation": "同表 N-4-3，PDF頁序28。"
+    },
+    {
+      "code": "N-4-4",
+      "officialText": "解題：對大數取概數。具體生活情境。四捨五入法、無條件進入、無條件捨去。含運用概數做估算。近似符號「≈」的使用。",
+      "officialNotes": "估算解題的布題應貼近生活情境。以概數協助估算須包含四則估算。",
+      "officialPerformanceLinks": [
+        "n-II-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-4-4，PDF頁序28。"
+    },
+    {
+      "code": "N-4-5",
+      "officialText": "同分母分數：一般同分母分數教學（包括「真分數」、「假分數」、「帶分數」名詞引入）。假分數和帶分數之變換。同分母分數的比較、加、減與整數倍。",
+      "officialNotes": "本條目教學，分子和分母的數字都不用太大，以能流暢學習同分母分數計算為目標。帶分數整數倍教學不宜強迫學生化成假分數進行，其中隱含之分配律思維來自操作經驗與數感，此非分配律教學。",
+      "referenceTools": "分數圓形圖",
+      "officialPerformanceLinks": [
+        "n-II-6"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-4-5，PDF頁序28–29（備註跨頁續列）。"
+    },
+    {
+      "code": "N-4-6",
+      "officialText": "等值分數：由操作活動中理解等值分數的意義。簡單異分母分數的比較、加、減的意義。簡單分數與小數的互換。",
+      "officialNotes": "簡單異分母分數指一分母為另一分母之倍數。與小數互換之簡單分數指分母為2、5、10、100。",
+      "referenceTools": "分數圓形圖",
+      "officialPerformanceLinks": [
+        "n-II-6"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-4-6，PDF頁序29。"
+    },
+    {
+      "code": "N-4-7",
+      "officialText": "二位小數：位值單位「百分位」。位值單位換算。比較、計算與解題。用直式計算二位小數的加、減與整數倍。",
+      "officialNotes": "小數之學習必須與整數經驗緊密連繫。直式計算應注意小數點位置的教學。小數應用情境以連續量為主。",
+      "referenceTools": "位值表",
+      "officialPerformanceLinks": [
+        "n-II-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-4-7，PDF頁序29。"
+    },
+    {
+      "code": "N-4-8",
+      "officialText": "數線與分數、小數：連結分小數長度量的經驗。以標記和簡單的比較與計算，建立整數、分數、小數一體的認識。",
+      "officialNotes": "標記限一位小數（相當於分母等於10）與分母不大於5的分數。以等值分數思維（N-4-6）協助學生認識整數、分數、小數為一體。因初學等值分數，本條目不處理分數和小數的混合計算問題。",
+      "referenceTools": "數線教具",
+      "officialPerformanceLinks": [
+        "n-II-8"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "N-4-6"
+      ],
+      "sourceLocation": "同表 N-4-8，PDF頁序29。"
+    },
+    {
+      "code": "N-4-9",
+      "officialText": "長度：「公里」。生活實例之應用。含其他長度單位的換算與計算。",
+      "officialNotes": "量的大單位教學仍應協助學生建立基本量感。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-4-9，PDF頁序29。"
+    },
+    {
+      "code": "N-4-10",
+      "officialText": "角度：「度」（同 S-4-1）。量角器的操作。實測、估測與計算。以角的合成認識180度到360度之間的角度。「平角」、「周角」。指定角度作圖。",
+      "officialNotes": "量角器教學須包括從量角器左右兩側進行量角之活動。",
+      "referenceTools": "量角器",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": "S-4-1",
+      "sourceLocation": "同表 N-4-10，PDF頁序29–30；S-4-1明示同一內容。"
+    },
+    {
+      "code": "N-4-11",
+      "officialText": "面積：「平方公尺」。實測、量感、估測與計算。",
+      "officialNotes": "基於 N-4-2，本條目不做「平方公分」換到「平方公尺」的問題。不用複名數進行計算。",
+      "referenceTools": "平方公尺板（萬格板）",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-4-11，PDF頁序29。"
+    },
+    {
+      "code": "N-4-12",
+      "officialText": "體積與「立方公分」：以具體操作為主。體積認識基於1立方公分之正方體。",
+      "officialNotes": "教學應注意體積不容易做直接與間接比較，應和1立方公分之正方體一起教學。",
+      "referenceTools": "正方體教具",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "S-4-4"
+      ],
+      "sourceLocation": "同表 N-4-12，PDF頁序29。"
+    },
+    {
+      "code": "N-4-13",
+      "officialText": "解題：日常生活的時間加減問題。跨時、跨午、跨日、24小時制。含時間單位換算。",
+      "officialNotes": "教學須包含各種類型的時間加減問題。建議不直接談時差，與時差有關問題可在布題時先處理。",
+      "referenceTools": "電子鐘、電腦螢幕時間",
+      "officialPerformanceLinks": [
+        "n-II-10"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-4-13，PDF頁序29。"
+    },
+    {
+      "code": "S-4-1",
+      "officialText": "角度：「度」（同 N-4-10）。量角器的操作。實測、估測與計算。以角的合成認識180度到360度之間的角度。「平角」、「周角」。指定角度作圖。",
+      "officialNotes": "同 N-4-10 備註。",
+      "referenceTools": "量角器",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "equivalentOfficialCode": "N-4-10",
+      "sourceLocation": "同表 S-4-1，PDF頁序29–30（跨頁）；明示與N-4-10同一內容。"
+    },
+    {
+      "code": "S-4-2",
+      "officialText": "解題：旋轉角。以具體操作為主，並結合計算。以鐘面為模型討論從始邊轉到終邊所轉的角度。旋轉有兩個方向：「順時針」、「逆時針」。「平角」、「周角」。",
+      "officialNotes": "不處理超過360度的問題。",
+      "referenceTools": "鐘面教具、量角器",
+      "officialPerformanceLinks": [
+        "s-II-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 S-4-2，PDF頁序30。"
+    },
+    {
+      "code": "S-4-3",
+      "officialText": "正方形與長方形的面積與周長：理解邊長與周長或面積的關係，並能理解其公式與應用。簡單複合圖形。",
+      "officialNotes": "邊長限整數。最後學生的計算是依據定義以乘法計算，而非測量合成之結果。簡單複合圖形限兩圖形之組合。",
+      "officialPerformanceLinks": [
+        "s-II-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 S-4-3，PDF頁序30。"
+    },
+    {
+      "code": "S-4-4",
+      "officialText": "體積：以具體操作為主。在活動中認識體積的意義與比較。認識1立方公分之正方體，能理解並計數正方體堆疊的體積。",
+      "officialNotes": "同 N-4-12 備註。",
+      "referenceTools": "正方體教具",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "N-4-12"
+      ],
+      "sourceLocation": "同表 S-4-4，PDF頁序30；與N-4-12共用體積概念與備註，不合併官方代碼。"
+    },
+    {
+      "code": "S-4-5",
+      "officialText": "垂直與平行：以具體操作為主。直角是90度。直角常用記號。垂直於一線的兩線相互平行。平行線間距離處處相等。作垂直線；作平行線。",
+      "officialNotes": "透過操作和觀察知道平行線間距離處處相等，非數學證明。",
+      "referenceTools": "三角板、直尺",
+      "officialPerformanceLinks": [
+        "s-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 S-4-5，PDF頁序30。"
+    },
+    {
+      "code": "S-4-6",
+      "officialText": "平面圖形的全等：以具體操作為主。形狀大小一樣的兩圖形全等。能用平移、旋轉、翻轉做全等疊合。全等圖形之對應角相等、對應邊相等。",
+      "officialNotes": "在具有平移或旋轉對稱特性的圖形上，學生可察覺豐富的全等模式。平移、旋轉、翻轉描述操作的方式，非名詞教學，名詞不應出現。",
+      "referenceTools": "具有平移對稱、旋轉對稱的圖形",
+      "officialPerformanceLinks": [
+        "s-II-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 S-4-6，PDF頁序30。"
+    },
+    {
+      "code": "S-4-7",
+      "officialText": "三角形：以邊與角的特徵認識特殊三角形並能作圖。如正三角形、等腰三角形、直角三角形、銳角三角形、鈍角三角形。",
+      "officialNotes": "",
+      "referenceTools": "各種三角形",
+      "officialPerformanceLinks": [
+        "s-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 S-4-7，PDF頁序30。"
+    },
+    {
+      "code": "S-4-8",
+      "officialText": "四邊形：以邊與角的特徵（含平行）認識特殊四邊形並能作圖。如正方形、長方形、平行四邊形、菱形、梯形。",
+      "officialNotes": "作圖包含正方形、長方形、平行四邊形。",
+      "referenceTools": "各種四邊形",
+      "officialPerformanceLinks": [
+        "s-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 S-4-8，PDF頁序30。"
+    },
+    {
+      "code": "R-4-1",
+      "officialText": "兩步驟問題併式：併式是代數學習的重要基礎。含四則混合計算的約定（由左往右算、先乘除後加減、括號先算）。學習逐次減項計算。",
+      "officialNotes": "限整數。2、3年級已學習之兩步驟問題（N-2-8、N-3-7），也應複習並進行併式學習。",
+      "officialPerformanceLinks": [
+        "r-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "N-2-8",
+        "N-3-7"
+      ],
+      "sourceLocation": "同表 R-4-1，PDF頁序30–31（備註跨頁續列）。"
+    },
+    {
+      "code": "R-4-2",
+      "officialText": "四則計算規律（I）：兩步驟計算規則。加減混合計算、乘除混合計算。在四則混合計算中運用數的運算性質。",
+      "officialNotes": "加減部分，不做 a−(b−c) 之去括號。乘除只做「三數相乘，順序改變不影響其積」、「先乘後除與先除後乘的結果相同」。必須呈現將應用問題轉化成算式後，再利用計算規律調整算式進行計算解題的範例，其中調整後的算式已無法以原情境解釋。",
+      "officialPerformanceLinks": [
+        "r-II-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 R-4-2，PDF頁序31。"
+    },
+    {
+      "code": "R-4-3",
+      "officialText": "以文字表示數學公式：理解以文字和運算符號聯合表示的數學公式，並能應用公式。可併入其他教學活動（如 S-4-3）。",
+      "officialNotes": "如 S-4-3 的「長方形面積＝長×寬」、「正方形周長＝邊長×4」等。",
+      "officialPerformanceLinks": [
+        "r-II-5"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "S-4-3"
+      ],
+      "sourceLocation": "同表 R-4-3，PDF頁序31。"
+    },
+    {
+      "code": "R-4-4",
+      "officialText": "數量模式與推理（II）：以操作活動為主。二維變化模式之觀察與推理，如二維數字圖之推理。奇數與偶數，及其加、減、乘模式。",
+      "officialNotes": "含學生之簡單推理與說明。如百數表模式、月曆模式之數字模式等。不可出現公式，此非本條目之學習目標。",
+      "officialPerformanceLinks": [
+        "r-II-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 R-4-4，PDF頁序31。"
+    },
+    {
+      "code": "D-4-1",
+      "officialText": "報讀長條圖與折線圖以及製作長條圖：報讀與說明生活中的長條圖與折線圖。配合其他領域課程，學習製作長條圖。",
+      "officialNotes": "教學與示例應注意處理「分類資料」與「有序變化性資料」之差別。",
+      "officialPerformanceLinks": [
+        "d-II-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 D-4-1，PDF頁序31；五年級表頭隨後開始。"
+    }
+  ],
+  "conceptRelationships": [
+    {
+      "kind": "official_same_content_alias",
+      "codes": [
+        "N-4-10",
+        "S-4-1"
+      ],
+      "evidence": "兩列官方文字互指同一角度內容。保留兩個代碼，概念數只計1。"
+    },
+    {
+      "kind": "officially_related_but_distinct_learning_contents",
+      "codes": [
+        "N-4-12",
+        "S-4-4"
+      ],
+      "evidence": "兩列官方文字均涉及體積、以1立方公分正方體具體操作且互引備註；但代碼與表格分列，不是同一條目別名，保留為兩個概念，只記錄官方內容關係。"
+    }
+  ],
+  "activityAudit": [
+    {
+      "code": "N-4-1",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-LARGE-NUMBER-PLACE-VALUE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "decompose-large-number",
+        "order-cargo"
+      ],
+      "reason": "位值拆解與大數排序有操作；未涵蓋官方大數應用加減及完整一億範圍。"
+    },
+    {
+      "code": "N-4-2",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-MULTI-DIGIT-MULTIPLY-DIVIDE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "multiply-by-place",
+        "divide-by-place"
+      ],
+      "reason": "位值步驟互動有乘除各一題；未涵蓋多類型、含0及較大數除法估商策略。"
+    },
+    {
+      "code": "N-4-3",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-TWO-STEP-SUPPLY-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "model-six-cartons-four-packs",
+        "record-carton-multiplication",
+        "share-twenty-four-packs",
+        "model-five-crates-six-packs",
+        "count-five-pack-bundles",
+        "chain-divide-packets-into-trays"
+      ],
+      "reason": "陣列實作乘法總量、按順序組算式，並用中間值處理等分除與連除；只有整除情境，尚未涵蓋餘數或所有乘除問題。"
+    },
+    {
+      "code": "N-4-5",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-FRACTION-TILES-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "shade-three-sixths",
+        "compare-fifths",
+        "build-four-fifths-transfer"
+      ],
+      "reason": "拼片呈現、同分母比較；未涵蓋假分數、帶分數轉換、同分母加減與整數倍。"
+    },
+    {
+      "code": "N-4-6",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-FRACTION-EQUIVALENCE-MODEL-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "match-half-with-two-fourths",
+        "match-two-fifths-with-four-tenths",
+        "transfer-half-to-sixths"
+      ],
+      "reason": "以兩種分割方式建模並遷移辨認等值；未涵蓋簡單異分母加減及分數小數互換。"
+    },
+    {
+      "code": "N-4-12",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-UNIT-CUBE-VOLUME-BUILDER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "build-eight-cube-solid",
+        "build-twelve-cube-solid"
+      ],
+      "reason": "螢幕操作單位方塊堆疊與計數；未有實體操作或完整體積比較量感。"
+    },
+    {
+      "code": "S-4-4",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-UNIT-CUBE-VOLUME-BUILDER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "build-eight-cube-solid",
+        "build-twelve-cube-solid"
+      ],
+      "reason": "與N-4-12官方內容相關且互引備註，但此代碼仍有獨立條文；各自記錄互動證據，不作概念別名去重。"
+    },
+    {
+      "code": "N-4-4",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-ROUNDING-ESTIMATION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-festival-supplies",
+        "estimate-school-trip-distance",
+        "estimate-boxes-for-four-teams"
+      ],
+      "reason": "三個情境以滑桿提交四捨五入後的估算值，提供實際操作及合理區間回饋；只涵蓋四捨五入到千位／百位的估算合計或乘積，未涵蓋無條件進入／捨去、≈符號及四則估算完整範圍。"
+    },
+    {
+      "code": "N-4-7",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-DECIMAL-HUNDREDTHS-OPERATIONS-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "add-decimals-regroup-hundredths",
+        "subtract-across-tenths-and-hundredths",
+        "double-decimal-quantity-transfer"
+      ],
+      "reason": "新增位值增減操作，呈現百分位、二位小數加減與整數倍各一情境；仍未涵蓋完整直式書寫、小數比較全範圍及全部生活應用。"
+    },
+    {
+      "code": "N-4-8",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-INTEGER-FRACTION-DECIMAL-NUMBER-LINE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "locate-six-tenths",
+        "connect-six-tenths-five-thirds",
+        "locate-fourteen-tenths"
+      ],
+      "reason": "以操作數線定位0.6、連結3/5等值並遷移標記1.4；未涵蓋所有允許分數、比較計算及長度量測經驗。"
+    },
+    {
+      "code": "N-4-9",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-KILOMETER-ROUTE-AND-CONVERSION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-park-route-kilometers",
+        "place-five-kilometer-waypoint",
+        "convert-and-combine-route-length"
+      ],
+      "reason": "提供路線估計、公里數線定位及整數公里換公尺後計算的互動；未包含實地測距、比例尺與其他長度單位完整換算。"
+    },
+    {
+      "code": "N-4-10",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-ANGLE-EXPLORATION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-opening-angle",
+        "measure-from-right-zero",
+        "measure-from-left-zero",
+        "draw-specified-angle"
+      ],
+      "reason": "候選活動有螢幕估測、對齊量角器模型左右起點讀值及射線作圖；仍未涵蓋實物量角器、角合成至360度及平角／周角。"
+    },
+    {
+      "code": "S-4-1",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-ANGLE-EXPLORATION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-opening-angle",
+        "measure-from-right-zero",
+        "measure-from-left-zero",
+        "draw-specified-angle"
+      ],
+      "reason": "保留 S-4-1 官方代碼並依其明示同 N-4-10 列出相同部分互動證據；兩代碼是同一官方角度內容，不重複計算不同概念。"
+    },
+    {
+      "code": "N-4-11",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-SQUARE-METER-FLOOR-PLANNER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-rectangular-floor-area",
+        "tile-six-square-meter-floor",
+        "transfer-twelve-square-meter-floor"
+      ],
+      "reason": "提供面積估計及每格代表1平方公尺的陣列鋪設與遷移操作；數位模型未涵蓋實物平方公尺板實測與真實量感。"
+    },
+    {
+      "code": "N-4-13",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-ELAPSED-TIME-TRANSIT-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "split-noon-crossing-journey",
+        "select-noon-crossing-arrival",
+        "split-midnight-crossing-journey",
+        "select-next-day-arrival"
+      ],
+      "reason": "逐步拆分兩個虛構情境，涵蓋跨午與跨日的時間加法及24小時制結果；未涵蓋時間減法、單位換算及各類生活題型。"
+    },
+    {
+      "code": "S-4-2",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-ANGLE-EXPLORATION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "clockwise-quarter-turn",
+        "counterclockwise-three-quarter-turn"
+      ],
+      "reason": "候選活動讓學生操作鐘面射線並同時選轉向、轉角，涵蓋順時針90度及逆時針270度兩情境；未涵蓋多種始終邊計算、平角／周角完整探究。"
+    },
+    {
+      "code": "S-4-3",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-AREA-PERIMETER-ARRAY-MODEL-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "build-3-by-4-array",
+        "calculate-rectangle-perimeter",
+        "transfer-2-by-5-area-perimeter"
+      ],
+      "reason": "方格陣列操作面積及逐步算一個長方形周長；尚無正方形獨立情境與兩圖形複合圖形。"
+    },
+    {
+      "code": "S-4-5",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-PARALLEL-PERPENDICULAR-LINE-BUILDER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "construct-perpendicular-through-crossing",
+        "construct-parallel-and-compare-spacing",
+        "construct-perpendicular-to-diagonal"
+      ],
+      "reason": "以互動格點選取兩端點，建構通過指定點的垂直線／平行線並觀察格距；仍是螢幕模擬，未評量實物尺、三角板作圖、直角記號及一般圖形中的辨識。"
+    },
+    {
+      "code": "S-4-6",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-CONGRUENT-FIGURE-TRANSFORM-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "translate-congruent-tile",
+        "rotate-congruent-tile",
+        "flip-congruent-tile-transfer"
+      ],
+      "reason": "新增格點拼片的平移、旋轉及翻轉疊合操作；仍未評量一般圖形對應角／邊相等，也不取代實物剪拼或透明片操作。"
+    },
+    {
+      "code": "S-4-7",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-SPECIAL-TRIANGLE-CONSTRUCTION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "construct-isosceles-triangle",
+        "construct-right-triangle",
+        "construct-acute-triangle",
+        "construct-obtuse-triangle"
+      ],
+      "reason": "四個階段需選三個格點形成可見三角形，並分別依邊長或角性質分類；未評量實物尺規作圖。"
+    },
+    {
+      "code": "S-4-8",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-QUADRILATERAL-FEATURE-CONSTRUCTION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "construct-square-on-grid",
+        "construct-rectangle-on-grid",
+        "construct-parallelogram-on-grid"
+      ],
+      "reason": "格點建構正方形、長方形及平行四邊形；未涵蓋菱形與梯形辨認、無支架辨識或實體作圖。"
+    },
+    {
+      "code": "R-4-1",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-COMPOUND-EXPRESSION-ORDER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "assemble-multiply-before-add",
+        "calculate-multiply-before-add",
+        "assemble-parentheses-first",
+        "calculate-parentheses-first",
+        "assemble-left-to-right-division",
+        "calculate-left-to-right-division"
+      ],
+      "reason": "三種情境實際組合算式並逐步選取中間值，練習先乘後加、括號先算及連除左往右；仍非 R-4-1 全範圍或自由書寫證據。"
+    },
+    {
+      "code": "R-4-2",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-COMPUTATION-PROPERTY-TRANSFORM-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "translate-supply-story-to-product",
+        "reorder-factors-for-easy-product",
+        "calculate-regrouped-product",
+        "translate-multiply-then-divide-story",
+        "reorder-multiply-divide-equivalently",
+        "calculate-equivalent-multiply-divide",
+        "reorder-add-subtract-mixed-expression",
+        "calculate-reordered-add-subtract"
+      ],
+      "reason": "學生先依補給故事組式，再操作重排因數或乘除次序並逐步計算；能留下情境翻譯、等值改寫及中間值的實際互動證據，但僅為局部範圍。"
+    },
+    {
+      "code": "R-4-3",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-TEXT-FORMULA-BUILDER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "assemble-rectangle-area-formula",
+        "apply-rectangle-area-formula",
+        "assemble-square-perimeter-formula",
+        "apply-square-perimeter-formula"
+      ],
+      "reason": "任務要求學生實際組合含文字與符號的公式，並把新情境數值代入計算；只有組合一條公式或只有相關活動名稱不算本列證據。"
+    },
+    {
+      "code": "R-4-4",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-TWO-DIMENSIONAL-NUMBER-PATTERN-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "fill-row-and-column-number-pattern",
+        "transfer-calendar-like-grid-pattern",
+        "observe-odd-even-operation-patterns",
+        "choose-evidence-based-parity-reason"
+      ],
+      "reason": "學生在可見格子中按順序填入數值，須同時觀察行與列變化，並用算例選擇推理說明；不是線性數列猜答案。"
+    },
+    {
+      "code": "D-4-1",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G4-MATH-DATA-BAR-CHART-BUILDER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "build-favorite-fruit-bars",
+        "transfer-library-survey-bars",
+        "read-ordered-weather-change"
+      ],
+      "reason": "兩組分類資料均需逐類調整長條高度，並另讀折線資料；資料為提供的教學情境，未實地調查。"
+    }
+  ],
+  "nextWorkPosition": "同一官方 PDF 五年級學習內容表：從四年級表末 PDF 頁序31之後的「5年級」表頭開始，逐列記錄至六年級表頭前；確認跨頁附註與同表學習表現。"
+}

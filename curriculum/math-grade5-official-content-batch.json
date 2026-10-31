@@ -1,0 +1,561 @@
+{
+  "schemaVersion": 1,
+  "batchId": "math-grade5-content-table-pdf-pages-31-to-34",
+  "status": "verified_contiguous_grade_table_batch_not_full_math_inventory",
+  "sourceId": "mathematics",
+  "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域",
+  "publicationInfo": "PDF封面載中華民國107年6月；教育部以臺教授國部字第1070066476B號令於107年7月26日發布。",
+  "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+  "sourceAccessNote": "已直接開啟國教院官方 PDF（83 頁）並以官方 PDF 文字層逐列核對，另回查跨頁表格位置。五年級表從 PDF 頁序31「5年級」表頭開始，至頁序34 D-5-1 結束，頁序35轉入六年級表頭。PDF頁序以1起算；不是印刷頁碼。",
+  "sourceLocation": "伍／學習重點／二、學習內容／五年級學習內容表，PDF頁序31–34（PDF頁序以1起算）；包含N-5-4備註由頁序31續至32、N-5-11備註由頁序32續至33、S-5-4備註由頁序33續至34；頁序35為六年級表頭。",
+  "applicability": {
+    "officialGradeTable": 5,
+    "learningStage": "第三學習階段（五、六年級）",
+    "semester": null
+  },
+  "reviewMethod": "以國教院官方數學領綱 PDF 原始文件文字層按表格列核對五年級 N、S、R、D 學習內容代碼、條目原文、備註、參考教具及同表對應學習表現；另檢查 N-5-4、N-5-11、S-5-4 跨頁續文，並依表頭/表尾核定起訖。這是官方年級表的連續批次，不表示官方指定學期，也不代表完整數學領綱清冊。",
+  "clauses": [
+    {
+      "code": "N-5-1",
+      "officialText": "十進位的位值系統：「兆位」至「千分位」。整合整數與小數。理解基於位值系統可延伸表示更大的數和更小的數。熟練十進位系統「乘以十」、「除以十」所延伸的計算如「300×1200」與「600000÷4000」之處理。",
+      "officialNotes": "",
+      "referenceTools": "十進位表（千兆到千分位）",
+      "officialPerformanceLinks": [
+        "n-III-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-5-1，PDF頁序31。"
+    },
+    {
+      "code": "N-5-2",
+      "officialText": "解題：多步驟應用問題。除「平均」之外，原則上為三步驟解題應用。",
+      "officialNotes": "以學生較熟悉、能直接併式之問題為原則。本條目要求併式。須含分配律情境之三步驟問題，以和分配律教學連結（R-5-2）。",
+      "officialPerformanceLinks": [
+        "n-III-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "R-5-2"
+      ],
+      "sourceLocation": "同表 N-5-2，PDF頁序31。"
+    },
+    {
+      "code": "N-5-3",
+      "officialText": "公因數和公倍數：因數、倍數、公因數、公倍數、最大公因數、最小公倍數的意義。",
+      "officialNotes": "以概念認識為主，不用短除法（N-6-1、N-6-2）。",
+      "officialPerformanceLinks": [
+        "n-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "N-6-1",
+        "N-6-2"
+      ],
+      "sourceLocation": "同表 N-5-3，PDF頁序31。"
+    },
+    {
+      "code": "N-5-4",
+      "officialText": "異分母分數：用約分、擴分處理等值分數並做比較。用通分做異分母分數的加減。養成利用約分化簡分數計算習慣。",
+      "officialNotes": "通分不鼓勵以分母直接相乘。通分數字限（1）分母均為一位數；（2）一分母為另一分母的倍數，且兩數小於100；（3）乘以2、3、4、5就可以找到兩分母之公倍數（如12與18）。備註及條文跨頁續至PDF頁序32。",
+      "officialPerformanceLinks": [
+        "n-III-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-5-4，PDF頁序31–32（備註跨頁續文）。"
+    },
+    {
+      "code": "N-5-5",
+      "officialText": "分數的乘法：整數乘以分數、分數乘以分數的意義。知道用約分簡化乘法計算。處理乘積一定比被乘數大的錯誤類型。透過分數計算的公式，知道乘法交換律在分數也成立。建立例如「的1/2」和「1/2倍」的關連。",
+      "officialNotes": "",
+      "officialPerformanceLinks": [
+        "n-III-6"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-5-5，PDF頁序32。"
+    },
+    {
+      "code": "N-5-6",
+      "officialText": "整數相除之分數表示：從分裝（測量）和平分的觀點，分別說明整數相除為分數之意義與合理性。",
+      "officialNotes": "本條目的困難在於概念理解而非計算，教師應積極協助學生突破整數除法有餘數之固定想法，並轉化成商為分數的合理性。包含除可和「比率」的課題結合（N-5-10）。",
+      "officialPerformanceLinks": [
+        "n-III-5"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "N-5-10"
+      ],
+      "sourceLocation": "同表 N-5-6，PDF頁序32。"
+    },
+    {
+      "code": "N-5-7",
+      "officialText": "分數除以整數：分數除以整數的意義。最後將問題轉化為乘以單位分數。",
+      "officialNotes": "等分除教學可運用乘法分數倍之經驗（N-5-5）。包含除可和「比率」的課題結合（N-5-10）。",
+      "officialPerformanceLinks": [
+        "n-III-6"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "N-5-5",
+        "N-5-10"
+      ],
+      "sourceLocation": "同表 N-5-7，PDF頁序32。"
+    },
+    {
+      "code": "N-5-8",
+      "officialText": "小數的乘法：整數乘以小數、小數乘以小數的意義。乘數為小數的直式計算。教師用位值的概念說明直式計算的合理性。處理乘積一定比被乘數大的錯誤類型。",
+      "officialNotes": "先連結「乘以0.1」和「乘以0.01」的意義和乘法直式計算的經驗再做推廣。小數乘法直式計算的方法和整數類似，但須留意小數點記法和小數加減時記法不同。",
+      "officialPerformanceLinks": [
+        "n-III-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-5-8，PDF頁序32。"
+    },
+    {
+      "code": "N-5-9",
+      "officialText": "整數、小數除以整數（商為小數）：整數除以整數（商為小數）、小數除以整數的意義。教師用位值的概念說明直式計算的合理性。能用概數協助處理除不盡的情況。熟悉分母為2、4、5、8之真分數所對應的小數。",
+      "officialNotes": "原則上只處理商限三位小數的情況。可讓學生從計算中發現可能有除不盡的循環現象，教師以概數處理這類問題（N-5-11），不處理「循環小數」的命名與課題。",
+      "officialPerformanceLinks": [
+        "n-III-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "N-5-11"
+      ],
+      "sourceLocation": "同表 N-5-9，PDF頁序32。"
+    },
+    {
+      "code": "N-5-10",
+      "officialText": "解題：比率與應用。整數相除的應用。含「百分率」、「折」、「成」。",
+      "officialNotes": "本條目限結果不大於1（100%）的應用情境（大於1之延伸情境見N-6-8）。",
+      "officialPerformanceLinks": [
+        "n-III-5",
+        "n-III-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "N-5-6",
+        "N-5-7"
+      ],
+      "sourceLocation": "同表 N-5-10，PDF頁序32。"
+    },
+    {
+      "code": "N-5-11",
+      "officialText": "解題：對小數取概數。具體生活情境。四捨五入法。知道商除不盡的處理。理解近似的意義。",
+      "officialNotes": "教學討論近似問題時，不出現「誤差」、「近似值」之用語。備註跨頁續至PDF頁序33。",
+      "officialPerformanceLinks": [
+        "n-III-8"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "N-5-9"
+      ],
+      "sourceLocation": "同表 N-5-11，PDF頁序32–33（備註跨頁續文）。"
+    },
+    {
+      "code": "N-5-12",
+      "officialText": "面積：「公畝」、「公頃」、「平方公里」。生活實例之應用。含與「平方公尺」的換算與計算。使用概數。",
+      "officialNotes": "針對量的大單位教學，教師應運用學生熟悉的生活示例，體會各單位的量感。",
+      "officialPerformanceLinks": [
+        "n-III-11"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-5-12，PDF頁序33。"
+    },
+    {
+      "code": "N-5-13",
+      "officialText": "重量：「公噸」。生活實例之應用。含與「公斤」的換算與計算。使用概數。",
+      "officialNotes": "教師應運用學生熟悉的生活示例，體會各單位的量感。",
+      "officialPerformanceLinks": [
+        "n-III-11"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-5-13，PDF頁序33。"
+    },
+    {
+      "code": "N-5-14",
+      "officialText": "體積：「立方公尺」。簡單實測、量感、估測與計算。",
+      "officialNotes": "不用複名數進行計算。1立方公尺與1立方公分的換算較龐雜，不須評量。",
+      "referenceTools": "",
+      "officialPerformanceLinks": [
+        "n-III-11"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-5-14，PDF頁序33。"
+    },
+    {
+      "code": "N-5-15",
+      "officialText": "解題：容積。容量、容積和體積間的關係。知道液體體積的意義。",
+      "officialNotes": "教學中須包含如何以容積的想法求不規則物體的體積。",
+      "officialPerformanceLinks": [
+        "n-III-12"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-5-15，PDF頁序33。"
+    },
+    {
+      "code": "N-5-16",
+      "officialText": "解題：時間的乘除問題。在分數和小數學習的範圍內，解決與時間相關的乘除問題。",
+      "officialNotes": "含以分數和小數表示的時間量。如15分是1/4時（15/60=1/4）；1/5時是12分（60×1/5=12）。可含工程問題。",
+      "officialPerformanceLinks": [
+        "n-III-11"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-5-16，PDF頁序33。"
+    },
+    {
+      "code": "S-5-1",
+      "officialText": "三角形與四邊形的性質：操作活動與簡單推理。含三角形三內角和為180度。三角形任意兩邊和大於第三邊。平行四邊形的對邊相等、對角相等。",
+      "officialNotes": "簡單推理，例如：四邊形四內角和為360度，三角形不可能有兩鈍角。",
+      "referenceTools": "三角形、四邊形",
+      "officialPerformanceLinks": [
+        "s-III-5"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 S-5-1，PDF頁序33。"
+    },
+    {
+      "code": "S-5-2",
+      "officialText": "三角形與四邊形的面積：操作活動與推理。利用切割重組，建立面積公式，並能應用。",
+      "officialNotes": "計算面積的問題，若採用分數或小數之邊長與高，必須在分數和小數的乘法後教學（N-5-5、N-5-8）。",
+      "referenceTools": "三角形、四邊形",
+      "officialPerformanceLinks": [
+        "s-III-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "N-5-5",
+        "N-5-8"
+      ],
+      "sourceLocation": "同表 S-5-2，PDF頁序33。"
+    },
+    {
+      "code": "S-5-3",
+      "officialText": "扇形：扇形的定義。「圓心角」。扇形可視為圓的一部分。將扇形與分數結合（幾分之幾圓）。能畫出指定扇形。",
+      "officialNotes": "扇形含圓心角大於180度的情況。理解如「圓心角90度的扇形是1/4圓」等的結論。畫出指定扇形包括「給定一圓，能畫出1/3圓、1/6圓等扇形」、「畫出指定半徑與圓心角的扇形」。",
+      "referenceTools": "圓形、扇形",
+      "officialPerformanceLinks": [
+        "s-III-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 S-5-3，PDF頁序33。"
+    },
+    {
+      "code": "S-5-4",
+      "officialText": "線對稱：線對稱的意義。「對稱軸」、「對稱點」、「對稱邊」、「對稱角」。由操作活動知道特殊平面圖形的線對稱性質。利用線對稱做簡單幾何推理。製作或繪製線對稱圖形。",
+      "officialNotes": "從操作活動察覺正三角形、等腰三角形、正方形、長方形、菱形、箏形（箏形指圖形，名詞不出現）、等腰梯形是線對稱圖形（避免告知）。在教學呈現時，線對稱軸應為垂直或平行（操作活動不在此限）。可處理正多邊形。備註跨頁續至PDF頁序34。",
+      "referenceTools": "具線對稱之圖形、剪紙工具、格紙、平面圖形",
+      "officialPerformanceLinks": [
+        "s-III-6"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 S-5-4，PDF頁序33–34（備註跨頁續文）。"
+    },
+    {
+      "code": "S-5-5",
+      "officialText": "正方體和長方體：計算正方體和長方體的體積與表面積。正方體與長方體的體積公式。",
+      "officialNotes": "能算長方體的表面積，但不記成公式。",
+      "referenceTools": "單位正方體",
+      "officialPerformanceLinks": [
+        "s-III-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 S-5-5，PDF頁序34。"
+    },
+    {
+      "code": "S-5-6",
+      "officialText": "空間中面與面的關係：以操作活動為主。生活中面與面平行或垂直的現象。正方體（長方體）中面與面的平行或垂直關係。用正方體（長方體）檢查面與面的平行與垂直。",
+      "officialNotes": "強調操作與概念的合理性，不做嚴格定義。不用三角板檢查面與面的垂直，因為學生容易誤用。",
+      "referenceTools": "正方體、長方體、柱體、錐體",
+      "officialPerformanceLinks": [
+        "s-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 S-5-6，PDF頁序34。"
+    },
+    {
+      "code": "S-5-7",
+      "officialText": "球、柱體與錐體：以操作活動為主。認識球、（直）圓柱、（直）角柱、（直）角錐、（直）圓錐。認識柱體和錐體之構成要素與展開圖。檢查柱體兩底面平行；檢查柱體側面和底面垂直，錐體側面和底面不垂直。",
+      "officialNotes": "應知球的截面截痕是圓、球的球心與半徑（「截面」「截痕」一詞不出現）。「直」或「正」之用語可不出現。角柱只介紹三角柱、四角柱、五角柱、六角柱。角錐只介紹三角錐、四角錐、五角錐、六角錐（S-9-13）。",
+      "referenceTools": "兩半球（出現球心與半徑）、圓柱（瘦高、矮扁）、角柱、角錐、展開圖",
+      "officialPerformanceLinks": [
+        "s-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 S-5-7，PDF頁序34。"
+    },
+    {
+      "code": "R-5-1",
+      "officialText": "三步驟問題併式：建立將計算步驟併式的習慣，以三步驟為主。介紹「平均」。與分配律連結。",
+      "officialNotes": "學習併式不表示此後所有解題教學都必須併式（N-6-9）。",
+      "officialPerformanceLinks": [
+        "r-III-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "N-5-2",
+        "R-5-2",
+        "N-6-9"
+      ],
+      "sourceLocation": "同表 R-5-1，PDF頁序34。"
+    },
+    {
+      "code": "R-5-2",
+      "officialText": "四則計算規律（II）：乘除混合計算。「乘法對加法或減法的分配律」。將計算規律應用於簡化混合計算。熟練整數四則混合計算。",
+      "officialNotes": "乘除混合：含「連除兩數等於除以兩數之積」；不做a÷(b÷c)之去括號。必須呈現以下原則的範例：將應用問題轉化成算式後，再利用計算規律調整算式進行計算解題（其中調整後的算式已無法以原情境來解釋）。",
+      "officialPerformanceLinks": [
+        "r-III-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "N-5-2",
+        "R-5-1"
+      ],
+      "sourceLocation": "同表 R-5-2，PDF頁序34。"
+    },
+    {
+      "code": "R-5-3",
+      "officialText": "以符號表示數學公式：國中代數的前置經驗。初步體驗符號之使用，隱含「符號代表數」、「符號與運算符號的結合」的經驗。應併入其他教學活動。",
+      "officialNotes": "藉由幾何圖形的面積與體積公式較易進行。也可在分數乘法中運用。本條目並非取代「文字表示公式」（R-4-3），後者較易理解之優點仍可保持。",
+      "officialPerformanceLinks": [
+        "r-III-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "relatedOfficialCodes": [
+        "S-5-2",
+        "S-5-5",
+        "R-4-3"
+      ],
+      "sourceLocation": "同表 R-5-3，PDF頁序34。"
+    },
+    {
+      "code": "D-5-1",
+      "officialText": "製作折線圖：製作生活中的折線圖。分辨折線圖之使用時機。",
+      "officialNotes": "",
+      "officialPerformanceLinks": [
+        "d-III-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 D-5-1，PDF頁序34；五年級表格末列，頁序35為六年級表頭。"
+    }
+  ],
+  "nextWorkPosition": "同一官方數學領綱 PDF 六年級學習內容表：頁序35「6年級」表頭與N-6-1開始，逐列核對至六年級表格結束，追蹤表格跨頁續文及備註。",
+  "inventoryLimit": "本批次是五年級官方表格 27 個代碼列，適用第三學習階段（五、六年級）；不等於官方數學領綱全部條目數，也不指定五年級學期進度。",
+  "activityAudit": [
+    {
+      "code": "N-5-1",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "N-5-2",
+      "activityIds": [
+        "ACT-G5-MATH-MULTI-STEP-SUPPLY-PLANNER-CANDIDATE"
+      ],
+      "evidenceStageIds": [],
+      "status": "relation_only",
+      "reason": "活動有逐步數量計算，但原活動範圍只宣稱兩步驟，沒有學生建立三步驟併式及分配律情境的互動；因此僅記活動關聯。"
+    },
+    {
+      "code": "N-5-3",
+      "activityIds": [
+        "ACT-G5-MATH-FACTOR-ARRAY-EXPLORER-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "build-twelve-array",
+        "sort-twelve-factors"
+      ],
+      "status": "partial",
+      "reason": "操作12的陣列並分類因數；未涵蓋倍數、公因數、公倍數、最大公因數與最小公倍數。"
+    },
+    {
+      "code": "N-5-4",
+      "activityIds": [
+        "ACT-G5-MATH-FRACTION-EQUIVALENCE-PIECES-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "compose-half-with-fourths",
+        "compare-third-and-half"
+      ],
+      "status": "partial",
+      "reason": "拼片呈現簡單等值與共同單位比較；未涵蓋異分母加減及完整約分／擴分程序。"
+    },
+    {
+      "code": "N-5-5",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "N-5-6",
+      "activityIds": [
+        "ACT-G5-MATH-INTEGER-DIVISION-FRACTION-MODEL-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "share-three-wholes-four-people",
+        "measure-three-units-of-four"
+      ],
+      "status": "partial",
+      "reason": "兩個螢幕拼片階段分別呈現平分與測量觀點的3÷4=3/4；未涵蓋實體分裝、真實量測與其他除法情境。"
+    },
+    {
+      "code": "N-5-7",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "N-5-8",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "N-5-9",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "N-5-10",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "N-5-11",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "N-5-12",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "N-5-13",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "N-5-14",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "N-5-15",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "N-5-16",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "S-5-1",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "S-5-2",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "S-5-3",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "S-5-4",
+      "activityIds": [
+        "ACT-G5-MATH-LINE-SYMMETRY-MIRROR-GRID-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "mirror-three-marker-cells",
+        "mirror-new-pattern"
+      ],
+      "status": "partial",
+      "reason": "方格補點操作建立垂直鏡射圖；未涵蓋對稱邊角性質、多種特殊圖形辨識及實體折紙。"
+    },
+    {
+      "code": "S-5-5",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "S-5-6",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "S-5-7",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "R-5-1",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "R-5-2",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "R-5-3",
+      "status": "uncovered",
+      "activityIds": [],
+      "evidenceStageIds": [],
+      "reason": "在五年級數學候選活動中未找到可對應此官方條目的實際互動；此判定只涵蓋本批已檢查的候選活動，不代表其他校本教學。"
+    },
+    {
+      "code": "D-5-1",
+      "activityIds": [
+        "ACT-G5-MATH-LINE-CHART-PLOT-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "plot-plant-growth-week",
+        "plot-daylight-hours"
+      ],
+      "status": "partial",
+      "reason": "以預設模擬時間序列資料在畫面建點；未涵蓋真實資料蒐集及圖表使用時機的比較判斷。"
+    }
+  ]
+}

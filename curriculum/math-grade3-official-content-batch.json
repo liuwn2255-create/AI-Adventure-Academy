@@ -1,0 +1,386 @@
+{
+  "schemaVersion": 1,
+  "batchId": "math-grade3-content-table-pdf-pages-25-to-28",
+  "status": "verified_contiguous_grade_table_batch_not_full_math_inventory",
+  "sourceId": "mathematics",
+  "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域",
+  "publicationInfo": "PDF封面載中華民國107年6月；教育部以臺教授國部字第1070066476B號令於107年7月26日發布。",
+  "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
+  "sourceLocation": "伍／學習重點／二、學習內容／三年級學習內容表，PDF頁序25–28（PDF頁序以1起算）；逐列對照表格的編碼、學習內容條目及說明、備註與對應學習表現欄。",
+  "applicability": {
+    "officialGradeTable": 3,
+    "learningStage": "第二學習階段（三、四年級）",
+    "semester": null
+  },
+  "reviewMethod": "逐列閱讀官方PDF三年級學習內容表，確認表頭、各列原文、附註、對應學習表現及跨頁續文；此批完整性僅指PDF頁序25–28的三年級表格，不代表數學領綱全部條目完成。",
+  "clauses": [
+    {
+      "code": "N-3-1",
+      "officialText": "一萬以內的數：含位值積木操作活動。結合點數、位值表徵、位值表。位值單位「千」。位值單位換算。",
+      "officialNotes": "教學可進行到最後的「一萬」，但不進行超過一萬的教學。",
+      "officialPerformanceLinks": [
+        "n-II-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "伍／學習重點／二、學習內容／三年級學習內容表 N-3-1，PDF頁序25。"
+    },
+    {
+      "code": "N-3-2",
+      "officialText": "加減直式計算：含加、減法多次進、退位。",
+      "officialNotes": "須處理數字中有0的題型。教學可先在有位值的表格中學習計算。",
+      "officialPerformanceLinks": [
+        "n-II-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-3-2，PDF頁序25。"
+    },
+    {
+      "code": "N-3-3",
+      "officialText": "乘以一位數：乘法直式計算。教師用位值的概念說明直式計算的合理性。被乘數為二、三位數。",
+      "officialNotes": "須處理被乘數有0的題型；教學可先在有位值的表格中學習計算，最後須能以一列算出答案。多位數乘以一位數隱含之分配律來自操作經驗與數感，而非分配律教學。",
+      "officialPerformanceLinks": [
+        "n-II-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-3-3，PDF頁序25。"
+    },
+    {
+      "code": "N-3-4",
+      "officialText": "除法：除法的意義與應用。基於 N-2-9 之學習，透過幾個一數的解題方法，理解如何用乘法解決除法問題。熟練十十乘法範圍的除法，做為估商的基礎。",
+      "officialNotes": "建議先處理整除情境，再處理有餘數的情境。教學中應有乘、除法並陳之單元，讓學生能主動察覺乘法與除法問題的差異。",
+      "officialPerformanceLinks": [
+        "n-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "同表 N-3-4，PDF頁序25–26（跨頁）。"
+    },
+    {
+      "code": "N-3-5",
+      "officialText": "除以一位數：除法直式計算。教師用位值的概念說明直式計算的合理性。被除數為二、三位數。",
+      "officialNotes": "須處理被除數有0的題型。",
+      "officialPerformanceLinks": [
+        "n-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-5，PDF頁序26。"
+    },
+    {
+      "code": "N-3-6",
+      "officialText": "解題：乘除應用問題。乘數、被乘數、除數、被除數未知之應用解題。連結乘與除的關係（R-3-1）。",
+      "officialNotes": "可使用解題策略協助學生理解與轉化問題（例如「倍」的語言、空格算式、乘除互逆等）。本條目不須另立單元教學。",
+      "officialPerformanceLinks": [
+        "n-II-2",
+        "n-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-6，PDF頁序26。"
+    },
+    {
+      "code": "N-3-7",
+      "officialText": "解題：兩步驟應用問題（加減與除、連乘）。連乘、加與除、減與除之應用解題。",
+      "officialNotes": "不含併式。乘除混合、連除在四年級（N-4-3）。",
+      "officialPerformanceLinks": [
+        "n-II-5"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-7，PDF頁序26。"
+    },
+    {
+      "code": "N-3-8",
+      "officialText": "解題：四則估算。具體生活情境。較大位數之估算策略。能用估算檢驗計算結果的合理性。",
+      "officialNotes": "估算解題的布題應貼近生活情境。本年級剛學除法，因此估算問題須簡單。",
+      "officialPerformanceLinks": [
+        "n-II-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-8，PDF頁序26。"
+    },
+    {
+      "code": "N-3-9",
+      "officialText": "簡單同分母分數：結合操作活動與整數經驗。簡單同分母分數比較、加、減的意義。牽涉之分數與運算結果皆不超過2。以單位分數之點數為基礎，連結整數之比較、加、減。知道「和等於1」的意義。",
+      "officialNotes": "本年級分數教學只用「分數」一詞，不出現「真分數」與「假分數」的名詞，也不含帶分數的教學（N-4-5）。初步認識分數的應用時，情境應以連續量為主。若處理離散量，須與連續模型強烈結合，計數單位須為以整體數量為分母的單位分數。",
+      "officialPerformanceLinks": [
+        "n-II-6"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-9，PDF頁序26。"
+    },
+    {
+      "code": "N-3-10",
+      "officialText": "一位小數：認識小數與小數點。結合點數、位值表徵、位值表。位值單位「十分位」。位值單位換算。比較、加減（含直式計算）與解題。",
+      "officialNotes": "小數之學習必須與整數經驗緊密連繫。小數應用情境應以連續量為主。",
+      "officialPerformanceLinks": [
+        "n-II-7"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-10，PDF頁序26。"
+    },
+    {
+      "code": "N-3-11",
+      "officialText": "整數數線：認識數線，含報讀與標示。連結數序、長度、尺的經驗，理解在數線上做比較、加、減的意義。",
+      "officialNotes": "數線須從0開始。運用長度加減法（N-2-11），理解在數線上做加、減的意義。",
+      "officialPerformanceLinks": [
+        "n-II-8"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-11，PDF頁序26。"
+    },
+    {
+      "code": "N-3-12",
+      "officialText": "長度：「毫米」。實測、量感、估測與計算。單位換算。",
+      "officialNotes": "基於 N-3-1 的限制，單位換算時，公尺數限個位數。自3年級後，量的計算可使用複名數協助加減計算（複名數不做乘除）。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-12，PDF頁序26–27（跨頁續文）。"
+    },
+    {
+      "code": "N-3-13",
+      "officialText": "角與角度（同 S-3-1）：以具體操作為主。初步認識角和角度。角度的直接比較與間接比較。認識直角。",
+      "officialNotes": "用直尺或三角板的直角來認識與複製直角。教學應處理角大小與邊長長短或面積大小混淆之常見錯誤。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-13，PDF頁序27。"
+    },
+    {
+      "code": "N-3-14",
+      "officialText": "面積：「平方公分」。實測、量感、估測與計算。",
+      "officialNotes": "應用平方公分板（百格圖），協助點數簡單圖形如正方形、長方形、三角形之面積，但不發展一般公式。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-14，PDF頁序27。"
+    },
+    {
+      "code": "N-3-15",
+      "officialText": "容量：「公升」、「毫升」。實測、量感、估測與計算。單位換算。",
+      "officialNotes": "基於 N-3-1 的限制，單位換算公升數限個位數。可使用複名數協助加減計算（複名數不做乘除）。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-15，PDF頁序27。"
+    },
+    {
+      "code": "N-3-16",
+      "officialText": "重量：「公斤」、「公克」。實測、量感、估測與計算。單位換算。",
+      "officialNotes": "基於 N-3-1 的限制，單位換算公斤數限個位數。可使用複名數協助加減計算（複名數不做乘除）。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-16，PDF頁序27。"
+    },
+    {
+      "code": "N-3-17",
+      "officialText": "時間：「日」、「時」、「分」、「秒」。實測、量感、估測與計算。時間單位的換算。認識時間加減問題的類型。",
+      "officialNotes": "時間加減問題以認識加減問題類型為原則（較深入者見 N-4-13），處理時刻或時間量等常見加減問題。本年級加減限（1）同單位時間量；（2）時、分複名數加減（無進、退位）。",
+      "officialPerformanceLinks": [
+        "n-II-10"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 N-3-17，PDF頁序27。"
+    },
+    {
+      "code": "S-3-1",
+      "officialText": "角與角度（同 N-3-13）：以具體操作為主。初步認識角和角度。角度的直接比較與間接比較。認識直角。",
+      "officialNotes": "同 N-3-13 備註。",
+      "officialPerformanceLinks": [
+        "n-II-9"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 S-3-1，PDF頁序27。"
+    },
+    {
+      "code": "S-3-2",
+      "officialText": "正方形和長方形：以邊與角的特徵來定義正方形和長方形。",
+      "officialNotes": "知道如何判斷斜擺的長方形或正方形依舊是長方形或正方形。",
+      "officialPerformanceLinks": [
+        "s-II-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 S-3-2，PDF頁序27。"
+    },
+    {
+      "code": "S-3-3",
+      "officialText": "圓：「圓心」、「圓周」、「半徑」與「直徑」。能使用圓規畫指定半徑的圓。",
+      "officialNotes": "知道圓心是認識圓的重要定義元素，但是圓心並不屬於圓。",
+      "officialPerformanceLinks": [
+        "s-II-3"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 S-3-3，PDF頁序27。"
+    },
+    {
+      "code": "S-3-4",
+      "officialText": "幾何形體之操作：以操作活動為主。平面圖形的分割與重組。初步體驗展開圖如何黏合成立體形體。知道不同之展開圖可能黏合成同一形狀之立體形體。",
+      "officialNotes": "以操作體驗平面圖形關係與空間感為目標，啟發學生探討與發現之興趣，但不做任何數學知識的歸納。展開圖活動只是初步體驗，勿做過多複雜推理活動。本條目不做操作以外的紙筆評量。",
+      "officialPerformanceLinks": [
+        "s-II-4"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 S-3-4，PDF頁序27–28（跨頁續註）。"
+    },
+    {
+      "code": "R-3-1",
+      "officialText": "乘法與除法的關係：乘除互逆。應用於驗算與解題。理解例如「3的幾倍是15」、「什麼數的4倍是12」要用除法列式解題。",
+      "officialNotes": "",
+      "officialPerformanceLinks": [
+        "r-II-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 R-3-1，PDF頁序28。"
+    },
+    {
+      "code": "R-3-2",
+      "officialText": "數量模式與推理（I）：以操作活動為主。一維變化模式之觀察與推理，例如數列、一維圖表等。",
+      "officialNotes": "含學生之簡單推理與說明。本教學活動不可出現公式，此非本條目之學習目標。可結合表格教學（D-3-1）。",
+      "officialPerformanceLinks": [
+        "r-II-2"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 R-3-2，PDF頁序28。"
+    },
+    {
+      "code": "D-3-1",
+      "officialText": "一維表格與二維表格：以操作活動為主。報讀、說明與製作生活中的表格。二維表格含列聯表。",
+      "officialNotes": "製作表格不限於日常資料統計性題材，也可應用於觀察數量模式的變化（R-3-2）。",
+      "officialPerformanceLinks": [
+        "d-II-1"
+      ],
+      "relationshipKind": "explicit_same_table_corresponding_performance",
+      "sourceLocation": "三年級學習內容表 D-3-1，PDF頁序28。"
+    }
+  ],
+  "activityAudit": [
+    {
+      "code": "N-3-1",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G3-MATH-PLACE-VALUE-EXCHANGE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "compose-2408-with-place-value-blocks",
+        "exchange-one-hundred-for-ten-tens",
+        "exchange-one-thousand-for-ten-hundreds"
+      ],
+      "reason": "三段實際數位積木操作涵蓋指定數組成、百換十、千換百與等值驗證；僅為局部數位模擬，未替代實體積木點數及完整一萬以內數學習。"
+    },
+    {
+      "code": "N-3-2",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G3-MATH-VERTICAL-REGROUPING-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "repair-multiple-carry-addition",
+        "repair-addition-with-zero",
+        "repair-subtraction-across-zero"
+      ],
+      "reason": "三段操作逐欄結果數字與進退位記錄，涵蓋多次進位、含0加法及跨0連續退位；未涵蓋全部題型或實體位值表操作。"
+    },
+    {
+      "code": "N-3-9",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G3-MATH-FRACTION-MODEL-EXPLORATION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "build-three-sixths-with-equal-whole",
+        "compare-three-eighths-and-five-eighths",
+        "combine-two-eighths-and-three-eighths",
+        "remove-two-sixths-from-five-sixths",
+        "combine-two-sixths-and-four-sixths-to-one"
+      ],
+      "reason": "五個分數片模型階段分別操作建立表示、同分母比較、合併、取走與合成1；均為數位連續量模型的候選互動證據，僅局部涵蓋，未替代實體分數片、完整生活應用及教學成效驗證。"
+    },
+    {
+      "code": "N-3-12",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G3-MATH-LENGTH-MEASUREMENT-ADVENTURE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-map-ribbon-length",
+        "align-zero-and-read-offset-ribbon",
+        "compare-two-simulated-lengths",
+        "convert-millimeters-to-compound-centimeters",
+        "integrated-measure-compare-and-convert"
+      ],
+      "reason": "數位互動含毫米估測、移尺校正0刻度、非零起點讀取、比較差值與毫米/公分複名數轉換。仍屬候選螢幕模型，不具真實實物測量與量感證據；轉換不涉及公尺，不做複名數乘除。"
+    },
+    {
+      "code": "N-3-14",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G3-MATH-AREA-GRID-CONSTRUCTION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-and-cover-rectangle",
+        "count-irregular-unit-square-region",
+        "build-different-shape-same-area",
+        "fill-missing-area-grid-cells",
+        "compare-built-area-regions",
+        "integrated-build-area-constrained-garden"
+      ],
+      "reason": "六個共用任務引擎階段提供螢幕方格估測、逐格加入/移除與即時計數、簡單輪廓覆蓋、同面積異形建造、補格、面積比較及受限建造的可追溯操作證據。維持部分涵蓋：數位模型不替代實體平方公分板實測與量感；未實作三角形操作、部分方格估測或教師評量；不發展一般公式。"
+    },
+    {
+      "code": "N-3-15",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G3-MATH-CAPACITY-ESTIMATION-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-two-bottles",
+        "fill-to-mark-600-ml",
+        "read-offset-meniscus-450-ml",
+        "compare-short-wide-and-tall-vessels",
+        "find-remaining-capacity",
+        "build-rescue-water-supply"
+      ],
+      "reason": "六個共用任務引擎階段提供數位毫升估測、液量加減裝填、液面調整與刻度讀值、不同外形容器以相同單位比較、同單位容量差計算及限定補給量組合的候選互動證據。維持部分涵蓋：未進行真實量杯實測與量感教學，未涵蓋系統性公升／毫升單位換算及複名數加減；螢幕模擬不代表教學成效。"
+    },
+    {
+      "code": "N-3-16",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G3-MATH-WEIGHT-MEASUREMENT-ADVENTURE-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "estimate-mountain-supply",
+        "balance-pans-with-weights",
+        "read-pointer-scale",
+        "compare-two-crates",
+        "compare-equal-packs",
+        "convert-one-kilogram-and-grams",
+        "pack-the-rescue-kit"
+      ],
+      "reason": "七個共用引擎互動階段提供螢幕估測與秤值比較、加減砝碼平衡、指針讀值、兩件物品讀值與差值（含相等零差）、公斤公克分解及補給總重建構的候選操作證據。僅局部涵蓋；螢幕模擬不替代真實秤重與重量量感，且教師審查、評量與教學成效未建立。"
+    },
+    {
+      "code": "D-3-1",
+      "status": "partial",
+      "activityIds": [
+        "ACT-G3-MATH-CROSS-TABLE-BUILDER-CANDIDATE",
+        "ACT-G3-MATH-CROSS-TABLE-INTERPRETER-CANDIDATE",
+        "ACT-G3-MATH-CROSS-TABLE-PATTERN-INVESTIGATOR-CANDIDATE"
+      ],
+      "evidenceStageIds": [
+        "place-survey-cards-in-cross-table",
+        "read-walk-sunny-cell",
+        "repair-misfiled-survey-card",
+        "locate-garden-cross-cell",
+        "distinguish-cell-and-margin-total",
+        "order-days-by-recycle-total",
+        "choose-supported-table-pattern"
+      ],
+      "reason": "建造活動先以點選收集六筆明確標為虛構的紀錄，再依兩項線索分類並由分類結果即時生成交叉表；第二階段修正錯格。另兩活動操作報讀交叉格、列／欄合計、排序有限紀錄並選取資料支持描述。判為部分涵蓋：三項均為有限螢幕模擬，未含真實調查、學生自行設計表格欄列標題、完整口頭／書面說明或教學成效證據。"
+    }
+  ],
+  "nextWorkPosition": "三年級內容表已逐列核對；下一步為四年級表，官方PDF頁序28從「4年級」表頭與N-4-1開始，續至五年級表頭前，逐列核對跨頁續文。"
+}
