@@ -953,8 +953,10 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   if (stage.tableView) appendTableView(stage.tableView);
   host.append(element('p', 'reading-stage-prompt candidate-student-task', `這一關要做什麼：${stage.prompt}`));
   const answerCount = stage.correctOptionIds?.length ?? (stage.correctOptionId ? 1 : 0);
-  const responseGuidance = stage.interaction === 'magnet_interaction'
-    ? '操作方式：① 操作 → ② 觀察 → ③ 作答'
+  const responseGuidance = stage.interaction === 'order_items'
+    ? '操作方式：① 看清楚題目 → ② 用「上移／下移」調整順序 → ③ 排好後檢查答案'
+    : stage.interaction === 'magnet_interaction'
+      ? '操作方式：① 操作 → ② 觀察 → ③ 作答'
     : stage.interaction === 'classify_observations'
       ? '操作方式：① 看觀察紀錄 → ② 選擇分類'
       : stage.options?.length && answerCount > 0
@@ -974,16 +976,28 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   }
   if (stage.deriveFromPrevious && Number.isInteger(session.previousStepResult)) host.append(element('p', 'candidate-intermediate-result', `第一步中間結果：${session.previousStepResult}。請把這個數量帶到第二步。`));
   if (session.phase === 'active' && stage.interaction === 'order_items') {
+    host.append(element('h3', 'candidate-order-heading', '目前順序'));
     const board = element('ol', 'candidate-order-board');
+    board.setAttribute('aria-label', '目前順序');
     for (const [index, itemId] of session.orderedItems.entries()) {
       const item = stage.items.find(({ id }) => id === itemId);
+      const itemText = item?.text ?? itemId;
       const row = element('li', 'candidate-order-row');
-      row.append(element('span', 'candidate-order-text', item?.text ?? itemId));
+      row.dataset.orderItemId = itemId;
+      row.tabIndex = -1;
+      row.setAttribute('aria-label', `第 ${index + 1} 項：${itemText}`);
+      row.append(element('span', 'candidate-order-position', String(index + 1)), element('span', 'candidate-order-text', itemText));
       const controls = element('span', 'candidate-order-controls');
-      const up = element('button', 'candidate-token', '上移'); up.type = 'button'; up.disabled = index === 0; up.setAttribute('aria-label', `將第 ${index + 1} 件往前移`);
-      up.addEventListener('click', () => dispatch('move_ordered_item', { itemId, toIndex: index - 1 }));
-      const down = element('button', 'candidate-token', '下移'); down.type = 'button'; down.disabled = index === session.orderedItems.length - 1; down.setAttribute('aria-label', `將第 ${index + 1} 件往後移`);
-      down.addEventListener('click', () => dispatch('move_ordered_item', { itemId, toIndex: index + 1 }));
+      const up = element('button', 'candidate-token', '上移'); up.type = 'button'; up.disabled = index === 0; up.setAttribute('aria-label', `將「${itemText}」上移${up.disabled ? '；這一項已經在最上面' : ''}`); if (up.disabled) up.title = '這一項已經在最上面';
+      up.addEventListener('click', () => {
+        dispatch('move_ordered_item', { itemId, toIndex: index - 1 });
+        [...host.querySelectorAll('.candidate-order-row')].find((candidateRow) => candidateRow.dataset.orderItemId === itemId)?.focus();
+      });
+      const down = element('button', 'candidate-token', '下移'); down.type = 'button'; down.disabled = index === session.orderedItems.length - 1; down.setAttribute('aria-label', `將「${itemText}」下移${down.disabled ? '；這一項已經在最下面' : ''}`); if (down.disabled) down.title = '這一項已經在最下面';
+      down.addEventListener('click', () => {
+        dispatch('move_ordered_item', { itemId, toIndex: index + 1 });
+        [...host.querySelectorAll('.candidate-order-row')].find((candidateRow) => candidateRow.dataset.orderItemId === itemId)?.focus();
+      });
       controls.append(up, down); row.append(controls); board.append(row);
     }
     host.append(board);

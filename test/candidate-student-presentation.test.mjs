@@ -2,9 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { CATALOG_CANDIDATE_TASK_BY_ID } from '../prototype/data/catalogCandidateTasks.js';
+import { createLearningTaskSession, dispatchLearningTask } from '../prototype/learningTaskEngine.js';
 
 const app = await readFile(new URL('../prototype/app.js', import.meta.url), 'utf8');
 const html = await readFile(new URL('../prototype/index.html', import.meta.url), 'utf8');
+const css = await readFile(new URL('../prototype/styles.css', import.meta.url), 'utf8');
 const engine = await readFile(new URL('../prototype/learningTaskEngine.js', import.meta.url), 'utf8');
 const rendererStart = app.indexOf('function renderReusableCandidateTask(');
 const rendererEnd = app.indexOf('\nfunction renderCandidateRoutes(', rendererStart);
@@ -103,4 +105,44 @@ test('共用提交就緒提示只依既有 hasResponse 與可靠分類進度呈�
   assert.match(submitFlow, /magnet-material-submit-status/);
   const feedbackBranch = renderer.slice(renderer.indexOf("\n  const success = session.phase === 'success';"));
   assert.doesNotMatch(feedbackBranch, /candidate-submit-readiness|magnet-material-submit-status/);
+});
+
+test('order_items 共用呈現說明順序操作、位置與可存取移動控制', () => {
+  const orderStart = renderer.indexOf("if (session.phase === 'active' && stage.interaction === 'order_items')");
+  const orderEnd = renderer.indexOf('if (stage.circleDiagram', orderStart);
+  const orderRenderer = renderer.slice(orderStart, orderEnd);
+  assert.ok(orderStart >= 0 && orderEnd > orderStart);
+  assert.match(renderer, /操作方式：① 看清楚題目 → ② 用「上移／下移」調整順序 → ③ 排好後檢查答案/);
+  assert.doesNotMatch(orderRenderer, /hasResponse|submit\.disabled/);
+  assert.match(orderRenderer, /'目前順序'/);
+  assert.match(orderRenderer, /session\.orderedItems\.entries\(\)/);
+  assert.match(orderRenderer, /candidate-order-position', String\(index \+ 1\)/);
+  assert.match(orderRenderer, /dispatch\('move_ordered_item', \{ itemId, toIndex: index - 1 \}\)/);
+  assert.match(orderRenderer, /dispatch\('move_ordered_item', \{ itemId, toIndex: index \+ 1 \}\)/);
+  assert.match(orderRenderer, /up\.disabled = index === 0/);
+  assert.match(orderRenderer, /down\.disabled = index === session\.orderedItems\.length - 1/);
+  assert.match(orderRenderer, /這一項已經在最上面/);
+  assert.match(orderRenderer, /這一項已經在最下面/);
+  assert.match(orderRenderer, /將「\$\{itemText\}」上移/);
+  assert.match(orderRenderer, /將「\$\{itemText\}」下移/);
+  assert.match(orderRenderer, /\.focus\(\)/);
+  assert.match(orderRenderer, /aria-label', `第 \$\{index \+ 1\} 項：\$\{itemText\}`/);
+  assert.match(css, /\.candidate-order-row:focus\{/);
+  assert.match(css, /\.candidate-order-position\{/);
+  assert.doesNotMatch(orderRenderer, /作答進度/);
+  const hasResponseStart = renderer.indexOf('const hasResponse =');
+  const hasResponseEnd = renderer.indexOf('const submitLabel =', hasResponseStart);
+  const hasResponseSection = renderer.slice(hasResponseStart, hasResponseEnd);
+  assert.ok(hasResponseStart >= 0 && hasResponseEnd > hasResponseStart);
+  assert.match(hasResponseSection, /stage\.interaction === 'order_items'[\s\S]*?session\.orderedItems\.length === stage\.items\.length/);
+  assert.match(renderer.slice(hasResponseEnd), /submit\.disabled = !hasResponse/);
+
+  const activity = CATALOG_CANDIDATE_TASK_BY_ID.get('ACT-G3-CHINESE-STORY-SEQUENCE-TIMELINE-CANDIDATE');
+  assert.ok(activity);
+  let session = dispatchLearningTask(createLearningTaskSession(activity, 'order-ux-test'), activity, 'start').session;
+  const initial = [...session.orderedItems];
+  session = dispatchLearningTask(session, activity, 'move_ordered_item', { itemId: initial[0], toIndex: 1 }).session;
+  assert.deepEqual(session.orderedItems, [initial[1], initial[0], ...initial.slice(2)]);
+  assert.equal(session.phase, 'active');
+  assert.match(engine, /if \(action === 'move_ordered_item'\)[\s\S]*?state\.orderedItems\.splice\(toIndex, 0, itemId\)/);
 });
