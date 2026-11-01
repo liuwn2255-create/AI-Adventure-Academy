@@ -901,13 +901,16 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   host.append(element('h2', 'reading-stage-heading', `挑戰 ${session.stageIndex + 1}／${activity.stages.length}`));
   if (stage.context?.length) {
     const dialogue = element('article', 'candidate-context-card');
+    dialogue.setAttribute('aria-label', '情境資料');
+    dialogue.append(element('h3', 'candidate-source-heading', '情境資料'));
     for (const line of stage.context) dialogue.append(element('p', '', `${line.speaker}：${line.text}`));
     host.append(dialogue);
   }
   if (stage.passageId && activity.passages?.[stage.passageId]) {
     const passage = activity.passages[stage.passageId];
     const article = element('article', 'reading-passage-card');
-    article.append(element('h3', '', passage.title));
+    article.setAttribute('aria-label', '閱讀資料');
+    article.append(element('h3', 'candidate-source-heading', '閱讀資料'), element('h4', '', passage.title));
     const lines = element('ol', '');
     for (const line of passage.lines ?? []) lines.append(element('li', '', line));
     article.append(lines);
@@ -915,7 +918,8 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   }
   if (stage.evidenceRecords?.length) {
     const evidence = element('section', 'candidate-evidence-records');
-    evidence.append(element('h3', '', '觀察紀錄'));
+    evidence.setAttribute('aria-label', '觀察資料');
+    evidence.append(element('h3', 'candidate-source-heading', '觀察資料'));
     for (const record of stage.evidenceRecords) {
       const card = element('article', 'candidate-observation-record');
       card.append(element('strong', '', record.title), element('p', '', record.text));
@@ -926,6 +930,7 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   const appendTableView = (table, dynamicAssignments = null, crossTab = null) => {
     if (!table && !crossTab) return;
     const wrapper = element('div', 'candidate-table-wrap');
+    wrapper.setAttribute('aria-label', '題目提供的表格資料');
     const node = element('table', 'candidate-frequency-table');
     node.append(element('caption', '', table?.title ?? '交叉表'));
     const columns = table?.columns ?? crossTab?.columns ?? [];
@@ -957,6 +962,14 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     ? '操作方式：① 看清楚題目 → ② 用「上移／下移」調整順序 → ③ 排好後檢查答案'
     : stage.interaction === 'assemble_response'
       ? '操作方式：① 看清楚題目 → ② 依順序點選內容 → ③ 檢查「我的答案」 → ④ 完成後檢查答案'
+    : stage.interaction === 'collect_evidence'
+      ? stage.options?.every((option) => Number.isFinite(option.valueAmount))
+        ? '操作方式：① 看清楚付款需求 → ② 選擇錢幣 → ③ 確認目前合計 → ④ 完成後檢查答案'
+        : stage.evidenceRecords?.length
+          ? '操作方式：① 看觀察資料 → ② 選出符合題目的證據 → ③ 檢查「我的選擇」 → ④ 完成後檢查答案'
+          : stage.context?.length || stage.passageId && activity.passages?.[stage.passageId] || stage.tableView
+            ? '操作方式：① 看題目提供的資料 → ② 選出符合題目的證據 → ③ 檢查「我的選擇」 → ④ 完成後檢查答案'
+            : '操作方式：① 看清楚題目 → ② 選出符合題目的證據 → ③ 檢查「我的選擇」 → ④ 完成後檢查答案'
     : stage.interaction === 'magnet_interaction'
       ? '操作方式：① 操作 → ② 觀察 → ③ 作答'
     : stage.interaction === 'classify_observations'
@@ -2246,21 +2259,34 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     host.append(choices);
   }
   if (session.phase === 'active' && stage.interaction === 'collect_evidence') {
+    const isMoneySelection = stage.options.every((option) => Number.isFinite(option.valueAmount));
+    const evidenceSection = element('section', 'candidate-evidence-selection');
+    evidenceSection.setAttribute('aria-labelledby', `candidate-evidence-heading-${stage.stageId}`);
+    const evidenceHeading = element('h3', 'candidate-evidence-selection-heading', isMoneySelection ? '選擇錢幣' : '選擇證據');
+    evidenceHeading.id = `candidate-evidence-heading-${stage.stageId}`;
+    evidenceSection.append(evidenceHeading);
     const evidenceChoices = element('div', 'candidate-category-list');
+    evidenceChoices.setAttribute('role', 'group');
+    evidenceChoices.setAttribute('aria-label', isMoneySelection ? '選擇錢幣' : '選擇證據');
     for (const option of stage.options) {
       const selected = session.selection.includes(option.id);
-      const choice = element('button', `candidate-category${selected ? ' is-selected' : ''}`, option.text);
+      const choice = element('button', `candidate-category candidate-evidence-option${selected ? ' is-selected' : ''}`, `${selected ? '✓ 已選｜' : ''}${option.text}`);
       choice.type = 'button';
       choice.setAttribute('aria-pressed', String(selected));
+      choice.setAttribute('aria-label', `${selected ? '取消選擇' : '選擇'}${isMoneySelection ? '錢幣' : '證據'}「${option.text}」`);
       if (option.figure) choice.prepend(createGeometryFigure(option.figure));
       choice.addEventListener('click', () => dispatch('toggle_evidence', { optionId: option.id }));
       evidenceChoices.append(choice);
     }
-    host.append(evidenceChoices);
-    const selectedAmount = stage.options.every((option) => Number.isFinite(option.valueAmount))
+    evidenceSection.append(evidenceChoices);
+    host.append(evidenceSection);
+    const selectedAmount = isMoneySelection
       ? `，目前合計 ${stage.options.filter((option) => session.selection.includes(option.id)).reduce((sum, option) => sum + option.valueAmount, 0)} 元`
       : '';
-    host.append(element('p', 'candidate-selection-count', `已選取 ${session.selection.length} 張${stage.options.every((option) => Number.isFinite(option.valueAmount)) ? '錢幣' : '觀察卡'}${selectedAmount}`));
+    const selectionSummary = session.selection.length
+      ? `我的選擇：已選 ${session.selection.length} 項${selectedAmount}`
+      : `我的選擇：${isMoneySelection ? '還沒有選擇錢幣。' : '還沒有選擇證據。'}`;
+    host.append(element('p', 'candidate-selection-count candidate-evidence-selection-summary', selectionSummary));
   }
   if (session.phase === 'active' && stage.interaction === 'classify_observations') {
     if (stage.distributionBoard) {

@@ -187,3 +187,69 @@ test('assemble_response 清楚分開可選內容與依序組成的答案', () =>
   assert.deepEqual(session.selection, [chosenIds[1]], 'the existing remove action can correct the assembled response');
   assert.equal(session.phase, 'active');
 });
+
+test('collect_evidence 區分題目資料、證據選擇與目前選取狀態', () => {
+  const dataStart = renderer.indexOf('const stage = activity.stages[session.stageIndex]');
+  const dataEnd = renderer.indexOf('const responseGuidance =', dataStart);
+  const sourceRenderer = renderer.slice(dataStart, dataEnd);
+  const collectStart = renderer.indexOf("if (session.phase === 'active' && stage.interaction === 'collect_evidence')");
+  const collectEnd = renderer.indexOf("if (session.phase === 'active' && stage.interaction === 'classify_observations')", collectStart);
+  const collectRenderer = renderer.slice(collectStart, collectEnd);
+  assert.ok(dataStart >= 0 && dataEnd > dataStart);
+  assert.ok(collectStart >= 0 && collectEnd > collectStart);
+
+  const observationActivity = CATALOG_CANDIDATE_TASK_BY_ID.get('ACT-G2-LIVING-CAMPUS-OBSERVATION-CANDIDATE');
+  const observationStage = observationActivity?.stages.find(({ stageId }) => stageId === 'collect-rough-surface-evidence');
+  const noSourceActivity = CATALOG_CANDIDATE_TASK_BY_ID.get('ACT-G3-MATH-CIRCLE-PATTERN-CANDIDATE');
+  const noSourceStage = noSourceActivity?.stages.find(({ stageId }) => stageId === 'identify-shape-pattern-rule');
+  const contextActivity = CATALOG_CANDIDATE_TASK_BY_ID.get('ACT-G4-INTEGRATIVE-STUDY-METHOD-CANDIDATE');
+  const contextStage = contextActivity?.stages.find(({ stageId }) => stageId === 'review-map-practice-record');
+  const passageActivity = CATALOG_CANDIDATE_TASK_BY_ID.get('ACT-G3-CHINESE-STORY-CLUE-RESCUE-CANDIDATE');
+  const passageStage = passageActivity?.stages.find(({ stageId }) => stageId === 'seedling-care-clues');
+  const moneyActivity = CATALOG_CANDIDATE_TASK_BY_ID.get('ACT-G2-MATH-MONEY-COMBINATION-MARKET-CANDIDATE');
+  const moneyStage = moneyActivity?.stages.find(({ stageId }) => stageId === 'pay-market-basket-one-hundred');
+  assert.ok(observationStage?.evidenceRecords?.length);
+  assert.ok(noSourceStage && !noSourceStage.context?.length && !noSourceStage.evidenceRecords?.length && !noSourceStage.passageId && !noSourceStage.tableView);
+  assert.ok(contextStage?.context?.length);
+  assert.ok(passageStage?.passageId);
+  assert.ok(moneyStage?.options.every(({ valueAmount }) => Number.isFinite(valueAmount)));
+
+  assert.match(sourceRenderer, /if \(stage\.context\?\.length\)[\s\S]*?dialogue\.append\(element\('h3', 'candidate-source-heading', '情境資料'\)\)/);
+  assert.match(sourceRenderer, /if \(stage\.evidenceRecords\?\.length\)[\s\S]*?evidence\.append\(element\('h3', 'candidate-source-heading', '觀察資料'\)\)/);
+  assert.match(sourceRenderer, /if \(stage\.passageId && activity\.passages\?\.\[stage\.passageId\]\)[\s\S]*?'閱讀資料'/);
+  assert.match(sourceRenderer, /candidate-table-wrap[\s\S]*?題目提供的表格資料/);
+  assert.doesNotMatch(sourceRenderer, /else\s*\{[^}]*candidate-evidence-records/);
+  assert.match(renderer, /stage\.evidenceRecords\?\.length[\s\S]*?看觀察資料/);
+  assert.match(renderer, /stage\.context\?\.length \|\| stage\.passageId[\s\S]*?看題目提供的資料/);
+  assert.match(renderer, /: '操作方式：① 看清楚題目 → ② 選出符合題目的證據 → ③ 檢查「我的選擇」 → ④ 完成後檢查答案'/);
+  assert.match(renderer, /看清楚付款需求 → ② 選擇錢幣 → ③ 確認目前合計/);
+
+  assert.match(collectRenderer, /'選擇證據'/);
+  assert.match(collectRenderer, /isMoneySelection \? '選擇錢幣' : '選擇證據'/);
+  assert.match(collectRenderer, /aria-label', isMoneySelection \? '選擇錢幣' : '選擇證據'/);
+  assert.match(collectRenderer, /\$\{selected \? '✓ 已選｜' : ''\}\$\{option\.text\}/);
+  assert.match(collectRenderer, /aria-label', `\$\{selected \? '取消選擇' : '選擇'\}\$\{isMoneySelection \? '錢幣' : '證據'\}「\$\{option\.text\}」`/);
+  assert.match(collectRenderer, /dispatch\('toggle_evidence', \{ optionId: option\.id \}\)/);
+  assert.match(collectRenderer, /const isMoneySelection = stage\.options\.every\(\(option\) => Number\.isFinite\(option\.valueAmount\)\)/);
+  assert.match(collectRenderer, /session\.selection\.length/);
+  assert.match(collectRenderer, /我的選擇：已選 \$\{session\.selection\.length\} 項/);
+  assert.match(collectRenderer, /我的選擇：\$\{isMoneySelection \? '還沒有選擇錢幣。' : '還沒有選擇證據。'\}/);
+  assert.doesNotMatch(collectRenderer, /correctOptionIds|已選[^\n]*\/[^\n]*答案|答案數/);
+  assert.match(collectRenderer, /stage\.options\.filter\(\(option\) => session\.selection\.includes\(option\.id\)\)\.reduce\(\(sum, option\) => sum \+ option\.valueAmount, 0\)/);
+
+  let session = dispatchLearningTask(createLearningTaskSession(observationActivity, 'collect-evidence-ux-test'), observationActivity, 'start').session;
+  assert.equal(observationActivity.stages[session.stageIndex].interaction, 'collect_evidence');
+  const evidenceId = observationStage.options[0].id;
+  session = dispatchLearningTask(session, observationActivity, 'toggle_evidence', { optionId: evidenceId }).session;
+  assert.deepEqual(session.selection, [evidenceId]);
+  session = dispatchLearningTask(session, observationActivity, 'toggle_evidence', { optionId: evidenceId }).session;
+  assert.deepEqual(session.selection, [], 'toggling the same evidence off uses the existing selection behavior');
+
+  const hasResponseStart = renderer.indexOf('const hasResponse =');
+  const hasResponseEnd = renderer.indexOf('const submitLabel =', hasResponseStart);
+  const hasResponseSection = renderer.slice(hasResponseStart, hasResponseEnd);
+  assert.match(hasResponseSection, /: session\.selection\.length > 0;/);
+  assert.match(renderer.slice(hasResponseEnd), /submit\.disabled = !hasResponse/);
+  assert.match(engine, /state\.selection = state\.selection\.includes\(payload\.optionId\)[\s\S]*?\? state\.selection\.filter\(\(id\) => id !== payload\.optionId\)/);
+  assert.match(engine, /correct = sortedResponse\.length === sortedExpected\.length && sortedResponse\.every\(\(id, index\) => id === sortedExpected\[index\]\)/);
+});
