@@ -955,6 +955,8 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   const answerCount = stage.correctOptionIds?.length ?? (stage.correctOptionId ? 1 : 0);
   const responseGuidance = stage.interaction === 'order_items'
     ? '操作方式：① 看清楚題目 → ② 用「上移／下移」調整順序 → ③ 排好後檢查答案'
+    : stage.interaction === 'assemble_response'
+      ? '操作方式：① 看清楚題目 → ② 依順序點選內容 → ③ 檢查「我的答案」 → ④ 完成後檢查答案'
     : stage.interaction === 'magnet_interaction'
       ? '操作方式：① 操作 → ② 觀察 → ③ 作答'
     : stage.interaction === 'classify_observations'
@@ -1147,20 +1149,38 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     panel.append(slider, element('p', '', `目前半徑：${session.circleRadius ?? '尚未調整'} 格`)); host.append(panel);
   }
   if (session.phase === 'active' && stage.interaction === 'assemble_response') {
-    const selected = element('section', 'candidate-response-build');
-    selected.append(element('strong', '', '你的回應（依點選順序排列）'));
-    const answerLine = element('p', 'candidate-response-line', session.selection.map((id) => stage.tokens.find(({ id: tokenId }) => tokenId === id)?.text ?? '').join(' ') || '尚未選取語塊');
-    selected.append(answerLine);
-    host.append(selected);
+    host.append(element('h3', 'candidate-response-options-heading', '可選內容'));
     const tiles = element('div', 'candidate-token-list');
     for (const token of stage.tokens) {
       const isSelected = session.selection.includes(token.id);
-      const tile = element('button', `candidate-token${isSelected ? ' is-selected' : ''}`, token.text);
+      const tile = element('button', `candidate-token candidate-response-option${isSelected ? ' is-selected' : ''}`, `${isSelected ? '✓ ' : ''}${token.text}`);
       tile.type = 'button'; tile.setAttribute('aria-pressed', String(isSelected));
-      tile.addEventListener('click', () => dispatch(isSelected ? 'remove_phrase_token' : 'add_phrase_token', { tokenId: token.id }));
+      tile.dataset.responseTokenId = token.id;
+      tile.setAttribute('aria-label', isSelected ? `從我的答案移除「${token.text}」` : `將「${token.text}」加入我的答案`);
+      tile.addEventListener('click', () => {
+        dispatch(isSelected ? 'remove_phrase_token' : 'add_phrase_token', { tokenId: token.id });
+        [...host.querySelectorAll('.candidate-response-option')].find((candidateTile) => candidateTile.dataset.responseTokenId === token.id)?.focus();
+      });
       tiles.append(tile);
     }
     host.append(tiles);
+    const answer = element('section', 'candidate-response-build candidate-response-answer');
+    answer.setAttribute('aria-label', '我的答案，依點選順序排列');
+    answer.append(element('h3', 'candidate-response-answer-heading', '我的答案'));
+    if (session.selection.length === 0) {
+      answer.append(element('p', 'candidate-response-empty', '還沒有加入內容。請從「可選內容」依順序點選。'));
+    } else {
+      const answerList = element('ol', 'candidate-response-answer-list');
+      for (const [index, tokenId] of session.selection.entries()) {
+        const tokenText = stage.tokens.find(({ id }) => id === tokenId)?.text ?? tokenId;
+        const item = element('li', 'candidate-response-answer-item');
+        item.setAttribute('aria-label', `第 ${index + 1} 項：${tokenText}`);
+        item.append(element('span', 'candidate-response-sequence-number', String(index + 1)), element('span', 'candidate-response-answer-text', tokenText));
+        answerList.append(item);
+      }
+      answer.append(answerList);
+    }
+    host.append(answer);
   }
   if (session.phase === 'active' && stage.interaction === 'build_array') {
     const panel = element('section', 'candidate-response-build math-array-builder');

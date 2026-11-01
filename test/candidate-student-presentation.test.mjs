@@ -146,3 +146,44 @@ test('order_items 共用呈現說明順序操作、位置與可存取移動控�
   assert.equal(session.phase, 'active');
   assert.match(engine, /if \(action === 'move_ordered_item'\)[\s\S]*?state\.orderedItems\.splice\(toIndex, 0, itemId\)/);
 });
+
+test('assemble_response 清楚分開可選內容與依序組成的答案', () => {
+  const assembleStart = renderer.indexOf("if (session.phase === 'active' && stage.interaction === 'assemble_response')");
+  const assembleEnd = renderer.indexOf("if (session.phase === 'active' && stage.interaction === 'build_array')", assembleStart);
+  const assembleRenderer = renderer.slice(assembleStart, assembleEnd);
+  assert.ok(assembleStart >= 0 && assembleEnd > assembleStart);
+  assert.match(renderer, /操作方式：① 看清楚題目 → ② 依順序點選內容 → ③ 檢查「我的答案」 → ④ 完成後檢查答案/);
+  assert.match(assembleRenderer, /'可選內容'/);
+  assert.match(assembleRenderer, /'我的答案'/);
+  assert.match(assembleRenderer, /還沒有加入內容。請從「可選內容」依順序點選。/);
+  assert.match(assembleRenderer, /session\.selection\.includes\(token\.id\)/);
+  assert.match(assembleRenderer, /dispatch\(isSelected \? 'remove_phrase_token' : 'add_phrase_token', \{ tokenId: token\.id \}\)/);
+  assert.match(assembleRenderer, /for \(const \[index, tokenId\] of session\.selection\.entries\(\)\)/);
+  assert.match(assembleRenderer, /String\(index \+ 1\)/);
+  assert.match(assembleRenderer, /將「\$\{token\.text\}」加入我的答案/);
+  assert.match(assembleRenderer, /從我的答案移除「\$\{token\.text\}」/);
+  assert.match(assembleRenderer, /aria-label', `第 \$\{index \+ 1\} 項：\$\{tokenText\}`/);
+  assert.match(assembleRenderer, /aria-label', '我的答案，依點選順序排列'/);
+  assert.doesNotMatch(assembleRenderer, /作答進度|correctOptionIds|X \/ N/);
+
+  const hasResponseStart = renderer.indexOf('const hasResponse =');
+  const hasResponseEnd = renderer.indexOf('const submitLabel =', hasResponseStart);
+  const hasResponseSection = renderer.slice(hasResponseStart, hasResponseEnd);
+  assert.ok(hasResponseStart >= 0 && hasResponseEnd > hasResponseStart);
+  assert.match(hasResponseSection, /: session\.selection\.length > 0;/);
+  assert.match(renderer.slice(hasResponseEnd), /submit\.disabled = !hasResponse/);
+  assert.match(engine, /interaction === 'assemble_response'\) correct = response\.length === stage\.correctOptionIds\.length && response\.every\(\(id, index\) => id === stage\.correctOptionIds\[index\]\)/);
+
+  const activity = CATALOG_CANDIDATE_TASK_BY_ID.get('ACT-G4-INTEGRATIVE-STUDY-METHOD-CANDIDATE');
+  const stage = activity?.stages.find(({ stageId }) => stageId === 'plan-leaf-observation');
+  assert.ok(stage);
+  let session = dispatchLearningTask(createLearningTaskSession(activity, 'assemble-response-ux-test'), activity, 'start').session;
+  const chosenIds = stage.tokens.slice(0, 2).map(({ id }) => id);
+  for (const tokenId of chosenIds) {
+    session = dispatchLearningTask(session, activity, 'add_phrase_token', { tokenId }).session;
+  }
+  assert.deepEqual(session.selection, chosenIds, 'the existing selection state retains the order in which options were selected');
+  session = dispatchLearningTask(session, activity, 'remove_phrase_token', { tokenId: chosenIds[0] }).session;
+  assert.deepEqual(session.selection, [chosenIds[1]], 'the existing remove action can correct the assembled response');
+  assert.equal(session.phase, 'active');
+});
