@@ -76,6 +76,21 @@
 .grade-task-reference small,.grade-level-reference,.grade-task-boundary{color:#627985;font-size:.72rem;line-height:1.45;overflow-wrap:anywhere}
 .grade-task-boundary{grid-column:1/-1;margin:0;padding:9px 10px;border-radius:10px;background:#eef7f7}
 .grade-subject-detail .button{justify-self:start;min-height:44px}
+.student-adventure-discovery-guide{margin-top:10px;padding:10px 12px;border:2px solid #83bdcb;border-radius:13px;background:#effbff;color:#214c63}
+.student-adventure-step-sequence{margin:0;font-size:.82rem;font-weight:850;line-height:1.5}
+.student-adventure-step-prompt{margin:4px 0 0;color:#174b67;font-size:.95rem;font-weight:900;line-height:1.4}
+.student-adventure-discovery-guide[data-current-step="1"]{border-color:#e1b637;background:#fff8df}
+.student-adventure-discovery-guide[data-current-step="2"]{border-color:#4e9db5;background:#effbff}
+.student-adventure-discovery-guide[data-current-step="3"]{border-color:#55a27e;background:#effaf3}
+.grade-subject-extra-activities{align-items:stretch}
+.student-game-list-heading{grid-column:1/-1;margin:4px 0 0;color:#214964;font-size:1.08rem;line-height:1.4}
+.student-game-list-count{grid-column:1/-1;margin:0 0 2px;color:#315d70;font-size:.9rem;font-weight:850}
+.student-game-card{display:grid;align-content:start;gap:8px;min-width:0;padding:14px;border:2px solid #b8dbe0;border-radius:16px;background:#fff;box-shadow:0 3px 0 #dbecef}
+.student-game-card h5{margin:0;color:#214964;font-size:1.04rem;line-height:1.35;overflow-wrap:anywhere}
+.student-game-card p{margin:0;color:#405f69;font-size:.86rem;line-height:1.5;overflow-wrap:anywhere}
+.student-game-card-challenges{color:#315d70;font-size:.8rem;font-weight:900}
+.student-game-card-status{color:#71828a;font-size:.7rem;line-height:1.4}
+.student-game-card .catalog-task-launch{width:100%;margin-top:2px;font-weight:900}
 @media(max-width:760px){.grade-subject-directory{grid-template-columns:repeat(3,minmax(0,1fr))}.grade-subject-task-list{grid-template-columns:1fr}}
 @media(max-width:430px){.grade-subject-directory{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.grade-subject-card{min-height:86px;padding:9px}.grade-subject-card strong{font-size:.78rem}.grade-subject-card small{font-size:.64rem}.grade-subject-detail{padding:12px}.grade-subject-detail .button{width:100%}}
 

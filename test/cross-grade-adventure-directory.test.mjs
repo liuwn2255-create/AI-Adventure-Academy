@@ -58,6 +58,26 @@ test('各學科目錄摘要與可啟動按鈕一致，沒有活動的領域不�
   assert.match(app, /尚無可玩活動/);
 });
 
+test('學生入口依序提示年級、科目與遊戲，並以動態卡片啟動四年級磁力活動', () => {
+  const grade = GRADE_CATALOG.find(({ gradeId }) => gradeId === 'grade-4');
+  const subject = grade.subjects.find(({ subjectId }) => subjectId === 'natural-science');
+  const activities = getSubjectLaunchableActivities(grade, subject);
+  const magnet = activities.find(({ activityId }) => activityId === 'ACT-G4-SCIENCE-MAGNET-INTERACTION-DOCK-CANDIDATE');
+
+  assert.ok(magnet, '四年級自然科學目錄必須列出磁力活動');
+  assert.equal(magnet.status, 'candidate_pending_teacher_review');
+  assert.equal(magnet.stages.length, 3);
+  assert.match(app, /① 選年級 → ② 選科目 → ③ 選遊戲/);
+  assert.match(app, /第 1 步｜選擇你的年級/);
+  assert.match(app, /第 2 步｜選擇科目/);
+  assert.match(app, /第 3 步｜選一個遊戲開始探險/);
+  assert.match(app, /找到 \$\{subjectActivities\.length\} 個可以挑戰的遊戲/);
+  assert.match(app, /\$\{activity\.stages\?\.length \?\? 0\} 個挑戰/);
+  assert.match(app, /launch\.textContent = '開始挑戰'/);
+  assert.match(app, /launch\.dataset\.activityId = activity\.activityId/);
+  assert.match(app, /startCatalogCandidateTask\(activity\.activityId\)/);
+});
+
 test('三年級數學舊原型、受條件限制及未開放目錄參照與 25 個候選入口分開統計', () => {
   const grade = GRADE_CATALOG.find(({ gradeId }) => gradeId === 'grade-3');
   const subject = grade.subjects.find(({ subjectId }) => subjectId === 'mathematics');

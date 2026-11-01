@@ -90,8 +90,8 @@ const capacityMission = createCapacityMission();
 const capacityObservation = createCapacityObservationSession();
 const capacityOnboarding = createCapacityOnboarding();
 let activeCapacityObservationMode = 'challenge';
-let selectedGradeId = 'grade-3';
-let selectedSubjectId = 'mathematics';
+let selectedGradeId = null;
+let selectedSubjectId = null;
 let readingQuestSession = createLearningTaskSession(STORY_FOREST_READING_QUEST);
 let englishAdventureSession = createLearningTaskSession(ENGLISH_SCENARIO_ADVENTURE);
 let scienceExplorationSession = createLearningTaskSession(ANIMAL_OBSERVATION_EXPLORATION);
@@ -123,6 +123,23 @@ const movementHoldController = createMovementHoldController((direction) => moveE
 document.getElementById('start-button').addEventListener('click', () => showScreen('select'));
 
 function renderGradeSelection() {
+  const pickerHeading = document.querySelector('.grade-picker-heading');
+  let discoveryGuide = document.getElementById('student-adventure-discovery-guide');
+  if (!discoveryGuide) {
+    discoveryGuide = document.createElement('div');
+    discoveryGuide.id = 'student-adventure-discovery-guide';
+    discoveryGuide.className = 'student-adventure-discovery-guide';
+    const sequence = document.createElement('p');
+    sequence.className = 'student-adventure-step-sequence';
+    sequence.textContent = '① 選年級 → ② 選科目 → ③ 選遊戲';
+    const prompt = document.createElement('p');
+    prompt.id = 'student-adventure-step-prompt';
+    prompt.className = 'student-adventure-step-prompt';
+    prompt.setAttribute('role', 'status');
+    discoveryGuide.append(sequence, prompt);
+    pickerHeading.append(discoveryGuide);
+  }
+
   const host = document.getElementById('grade-options');
   host.replaceChildren();
   for (const grade of GRADE_CATALOG) {
@@ -142,18 +159,28 @@ function renderGradeSelection() {
     button.append(name, status);
     button.addEventListener('click', () => {
       selectedGradeId = grade.gradeId;
+      selectedSubjectId = null;
       renderGradeSelection();
     });
     host.append(button);
   }
 
   const grade = getGradeById(selectedGradeId) ?? GRADE_CATALOG[2];
+  const hasSelectedGrade = Boolean(selectedGradeId);
+  const hasSelectedSubject = hasSelectedGrade && Boolean(selectedSubjectId);
+  const stepPrompt = document.getElementById('student-adventure-step-prompt');
+  stepPrompt.textContent = !hasSelectedGrade
+    ? '第 1 步｜選擇你的年級'
+    : !hasSelectedSubject
+      ? '第 2 步｜選擇科目'
+      : '第 3 步｜選一個遊戲開始探險';
+  discoveryGuide.dataset.currentStep = !hasSelectedGrade ? '1' : !hasSelectedSubject ? '2' : '3';
   const isGradeThree = grade.gradeNumber === 3;
   document.getElementById('select-title').textContent = `${grade.name}探險地圖`;
-  document.getElementById('grade3-experience').hidden = !isGradeThree;
+  document.getElementById('grade3-experience').hidden = !(hasSelectedGrade && isGradeThree);
   renderGrade3MathAdventureMap();
   const preparationPanel = document.getElementById('grade-preparation-panel');
-  preparationPanel.hidden = false;
+  preparationPanel.hidden = !hasSelectedGrade;
     const gradeSummary = getGradeAdventureSummary(grade);
     const playableSubjects = gradeSummary.subjects.filter(({ activityCount }) => activityCount > 0);
     const hasPlayableSubjectActivities = playableSubjects.length > 0;
@@ -181,7 +208,7 @@ function renderGradeSelection() {
 
   const directory = document.getElementById('grade-subject-directory');
   directory.replaceChildren();
-  if (!grade.subjects.some(({ subjectId }) => subjectId === selectedSubjectId)) selectedSubjectId = 'mathematics';
+  if (!grade.subjects.some(({ subjectId }) => subjectId === selectedSubjectId)) selectedSubjectId = null;
   for (const subject of grade.subjects) {
     const subjectActivities = getSubjectLaunchableActivities(grade, subject);
     const button = document.createElement('button');
@@ -212,7 +239,7 @@ function renderGradeSelection() {
     directory.append(button);
   }
 
-  const subject = grade.subjects.find(({ subjectId }) => subjectId === selectedSubjectId);
+  const subject = hasSelectedSubject ? grade.subjects.find(({ subjectId }) => subjectId === selectedSubjectId) : null;
     const area = ELEMENTARY_CURRICULUM_AREAS.find(({ areaId }) => areaId === subject?.areaId);
   const subjectSummary = getSubjectDirectorySummary(grade, subject);
   const subjectActivities = subjectSummary.activities;
@@ -302,15 +329,41 @@ function renderGradeSelection() {
     document.getElementById('grade-subject-open-arts').hidden = !(isGradeThree && subject.subjectId === 'arts' && subject.developmentStatus === 'playable_candidate_prototype');
     const extraLaunches = document.getElementById('grade-subject-extra-activities');
     extraLaunches.replaceChildren();
+    if (subjectActivities.length > 0) {
+      const gameHeading = document.createElement('h4');
+      gameHeading.className = 'student-game-list-heading';
+      gameHeading.textContent = '第 3 步｜選一個遊戲開始探險';
+      const gameCount = document.createElement('p');
+      gameCount.className = 'student-game-list-count';
+      gameCount.textContent = `找到 ${subjectActivities.length} 個可以挑戰的遊戲`;
+      extraLaunches.append(gameHeading, gameCount);
+    }
     for (const activity of subjectActivities) {
       if (!CATALOG_CANDIDATE_TASK_BY_ID.has(activity.activityId)) continue;
+      const card = document.createElement('article');
+      card.className = 'student-game-card';
+      card.dataset.activityId = activity.activityId;
+      const title = document.createElement('h5');
+      title.textContent = activity.title?.split(/[：:]/, 1)[0] ?? '學習冒險';
+      const description = document.createElement('p');
+      const titleSummary = activity.title?.split(/[：:]/).slice(1).join('：').trim();
+      description.textContent = titleSummary
+        ? titleSummary.replace('比吸起數量', '比較磁力強弱')
+        : activity.learningObjective?.statement ?? activity.instructions ?? '動手完成任務挑戰。';
+      const challengeCount = document.createElement('small');
+      challengeCount.className = 'student-game-card-challenges';
+      challengeCount.textContent = `${activity.stages?.length ?? 0} 個挑戰`;
+      const status = document.createElement('small');
+      status.className = 'student-game-card-status';
+      status.textContent = '候選活動・待教師審查';
       const launch = document.createElement('button');
       launch.type = 'button';
       launch.className = 'button button-primary catalog-task-launch';
       launch.dataset.activityId = activity.activityId;
-      launch.textContent = `開始候選任務：${activity.title}`;
+      launch.textContent = '開始挑戰';
       launch.addEventListener('click', () => startCatalogCandidateTask(activity.activityId));
-      extraLaunches.append(launch);
+      card.append(title, description, challengeCount, status, launch);
+      extraLaunches.append(card);
     }
     const mathRelation = isGradeThree && subject.subjectId === 'mathematics' ? getLearningTaskRelation('grade-3', 'mathematics') : null;
     if (mathRelation?.candidateLearningPath?.length) {
