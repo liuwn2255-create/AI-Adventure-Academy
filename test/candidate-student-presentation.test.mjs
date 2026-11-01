@@ -2,6 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { CATALOG_CANDIDATE_TASKS, CATALOG_CANDIDATE_TASK_BY_ID } from '../prototype/data/catalogCandidateTasks.js';
+import { GRADE_CATALOG } from '../prototype/data/gradeCatalog.js';
+import { getSubjectLaunchableActivities } from '../prototype/data/gradeActivityDirectory.js';
 import { createLearningTaskSession, dispatchLearningTask } from '../prototype/learningTaskEngine.js';
 
 const app = await readFile(new URL('../prototype/app.js', import.meta.url), 'utf8');
@@ -304,4 +306,50 @@ test('choose_response 以單選語意呈現並保留既有選取與提交行為'
   assert.match(hasResponse, /: session\.selection\.length > 0;/);
   assert.match(renderer.slice(hasResponseEnd), /submit\.disabled = !hasResponse/);
   assert.match(engine, /if \(action === 'select_option'\)[\s\S]*?state\.selection = \[payload\.optionId\]/);
+});
+
+test('學生冒險入口分成年級、科目、遊戲三層並只在三年級數學顯示冒險地圖', () => {
+  const selectionStart = app.indexOf('function renderGradeSelection()');
+  const selectionEnd = app.indexOf('\nfunction renderGrade3MathAdventureMap()', selectionStart);
+  const selectionRenderer = app.slice(selectionStart, selectionEnd);
+  assert.ok(selectionStart >= 0 && selectionEnd > selectionStart);
+
+  assert.match(selectionRenderer, /const hasSelectedGrade = Boolean\(selectedGradeId\)/);
+  assert.match(selectionRenderer, /grade-picker'\)\.hidden = hasSelectedGrade/);
+  assert.match(selectionRenderer, /grade-preparation-panel'\)[\s\S]*?hidden = !hasSelectedGrade/);
+  assert.match(selectionRenderer, /grade-subject-directory'[\s\S]*?hidden = hasSelectedSubject/);
+  assert.match(selectionRenderer, /grade-subject-detail'[\s\S]*?hidden = !subject/);
+  assert.match(selectionRenderer, /grade3-experience'\)\.hidden = !\(hasSelectedSubject && isGradeThree && selectedSubjectId === 'mathematics'\)/);
+  assert.match(selectionRenderer, /getSubjectLaunchableActivities\(grade, subject\)/);
+  assert.match(selectionRenderer, /找到 \$\{subjectActivities\.length\} 個可以挑戰的遊戲/);
+  assert.match(selectionRenderer, /startCatalogCandidateTask\(activity\.activityId\)/);
+  assert.match(selectionRenderer, /候選活動・待教師審查/);
+  assert.match(selectionRenderer, /選擇遊戲/);
+  assert.match(html, /<details id="grade-teacher-info" class="student-teacher-info">\s*<summary>👩‍🏫 教師／課綱資訊<\/summary>/);
+  assert.match(html, /<details id="grade-subject-teacher-info" class="student-teacher-info">\s*<summary>👩‍🏫 教師／課綱資訊<\/summary>/);
+  assert.match(app, /document\.querySelector\('\.brand'\)[\s\S]*?showScreen\('home'\)/);
+  assert.doesNotMatch(selectionRenderer, /location\.reload/);
+
+  const backToGradesStart = app.indexOf("document.getElementById('student-back-to-grades').addEventListener");
+  const backToSubjectsStart = app.indexOf("document.getElementById('student-subject-back').addEventListener");
+  const backToSubjectsEnd = app.indexOf("document.getElementById('grade-subject-open-reading').addEventListener", backToSubjectsStart);
+  const backToGrades = app.slice(backToGradesStart, backToSubjectsStart);
+  const backToSubjects = app.slice(backToSubjectsStart, backToSubjectsEnd);
+  assert.match(backToGrades, /selectedGradeId = null;[\s\S]*selectedSubjectId = null;[\s\S]*renderGradeSelection\(\)/);
+  assert.match(backToSubjects, /const previousSubjectId = selectedSubjectId;[\s\S]*selectedSubjectId = null;[\s\S]*renderGradeSelection\(\)/);
+  assert.doesNotMatch(backToSubjects, /selectedGradeId\s*=/);
+
+  const grade3 = GRADE_CATALOG.find(({ gradeId }) => gradeId === 'grade-3');
+  const chinese = grade3.subjects.find(({ subjectId }) => subjectId === 'chinese-language');
+  const math = grade3.subjects.find(({ subjectId }) => subjectId === 'mathematics');
+  const chineseActivities = getSubjectLaunchableActivities(grade3, chinese);
+  assert.ok(chineseActivities.length > 0);
+  const chineseCatalogActivities = chineseActivities.filter(({ activityId }) => CATALOG_CANDIDATE_TASK_BY_ID.has(activityId));
+  assert.ok(chineseCatalogActivities.length > 0);
+  assert.ok(chineseCatalogActivities.every(({ gradeId, subjectId }) => gradeId === grade3.gradeId && subjectId === chinese.subjectId));
+  const dedicatedReadingActivity = chineseActivities.find(({ activityId }) => activityId === 'ACT-G3-CHINESE-READING-GARDEN-CANDIDATE');
+  assert.equal(dedicatedReadingActivity?.entryRoute?.directLaunch, true);
+  assert.ok(!chineseActivities.some(({ activityId }) => activityId === 'ACT-G3-MATH-DATA-TABLE-WORKSHOP-CANDIDATE'));
+  assert.ok(getSubjectLaunchableActivities(grade3, math).some(({ activityId }) => activityId === 'ACT-G3-MATH-DATA-TABLE-WORKSHOP-CANDIDATE'));
+  assert.ok(CATALOG_CANDIDATE_TASK_BY_ID.has('ACT-G3-CHINESE-STORY-CLUE-RESCUE-CANDIDATE'));
 });

@@ -127,17 +127,25 @@
           <div id="grade-options" class="grade-options" role="group" aria-label="選擇年級"></div>
         </section>
         <section id="grade-preparation-panel" class="grade-preparation-panel" aria-labelledby="grade-preparation-title" hidden>
-          <div class="grade-preparation-heading"><div><p id="grade-development-status" class="eyebrow">準備中</p><h2 id="grade-preparation-title"></h2></div><span id="grade-preparation-badge" class="grade-preparation-badge">內容尚未開放</span></div>
-          <p id="grade-preparation-note" class="grade-preparation-note"></p>
-          <p class="curriculum-framework-note">領域索引依教育部總綱表 3、表 4 建立；卡片會列出資料狀態。索引不表示該領域在此年級的實際授課範圍或教材進度已核實。</p>
-          <section id="grade-candidate-route-panel" class="grade-candidate-route-panel" aria-labelledby="grade-candidate-route-title" hidden></section>
-          <div id="grade-semester-list" class="grade-semester-list"></div>
-          <h3 class="grade-directory-title">學習領域與科目</h3>
+          <button id="student-back-to-grades" class="text-button student-directory-back" type="button" hidden>← 返回選擇年級</button>
+          <div class="grade-preparation-heading"><h2 id="grade-preparation-title"></h2></div>
+          <details id="grade-teacher-info" class="student-teacher-info">
+            <summary>👩‍🏫 教師／課綱資訊</summary>
+            <div class="student-teacher-info-content">
+              <p id="grade-development-status" class="eyebrow">準備中</p>
+              <span id="grade-preparation-badge" class="grade-preparation-badge">內容尚未開放</span>
+              <p id="grade-preparation-note" class="grade-preparation-note"></p>
+              <p class="curriculum-framework-note">領域索引依教育部總綱表 3、表 4 建立；卡片會列出資料狀態。索引不表示該領域在此年級的實際授課範圍或教材進度已核實。</p>
+              <section id="grade-candidate-route-panel" class="grade-candidate-route-panel" aria-labelledby="grade-candidate-route-title" hidden></section>
+              <div id="grade-semester-list" class="grade-semester-list"></div>
+              <p class="prototype-note">出版社、版本、冊別、頁碼、年級細目、學期順序、實際授課進度及教師審查均不由這個目錄推定。課程骨架的學習進度介面目前僅為規格。</p>
+            </div>
+          </details>
+          <h3 id="grade-directory-title" class="grade-directory-title">選擇科目</h3>
           <div id="grade-subject-directory" class="grade-subject-directory" aria-label="選擇學習領域或科目"></div>
           <section id="grade-subject-detail" class="grade-subject-detail" aria-live="polite" hidden>
-            <div><p id="grade-subject-detail-status" class="eyebrow"></p><h3 id="grade-subject-detail-title"></h3></div>
-            <p id="grade-subject-detail-copy"></p>
-            <div id="grade-subject-task-list" class="grade-subject-task-list"></div>
+            <button id="student-subject-back" class="text-button student-directory-back" type="button">← 返回選擇科目</button>
+            <div><h3 id="grade-subject-detail-title"></h3></div>
             <div id="grade-subject-extra-activities" class="grade-subject-extra-activities" aria-label="可遊玩的候選任務"></div>
             <button id="grade-subject-open-map" class="button button-primary" type="button" hidden>前往三年級數學冒險地圖</button>
             <button id="grade-subject-open-reading" data-activity-id="ACT-G3-CHINESE-READING-GARDEN-CANDIDATE" class="button button-primary" type="button" hidden>開始故事森林閱讀任務</button>
@@ -146,12 +154,19 @@
             <button id="grade-subject-open-social" data-activity-id="ACT-G3-SOCIAL-NEIGHBORHOOD-CHANGE-CANDIDATE" class="button button-primary" type="button" hidden>開始社區資料探險</button>
             <button id="grade-subject-open-math-data" data-activity-id="ACT-G3-MATH-DATA-TABLE-WORKSHOP-CANDIDATE" class="button button-primary" type="button" hidden>開始資料表建造任務</button>
             <button id="grade-subject-open-arts" data-activity-id="ACT-G3-ARTS-RHYTHM-WORKSHOP-CANDIDATE" class="button button-primary" type="button" hidden>開始節奏小工坊</button>
+            <details id="grade-subject-teacher-info" class="student-teacher-info">
+              <summary>👩‍🏫 教師／課綱資訊</summary>
+              <div class="student-teacher-info-content">
+                <p id="grade-subject-detail-status" class="eyebrow"></p>
+                <p id="grade-subject-detail-copy"></p>
+                <div id="grade-subject-task-list" class="grade-subject-task-list"></div>
+              </div>
+            </details>
           </section>
-          <p class="prototype-note">出版社、版本、冊別、頁碼、年級細目、學期順序、實際授課進度及教師審查均不由這個目錄推定。課程骨架的學習進度介面目前僅為規格。</p>
         </section>
         <div id="grade3-experience">
         <section id="grade3-math-adventure-map" class="grade3-math-adventure-map" aria-labelledby="grade3-math-adventure-title">
-          <div class="grade3-math-adventure-heading"><div><p class="eyebrow">候選學習路徑・不改變正式解鎖</p><h2 id="grade3-math-adventure-title">三年級數學冒險地圖</h2></div><button id="grade3-math-map-return-directory" class="text-button" type="button">返回年級／科目目錄</button></div>
+          <div class="grade3-math-adventure-heading"><div><p class="eyebrow">候選學習路徑・不改變正式解鎖</p><h2 id="grade3-math-adventure-title">三年級數學冒險地圖</h2></div><button id="grade3-math-map-return-directory" class="text-button" type="button">返回三年級數學遊戲</button></div>
           <p class="grade3-math-adventure-note">關卡依目前已註冊的三年級數學候選活動動態列出。可玩表示有共用任務引擎入口，不代表課綱完整涵蓋、教師核准或正式精熟；完成狀態只在本次記憶體流程中使用。</p>
           <div id="grade3-math-repair-mainline" class="grade3-math-repair-mainline" aria-live="polite"></div>
           <div id="grade3-math-adventure-regions" class="grade3-math-adventure-regions" aria-live="polite"></div>

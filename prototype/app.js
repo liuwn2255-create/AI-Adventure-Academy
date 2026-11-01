@@ -128,7 +128,6 @@ document.querySelector('.brand')?.addEventListener('click', (event) => {
 });
 
 function renderGradeSelection() {
-  const pickerHeading = document.querySelector('.grade-picker-heading');
   let discoveryGuide = document.getElementById('student-adventure-discovery-guide');
   if (!discoveryGuide) {
     discoveryGuide = document.createElement('div');
@@ -142,9 +141,10 @@ function renderGradeSelection() {
     prompt.className = 'student-adventure-step-prompt';
     prompt.setAttribute('role', 'status');
     discoveryGuide.append(sequence, prompt);
-    pickerHeading.append(discoveryGuide);
+    document.getElementById('select-screen').insertBefore(discoveryGuide, document.querySelector('.grade-picker'));
   }
 
+  const hasSelectedGrade = Boolean(selectedGradeId);
   const host = document.getElementById('grade-options');
   host.replaceChildren();
   for (const grade of GRADE_CATALOG) {
@@ -165,13 +165,15 @@ function renderGradeSelection() {
     button.addEventListener('click', () => {
       selectedGradeId = grade.gradeId;
       selectedSubjectId = null;
+      document.getElementById('grade-teacher-info').open = false;
+      document.getElementById('grade-subject-teacher-info').open = false;
       renderGradeSelection();
     });
     host.append(button);
   }
 
   const grade = getGradeById(selectedGradeId) ?? GRADE_CATALOG[2];
-  const hasSelectedGrade = Boolean(selectedGradeId);
+  if (!grade.subjects.some(({ subjectId }) => subjectId === selectedSubjectId)) selectedSubjectId = null;
   const hasSelectedSubject = hasSelectedGrade && Boolean(selectedSubjectId);
   const stepPrompt = document.getElementById('student-adventure-step-prompt');
   stepPrompt.textContent = !hasSelectedGrade
@@ -181,11 +183,19 @@ function renderGradeSelection() {
       : '第 3 步｜選一個遊戲開始探險';
   discoveryGuide.dataset.currentStep = !hasSelectedGrade ? '1' : !hasSelectedSubject ? '2' : '3';
   const isGradeThree = grade.gradeNumber === 3;
-  document.getElementById('select-title').textContent = `${grade.name}探險地圖`;
-  document.getElementById('grade3-experience').hidden = !(hasSelectedGrade && isGradeThree);
+  document.querySelector('.grade-picker').hidden = hasSelectedGrade;
+  document.getElementById('grade3-experience').hidden = !(hasSelectedSubject && isGradeThree && selectedSubjectId === 'mathematics');
   renderGrade3MathAdventureMap();
   const preparationPanel = document.getElementById('grade-preparation-panel');
   preparationPanel.hidden = !hasSelectedGrade;
+  document.getElementById('student-back-to-grades').hidden = !hasSelectedGrade || hasSelectedSubject;
+  document.getElementById('student-subject-back').hidden = !hasSelectedSubject;
+  const selectedSubjectName = hasSelectedSubject ? grade.subjects.find(({ subjectId }) => subjectId === selectedSubjectId)?.name : null;
+  document.getElementById('grade-preparation-title').textContent = hasSelectedSubject
+    ? `${grade.name}｜${selectedSubjectName}｜選擇遊戲`
+    : `${grade.name}｜選擇科目`;
+  document.getElementById('grade-directory-title').textContent = `選擇${grade.name}科目`;
+  document.getElementById('grade-directory-title').hidden = hasSelectedSubject;
     const gradeSummary = getGradeAdventureSummary(grade);
     const playableSubjects = gradeSummary.subjects.filter(({ activityCount }) => activityCount > 0);
     const hasPlayableSubjectActivities = playableSubjects.length > 0;
@@ -213,7 +223,7 @@ function renderGradeSelection() {
 
   const directory = document.getElementById('grade-subject-directory');
   directory.replaceChildren();
-  if (!grade.subjects.some(({ subjectId }) => subjectId === selectedSubjectId)) selectedSubjectId = null;
+  directory.hidden = hasSelectedSubject;
   for (const subject of grade.subjects) {
     const subjectActivities = getSubjectLaunchableActivities(grade, subject);
     const button = document.createElement('button');
@@ -228,17 +238,12 @@ function renderGradeSelection() {
     const areaLabel = document.createElement('span');
     areaLabel.textContent = subject.areaId === 'life-course' ? '國小整合課程' : area?.name ?? '課程領域待確認';
     const status = document.createElement('small');
-    status.textContent = subjectActivities.length > 0
-      ? `${subjectActivities.length} 個可進入活動・候選待審`
-      : subject.existingYearLevelContent.length > 0
-        ? '有舊原型／目錄參照・尚無此入口可啟動活動'
-        : '尚無可玩活動・課程細目待建';
-    const scope = document.createElement('small');
-    scope.className = 'grade-subject-scope';
-    scope.textContent = subject.frameworkGradeScope?.label ?? '年級適用範圍待核對';
-    button.append(areaLabel, name, status, scope);
+    status.className = 'grade-subject-card-status';
+    status.textContent = subjectActivities.length > 0 ? `${subjectActivities.length} 個遊戲` : '目前尚無可開始的遊戲';
+    button.append(areaLabel, name, status);
     button.addEventListener('click', () => {
       selectedSubjectId = subject.subjectId;
+      document.getElementById('grade-subject-teacher-info').open = false;
       renderGradeSelection();
     });
     directory.append(button);
@@ -250,8 +255,9 @@ function renderGradeSelection() {
   const subjectActivities = subjectSummary.activities;
   const detail = document.getElementById('grade-subject-detail');
   detail.hidden = !subject;
+  document.getElementById('grade-teacher-info').hidden = hasSelectedSubject;
   if (subject) {
-    document.getElementById('grade-subject-detail-title').textContent = subject.name;
+    document.getElementById('grade-subject-detail-title').textContent = `${subject.name}可玩活動`;
     document.getElementById('grade-subject-detail-status').textContent = subjectActivities.length > 0
       ? `${subjectActivities.length} 個已註冊入口可啟動候選活動；均待教師審查`
       : subject.existingYearLevelContent.length > 0
@@ -261,6 +267,10 @@ function renderGradeSelection() {
     document.getElementById('grade-subject-detail-copy').textContent = `${areaName}；官方框架來源：${CURRICULUM_FRAMEWORK_SOURCE.documentTitle}，${CURRICULUM_FRAMEWORK_SOURCE.verifiedLocations.map(({ table, printedPage }) => `${table}（印刷頁 ${printedPage}）`).join('、')}。此來源核對的是總綱領域架構，不代表 ${grade.name} 年級細目、學期順序或教材版本已確認。`;
     const taskList = document.getElementById('grade-subject-task-list');
     taskList.replaceChildren();
+    const scopeNote = document.createElement('p');
+    scopeNote.className = 'grade-task-boundary';
+    scopeNote.textContent = `年級適用範圍：${subject.frameworkGradeScope?.label ?? '待核對'}`;
+    taskList.append(scopeNote);
     const entrySummary = document.createElement('p');
     entrySummary.className = 'grade-task-boundary';
     const referenceNotes = [
@@ -342,6 +352,11 @@ function renderGradeSelection() {
       gameCount.className = 'student-game-list-count';
       gameCount.textContent = `找到 ${subjectActivities.length} 個可以挑戰的遊戲`;
       extraLaunches.append(gameHeading, gameCount);
+    } else {
+      const emptyGames = document.createElement('p');
+      emptyGames.className = 'student-game-list-empty';
+      emptyGames.textContent = '目前還沒有可開始的遊戲。';
+      extraLaunches.append(emptyGames);
     }
     for (const activity of subjectActivities) {
       if (!CATALOG_CANDIDATE_TASK_BY_ID.has(activity.activityId)) continue;
@@ -3156,8 +3171,28 @@ document.getElementById('grade-subject-open-map').addEventListener('click', () =
   document.querySelector('#grade3-math-adventure-map .grade3-math-adventure-region button')?.focus({ preventScroll: true });
 });
 document.getElementById('grade3-math-map-return-directory').addEventListener('click', () => {
-  document.getElementById('grade-picker-title')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  document.getElementById('grade-options')?.querySelector('[data-grade-id="grade-3"]')?.focus({ preventScroll: true });
+  selectedGradeId = 'grade-3';
+  selectedSubjectId = 'mathematics';
+  renderGradeSelection();
+  document.getElementById('grade-subject-detail-title')?.scrollIntoView({ behavior: window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+  document.getElementById('student-subject-back')?.focus({ preventScroll: true });
+});
+document.getElementById('student-back-to-grades').addEventListener('click', () => {
+  selectedGradeId = null;
+  selectedSubjectId = null;
+  document.getElementById('grade-teacher-info').open = false;
+  document.getElementById('grade-subject-teacher-info').open = false;
+  renderGradeSelection();
+  const heading = document.getElementById('grade-picker-title');
+  heading?.setAttribute('tabindex', '-1');
+  heading?.focus({ preventScroll: true });
+});
+document.getElementById('student-subject-back').addEventListener('click', () => {
+  const previousSubjectId = selectedSubjectId;
+  selectedSubjectId = null;
+  document.getElementById('grade-subject-teacher-info').open = false;
+  renderGradeSelection();
+  document.querySelector(`[data-subject-id="${previousSubjectId}"]`)?.focus({ preventScroll: true });
 });
 document.getElementById('grade-subject-open-reading').addEventListener('click', () => {
   readingQuestSession = createLearningTaskSession(STORY_FOREST_READING_QUEST);

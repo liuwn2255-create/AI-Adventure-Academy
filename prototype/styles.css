@@ -76,6 +76,15 @@
 .grade-task-reference small,.grade-level-reference,.grade-task-boundary{color:#627985;font-size:.72rem;line-height:1.45;overflow-wrap:anywhere}
 .grade-task-boundary{grid-column:1/-1;margin:0;padding:9px 10px;border-radius:10px;background:#eef7f7}
 .grade-subject-detail .button{justify-self:start;min-height:44px}
+.grade-preparation-panel[hidden],.grade-picker[hidden],#grade-subject-directory[hidden],#grade-subject-detail[hidden],#grade3-experience[hidden]{display:none}
+.grade-preparation-heading h2{margin:0;color:#214964;font-size:clamp(1.35rem,3vw,2rem);line-height:1.35}
+.student-directory-back{margin:0 0 12px}
+.student-teacher-info{margin:10px 0;padding:10px 13px;border:1px solid #c7dfe5;border-radius:13px;background:#f6fbfc}
+.student-teacher-info>summary{color:#32677d;font-weight:850;cursor:pointer}
+.student-teacher-info-content{padding-top:10px}
+.student-teacher-info-content .grade-task-reference{margin:8px 0}
+.grade-subject-card-status{color:#476a7c;font-weight:750}
+.student-game-list-empty{padding:14px;border-radius:12px;background:#fffefa;color:#49697a;font-weight:750}
 .student-adventure-discovery-guide{margin-top:10px;padding:10px 12px;border:2px solid #83bdcb;border-radius:13px;background:#effbff;color:#214c63}
 .student-adventure-step-sequence{margin:0;font-size:.82rem;font-weight:850;line-height:1.5}
 .student-adventure-step-prompt{margin:4px 0 0;color:#174b67;font-size:.95rem;font-weight:900;line-height:1.4}

@@ -55,7 +55,7 @@ test('各學科目錄摘要與可啟動按鈕一致，沒有活動的領域不�
   }
   assert.match(app, /getSubjectLaunchableActivities\(grade, subject\)/);
   assert.match(app, /候選待審/);
-  assert.match(app, /尚無可玩活動/);
+  assert.match(app, /目前尚無可開始的遊戲/);
 });
 
 test('學生入口依序提示年級、科目與遊戲，並以動態卡片啟動四年級磁力活動', () => {
