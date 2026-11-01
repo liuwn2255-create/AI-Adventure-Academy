@@ -152,6 +152,13 @@ test('四年級磁力活動三站：磁極、材料與強弱操作具備提交�
 
   session = dispatchLearningTask(result.session, task, 'next').session;
   const strength = stages[2];
+  assert.equal(session.activityId, activityId, 'next remains in the magnet activity');
+  assert.equal(session.stageIndex, 2, 'materials success advances to the third stage');
+  assert.equal(task.stages[session.stageIndex].stageId, 'compare-magnet-strength-counts');
+  assert.equal(task.stages[session.stageIndex].interaction, 'magnet_interaction');
+  assert.notEqual(task.stages[session.stageIndex].stageId, 'compare-repeat-observations');
+  assert.deepEqual(strength.magnetRules.magnets.map(({ label, liftedIronPieces }) => [label, liftedIronPieces]), [['磁鐵 A', 2], ['磁鐵 B', 4]]);
+  assert.equal(strength.magnetRules.targetStrongerMagnetId, 'magnet-b');
   assert.equal(session.stageIndex, task.stages.indexOf(strength));
   assert.deepEqual(session.magnetModel, {
     facingPole: null, testedObjectIds: [], assignments: {}, testedMagnetIds: [],
