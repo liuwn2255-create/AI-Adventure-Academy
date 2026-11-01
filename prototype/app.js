@@ -962,6 +962,8 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     ? '操作方式：① 看清楚題目 → ② 用「上移／下移」調整順序 → ③ 排好後檢查答案'
     : stage.interaction === 'assemble_response'
       ? '操作方式：① 看清楚題目 → ② 依順序點選內容 → ③ 檢查「我的答案」 → ④ 完成後檢查答案'
+    : stage.interaction === 'choose_response'
+      ? stage.selectionMode === 'multiple' ? '作答方式：這題可以選多個答案' : '作答方式：請選 1 個答案'
     : stage.interaction === 'collect_evidence'
       ? stage.options?.every((option) => Number.isFinite(option.valueAmount))
         ? '操作方式：① 看清楚付款需求 → ② 選擇錢幣 → ③ 確認目前合計 → ④ 完成後檢查答案'
@@ -2247,16 +2249,25 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       clockPanel.append(element('strong', '', '看鐘面，選出相同的數位時刻。'), makeClockFace(stage.clockDisplay.hour, stage.clockDisplay.minute, stage.clockDisplay.ariaLabel ?? '類比鐘面'));
       host.append(clockPanel);
     }
+    const answerSection = element('section', 'candidate-answer-selection');
+    answerSection.setAttribute('aria-labelledby', `candidate-answer-heading-${stage.stageId}`);
+    const answerHeading = element('h3', 'candidate-answer-selection-heading', '選擇答案');
+    answerHeading.id = `candidate-answer-heading-${stage.stageId}`;
+    answerSection.append(answerHeading);
     const choices = element('div', 'candidate-category-list');
+    choices.setAttribute('role', 'group');
+    choices.setAttribute('aria-label', '選擇答案');
     for (const option of stage.options) {
       const selected = session.selection.includes(option.id);
-      const choice = element('button', `candidate-category${selected ? ' is-selected' : ''}`, option.text);
+      const choice = element('button', `candidate-category candidate-answer-option${selected ? ' is-selected' : ''}`, `${selected ? '✓ 已選｜' : ''}${option.text}`);
       choice.type = 'button';
       choice.setAttribute('aria-pressed', String(selected));
+      choice.setAttribute('aria-label', `${selected ? '目前已選答案' : '選擇答案'}「${option.text}」`);
       choice.addEventListener('click', () => dispatch('select_option', { optionId: option.id }));
       choices.append(choice);
     }
-    host.append(choices);
+    answerSection.append(choices);
+    host.append(answerSection);
   }
   if (session.phase === 'active' && stage.interaction === 'collect_evidence') {
     const isMoneySelection = stage.options.every((option) => Number.isFinite(option.valueAmount));

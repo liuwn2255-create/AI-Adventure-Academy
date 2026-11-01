@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { CATALOG_CANDIDATE_TASK_BY_ID } from '../prototype/data/catalogCandidateTasks.js';
+import { CATALOG_CANDIDATE_TASKS, CATALOG_CANDIDATE_TASK_BY_ID } from '../prototype/data/catalogCandidateTasks.js';
 import { createLearningTaskSession, dispatchLearningTask } from '../prototype/learningTaskEngine.js';
 
 const app = await readFile(new URL('../prototype/app.js', import.meta.url), 'utf8');
@@ -252,4 +252,56 @@ test('collect_evidence 區分題目資料、證據選擇與目前選取狀態', 
   assert.match(renderer.slice(hasResponseEnd), /submit\.disabled = !hasResponse/);
   assert.match(engine, /state\.selection = state\.selection\.includes\(payload\.optionId\)[\s\S]*?\? state\.selection\.filter\(\(id\) => id !== payload\.optionId\)/);
   assert.match(engine, /correct = sortedResponse\.length === sortedExpected\.length && sortedResponse\.every\(\(id, index\) => id === sortedExpected\[index\]\)/);
+});
+
+test('choose_response 以單選語意呈現並保留既有選取與提交行為', () => {
+  const chooseStages = CATALOG_CANDIDATE_TASKS.flatMap((activity) => activity.stages
+    .filter(({ interaction }) => interaction === 'choose_response')
+    .map((stage) => ({ activity, stage })));
+  assert.equal(chooseStages.length, 64);
+  assert.ok(chooseStages.every(({ stage }) => stage.correctOptionIds?.length === 1));
+
+  const guidanceStart = renderer.indexOf('const responseGuidance =');
+  const guidanceEnd = renderer.indexOf("host.append(element('p', 'candidate-student-response-guidance'", guidanceStart);
+  const guidance = renderer.slice(guidanceStart, guidanceEnd);
+  const chooseGuidanceStart = guidance.indexOf("stage.interaction === 'choose_response'");
+  const chooseGuidanceEnd = guidance.indexOf(": stage.interaction === 'collect_evidence'", chooseGuidanceStart);
+  const chooseGuidance = guidance.slice(chooseGuidanceStart, chooseGuidanceEnd);
+  const chooseStart = renderer.indexOf("if (session.phase === 'active' && stage.interaction === 'choose_response')");
+  const chooseEnd = renderer.indexOf("if (session.phase === 'active' && stage.interaction === 'collect_evidence')", chooseStart);
+  const chooseRenderer = renderer.slice(chooseStart, chooseEnd);
+  assert.ok(guidanceStart >= 0 && guidanceEnd > guidanceStart);
+  assert.ok(chooseGuidanceStart >= 0 && chooseGuidanceEnd > chooseGuidanceStart);
+  assert.ok(chooseStart >= 0 && chooseEnd > chooseStart);
+
+  assert.match(chooseGuidance, /'作答方式：請選 1 個答案'/);
+  assert.doesNotMatch(chooseGuidance, /correctOptionIds|correctOptionId|answerCount/);
+  assert.match(chooseRenderer, /'選擇答案'/);
+  assert.match(chooseRenderer, /\$\{selected \? '✓ 已選｜' : ''\}\$\{option\.text\}/);
+  assert.match(chooseRenderer, /aria-label', `\$\{selected \? '目前已選答案' : '選擇答案'\}「\$\{option\.text\}」`/);
+  assert.match(chooseRenderer, /aria-pressed', String\(selected\)/);
+  assert.match(chooseRenderer, /dispatch\('select_option', \{ optionId: option\.id \}\)/);
+  assert.doesNotMatch(chooseRenderer, /取消選擇|remove|toggle/);
+  assert.match(css, /\.candidate-answer-option\.is-selected/);
+  assert.match(css, /\.candidate-answer-option:focus-visible/);
+
+  const { activity, stage } = chooseStages.find(({ activity, stage }) => activity.stages[0]?.stageId === stage.stageId && stage.options.length >= 2);
+  assert.ok(activity && stage, 'a choose_response stage is available as the session entry point');
+  let session = dispatchLearningTask(createLearningTaskSession(activity, 'choose-response-ux-test'), activity, 'start').session;
+  assert.equal(activity.stages[session.stageIndex].interaction, 'choose_response');
+  const firstId = stage.options[0].id;
+  const secondId = stage.options[1].id;
+  session = dispatchLearningTask(session, activity, 'select_option', { optionId: firstId }).session;
+  assert.deepEqual(session.selection, [firstId]);
+  session = dispatchLearningTask(session, activity, 'select_option', { optionId: secondId }).session;
+  assert.deepEqual(session.selection, [secondId], 'choosing another option replaces the previous single selection');
+  session = dispatchLearningTask(session, activity, 'select_option', { optionId: secondId }).session;
+  assert.deepEqual(session.selection, [secondId], 'reselecting the chosen option does not cancel it');
+
+  const hasResponseStart = renderer.indexOf('const hasResponse =');
+  const hasResponseEnd = renderer.indexOf('const submitLabel =', hasResponseStart);
+  const hasResponse = renderer.slice(hasResponseStart, hasResponseEnd);
+  assert.match(hasResponse, /: session\.selection\.length > 0;/);
+  assert.match(renderer.slice(hasResponseEnd), /submit\.disabled = !hasResponse/);
+  assert.match(engine, /if \(action === 'select_option'\)[\s\S]*?state\.selection = \[payload\.optionId\]/);
 });
