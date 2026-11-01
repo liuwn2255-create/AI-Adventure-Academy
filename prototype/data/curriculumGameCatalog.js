@@ -48,6 +48,41 @@ export const CURRICULUM_GAME_CATALOG = Object.freeze([
     questionCount: 3,
     questionStatus: 'candidate_practice_pending_teacher_review',
   }),
+  Object.freeze({
+    gameId: 'picker-g4-science-magnet-interaction',
+    levelId: null,
+    title: '磁力探險碼頭：轉磁極、測材料、比吸起數量',
+    gradeId: 'grade-4',
+    subjectId: 'natural-science',
+    semesterIds: Object.freeze([]),
+    semesterAssignmentStatus: 'pending_school_and_textbook_evidence',
+    topicId: 'topic-g4-science-magnet-interaction-candidate',
+    topicTitle: '磁極、磁性材料與磁力比較',
+    curriculumItemIds: Object.freeze(['science-stage2-ine-ⅱ-7-concepts']),
+    curriculumItemReferenceType: 'curriculum_map_id',
+    curriculumCodeRefs: Object.freeze([
+      Object.freeze({ code: 'INe-Ⅱ-7', codeType: 'learning_content', scopeLabel: '第二學習階段；不推定單一年級或學期' }),
+    ]),
+    learningObjectiveIds: Object.freeze(['LO-G4-SCIENCE-MAGNET-INTERACTION-01']),
+    learningObjectiveSummaries: Object.freeze([
+      Object.freeze({ id: 'LO-G4-SCIENCE-MAGNET-INTERACTION-01', text: '操作兩磁鐵相對磁極，記錄哪些模擬材料受吸引，並比較同一條件下兩磁鐵吸起含鐵物件數量。' }),
+    ]),
+    activityIds: Object.freeze(['ACT-G4-SCIENCE-MAGNET-INTERACTION-DOCK-CANDIDATE']),
+    prerequisiteIds: Object.freeze([]),
+    prerequisiteStatus: 'not_assessed',
+    assessmentIds: Object.freeze([]),
+    developmentStatus: 'prototype_exists',
+    reviewStatus: 'pending_teacher_review',
+    publicationStatus: 'not_approved',
+    formalUnitStatus: 'candidate',
+    supportedChallengeModes: Object.freeze(['sequential_challenge']),
+    entryRoute: Object.freeze({
+      kind: 'existing_map_route',
+      targetScreen: 'select',
+      nextStep: '進入四年級自然科學地圖，再開啟既有磁力探險碼頭候選活動',
+      directLaunch: false,
+    }),
+  }),
 ]);
 
 export const PICKER_CHALLENGE_MODES = Object.freeze([

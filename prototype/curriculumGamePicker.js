@@ -16,13 +16,37 @@ function allChapters(learningMap) {
   return found;
 }
 
-function allLearningObjectives(objectives) {
-  return (objectives?.learningUnits ?? []).flatMap((unit) =>
+function allLearningObjectives(objectives, learningMap) {
+  const canonical = (objectives?.learningUnits ?? []).flatMap((unit) =>
     (unit.observableOutcomes?.candidateObjectives ?? []).map((objective) => ({ unit, objective })));
+  const canonicalIds = new Set(canonical.map(({ objective }) => objective.objectiveId));
+  const fallbackIds = new Set();
+  const learningMapCandidates = (learningMap?.learningObjectiveTaskCrosswalk ?? []).flatMap((relation) =>
+    (relation.objectiveDefinitions ?? [])
+      .filter((objective) => objective?.objectiveId && !canonicalIds.has(objective.objectiveId)
+        && !fallbackIds.has(objective.objectiveId)
+        && objective.status === 'candidate_pending_teacher_review'
+        && typeof objective.statement === 'string' && objective.statement.trim().length > 0
+        && Array.isArray(objective.curriculumMapIds) && objective.curriculumMapIds.length > 0)
+      .map((objective) => {
+        fallbackIds.add(objective.objectiveId);
+        return { unit: { gradeId: relation.gradeId, subjectId: relation.subjectId }, objective };
+      }));
+  return [...canonical, ...learningMapCandidates];
 }
 
 function unique(values) {
   return new Set(values).size === values.length;
+}
+
+function normalizeSubjectId(subjectId) {
+  return subjectId === 'natural_science' ? 'natural-science' : subjectId;
+}
+
+function isStageLevelFocus(mapEntry) {
+  return mapEntry?.gradeRange === null
+    && typeof mapEntry.learningStage === 'string'
+    && mapEntry.learningStage.includes('學習階段');
 }
 
 export function validateCurriculumGameCatalog(catalog, { grades, learningMap, curriculumMap, learningObjectives, activities, levelDirectory } = {}) {
@@ -32,7 +56,7 @@ export function validateCurriculumGameCatalog(catalog, { grades, learningMap, cu
   if (!unique(gameIds)) errors.push('duplicate_game_id');
 
   const chapters = allChapters(learningMap);
-  const objectives = allLearningObjectives(learningObjectives);
+  const objectives = allLearningObjectives(learningObjectives, learningMap);
   const mapEntries = [...(curriculumMap?.verifiedLearningFocuses ?? []), ...(curriculumMap?.pendingLearningFocuses ?? [])];
   const gradeIds = new Set((grades ?? []).map(({ gradeId }) => gradeId));
   const activityList = activities?.activities ?? activities ?? [];
@@ -45,15 +69,17 @@ export function validateCurriculumGameCatalog(catalog, { grades, learningMap, cu
     if (!grade?.subjects?.some(({ subjectId }) => subjectId === game?.subjectId)) errors.push(`${prefix}:unknown_subject`);
     if (!Array.isArray(game?.curriculumItemIds) || game.curriculumItemIds.length === 0 || game.curriculumItemReferenceType !== 'curriculum_map_id') errors.push(`${prefix}:curriculum_item_refs_required`);
     else for (const id of game.curriculumItemIds) {
-      if (!chapters.some((chapter) => chapter.coreLearningPoints?.curriculumMapRef === id
-        || chapter.coreLearningPoints?.curriculumMapIds?.includes(id))
-        || !mapEntries.some((item) => item.id === id)) errors.push(`${prefix}:missing_curriculum_map_ref:${id}`);
+      const mapEntry = mapEntries.find((item) => item.id === id);
+      const chapter = chapters.find((candidate) => candidate.coreLearningPoints?.curriculumMapRef === id
+        || candidate.coreLearningPoints?.curriculumMapIds?.includes(id));
+      if (!mapEntry || (!chapter && !isStageLevelFocus(mapEntry))) errors.push(`${prefix}:missing_curriculum_map_ref:${id}`);
+      else if (normalizeSubjectId(mapEntry.subject) !== normalizeSubjectId(game.subjectId)) errors.push(`${prefix}:curriculum_scope_mismatch:${id}`);
     }
     if (!Array.isArray(game?.learningObjectiveIds) || game.learningObjectiveIds.length === 0) errors.push(`${prefix}:learning_objective_refs_required`);
     else for (const id of game.learningObjectiveIds) {
       const match = objectives.find(({ objective }) => objective.objectiveId === id);
       if (!match) errors.push(`${prefix}:missing_learning_objective:${id}`);
-      else if (match.unit.gradeId !== game.gradeId || match.unit.subjectId !== game.subjectId) errors.push(`${prefix}:objective_scope_mismatch:${id}`);
+      else if (match.unit.gradeId !== game.gradeId || normalizeSubjectId(match.unit.subjectId) !== normalizeSubjectId(game.subjectId)) errors.push(`${prefix}:objective_scope_mismatch:${id}`);
       else if (!game.curriculumItemIds.some((mapId) => match.objective.curriculumMapIds?.includes(mapId))) errors.push(`${prefix}:objective_curriculum_map_mismatch:${id}`);
     }
     for (const mapId of game.curriculumItemIds ?? []) {

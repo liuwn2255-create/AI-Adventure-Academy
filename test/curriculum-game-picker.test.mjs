@@ -18,9 +18,82 @@ const curriculumMap = readJson('../curriculum/curriculum-map.json');
 const learningObjectives = readJson('../curriculum/learning-objectives.json');
 const activities = readJson('../curriculum/learning-activity-map.json');
 const referenceData = { grades: GRADE_CATALOG, learningMap, curriculumMap, learningObjectives, activities, levelDirectory: MATH_LEVEL_DIRECTORY };
+const MAGNET_OBJECTIVE_ID = 'LO-G4-SCIENCE-MAGNET-INTERACTION-01';
+const MAGNET_ACTIVITY_ID = 'ACT-G4-SCIENCE-MAGNET-INTERACTION-DOCK-CANDIDATE';
+const MAGNET_MAP_ID = 'science-stage2-ine-ⅱ-7-concepts';
+const magnetGame = CURRICULUM_GAME_CATALOG.find(({ activityIds }) => activityIds?.includes(MAGNET_ACTIVITY_ID));
+
+function learningMapWithMagnetRelation(mutator) {
+  const copy = structuredClone(learningMap);
+  const relation = copy.learningObjectiveTaskCrosswalk.find(({ learningObjectiveIds }) => learningObjectiveIds?.includes(MAGNET_OBJECTIVE_ID));
+  assert.ok(relation, 'magnet objective relation exists in the Learning Map');
+  mutator(relation);
+  return copy;
+}
 
 test('picker catalog references resolve to existing grade, curriculum map, objectives and prototype activity', () => {
   assert.deepEqual(validateCurriculumGameCatalog(CURRICULUM_GAME_CATALOG, referenceData), []);
+});
+
+test('Learning Map candidate objective definitions are accepted as a fallback source', () => {
+  assert.ok(magnetGame);
+  assert.deepEqual(validateCurriculumGameCatalog([magnetGame], referenceData), []);
+});
+
+test('canonical objective definition takes precedence over a duplicate Learning Map fallback', () => {
+  const objectives = structuredClone(learningObjectives);
+  objectives.learningUnits.push({
+    gradeId: 'grade-4',
+    subjectId: 'natural-science',
+    observableOutcomes: { candidateObjectives: [{
+      objectiveId: MAGNET_OBJECTIVE_ID,
+      statement: 'canonical sentinel',
+      status: 'candidate_pending_teacher_review',
+      curriculumMapIds: ['science-grade4-plant-structure-observation'],
+    }] },
+  });
+  const errors = validateCurriculumGameCatalog([magnetGame], { ...referenceData, learningObjectives: objectives });
+  assert.ok(errors.includes(`game:${magnetGame.gameId}:objective_curriculum_map_mismatch:${MAGNET_OBJECTIVE_ID}`));
+});
+
+test('objectives absent from both canonical and Learning Map sources remain invalid', () => {
+  const invalid = [{ ...magnetGame, learningObjectiveIds: ['missing-objective'] }];
+  const errors = validateCurriculumGameCatalog(invalid, referenceData);
+  assert.ok(errors.includes(`game:${magnetGame.gameId}:missing_learning_objective:missing-objective`));
+});
+
+test('Learning Map fallback still enforces grade scope', () => {
+  const map = learningMapWithMagnetRelation((relation) => { relation.gradeId = 'grade-3'; });
+  const errors = validateCurriculumGameCatalog([magnetGame], { ...referenceData, learningMap: map });
+  assert.ok(errors.includes(`game:${magnetGame.gameId}:objective_scope_mismatch:${MAGNET_OBJECTIVE_ID}`));
+});
+
+test('Learning Map fallback still enforces subject scope', () => {
+  const map = learningMapWithMagnetRelation((relation) => { relation.subjectId = 'mathematics'; });
+  const errors = validateCurriculumGameCatalog([magnetGame], { ...referenceData, learningMap: map });
+  assert.ok(errors.includes(`game:${magnetGame.gameId}:objective_scope_mismatch:${MAGNET_OBJECTIVE_ID}`));
+});
+
+test('Learning Map fallback still enforces curriculum map relation', () => {
+  const map = learningMapWithMagnetRelation((relation) => {
+    const definition = relation.objectiveDefinitions.find(({ objectiveId }) => objectiveId === MAGNET_OBJECTIVE_ID);
+    relation.subjectId = 'natural-science';
+    definition.curriculumMapIds = ['science-grade4-plant-structure-observation'];
+  });
+  const errors = validateCurriculumGameCatalog([magnetGame], { ...referenceData, learningMap: map });
+  assert.ok(errors.includes(`game:${magnetGame.gameId}:objective_curriculum_map_mismatch:${MAGNET_OBJECTIVE_ID}`));
+});
+
+test('grade 4 natural science lists the magnet objective and all-semester sequential selection returns its activity', () => {
+  const options = getPickerObjectiveOptions(CURRICULUM_GAME_CATALOG, 'grade-4', 'natural-science');
+  assert.ok(options.some(({ id }) => id === MAGNET_OBJECTIVE_ID));
+  const selected = filterCurriculumGames(CURRICULUM_GAME_CATALOG, {
+    gradeId: 'grade-4', subjectId: 'natural-science', semesterId: 'all',
+    learningObjectiveId: MAGNET_OBJECTIVE_ID, challengeMode: 'sequential_challenge',
+  });
+  assert.equal(selected.length, 1);
+  assert.deepEqual(selected[0].curriculumItemIds, [MAGNET_MAP_ID]);
+  assert.deepEqual(selected[0].activityIds, [MAGNET_ACTIVITY_ID]);
 });
 
 test('grade catalog exposes all six grades and the indexed elementary courses for the picker', () => {
