@@ -505,8 +505,23 @@
 .reading-quest-screen{align-self:flex-start;width:min(900px,100%);margin:20px auto 48px;padding:clamp(18px,4vw,38px);border:3px solid #fff;border-radius:28px;background:#fffefa;box-shadow:0 12px 0 #abd8e1}
 .reading-quest-screen>h1{font-size:clamp(1.8rem,4.5vw,3rem);line-height:1.2}
 .reading-quest-note{padding:12px 15px;border:1px dashed #d5ae4d;border-radius:14px;background:#fff7da;color:#665421;font-size:.9rem;line-height:1.6}
+.reading-quest-note summary,.candidate-teacher-info summary{min-height:32px;color:#526c78;font-weight:750;cursor:pointer}
+.reading-quest-note p{margin:8px 0 0}
+.candidate-teacher-info{margin:12px 0;padding:9px 12px;border:1px solid #d4e2e6;border-radius:12px;background:#f7fafb;color:#526a75;font-size:.78rem;line-height:1.5}
+.candidate-teacher-info-content{margin-top:8px;padding-top:8px;border-top:1px solid #dce7e9}
+.candidate-teacher-info-content p{margin:6px 0;overflow-wrap:anywhere}
+.candidate-teacher-open-questions{margin:5px 0;padding-left:1.25rem}
+.candidate-teacher-open-questions li{margin:5px 0;overflow-wrap:anywhere}
 .reading-quest-intro,.reading-passage-card{margin:16px 0;padding:clamp(16px,3vw,24px);border:2px solid #dcecf0;border-radius:20px;background:#f7fcff;line-height:1.7}
 .reading-quest-intro p{margin:6px 0}.reading-quest-intro+.button{min-height:52px}
+.candidate-student-summary{font-size:1.08rem;font-weight:850;color:#214964;line-height:1.55}
+.candidate-student-challenge-count{font-weight:850;color:#315d70}
+.candidate-student-task{padding:11px 13px;border-radius:13px;background:#effaff;color:#214964;font-size:1.05rem;font-weight:900}
+.candidate-student-response-guidance{margin:6px 0 10px;color:#315d70;font-weight:800;line-height:1.5}
+.candidate-student-answer-progress{width:fit-content;margin:8px 0;padding:8px 12px;border-radius:10px;background:#fff5cf;color:#69551e;font-weight:900;font-variant-numeric:tabular-nums}
+.candidate-student-completion-title{color:#176c59;font-size:clamp(1.5rem,4vw,2rem)}
+.candidate-student-completion-summary{font-size:1.05rem;font-weight:850;color:#214964;line-height:1.55}
+.candidate-student-return-menu{margin-top:8px}
 .reading-passage-card h2{margin:0 0 10px;color:#215d75;font-size:1.2rem}.reading-passage-card ol{margin:0;padding-left:1.5rem}.reading-passage-card li{padding:4px 3px;line-height:1.75}
 .reading-stage-heading{margin:20px 0 4px;color:#24566c;font-size:1.18rem}.reading-stage-prompt{font-size:1.08rem;font-weight:900;line-height:1.6}
 .reading-choice-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;min-width:0}

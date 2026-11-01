@@ -768,27 +768,59 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     return face;
   };
   const formatClockTime = (hour, minute) => `${hour}:${String(minute).padStart(2, '0')}`;
+  const studentActivityTitle = activity.title?.split(/[：:]/, 1)[0] ?? activity.title ?? '學習冒險';
+  const appendTeacherDetails = () => {
+    const details = element('details', 'candidate-teacher-info');
+    details.append(element('summary', '', '👩‍🏫 教師／課綱資訊'));
+    const content = element('div', 'candidate-teacher-info-content');
+    const addInfo = (label, value) => {
+      if (value === undefined || value === null || value === '') return;
+      content.append(element('p', '', `${label}：${value}`));
+    };
+    addInfo('活動 ID', activity.activityId);
+    addInfo('候選狀態', activity.status);
+    addInfo('教師審查狀態', activity.teacherReview?.status);
+    addInfo('Learning objective', `${activity.learningObjective?.objectiveId ?? ''} ${activity.learningObjective?.statement ?? ''}`.trim());
+    if (activity.curriculumCodes?.length) addInfo('課綱代碼', activity.curriculumCodes.join('、'));
+    addInfo('Curriculum map', activity.curriculumMapId);
+    addInfo('活動範圍', activity.curriculumScope);
+    addInfo('候選任務說明', activity.instructions);
+    if (activity.evidencePolicy) addInfo('證據政策', typeof activity.evidencePolicy === 'string' ? activity.evidencePolicy : JSON.stringify(activity.evidencePolicy));
+    if (activity.coverage?.status) addInfo('Evidence coverage', activity.coverage.status);
+    if (activity.coverage?.covered?.length) addInfo('已涵蓋內容', activity.coverage.covered.join('；'));
+    if (activity.coverage?.notCovered?.length) addInfo('尚未涵蓋內容', activity.coverage.notCovered.join('；'));
+    if (activity.openQuestions?.length) {
+      content.append(element('p', '', '教師核對事項：'));
+      const questions = element('ul', 'candidate-teacher-open-questions');
+      for (const question of activity.openQuestions) questions.append(element('li', '', question));
+      content.append(questions);
+    }
+    addInfo('候選紀錄說明', '活動完成狀態只保存在本次頁面記憶體，不會寫入正式學生進度、成績、精熟度或解鎖。');
+    details.append(content);
+    host.append(details);
+    return content;
+  };
   if (session.phase === 'intro') {
-    const intro = element('article', 'reading-quest-intro');
-    intro.append(element('p', '', activity.instructions), element('p', '', `候選目標：${activity.learningObjective.statement}`));
-    if (activity.curriculumCodes?.length) intro.append(element('p', '', `課綱候選參照：${activity.curriculumCodes.join('、')}（${activity.curriculumMapId}；課程進度待教師確認）`));
-    if (activity.curriculumScope) intro.append(element('p', '', activity.curriculumScope));
-    if (activity.coverage?.notCovered?.length) intro.append(element('p', '', `本任務未涵蓋：${activity.coverage.notCovered.join('；')}`));
+    const intro = element('article', 'reading-quest-intro candidate-student-intro');
+    intro.append(element('p', 'candidate-student-summary', activity.stages[0]?.prompt ?? activity.instructions ?? '完成任務中的挑戰。'));
+    intro.append(element('p', 'candidate-student-challenge-count', `${activity.stages.length} 個挑戰`));
     host.append(intro);
-    const startLabel = ({ english: '開始情境對話', chinese: '開始國語閱讀冒險', science: '開始整理觀察紀錄', social: '開始社區資料探險', mathData: '開始建造資料表', math: '開始數學挑戰', arts: '開始視覺創作', living: '開始物品探索', hpe: '開始安全巡檢', integrative: '開始排學習步驟' })[taskKind] ?? '開始任務';
-    button(startLabel, 'button button-primary', () => dispatch('start'));
+    button('開始挑戰', 'button button-primary', () => dispatch('start'));
+    appendTeacherDetails();
     return;
   }
   if (session.phase === 'completed') {
-    host.append(element('h2', '', '候選任務完成！'));
-    host.append(element('p', 'candidate-memory-reward', `獲得「${activity.completionReward ?? '探索小隊完成章'}」本次活動紀念章。只顯示於本次記憶體流程，不保存、不影響正式成績、精熟度或關卡解鎖。`));
-    host.append(element('p', '', `完成 ${activity.stages.length} 個階段，共 ${session.attempts.length} 次作答嘗試。紀錄僅存於目前頁面記憶體，不是正式成績或精熟證據。`));
+    host.append(element('h2', 'candidate-student-completion-title', '挑戰完成！'));
+    host.append(element('p', 'candidate-student-completion-summary', `你完成了「${studentActivityTitle}」的 ${activity.stages.length} 個挑戰。`));
+    host.append(element('p', 'candidate-memory-reward', `獲得「${activity.completionReward ?? '探索小隊完成章'}」！`));
+    const teacherInfo = appendTeacherDetails();
+    teacherInfo.append(element('p', '', `完成 ${activity.stages.length} 個階段，共 ${session.attempts.length} 次作答嘗試；以下僅為本次候選活動紀錄。`));
     const list = element('ol', 'candidate-attempt-list');
     for (const attempt of session.attempts) {
       const stage = activity.stages.find(({ stageId }) => stageId === attempt.stageId);
       list.append(element('li', '', `${stage.prompt} ${attempt.result === 'correct' ? '完成' : '曾答錯後修正'}；${attempt.hintUsed ? '使用過提示' : '未使用提示'}。`));
     }
-    host.append(list);
+    teacherInfo.append(list);
     if (activeCandidateRouteContext) {
       if (activeCandidateRouteContext.kind === 'grade3-math-adventure-map') {
         button('返回三年級數學冒險地圖', 'button button-secondary candidate-route-next', returnToGrade3MathAdventureMap);
@@ -816,6 +848,13 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
         }
       }
     }
+    button('回到遊戲選單', 'button button-secondary candidate-student-return-menu', () => {
+      activeCandidateRouteContext = null;
+      selectedGradeId = activity.gradeId;
+      selectedSubjectId = activity.subjectId;
+      renderGradeSelection();
+      showScreen('select');
+    });
     button('再玩一次', 'button button-primary', () => dispatch('restart'));
     return;
   }
@@ -874,7 +913,21 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     node.append(tbody); wrapper.append(node); host.append(wrapper);
   };
   if (stage.tableView) appendTableView(stage.tableView);
-  host.append(element('p', 'reading-stage-prompt', stage.prompt));
+  host.append(element('p', 'reading-stage-prompt candidate-student-task', `這一關要做什麼：${stage.prompt}`));
+  const answerCount = stage.correctOptionIds?.length ?? (stage.correctOptionId ? 1 : 0);
+  const responseGuidance = stage.interaction === 'magnet_interaction'
+    ? '操作方式：① 操作 → ② 觀察 → ③ 作答'
+    : stage.interaction === 'classify_observations'
+      ? '操作方式：① 看觀察紀錄 → ② 選擇分類'
+      : stage.options?.length && answerCount > 0
+        ? answerCount === 1 ? '這是單選題，請選 1 個答案。' : `這是複選題，請選 ${answerCount} 個答案。`
+        : '操作方式：① 操作 → ② 觀察 → ③ 作答';
+  host.append(element('p', 'candidate-student-response-guidance', responseGuidance));
+  if (stage.interaction === 'classify_observations' && stage.observations?.length) {
+    const completedCount = stage.observations.filter(({ id }) => Boolean(session.assignments?.[id])).length;
+    host.append(element('p', 'candidate-student-answer-progress', `作答進度：${completedCount} / ${stage.observations.length}`));
+  }
+  appendTeacherDetails();
   if (stage.deriveFromPrevious && Number.isInteger(session.previousStepResult)) host.append(element('p', 'candidate-intermediate-result', `第一步中間結果：${session.previousStepResult}。請把這個數量帶到第二步。`));
   if (session.phase === 'active' && stage.interaction === 'order_items') {
     const board = element('ol', 'candidate-order-board');
@@ -2552,7 +2605,7 @@ function startCatalogCandidateTask(activityId, routeContext = null) {
   activeCandidateRouteContext = routeContext;
   activeCatalogTask = activity;
   activeCatalogTaskSession = createLearningTaskSession(activity, `${activity.activityId}:catalog-session`);
-  document.getElementById('catalog-task-title').textContent = activity.title;
+  document.getElementById('catalog-task-title').textContent = activity.title?.split(/[：:]/, 1)[0] ?? activity.title;
     const kind = activity.subjectId === 'mathematics' ? 'math' : activity.subjectId === 'chinese-language' ? 'chinese' : activity.subjectId === 'english-language' ? 'english' : activity.subjectId === 'natural-science' ? 'science' : activity.subjectId === 'social-studies' ? 'social' : activity.subjectId === 'arts' ? 'arts' : activity.subjectId === 'living-curriculum' ? 'living' : activity.subjectId === 'health-physical-education' ? 'hpe' : 'integrative';
   renderReusableCandidateTask(activity, activeCatalogTaskSession, document.getElementById('catalog-task-content'), (session) => { activeCatalogTaskSession = session; }, kind);
   showScreen('catalog-task');
