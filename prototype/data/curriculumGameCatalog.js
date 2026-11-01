@@ -14,6 +14,7 @@ export const CURRICULUM_GAME_CATALOG = Object.freeze([
     semesterAssignmentStatus: 'pending_school_and_textbook_evidence',
     topicId: 'topic-m3-number-place-value-candidate',
     topicTitle: '數與位值',
+    formalUnitId: 'M3-NUM-01',
     curriculumItemIds: Object.freeze(['math-number-place-value-m3-num-01']),
     curriculumItemReferenceType: 'curriculum_map_id',
     curriculumCodeRefs: Object.freeze([
@@ -77,10 +78,8 @@ export const CURRICULUM_GAME_CATALOG = Object.freeze([
     formalUnitStatus: 'candidate',
     supportedChallengeModes: Object.freeze(['sequential_challenge']),
     entryRoute: Object.freeze({
-      kind: 'existing_map_route',
-      targetScreen: 'select',
-      nextStep: '進入四年級自然科學地圖，再開啟既有磁力探險碼頭候選活動',
-      directLaunch: false,
+      kind: 'catalog_candidate_activity',
+      directLaunch: true,
     }),
   }),
 ]);

@@ -24,7 +24,7 @@ import { createNumberSecretLearningSession, dispatchLearningUnit, summarizeNumbe
 import { createNumberSecretV2CandidateSession, createNumberSecretV2TeacherExport, dispatchNumberSecretV2Candidate, summarizeNumberSecretV2CandidateSession } from './numberSecretV2CandidateFlow.js';
 import { createCandidateUnitSession, dispatchCandidateUnit, getCandidateQuestionAttempts, summarizeCandidateUnit } from './learningUnitEngine.js';
 import { CURRICULUM_GAME_CATALOG, PICKER_CHALLENGE_MODES } from './data/curriculumGameCatalog.js';
-import { describeCurriculumPickerEmptyState, filterCurriculumGames, getCurriculumGameAvailability, getPickerObjectiveOptions } from './curriculumGamePicker.js';
+import { describeCurriculumPickerEmptyState, filterCurriculumGames, getCurriculumGameAvailability, getPickerObjectiveOptions, resolveCurriculumGameLaunch } from './curriculumGamePicker.js';
 import { STORY_FOREST_READING_QUEST } from './data/storyForestReadingQuest.js';
 import { ENGLISH_SCENARIO_ADVENTURE } from './data/englishScenarioAdventure.js';
 import { ANIMAL_OBSERVATION_EXPLORATION } from './data/animalObservationExploration.js';
@@ -2569,9 +2569,12 @@ function renderCurriculumGamePicker() {
       approved_for_publication: '已完成內容審查',
     };
     const publicationLabel = gameEntry.publicationStatus === 'approved' ? '已核准' : '未核准';
-    statuses.textContent = `開發狀態：${availability.label}。教師審查：${reviewLabels[gameEntry.reviewStatus] ?? '待確認'}。正式發布：${publicationLabel}。單元 M3-NUM-01：${gameEntry.formalUnitStatus}。`;
+    const unitStatus = gameEntry.formalUnitId ? `。單元 ${gameEntry.formalUnitId}：${gameEntry.formalUnitStatus}` : '';
+    statuses.textContent = `開發狀態：${availability.label}。教師審查：${reviewLabels[gameEntry.reviewStatus] ?? '待確認'}。正式發布：${publicationLabel}${unitStatus}。`;
     const note = document.createElement('p');
-    note.textContent = `${availability.reason} 目前只有一個候選原型，不代表完整的多關課程；依序挑戰仍須經數字島石碑的既有入口。`;
+    note.textContent = gameEntry.entryRoute?.kind === 'catalog_candidate_activity'
+      ? availability.reason
+      : `${availability.reason} 目前只有一個候選原型，不代表完整的多關課程；依序挑戰仍須經數字島石碑的既有入口。`;
     card.append(heading, gradeSubject, codes, objectiveTitle, objectiveList, statuses, note);
     if (availability.available) {
       const button = document.createElement('button');
@@ -2579,10 +2582,16 @@ function renderCurriculumGamePicker() {
       button.className = 'button button-primary';
       button.textContent = availability.buttonLabel;
       button.addEventListener('click', () => {
-        if (!gameEntry.entryRoute || gameEntry.entryRoute.directLaunch !== false || gameEntry.entryRoute.kind !== 'existing_map_route') return;
+        const launch = resolveCurriculumGameLaunch(gameEntry);
+        if (launch?.kind === 'catalog_candidate_activity') {
+          startCatalogCandidateTask(launch.activityId);
+          document.getElementById('catalog-task-title').focus({ preventScroll: true });
+          return;
+        }
+        if (launch?.kind !== 'existing_map_route') return;
         selectedGradeId = gameEntry.gradeId;
         renderGradeSelection();
-        showScreen(gameEntry.entryRoute.targetScreen);
+        showScreen(launch.targetScreen);
         document.getElementById('level-start-button').focus({ preventScroll: true });
       });
       card.append(button);

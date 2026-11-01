@@ -7,6 +7,7 @@ import {
   filterCurriculumGames,
   getCurriculumGameAvailability,
   getPickerObjectiveOptions,
+  resolveCurriculumGameLaunch,
   validateCurriculumGameCatalog,
 } from '../prototype/curriculumGamePicker.js';
 import { GRADE_CATALOG } from '../prototype/data/gradeCatalog.js';
@@ -96,6 +97,30 @@ test('grade 4 natural science lists the magnet objective and all-semester sequen
   assert.deepEqual(selected[0].activityIds, [MAGNET_ACTIVITY_ID]);
 });
 
+test('magnet projection resolves its catalog candidate route from activityIds and uses the magnet CTA', () => {
+  assert.equal(magnetGame.entryRoute.kind, 'catalog_candidate_activity');
+  assert.equal(magnetGame.entryRoute.directLaunch, true);
+  assert.deepEqual(resolveCurriculumGameLaunch(magnetGame), {
+    kind: 'catalog_candidate_activity', activityId: MAGNET_ACTIVITY_ID,
+  });
+  assert.equal(getCurriculumGameAvailability(magnetGame).buttonLabel, '開始磁力探險');
+  assert.equal(magnetGame.formalUnitId, undefined);
+});
+
+test('catalog candidate route rejects activity targets absent from the candidate activity registry', () => {
+  const invalid = { ...magnetGame, activityIds: ['ACT-NOT-REGISTERED'] };
+  const errors = validateCurriculumGameCatalog([invalid], referenceData);
+  assert.ok(errors.includes(`game:${magnetGame.gameId}:invalid_catalog_candidate_activity_route`));
+  assert.ok(errors.includes(`game:${magnetGame.gameId}:unknown_catalog_candidate_activity:ACT-NOT-REGISTERED`));
+});
+
+test('magnet result card dispatches through the existing catalog launcher and omits the unrelated M3 unit', () => {
+  const appSource = readFileSync(new URL('../prototype/app.js', import.meta.url), 'utf8');
+  assert.match(appSource, /startCatalogCandidateTask\(launch\.activityId\)/);
+  assert.match(appSource, /const unitStatus = gameEntry\.formalUnitId \?/);
+  assert.match(appSource, /gameEntry\.entryRoute\?\.kind === 'catalog_candidate_activity'[\s\S]*?availability\.reason/);
+});
+
 test('grade catalog exposes all six grades and the indexed elementary courses for the picker', () => {
   assert.deepEqual(GRADE_CATALOG.map(({ gradeId }) => gradeId), ['grade-1', 'grade-2', 'grade-3', 'grade-4', 'grade-5', 'grade-6']);
   assert.ok(GRADE_CATALOG[2].subjects.some(({ subjectId }) => subjectId === 'chinese-language'));
@@ -125,12 +150,14 @@ test('candidate prototype stays pending and links only back to the existing map 
   const game = CURRICULUM_GAME_CATALOG[0];
   const availability = getCurriculumGameAvailability(game);
   assert.equal(availability.kind, 'candidate_prototype');
+  assert.equal(availability.buttonLabel, '前往數字島探索');
   assert.equal(game.reviewStatus, 'pending_teacher_review');
   assert.equal(game.publicationStatus, 'not_approved');
   assert.equal(game.formalUnitStatus, 'candidate');
   assert.equal(game.entryRoute.targetScreen, 'select');
   assert.equal(game.entryRoute.directLaunch, false);
   assert.equal(game.entryRoute.unlockMissionId, 'task-find-number-obelisk');
+  assert.deepEqual(resolveCurriculumGameLaunch(game), { kind: 'existing_map_route', targetScreen: 'select' });
 });
 
 test('planning placeholder is not launchable as a game', () => {

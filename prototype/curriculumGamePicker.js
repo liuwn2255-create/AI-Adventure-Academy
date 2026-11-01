@@ -1,3 +1,5 @@
+import { CATALOG_CANDIDATE_TASK_BY_ID } from './data/catalogCandidateTasks.js';
+
 const VALID_DEVELOPMENT_STATUSES = new Set(['prototype_exists', 'pending_development', 'approved']);
 const VALID_REVIEW_STATUSES = new Set(['not_started', 'pending_teacher_review', 'approved_for_pilot', 'approved_for_publication']);
 const VALID_CHALLENGE_MODES = new Set(['basic_practice', 'sequential_challenge', 'advanced_challenge']);
@@ -47,6 +49,23 @@ function isStageLevelFocus(mapEntry) {
   return mapEntry?.gradeRange === null
     && typeof mapEntry.learningStage === 'string'
     && mapEntry.learningStage.includes('學習階段');
+}
+
+export function resolveCurriculumGameLaunch(game) {
+  const route = game?.entryRoute;
+  if (route?.kind === 'existing_map_route' && route.targetScreen === 'select' && route.directLaunch === false) {
+    return { kind: 'existing_map_route', targetScreen: route.targetScreen };
+  }
+  if (route?.kind === 'catalog_candidate_activity' && route.directLaunch === true) {
+    const activityId = game.activityIds?.[0];
+    const activity = activityId && game.activityIds.includes(activityId)
+      ? CATALOG_CANDIDATE_TASK_BY_ID.get(activityId)
+      : null;
+    if (activity && activity.gradeId === game.gradeId && activity.subjectId === game.subjectId) {
+      return { kind: 'catalog_candidate_activity', activityId };
+    }
+  }
+  return null;
 }
 
 export function validateCurriculumGameCatalog(catalog, { grades, learningMap, curriculumMap, learningObjectives, activities, levelDirectory } = {}) {
@@ -107,8 +126,15 @@ export function validateCurriculumGameCatalog(catalog, { grades, learningMap, cu
     if (game?.developmentStatus === 'approved' && game?.formalUnitStatus !== 'approved') errors.push(`${prefix}:approved_unit_required`);
 
     const route = game?.entryRoute;
-    if (!route || route.kind !== 'existing_map_route' || route.targetScreen !== 'select' || route.directLaunch !== false) {
-      errors.push(`${prefix}:entry_must_use_existing_map_route`);
+    const launch = resolveCurriculumGameLaunch(game);
+    if (!launch) {
+      errors.push(route?.kind === 'catalog_candidate_activity'
+        ? `${prefix}:invalid_catalog_candidate_activity_route`
+        : `${prefix}:entry_must_use_existing_map_route`);
+    }
+    if (route?.kind === 'catalog_candidate_activity' && game.activityIds?.[0]
+      && !CATALOG_CANDIDATE_TASK_BY_ID.has(game.activityIds[0])) {
+      errors.push(`${prefix}:unknown_catalog_candidate_activity:${game.activityIds[0]}`);
     }
     if (game?.levelId && !(levelDirectory ?? []).some(({ levelId }) => levelId === game.levelId)) errors.push(`${prefix}:unknown_level`);
     if (game?.levelId && !activityList.some((activity) => activity.runtimeReference?.levelId === game.levelId)) errors.push(`${prefix}:missing_activity_reference`);
@@ -131,19 +157,20 @@ export function getCurriculumGameAvailability(game, { formalGateVerified = false
   if (game?.developmentStatus === 'pending_development') {
     return { available: false, kind: 'pending_development', label: '待開發', reason: '這個主題尚無可操作的遊戲。' };
   }
+  const launch = resolveCurriculumGameLaunch(game);
   const candidateDemo = game?.developmentStatus === 'prototype_exists'
     && game.reviewStatus === 'pending_teacher_review'
     && game.publicationStatus === 'not_approved'
     && game.formalUnitStatus === 'candidate'
-    && game.entryRoute?.kind === 'existing_map_route'
-    && game.entryRoute?.directLaunch === false;
+    && launch !== null;
   if (candidateDemo) {
+    const buttonLabel = launch.kind === 'catalog_candidate_activity' ? '開始磁力探險' : '前往數字島探索';
     return {
       available: true,
       kind: 'candidate_prototype',
       label: '原型完成・待教師審查',
       reason: '只可進入本機候選示範流程，不是已核准課程或正式題庫。',
-      buttonLabel: '前往數字島探索',
+      buttonLabel,
     };
   }
   const approved = game?.developmentStatus === 'approved'
