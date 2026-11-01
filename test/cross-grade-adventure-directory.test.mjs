@@ -67,13 +67,15 @@ test('學生入口依序提示年級、科目與遊戲，並以動態卡片啟�
   assert.ok(magnet, '四年級自然科學目錄必須列出磁力活動');
   assert.equal(magnet.status, 'candidate_pending_teacher_review');
   assert.equal(magnet.stages.length, 3);
+  assert.ok(CATALOG_CANDIDATE_TASK_BY_ID.has(magnet.activityId), '磁力活動應走 candidate activity card');
   assert.match(app, /① 選年級 → ② 選科目 → ③ 選遊戲/);
   assert.match(app, /第 1 步｜選擇你的年級/);
   assert.match(app, /第 2 步｜選擇科目/);
   assert.match(app, /第 3 步｜選一個遊戲開始探險/);
   assert.match(app, /找到 \$\{subjectActivities\.length\} 個可以挑戰的遊戲/);
   assert.match(app, /\$\{activity\.stages\?\.length \?\? 0\} 個挑戰/);
-  assert.match(app, /launch\.textContent = '開始挑戰'/);
+  assert.match(app, /launch\.textContent = isCandidateActivity \? '開始挑戰' : '開始閱讀任務'/);
+  assert.match(app, /if \(isCandidateActivity\) startCatalogCandidateTask\(activity\.activityId\)/);
   assert.match(app, /launch\.dataset\.activityId = activity\.activityId/);
   assert.match(app, /startCatalogCandidateTask\(activity\.activityId\)/);
 });

@@ -336,7 +336,7 @@ function renderGradeSelection() {
     }
     const openMap = document.getElementById('grade-subject-open-map');
     openMap.hidden = !(isGradeThree && subject.subjectId === 'mathematics');
-    document.getElementById('grade-subject-open-reading').hidden = !(isGradeThree && subject.subjectId === 'chinese-language' && subject.developmentStatus === 'playable_candidate_prototype');
+    document.getElementById('grade-subject-open-reading').hidden = true;
     document.getElementById('grade-subject-open-english').hidden = !(isGradeThree && subject.subjectId === 'english-language' && subject.developmentStatus === 'playable_candidate_prototype');
     document.getElementById('grade-subject-open-science').hidden = !(isGradeThree && subject.subjectId === 'natural-science' && subject.developmentStatus === 'playable_candidate_prototype');
     document.getElementById('grade-subject-open-social').hidden = !(isGradeThree && subject.subjectId === 'social-studies' && subject.developmentStatus === 'playable_candidate_prototype');
@@ -359,7 +359,9 @@ function renderGradeSelection() {
       extraLaunches.append(emptyGames);
     }
     for (const activity of subjectActivities) {
-      if (!CATALOG_CANDIDATE_TASK_BY_ID.has(activity.activityId)) continue;
+      const isCandidateActivity = CATALOG_CANDIDATE_TASK_BY_ID.has(activity.activityId);
+      const isReadingDirectLaunch = activity.entryRoute?.directLaunch === true && activity.entryRoute.targetScreen === 'reading-quest';
+      if (!isCandidateActivity && !isReadingDirectLaunch) continue;
       const card = document.createElement('article');
       card.className = 'student-game-card';
       card.dataset.activityId = activity.activityId;
@@ -372,16 +374,21 @@ function renderGradeSelection() {
         : activity.learningObjective?.statement ?? activity.instructions ?? '動手完成任務挑戰。';
       const challengeCount = document.createElement('small');
       challengeCount.className = 'student-game-card-challenges';
-      challengeCount.textContent = `${activity.stages?.length ?? 0} 個挑戰`;
+      challengeCount.textContent = isCandidateActivity ? `${activity.stages?.length ?? 0} 個挑戰` : '閱讀任務';
       const status = document.createElement('small');
       status.className = 'student-game-card-status';
-      status.textContent = '候選活動・待教師審查';
+      status.textContent = isCandidateActivity ? '候選活動・待教師審查' : '閱讀任務';
       const launch = document.createElement('button');
       launch.type = 'button';
       launch.className = 'button button-primary catalog-task-launch';
       launch.dataset.activityId = activity.activityId;
-      launch.textContent = '開始挑戰';
-      launch.addEventListener('click', () => startCatalogCandidateTask(activity.activityId));
+      launch.textContent = isCandidateActivity ? '開始挑戰' : '開始閱讀任務';
+      launch.addEventListener('click', () => {
+        if (isCandidateActivity) startCatalogCandidateTask(activity.activityId);
+        else if (activity.entryRoute?.directLaunch === true && activity.entryRoute.targetScreen === 'reading-quest') {
+          document.getElementById('grade-subject-open-reading').click();
+        }
+      });
       card.append(title, description, challengeCount, status, launch);
       extraLaunches.append(card);
     }
