@@ -961,11 +961,16 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
         ? answerCount === 1 ? '這是單選題，請選 1 個答案。' : `這是複選題，請選 ${answerCount} 個答案。`
         : '操作方式：① 操作 → ② 觀察 → ③ 作答';
   host.append(element('p', 'candidate-student-response-guidance', responseGuidance));
-  if (stage.interaction === 'classify_observations' && stage.observations?.length) {
-    const completedCount = session.phase === 'success'
-      ? stage.observations.length
-      : stage.observations.filter(({ id }) => Boolean(session.assignments?.[id])).length;
-    host.append(element('p', 'candidate-student-answer-progress', `作答進度：${completedCount} / ${stage.observations.length}`));
+  const classificationProgress = stage.interaction === 'classify_observations' && stage.observations?.length
+    ? {
+      completedCount: session.phase === 'success'
+        ? stage.observations.length
+        : stage.observations.filter(({ id }) => Boolean(session.assignments?.[id])).length,
+      totalCount: stage.observations.length,
+    }
+    : null;
+  if (classificationProgress) {
+    host.append(element('p', 'candidate-student-answer-progress', `作答進度：${classificationProgress.completedCount} / ${classificationProgress.totalCount}`));
   }
   if (stage.deriveFromPrevious && Number.isInteger(session.previousStepResult)) host.append(element('p', 'candidate-intermediate-result', `第一步中間結果：${session.previousStepResult}。請把這個數量帶到第二步。`));
   if (session.phase === 'active' && stage.interaction === 'order_items') {
@@ -2548,9 +2553,25 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     submit.type = 'button'; submit.disabled = !hasResponse;
     submit.addEventListener('click', () => dispatch('submit', { submissionId: `${session.sessionId}:submission:${session.attempts.length + 1}` }));
     controls.append(submit);
+    const readinessId = `candidate-submit-readiness-${stage.stageId}`;
+    const hasSpecificReadiness = stage.interaction === 'magnet_interaction' && stage.magnetRules.mode === 'materials';
+    if (!hasResponse && !hasSpecificReadiness) {
+      let readinessText = '還沒完成喔！完成上面的作答後，就可以檢查答案。';
+      if (classificationProgress && !stage.collectionRules) {
+        const remainingCount = classificationProgress.totalCount - classificationProgress.completedCount;
+        if (remainingCount > 0) readinessText = `還差 ${remainingCount} 個項目，完成後就可以檢查答案。`;
+      }
+      const readiness = element('p', 'candidate-submit-readiness', readinessText);
+      readiness.id = readinessId;
+      submit.setAttribute('aria-describedby', readinessId);
+      controls.append(readiness);
+    }
     if (stage.interaction === 'magnet_interaction' && stage.magnetRules.mode === 'materials') {
       const completedMaterialCount = stage.magnetRules.materials.filter(({ id }) => session.magnetModel?.testedObjectIds.includes(id) && Boolean(session.magnetModel.assignments[id])).length;
-      controls.append(element('p', 'magnet-material-submit-status', hasResponse ? `${stage.magnetRules.materials.length} 種材料都完成了，可以檢查答案。` : `還有 ${stage.magnetRules.materials.length - completedMaterialCount} 種材料尚未完成`));
+      const readiness = element('p', 'magnet-material-submit-status', hasResponse ? `${stage.magnetRules.materials.length} 種材料都完成了，可以檢查答案。` : `還有 ${stage.magnetRules.materials.length - completedMaterialCount} 種材料尚未完成`);
+      readiness.id = readinessId;
+      submit.setAttribute('aria-describedby', readinessId);
+      controls.append(readiness);
     }
     host.append(controls);
     appendTeacherDetails();

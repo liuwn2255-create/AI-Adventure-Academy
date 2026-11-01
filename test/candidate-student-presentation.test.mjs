@@ -48,9 +48,13 @@ test('挑戰畫面以任務提示和互動方式為主，材料分類進度取�
   assert.match(renderer, /這是單選題，請選 1 個答案/);
   assert.match(renderer, /這是複選題，請選 \$\{answerCount\} 個答案/);
   assert.match(renderer, /操作方式：① 看觀察紀錄 → ② 選擇分類/);
-  assert.match(renderer, /作答進度：\$\{completedCount\} \/ \$\{stage\.observations\.length\}/);
-  assert.match(renderer, /stage\.observations\.filter\(\(\{ id \}\) => Boolean\(session\.assignments\?\.\[id\]\)\)/);
-  assert.match(renderer, /session\.phase === 'success'\s*\? stage\.observations\.length/);
+  const progressStart = renderer.indexOf('const classificationProgress =');
+  const progressEnd = renderer.indexOf('if (stage.deriveFromPrevious', progressStart);
+  const progressSection = renderer.slice(progressStart, progressEnd);
+  assert.ok(progressStart >= 0 && progressEnd > progressStart);
+  assert.match(progressSection, /completedCount:[\s\S]*?session\.assignments\?\.\[id\]/);
+  assert.match(progressSection, /totalCount: stage\.observations\.length/);
+  assert.match(progressSection, /作答進度：\$\{classificationProgress\.completedCount\} \/ \$\{classificationProgress\.totalCount\}/);
   const activeFlowStart = renderer.lastIndexOf("\n  if (session.phase === 'active') {");
   const feedbackStart = renderer.indexOf("\n  const success = session.phase === 'success';", activeFlowStart);
   assert.ok(activeFlowStart >= 0 && feedbackStart > activeFlowStart, 'active flow must have an explicit boundary before feedback rendering');
@@ -81,4 +85,22 @@ test('完成畫面顯示簡短成果並可回遊戲選單，磁力活動仍使�
   assert.ok(magnet.stages.every(({ interaction }) => interaction === 'magnet_interaction'));
   assert.match(renderer, /stage\.interaction === 'magnet_interaction'/);
   assert.match(renderer, /dispatchLearningTask\(session, activity, action, payload\)/);
+});
+
+test('共用提交就緒提示只依既有 hasResponse 與可靠分類進度呈現', () => {
+  const submitFlowStart = renderer.indexOf('const submitLabel =');
+  const submitFlowEnd = renderer.indexOf('host.append(controls)', submitFlowStart);
+  const submitFlow = renderer.slice(submitFlowStart, submitFlowEnd);
+  assert.ok(submitFlowStart >= 0 && submitFlowEnd > submitFlowStart);
+  assert.match(submitFlow, /submit\.disabled = !hasResponse/);
+  assert.match(submitFlow, /if \(!hasResponse && !hasSpecificReadiness\)/);
+  assert.match(submitFlow, /還沒完成喔！完成上面的作答後，就可以檢查答案。/);
+  assert.match(submitFlow, /classificationProgress && !stage\.collectionRules/);
+  assert.match(submitFlow, /還差 \$\{remainingCount\} 個項目，完成後就可以檢查答案。/);
+  assert.match(submitFlow, /candidate-submit-readiness-\$\{stage\.stageId\}/);
+  assert.match(submitFlow, /submit\.setAttribute\('aria-describedby', readinessId\)/);
+  assert.match(submitFlow, /hasSpecificReadiness = stage\.interaction === 'magnet_interaction' && stage\.magnetRules\.mode === 'materials'/);
+  assert.match(submitFlow, /magnet-material-submit-status/);
+  const feedbackBranch = renderer.slice(renderer.indexOf("\n  const success = session.phase === 'success';"));
+  assert.doesNotMatch(feedbackBranch, /candidate-submit-readiness|magnet-material-submit-status/);
 });
