@@ -769,6 +769,20 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   };
   const formatClockTime = (hour, minute) => `${hour}:${String(minute).padStart(2, '0')}`;
   const studentActivityTitle = activity.title?.split(/[：:]/, 1)[0] ?? activity.title ?? '學習冒險';
+  const humanizeCandidateStatus = (status) => ({
+    candidate_pending_teacher_review: '候選活動，待教師審查',
+  })[status] ?? status;
+  const humanizeTeacherReviewStatus = (status) => ({
+    not_reviewed: '尚未審查',
+    reviewed: '已完成審查',
+  })[status] ?? status;
+  const humanizeCoverageStatus = (status) => ({
+    partial: '部分涵蓋',
+    relation_only: '僅有關聯，尚無足夠互動證據',
+    uncovered: '尚未涵蓋',
+    needs_verification: '待核實',
+    covered: '已完成內容核對，待教師審查',
+  })[status] ?? status;
   const appendTeacherDetails = () => {
     const details = element('details', 'candidate-teacher-info');
     details.append(element('summary', '', '👩‍🏫 教師／課綱資訊'));
@@ -777,16 +791,28 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       if (value === undefined || value === null || value === '') return;
       content.append(element('p', '', `${label}：${value}`));
     };
-    addInfo('活動 ID', activity.activityId);
-    addInfo('候選狀態', activity.status);
-    addInfo('教師審查狀態', activity.teacherReview?.status);
-    addInfo('Learning objective', `${activity.learningObjective?.objectiveId ?? ''} ${activity.learningObjective?.statement ?? ''}`.trim());
-    if (activity.curriculumCodes?.length) addInfo('課綱代碼', activity.curriculumCodes.join('、'));
-    addInfo('Curriculum map', activity.curriculumMapId);
+    addInfo('活動狀態', humanizeCandidateStatus(activity.status));
+    addInfo('教師審查', humanizeTeacherReviewStatus(activity.teacherReview?.status));
+    addInfo('學習目標', activity.learningObjective?.statement);
+    if (activity.curriculumCodes?.length) addInfo('課綱參照', activity.curriculumCodes.join('、'));
+    if (activity.curriculumMapId) addInfo('課程地圖', '已連結課程地圖（技術識別見下方）');
     addInfo('活動範圍', activity.curriculumScope);
     addInfo('候選任務說明', activity.instructions);
-    if (activity.evidencePolicy) addInfo('證據政策', typeof activity.evidencePolicy === 'string' ? activity.evidencePolicy : JSON.stringify(activity.evidencePolicy));
-    if (activity.coverage?.status) addInfo('Evidence coverage', activity.coverage.status);
+    if (activity.evidencePolicy && typeof activity.evidencePolicy === 'object') {
+      const policy = activity.evidencePolicy;
+      const policyInfo = element('section', 'candidate-evidence-policy');
+      policyInfo.append(element('strong', '', '證據紀錄方式'));
+      const persistence = policy.persistence === 'memory_only_no_student_records_no_localStorage'
+        ? '僅保留於本次頁面記憶體，不寫入學生紀錄或 localStorage'
+        : '依本活動設定記錄';
+      policyInfo.append(element('p', '', `紀錄方式：${persistence}`));
+      if (typeof policy.completionIsMastery === 'boolean') policyInfo.append(element('p', '', `是否代表精熟：${policy.completionIsMastery ? '是' : '否'}`));
+      if (typeof policy.hintAssistedResponseIsIndependentEvidence === 'boolean') policyInfo.append(element('p', '', `提示後作答是否視為獨立證據：${policy.hintAssistedResponseIsIndependentEvidence ? '是' : '否'}`));
+      content.append(policyInfo);
+    } else if (typeof activity.evidencePolicy === 'string') {
+      addInfo('證據紀錄方式', activity.evidencePolicy);
+    }
+    if (activity.coverage?.status) addInfo('內容對照狀態', humanizeCoverageStatus(activity.coverage.status));
     if (activity.coverage?.covered?.length) addInfo('已涵蓋內容', activity.coverage.covered.join('；'));
     if (activity.coverage?.notCovered?.length) addInfo('尚未涵蓋內容', activity.coverage.notCovered.join('；'));
     if (activity.openQuestions?.length) {
@@ -796,6 +822,18 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       content.append(questions);
     }
     addInfo('候選紀錄說明', '活動完成狀態只保存在本次頁面記憶體，不會寫入正式學生進度、成績、精熟度或解鎖。');
+    const technical = element('details', 'candidate-teacher-technical');
+    technical.append(element('summary', '', '技術識別（供核對）'));
+    const technicalContent = element('div', 'candidate-teacher-technical-content');
+    for (const [label, value] of [
+      ['活動 ID', activity.activityId],
+      ['學習目標 ID', activity.learningObjective?.objectiveId],
+      ['課程地圖 ID', activity.curriculumMapId],
+    ]) {
+      if (value) technicalContent.append(element('p', '', `${label}：${value}`));
+    }
+    technical.append(technicalContent);
+    content.append(technical);
     details.append(content);
     host.append(details);
     return content;
@@ -813,14 +851,6 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     host.append(element('h2', 'candidate-student-completion-title', '挑戰完成！'));
     host.append(element('p', 'candidate-student-completion-summary', `你完成了「${studentActivityTitle}」的 ${activity.stages.length} 個挑戰。`));
     host.append(element('p', 'candidate-memory-reward', `獲得「${activity.completionReward ?? '探索小隊完成章'}」！`));
-    const teacherInfo = appendTeacherDetails();
-    teacherInfo.append(element('p', '', `完成 ${activity.stages.length} 個階段，共 ${session.attempts.length} 次作答嘗試；以下僅為本次候選活動紀錄。`));
-    const list = element('ol', 'candidate-attempt-list');
-    for (const attempt of session.attempts) {
-      const stage = activity.stages.find(({ stageId }) => stageId === attempt.stageId);
-      list.append(element('li', '', `${stage.prompt} ${attempt.result === 'correct' ? '完成' : '曾答錯後修正'}；${attempt.hintUsed ? '使用過提示' : '未使用提示'}。`));
-    }
-    teacherInfo.append(list);
     if (activeCandidateRouteContext) {
       if (activeCandidateRouteContext.kind === 'grade3-math-adventure-map') {
         button('返回三年級數學冒險地圖', 'button button-secondary candidate-route-next', returnToGrade3MathAdventureMap);
@@ -856,6 +886,14 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       showScreen('select');
     });
     button('再玩一次', 'button button-primary', () => dispatch('restart'));
+    const teacherInfo = appendTeacherDetails();
+    teacherInfo.append(element('p', '', `完成 ${activity.stages.length} 個階段，共 ${session.attempts.length} 次作答嘗試；以下僅為本次候選活動紀錄。`));
+    const list = element('ol', 'candidate-attempt-list');
+    for (const attempt of session.attempts) {
+      const stage = activity.stages.find(({ stageId }) => stageId === attempt.stageId);
+      list.append(element('li', '', `${stage.prompt} ${attempt.result === 'correct' ? '完成' : '曾答錯後修正'}；${attempt.hintUsed ? '使用過提示' : '未使用提示'}。`));
+    }
+    teacherInfo.append(list);
     return;
   }
   const stage = activity.stages[session.stageIndex];
@@ -924,10 +962,11 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
         : '操作方式：① 操作 → ② 觀察 → ③ 作答';
   host.append(element('p', 'candidate-student-response-guidance', responseGuidance));
   if (stage.interaction === 'classify_observations' && stage.observations?.length) {
-    const completedCount = stage.observations.filter(({ id }) => Boolean(session.assignments?.[id])).length;
+    const completedCount = session.phase === 'success'
+      ? stage.observations.length
+      : stage.observations.filter(({ id }) => Boolean(session.assignments?.[id])).length;
     host.append(element('p', 'candidate-student-answer-progress', `作答進度：${completedCount} / ${stage.observations.length}`));
   }
-  appendTeacherDetails();
   if (stage.deriveFromPrevious && Number.isInteger(session.previousStepResult)) host.append(element('p', 'candidate-intermediate-result', `第一步中間結果：${session.previousStepResult}。請把這個數量帶到第二步。`));
   if (session.phase === 'active' && stage.interaction === 'order_items') {
     const board = element('ol', 'candidate-order-board');
@@ -2514,11 +2553,13 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       controls.append(element('p', 'magnet-material-submit-status', hasResponse ? `${stage.magnetRules.materials.length} 種材料都完成了，可以檢查答案。` : `還有 ${stage.magnetRules.materials.length - completedMaterialCount} 種材料尚未完成`));
     }
     host.append(controls);
+    appendTeacherDetails();
     return;
   }
   const success = session.phase === 'success';
   host.append(element('p', `reading-task-feedback ${success ? 'is-correct' : 'is-incorrect'}`, session.lastFeedback?.text ?? ''));
   button(success ? '繼續下一個挑戰' : '重新觀察並重試', 'button button-primary', () => dispatch(success ? 'next' : 'retry'));
+  appendTeacherDetails();
 }
 
 function renderCircleDiagram(config, host, element, radius = 62) {

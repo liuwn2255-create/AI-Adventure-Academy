@@ -5,6 +5,7 @@ import { CATALOG_CANDIDATE_TASK_BY_ID } from '../prototype/data/catalogCandidate
 
 const app = await readFile(new URL('../prototype/app.js', import.meta.url), 'utf8');
 const html = await readFile(new URL('../prototype/index.html', import.meta.url), 'utf8');
+const engine = await readFile(new URL('../prototype/learningTaskEngine.js', import.meta.url), 'utf8');
 const rendererStart = app.indexOf('function renderReusableCandidateTask(');
 const rendererEnd = app.indexOf('\nfunction renderCandidateRoutes(', rendererStart);
 const renderer = app.slice(rendererStart, rendererEnd);
@@ -24,6 +25,16 @@ test('候選活動介紹先顯示學生任務、挑戰數與開始按鈕，教�
   assert.match(renderer, /activity\.curriculumScope/);
   assert.match(renderer, /activity\.coverage/);
   assert.match(renderer, /activity\.openQuestions/);
+  assert.match(renderer, /候選活動，待教師審查/);
+  assert.match(renderer, /尚未審查/);
+  assert.match(renderer, /addInfo\('學習目標', activity\.learningObjective\?\.statement\)/);
+  assert.match(renderer, /addInfo\('課綱參照'/);
+  assert.match(renderer, /課程地圖/);
+  assert.match(renderer, /紀錄方式：\$\{persistence\}/);
+  assert.match(renderer, /是否代表精熟：/);
+  assert.match(renderer, /提示後作答是否視為獨立證據：/);
+  assert.doesNotMatch(renderer, /JSON\.stringify\(activity\.evidencePolicy\)/);
+  assert.match(renderer, /技術識別（供核對）/);
   assert.match(html, /<details class="reading-quest-note candidate-teacher-info-static"><summary>👩‍🏫 候選流程資訊/);
 });
 
@@ -39,6 +50,22 @@ test('挑戰畫面以任務提示和互動方式為主，材料分類進度取�
   assert.match(renderer, /操作方式：① 看觀察紀錄 → ② 選擇分類/);
   assert.match(renderer, /作答進度：\$\{completedCount\} \/ \$\{stage\.observations\.length\}/);
   assert.match(renderer, /stage\.observations\.filter\(\(\{ id \}\) => Boolean\(session\.assignments\?\.\[id\]\)\)/);
+  assert.match(renderer, /session\.phase === 'success'\s*\? stage\.observations\.length/);
+  const activeFlowStart = renderer.lastIndexOf("\n  if (session.phase === 'active') {");
+  const feedbackStart = renderer.indexOf("\n  const success = session.phase === 'success';", activeFlowStart);
+  assert.ok(activeFlowStart >= 0 && feedbackStart > activeFlowStart, 'active flow must have an explicit boundary before feedback rendering');
+  const activeFlow = renderer.slice(activeFlowStart, feedbackStart);
+  assert.doesNotMatch(activeFlow, /reading-task-feedback/);
+  const taskPromptIndex = renderer.indexOf('這一關要做什麼：${stage.prompt}');
+  const interactionIndex = renderer.indexOf("stage.interaction === 'classify_observations'", taskPromptIndex);
+  const submitIndex = renderer.indexOf("const submit = element('button'", interactionIndex);
+  assert.ok(taskPromptIndex >= 0 && interactionIndex > taskPromptIndex && submitIndex > interactionIndex);
+  assert.ok(activeFlow.indexOf('host.append(controls)') < activeFlow.indexOf('appendTeacherDetails();'));
+  const feedbackBranch = renderer.slice(feedbackStart);
+  assert.ok(feedbackBranch.indexOf("'reading-task-feedback'") < feedbackBranch.indexOf('appendTeacherDetails();'));
+  assert.equal(materialStage.correctFeedback, '你依觀察紀錄完成分類。未進行實物實驗，也不能由此推論材料的所有性質。');
+  assert.match(engine, /state\.phase = correct \? 'success' : 'feedback'/);
+  assert.match(engine, /if \(correct\) \{[\s\S]*?state\.assignments = \{\}/);
 });
 
 test('完成畫面顯示簡短成果並可回遊戲選單，磁力活動仍使用共用互動 renderer', () => {
