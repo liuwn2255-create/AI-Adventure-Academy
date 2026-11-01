@@ -1182,19 +1182,26 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       panel.append(magnets, element('p', 'magnet-model-readout', `模型即時結果：${same ? '磁鐵往外推開' : '磁鐵互相靠近'}`));
       const flip = element('button', 'candidate-token', '翻轉磁鐵，改變相對磁極'); flip.type = 'button'; flip.setAttribute('aria-label', '翻轉可操作磁鐵'); flip.addEventListener('click', () => dispatch('flip_magnet')); panel.append(flip);
     } else if (rules.mode === 'materials') {
-      panel.append(element('p', 'magnet-model-readout', '逐件把磁鐵移近物品；記下觀察結果，再點選分類。'));
+      panel.append(element('p', 'magnet-model-readout', '操作順序：① 測試材料 → ② 看觀察結果 → ③ 選擇答案'));
+      panel.append(element('p', 'magnet-model-readout', '五種材料都完成後，再按「檢查答案」。'));
+      const completedMaterialCount = rules.materials.filter(({ id }) => model.testedObjectIds.includes(id) && Boolean(model.assignments[id])).length;
+      panel.append(element('strong', 'magnet-material-progress', `完成進度：${completedMaterialCount} / ${rules.materials.length}${completedMaterialCount === rules.materials.length ? ' ✓' : ''}`));
       for (const material of rules.materials) {
         const row = element('article', 'magnet-material-row');
         row.append(element('strong', '', material.label));
         const tested = model.testedObjectIds.includes(material.id);
-        const test = element('button', 'candidate-token', tested ? '已測試｜重新靠近' : '移近磁鐵並測試'); test.type = 'button'; test.setAttribute('aria-label', `${material.label}移近磁鐵測試`); test.addEventListener('click', () => dispatch('test_magnet_material', { materialId: material.id })); row.append(test);
-        row.append(element('span', 'magnet-observation', tested ? (material.attracted ? '觀察：物品移向磁鐵' : '觀察：物品未移動') : '尚未觀察'));
+        row.append(element('strong', 'magnet-material-step', '步驟 1｜測試材料'));
+        const test = element('button', 'candidate-token', tested ? '✓ 已測試｜再測一次' : '🧲 移近磁鐵測試'); test.type = 'button'; test.setAttribute('aria-label', `${material.label}移近磁鐵測試`); test.addEventListener('click', () => dispatch('test_magnet_material', { materialId: material.id })); row.append(test);
+        row.append(element('span', 'magnet-observation', tested ? (material.attracted ? '觀察結果：物品移向磁鐵' : '觀察結果：物品沒有移動') : '觀察結果：尚未測試'));
+        row.append(element('strong', 'magnet-material-step', '步驟 2｜你的答案'));
         const categories = element('div', 'magnet-category-controls');
         for (const category of rules.categories) {
           const selected = model.assignments[material.id] === category.id;
-          const assign = element('button', `candidate-token${selected ? ' is-selected' : ''}`, category.label); assign.type = 'button'; assign.disabled = !tested; assign.setAttribute('aria-pressed', String(selected)); assign.addEventListener('click', () => dispatch('assign_magnet_material', { materialId: material.id, categoryId: category.id })); categories.append(assign);
+          const assign = element('button', `candidate-token${selected ? ' is-selected' : ''}`, `${selected ? '✓ ' : ''}${category.label}`); assign.type = 'button'; assign.disabled = !tested; assign.setAttribute('aria-pressed', String(selected)); assign.addEventListener('click', () => dispatch('assign_magnet_material', { materialId: material.id, categoryId: category.id })); categories.append(assign);
         }
-        row.append(categories); panel.append(row);
+        row.append(categories);
+        if (!tested) row.append(element('p', 'magnet-material-instruction', '請先測試材料'));
+        panel.append(row);
       }
     } else {
       panel.append(element('p', 'magnet-model-readout', `共同條件：${rules.sharedConditions}。先測兩個磁鐵，再比較吸起的圓片數。`));
@@ -2358,11 +2365,16 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
             : stage.magnetRules.mode === 'materials' ? stage.magnetRules.materials.every(({ id }) => session.magnetModel?.testedObjectIds.includes(id) && session.magnetModel.assignments[id])
               : stage.magnetRules.magnets.every(({ id }) => session.magnetModel?.testedMagnetIds.includes(id)) && Boolean(session.magnetModel?.selectedStrongerMagnetId)
         : session.selection.length > 0;
-    const submitLabel = taskKind === 'english' ? '送出英文回應' : taskKind === 'chinese' ? '檢查閱讀線索' : taskKind === 'mathData' ? '完成資料表' : taskKind === 'math' ? '檢查數學解法' : taskKind === 'science' ? '檢查觀察與分類' : taskKind === 'arts' ? '檢查節奏作品' : taskKind === 'living' ? '提交觀察線索' : taskKind === 'hpe' ? '檢查安全分類' : taskKind === 'integrative' ? '檢查步驟順序' : '檢查分類';
+    const submitLabel = stage.interaction === 'magnet_interaction' && stage.magnetRules.mode === 'materials' ? '檢查答案' : taskKind === 'english' ? '送出英文回應' : taskKind === 'chinese' ? '檢查閱讀線索' : taskKind === 'mathData' ? '完成資料表' : taskKind === 'math' ? '檢查數學解法' : taskKind === 'science' ? '檢查觀察與分類' : taskKind === 'arts' ? '檢查節奏作品' : taskKind === 'living' ? '提交觀察線索' : taskKind === 'hpe' ? '檢查安全分類' : taskKind === 'integrative' ? '檢查步驟順序' : '檢查分類';
     const submit = element('button', 'button button-primary', submitLabel);
     submit.type = 'button'; submit.disabled = !hasResponse;
     submit.addEventListener('click', () => dispatch('submit', { submissionId: `${session.sessionId}:submission:${session.attempts.length + 1}` }));
-    controls.append(submit); host.append(controls);
+    controls.append(submit);
+    if (stage.interaction === 'magnet_interaction' && stage.magnetRules.mode === 'materials') {
+      const completedMaterialCount = stage.magnetRules.materials.filter(({ id }) => session.magnetModel?.testedObjectIds.includes(id) && Boolean(session.magnetModel.assignments[id])).length;
+      controls.append(element('p', 'magnet-material-submit-status', hasResponse ? `${stage.magnetRules.materials.length} 種材料都完成了，可以檢查答案。` : `還有 ${stage.magnetRules.materials.length - completedMaterialCount} 種材料尚未完成`));
+    }
+    host.append(controls);
     return;
   }
   const success = session.phase === 'success';

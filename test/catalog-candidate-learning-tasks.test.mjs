@@ -114,10 +114,12 @@ test('四年級磁力活動三站：磁極、材料與強弱操作具備提交�
   session = dispatchLearningTask(result.session, task, 'next').session;
   const materials = stages[1];
   assert.equal(session.stageIndex, task.stages.indexOf(materials));
+  const completedMaterials = (model) => materials.magnetRules.materials.filter(({ id }) => model.testedObjectIds.includes(id) && Boolean(model.assignments[id])).length;
   assert.deepEqual(session.magnetModel, {
     facingPole: null, testedObjectIds: [], assignments: {}, testedMagnetIds: [],
     selectedStrongerMagnetId: null, touched: false,
   }, 'entering materials initializes a clean station model');
+  assert.equal(completedMaterials(session.magnetModel), 0, 'materials progress starts at 0/5');
   blocked = dispatchLearningTask(session, task, 'submit', { submissionId: 'magnet-materials-incomplete' });
   assert.equal(blocked.error, 'response_required', 'materials cannot submit before all materials are tested and assigned');
   for (const material of materials.magnetRules.materials) {
@@ -125,6 +127,7 @@ test('四年級磁力活動三站：磁極、材料與強弱操作具備提交�
     const categoryId = material.attracted ? 'attracted' : 'not-attracted';
     session = dispatchLearningTask(session, task, 'assign_magnet_material', { materialId: material.id, categoryId }).session;
   }
+  assert.equal(completedMaterials(session.magnetModel), 5, 'progress counts only materials both tested and assigned');
   const firstMaterial = materials.magnetRules.materials[0];
   session = dispatchLearningTask(session, task, 'assign_magnet_material', {
     materialId: firstMaterial.id, categoryId: firstMaterial.attracted ? 'not-attracted' : 'attracted',
