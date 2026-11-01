@@ -121,6 +121,11 @@ const movementHoldController = createMovementHoldController((direction) => moveE
 
 // Keep the home screen usable even if later, nonessential rendering initialization fails.
 document.getElementById('start-button').addEventListener('click', () => showScreen('select'));
+document.querySelector('.brand')?.addEventListener('click', (event) => {
+  event.preventDefault();
+  window.history.replaceState(window.history.state, '', '#home');
+  showScreen('home');
+});
 
 function renderGradeSelection() {
   const pickerHeading = document.querySelector('.grade-picker-heading');
