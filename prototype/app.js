@@ -36,6 +36,7 @@ import { GRADE3_MATH_ADVENTURE_MAP, GRADE3_MATH_LEGACY_ENTRY_REFERENCES } from '
 import { GRADE3_MATH_REPAIR_MAINLINE } from './data/grade3MathRepairMainline.js';
 import { getGradeAdventureSummary, getSubjectDirectorySummary, getSubjectLaunchableActivities } from './data/gradeActivityDirectory.js';
 import { createLearningTaskSession, dispatchLearningTask } from './learningTaskEngine.js';
+import { isSpeechEnabled, setSpeechEnabled, speak } from './speechService.js';
 
 const screens = Object.fromEntries(['home', 'curriculum-game', 'select', 'reading-quest', 'english-quest', 'science-quest', 'social-quest', 'math-data-quest', 'arts-quest', 'catalog-task', 'explore', 'game', 'complete', 'capacity'].map((id) => [id, document.getElementById(`${id}-screen`)]));
 const optionsHost = document.getElementById('answer-options');
@@ -43,6 +44,21 @@ const feedback = document.getElementById('answer-feedback');
 const questionHintButton = document.getElementById('question-hint-button');
 const questionHint = document.getElementById('question-hint');
 const progress = document.querySelector('.progress-track');
+const speechToggle = document.createElement('button');
+speechToggle.type = 'button';
+speechToggle.className = 'speech-preference-toggle';
+speechToggle.addEventListener('click', () => {
+  setSpeechEnabled(!isSpeechEnabled());
+  renderSpeechToggle();
+});
+document.querySelector('.topbar')?.append(speechToggle);
+function renderSpeechToggle() {
+  const enabled = isSpeechEnabled();
+  speechToggle.textContent = enabled ? '🔊 語音提示：開' : '🔇 語音提示：關';
+  speechToggle.setAttribute('aria-pressed', String(enabled));
+  speechToggle.setAttribute('aria-label', enabled ? '語音提示目前開啟，按下關閉' : '語音提示目前關閉，按下開啟');
+}
+renderSpeechToggle();
 function getProgressStorage() {
   try {
     return window.localStorage;
@@ -666,9 +682,10 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     return node;
   };
   const dispatch = (action, payload = {}) => {
-    const nextSession = dispatchLearningTask(session, activity, action, payload).session;
-    updateSession(nextSession);
-    renderReusableCandidateTask(activity, nextSession, host, updateSession, taskKind);
+    const result = dispatchLearningTask(session, activity, action, payload);
+    updateSession(result.session);
+    renderReusableCandidateTask(activity, result.session, host, updateSession, taskKind);
+    return result;
   };
   const makeClockFace = (hour, minute, label = '類比鐘面') => {
     const face = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -1191,8 +1208,19 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
         row.append(element('strong', '', material.label));
         const tested = model.testedObjectIds.includes(material.id);
         row.append(element('strong', 'magnet-material-step', '步驟 1｜測試材料'));
-        const test = element('button', 'candidate-token', tested ? '✓ 已測試｜再測一次' : '🧲 移近磁鐵測試'); test.type = 'button'; test.setAttribute('aria-label', `${material.label}移近磁鐵測試`); test.addEventListener('click', () => dispatch('test_magnet_material', { materialId: material.id })); row.append(test);
-        row.append(element('span', 'magnet-observation', tested ? (material.attracted ? '觀察結果：物品移向磁鐵' : '觀察結果：物品沒有移動') : '觀察結果：尚未測試'));
+        const observationText = material.attracted ? '觀察結果：物品移向磁鐵。' : '觀察結果：物品沒有移動。';
+        const test = element('button', 'candidate-token', tested ? '✓ 已測試｜再測一次' : '🧲 移近磁鐵測試'); test.type = 'button'; test.setAttribute('aria-label', `${material.label}移近磁鐵測試`); test.addEventListener('click', () => {
+          const result = dispatch('test_magnet_material', { materialId: material.id });
+          if (result.changed) speak(observationText);
+        }); row.append(test);
+        row.append(element('span', 'magnet-observation', tested ? observationText : '觀察結果：尚未測試'));
+        if (tested) {
+          const repeat = element('button', 'button button-secondary magnet-observation-repeat', '🔊 再聽一次');
+          repeat.type = 'button';
+          repeat.setAttribute('aria-label', `再聽一次：${observationText}`);
+          repeat.addEventListener('click', () => speak(observationText));
+          row.append(repeat);
+        }
         row.append(element('strong', 'magnet-material-step', '步驟 2｜你的答案'));
         const categories = element('div', 'magnet-category-controls');
         for (const category of rules.categories) {
