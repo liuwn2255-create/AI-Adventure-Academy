@@ -89,11 +89,12 @@ test('shared speech service 朗讀 plain text 並遵守全站開關', () => {
   }
 });
 
-test('低年級閱讀樣式放大注音並保留國字繼承尺寸與窄螢幕按鈕可用高度', async () => {
+test('注音樣式把國字與右側直排注音保留為緊鄰的行內單位', async () => {
   const css = await readFile(new URL('../prototype/styles.css', import.meta.url), 'utf8');
-  const zhuyinRule = css.match(/\.candidate-zhuyin-text\{[^}]+\}\.candidate-zhuyin-text ruby\{[^}]+\}\.candidate-zhuyin-text rt\{[^}]+\}/)?.[0] ?? '';
-  assert.match(zhuyinRule, /font-size:\.72em/);
-  assert.match(zhuyinRule, /letter-spacing:normal/);
-  assert.doesNotMatch(zhuyinRule, /\.candidate-zhuyin-text\{[^}]*font-size/);
-  assert.match(css, /\.candidate-prompt-speech\{[^}]*min-height:44px/);
+  assert.match(css, /\.candidate-zhuyin-text ruby\{[^}]*display:inline-grid/);
+  assert.match(css, /\.candidate-zhuyin-text rb\{[^}]*grid-column:1/);
+  assert.match(css, /\.candidate-zhuyin-text rt\{[^}]*grid-column:2[^}]*writing-mode:vertical-rl[^}]*text-orientation:upright/);
+  assert.match(css, /\.candidate-zhuyin-text\{[^}]*letter-spacing:normal[^}]*word-spacing:normal/);
+  assert.doesNotMatch(css, /\.candidate-zhuyin-text\{[^}]*writing-mode:vertical/);
+  assert.match(css, /\.candidate-answer-option\{white-space:normal/);
 });
