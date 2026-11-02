@@ -71,6 +71,8 @@ export const GRADE1_CHINESE_SENTENCE_TRAIN = Object.freeze({
       incorrectFeedbackPronunciationTokens: reviewedPronunciationTokens('把詞語放回「開始下雨、出門」的情境，想想哪個物品最能解決遇到雨的需要。', 'ㄅㄚˇ ㄘˊ ㄩˇ ㄈㄤˋ ㄏㄨㄟˊ ㄎㄞ ㄕˇ ㄒㄧㄚˋ ㄩˇ ㄔㄨ ㄇㄣˊ ˙ㄉㄜ ㄑㄧㄥˊ ㄐㄧㄥˋ ㄒㄧㄤˇ ㄒㄧㄤˇ ㄋㄚˇ ㄍㄜ˙ ㄨˋ ㄆㄧㄣˇ ㄗㄨㄟˋ ㄋㄥˊ ㄐㄧㄝˇ ㄐㄩㄝˊ ㄩˋ ㄉㄠˋ ㄩˇ ˙ㄉㄜ ㄒㄩ ㄧㄠˋ'),
       correctFeedback: '你依情境選出合適詞語。這是少量原創詞句練習，不能代表第一學習階段識字或寫作整體表現。',
       correctFeedbackPronunciationTokens: reviewedPronunciationTokens('你依情境選出合適詞語。這是少量原創詞句練習，不能代表第一學習階段識字或寫作整體表現。', 'ㄋㄧˇ ㄧ ㄑㄧㄥˊ ㄐㄧㄥˋ ㄒㄩㄢˇ ㄔㄨ ㄏㄜˊ ㄕˋ ㄘˊ ㄩˇ ㄓㄜˋ ㄕˋ ㄕㄠˇ ㄌㄧㄤˋ ㄩㄢˊ ㄔㄨㄤˋ ㄘˊ ㄐㄩˋ ㄌㄧㄢˋ ㄒㄧˊ ㄅㄨˋ ㄋㄥˊ ㄉㄞˋ ㄅㄧㄠˇ ㄉㄧˋ ㄧ ㄒㄩㄝˊ ㄒㄧˊ ㄐㄧㄝ ㄉㄨㄢˋ ㄕˋ ㄗˋ ㄏㄨㄛˋ ㄒㄧㄝˇ ㄗㄨㄛˋ ㄓㄥˇ ㄊㄧˇ ㄅㄧㄠˇ ㄒㄧㄢˋ'),
+      studentCorrectFeedback: '你依情境選出合適詞語。',
+      teacherLimitationNote: '這是少量原創詞句練習，不能代表第一學習階段識字或寫作整體表現。',
     }),
   ]),
   reinforcementActivityIds: Object.freeze([]), reinforcementStatus: '尚無連結的補強活動',

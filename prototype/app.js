@@ -837,6 +837,7 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     if (activity.curriculumMapId) addInfo('課程地圖', '已連結課程地圖（技術識別見下方）');
     addInfo('活動範圍', activity.curriculumScope);
     addInfo('候選任務說明', activity.instructions);
+    addInfo('本關研究限制', stage.teacherLimitationNote);
     if (activity.evidencePolicy && typeof activity.evidencePolicy === 'object') {
       const policy = activity.evidencePolicy;
       const policyInfo = element('section', 'candidate-evidence-policy');
@@ -1029,7 +1030,9 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   const responseGuidance = stage.interaction === 'order_items'
     ? '操作方式：① 看清楚題目 → ② 用「上移／下移」調整順序 → ③ 排好後檢查答案'
     : stage.interaction === 'assemble_response'
-      ? '操作方式：① 看清楚題目 → ② 依順序點選內容 → ③ 檢查「我的答案」 → ④ 完成後檢查答案'
+      ? isLowGradeReadingAssistanceEnabled(activity.gradeId)
+        ? '怎麼玩：① 點詞卡 → ② 排成一句話 → ③ 檢查答案'
+        : '操作方式：① 看清楚題目 → ② 依順序點選內容 → ③ 檢查「我的答案」 → ④ 完成後檢查答案'
     : stage.interaction === 'choose_response'
       ? stage.selectionMode === 'multiple' ? '作答方式：這題可以選多個答案' : '作答方式：請選 1 個答案'
     : stage.interaction === 'collect_evidence'
@@ -2755,13 +2758,18 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   }
   const success = session.phase === 'success';
   const feedbackText = session.lastFeedback?.text ?? '';
+  const displayedFeedbackText = success && stage.studentCorrectFeedback
+    ? stage.studentCorrectFeedback
+    : feedbackText;
   const feedbackTokens = feedbackText === stage.correctFeedback
-    ? stage.correctFeedbackPronunciationTokens
+    ? stage.studentCorrectFeedback
+      ? stage.correctFeedbackPronunciationTokens?.slice(0, Array.from(stage.studentCorrectFeedback).length)
+      : stage.correctFeedbackPronunciationTokens
     : feedbackText === stage.incorrectFeedback
       ? stage.incorrectFeedbackPronunciationTokens
       : stage.options?.find((option) => option.feedback === feedbackText)?.feedbackPronunciationTokens;
   const feedbackNode = element('p', `reading-task-feedback ${success ? 'is-correct' : 'is-incorrect'}`);
-  appendStudentText(feedbackNode, feedbackText, feedbackTokens);
+  appendStudentText(feedbackNode, displayedFeedbackText, feedbackTokens);
   host.append(feedbackNode);
   button(success ? '繼續下一個挑戰' : '重新觀察並重試', 'button button-primary', () => dispatch(success ? 'next' : 'retry'));
   appendTeacherDetails();

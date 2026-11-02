@@ -5,6 +5,7 @@ import { CATALOG_CANDIDATE_TASKS, CATALOG_CANDIDATE_TASK_BY_ID } from '../protot
 import { GRADE_CATALOG } from '../prototype/data/gradeCatalog.js';
 import { getSubjectLaunchableActivities } from '../prototype/data/gradeActivityDirectory.js';
 import { createLearningTaskSession, dispatchLearningTask, validateLearningTask } from '../prototype/learningTaskEngine.js';
+import { isLowGradeReadingAssistanceEnabled } from '../prototype/studentTextRenderer.js';
 
 const app = await readFile(new URL('../prototype/app.js', import.meta.url), 'utf8');
 const html = await readFile(new URL('../prototype/index.html', import.meta.url), 'utf8');
@@ -41,6 +42,26 @@ test('候選活動介紹先顯示學生任務、挑戰數與開始按鈕，教�
   assert.doesNotMatch(renderer, /JSON\.stringify\(activity\.evidencePolicy\)/);
   assert.match(renderer, /技術識別（供核對）/);
   assert.match(html, /<details class="reading-quest-note candidate-teacher-info-static"><summary>👩‍🏫 候選流程資訊/);
+});
+
+test('低年級組句提示簡化，Grade 3 保留完整提示；學生正答回饋與研究限制分開呈現', () => {
+  const grade1 = CATALOG_CANDIDATE_TASK_BY_ID.get('ACT-G1-CHINESE-SENTENCE-TRAIN-CANDIDATE');
+  const stage = grade1.stages.find(({ stageId }) => stageId === 'choose-context-word');
+  const grade3Assemble = CATALOG_CANDIDATE_TASKS.find(({ gradeId, stages }) => gradeId === 'grade-3' && stages.some(({ interaction }) => interaction === 'assemble_response'));
+  assert.ok(grade3Assemble, 'a Grade 3 assemble_response activity remains available for the regression');
+  assert.match(renderer, /stage\.interaction === 'assemble_response'[\s\S]*?isLowGradeReadingAssistanceEnabled\(activity\.gradeId\)[\s\S]*?'怎麼玩：① 點詞卡 → ② 排成一句話 → ③ 檢查答案'[\s\S]*?'操作方式：① 看清楚題目 → ② 依順序點選內容 → ③ 檢查「我的答案」 → ④ 完成後檢查答案'/);
+  assert.equal(grade1.gradeId, 'grade-1');
+  assert.equal(grade3Assemble.gradeId, 'grade-3');
+  assert.equal(isLowGradeReadingAssistanceEnabled(grade1.gradeId), true);
+  assert.equal(isLowGradeReadingAssistanceEnabled(grade3Assemble.gradeId), false);
+  assert.equal(stage.studentCorrectFeedback, '你依情境選出合適詞語。');
+  assert.doesNotMatch(stage.studentCorrectFeedback, /不能代表第一學習階段/u);
+  assert.match(renderer, /addInfo\('本關研究限制', stage\.teacherLimitationNote\)/);
+  assert.equal(stage.teacherLimitationNote, '這是少量原創詞句練習，不能代表第一學習階段識字或寫作整體表現。');
+  assert.ok(stage.correctFeedbackPronunciationTokens.length > 0);
+  assert.equal(stage.correctFeedbackPronunciationTokens.slice(0, Array.from(stage.studentCorrectFeedback).length).map(({ text }) => text).join(''), stage.studentCorrectFeedback);
+  assert.equal(stage.correctOptionIds[0], 'word-umbrella');
+  assert.ok(renderer.includes('stage.studentCorrectFeedback') && renderer.includes('stage.correctFeedbackPronunciationTokens?.slice'), 'student feedback uses the existing pronunciation token prefix for its shortened display');
 });
 
 test('挑戰畫面以任務提示和互動方式為主，材料分類進度取自觀察數與 assignments', () => {
