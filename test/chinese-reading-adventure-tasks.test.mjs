@@ -69,6 +69,23 @@ test('線索蒐集任務可錯答、提示、重試、完成與重玩，證據�
     '幾天後，原本垂下的葉子慢慢挺起來。',
   ]);
   assert.equal(inferenceStage.prompt, '依照故事，為什麼小禾每天查看土？');
+  assert.deepEqual(inferenceStage.options.map(({ id, text }) => ({ id, text })), [
+    { id: 'seedling-reason-water', text: '她想知道土是否乾了，再決定要不要澆水。' },
+    { id: 'seedling-reason-rain', text: '她在等窗外下雨來比賽。' },
+    { id: 'seedling-reason-move', text: '她想把花盆每天搬到不同房間。' },
+  ]);
+  assert.deepEqual(inferenceStage.correctOptionIds, ['seedling-reason-water']);
+  assert.equal(inferenceStage.correctFeedback, '答對了！小禾每天摸一摸土，是想知道土乾不乾；如果乾了，她就會澆水。');
+  assert.equal(inferenceStage.incorrectFeedback, '再回故事找一找：小禾摸一摸土後，如果發現土乾了，她會怎麼做？');
+  assert.deepEqual(inferenceStage.hints, [
+    '找一找：小禾每天摸一摸土，是在看土有沒有變乾。',
+    '故事說「乾了就澆水」。想一想，她為什麼要先摸一摸土？',
+  ]);
+  assert.deepEqual(inferenceStage.options.map(({ feedback }) => feedback), [
+    '對！她先看看土乾不乾，再決定要不要澆水。',
+    '故事沒有說小禾在等下雨或比賽，再回故事找找看。',
+    '故事只說移到有陽光的桌邊，沒有說每天搬動。',
+  ]);
 
   let session = dispatch(createLearningTaskSession(task, 'clue-test'), task, 'start');
   session = dispatch(session, task, 'toggle_evidence', { optionId: 'seedling-clue-dry-soil' });
