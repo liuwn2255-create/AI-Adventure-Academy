@@ -20,7 +20,7 @@ test('注音 metadata 使用 pair markup，沒有 metadata 時仍是安全純文
   const rendered = renderStudentText('雨傘', [
     { text: '雨', reading: 'ㄩˇ' }, { text: '傘', reading: 'ㄙㄢˇ' },
   ]);
-  assert.match(rendered, /class="zhuyin-pair"><span class="zhuyin-hanzi">雨<\/span><span class="zhuyin-reading" aria-hidden="true">ㄩˇ/);
+  assert.match(rendered, /class="zhuyin-pair"><span class="zhuyin-hanzi">雨<\/span><span class="zhuyin-reading" aria-hidden="true"><span class="zhuyin-glyph-column"><span class="zhuyin-glyph">ㄩ<\/span><\/span><span class="zhuyin-tone">ˇ<\/span><\/span><\/span>/);
   assert.equal((rendered.match(/class="zhuyin-pair"/g) ?? []).length, 2);
   assert.doesNotMatch(rendered, /<ruby|<rb|<rt/);
   assert.equal(renderStudentText('雨傘', undefined), '雨傘');
@@ -96,7 +96,10 @@ test('注音樣式把國字與右側直排注音保留為緊鄰的行內單位',
   const css = await readFile(new URL('../prototype/styles.css', import.meta.url), 'utf8');
   assert.match(css, /\.zhuyin-pair\{[^}]*display:inline-grid[^}]*white-space:nowrap/);
   assert.match(css, /\.zhuyin-hanzi\{[^}]*grid-column:1[^}]*writing-mode:horizontal-tb/);
-  assert.match(css, /\.zhuyin-reading\{[^}]*grid-column:2[^}]*writing-mode:vertical-rl[^}]*text-orientation:upright/);
+  assert.match(css, /\.zhuyin-reading\{[^}]*grid-column:2[^}]*display:grid/);
+  assert.match(css, /\.zhuyin-glyph-column\{[^}]*display:flex[^}]*flex-direction:column/);
+  assert.match(css, /\.zhuyin-tone-neutral\{/);
+  assert.doesNotMatch(css, /\.zhuyin-reading\{[^}]*writing-mode/);
   assert.match(css, /\.candidate-zhuyin-text\{[^}]*letter-spacing:normal[^}]*word-spacing:normal/);
   assert.doesNotMatch(css, /\.candidate-zhuyin-text\{[^}]*writing-mode:vertical/);
   assert.doesNotMatch(css, /\.candidate-zhuyin-text (?:ruby|rb|rt)\{/);

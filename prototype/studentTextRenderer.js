@@ -1,4 +1,5 @@
 const HAN_CHARACTER = /^\p{Script=Han}$/u;
+const TONE_MARKS = new Set(['ˊ', 'ˇ', 'ˋ', '˙']);
 
 /** Grade 1–2 may use reviewed pronunciation metadata and prompt read-aloud UI. */
 export function isLowGradeReadingAssistanceEnabled(gradeId) {
@@ -37,7 +38,12 @@ export function renderStudentText(text, pronunciationTokens) {
   return pronunciationTokens.map(({ text: tokenText, reading }) => {
     const safeText = escapeHtml(tokenText);
     if (reading && HAN_CHARACTER.test(tokenText)) {
-      return `<span class="zhuyin-pair"><span class="zhuyin-hanzi">${safeText}</span><span class="zhuyin-reading" aria-hidden="true">${escapeHtml(reading)}</span></span>`;
+      const readingCharacters = Array.from(reading);
+      const toneMarks = readingCharacters.filter((character) => TONE_MARKS.has(character));
+      const zhuyinGlyphs = readingCharacters.filter((character) => !TONE_MARKS.has(character));
+      const glyphMarkup = zhuyinGlyphs.map((character) => `<span class="zhuyin-glyph">${escapeHtml(character)}</span>`).join('');
+      const toneMarkup = toneMarks.map((character) => `<span class="zhuyin-tone${character === '˙' ? ' zhuyin-tone-neutral' : ''}">${escapeHtml(character)}</span>`).join('');
+      return `<span class="zhuyin-pair"><span class="zhuyin-hanzi">${safeText}</span><span class="zhuyin-reading" aria-hidden="true"><span class="zhuyin-glyph-column">${glyphMarkup}</span>${toneMarkup}</span></span>`;
     }
     return safeText;
   }).join('');

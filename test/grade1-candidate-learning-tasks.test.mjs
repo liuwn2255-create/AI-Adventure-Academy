@@ -143,7 +143,7 @@ test('一年級句子列車遮雨題保留純文字答案資料並以人工注�
   const renderedPrompt = renderStudentText(stage.prompt, stage.promptPronunciationTokens);
   assert.match(renderedPrompt, /class="zhuyin-pair"/);
   assert.match(renderedPrompt, /<span class="zhuyin-hanzi">天<\/span>/);
-  assert.match(renderedPrompt, /<span class="zhuyin-reading" aria-hidden="true">ㄊㄧㄢ<\/span>/);
+  assert.match(renderedPrompt, /class="zhuyin-pair"><span class="zhuyin-hanzi">天<\/span><span class="zhuyin-reading" aria-hidden="true"><span class="zhuyin-glyph-column"><span class="zhuyin-glyph">ㄊ<\/span><span class="zhuyin-glyph">ㄧ<\/span><span class="zhuyin-glyph">ㄢ<\/span><\/span><\/span><\/span>/);
 
   const wrongPromptStage = CATALOG_CANDIDATE_TASKS.find(({ activityId }) => activityId === 'ACT-G2-CHINESE-STORY-CLUE-CANDIDATE')
     .stages.find(({ stageId }) => stageId === 'collect-rain-shelter-clues');
