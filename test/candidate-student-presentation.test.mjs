@@ -16,7 +16,8 @@ const renderer = app.slice(rendererStart, rendererEnd);
 
 test('候選活動介紹先顯示學生任務、挑戰數與開始按鈕，教師資訊預設收合且資料仍保留', () => {
   const intro = renderer.match(/if \(session\.phase === 'intro'\) \{([\s\S]*?)\n  \}/)?.[1] ?? '';
-  assert.match(intro, /activity\.stages\[0\]\?\.prompt/);
+  assert.match(intro, /const introStage = activity\.stages\[0\]/);
+  assert.match(intro, /appendStudentText\(summary, introStage\?\.prompt \?\? activity\.instructions/);
   assert.match(intro, /\$\{activity\.stages\.length\} 個挑戰/);
   assert.match(intro, /button\('開始挑戰'/);
   assert.doesNotMatch(intro, /curriculumCodes|curriculumMapId|curriculumScope|openQuestions/);
@@ -231,8 +232,11 @@ test('collect_evidence 區分題目資料、證據選擇與目前選取狀態', 
   assert.match(collectRenderer, /'選擇證據'/);
   assert.match(collectRenderer, /isMoneySelection \? '選擇錢幣' : '選擇證據'/);
   assert.match(collectRenderer, /aria-label', isMoneySelection \? '選擇錢幣' : '選擇證據'/);
-  assert.match(collectRenderer, /\$\{selected \? '✓ 已選｜' : ''\}\$\{option\.text\}/);
+  assert.match(collectRenderer, /appendStudentText\(choice, option\.text, option\.pronunciationTokens\)/);
   assert.match(collectRenderer, /aria-label', `\$\{selected \? '取消選擇' : '選擇'\}\$\{isMoneySelection \? '錢幣' : '證據'\}「\$\{option\.text\}」`/);
+  assert.match(collectRenderer, /choice\.setAttribute\('aria-pressed', String\(selected\)\)/);
+  assert.match(collectRenderer, /choice\.className|element\('button', `candidate-category candidate-evidence-option\$\{selected \? ' is-selected' : ''\}`\)/);
+  assert.match(collectRenderer, /optionId: option\.id/);
   assert.match(collectRenderer, /dispatch\('toggle_evidence', \{ optionId: option\.id \}\)/);
   assert.match(collectRenderer, /const isMoneySelection = stage\.options\.every\(\(option\) => Number\.isFinite\(option\.valueAmount\)\)/);
   assert.match(collectRenderer, /session\.selection\.length/);

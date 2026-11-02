@@ -1,5 +1,10 @@
 const HAN_CHARACTER = /^\p{Script=Han}$/u;
 
+/** Grade 1–2 may use reviewed pronunciation metadata and prompt read-aloud UI. */
+export function isLowGradeReadingAssistanceEnabled(gradeId) {
+  return gradeId === 'grade-1' || gradeId === 'grade-2';
+}
+
 function escapeHtml(text) {
   return String(text).replace(/[&<>"']/g, (character) => ({
     '&': '&amp;',

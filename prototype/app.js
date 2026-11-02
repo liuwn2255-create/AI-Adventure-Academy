@@ -37,7 +37,7 @@ import { GRADE3_MATH_REPAIR_MAINLINE } from './data/grade3MathRepairMainline.js'
 import { getGradeAdventureSummary, getSubjectDirectorySummary, getSubjectLaunchableActivities } from './data/gradeActivityDirectory.js';
 import { createLearningTaskSession, dispatchLearningTask } from './learningTaskEngine.js';
 import { isSpeechEnabled, setSpeechEnabled, speak } from './speechService.js';
-import { renderStudentText } from './studentTextRenderer.js';
+import { isLowGradeReadingAssistanceEnabled, renderStudentText } from './studentTextRenderer.js';
 
 const screens = Object.fromEntries(['home', 'curriculum-game', 'select', 'reading-quest', 'english-quest', 'science-quest', 'social-quest', 'math-data-quest', 'arts-quest', 'catalog-task', 'explore', 'game', 'complete', 'capacity'].map((id) => [id, document.getElementById(`${id}-screen`)]));
 const optionsHost = document.getElementById('answer-options');
@@ -58,6 +58,7 @@ function renderSpeechToggle() {
   speechToggle.textContent = enabled ? '🔊 語音提示：開' : '🔇 語音提示：關';
   speechToggle.setAttribute('aria-pressed', String(enabled));
   speechToggle.setAttribute('aria-label', enabled ? '語音提示目前開啟，按下關閉' : '語音提示目前關閉，按下開啟');
+  document.querySelectorAll('.candidate-prompt-speech').forEach((button) => { button.disabled = !enabled; });
 }
 renderSpeechToggle();
 function getProgressStorage() {
@@ -763,7 +764,7 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     return node;
   };
   const appendStudentText = (parent, text, pronunciationTokens) => {
-    if (!Array.isArray(pronunciationTokens) || pronunciationTokens.length === 0) {
+    if (!isLowGradeReadingAssistanceEnabled(activity.gradeId) || !Array.isArray(pronunciationTokens) || pronunciationTokens.length === 0) {
       parent.append(document.createTextNode(text ?? ''));
       return;
     }
@@ -878,7 +879,10 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   };
   if (session.phase === 'intro') {
     const intro = element('article', 'reading-quest-intro candidate-student-intro');
-    intro.append(element('p', 'candidate-student-summary', activity.stages[0]?.prompt ?? activity.instructions ?? '完成任務中的挑戰。'));
+    const summary = element('p', 'candidate-student-summary');
+    const introStage = activity.stages[0];
+    appendStudentText(summary, introStage?.prompt ?? activity.instructions ?? '完成任務中的挑戰。', introStage?.promptPronunciationTokens);
+    intro.append(summary);
     intro.append(element('p', 'candidate-student-challenge-count', `${activity.stages.length} 個挑戰`));
     host.append(intro);
     button('開始挑戰', 'button button-primary', () => dispatch('start'));
@@ -941,16 +945,28 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     const dialogue = element('article', 'candidate-context-card');
     dialogue.setAttribute('aria-label', '情境資料');
     dialogue.append(element('h3', 'candidate-source-heading', '情境資料'));
-    for (const line of stage.context) dialogue.append(element('p', '', `${line.speaker}：${line.text}`));
+    for (const line of stage.context) {
+      const paragraph = element('p', '');
+      appendStudentText(paragraph, `${line.speaker}：`, line.speakerPronunciationTokens);
+      appendStudentText(paragraph, line.text, line.pronunciationTokens);
+      dialogue.append(paragraph);
+    }
     host.append(dialogue);
   }
   if (stage.passageId && activity.passages?.[stage.passageId]) {
     const passage = activity.passages[stage.passageId];
     const article = element('article', 'reading-passage-card');
     article.setAttribute('aria-label', '閱讀資料');
-    article.append(element('h3', 'candidate-source-heading', '閱讀資料'), element('h4', '', passage.title));
+    article.append(element('h3', 'candidate-source-heading', '閱讀資料'));
+    const passageTitle = element('h4', '');
+    appendStudentText(passageTitle, passage.title, passage.titlePronunciationTokens);
+    article.append(passageTitle);
     const lines = element('ol', '');
-    for (const line of passage.lines ?? []) lines.append(element('li', '', line));
+    for (const line of passage.lines ?? []) {
+      const lineNode = element('li', '');
+      appendStudentText(lineNode, typeof line === 'string' ? line : line.text, typeof line === 'string' ? undefined : line.pronunciationTokens);
+      lines.append(lineNode);
+    }
     article.append(lines);
     host.append(article);
   }
@@ -960,7 +976,11 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     evidence.append(element('h3', 'candidate-source-heading', '觀察資料'));
     for (const record of stage.evidenceRecords) {
       const card = element('article', 'candidate-observation-record');
-      card.append(element('strong', '', record.title), element('p', '', record.text));
+      const title = element('strong', '');
+      appendStudentText(title, record.title, record.titlePronunciationTokens);
+      const text = element('p', '');
+      appendStudentText(text, record.text, record.pronunciationTokens);
+      card.append(title, text);
       evidence.append(card);
     }
     host.append(evidence);
@@ -997,6 +1017,14 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   const studentPrompt = element('p', 'reading-stage-prompt candidate-student-task', '這一關要做什麼：');
   appendStudentText(studentPrompt, stage.prompt, stage.promptPronunciationTokens);
   host.append(studentPrompt);
+  if (isLowGradeReadingAssistanceEnabled(activity.gradeId) && typeof stage.prompt === 'string' && stage.prompt.trim()) {
+    const listen = element('button', 'button button-secondary candidate-prompt-speech', '🔊 聽題目');
+    listen.type = 'button';
+    listen.disabled = !isSpeechEnabled();
+    listen.setAttribute('aria-label', '聽題目');
+    listen.addEventListener('click', () => speak(stage.prompt));
+    host.append(listen);
+  }
   const answerCount = stage.correctOptionIds?.length ?? (stage.correctOptionId ? 1 : 0);
   const responseGuidance = stage.interaction === 'order_items'
     ? '操作方式：① 看清楚題目 → ② 用「上移／下移」調整順序 → ③ 排好後檢查答案'
@@ -2322,7 +2350,9 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     evidenceChoices.setAttribute('aria-label', isMoneySelection ? '選擇錢幣' : '選擇證據');
     for (const option of stage.options) {
       const selected = session.selection.includes(option.id);
-      const choice = element('button', `candidate-category candidate-evidence-option${selected ? ' is-selected' : ''}`, `${selected ? '✓ 已選｜' : ''}${option.text}`);
+      const choice = element('button', `candidate-category candidate-evidence-option${selected ? ' is-selected' : ''}`);
+      if (selected) choice.append(document.createTextNode('✓ 已選｜'));
+      appendStudentText(choice, option.text, option.pronunciationTokens);
       choice.type = 'button';
       choice.setAttribute('aria-pressed', String(selected));
       choice.setAttribute('aria-label', `${selected ? '取消選擇' : '選擇'}${isMoneySelection ? '錢幣' : '證據'}「${option.text}」`);
@@ -2575,7 +2605,13 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     }
   }
   if (session.phase === 'active') {
-    if (session.hintLevel > 0) host.append(element('p', 'reading-hint', `提示 ${session.hintLevel}：${stage.hints[session.hintLevel - 1]}`));
+    if (session.hintLevel > 0) {
+      const hintValue = stage.hints[session.hintLevel - 1];
+      const hintText = typeof hintValue === 'string' ? hintValue : hintValue?.text ?? '';
+      const hint = element('p', 'reading-hint', `提示 ${session.hintLevel}：`);
+      appendStudentText(hint, hintText, typeof hintValue === 'string' ? undefined : hintValue?.pronunciationTokens);
+      host.append(hint);
+    }
     const controls = element('div', 'reading-task-controls');
     if (session.hintLevel < stage.hints.length) {
       const hint = element('button', 'button button-secondary', '查看提示'); hint.type = 'button';
@@ -2713,7 +2749,15 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     return;
   }
   const success = session.phase === 'success';
-  host.append(element('p', `reading-task-feedback ${success ? 'is-correct' : 'is-incorrect'}`, session.lastFeedback?.text ?? ''));
+  const feedbackText = session.lastFeedback?.text ?? '';
+  const feedbackTokens = feedbackText === stage.correctFeedback
+    ? stage.correctFeedbackPronunciationTokens
+    : feedbackText === stage.incorrectFeedback
+      ? stage.incorrectFeedbackPronunciationTokens
+      : stage.options?.find((option) => option.feedback === feedbackText)?.feedbackPronunciationTokens;
+  const feedbackNode = element('p', `reading-task-feedback ${success ? 'is-correct' : 'is-incorrect'}`);
+  appendStudentText(feedbackNode, feedbackText, feedbackTokens);
+  host.append(feedbackNode);
   button(success ? '繼續下一個挑戰' : '重新觀察並重試', 'button button-primary', () => dispatch(success ? 'next' : 'retry'));
   appendTeacherDetails();
 }
