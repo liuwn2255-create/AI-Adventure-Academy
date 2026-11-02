@@ -56,7 +56,6 @@ test('低年級組句提示簡化，Grade 3 保留完整提示；學生正答回
   assert.equal(isLowGradeReadingAssistanceEnabled(grade3Assemble.gradeId), false);
   assert.equal(stage.studentCorrectFeedback, '你依情境選出合適詞語。');
   assert.doesNotMatch(stage.studentCorrectFeedback, /不能代表第一學習階段/u);
-  assert.match(renderer, /addInfo\('本關研究限制', stage\.teacherLimitationNote\)/);
   assert.equal(stage.teacherLimitationNote, '這是少量原創詞句練習，不能代表第一學習階段識字或寫作整體表現。');
   assert.ok(stage.correctFeedbackPronunciationTokens.length > 0);
   assert.equal(stage.correctFeedbackPronunciationTokens.slice(0, Array.from(stage.studentCorrectFeedback).length).map(({ text }) => text).join(''), stage.studentCorrectFeedback);

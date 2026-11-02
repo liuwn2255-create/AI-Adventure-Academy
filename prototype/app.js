@@ -749,6 +749,7 @@ function renderReadingQuest() {
 }
 
 function renderReusableCandidateTask(activity, session, host, updateSession, taskKind) {
+  const stage = activity.stages[session.stageIndex] ?? activity.stages[0];
   host.replaceChildren();
   const element = (tag, className, text) => {
     const node = document.createElement(tag);
@@ -837,7 +838,7 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     if (activity.curriculumMapId) addInfo('課程地圖', '已連結課程地圖（技術識別見下方）');
     addInfo('活動範圍', activity.curriculumScope);
     addInfo('候選任務說明', activity.instructions);
-    addInfo('本關研究限制', stage.teacherLimitationNote);
+    addInfo('本關研究限制', stage?.teacherLimitationNote);
     if (activity.evidencePolicy && typeof activity.evidencePolicy === 'object') {
       const policy = activity.evidencePolicy;
       const policyInfo = element('section', 'candidate-evidence-policy');
@@ -939,7 +940,6 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     teacherInfo.append(list);
     return;
   }
-  const stage = activity.stages[session.stageIndex];
   if (!stage) return;
   host.append(element('h2', 'reading-stage-heading', `挑戰 ${session.stageIndex + 1}／${activity.stages.length}`));
   if (stage.context?.length) {

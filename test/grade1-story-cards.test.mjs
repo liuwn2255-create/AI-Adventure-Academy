@@ -65,7 +65,16 @@ test('故事卡排排隊兩關使用人工注音、保留既有答案與純文�
   assert.equal(recallStage.correctFeedback, '答對了！小樂找到球後，把球拿回遊戲區。');
   assert.doesNotMatch(recallStage.correctFeedback, /候選練習|閱讀程度仍待教師審閱/u);
   assert.equal(recallStage.teacherLimitationNote, '原創短文及排序活動只提供局部候選練習，閱讀程度仍待教師審閱。');
-  assert.match(app, /addInfo\('本關研究限制', stage\.teacherLimitationNote\)/);
+  const rendererStart = app.indexOf('function renderReusableCandidateTask(');
+  const rendererEnd = app.indexOf('\nfunction renderCircleDiagram', rendererStart);
+  const renderer = app.slice(rendererStart, rendererEnd);
+  const stageInitializationIndex = renderer.search(/\bconst\s+stage\s*=\s*activity\.stages\[session\.stageIndex\]\s*\?\?\s*activity\.stages\[0\]\s*;/u);
+  const teacherDetailsIndex = renderer.indexOf('const appendTeacherDetails');
+  const introBranchIndex = renderer.indexOf("if (session.phase === 'intro')");
+  assert.ok(stageInitializationIndex >= 0 && stageInitializationIndex < teacherDetailsIndex && teacherDetailsIndex < introBranchIndex,
+    'The current stage must be initialized before teacher details can read its limitation note or intro can render.');
+  assert.match(renderer.slice(teacherDetailsIndex, introBranchIndex), /addInfo\([^;]*teacherLimitationNote[^;]*\)/u,
+    'Teacher details must route the current stage limitation note through the teacher information helper.');
   assertFullyAnnotated(recallStage.correctFeedback, recallStage.correctFeedbackPronunciationTokens);
   assertFullyAnnotated(recallStage.incorrectFeedback, recallStage.incorrectFeedbackPronunciationTokens);
 
