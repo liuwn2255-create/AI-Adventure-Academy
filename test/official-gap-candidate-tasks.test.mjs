@@ -27,8 +27,15 @@ function answer(session, task, stage, correct) {
     session = action(session, task, 'select_option', { optionId: id });
   } else if (stage.interaction === 'collect_evidence') {
     const wrong = stage.options.find((option) => !stage.correctOptionIds.includes(option.id)).id;
-    const ids = correct ? stage.correctOptionIds : [...stage.correctOptionIds, wrong];
+    const ids = correct
+      ? stage.correctOptionIds
+      : Number.isInteger(stage.requiredSelectionCount)
+        ? [...stage.correctOptionIds.slice(0, stage.requiredSelectionCount - 1), wrong]
+        : [...stage.correctOptionIds, wrong];
     for (const optionId of ids) session = action(session, task, 'toggle_evidence', { optionId });
+    if (Number.isInteger(stage.requiredSelectionCount)) {
+      assert.equal(session.selection.length, stage.requiredSelectionCount, `${task.activityId}/${stage.stageId}/selected-count`);
+    }
   } else if (stage.interaction === 'order_items') {
     const ids = [...stage.correctItemIds];
     if (!correct) [ids[0], ids[1]] = [ids[1], ids[0]];

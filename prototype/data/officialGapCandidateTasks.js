@@ -89,7 +89,7 @@ export const OFFICIAL_GAP_CANDIDATE_TASKS = Object.freeze([
     openQuestions: ['教師需確認小數量測先備與「精確」用語。', '本活動是虛構數據模擬，不能取代實物操作或多次測量。'],
     stages: [
       { stageId: 'classify-repeat-measures', interaction: 'classify_observations', prompt: '將每筆記錄放入 A 組或 B 組。', hints: ['看每筆資料前面的組別標記。', '同一組的三個讀值要放在一起，才能比較差異。'], observations: [{ id: 'a1', text: 'A 組：10.0 公分' }, { id: 'a2', text: 'A 組：10.1 公分' }, { id: 'b1', text: 'B 組：9.2 公分' }, { id: 'b2', text: 'B 組：10.8 公分' }], categories: [{ id: 'group-a', label: 'A 組' }, { id: 'group-b', label: 'B 組' }], correctAssignments: { a1: 'group-a', a2: 'group-a', b1: 'group-b', b2: 'group-b' }, incorrectFeedback: '依資料標記分組；先整理正確，再比較同一物件的重複讀值。', correctFeedback: '你整理了讀值；這些數據是虛構的，不是實際測量結果。' },
-      { stageId: 'compare-measurement-spread', interaction: 'choose_response', prompt: '哪一組的讀值差異較大，因此重複結果較不一致？', hints: ['先比較每組最大值和最小值相差多少。', 'A 組接近 10 公分；B 組從 9.2 到 10.8，範圍較寬。'], options: [{ id: 'group-b', text: 'B 組' }, { id: 'group-a', text: 'A 組' }, { id: 'same', text: '兩組完全一樣' }], correctOptionIds: ['group-b'], incorrectFeedback: '把每組最大與最小讀值相比；差距越大，重複測量越不一致。', correctFeedback: '你根據讀值差距判斷一致性；這不表示已能操作工具或分析所有實驗數據。' },
+      { stageId: 'compare-measurement-spread', interaction: 'choose_response', prompt: '哪一組的讀值差異較大，因此重複結果較不一致？', hints: ['先找出每一組的最大值和最小值。', '分別找出兩組的最大值和最小值，比一比哪一組的差距比較大。'], options: [{ id: 'group-b', text: 'B 組' }, { id: 'group-a', text: 'A 組' }, { id: 'same', text: '兩組完全一樣' }], correctOptionIds: ['group-b'], incorrectFeedback: '把每組最大與最小讀值相比；差距越大，重複測量越不一致。', correctFeedback: '你根據讀值差距判斷一致性；這不表示已能操作工具或分析所有實驗數據。' },
     ],
   }),
 ]);

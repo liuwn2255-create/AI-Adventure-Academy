@@ -1,7 +1,11 @@
 const elementStage = (stageId, concept, highlight, correctId, correctText, wrongText, explanation) => Object.freeze({
   stageId, interaction: 'choose_response', prompt: `觀察圖中的紅色標示，${concept}`, circleDiagram: Object.freeze({ highlight, caption: '紅色標示是這一關要觀察的部分' }),
   options: Object.freeze([{ id: correctId, text: correctText }, { id: `${correctId}-wrong-a`, text: wrongText }, { id: `${correctId}-wrong-b`, text: '圓周' }]), correctOptionIds: Object.freeze([correctId]),
-  hints: Object.freeze(['先看紅色標示從哪裡開始、到哪裡結束。', '圓心是圓內的中心點；半徑從圓心到圓周；直徑要通過圓心並連到圓周兩側。']),
+  hints: Object.freeze(['先看紅色標示在圓的哪個位置，並觀察它的端點。', concept === '這個點叫什麼？'
+    ? '看看紅點是不是位在圓的正中央。'
+    : concept === '這段線叫什麼？'
+      ? '看看紅色線段的一端在哪裡，另一端是不是碰到圓周。'
+      : '看看紅色線段是不是穿過中間的點，而且兩端都碰到圓周。']),
   incorrectFeedback: '沿著紅色標示重新查看端點與圓心的位置，再比對各部分名稱。', correctFeedback: explanation,
 });
 

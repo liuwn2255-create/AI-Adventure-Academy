@@ -140,7 +140,7 @@ export const GRADE2_MONEY_COMBINATION_MARKET = Object.freeze({
         Object.freeze(['g2-10-coin-a', 'g2-10-coin-b', 'g2-10-coin-c', 'g2-10-coin-d', 'g2-10-coin-e', 'g2-50-coin-a']),
       ]),
       correctOptionIds: Object.freeze(['g2-100-note-a']),
-      hints: Object.freeze(['先選一張或幾枚錢幣；留意畫面會加總你選的面額。', '100 元紙鈔，或兩枚 50 元硬幣，都能組成 100 元。']),
+      hints: Object.freeze(['先選一張或幾枚錢幣；留意畫面會加總你選的面額。', '先看看每種錢幣代表多少元，再把你選的金額加起來，看看是不是剛好 100 元。']),
       incorrectFeedback: '看即時總額：少於商品價格還不夠付款，多於價格則不是本題要求的「剛好」組合。',
       correctFeedback: '你用一種面額組合付出 100 元。接著換一個較大的購物金額。',
     }),
