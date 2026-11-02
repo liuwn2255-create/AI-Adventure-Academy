@@ -122,7 +122,28 @@ test('一年級六個活動逐階段可提示、錯答重試、正確完成及�
 
 test('一年級句子列車遮雨題保留純文字答案資料並以人工注音原型顯示', () => {
   const activity = CATALOG_CANDIDATE_TASKS.find(({ activityId }) => activityId === 'ACT-G1-CHINESE-SENTENCE-TRAIN-CANDIDATE');
+  const assembleStage = activity.stages.find(({ stageId }) => stageId === 'assemble-rain-sentence');
   const stage = activity.stages.find(({ stageId }) => stageId === 'choose-context-word');
+  const assertFullyAnnotated = (text, tokens) => {
+    assert.deepEqual(tokens.map(({ text: character }) => character).join(''), text);
+    const hanziCount = [...text].filter((character) => /\p{Script=Han}/u.test(character)).length;
+    assert.equal(tokens.filter(({ text: character, reading }) => /\p{Script=Han}/u.test(character) && reading).length, hanziCount);
+    assert.equal((renderStudentText(text, tokens).match(/class="zhuyin-pair"/g) ?? []).length, hanziCount);
+  };
+
+  assert.equal(assembleStage.prompt, '依照情境排句：小雨要收拾書包，水壺不能留在桌上。');
+  assertFullyAnnotated(assembleStage.prompt, assembleStage.promptPronunciationTokens);
+  for (const token of assembleStage.tokens) {
+    if (/\p{Script=Han}/u.test(token.text)) assertFullyAnnotated(token.text, token.pronunciationTokens);
+  }
+  assert.deepEqual(assembleStage.tokens.map(({ id, text }) => [id, text]), [
+    ['s1-subject', '小雨'], ['s1-action', '把水壺放進'], ['s1-object', '書包'], ['s1-ending', '。'],
+  ]);
+  assert.deepEqual(assembleStage.correctOptionIds, ['s1-subject', 's1-action', 's1-object', 's1-ending']);
+  for (const hint of assembleStage.hints) assertFullyAnnotated(hint.text, hint.pronunciationTokens);
+  assertFullyAnnotated(assembleStage.incorrectFeedback, assembleStage.incorrectFeedbackPronunciationTokens);
+  assertFullyAnnotated(assembleStage.correctFeedback, assembleStage.correctFeedbackPronunciationTokens);
+
   const prompt = '天空下雨了，小安要拿什麼來遮雨？';
   assert.equal(stage.prompt, prompt);
   assert.deepEqual(stage.promptPronunciationTokens.map(({ text }) => text).join(''), prompt);
@@ -140,6 +161,10 @@ test('一年級句子列車遮雨題保留純文字答案資料並以人工注�
     [['枕', 'ㄓㄣˇ'], ['頭', '˙ㄊㄡ']],
   ]);
   assert.deepEqual(stage.correctOptionIds, ['word-umbrella']);
+  for (const hint of stage.hints) assertFullyAnnotated(hint.text, hint.pronunciationTokens);
+  for (const option of stage.options) assertFullyAnnotated(option.feedback, option.feedbackPronunciationTokens);
+  assertFullyAnnotated(stage.incorrectFeedback, stage.incorrectFeedbackPronunciationTokens);
+  assertFullyAnnotated(stage.correctFeedback, stage.correctFeedbackPronunciationTokens);
   const renderedPrompt = renderStudentText(stage.prompt, stage.promptPronunciationTokens);
   assert.match(renderedPrompt, /class="zhuyin-pair"/);
   assert.match(renderedPrompt, /<span class="zhuyin-hanzi">天<\/span>/);
@@ -157,4 +182,11 @@ test('一年級句子列車遮雨題保留純文字答案資料並以人工注�
   const submitted = dispatchLearningTask(session, activity, 'submit', { submissionId: 'grade1-zhuyin-score-check' });
   assert.equal(submitted.session.phase, 'success');
   assert.equal(submitted.attempt.result, 'correct');
+});
+
+test('句子列車組句詞卡沿用既有 student text renderer，沒有 metadata 時保持純文字', async () => {
+  const app = await readFile(new URL('../prototype/app.js', import.meta.url), 'utf8');
+  assert.match(app, /appendStudentText\(tile, token\.text, token\.pronunciationTokens\)/);
+  assert.match(app, /appendStudentText\(answerText, tokenText, token\?\.pronunciationTokens\)/);
+  assert.equal(renderStudentText('桌上。', undefined), '桌上。');
 });

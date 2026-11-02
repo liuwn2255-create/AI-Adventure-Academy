@@ -1236,10 +1236,12 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     const tiles = element('div', 'candidate-token-list');
     for (const token of stage.tokens) {
       const isSelected = session.selection.includes(token.id);
-      const tile = element('button', `candidate-token candidate-response-option${isSelected ? ' is-selected' : ''}`, `${isSelected ? '✓ ' : ''}${token.text}`);
+      const tile = element('button', `candidate-token candidate-response-option${isSelected ? ' is-selected' : ''}`);
       tile.type = 'button'; tile.setAttribute('aria-pressed', String(isSelected));
       tile.dataset.responseTokenId = token.id;
       tile.setAttribute('aria-label', isSelected ? `從我的答案移除「${token.text}」` : `將「${token.text}」加入我的答案`);
+      if (isSelected) tile.append(document.createTextNode('✓ '));
+      appendStudentText(tile, token.text, token.pronunciationTokens);
       tile.addEventListener('click', () => {
         dispatch(isSelected ? 'remove_phrase_token' : 'add_phrase_token', { tokenId: token.id });
         [...host.querySelectorAll('.candidate-response-option')].find((candidateTile) => candidateTile.dataset.responseTokenId === token.id)?.focus();
@@ -1255,10 +1257,13 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     } else {
       const answerList = element('ol', 'candidate-response-answer-list');
       for (const [index, tokenId] of session.selection.entries()) {
-        const tokenText = stage.tokens.find(({ id }) => id === tokenId)?.text ?? tokenId;
+        const token = stage.tokens.find(({ id }) => id === tokenId);
+        const tokenText = token?.text ?? tokenId;
         const item = element('li', 'candidate-response-answer-item');
         item.setAttribute('aria-label', `第 ${index + 1} 項：${tokenText}`);
-        item.append(element('span', 'candidate-response-sequence-number', String(index + 1)), element('span', 'candidate-response-answer-text', tokenText));
+        const answerText = element('span', 'candidate-response-answer-text');
+        appendStudentText(answerText, tokenText, token?.pronunciationTokens);
+        item.append(element('span', 'candidate-response-sequence-number', String(index + 1)), answerText);
         answerList.append(item);
       }
       answer.append(answerList);
