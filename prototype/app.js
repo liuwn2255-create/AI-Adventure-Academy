@@ -103,6 +103,35 @@ function appendAssembleUiText(parent, text, appendStudentText) {
   appendStudentText(parent, text, assembleUiPronunciationTokens(text));
 }
 
+const CLASSIFY_OBSERVATIONS_UI_PRONUNCIATION = Object.freeze({
+  '已分 ': 'ㄧˇ ㄈㄣ',
+  ' 張': 'ㄓㄤ',
+  '還要分 ': 'ㄏㄞˊ ㄧㄠˋ ㄈㄣ',
+  ' 張。': 'ㄓㄤ',
+  '可以檢查答案了。': 'ㄎㄜˇ ㄧˇ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ ㄌㄜ˙',
+  '檢查分類': 'ㄐㄧㄢˇ ㄔㄚˊ ㄈㄣ ㄌㄟˋ',
+  '檢查答案': 'ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ',
+});
+
+function classifyObservationsUiPronunciationTokens(text) {
+  const readings = CLASSIFY_OBSERVATIONS_UI_PRONUNCIATION[text];
+  if (!readings) return undefined;
+  const readingList = readings.split(/\s+/u);
+  let readingIndex = 0;
+  const tokens = Array.from(text, (character) => {
+    if (!/\p{Script=Han}/u.test(character)) return { text: character };
+    const reading = readingList[readingIndex++];
+    if (!reading) throw new Error(`Missing classify_observations UI pronunciation for ${character} in ${text}`);
+    return { text: character, reading };
+  });
+  if (readingIndex !== readingList.length) throw new Error(`Extra classify_observations UI pronunciation for ${text}`);
+  return tokens;
+}
+
+function appendClassifyObservationsUiText(parent, text, appendStudentText) {
+  appendStudentText(parent, text, classifyObservationsUiPronunciationTokens(text));
+}
+
 function playBuildArrayFeedbackTone(delta) {
   const AudioContextConstructor = globalThis.AudioContext ?? globalThis.webkitAudioContext;
   if (typeof AudioContextConstructor !== 'function') return;
@@ -1127,6 +1156,9 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   const answerCount = stage.correctOptionIds?.length ?? (stage.correctOptionId ? 1 : 0);
   const lowGradeBuildArray = stage.interaction === 'build_array' && isLowGradeReadingAssistanceEnabled(activity.gradeId);
   const lowGradeAssembleResponse = stage.interaction === 'assemble_response' && isLowGradeReadingAssistanceEnabled(activity.gradeId);
+  const lowGradeClassifyObservations = stage.interaction === 'classify_observations'
+    && isLowGradeReadingAssistanceEnabled(activity.gradeId)
+    && !stage.collectionRules;
   const responseGuidance = stage.interaction === 'order_items'
     ? isLowGradeReadingAssistanceEnabled(activity.gradeId)
       ? '怎麼玩：① 看故事卡 → ② 用「上移／下移」排順序 → ③ 檢查答案'
@@ -1152,12 +1184,16 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     : stage.interaction === 'magnet_interaction'
       ? '操作方式：① 操作 → ② 觀察 → ③ 作答'
     : stage.interaction === 'classify_observations'
-      ? '操作方式：① 看觀察紀錄 → ② 選擇分類'
+      ? lowGradeClassifyObservations
+        ? stage.studentOperationGuidance ?? '怎麼玩：① 看每張卡 → ② 幫每張卡選一類 → ③ 全部分好後檢查答案'
+        : '操作方式：① 看觀察紀錄 → ② 選擇分類'
       : stage.options?.length && answerCount > 0
         ? answerCount === 1 ? '這是單選題，請選 1 個答案。' : `這是複選題，請選 ${answerCount} 個答案。`
         : '操作方式：① 操作 → ② 觀察 → ③ 作答';
   const responseGuidanceNode = element('p', 'candidate-student-response-guidance');
   if (lowGradeAssembleResponse && Array.isArray(stage.studentOperationGuidancePronunciationTokens)) {
+    appendStudentText(responseGuidanceNode, responseGuidance, stage.studentOperationGuidancePronunciationTokens);
+  } else if (lowGradeClassifyObservations && Array.isArray(stage.studentOperationGuidancePronunciationTokens)) {
     appendStudentText(responseGuidanceNode, responseGuidance, stage.studentOperationGuidancePronunciationTokens);
   } else if (lowGradeBuildArray) appendBuildArrayUiText(responseGuidanceNode, responseGuidance, appendStudentText);
   else responseGuidanceNode.textContent = responseGuidance;
@@ -1171,7 +1207,15 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     }
     : null;
   if (classificationProgress) {
-    host.append(element('p', 'candidate-student-answer-progress', `作答進度：${classificationProgress.completedCount} / ${classificationProgress.totalCount}`));
+    const progressNode = element('p', 'candidate-student-answer-progress');
+    if (lowGradeClassifyObservations) {
+      appendClassifyObservationsUiText(progressNode, '已分 ', appendStudentText);
+      appendStudentText(progressNode, String(classificationProgress.completedCount));
+      appendStudentText(progressNode, ' / ');
+      appendStudentText(progressNode, String(classificationProgress.totalCount));
+      appendClassifyObservationsUiText(progressNode, ' 張', appendStudentText);
+    } else progressNode.textContent = `作答進度：${classificationProgress.completedCount} / ${classificationProgress.totalCount}`;
+    host.append(progressNode);
   }
   if (stage.deriveFromPrevious && Number.isInteger(session.previousStepResult)) host.append(element('p', 'candidate-intermediate-result', `第一步中間結果：${session.previousStepResult}。請把這個數量帶到第二步。`));
   if (session.phase === 'active' && stage.interaction === 'order_items') {
@@ -2568,11 +2612,16 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       for (const observation of stage.observations) {
         const card = element('fieldset', 'candidate-classification-card candidate-distribution-card');
         card.dataset.observationId = observation.id;
-        card.append(element('legend', '', observation.text));
+        const legend = element('legend', '');
+        if (lowGradeClassifyObservations) appendStudentText(legend, observation.text, observation.pronunciationTokens);
+        else legend.textContent = observation.text;
+        card.append(legend);
         const choices = element('div', 'candidate-category-list');
         for (const category of stage.categories) {
           const selected = session.assignments[observation.id] === category.id;
-          const choice = element('button', `candidate-category${selected ? ' is-selected' : ''}`, category.label);
+          const choice = element('button', `candidate-category${selected ? ' is-selected' : ''}`);
+          if (lowGradeClassifyObservations) appendStudentText(choice, category.label, category.pronunciationTokens);
+          else choice.textContent = category.label;
           choice.type = 'button';
           choice.setAttribute('aria-pressed', String(selected));
           choice.setAttribute('aria-label', `${observation.text}，分配到${category.label}`);
@@ -2587,7 +2636,10 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     for (const observation of stage.observations) {
       const card = element('fieldset', 'candidate-classification-card');
       card.dataset.observationId = observation.id;
-      card.append(element('legend', '', observation.text));
+      const legend = element('legend', '');
+      if (lowGradeClassifyObservations) appendStudentText(legend, observation.text, observation.pronunciationTokens);
+      else legend.textContent = observation.text;
+      card.append(legend);
       const comparison = stage.lengthComparison?.comparisons?.find(({ id }) => id === observation.id);
       if (comparison) {
         const visual = element('div', 'length-comparison-visual');
@@ -2601,9 +2653,12 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       }
       const choices = element('div', 'candidate-category-list');
       for (const category of stage.categories) {
-        const choice = element('button', `candidate-category${session.assignments[observation.id] === category.id ? ' is-selected' : ''}`, category.label);
+        const selected = session.assignments[observation.id] === category.id;
+        const choice = element('button', `candidate-category${selected ? ' is-selected' : ''}`);
+        if (lowGradeClassifyObservations) appendStudentText(choice, category.label, category.pronunciationTokens);
+        else choice.textContent = category.label;
         choice.type = 'button';
-        choice.setAttribute('aria-pressed', String(session.assignments[observation.id] === category.id));
+        choice.setAttribute('aria-pressed', String(selected));
         choice.addEventListener('click', () => dispatch('assign_category', { observationId: observation.id, categoryId: category.id }));
         choices.append(choice);
       }
@@ -2881,21 +2936,28 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
             : stage.magnetRules.mode === 'materials' ? stage.magnetRules.materials.every(({ id }) => session.magnetModel?.testedObjectIds.includes(id) && session.magnetModel.assignments[id])
               : stage.magnetRules.magnets.every(({ id }) => session.magnetModel?.testedMagnetIds.includes(id)) && Boolean(session.magnetModel?.selectedStrongerMagnetId)
         : session.selection.length > 0;
-    const submitLabel = stage.interaction === 'magnet_interaction' && stage.magnetRules.mode === 'materials' ? '檢查答案' : taskKind === 'english' ? '送出英文回應' : taskKind === 'chinese' ? '檢查答案' : taskKind === 'mathData' ? '完成資料表' : taskKind === 'math' ? '檢查數學解法' : taskKind === 'science' ? '檢查觀察與分類' : taskKind === 'arts' ? '檢查節奏作品' : taskKind === 'living' ? '提交觀察線索' : taskKind === 'hpe' ? '檢查安全分類' : taskKind === 'integrative' ? '檢查步驟順序' : '檢查分類';
+    const submitLabel = lowGradeClassifyObservations ? '檢查分類'
+      : stage.interaction === 'choose_response' && isLowGradeReadingAssistanceEnabled(activity.gradeId) ? '檢查答案'
+        : stage.interaction === 'magnet_interaction' && stage.magnetRules.mode === 'materials' ? '檢查答案' : taskKind === 'english' ? '送出英文回應' : taskKind === 'chinese' ? '檢查答案' : taskKind === 'mathData' ? '完成資料表' : taskKind === 'math' ? '檢查數學解法' : taskKind === 'science' ? '檢查觀察與分類' : taskKind === 'arts' ? '檢查節奏作品' : taskKind === 'living' ? '提交觀察線索' : taskKind === 'hpe' ? '檢查安全分類' : taskKind === 'integrative' ? '檢查步驟順序' : '檢查分類';
     const submit = element('button', 'button button-primary');
     submit.type = 'button'; submit.disabled = !hasResponse;
     if (lowGradeAssembleResponse) appendAssembleUiText(submit, submitLabel, appendStudentText);
+    else if (lowGradeClassifyObservations || (stage.interaction === 'choose_response' && isLowGradeReadingAssistanceEnabled(activity.gradeId))) appendClassifyObservationsUiText(submit, submitLabel, appendStudentText);
     else submit.textContent = submitLabel;
     submit.addEventListener('click', () => dispatch('submit', { submissionId: `${session.sessionId}:submission:${session.attempts.length + 1}` }));
     controls.append(submit);
     const readinessId = `candidate-submit-readiness-${stage.stageId}`;
     const hasSpecificReadiness = stage.interaction === 'magnet_interaction' && stage.magnetRules.mode === 'materials';
     const hasLowGradeAssembleCount = lowGradeAssembleResponse && Number.isInteger(stage.requiredSelectionCount);
-    if ((!hasResponse || hasLowGradeAssembleCount) && !hasSpecificReadiness) {
+    const hasLowGradeClassificationProgress = lowGradeClassifyObservations && Boolean(classificationProgress);
+    if ((!hasResponse || hasLowGradeAssembleCount || hasLowGradeClassificationProgress) && !hasSpecificReadiness) {
       let readinessText = '還沒完成喔！完成上面的作答後，就可以檢查答案。';
       if (hasLowGradeAssembleCount) {
         const remainingCount = stage.requiredSelectionCount - session.selection.length;
         readinessText = remainingCount > 0 ? `還要選 ${remainingCount} 張。` : '可以檢查答案了。';
+      } else if (hasLowGradeClassificationProgress) {
+        const remainingCount = classificationProgress.totalCount - classificationProgress.completedCount;
+        readinessText = remainingCount > 0 ? `還要分 ${remainingCount} 張。` : '可以檢查答案了。';
       } else if (stage.interaction === 'collect_evidence' && Number.isInteger(stage.requiredSelectionCount)) {
         const remainingCount = stage.requiredSelectionCount - session.selection.length;
         readinessText = `還差 ${remainingCount} 項，完成後就可以檢查答案。`;
@@ -2913,6 +2975,14 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
         if (remainingCount > 0) {
           for (const text of ['還要選 ', String(remainingCount), ' 張。']) appendAssembleUiText(readiness, text, appendStudentText);
         } else appendAssembleUiText(readiness, '可以檢查答案了。', appendStudentText);
+      } else if (hasLowGradeClassificationProgress) {
+        readiness.textContent = '';
+        const remainingCount = classificationProgress.totalCount - classificationProgress.completedCount;
+        if (remainingCount > 0) {
+          appendClassifyObservationsUiText(readiness, '還要分 ', appendStudentText);
+          appendStudentText(readiness, String(remainingCount));
+          appendClassifyObservationsUiText(readiness, ' 張。', appendStudentText);
+        } else appendClassifyObservationsUiText(readiness, '可以檢查答案了。', appendStudentText);
       }
       readiness.id = readinessId;
       submit.setAttribute('aria-describedby', readinessId);
