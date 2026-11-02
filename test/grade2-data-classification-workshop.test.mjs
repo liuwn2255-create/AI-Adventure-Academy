@@ -36,6 +36,14 @@ test('learners collect, classify and subdivide simulated shape cards, receive fe
   const collection = task.stages[0];
   const distractor = collection.options.find(({ id }) => !collection.correctOptionIds.includes(id));
   session = apply(session, 'toggle_evidence', { optionId: distractor.id });
+  const incomplete = dispatchLearningTask(session, task, 'submit', { submissionId: 'collect-incomplete' });
+  assert.equal(incomplete.changed, false);
+  assert.equal(incomplete.error, 'response_required');
+  assert.equal(incomplete.session.phase, 'active');
+  for (const optionId of collection.correctOptionIds.slice(0, collection.requiredSelectionCount - 1)) {
+    session = apply(session, 'toggle_evidence', { optionId });
+  }
+  assert.equal(session.selection.length, collection.requiredSelectionCount);
   session = submit(session, 'collect-wrong');
   assert.equal(session.phase, 'feedback');
   assert.equal(session.lastFeedback.correct, false);

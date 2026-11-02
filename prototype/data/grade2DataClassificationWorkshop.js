@@ -30,6 +30,7 @@ export const GRADE2_DATA_CLASSIFICATION_WORKSHOP = Object.freeze({
     Object.freeze({
       stageId: 'collect-geometric-object-cards',
       interaction: 'collect_evidence',
+      requiredSelectionCount: 6,
       prompt: '觀察桌上混合的生活物件卡，收集所有「平面幾何形體」卡，先把資料找齊。',
       options: Object.freeze([
         { id: 'red-circle', text: '紅色圓形片' }, { id: 'blue-triangle', text: '藍色三角形片' },
