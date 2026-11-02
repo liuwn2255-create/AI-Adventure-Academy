@@ -37,6 +37,7 @@ import { GRADE3_MATH_REPAIR_MAINLINE } from './data/grade3MathRepairMainline.js'
 import { getGradeAdventureSummary, getSubjectDirectorySummary, getSubjectLaunchableActivities } from './data/gradeActivityDirectory.js';
 import { createLearningTaskSession, dispatchLearningTask } from './learningTaskEngine.js';
 import { isSpeechEnabled, setSpeechEnabled, speak } from './speechService.js';
+import { renderStudentText } from './studentTextRenderer.js';
 
 const screens = Object.fromEntries(['home', 'curriculum-game', 'select', 'reading-quest', 'english-quest', 'science-quest', 'social-quest', 'math-data-quest', 'arts-quest', 'catalog-task', 'explore', 'game', 'complete', 'capacity'].map((id) => [id, document.getElementById(`${id}-screen`)]));
 const optionsHost = document.getElementById('answer-options');
@@ -761,6 +762,16 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     host.append(node);
     return node;
   };
+  const appendStudentText = (parent, text, pronunciationTokens) => {
+    if (!Array.isArray(pronunciationTokens) || pronunciationTokens.length === 0) {
+      parent.append(document.createTextNode(text ?? ''));
+      return;
+    }
+    const annotatedText = element('span', 'candidate-zhuyin-text');
+    // renderStudentText escapes all source text and generates only ruby markup.
+    annotatedText.innerHTML = renderStudentText(text, pronunciationTokens);
+    parent.append(annotatedText);
+  };
   const dispatch = (action, payload = {}) => {
     const result = dispatchLearningTask(session, activity, action, payload);
     updateSession(result.session);
@@ -983,7 +994,9 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     node.append(tbody); wrapper.append(node); host.append(wrapper);
   };
   if (stage.tableView) appendTableView(stage.tableView);
-  host.append(element('p', 'reading-stage-prompt candidate-student-task', `這一關要做什麼：${stage.prompt}`));
+  const studentPrompt = element('p', 'reading-stage-prompt candidate-student-task', '這一關要做什麼：');
+  appendStudentText(studentPrompt, stage.prompt, stage.promptPronunciationTokens);
+  host.append(studentPrompt);
   const answerCount = stage.correctOptionIds?.length ?? (stage.correctOptionId ? 1 : 0);
   const responseGuidance = stage.interaction === 'order_items'
     ? '操作方式：① 看清楚題目 → ② 用「上移／下移」調整順序 → ③ 排好後檢查答案'
@@ -2286,8 +2299,9 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     choices.setAttribute('aria-label', '選擇答案');
     for (const option of stage.options) {
       const selected = session.selection.includes(option.id);
-      const choice = element('button', `candidate-category candidate-answer-option${selected ? ' is-selected' : ''}`, `${selected ? '✓ 已選｜' : ''}${option.text}`);
+      const choice = element('button', `candidate-category candidate-answer-option${selected ? ' is-selected' : ''}`, `${selected ? '✓ 已選｜' : ''}`);
       choice.type = 'button';
+      appendStudentText(choice, option.text, option.pronunciationTokens);
       choice.setAttribute('aria-pressed', String(selected));
       choice.setAttribute('aria-label', `${selected ? '目前已選答案' : '選擇答案'}「${option.text}」`);
       choice.addEventListener('click', () => dispatch('select_option', { optionId: option.id }));

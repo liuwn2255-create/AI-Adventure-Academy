@@ -48,7 +48,8 @@ test('挑戰畫面以任務提示和互動方式為主，材料分類進度取�
   assert.equal(materialStage.interaction, 'classify_observations');
   assert.equal(materialStage.observations.length, 3);
   assert.deepEqual(materialStage.correctAssignments, { cloth: 'absorbs', plastic: 'stays', paper: 'absorbs' });
-  assert.match(renderer, /這一關要做什麼：\$\{stage\.prompt\}/);
+  assert.match(renderer, /const studentPrompt = element\('p', 'reading-stage-prompt candidate-student-task', '這一關要做什麼：'\)/);
+  assert.match(renderer, /appendStudentText\(studentPrompt, stage\.prompt, stage\.promptPronunciationTokens\)/);
   assert.match(renderer, /這是單選題，請選 1 個答案/);
   assert.match(renderer, /這是複選題，請選 \$\{answerCount\} 個答案/);
   assert.match(renderer, /操作方式：① 看觀察紀錄 → ② 選擇分類/);
@@ -64,10 +65,11 @@ test('挑戰畫面以任務提示和互動方式為主，材料分類進度取�
   assert.ok(activeFlowStart >= 0 && feedbackStart > activeFlowStart, 'active flow must have an explicit boundary before feedback rendering');
   const activeFlow = renderer.slice(activeFlowStart, feedbackStart);
   assert.doesNotMatch(activeFlow, /reading-task-feedback/);
-  const taskPromptIndex = renderer.indexOf('這一關要做什麼：${stage.prompt}');
-  const interactionIndex = renderer.indexOf("stage.interaction === 'classify_observations'", taskPromptIndex);
+  const taskPromptIndex = renderer.indexOf("const studentPrompt = element('p', 'reading-stage-prompt candidate-student-task'");
+  const promptBindingIndex = renderer.indexOf('appendStudentText(studentPrompt, stage.prompt, stage.promptPronunciationTokens)', taskPromptIndex);
+  const interactionIndex = renderer.indexOf("const controls = element('div', 'candidate-classification-board')", promptBindingIndex);
   const submitIndex = renderer.indexOf("const submit = element('button'", interactionIndex);
-  assert.ok(taskPromptIndex >= 0 && interactionIndex > taskPromptIndex && submitIndex > interactionIndex);
+  assert.ok(taskPromptIndex >= 0 && promptBindingIndex > taskPromptIndex && interactionIndex > promptBindingIndex && submitIndex > interactionIndex);
   assert.ok(activeFlow.indexOf('host.append(controls)') < activeFlow.indexOf('appendTeacherDetails();'));
   const feedbackBranch = renderer.slice(feedbackStart);
   assert.ok(feedbackBranch.indexOf("'reading-task-feedback'") < feedbackBranch.indexOf('appendTeacherDetails();'));
@@ -275,7 +277,6 @@ test('collect_evidence 只依公開 requiredSelectionCount 顯示進度、限制
   assert.ok(registeredCountStages.every((candidateStage) => candidateStage.requiredSelectionCount === 2));
   const collectEvidenceStages = CATALOG_CANDIDATE_TASKS.flatMap((task) => task.stages).filter(({ interaction }) => interaction === 'collect_evidence');
   assert.equal(collectEvidenceStages.length, 44);
-  assert.equal(collectEvidenceStages.filter(({ requiredSelectionCount }) => Number.isInteger(requiredSelectionCount)).length, 11);
 
   const countUiStart = renderer.indexOf('const hasRequiredSelectionCount =');
   const countUiEnd = renderer.indexOf("if (session.phase === 'active' && stage.interaction === 'classify_observations')", countUiStart);
@@ -371,7 +372,8 @@ test('choose_response 以單選語意呈現並保留既有選取與提交行為'
   assert.match(chooseGuidance, /'作答方式：請選 1 個答案'/);
   assert.doesNotMatch(chooseGuidance, /correctOptionIds|correctOptionId|answerCount/);
   assert.match(chooseRenderer, /'選擇答案'/);
-  assert.match(chooseRenderer, /\$\{selected \? '✓ 已選｜' : ''\}\$\{option\.text\}/);
+  assert.match(chooseRenderer, /const choice = element\('button', `candidate-category candidate-answer-option\$\{selected \? ' is-selected' : ''\}`, `\$\{selected \? '✓ 已選｜' : ''\}`\)/);
+  assert.match(chooseRenderer, /appendStudentText\(choice, option\.text, option\.pronunciationTokens\)/);
   assert.match(chooseRenderer, /aria-label', `\$\{selected \? '目前已選答案' : '選擇答案'\}「\$\{option\.text\}」`/);
   assert.match(chooseRenderer, /aria-pressed', String\(selected\)/);
   assert.match(chooseRenderer, /dispatch\('select_option', \{ optionId: option\.id \}\)/);

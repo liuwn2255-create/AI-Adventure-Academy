@@ -5,6 +5,7 @@ import { CATALOG_CANDIDATE_TASKS } from '../prototype/data/catalogCandidateTasks
 import { GRADE_CATALOG } from '../prototype/data/gradeCatalog.js';
 import { getLearningTaskRelation } from '../prototype/data/elementaryLearningCatalog.js';
 import { createLearningTaskSession, dispatchLearningTask, validateLearningTask } from '../prototype/learningTaskEngine.js';
+import { renderStudentText } from '../prototype/studentTextRenderer.js';
 
 const curriculum = JSON.parse(await readFile(new URL('../curriculum/curriculum-map.json', import.meta.url), 'utf8'));
 const learningMap = JSON.parse(await readFile(new URL('../curriculum/learning-map.json', import.meta.url), 'utf8'));
@@ -117,4 +118,40 @@ test('一年級六個活動逐階段可提示、錯答重試、正確完成及�
     assert.equal(dispatchLearningTask(session, task, 'restart').session.phase, 'intro');
     assert.equal(task.evidencePolicy.persistence, 'memory_only_no_student_records_no_localStorage');
   }
+});
+
+test('一年級句子列車遮雨題保留純文字答案資料並以人工注音原型顯示', () => {
+  const activity = CATALOG_CANDIDATE_TASKS.find(({ activityId }) => activityId === 'ACT-G1-CHINESE-SENTENCE-TRAIN-CANDIDATE');
+  const stage = activity.stages.find(({ stageId }) => stageId === 'choose-context-word');
+  const prompt = '天空下雨了，小安要拿什麼來遮雨？';
+  assert.equal(stage.prompt, prompt);
+  assert.deepEqual(stage.promptPronunciationTokens.map(({ text }) => text).join(''), prompt);
+  assert.ok(stage.promptPronunciationTokens.filter(({ text }) => /\p{Script=Han}/u.test(text)).every(({ reading }) => Boolean(reading)));
+  assert.deepEqual(stage.promptPronunciationTokens.filter(({ reading }) => reading).map(({ text, reading }) => [text, reading]), [
+    ['天', 'ㄊㄧㄢ'], ['空', 'ㄎㄨㄥ'], ['下', 'ㄒㄧㄚˋ'], ['雨', 'ㄩˇ'], ['了', '˙ㄌㄜ'],
+    ['小', 'ㄒㄧㄠˇ'], ['安', 'ㄢ'], ['要', 'ㄧㄠˋ'], ['拿', 'ㄋㄚˊ'], ['什', 'ㄕㄣˊ'], ['麼', '˙ㄇㄜ'], ['來', 'ㄌㄞˊ'], ['遮', 'ㄓㄜ'], ['雨', 'ㄩˇ'],
+  ]);
+  assert.deepEqual(stage.options.map(({ id, text }) => [id, text]), [
+    ['word-umbrella', '雨傘'], ['word-spoon', '湯匙'], ['word-pillow', '枕頭'],
+  ]);
+  assert.deepEqual(stage.options.map(({ pronunciationTokens }) => pronunciationTokens.map(({ text, reading }) => [text, reading])), [
+    [['雨', 'ㄩˇ'], ['傘', 'ㄙㄢˇ']],
+    [['湯', 'ㄊㄤ'], ['匙', 'ㄔˊ']],
+    [['枕', 'ㄓㄣˇ'], ['頭', '˙ㄊㄡ']],
+  ]);
+  assert.deepEqual(stage.correctOptionIds, ['word-umbrella']);
+  assert.equal(renderStudentText(stage.prompt, stage.promptPronunciationTokens).includes('<rt>ㄊㄧㄢ</rt>'), true);
+
+  const wrongPromptStage = CATALOG_CANDIDATE_TASKS.find(({ activityId }) => activityId === 'ACT-G2-CHINESE-STORY-CLUE-CANDIDATE')
+    .stages.find(({ stageId }) => stageId === 'collect-rain-shelter-clues');
+  assert.equal(wrongPromptStage.promptPronunciationTokens, undefined);
+  assert.equal(renderStudentText(wrongPromptStage.prompt, wrongPromptStage.promptPronunciationTokens), wrongPromptStage.prompt);
+
+  let session = dispatchLearningTask(createLearningTaskSession(activity, 'grade1-zhuyin-score-check'), activity, 'start').session;
+  session = setResponse(activity, activity.stages[0], session, true);
+  session = dispatchLearningTask(session, activity, 'next').session;
+  session = dispatchLearningTask(session, activity, 'select_option', { optionId: 'word-umbrella' }).session;
+  const submitted = dispatchLearningTask(session, activity, 'submit', { submissionId: 'grade1-zhuyin-score-check' });
+  assert.equal(submitted.session.phase, 'success');
+  assert.equal(submitted.attempt.result, 'correct');
 });
