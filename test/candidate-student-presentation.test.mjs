@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { CATALOG_CANDIDATE_TASKS, CATALOG_CANDIDATE_TASK_BY_ID } from '../prototype/data/catalogCandidateTasks.js';
 import { GRADE_CATALOG } from '../prototype/data/gradeCatalog.js';
 import { getSubjectLaunchableActivities } from '../prototype/data/gradeActivityDirectory.js';
-import { createLearningTaskSession, dispatchLearningTask } from '../prototype/learningTaskEngine.js';
+import { createLearningTaskSession, dispatchLearningTask, validateLearningTask } from '../prototype/learningTaskEngine.js';
 
 const app = await readFile(new URL('../prototype/app.js', import.meta.url), 'utf8');
 const html = await readFile(new URL('../prototype/index.html', import.meta.url), 'utf8');
@@ -254,6 +254,98 @@ test('collect_evidence 區分題目資料、證據選擇與目前選取狀態', 
   assert.match(renderer.slice(hasResponseEnd), /submit\.disabled = !hasResponse/);
   assert.match(engine, /state\.selection = state\.selection\.includes\(payload\.optionId\)[\s\S]*?\? state\.selection\.filter\(\(id\) => id !== payload\.optionId\)/);
   assert.match(engine, /correct = sortedResponse\.length === sortedExpected\.length && sortedResponse\.every\(\(id, index\) => id === sortedExpected\[index\]\)/);
+});
+
+test('collect_evidence 只依公開 requiredSelectionCount 顯示進度、限制選取並控制提交', () => {
+  const activity = CATALOG_CANDIDATE_TASK_BY_ID.get('ACT-G3-CHINESE-STORY-CLUE-RESCUE-CANDIDATE');
+  const stage = activity.stages.find(({ stageId }) => stageId === 'seedling-care-clues');
+  assert.match(stage.prompt, /選出兩句/);
+  assert.equal(stage.requiredSelectionCount, 2);
+  assert.equal(stage.interaction, 'collect_evidence');
+
+  const explicitCountStageIds = [
+    'seedling-care-clues', 'collect-before-after-evidence', 'collect-main-idea-evidence',
+    'select-evidence-for-next-action', 'collect-change-and-demand-records', 'collect-vine-classification-evidence',
+    'select-structure-evidence', 'choose-special-structure-evidence', 'choose-supported-comparison',
+    'collect-bounded-impact-evidence', 'select-beak-food-evidence',
+  ];
+  const registeredCountStages = CATALOG_CANDIDATE_TASKS.flatMap((task) => task.stages)
+    .filter(({ stageId }) => explicitCountStageIds.includes(stageId));
+  assert.equal(registeredCountStages.length, explicitCountStageIds.length);
+  assert.ok(registeredCountStages.every((candidateStage) => candidateStage.requiredSelectionCount === 2));
+  const collectEvidenceStages = CATALOG_CANDIDATE_TASKS.flatMap((task) => task.stages).filter(({ interaction }) => interaction === 'collect_evidence');
+  assert.equal(collectEvidenceStages.length, 44);
+  assert.equal(collectEvidenceStages.filter(({ requiredSelectionCount }) => Number.isInteger(requiredSelectionCount)).length, 11);
+
+  const countUiStart = renderer.indexOf('const hasRequiredSelectionCount =');
+  const countUiEnd = renderer.indexOf("if (session.phase === 'active' && stage.interaction === 'classify_observations')", countUiStart);
+  const countUi = renderer.slice(countUiStart, countUiEnd);
+  assert.ok(countUiStart >= 0 && countUiEnd > countUiStart);
+  assert.match(countUi, /\$\{session\.selection\.length\} \/ \$\{stage\.requiredSelectionCount\}/);
+  assert.match(countUi, /const selectionComplete = hasRequiredSelectionCount && session\.selection\.length === stage\.requiredSelectionCount;/);
+  assert.match(countUi, /\$\{selectionComplete \? ' ✓' : ''\}/);
+  assert.match(countUi, /已完成要求的選擇數量/);
+  assert.doesNotMatch(countUi, /correctOptionIds|correctAnswers|stage\.prompt.*match|parseInt/);
+  assert.doesNotMatch(countUi, /答對|正確/);
+
+  const hasResponseStart = renderer.indexOf('const hasResponse =');
+  const hasResponseEnd = renderer.indexOf('const submitLabel =', hasResponseStart);
+  const hasResponseSection = renderer.slice(hasResponseStart, hasResponseEnd);
+  assert.match(hasResponseSection, /stage\.interaction === 'collect_evidence'[\s\S]*?session\.selection\.length === stage\.requiredSelectionCount[\s\S]*?session\.selection\.length > 0/);
+  assert.match(renderer, /stage\.requiredSelectionCount - session\.selection\.length/);
+  assert.match(renderer, /還差 \$\{remainingCount\} 項，完成後就可以檢查答案。/);
+  assert.match(renderer, /taskKind === 'chinese' \? '檢查答案'/);
+  assert.doesNotMatch(renderer, /檢查閱讀線索/);
+  assert.equal(CATALOG_CANDIDATE_TASKS.filter(({ subjectId }) => subjectId === 'chinese-language').length, 17);
+  assert.match(engine, /state\.selection\.length === stage\.requiredSelectionCount/);
+  assert.match(engine, /required_selection_count_reached/);
+  assert.match(engine, /stage\.requiredSelectionCount !== undefined[\s\S]*?Number\.isInteger\(stage\.requiredSelectionCount\)[\s\S]*?stage\.requiredSelectionCount < 1/);
+  assert.doesNotMatch(engine, /requiredSelectionCount[^\n]*correctOptionIds|correctOptionIds[^\n]*requiredSelectionCount/);
+
+  let session = dispatchLearningTask(createLearningTaskSession(activity, 'required-selection-count-test'), activity, 'start').session;
+  const [firstId, secondId, thirdId] = stage.options.map(({ id }) => id);
+  session = dispatchLearningTask(session, activity, 'toggle_evidence', { optionId: firstId }).session;
+  assert.equal(session.selection.length, 1);
+  const incompleteSubmit = dispatchLearningTask(session, activity, 'submit');
+  assert.equal(incompleteSubmit.error, 'response_required');
+  assert.equal(incompleteSubmit.session.attempts.length, 0);
+
+  session = dispatchLearningTask(session, activity, 'toggle_evidence', { optionId: secondId }).session;
+  assert.equal(session.selection.length, 2);
+  const overLimit = dispatchLearningTask(session, activity, 'toggle_evidence', { optionId: thirdId });
+  assert.equal(overLimit.error, 'required_selection_count_reached');
+  assert.equal(overLimit.session.selection.length, 2);
+  session = dispatchLearningTask(session, activity, 'toggle_evidence', { optionId: firstId }).session;
+  assert.deepEqual(session.selection, [secondId], 'a selected choice can still be cancelled at the limit');
+  session = dispatchLearningTask(session, activity, 'toggle_evidence', { optionId: thirdId }).session;
+  assert.deepEqual(session.selection, [secondId, thirdId], 'cancelling one choice allows replacing it');
+  const completeSubmit = dispatchLearningTask(session, activity, 'submit');
+  assert.notEqual(completeSubmit.error, 'response_required');
+  assert.equal(completeSubmit.session.attempts.length, 1);
+
+  const unboundedActivity = CATALOG_CANDIDATE_TASK_BY_ID.get('ACT-G2-LIVING-CAMPUS-OBSERVATION-CANDIDATE');
+  let unboundedSession = dispatchLearningTask(createLearningTaskSession(unboundedActivity, 'unbounded-evidence-test'), unboundedActivity, 'start').session;
+  const unboundedStage = unboundedActivity.stages[unboundedSession.stageIndex];
+  assert.equal(unboundedStage.requiredSelectionCount, undefined);
+  unboundedSession = dispatchLearningTask(unboundedSession, unboundedActivity, 'toggle_evidence', { optionId: unboundedStage.options[0].id }).session;
+  const unboundedSubmit = dispatchLearningTask(unboundedSession, unboundedActivity, 'submit');
+  assert.notEqual(unboundedSubmit.error, 'response_required');
+  assert.equal(unboundedSubmit.session.attempts.length, 1);
+
+  const invalidCount = structuredClone(activity);
+  invalidCount.stages[0].requiredSelectionCount = 0;
+  assert.ok(validateLearningTask(invalidCount).includes('invalid_required_selection_count:seedling-care-clues'));
+  const unsupportedInteraction = structuredClone(activity);
+  unsupportedInteraction.stages[0].interaction = 'choose_response';
+  assert.ok(validateLearningTask(unsupportedInteraction).includes('invalid_required_selection_count:seedling-care-clues'));
+
+  const spacingStart = css.indexOf('.candidate-task-screen .reading-passage-card');
+  const spacingEnd = css.indexOf('.candidate-answer-selection', spacingStart);
+  const readingSpacing = css.slice(spacingStart, spacingEnd);
+  assert.ok(spacingStart >= 0 && spacingEnd > spacingStart);
+  assert.match(readingSpacing, /\.candidate-evidence-selection/);
+  assert.doesNotMatch(readingSpacing, /font-size/);
+  assert.match(renderer, /appendTeacherDetails\(\)/);
 });
 
 test('choose_response 以單選語意呈現並保留既有選取與提交行為', () => {

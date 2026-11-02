@@ -765,6 +765,11 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     const result = dispatchLearningTask(session, activity, action, payload);
     updateSession(result.session);
     renderReusableCandidateTask(activity, result.session, host, updateSession, taskKind);
+    if (result.error === 'required_selection_count_reached') {
+      const updatedStage = activity.stages[result.session.stageIndex];
+      const limitMessage = host.querySelector(`#candidate-selection-limit-${updatedStage.stageId}`);
+      if (limitMessage) limitMessage.textContent = `最多選擇 ${updatedStage.requiredSelectionCount} 項；若要更換，請先取消一個已選項目。`;
+    }
     return result;
   };
   const makeClockFace = (hour, minute, label = '類比鐘面') => {
@@ -2316,10 +2321,26 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     const selectedAmount = isMoneySelection
       ? `，目前合計 ${stage.options.filter((option) => session.selection.includes(option.id)).reduce((sum, option) => sum + option.valueAmount, 0)} 元`
       : '';
-    const selectionSummary = session.selection.length
-      ? `我的選擇：已選 ${session.selection.length} 項${selectedAmount}`
-      : `我的選擇：${isMoneySelection ? '還沒有選擇錢幣。' : '還沒有選擇證據。'}`;
-    host.append(element('p', 'candidate-selection-count candidate-evidence-selection-summary', selectionSummary));
+    const hasRequiredSelectionCount = Number.isInteger(stage.requiredSelectionCount);
+    const selectionComplete = hasRequiredSelectionCount && session.selection.length === stage.requiredSelectionCount;
+    const selectionSummary = hasRequiredSelectionCount
+      ? `我的選擇：${session.selection.length} / ${stage.requiredSelectionCount}${selectionComplete ? ' ✓' : ''}`
+      : session.selection.length
+        ? `我的選擇：已選 ${session.selection.length} 項${selectedAmount}`
+        : `我的選擇：${isMoneySelection ? '還沒有選擇錢幣。' : '還沒有選擇證據。'}`;
+    const selectionSummaryNode = element('p', 'candidate-selection-count candidate-evidence-selection-summary', selectionSummary);
+    if (hasRequiredSelectionCount) {
+      selectionSummaryNode.setAttribute('aria-label', selectionComplete
+        ? `我的選擇：${session.selection.length} / ${stage.requiredSelectionCount}；已完成要求的選擇數量。`
+        : selectionSummary);
+      const limitMessage = element('p', 'candidate-selection-limit-message', '');
+      limitMessage.id = `candidate-selection-limit-${stage.stageId}`;
+      limitMessage.setAttribute('role', 'status');
+      limitMessage.setAttribute('aria-live', 'polite');
+      host.append(selectionSummaryNode, limitMessage);
+    } else {
+      host.append(selectionSummaryNode);
+    }
   }
   if (session.phase === 'active' && stage.interaction === 'classify_observations') {
     if (stage.distributionBoard) {
@@ -2549,6 +2570,10 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     }
     const hasResponse = ['classify_observations', 'build_frequency_table'].includes(stage.interaction)
       ? (!stage.collectionRules || stage.collectionRules.requiredObservationIds.every((id) => session.collectedObservationIds.includes(id))) && stage.observations.every(({ id }) => session.assignments[id])
+      : stage.interaction === 'collect_evidence'
+        ? Number.isInteger(stage.requiredSelectionCount)
+          ? session.selection.length === stage.requiredSelectionCount
+          : session.selection.length > 0
       : stage.interaction === 'complete_symmetry_grid'
         ? session.symmetryCells.length > 0
         : stage.interaction === 'plot_line_chart'
@@ -2641,7 +2666,7 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
             : stage.magnetRules.mode === 'materials' ? stage.magnetRules.materials.every(({ id }) => session.magnetModel?.testedObjectIds.includes(id) && session.magnetModel.assignments[id])
               : stage.magnetRules.magnets.every(({ id }) => session.magnetModel?.testedMagnetIds.includes(id)) && Boolean(session.magnetModel?.selectedStrongerMagnetId)
         : session.selection.length > 0;
-    const submitLabel = stage.interaction === 'magnet_interaction' && stage.magnetRules.mode === 'materials' ? '檢查答案' : taskKind === 'english' ? '送出英文回應' : taskKind === 'chinese' ? '檢查閱讀線索' : taskKind === 'mathData' ? '完成資料表' : taskKind === 'math' ? '檢查數學解法' : taskKind === 'science' ? '檢查觀察與分類' : taskKind === 'arts' ? '檢查節奏作品' : taskKind === 'living' ? '提交觀察線索' : taskKind === 'hpe' ? '檢查安全分類' : taskKind === 'integrative' ? '檢查步驟順序' : '檢查分類';
+    const submitLabel = stage.interaction === 'magnet_interaction' && stage.magnetRules.mode === 'materials' ? '檢查答案' : taskKind === 'english' ? '送出英文回應' : taskKind === 'chinese' ? '檢查答案' : taskKind === 'mathData' ? '完成資料表' : taskKind === 'math' ? '檢查數學解法' : taskKind === 'science' ? '檢查觀察與分類' : taskKind === 'arts' ? '檢查節奏作品' : taskKind === 'living' ? '提交觀察線索' : taskKind === 'hpe' ? '檢查安全分類' : taskKind === 'integrative' ? '檢查步驟順序' : '檢查分類';
     const submit = element('button', 'button button-primary', submitLabel);
     submit.type = 'button'; submit.disabled = !hasResponse;
     submit.addEventListener('click', () => dispatch('submit', { submissionId: `${session.sessionId}:submission:${session.attempts.length + 1}` }));
@@ -2650,7 +2675,10 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     const hasSpecificReadiness = stage.interaction === 'magnet_interaction' && stage.magnetRules.mode === 'materials';
     if (!hasResponse && !hasSpecificReadiness) {
       let readinessText = '還沒完成喔！完成上面的作答後，就可以檢查答案。';
-      if (classificationProgress && !stage.collectionRules) {
+      if (stage.interaction === 'collect_evidence' && Number.isInteger(stage.requiredSelectionCount)) {
+        const remainingCount = stage.requiredSelectionCount - session.selection.length;
+        readinessText = `還差 ${remainingCount} 項，完成後就可以檢查答案。`;
+      } else if (classificationProgress && !stage.collectionRules) {
         const remainingCount = classificationProgress.totalCount - classificationProgress.completedCount;
         if (remainingCount > 0) readinessText = `還差 ${remainingCount} 個項目，完成後就可以檢查答案。`;
       }

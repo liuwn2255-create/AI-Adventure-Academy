@@ -629,6 +629,8 @@ export function dispatchLearningTask(session, activity, action, payload = {}) {
   }
   if (action === 'toggle_evidence') {
     if (state.phase !== 'active' || stage?.interaction !== 'collect_evidence' || !stage.options.some(({ id }) => id === payload.optionId)) return { session, changed: false, error: 'invalid_evidence_option' };
+    if (!state.selection.includes(payload.optionId) && Number.isInteger(stage.requiredSelectionCount)
+      && state.selection.length >= stage.requiredSelectionCount) return { session, changed: false, error: 'required_selection_count_reached' };
     state.selection = state.selection.includes(payload.optionId)
       ? state.selection.filter((id) => id !== payload.optionId)
       : [...state.selection, payload.optionId];
@@ -1315,6 +1317,10 @@ export function dispatchLearningTask(session, activity, action, payload = {}) {
   if (action === 'submit') {
     const hasResponse = ['classify_observations', 'build_frequency_table'].includes(stage?.interaction)
       ? (!stage.collectionRules || stage.collectionRules.requiredObservationIds.every((id) => state.collectedObservationIds.includes(id))) && stage.observations.every(({ id }) => state.assignments[id])
+      : stage?.interaction === 'collect_evidence'
+        ? Number.isInteger(stage.requiredSelectionCount)
+          ? state.selection.length === stage.requiredSelectionCount
+          : state.selection.length > 0
       : stage?.interaction === 'complete_symmetry_grid'
         ? state.symmetryCells.length > 0
         : stage?.interaction === 'plot_line_chart'
@@ -1893,6 +1899,10 @@ export function validateLearningTask(activity) {
   for (const stage of activity?.stages ?? []) {
     if (!stage.stageId || ids.has(stage.stageId)) errors.push(`missing_or_duplicate_stage_id:${stage.stageId}`);
     ids.add(stage.stageId);
+    if (stage.requiredSelectionCount !== undefined
+      && (stage.interaction !== 'collect_evidence' || !Number.isInteger(stage.requiredSelectionCount) || stage.requiredSelectionCount < 1)) {
+      errors.push(`invalid_required_selection_count:${stage.stageId}`);
+    }
     for (const table of [stage.tableView, stage.crossTab].filter(Boolean)) {
       const rows = table.rows ?? [];
       const columns = table.columns ?? [];

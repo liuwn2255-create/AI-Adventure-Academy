@@ -569,6 +569,13 @@
 .candidate-evidence-option.is-selected{border:3px solid #246e5d;font-weight:900}
 .candidate-evidence-option:focus-visible{outline:3px solid #f5b62c;outline-offset:2px}
 .candidate-evidence-selection-summary{margin:8px 0;padding:9px 11px;border-radius:10px;background:#eef7f9;color:#214964;font-weight:800;line-height:1.5}
+.candidate-task-screen .reading-passage-card{margin:8px 0 10px;padding:clamp(14px,2vw,20px)}
+.candidate-task-screen .reading-stage-heading{margin:10px 0 2px}
+.candidate-task-screen .reading-stage-prompt{margin:4px 0 6px}
+.candidate-task-screen .candidate-student-response-guidance{margin:4px 0 6px}
+.candidate-task-screen .candidate-evidence-selection{margin:6px 0}
+.candidate-task-screen .candidate-evidence-selection .candidate-category-list{margin:6px 0 0;padding:8px}
+.candidate-selection-limit-message{min-height:1.4em;margin:4px 0;color:#72521a;font-weight:800;line-height:1.4}
 .candidate-answer-selection{min-width:0;margin:10px 0}
 .candidate-answer-selection-heading{margin:8px 0;color:#24566c;font-size:1rem}
 .candidate-answer-option.is-selected{border:3px solid #246e5d;font-weight:900}

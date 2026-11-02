@@ -25,7 +25,7 @@ export const STORY_FOREST_CLUE_RESCUE_QUEST = Object.freeze({
   }),
   stages: Object.freeze([
     Object.freeze({
-      stageId: 'seedling-care-clues', interaction: 'collect_evidence', passageId: 'seedling',
+      stageId: 'seedling-care-clues', interaction: 'collect_evidence', passageId: 'seedling', requiredSelectionCount: 2,
       prompt: '選出兩句最能支持「小禾持續照顧小苗」的線索。',
       options: Object.freeze([
         Object.freeze({ id: 'seedling-clue-dry-soil', text: '花盆土摸起來乾乾的。', feedback: '這句指出小苗當時的狀況，還沒有說小禾怎麼照顧。' }),
