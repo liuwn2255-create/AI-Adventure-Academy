@@ -120,7 +120,9 @@ test('共用提交就緒提示只依既有 hasResponse 與可靠分類進度呈�
   const submitFlow = renderer.slice(submitFlowStart, submitFlowEnd);
   assert.ok(submitFlowStart >= 0 && submitFlowEnd > submitFlowStart);
   assert.match(submitFlow, /submit\.disabled = !hasResponse/);
-  assert.match(submitFlow, /if \(!hasResponse && !hasSpecificReadiness\)/);
+  assert.match(submitFlow, /const hasLowGradeAssembleCount = lowGradeAssembleResponse && Number\.isInteger\(stage\.requiredSelectionCount\)/);
+  assert.match(submitFlow, /if \(\(!hasResponse \|\| hasLowGradeAssembleCount\) && !hasSpecificReadiness\)/);
+  assert.match(submitFlow, /if \(hasLowGradeAssembleCount\)[\s\S]*?remainingCount > 0 \? `還要選 \$\{remainingCount\} 張。` : '可以檢查答案了。'[\s\S]*?else if \(stage\.interaction === 'collect_evidence'/);
   assert.match(submitFlow, /還沒完成喔！完成上面的作答後，就可以檢查答案。/);
   assert.match(submitFlow, /classificationProgress && !stage\.collectionRules/);
   assert.match(submitFlow, /還差 \$\{remainingCount\} 個項目，完成後就可以檢查答案。/);
@@ -180,7 +182,8 @@ test('assemble_response 清楚分開可選內容與依序組成的答案', () =>
   assert.match(renderer, /操作方式：① 看清楚題目 → ② 依順序點選內容 → ③ 檢查「我的答案」 → ④ 完成後檢查答案/);
   assert.match(assembleRenderer, /'可選內容'/);
   assert.match(assembleRenderer, /'我的答案'/);
-  assert.match(assembleRenderer, /還沒有加入內容。請從「可選內容」依順序點選。/);
+  assert.match(assembleRenderer, /if \(lowGradeAssembleResponse\) appendAssembleUiText\(emptyResponse, '還沒選卡片。'/);
+  assert.match(assembleRenderer, /else emptyResponse\.textContent = '還沒有加入內容。請從「可選內容」依順序點選。'/);
   assert.match(assembleRenderer, /session\.selection\.includes\(token\.id\)/);
   assert.match(assembleRenderer, /dispatch\(isSelected \? 'remove_phrase_token' : 'add_phrase_token', \{ tokenId: token\.id \}\)/);
   assert.match(assembleRenderer, /for \(const \[index, tokenId\] of session\.selection\.entries\(\)\)/);
@@ -192,6 +195,14 @@ test('assemble_response 清楚分開可選內容與依序組成的答案', () =>
   assert.match(assembleRenderer, /selectionProgress/);
   assert.match(assembleRenderer, /String\(stage\.requiredSelectionCount\)/);
   assert.doesNotMatch(assembleRenderer, /correctOptionIds\.length/);
+  assert.match(app, /'還沒選卡片。': 'ㄏㄞˊ ㄇㄟˊ ㄒㄩㄢˇ ㄎㄚˇ ㄆㄧㄢˋ'/);
+  assert.match(app, /'還要選 ': 'ㄏㄞˊ ㄧㄠˋ ㄒㄩㄢˇ'/);
+  assert.match(app, /'可以檢查答案了。': 'ㄎㄜˇ ㄧˇ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ ㄌㄜ˙'/);
+  assert.match(renderer, /const hasLowGradeAssembleCount = lowGradeAssembleResponse && Number\.isInteger\(stage\.requiredSelectionCount\)/);
+  assert.match(renderer, /remainingCount = stage\.requiredSelectionCount - session\.selection\.length/);
+  assert.match(renderer, /remainingCount > 0 \? `還要選 \$\{remainingCount\} 張。` : '可以檢查答案了。'/);
+  assert.match(renderer, /appendAssembleUiText\(readiness, '可以檢查答案了。', appendStudentText\)/);
+  assert.doesNotMatch(renderer, /還要選 0 張/);
 
   const hasResponseStart = renderer.indexOf('const hasResponse =');
   const hasResponseEnd = renderer.indexOf('const submitLabel =', hasResponseStart);

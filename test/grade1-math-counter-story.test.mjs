@@ -117,9 +117,11 @@ test('Grade 1–2 算式提示與固定 UI 使用人工注音及既有操作音�
   assert.doesNotMatch(activity.stages[0].studentOperationGuidance, /排成一句話/u);
   assert.match(app, /stage\.studentOperationGuidance \?\? '怎麼玩：① 點詞卡 → ② 排成一句話 → ③ 檢查答案'/);
   assert.match(app, /: '操作方式：① 看清楚題目 → ② 依順序點選內容 → ③ 檢查「我的答案」 → ④ 完成後檢查答案'/);
-  for (const uiText of ['可選內容', '我的答案', '還沒有加入內容。請從「可選內容」依順序點選。', '已選 ', ' 張', '還差 ', ' 張，完成後就可以檢查答案。', '檢查數學解法', '查看提示']) {
+  for (const uiText of ['可選內容', '我的答案', '還沒選卡片。', '已選 ', ' 張', '還要選 ', ' 張。', '可以檢查答案了。', '檢查數學解法', '查看提示']) {
     assert.ok(app.includes(`'${uiText}'`), `missing manually reviewed low-grade assemble UI reading: ${uiText}`);
   }
+  assert.match(app, /if \(!\/\\p\{Script=Han\}\/u\.test\(character\)\) return \{ text: character \};/);
+  assert.match(app, /else emptyResponse\.textContent = '還沒有加入內容。請從「可選內容」依順序點選。'/);
   assert.match(app, /function appendAssembleUiText\(parent, text, appendStudentText\)\s*\{\s*appendStudentText\(parent, text, assembleUiPronunciationTokens\(text\)\);\s*\}/);
   assert.match(app, /playBuildArrayFeedbackTone\(isSelected \? -1 : 1\)/);
   assert.equal([...app.matchAll(/function playBuildArrayFeedbackTone\(/g)].length, 1, 'assemble reuses the existing tone helper');

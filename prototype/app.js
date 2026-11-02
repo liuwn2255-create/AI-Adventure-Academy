@@ -74,11 +74,12 @@ function appendBuildArrayUiText(parent, text, appendStudentText) {
 const ASSEMBLE_UI_PRONUNCIATION = Object.freeze({
   '可選內容': 'ㄎㄜˇ ㄒㄩㄢˇ ㄋㄟˋ ㄖㄨㄥˊ',
   '我的答案': 'ㄨㄛˇ ㄉㄜ˙ ㄉㄚˊ ㄢˋ',
-  '還沒有加入內容。請從「可選內容」依順序點選。': 'ㄏㄞˊ ㄇㄟˊ ㄧㄡˇ ㄐㄧㄚ ㄖㄨˋ ㄋㄟˋ ㄖㄨㄥˊ ㄑㄧㄥˇ ㄘㄨㄥˊ ㄎㄜˇ ㄒㄩㄢˇ ㄋㄟˋ ㄖㄨㄥˊ ㄧ ㄕㄨㄣˋ ㄒㄩˋ ㄉㄧㄢˇ ㄒㄩㄢˇ',
+  '還沒選卡片。': 'ㄏㄞˊ ㄇㄟˊ ㄒㄩㄢˇ ㄎㄚˇ ㄆㄧㄢˋ',
   '已選 ': 'ㄧˇ ㄒㄩㄢˇ',
   ' 張': 'ㄓㄤ',
-  '還差 ': 'ㄏㄞˊ ㄔㄚ',
-  ' 張，完成後就可以檢查答案。': 'ㄓㄤ ㄨㄢˊ ㄔㄥˊ ㄏㄡˋ ㄐㄧㄡˋ ㄎㄜˇ ㄧˇ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ',
+  '還要選 ': 'ㄏㄞˊ ㄧㄠˋ ㄒㄩㄢˇ',
+  ' 張。': 'ㄓㄤ',
+  '可以檢查答案了。': 'ㄎㄜˇ ㄧˇ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ ㄌㄜ˙',
   '檢查數學解法': 'ㄐㄧㄢˇ ㄔㄚˊ ㄕㄨˋ ㄒㄩㄝˊ ㄐㄧㄝˇ ㄈㄚˇ',
   '查看提示': 'ㄔㄚˊ ㄎㄢˋ ㄊㄧˊ ㄕˋ',
 });
@@ -1377,7 +1378,7 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     answer.append(answerHeading);
     if (session.selection.length === 0) {
       const emptyResponse = element('p', 'candidate-response-empty');
-      if (lowGradeAssembleResponse) appendAssembleUiText(emptyResponse, '還沒有加入內容。請從「可選內容」依順序點選。', appendStudentText);
+      if (lowGradeAssembleResponse) appendAssembleUiText(emptyResponse, '還沒選卡片。', appendStudentText);
       else emptyResponse.textContent = '還沒有加入內容。請從「可選內容」依順序點選。';
       answer.append(emptyResponse);
     } else {
@@ -2889,9 +2890,13 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     controls.append(submit);
     const readinessId = `candidate-submit-readiness-${stage.stageId}`;
     const hasSpecificReadiness = stage.interaction === 'magnet_interaction' && stage.magnetRules.mode === 'materials';
-    if (!hasResponse && !hasSpecificReadiness) {
+    const hasLowGradeAssembleCount = lowGradeAssembleResponse && Number.isInteger(stage.requiredSelectionCount);
+    if ((!hasResponse || hasLowGradeAssembleCount) && !hasSpecificReadiness) {
       let readinessText = '還沒完成喔！完成上面的作答後，就可以檢查答案。';
-      if (stage.interaction === 'collect_evidence' && Number.isInteger(stage.requiredSelectionCount)) {
+      if (hasLowGradeAssembleCount) {
+        const remainingCount = stage.requiredSelectionCount - session.selection.length;
+        readinessText = remainingCount > 0 ? `還要選 ${remainingCount} 張。` : '可以檢查答案了。';
+      } else if (stage.interaction === 'collect_evidence' && Number.isInteger(stage.requiredSelectionCount)) {
         const remainingCount = stage.requiredSelectionCount - session.selection.length;
         readinessText = `還差 ${remainingCount} 項，完成後就可以檢查答案。`;
       } else if (stage.interaction === 'assemble_response' && Number.isInteger(stage.requiredSelectionCount)) {
@@ -2902,11 +2907,12 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
         if (remainingCount > 0) readinessText = `還差 ${remainingCount} 個項目，完成後就可以檢查答案。`;
       }
       const readiness = element('p', 'candidate-submit-readiness', readinessText);
-      if (lowGradeAssembleResponse && Number.isInteger(stage.requiredSelectionCount)) {
+      if (hasLowGradeAssembleCount) {
         readiness.textContent = '';
-        for (const text of ['還差 ', String(stage.requiredSelectionCount - session.selection.length), ' 張，完成後就可以檢查答案。']) {
-          appendAssembleUiText(readiness, text, appendStudentText);
-        }
+        const remainingCount = stage.requiredSelectionCount - session.selection.length;
+        if (remainingCount > 0) {
+          for (const text of ['還要選 ', String(remainingCount), ' 張。']) appendAssembleUiText(readiness, text, appendStudentText);
+        } else appendAssembleUiText(readiness, '可以檢查答案了。', appendStudentText);
       }
       readiness.id = readinessId;
       submit.setAttribute('aria-describedby', readinessId);
