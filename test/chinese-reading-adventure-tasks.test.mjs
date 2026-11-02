@@ -35,6 +35,41 @@ test('三個國語閱讀候選任務結構完整、識別碼唯一並由三年�
 
 test('線索蒐集任務可錯答、提示、重試、完成與重玩，證據只保留於記憶體', () => {
   const task = STORY_FOREST_CLUE_RESCUE_QUEST;
+  const careStage = task.stages.find(({ stageId }) => stageId === 'seedling-care-clues');
+  const carePassage = task.passages[careStage.passageId];
+  assert.equal(careStage.passageId, 'seedlingCare');
+  assert.deepEqual(carePassage, {
+    title: '窗邊的小苗',
+    lines: [
+      '小禾發現窗邊的花盆土摸起來乾乾的。',
+      '從那天起，小禾每天早上把花盆移到有陽光的桌邊。',
+      '她也每天摸一摸土，發現乾了就澆水。',
+      '幾天後，原本垂下的葉子慢慢挺起來。',
+    ],
+  });
+  assert.equal(careStage.prompt, '小禾不是只照顧小苗一次。找一找，她每天做了哪些事來照顧小苗？請選 2 個。');
+  assert.equal(careStage.requiredSelectionCount, 2);
+  assert.deepEqual(careStage.options.map(({ text }) => text), [
+    '花盆土摸起來乾乾的。',
+    '小禾每天早上把花盆移到有陽光的桌邊。',
+    '小禾每天查看土，乾了就澆水。',
+    '幾天後，葉子慢慢挺起來。',
+  ]);
+  assert.deepEqual(careStage.correctOptionIds, ['seedling-clue-move-pot', 'seedling-clue-water']);
+  assert.ok(!careStage.correctOptionIds.includes('seedling-clue-dry-soil'));
+  assert.ok(!careStage.correctOptionIds.includes('seedling-clue-leaves'));
+  assert.match(careStage.correctFeedback, /每天.*不是只做一次.*每天持續照顧/);
+  assert.match(careStage.incorrectFeedback, /每天.*做的事情/);
+
+  const inferenceStage = task.stages.find(({ stageId }) => stageId === 'seedling-inference');
+  assert.equal(inferenceStage.passageId, 'seedling');
+  assert.deepEqual(task.passages.seedling.lines, [
+    '小禾發現窗邊的花盆土摸起來乾乾的。',
+    '她把花盆移到有陽光的桌邊，又每天摸一摸土，乾了就澆水。',
+    '幾天後，原本垂下的葉子慢慢挺起來。',
+  ]);
+  assert.equal(inferenceStage.prompt, '依照故事，為什麼小禾每天查看土？');
+
   let session = dispatch(createLearningTaskSession(task, 'clue-test'), task, 'start');
   session = dispatch(session, task, 'toggle_evidence', { optionId: 'seedling-clue-dry-soil' });
   session = dispatch(session, task, 'toggle_evidence', { optionId: 'seedling-clue-leaves' });

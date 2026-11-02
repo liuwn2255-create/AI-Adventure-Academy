@@ -17,6 +17,12 @@ export const STORY_FOREST_CLUE_RESCUE_QUEST = Object.freeze({
   }),
   instructions: '閱讀故事後，收集能支持判斷的句子線索。選項錯誤時回到原文重新找證據。',
   passages: Object.freeze({
+    seedlingCare: Object.freeze({ title: '窗邊的小苗', lines: Object.freeze([
+      '小禾發現窗邊的花盆土摸起來乾乾的。',
+      '從那天起，小禾每天早上把花盆移到有陽光的桌邊。',
+      '她也每天摸一摸土，發現乾了就澆水。',
+      '幾天後，原本垂下的葉子慢慢挺起來。',
+    ]) }),
     seedling: Object.freeze({ title: '窗邊的小苗', lines: Object.freeze([
       '小禾發現窗邊的花盆土摸起來乾乾的。',
       '她把花盆移到有陽光的桌邊，又每天摸一摸土，乾了就澆水。',
@@ -25,18 +31,18 @@ export const STORY_FOREST_CLUE_RESCUE_QUEST = Object.freeze({
   }),
   stages: Object.freeze([
     Object.freeze({
-      stageId: 'seedling-care-clues', interaction: 'collect_evidence', passageId: 'seedling', requiredSelectionCount: 2,
-      prompt: '選出兩句最能支持「小禾持續照顧小苗」的線索。',
+      stageId: 'seedling-care-clues', interaction: 'collect_evidence', passageId: 'seedlingCare', requiredSelectionCount: 2,
+      prompt: '小禾不是只照顧小苗一次。找一找，她每天做了哪些事來照顧小苗？請選 2 個。',
       options: Object.freeze([
         Object.freeze({ id: 'seedling-clue-dry-soil', text: '花盆土摸起來乾乾的。', feedback: '這句指出小苗當時的狀況，還沒有說小禾怎麼照顧。' }),
-        Object.freeze({ id: 'seedling-clue-move-pot', text: '小禾把花盆移到有陽光的桌邊。', feedback: '這句是小禾採取的照顧行動。' }),
+        Object.freeze({ id: 'seedling-clue-move-pot', text: '小禾每天早上把花盆移到有陽光的桌邊。', feedback: '這是小禾每天持續做的照顧行動。' }),
         Object.freeze({ id: 'seedling-clue-water', text: '小禾每天查看土，乾了就澆水。', feedback: '這句呈現小禾反覆觀察並照顧小苗。' }),
         Object.freeze({ id: 'seedling-clue-leaves', text: '幾天後，葉子慢慢挺起來。', feedback: '這句是後來的結果，不是小禾做的照顧行動。' }),
       ]),
       correctOptionIds: Object.freeze(['seedling-clue-move-pot', 'seedling-clue-water']),
-      hints: Object.freeze(['先把「小苗狀況」和「人物做的事」分開。', '找出小禾主動做了什麼，以及她如何持續照料。']),
-      incorrectFeedback: '回到第二句找人物實際做的事；結果句能說明變化，不能代替照顧行動。',
-      correctFeedback: '你找到移動花盆和持續查看、澆水的行動線索。',
+      hints: Object.freeze(['先分清小苗的狀況、照顧行動和後來的結果。', '找找小禾每天做了哪些事來照顧小苗。']),
+      incorrectFeedback: '再找找看哪些句子寫到小禾「每天」做的事情。',
+      correctFeedback: '答對了！「每天把花盆移到有陽光的地方」和「每天查看土、乾了就澆水」，都表示小禾不是只做一次，而是每天持續照顧小苗。',
     }),
     Object.freeze({
       stageId: 'seedling-inference', interaction: 'choose_response', passageId: 'seedling',

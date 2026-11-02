@@ -259,7 +259,7 @@ test('collect_evidence 區分題目資料、證據選擇與目前選取狀態', 
 test('collect_evidence 只依公開 requiredSelectionCount 顯示進度、限制選取並控制提交', () => {
   const activity = CATALOG_CANDIDATE_TASK_BY_ID.get('ACT-G3-CHINESE-STORY-CLUE-RESCUE-CANDIDATE');
   const stage = activity.stages.find(({ stageId }) => stageId === 'seedling-care-clues');
-  assert.match(stage.prompt, /選出兩句/);
+  assert.match(stage.prompt, /小禾不是只照顧小苗一次.*每天做了哪些事.*請選 2 個/);
   assert.equal(stage.requiredSelectionCount, 2);
   assert.equal(stage.interaction, 'collect_evidence');
 
