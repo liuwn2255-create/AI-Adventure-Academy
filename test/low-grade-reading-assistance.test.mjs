@@ -96,8 +96,9 @@ test('注音樣式把國字與右側直排注音保留為緊鄰的行內單位',
   const css = await readFile(new URL('../prototype/styles.css', import.meta.url), 'utf8');
   assert.match(css, /\.zhuyin-pair\{[^}]*display:inline-grid[^}]*white-space:nowrap/);
   assert.match(css, /\.zhuyin-hanzi\{[^}]*grid-column:1[^}]*writing-mode:horizontal-tb/);
-  assert.match(css, /\.zhuyin-reading\{[^}]*grid-column:2[^}]*display:grid/);
+  assert.match(css, /\.zhuyin-reading\{[^}]*position:relative[^}]*grid-column:2[^}]*display:flex[^}]*flex-direction:column[^}]*align-items:center[^}]*justify-content:center/);
   assert.match(css, /\.zhuyin-glyph-column\{[^}]*display:flex[^}]*flex-direction:column/);
+  assert.match(css, /\.zhuyin-tone\{[^}]*position:absolute/);
   assert.match(css, /\.zhuyin-tone-neutral\{/);
   assert.doesNotMatch(css, /\.zhuyin-reading\{[^}]*writing-mode/);
   assert.match(css, /\.candidate-zhuyin-text\{[^}]*letter-spacing:normal[^}]*word-spacing:normal/);
