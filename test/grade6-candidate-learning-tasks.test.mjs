@@ -84,6 +84,36 @@ test('八項六年級候選活動具唯一 ID、官方課綱參照與科目入�
   }
 });
 
+test('六年級英語畫畫對話的干擾選項文法自然且不搶走最佳回應', () => {
+  const matching = GRADE6_CANDIDATE_TASKS.flatMap((task) => task.stages
+    .filter(({ stageId }) => stageId === 'choose-friendly-response')
+    .map((stage) => ({ task, stage })));
+  assert.equal(matching.length, 1);
+  const { task, stage } = matching[0];
+  assert.equal(task.activityId, 'ACT-G6-ENGLISH-INTRODUCTION-CARDS-CANDIDATE');
+  assert.equal(task.gradeId, 'grade-6');
+  assert.equal(task.subjectId, 'english-language');
+  assert.equal(stage.prompt, '同學說「I like drawing, too.」選擇一個與交流情境相關且友善的回應。');
+  assert.equal(stage.interaction, 'choose_response');
+  assert.deepEqual(stage.context, [{ speaker: '同學', text: 'I like drawing, too.' }]);
+  assert.deepEqual(stage.options, [
+    { id: 'ask-picture', text: 'What do you like to draw?' },
+    { id: 'ask-sport', text: 'What sport do you like?' },
+    { id: 'ask-food', text: 'What food do you like?' },
+  ]);
+  assert.deepEqual(stage.correctOptionIds, ['ask-picture']);
+  assert.ok(stage.options.every(({ text }) => /^[A-Z][A-Za-z' ]+\?$/.test(text)), 'all options are complete, grammatical English questions');
+  assert.ok(stage.options.filter(({ id }) => id !== 'ask-picture').every(({ text }) => !/draw|drawing|art/i.test(text)));
+  assert.equal(stage.options.some(({ text }) => text === 'It is raining yesterday.' || text === 'Where is the blue elephant?'), false);
+  assert.equal(stage.options.some((option) => Object.hasOwn(option, 'feedback')), false, 'this stage has no per-option feedback');
+  assert.match(stage.incorrectFeedback, /同學正在談什麼.*接著這個話題.*自然繼續/);
+  assert.match(stage.correctFeedback, /接著聊畫畫.*自然繼續/);
+  assert.deepEqual(stage.hints, [
+    '回應要接續共同興趣，而不是突然改談無關事情。',
+    '可以接著詢問對方畫畫的喜好；保持簡短並與對話相關。',
+  ]);
+});
+
 test('八項六年級活動逐階段提示、錯答回饋、重試、正答、完成與重玩', () => {
   for (const task of GRADE6_CANDIDATE_TASKS) {
     let session = dispatchLearningTask(createLearningTaskSession(task, `grade6-flow-${task.activityId}`), task, 'start').session;
