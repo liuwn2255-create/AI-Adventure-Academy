@@ -29,9 +29,10 @@ function answerStage(session, task, stage, correct) {
     const option = stage.options.find(({ id }) => correct ? stage.correctOptionIds.includes(id) : !stage.correctOptionIds.includes(id));
     state = dispatchLearningTask(state, task, 'select_option', { optionId: option.id }).session;
   } else if (stage.interaction === 'collect_evidence') {
-    const ids = correct ? stage.correctOptionIds : (stage.options.some(({ id }) => !stage.correctOptionIds.includes(id))
-      ? [stage.options.find(({ id }) => !stage.correctOptionIds.includes(id)).id]
-      : stage.correctOptionIds.slice(0, -1));
+    const wrongOptionId = stage.options.find(({ id }) => !stage.correctOptionIds.includes(id))?.id;
+    const ids = correct ? stage.correctOptionIds : Number.isInteger(stage.requiredSelectionCount)
+      ? [...stage.correctOptionIds.slice(0, stage.requiredSelectionCount - 1), wrongOptionId]
+      : wrongOptionId ? [wrongOptionId] : stage.correctOptionIds.slice(0, -1);
     for (const optionId of ids) state = dispatchLearningTask(state, task, 'toggle_evidence', { optionId }).session;
   } else if (stage.interaction === 'classify_observations') {
     for (const observation of stage.observations) {
@@ -120,6 +121,61 @@ test('六項候選任務均可提示、錯答重試、答對完成及重玩，�
     assert.equal(restarted.phase, 'intro');
     assert.equal(restarted.attempts.length, 0);
   }
+});
+
+test('雨傘故事題以公開的兩項要求收集天氣與同學未帶傘兩個原因線索', () => {
+  const stage = GRADE2_CHINESE_TEXT_CLUE.stages.find(({ stageId }) => stageId === 'collect-rain-shelter-clues');
+  const passage = '放學時，天空飄起雨絲。小晴看見同學沒有帶傘，便回教室拿了兩把雨傘。她把一把借給同學，兩人一起走到等候區。';
+
+  assert.equal(stage.interaction, 'collect_evidence');
+  assert.equal(stage.requiredSelectionCount, 2);
+  assert.equal(stage.prompt, `小晴為什麼回教室拿雨傘？請選出 2 個故事裡的重要線索。短文：${passage}`);
+  assert.deepEqual(stage.options, [
+    { id: 'rain-started', text: '放學時，天空飄起雨絲。' },
+    { id: 'friend-no-umbrella', text: '小晴看見同學沒有帶傘。' },
+    { id: 'waiting-area', text: '兩人一起走到等候區。' },
+    { id: 'school-gate', text: '小晴走到校門口。' },
+  ]);
+  assert.equal(stage.options.some(({ id }) => id === 'two-umbrellas'), false);
+  assert.deepEqual(stage.correctOptionIds, ['rain-started', 'friend-no-umbrella']);
+  assert.match(stage.correctFeedback, /正在下雨.*同學沒有帶傘.*回教室拿雨傘/);
+  assert.match(stage.incorrectFeedback, /天氣怎麼了.*同學少了什麼/);
+  assert.match(stage.hints[0], /天氣發生了什麼變化/);
+  assert.match(stage.hints[1], /同學少了什麼東西/);
+  const studentWording = [stage.prompt, stage.incorrectFeedback, stage.correctFeedback, ...stage.hints].join(' ');
+  assert.doesNotMatch(studentWording, /支持答案|文本線索|推論|證據/);
+
+  let session = dispatchLearningTask(createLearningTaskSession(GRADE2_CHINESE_TEXT_CLUE, 'umbrella-clues-count'), GRADE2_CHINESE_TEXT_CLUE, 'start').session;
+  session = dispatchLearningTask(session, GRADE2_CHINESE_TEXT_CLUE, 'toggle_evidence', { optionId: 'rain-started' }).session;
+  const oneSelectionSubmit = dispatchLearningTask(session, GRADE2_CHINESE_TEXT_CLUE, 'submit', { submissionId: 'umbrella-one' });
+  assert.equal(oneSelectionSubmit.changed, false);
+  assert.equal(oneSelectionSubmit.error, 'response_required');
+
+  session = dispatchLearningTask(session, GRADE2_CHINESE_TEXT_CLUE, 'toggle_evidence', { optionId: 'friend-no-umbrella' }).session;
+  assert.equal(session.selection.length, 2);
+  const thirdSelection = dispatchLearningTask(session, GRADE2_CHINESE_TEXT_CLUE, 'toggle_evidence', { optionId: 'waiting-area' });
+  assert.equal(thirdSelection.changed, false);
+  assert.equal(thirdSelection.error, 'required_selection_count_reached');
+  const correctSubmit = dispatchLearningTask(session, GRADE2_CHINESE_TEXT_CLUE, 'submit', { submissionId: 'umbrella-correct' });
+  assert.equal(correctSubmit.session.phase, 'success');
+  assert.equal(correctSubmit.attempt.result, 'correct');
+
+  let wrongSession = dispatchLearningTask(createLearningTaskSession(GRADE2_CHINESE_TEXT_CLUE, 'umbrella-clues-wrong'), GRADE2_CHINESE_TEXT_CLUE, 'start').session;
+  wrongSession = dispatchLearningTask(wrongSession, GRADE2_CHINESE_TEXT_CLUE, 'toggle_evidence', { optionId: 'rain-started' }).session;
+  wrongSession = dispatchLearningTask(wrongSession, GRADE2_CHINESE_TEXT_CLUE, 'toggle_evidence', { optionId: 'waiting-area' }).session;
+  const wrongSubmit = dispatchLearningTask(wrongSession, GRADE2_CHINESE_TEXT_CLUE, 'submit', { submissionId: 'umbrella-wrong' });
+  assert.equal(wrongSubmit.session.phase, 'feedback');
+  assert.equal(wrongSubmit.attempt.result, 'incorrect');
+
+  wrongSession = dispatchLearningTask(wrongSubmit.session, GRADE2_CHINESE_TEXT_CLUE, 'retry').session;
+  wrongSession = dispatchLearningTask(wrongSession, GRADE2_CHINESE_TEXT_CLUE, 'toggle_evidence', { optionId: 'rain-started' }).session;
+  wrongSession = dispatchLearningTask(wrongSession, GRADE2_CHINESE_TEXT_CLUE, 'toggle_evidence', { optionId: 'waiting-area' }).session;
+  wrongSession = dispatchLearningTask(wrongSession, GRADE2_CHINESE_TEXT_CLUE, 'toggle_evidence', { optionId: 'waiting-area' }).session;
+  wrongSession = dispatchLearningTask(wrongSession, GRADE2_CHINESE_TEXT_CLUE, 'toggle_evidence', { optionId: 'friend-no-umbrella' }).session;
+  assert.deepEqual(wrongSession.selection, ['rain-started', 'friend-no-umbrella']);
+  const replacedSubmit = dispatchLearningTask(wrongSession, GRADE2_CHINESE_TEXT_CLUE, 'submit', { submissionId: 'umbrella-replaced-correct' });
+  assert.equal(replacedSubmit.session.phase, 'success');
+  assert.equal(replacedSubmit.attempt.result, 'correct');
 });
 
 test('二年級官方對照明列學習階段或年級表，不冒稱學期與教科書進度', async () => {
