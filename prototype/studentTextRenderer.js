@@ -16,7 +16,7 @@ function escapeHtml(text) {
 }
 
 /**
- * Return safe inline markup for optional, reviewed pronunciation annotations.
+ * Return safe inline character/reading pairs for reviewed annotations.
  * The original text remains authoritative; malformed or mismatched tokens fall
  * back to escaped plain text instead of changing what the student reads.
  */
@@ -37,7 +37,7 @@ export function renderStudentText(text, pronunciationTokens) {
   return pronunciationTokens.map(({ text: tokenText, reading }) => {
     const safeText = escapeHtml(tokenText);
     if (reading && HAN_CHARACTER.test(tokenText)) {
-      return `<ruby><rb>${safeText}</rb><rt>${escapeHtml(reading)}</rt></ruby>`;
+      return `<span class="zhuyin-pair"><span class="zhuyin-hanzi">${safeText}</span><span class="zhuyin-reading" aria-hidden="true">${escapeHtml(reading)}</span></span>`;
     }
     return safeText;
   }).join('');

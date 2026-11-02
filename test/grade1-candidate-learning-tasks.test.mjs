@@ -140,7 +140,10 @@ test('一年級句子列車遮雨題保留純文字答案資料並以人工注�
     [['枕', 'ㄓㄣˇ'], ['頭', '˙ㄊㄡ']],
   ]);
   assert.deepEqual(stage.correctOptionIds, ['word-umbrella']);
-  assert.equal(renderStudentText(stage.prompt, stage.promptPronunciationTokens).includes('<rt>ㄊㄧㄢ</rt>'), true);
+  const renderedPrompt = renderStudentText(stage.prompt, stage.promptPronunciationTokens);
+  assert.match(renderedPrompt, /class="zhuyin-pair"/);
+  assert.match(renderedPrompt, /<span class="zhuyin-hanzi">天<\/span>/);
+  assert.match(renderedPrompt, /<span class="zhuyin-reading" aria-hidden="true">ㄊㄧㄢ<\/span>/);
 
   const wrongPromptStage = CATALOG_CANDIDATE_TASKS.find(({ activityId }) => activityId === 'ACT-G2-CHINESE-STORY-CLUE-CANDIDATE')
     .stages.find(({ stageId }) => stageId === 'collect-rain-shelter-clues');

@@ -16,10 +16,13 @@ test('低年級語音與注音政策只涵蓋一年級和二年級', () => {
   assert.equal(isLowGradeReadingAssistanceEnabled('grade-6'), false);
 });
 
-test('注音 metadata 可產生 ruby，沒有 metadata 時仍是安全純文字', () => {
-  assert.match(renderStudentText('雨傘', [
+test('注音 metadata 使用 pair markup，沒有 metadata 時仍是安全純文字', () => {
+  const rendered = renderStudentText('雨傘', [
     { text: '雨', reading: 'ㄩˇ' }, { text: '傘', reading: 'ㄙㄢˇ' },
-  ]), /<ruby><rb>雨<\/rb><rt>ㄩˇ<\/rt><\/ruby>/);
+  ]);
+  assert.match(rendered, /class="zhuyin-pair"><span class="zhuyin-hanzi">雨<\/span><span class="zhuyin-reading" aria-hidden="true">ㄩˇ/);
+  assert.equal((rendered.match(/class="zhuyin-pair"/g) ?? []).length, 2);
+  assert.doesNotMatch(rendered, /<ruby|<rb|<rt/);
   assert.equal(renderStudentText('雨傘', undefined), '雨傘');
   assert.equal(renderStudentText('<script>題目</script>', undefined), '&lt;script&gt;題目&lt;/script&gt;');
 });
@@ -91,10 +94,11 @@ test('shared speech service 朗讀 plain text 並遵守全站開關', () => {
 
 test('注音樣式把國字與右側直排注音保留為緊鄰的行內單位', async () => {
   const css = await readFile(new URL('../prototype/styles.css', import.meta.url), 'utf8');
-  assert.match(css, /\.candidate-zhuyin-text ruby\{[^}]*display:inline-grid/);
-  assert.match(css, /\.candidate-zhuyin-text rb\{[^}]*grid-column:1/);
-  assert.match(css, /\.candidate-zhuyin-text rt\{[^}]*grid-column:2[^}]*writing-mode:vertical-rl[^}]*text-orientation:upright/);
+  assert.match(css, /\.zhuyin-pair\{[^}]*display:inline-grid[^}]*white-space:nowrap/);
+  assert.match(css, /\.zhuyin-hanzi\{[^}]*grid-column:1[^}]*writing-mode:horizontal-tb/);
+  assert.match(css, /\.zhuyin-reading\{[^}]*grid-column:2[^}]*writing-mode:vertical-rl[^}]*text-orientation:upright/);
   assert.match(css, /\.candidate-zhuyin-text\{[^}]*letter-spacing:normal[^}]*word-spacing:normal/);
   assert.doesNotMatch(css, /\.candidate-zhuyin-text\{[^}]*writing-mode:vertical/);
+  assert.doesNotMatch(css, /\.candidate-zhuyin-text (?:ruby|rb|rt)\{/);
   assert.match(css, /\.candidate-answer-option\{white-space:normal/);
 });
