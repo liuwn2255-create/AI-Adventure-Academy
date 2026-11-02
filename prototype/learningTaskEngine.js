@@ -1321,6 +1321,8 @@ export function dispatchLearningTask(session, activity, action, payload = {}) {
         ? Number.isInteger(stage.requiredSelectionCount)
           ? state.selection.length === stage.requiredSelectionCount
           : state.selection.length > 0
+      : stage?.interaction === 'assemble_response' && Number.isInteger(stage.requiredSelectionCount)
+        ? state.selection.length === stage.requiredSelectionCount
       : stage?.interaction === 'complete_symmetry_grid'
         ? state.symmetryCells.length > 0
         : stage?.interaction === 'plot_line_chart'
@@ -1900,7 +1902,10 @@ export function validateLearningTask(activity) {
     if (!stage.stageId || ids.has(stage.stageId)) errors.push(`missing_or_duplicate_stage_id:${stage.stageId}`);
     ids.add(stage.stageId);
     if (stage.requiredSelectionCount !== undefined
-      && (stage.interaction !== 'collect_evidence' || !Number.isInteger(stage.requiredSelectionCount) || stage.requiredSelectionCount < 1)) {
+      && (!['collect_evidence', 'assemble_response'].includes(stage.interaction)
+        || !Number.isInteger(stage.requiredSelectionCount)
+        || stage.requiredSelectionCount < 1
+        || (stage.interaction === 'assemble_response' && stage.requiredSelectionCount > (stage.tokens?.length ?? 0)))) {
       errors.push(`invalid_required_selection_count:${stage.stageId}`);
     }
     for (const table of [stage.tableView, stage.crossTab].filter(Boolean)) {

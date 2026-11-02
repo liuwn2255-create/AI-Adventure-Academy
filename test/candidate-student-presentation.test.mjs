@@ -189,12 +189,15 @@ test('assemble_response 清楚分開可選內容與依序組成的答案', () =>
   assert.match(assembleRenderer, /從我的答案移除「\$\{token\.text\}」/);
   assert.match(assembleRenderer, /aria-label', `第 \$\{index \+ 1\} 項：\$\{tokenText\}`/);
   assert.match(assembleRenderer, /aria-label', '我的答案，依點選順序排列'/);
-  assert.doesNotMatch(assembleRenderer, /作答進度|correctOptionIds|X \/ N/);
+  assert.match(assembleRenderer, /selectionProgress/);
+  assert.match(assembleRenderer, /String\(stage\.requiredSelectionCount\)/);
+  assert.doesNotMatch(assembleRenderer, /correctOptionIds\.length/);
 
   const hasResponseStart = renderer.indexOf('const hasResponse =');
   const hasResponseEnd = renderer.indexOf('const submitLabel =', hasResponseStart);
   const hasResponseSection = renderer.slice(hasResponseStart, hasResponseEnd);
   assert.ok(hasResponseStart >= 0 && hasResponseEnd > hasResponseStart);
+  assert.match(hasResponseSection, /stage\.interaction === 'assemble_response' && Number\.isInteger\(stage\.requiredSelectionCount\)[\s\S]*?session\.selection\.length === stage\.requiredSelectionCount/);
   assert.match(hasResponseSection, /: session\.selection\.length > 0;/);
   assert.match(renderer.slice(hasResponseEnd), /submit\.disabled = !hasResponse/);
   assert.match(engine, /interaction === 'assemble_response'\) correct = response\.length === stage\.correctOptionIds\.length && response\.every\(\(id, index\) => id === stage\.correctOptionIds\[index\]\)/);

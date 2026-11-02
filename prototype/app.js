@@ -71,6 +71,37 @@ function appendBuildArrayUiText(parent, text, appendStudentText) {
   appendStudentText(parent, text, buildArrayUiPronunciationTokens(text));
 }
 
+const ASSEMBLE_UI_PRONUNCIATION = Object.freeze({
+  '可選內容': 'ㄎㄜˇ ㄒㄩㄢˇ ㄋㄟˋ ㄖㄨㄥˊ',
+  '我的答案': 'ㄨㄛˇ ㄉㄜ˙ ㄉㄚˊ ㄢˋ',
+  '還沒有加入內容。請從「可選內容」依順序點選。': 'ㄏㄞˊ ㄇㄟˊ ㄧㄡˇ ㄐㄧㄚ ㄖㄨˋ ㄋㄟˋ ㄖㄨㄥˊ ㄑㄧㄥˇ ㄘㄨㄥˊ ㄎㄜˇ ㄒㄩㄢˇ ㄋㄟˋ ㄖㄨㄥˊ ㄧ ㄕㄨㄣˋ ㄒㄩˋ ㄉㄧㄢˇ ㄒㄩㄢˇ',
+  '已選 ': 'ㄧˇ ㄒㄩㄢˇ',
+  ' 張': 'ㄓㄤ',
+  '還差 ': 'ㄏㄞˊ ㄔㄚ',
+  ' 張，完成後就可以檢查答案。': 'ㄓㄤ ㄨㄢˊ ㄔㄥˊ ㄏㄡˋ ㄐㄧㄡˋ ㄎㄜˇ ㄧˇ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ',
+  '檢查數學解法': 'ㄐㄧㄢˇ ㄔㄚˊ ㄕㄨˋ ㄒㄩㄝˊ ㄐㄧㄝˇ ㄈㄚˇ',
+  '查看提示': 'ㄔㄚˊ ㄎㄢˋ ㄊㄧˊ ㄕˋ',
+});
+
+function assembleUiPronunciationTokens(text) {
+  const readings = ASSEMBLE_UI_PRONUNCIATION[text];
+  if (!readings) return undefined;
+  const readingList = readings.split(/\s+/u);
+  let readingIndex = 0;
+  const tokens = Array.from(text, (character) => {
+    if (!/\p{Script=Han}/u.test(character)) return { text: character };
+    const reading = readingList[readingIndex++];
+    if (!reading) throw new Error(`Missing assemble_response UI pronunciation for ${character} in ${text}`);
+    return { text: character, reading };
+  });
+  if (readingIndex !== readingList.length) throw new Error(`Extra assemble_response UI pronunciation for ${text}`);
+  return tokens;
+}
+
+function appendAssembleUiText(parent, text, appendStudentText) {
+  appendStudentText(parent, text, assembleUiPronunciationTokens(text));
+}
+
 function playBuildArrayFeedbackTone(delta) {
   const AudioContextConstructor = globalThis.AudioContext ?? globalThis.webkitAudioContext;
   if (typeof AudioContextConstructor !== 'function') return;
@@ -1094,13 +1125,14 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   }
   const answerCount = stage.correctOptionIds?.length ?? (stage.correctOptionId ? 1 : 0);
   const lowGradeBuildArray = stage.interaction === 'build_array' && isLowGradeReadingAssistanceEnabled(activity.gradeId);
+  const lowGradeAssembleResponse = stage.interaction === 'assemble_response' && isLowGradeReadingAssistanceEnabled(activity.gradeId);
   const responseGuidance = stage.interaction === 'order_items'
     ? isLowGradeReadingAssistanceEnabled(activity.gradeId)
       ? '怎麼玩：① 看故事卡 → ② 用「上移／下移」排順序 → ③ 檢查答案'
       : '操作方式：① 看清楚題目 → ② 用「上移／下移」調整順序 → ③ 排好後檢查答案'
     : stage.interaction === 'assemble_response'
       ? isLowGradeReadingAssistanceEnabled(activity.gradeId)
-        ? '怎麼玩：① 點詞卡 → ② 排成一句話 → ③ 檢查答案'
+        ? stage.studentOperationGuidance ?? '怎麼玩：① 點詞卡 → ② 排成一句話 → ③ 檢查答案'
         : '操作方式：① 看清楚題目 → ② 依順序點選內容 → ③ 檢查「我的答案」 → ④ 完成後檢查答案'
     : stage.interaction === 'build_array'
       ? isLowGradeReadingAssistanceEnabled(activity.gradeId)
@@ -1124,7 +1156,9 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
         ? answerCount === 1 ? '這是單選題，請選 1 個答案。' : `這是複選題，請選 ${answerCount} 個答案。`
         : '操作方式：① 操作 → ② 觀察 → ③ 作答';
   const responseGuidanceNode = element('p', 'candidate-student-response-guidance');
-  if (lowGradeBuildArray) appendBuildArrayUiText(responseGuidanceNode, responseGuidance, appendStudentText);
+  if (lowGradeAssembleResponse && Array.isArray(stage.studentOperationGuidancePronunciationTokens)) {
+    appendStudentText(responseGuidanceNode, responseGuidance, stage.studentOperationGuidancePronunciationTokens);
+  } else if (lowGradeBuildArray) appendBuildArrayUiText(responseGuidanceNode, responseGuidance, appendStudentText);
   else responseGuidanceNode.textContent = responseGuidance;
   host.append(responseGuidanceNode);
   const classificationProgress = stage.interaction === 'classify_observations' && stage.observations?.length
@@ -1313,7 +1347,10 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     panel.append(slider, element('p', '', `目前半徑：${session.circleRadius ?? '尚未調整'} 格`)); host.append(panel);
   }
   if (session.phase === 'active' && stage.interaction === 'assemble_response') {
-    host.append(element('h3', 'candidate-response-options-heading', '可選內容'));
+    const optionsHeading = element('h3', 'candidate-response-options-heading');
+    if (lowGradeAssembleResponse) appendAssembleUiText(optionsHeading, '可選內容', appendStudentText);
+    else optionsHeading.textContent = '可選內容';
+    host.append(optionsHeading);
     const tiles = element('div', 'candidate-token-list');
     for (const token of stage.tokens) {
       const isSelected = session.selection.includes(token.id);
@@ -1324,7 +1361,9 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       if (isSelected) tile.append(document.createTextNode('✓ '));
       appendStudentText(tile, token.text, token.pronunciationTokens);
       tile.addEventListener('click', () => {
-        dispatch(isSelected ? 'remove_phrase_token' : 'add_phrase_token', { tokenId: token.id });
+        const previousSelectionLength = session.selection.length;
+        const result = dispatch(isSelected ? 'remove_phrase_token' : 'add_phrase_token', { tokenId: token.id });
+        if (result.session.selection.length !== previousSelectionLength) playBuildArrayFeedbackTone(isSelected ? -1 : 1);
         [...host.querySelectorAll('.candidate-response-option')].find((candidateTile) => candidateTile.dataset.responseTokenId === token.id)?.focus();
       });
       tiles.append(tile);
@@ -1332,9 +1371,15 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     host.append(tiles);
     const answer = element('section', 'candidate-response-build candidate-response-answer');
     answer.setAttribute('aria-label', '我的答案，依點選順序排列');
-    answer.append(element('h3', 'candidate-response-answer-heading', '我的答案'));
+    const answerHeading = element('h3', 'candidate-response-answer-heading');
+    if (lowGradeAssembleResponse) appendAssembleUiText(answerHeading, '我的答案', appendStudentText);
+    else answerHeading.textContent = '我的答案';
+    answer.append(answerHeading);
     if (session.selection.length === 0) {
-      answer.append(element('p', 'candidate-response-empty', '還沒有加入內容。請從「可選內容」依順序點選。'));
+      const emptyResponse = element('p', 'candidate-response-empty');
+      if (lowGradeAssembleResponse) appendAssembleUiText(emptyResponse, '還沒有加入內容。請從「可選內容」依順序點選。', appendStudentText);
+      else emptyResponse.textContent = '還沒有加入內容。請從「可選內容」依順序點選。';
+      answer.append(emptyResponse);
     } else {
       const answerList = element('ol', 'candidate-response-answer-list');
       for (const [index, tokenId] of session.selection.entries()) {
@@ -1348,6 +1393,15 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
         answerList.append(item);
       }
       answer.append(answerList);
+    }
+    if (lowGradeAssembleResponse && Number.isInteger(stage.requiredSelectionCount)) {
+      const selectionProgress = element('p', 'candidate-response-selection-progress');
+      selectionProgress.setAttribute('role', 'status');
+      selectionProgress.setAttribute('aria-live', 'polite');
+      for (const text of ['已選 ', String(session.selection.length), ' / ', String(stage.requiredSelectionCount), ' 張']) {
+        appendAssembleUiText(selectionProgress, text, appendStudentText);
+      }
+      answer.append(selectionProgress);
     }
     host.append(answer);
   }
@@ -2720,7 +2774,9 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     }
     const controls = element('div', 'reading-task-controls');
     if (session.hintLevel < stage.hints.length) {
-      const hint = element('button', 'button button-secondary', '查看提示'); hint.type = 'button';
+      const hint = element('button', 'button button-secondary'); hint.type = 'button';
+      if (lowGradeAssembleResponse) appendAssembleUiText(hint, '查看提示', appendStudentText);
+      else hint.textContent = '查看提示';
       hint.addEventListener('click', () => dispatch('hint'));
       controls.append(hint);
     }
@@ -2730,6 +2786,8 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
         ? Number.isInteger(stage.requiredSelectionCount)
           ? session.selection.length === stage.requiredSelectionCount
           : session.selection.length > 0
+      : stage.interaction === 'assemble_response' && Number.isInteger(stage.requiredSelectionCount)
+        ? session.selection.length === stage.requiredSelectionCount
       : stage.interaction === 'complete_symmetry_grid'
         ? session.symmetryCells.length > 0
         : stage.interaction === 'plot_line_chart'
@@ -2823,8 +2881,10 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
               : stage.magnetRules.magnets.every(({ id }) => session.magnetModel?.testedMagnetIds.includes(id)) && Boolean(session.magnetModel?.selectedStrongerMagnetId)
         : session.selection.length > 0;
     const submitLabel = stage.interaction === 'magnet_interaction' && stage.magnetRules.mode === 'materials' ? '檢查答案' : taskKind === 'english' ? '送出英文回應' : taskKind === 'chinese' ? '檢查答案' : taskKind === 'mathData' ? '完成資料表' : taskKind === 'math' ? '檢查數學解法' : taskKind === 'science' ? '檢查觀察與分類' : taskKind === 'arts' ? '檢查節奏作品' : taskKind === 'living' ? '提交觀察線索' : taskKind === 'hpe' ? '檢查安全分類' : taskKind === 'integrative' ? '檢查步驟順序' : '檢查分類';
-    const submit = element('button', 'button button-primary', submitLabel);
+    const submit = element('button', 'button button-primary');
     submit.type = 'button'; submit.disabled = !hasResponse;
+    if (lowGradeAssembleResponse) appendAssembleUiText(submit, submitLabel, appendStudentText);
+    else submit.textContent = submitLabel;
     submit.addEventListener('click', () => dispatch('submit', { submissionId: `${session.sessionId}:submission:${session.attempts.length + 1}` }));
     controls.append(submit);
     const readinessId = `candidate-submit-readiness-${stage.stageId}`;
@@ -2834,11 +2894,20 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       if (stage.interaction === 'collect_evidence' && Number.isInteger(stage.requiredSelectionCount)) {
         const remainingCount = stage.requiredSelectionCount - session.selection.length;
         readinessText = `還差 ${remainingCount} 項，完成後就可以檢查答案。`;
+      } else if (stage.interaction === 'assemble_response' && Number.isInteger(stage.requiredSelectionCount)) {
+        const remainingCount = stage.requiredSelectionCount - session.selection.length;
+        readinessText = `還差 ${remainingCount} 張，完成後就可以檢查答案。`;
       } else if (classificationProgress && !stage.collectionRules) {
         const remainingCount = classificationProgress.totalCount - classificationProgress.completedCount;
         if (remainingCount > 0) readinessText = `還差 ${remainingCount} 個項目，完成後就可以檢查答案。`;
       }
       const readiness = element('p', 'candidate-submit-readiness', readinessText);
+      if (lowGradeAssembleResponse && Number.isInteger(stage.requiredSelectionCount)) {
+        readiness.textContent = '';
+        for (const text of ['還差 ', String(stage.requiredSelectionCount - session.selection.length), ' 張，完成後就可以檢查答案。']) {
+          appendAssembleUiText(readiness, text, appendStudentText);
+        }
+      }
       readiness.id = readinessId;
       submit.setAttribute('aria-describedby', readinessId);
       controls.append(readiness);
