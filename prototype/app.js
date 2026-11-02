@@ -1035,6 +1035,10 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       ? isLowGradeReadingAssistanceEnabled(activity.gradeId)
         ? '怎麼玩：① 點詞卡 → ② 排成一句話 → ③ 檢查答案'
         : '操作方式：① 看清楚題目 → ② 依順序點選內容 → ③ 檢查「我的答案」 → ④ 完成後檢查答案'
+    : stage.interaction === 'build_array'
+      ? isLowGradeReadingAssistanceEnabled(activity.gradeId)
+        ? '怎麼玩：① 按按鈕排果子 → ② 看排數和每排幾個 → ③ 排好後檢查答案'
+        : '操作方式：① 操作 → ② 觀察 → ③ 作答'
     : stage.interaction === 'choose_response'
       ? stage.selectionMode === 'multiple' ? '作答方式：這題可以選多個答案' : '作答方式：請選 1 個答案'
     : stage.interaction === 'collect_evidence'
