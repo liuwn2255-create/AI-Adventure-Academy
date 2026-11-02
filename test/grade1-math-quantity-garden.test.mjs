@@ -74,6 +74,55 @@ test('Grade 1–2 build_array 操作說明具體，Grade 3–6 保留原說明',
   assert.equal(isLowGradeReadingAssistanceEnabled('grade-6'), false);
 });
 
+test('低年級 build_array 固定操作與狀態文字使用人工注音，數字和運算符號保持原樣', async () => {
+  const app = await readFile(new URL('../prototype/app.js', import.meta.url), 'utf8');
+  const mapSource = app.match(/const BUILD_ARRAY_UI_PRONUNCIATION = Object\.freeze\(\{([\s\S]*?)\n\}\);/u)?.[1];
+  assert.ok(mapSource, 'manual build_array pronunciation map should exist');
+  const pronunciationMap = new Map([...mapSource.matchAll(/^\s*'([^']+)': '([^']+)',?$/gmu)].map(([, text, readings]) => [text, readings]));
+  const expected = [
+    ['少一排', 'ㄕㄠˇ ㄧˋ ㄆㄞˊ'],
+    ['增加一排', 'ㄗㄥ ㄐㄧㄚ ㄧˋ ㄆㄞˊ'],
+    ['每排少一個', 'ㄇㄟˇ ㄆㄞˊ ㄕㄠˇ ㄧˊ ㄍㄜˋ'],
+    ['每排多一個', 'ㄇㄟˇ ㄆㄞˊ ㄉㄨㄛ ㄧˊ ㄍㄜˋ'],
+    ['目前陣列：', 'ㄇㄨˋ ㄑㄧㄢˊ ㄓㄣˋ ㄌㄧㄝˋ'],
+    [' 排 × 每排 ', 'ㄆㄞˊ ㄇㄟˇ ㄆㄞˊ'],
+    [' 個；總數 = ', 'ㄍㄜˋ ㄗㄨㄥˇ ㄕㄨˋ'],
+    [' 個', 'ㄍㄜˋ'],
+    ['調整排數與每排數量，建立物件陣列。', 'ㄊㄧㄠˊ ㄓㄥˇ ㄆㄞˊ ㄕㄨˋ ㄩˇ ㄇㄟˇ ㄆㄞˊ ㄕㄨˋ ㄌㄧㄤˋ ㄐㄧㄢˋ ㄌㄧˋ ㄨˋ ㄐㄧㄢˋ ㄓㄣˋ ㄌㄧㄝˋ'],
+  ];
+  for (const [text, readings] of expected) assert.equal(pronunciationMap.get(text), readings, `manual readings for ${text}`);
+  assert.equal(pronunciationMap.has('怎麼玩：① 按按鈕排果子 → ② 看排數和每排幾個 → ③ 排好後檢查答案'), true);
+  assert.match(app, /appendStudentText\(parent, text, buildArrayUiPronunciationTokens\(text\)\)/u);
+  assert.match(app, /if \(!\/\\p\{Script=Han\}\/u\.test\(character\)\) return \{ text: character \}/u);
+  assert.match(app, /const lowGradeBuildArray = stage\.interaction === 'build_array' && isLowGradeReadingAssistanceEnabled\(activity\.gradeId\)/u);
+  assert.match(app, /if \(lowGradeBuildArray\) appendBuildArrayUiText\(control, label, appendStudentText\)/u);
+  assert.equal(isLowGradeReadingAssistanceEnabled('grade-1'), true);
+  assert.equal(isLowGradeReadingAssistanceEnabled('grade-2'), true);
+  assert.equal(isLowGradeReadingAssistanceEnabled('grade-3'), false);
+  assert.equal(isLowGradeReadingAssistanceEnabled('grade-6'), false);
+});
+
+test('build_array 四個按鈕保留原 action，僅在 state 實際改變後播放單次操作音', async () => {
+  const app = await readFile(new URL('../prototype/app.js', import.meta.url), 'utf8');
+  const controls = app.match(/for \(const \[label, dimension, delta\] of \[\['少一排'[\s\S]*?controls\.append\(control\);\n    \}/u)?.[0];
+  assert.ok(controls, 'the four build_array buttons should be rendered together');
+  assert.match(controls, /control\.type = 'button'/u);
+  assert.match(controls, /control\.addEventListener\('click'/u);
+  assert.match(controls, /dispatch\('adjust_array_dimension', \{ dimension, delta \}\)/u);
+  assert.match(controls, /if \(result\.session\[key\] !== previousValue\) playBuildArrayFeedbackTone\(delta\)/u);
+  assert.equal((controls.match(/playBuildArrayFeedbackTone\(delta\)/gu) ?? []).length, 1);
+
+  const toneHelper = app.match(/function playBuildArrayFeedbackTone\(delta\) \{([\s\S]*?)\n\}/u)?.[1];
+  assert.ok(toneHelper, 'short feedback tone helper should exist');
+  assert.match(toneHelper, /globalThis\.AudioContext \?\? globalThis\.webkitAudioContext/u);
+  assert.match(toneHelper, /const rising = delta > 0/u);
+  assert.match(toneHelper, /linearRampToValueAtTime\(rising \? 620 : 390, startAt \+ 0\.085\)/u);
+  assert.match(toneHelper, /gain\.gain\.linearRampToValueAtTime\(0\.025, startAt \+ 0\.008\)/u);
+  assert.match(toneHelper, /oscillator\.stop\(startAt \+ 0\.1\)/u);
+  assert.doesNotMatch(toneHelper, /isSpeechEnabled|speak\(/u);
+  assert.doesNotMatch(app.slice(app.indexOf('function playBuildArrayFeedbackTone'), app.indexOf('const screens')), /setInterval|\.loop\s*=/u);
+});
+
 test('兩關仍沿用既有 build_array 與 choose_response scoring', () => {
   let session = dispatchLearningTask(createLearningTaskSession(activity, 'quantity-garden-score'), activity, 'start').session;
   for (let index = 0; index < 2; index += 1) session = dispatchLearningTask(session, activity, 'adjust_array_dimension', { dimension: 'rows', delta: 1 }).session;

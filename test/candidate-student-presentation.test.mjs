@@ -381,7 +381,7 @@ test('choose_response 以單選語意呈現並保留既有選取與提交行為'
   assert.ok(chooseStages.every(({ stage }) => stage.correctOptionIds?.length === 1));
 
   const guidanceStart = renderer.indexOf('const responseGuidance =');
-  const guidanceEnd = renderer.indexOf("host.append(element('p', 'candidate-student-response-guidance'", guidanceStart);
+  const guidanceEnd = renderer.indexOf('host.append(responseGuidanceNode)', guidanceStart);
   const guidance = renderer.slice(guidanceStart, guidanceEnd);
   const chooseGuidanceStart = guidance.indexOf("stage.interaction === 'choose_response'");
   const chooseGuidanceEnd = guidance.indexOf(": stage.interaction === 'collect_evidence'", chooseGuidanceStart);

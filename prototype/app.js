@@ -39,6 +39,72 @@ import { createLearningTaskSession, dispatchLearningTask } from './learningTaskE
 import { isSpeechEnabled, setSpeechEnabled, speak } from './speechService.js';
 import { isLowGradeReadingAssistanceEnabled, renderStudentText } from './studentTextRenderer.js';
 
+const BUILD_ARRAY_UI_PRONUNCIATION = Object.freeze({
+  '怎麼玩：① 按按鈕排果子 → ② 看排數和每排幾個 → ③ 排好後檢查答案': 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄢˋ ㄢˋ ㄋㄧㄡˇ ㄆㄞˊ ㄍㄨㄛˇ ㄗ˙ ㄎㄢˋ ㄆㄞˊ ㄕㄨˋ ㄏㄜˊ ㄇㄟˇ ㄆㄞˊ ㄐㄧˇ ㄍㄜˋ ㄆㄞˊ ㄏㄠˇ ㄏㄡˋ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ',
+  '少一排': 'ㄕㄠˇ ㄧˋ ㄆㄞˊ',
+  '增加一排': 'ㄗㄥ ㄐㄧㄚ ㄧˋ ㄆㄞˊ',
+  '每排少一個': 'ㄇㄟˇ ㄆㄞˊ ㄕㄠˇ ㄧˊ ㄍㄜˋ',
+  '每排多一個': 'ㄇㄟˇ ㄆㄞˊ ㄉㄨㄛ ㄧˊ ㄍㄜˋ',
+  '目前陣列：': 'ㄇㄨˋ ㄑㄧㄢˊ ㄓㄣˋ ㄌㄧㄝˋ',
+  ' 排 × 每排 ': 'ㄆㄞˊ ㄇㄟˇ ㄆㄞˊ',
+  ' 個；總數 = ': 'ㄍㄜˋ ㄗㄨㄥˇ ㄕㄨˋ',
+  ' 個': 'ㄍㄜˋ',
+  '調整排數與每排數量，建立物件陣列。': 'ㄊㄧㄠˊ ㄓㄥˇ ㄆㄞˊ ㄕㄨˋ ㄩˇ ㄇㄟˇ ㄆㄞˊ ㄕㄨˋ ㄌㄧㄤˋ ㄐㄧㄢˋ ㄌㄧˋ ㄨˋ ㄐㄧㄢˋ ㄓㄣˋ ㄌㄧㄝˋ',
+});
+
+function buildArrayUiPronunciationTokens(text) {
+  const readings = BUILD_ARRAY_UI_PRONUNCIATION[text];
+  if (!readings) return undefined;
+  const readingList = readings.split(/\s+/u);
+  let readingIndex = 0;
+  const tokens = Array.from(text, (character) => {
+    if (!/\p{Script=Han}/u.test(character)) return { text: character };
+    const reading = readingList[readingIndex++];
+    if (!reading) throw new Error(`Missing build_array UI pronunciation for ${character} in ${text}`);
+    return { text: character, reading };
+  });
+  if (readingIndex !== readingList.length) throw new Error(`Extra build_array UI pronunciation for ${text}`);
+  return tokens;
+}
+
+function appendBuildArrayUiText(parent, text, appendStudentText) {
+  appendStudentText(parent, text, buildArrayUiPronunciationTokens(text));
+}
+
+function playBuildArrayFeedbackTone(delta) {
+  const AudioContextConstructor = globalThis.AudioContext ?? globalThis.webkitAudioContext;
+  if (typeof AudioContextConstructor !== 'function') return;
+  let audioContext;
+  try {
+    audioContext = new AudioContextConstructor();
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    const rising = delta > 0;
+    oscillator.type = 'sine';
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+    const closeContext = () => { audioContext.close?.().catch?.(() => {}); };
+    oscillator.addEventListener('ended', closeContext, { once: true });
+    const play = () => {
+      const startAt = audioContext.currentTime;
+      oscillator.frequency.setValueAtTime(500, startAt);
+      oscillator.frequency.linearRampToValueAtTime(rising ? 620 : 390, startAt + 0.085);
+      gain.gain.setValueAtTime(0.0001, startAt);
+      gain.gain.linearRampToValueAtTime(0.025, startAt + 0.008);
+      gain.gain.linearRampToValueAtTime(0.0001, startAt + 0.095);
+      oscillator.start(startAt);
+      oscillator.stop(startAt + 0.1);
+    };
+    if (audioContext.state === 'suspended' && typeof audioContext.resume === 'function') {
+      audioContext.resume().then(play).catch(closeContext);
+    } else {
+      play();
+    }
+  } catch {
+    audioContext?.close?.().catch?.(() => {});
+  }
+}
+
 const screens = Object.fromEntries(['home', 'curriculum-game', 'select', 'reading-quest', 'english-quest', 'science-quest', 'social-quest', 'math-data-quest', 'arts-quest', 'catalog-task', 'explore', 'game', 'complete', 'capacity'].map((id) => [id, document.getElementById(`${id}-screen`)]));
 const optionsHost = document.getElementById('answer-options');
 const feedback = document.getElementById('answer-feedback');
@@ -1027,6 +1093,7 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     host.append(listen);
   }
   const answerCount = stage.correctOptionIds?.length ?? (stage.correctOptionId ? 1 : 0);
+  const lowGradeBuildArray = stage.interaction === 'build_array' && isLowGradeReadingAssistanceEnabled(activity.gradeId);
   const responseGuidance = stage.interaction === 'order_items'
     ? isLowGradeReadingAssistanceEnabled(activity.gradeId)
       ? '怎麼玩：① 看故事卡 → ② 用「上移／下移」排順序 → ③ 檢查答案'
@@ -1056,7 +1123,10 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       : stage.options?.length && answerCount > 0
         ? answerCount === 1 ? '這是單選題，請選 1 個答案。' : `這是複選題，請選 ${answerCount} 個答案。`
         : '操作方式：① 操作 → ② 觀察 → ③ 作答';
-  host.append(element('p', 'candidate-student-response-guidance', responseGuidance));
+  const responseGuidanceNode = element('p', 'candidate-student-response-guidance');
+  if (lowGradeBuildArray) appendBuildArrayUiText(responseGuidanceNode, responseGuidance, appendStudentText);
+  else responseGuidanceNode.textContent = responseGuidance;
+  host.append(responseGuidanceNode);
   const classificationProgress = stage.interaction === 'classify_observations' && stage.observations?.length
     ? {
       completedCount: session.phase === 'success'
@@ -1285,16 +1355,36 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     const panel = element('section', 'candidate-response-build math-array-builder');
     const total = session.arrayRows * session.arrayColumns;
     const unitLabel = stage.arrayRules.unitLabel ?? '個';
-    panel.append(element('strong', '', `目前陣列：${session.arrayRows} 排 × 每排 ${session.arrayColumns} 個 = ${total} ${unitLabel}`));
+    const status = element('strong');
+    if (lowGradeBuildArray) {
+      for (const text of ['目前陣列：', String(session.arrayRows), ' 排 × 每排 ', String(session.arrayColumns), ' 個；總數 = ', String(total), ` ${unitLabel}`]) {
+        appendBuildArrayUiText(status, text, appendStudentText);
+      }
+    } else {
+      status.textContent = `目前陣列：${session.arrayRows} 排 × 每排 ${session.arrayColumns} 個 = ${total} ${unitLabel}`;
+    }
+    panel.append(status);
     const board = element('div', 'math-array-grid');
     board.style.gridTemplateColumns = `repeat(${Math.max(1, session.arrayColumns)}, minmax(20px, 1fr))`;
-    if (!total) board.append(element('p', 'math-array-empty', '調整排數與每排數量，建立物件陣列。'));
+    if (!total) {
+      const emptyHint = element('p', 'math-array-empty');
+      if (lowGradeBuildArray) appendBuildArrayUiText(emptyHint, '調整排數與每排數量，建立物件陣列。', appendStudentText);
+      else emptyHint.textContent = '調整排數與每排數量，建立物件陣列。';
+      board.append(emptyHint);
+    }
     for (let i = 0; i < total; i += 1) board.append(element('span', 'math-array-object', stage.arrayRules.objectLabel ?? '●'));
     panel.append(board);
     const controls = element('div', 'candidate-token-list');
     for (const [label, dimension, delta] of [['少一排', 'rows', -1], ['增加一排', 'rows', 1], ['每排少一個', 'columns', -1], ['每排多一個', 'columns', 1]]) {
-      const control = element('button', 'candidate-token', label); control.type = 'button';
-      control.addEventListener('click', () => dispatch('adjust_array_dimension', { dimension, delta }));
+      const control = element('button', 'candidate-token'); control.type = 'button';
+      if (lowGradeBuildArray) appendBuildArrayUiText(control, label, appendStudentText);
+      else control.textContent = label;
+      control.addEventListener('click', () => {
+        const key = dimension === 'rows' ? 'arrayRows' : 'arrayColumns';
+        const previousValue = session[key];
+        const result = dispatch('adjust_array_dimension', { dimension, delta });
+        if (result.session[key] !== previousValue) playBuildArrayFeedbackTone(delta);
+      });
       controls.append(control);
     }
     panel.append(controls); host.append(panel);
