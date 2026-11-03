@@ -3231,7 +3231,8 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
             : stage.magnetRules.mode === 'materials' ? stage.magnetRules.materials.every(({ id }) => session.magnetModel?.testedObjectIds.includes(id) && session.magnetModel.assignments[id])
               : stage.magnetRules.magnets.every(({ id }) => session.magnetModel?.testedMagnetIds.includes(id)) && Boolean(session.magnetModel?.selectedStrongerMagnetId)
         : session.selection.length > 0;
-    const submitLabel = lowGradeNumberLine ? '檢查位置'
+    const submitLabel = typeof stage.studentSubmitLabel === 'string' ? stage.studentSubmitLabel
+      : lowGradeNumberLine ? '檢查位置'
       : lowGradeMoney ? '檢查答案'
       : lowGradeCollectEvidence || lowGradeChooseResponse ? '檢查答案'
       : lowGradeComposeShape ? '檢查拼圖'
@@ -3240,7 +3241,8 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
         : stage.interaction === 'magnet_interaction' && stage.magnetRules.mode === 'materials' ? '檢查答案' : taskKind === 'english' ? '送出英文回應' : taskKind === 'chinese' ? '檢查答案' : taskKind === 'mathData' ? '完成資料表' : taskKind === 'math' ? '檢查數學解法' : taskKind === 'science' ? '檢查觀察與分類' : taskKind === 'arts' ? '檢查節奏作品' : taskKind === 'living' ? '提交觀察線索' : taskKind === 'hpe' ? '檢查安全分類' : taskKind === 'integrative' ? '檢查步驟順序' : '檢查分類';
     const submit = element('button', 'button button-primary');
     submit.type = 'button'; submit.disabled = !hasResponse;
-    if (lowGradeNumberLine) appendNumberLineUiText(submit, submitLabel, appendStudentText);
+    if (lowGradeAssembleResponse && Array.isArray(stage.studentSubmitLabelPronunciationTokens)) appendStudentText(submit, submitLabel, stage.studentSubmitLabelPronunciationTokens);
+    else if (lowGradeNumberLine) appendNumberLineUiText(submit, submitLabel, appendStudentText);
     else if (lowGradeMoney) appendMoneyUiText(submit, submitLabel, appendStudentText);
     else if (lowGradeCollectEvidence || lowGradeChooseResponse) appendLowGradeCandidateUiText(submit, submitLabel, appendStudentText);
     else if (lowGradeAssembleResponse) appendAssembleUiText(submit, submitLabel, appendStudentText);

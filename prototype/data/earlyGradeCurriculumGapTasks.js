@@ -277,6 +277,32 @@ export const GRADE2_LIVING_RULES_REASON_QUEST = Object.freeze({
   openQuestions: Object.freeze(['模擬輪流情境是否符合學生生活經驗及語言理解，待教師確認。', '本任務不評量學生是否在真實情境中自我調整，也未涵蓋不同場合禮儀。']),
 });
 
+function reviewedPlaygroundText(text, readingSequence) {
+  const readings = readingSequence.trim() ? readingSequence.trim().split(/\s+/u) : [];
+  let readingIndex = 0;
+  const tokens = Array.from(text, (character) => {
+    if (!/\p{Script=Han}/u.test(character)) return Object.freeze({ text: character });
+    const reading = readings[readingIndex++];
+    if (!reading) throw new Error(`Missing reviewed pronunciation for ${character} in ${text}`);
+    return Object.freeze({ text: character, reading });
+  });
+  if (readingIndex !== readings.length) throw new Error(`Extra reviewed pronunciation for ${text}`);
+  return Object.freeze(tokens);
+}
+
+const playgroundHint = (text, readings) => Object.freeze({ text, pronunciationTokens: reviewedPlaygroundText(text, readings) });
+const playgroundObservation = (id, text, readings) => Object.freeze({ id, text, pronunciationTokens: reviewedPlaygroundText(text, readings) });
+const playgroundToken = (id, text, readings) => Object.freeze({ id, text, pronunciationTokens: reviewedPlaygroundText(text, readings) });
+const playgroundOption = (id, text, readings, feedback, feedbackReadings) => Object.freeze({
+  id,
+  text,
+  pronunciationTokens: reviewedPlaygroundText(text, readings),
+  feedback,
+  feedbackPronunciationTokens: reviewedPlaygroundText(feedback, feedbackReadings),
+});
+
+const playgroundTeacherLimitation = '本活動只提供虛構螢幕情境練習，不代表學生已具備真實環境觀察、風險辨認或安全移動能力。情境與求助方式需依學校所在地實際安全規範調整；本活動不是當地交通路線指引，也不評量實地移動、身體技能或真實情境中的持續安全行為。';
+
 export const GRADE1_PLAYGROUND_SAFETY_ROUTE = Object.freeze({
   activityId: 'ACT-G1-HPE-PLAYGROUND-SAFETY-ROUTE-CANDIDATE', revision: 1,
   title: '安全路線小隊：遊戲場與上下學任務', gradeId: 'grade-1', subjectId: 'health-physical-education',
@@ -290,48 +316,79 @@ export const GRADE1_PLAYGROUND_SAFETY_ROUTE = Object.freeze({
   stages: Object.freeze([
     Object.freeze({
       stageId: 'inspect-playground-and-school-route-scenes', interaction: 'classify_observations',
-      prompt: '把情境卡分到「較安全的選擇」或「先停下並找成人」。情境都是虛構的。',
-      context: Object.freeze([{ speaker: '模擬情境', text: '小隊要從教室到遊戲場，再跟可信任的大人走到集合點。請先留意周圍和約定路線。' }]),
+      prompt: '看每張卡：可以照原來做，還是要停下找大人？',
+      promptPronunciationTokens: reviewedPlaygroundText('看每張卡：可以照原來做，還是要停下找大人？', 'ㄎㄢˋ ㄇㄟˇ ㄓㄤ ㄎㄚˇ ㄎㄜˇ ㄧˇ ㄓㄠˋ ㄩㄢˊ ㄌㄞˊ ㄗㄨㄛˋ ㄏㄞˊ ㄕˋ ㄧㄠˋ ㄊㄧㄥˊ ㄒㄧㄚˋ ㄓㄠˇ ㄉㄚˋ ㄖㄣˊ'),
+      studentOperationGuidance: '怎麼玩：① 看每張卡 → ② 選「可以照原來做」或「要停下找大人」 → ③ 全部分好後檢查答案',
+      studentOperationGuidancePronunciationTokens: reviewedPlaygroundText('怎麼玩：① 看每張卡 → ② 選「可以照原來做」或「要停下找大人」 → ③ 全部分好後檢查答案', 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄎㄢˋ ㄇㄟˇ ㄓㄤ ㄎㄚˇ ㄒㄩㄢˇ ㄎㄜˇ ㄧˇ ㄓㄠˋ ㄩㄢˊ ㄌㄞˊ ㄗㄨㄛˋ ㄏㄨㄛˋ ㄧㄠˋ ㄊㄧㄥˊ ㄒㄧㄚˋ ㄓㄠˇ ㄉㄚˋ ㄖㄣˊ ㄑㄩㄢˊ ㄅㄨˋ ㄈㄣ ㄏㄠˇ ㄏㄡˋ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ'),
+      context: Object.freeze([{ speaker: '安全情境', speakerPronunciationTokens: reviewedPlaygroundText('安全情境', 'ㄢ ㄑㄩㄢˊ ㄑㄧㄥˊ ㄐㄧㄥˋ'), text: '小隊跟著大人走原來的路。一路看看前面。', pronunciationTokens: reviewedPlaygroundText('小隊跟著大人走原來的路。一路看看前面。', 'ㄒㄧㄠˇ ㄉㄨㄟˋ ㄍㄣ ㄓㄜ˙ ㄉㄚˋ ㄖㄣˊ ㄗㄡˇ ㄩㄢˊ ㄌㄞˊ ㄉㄜ˙ ㄌㄨˋ ㄧˊ ㄌㄨˋ ㄎㄢˋ ㄎㄢˋ ㄑㄧㄢˊ ㄇㄧㄢˋ') }]),
       observations: Object.freeze([
-        Object.freeze({ id: 'use-marked-route', text: '沿著約定的通道走，並留在陪同的大人身旁。' }),
-        Object.freeze({ id: 'wait-at-gate', text: '遇到關閉的通道，停在安全處告訴陪同的大人。' }),
-        Object.freeze({ id: 'run-between-play', text: '在遊戲器材旁追跑，沒有看前方。' }),
-        Object.freeze({ id: 'leave-adult', text: '找不到同伴時，自己離開約定集合處去找路。' }),
+        playgroundObservation('use-marked-route', '跟著大人走原來的路。', 'ㄍㄣ ㄓㄜ˙ ㄉㄚˋ ㄖㄣˊ ㄗㄡˇ ㄩㄢˊ ㄌㄞˊ ㄉㄜ˙ ㄌㄨˋ'),
+        playgroundObservation('wait-at-gate', '原來的路不能走，停在安全的地方告訴大人。', 'ㄩㄢˊ ㄌㄞˊ ㄉㄜ˙ ㄌㄨˋ ㄅㄨˋ ㄋㄥˊ ㄗㄡˇ ㄊㄧㄥˊ ㄗㄞˋ ㄢ ㄑㄩㄢˊ ㄉㄜ˙ ㄉㄧˋ ㄈㄤ ㄍㄠˋ ㄙㄨˋ ㄉㄚˋ ㄖㄣˊ'),
+        playgroundObservation('run-between-play', '在器材旁追跑，沒有看前面。', 'ㄗㄞˋ ㄑㄧˋ ㄘㄞˊ ㄆㄤˊ ㄓㄨㄟ ㄆㄠˇ ㄇㄟˊ ㄧㄡˇ ㄎㄢˋ ㄑㄧㄢˊ ㄇㄧㄢˋ'),
+        playgroundObservation('leave-adult', '找不到同伴，自己離開等大人的地方去找路。', 'ㄓㄠˇ ㄅㄨˋ ㄉㄠˋ ㄊㄨㄥˊ ㄅㄢˋ ㄗˋ ㄐㄧˇ ㄌㄧˊ ㄎㄞ ㄉㄥˇ ㄉㄚˋ ㄖㄣˊ ㄉㄜ˙ ㄉㄧˋ ㄈㄤ ㄑㄩˋ ㄓㄠˇ ㄌㄨˋ'),
       ]),
-      categories: Object.freeze([Object.freeze({ id: 'safer-choice', label: '較安全的選擇' }), Object.freeze({ id: 'stop-and-get-adult', label: '先停下並找成人' })]),
-      correctAssignments: Object.freeze({ 'use-marked-route': 'safer-choice', 'wait-at-gate': 'safer-choice', 'run-between-play': 'stop-and-get-adult', 'leave-adult': 'stop-and-get-adult' }),
-      hints: Object.freeze(['想想這個做法有沒有留在約定的地方、注意周圍並讓大人知道。', '追跑或自己離開集合處會增加風險；通道受阻時先停下並告訴陪同的大人。']),
-      incorrectFeedback: '回到「留在約定路線、注意周圍、讓可信任成人知道」三個線索，逐張檢查。遇到不確定的真實情況，先停下並找身邊可信任的大人。',
-      correctFeedback: '你用情境線索分辨較安全的做法與需要停下求助的情況。螢幕分類不能代替真實環境觀察。',
+      categories: Object.freeze([
+        Object.freeze({ id: 'safer-choice', label: '可以照原來做', pronunciationTokens: reviewedPlaygroundText('可以照原來做', 'ㄎㄜˇ ㄧˇ ㄓㄠˋ ㄩㄢˊ ㄌㄞˊ ㄗㄨㄛˋ') }),
+        Object.freeze({ id: 'stop-and-get-adult', label: '要停下找大人', pronunciationTokens: reviewedPlaygroundText('要停下找大人', 'ㄧㄠˋ ㄊㄧㄥˊ ㄒㄧㄚˋ ㄓㄠˇ ㄉㄚˋ ㄖㄣˊ') }),
+      ]),
+      correctAssignments: Object.freeze({ 'use-marked-route': 'safer-choice', 'wait-at-gate': 'stop-and-get-adult', 'run-between-play': 'stop-and-get-adult', 'leave-adult': 'stop-and-get-adult' }),
+      hints: Object.freeze([
+        playgroundHint('先看卡片裡的人在做什麼。', 'ㄒㄧㄢ ㄎㄢˋ ㄎㄚˇ ㄆㄧㄢˋ ㄌㄧˇ ㄉㄜ˙ ㄖㄣˊ ㄗㄞˋ ㄗㄨㄛˋ ㄕㄣˊ ㄇㄜ˙'),
+        playgroundHint('如果前面的路或地方不安全，就先停下來找大人。', 'ㄖㄨˊ ㄍㄨㄛˇ ㄑㄧㄢˊ ㄇㄧㄢˋ ㄉㄜ˙ ㄌㄨˋ ㄏㄨㄛˋ ㄉㄧˋ ㄈㄤ ㄅㄨˋ ㄢ ㄑㄩㄢˊ ㄐㄧㄡˋ ㄒㄧㄢ ㄊㄧㄥˊ ㄒㄧㄚˋ ㄌㄞˊ ㄓㄠˇ ㄉㄚˋ ㄖㄣˊ'),
+      ]),
+      incorrectFeedback: '再看一次卡片。想想這樣做安不安全，要不要先停下找大人。',
+      incorrectFeedbackPronunciationTokens: reviewedPlaygroundText('再看一次卡片。想想這樣做安不安全，要不要先停下找大人。', 'ㄗㄞˋ ㄎㄢˋ ㄧˊ ㄘˋ ㄎㄚˇ ㄆㄧㄢˋ ㄒㄧㄤˇ ㄒㄧㄤˇ ㄓㄜˋ ㄧㄤˋ ㄗㄨㄛˋ ㄢ ㄅㄨˋ ㄢ ㄑㄩㄢˊ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄒㄧㄢ ㄊㄧㄥˊ ㄒㄧㄚˋ ㄓㄠˇ ㄉㄚˋ ㄖㄣˊ'),
+      correctFeedback: '你有看情況，分出可以照原來做和要停下找大人的情況。',
+      correctFeedbackPronunciationTokens: reviewedPlaygroundText('你有看情況，分出可以照原來做和要停下找大人的情況。', 'ㄋㄧˇ ㄧㄡˇ ㄎㄢˋ ㄑㄧㄥˊ ㄎㄨㄤˋ ㄈㄣ ㄔㄨ ㄎㄜˇ ㄧˇ ㄓㄠˋ ㄩㄢˊ ㄌㄞˊ ㄗㄨㄛˋ ㄏㄢˋ ㄧㄠˋ ㄊㄧㄥˊ ㄒㄧㄚˋ ㄓㄠˇ ㄉㄚˋ ㄖㄣˊ ㄉㄜ˙ ㄑㄧㄥˊ ㄎㄨㄤˋ'),
+      teacherLimitationNote: playgroundTeacherLimitation,
     }),
     Object.freeze({
       stageId: 'order-response-to-blocked-route', interaction: 'assemble_response',
-      prompt: '約定通道暫時不能走。排出小隊在模擬任務中的處理順序。',
+      prompt: '原來的路不能走。選 4 個做法，照順序排好。',
+      promptPronunciationTokens: reviewedPlaygroundText('原來的路不能走。選 4 個做法，照順序排好。', 'ㄩㄢˊ ㄌㄞˊ ㄉㄜ˙ ㄌㄨˋ ㄅㄨˋ ㄋㄥˊ ㄗㄡˇ ㄒㄩㄢˇ ㄍㄜˋ ㄗㄨㄛˋ ㄈㄚˇ ㄓㄠˋ ㄕㄨㄣˋ ㄒㄩˋ ㄆㄞˊ ㄏㄠˇ'),
+      studentOperationGuidance: '怎麼玩：① 看 6 張卡 → ② 選 4 個做法 → ③ 照順序排好 → ④ 檢查答案',
+      studentOperationGuidancePronunciationTokens: reviewedPlaygroundText('怎麼玩：① 看 6 張卡 → ② 選 4 個做法 → ③ 照順序排好 → ④ 檢查答案', 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄎㄢˋ ㄓㄤ ㄎㄚˇ ㄒㄩㄢˇ ㄍㄜˋ ㄗㄨㄛˋ ㄈㄚˇ ㄓㄠˋ ㄕㄨㄣˋ ㄒㄩˋ ㄆㄞˊ ㄏㄠˇ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ'),
+      studentSubmitLabel: '檢查順序',
+      studentSubmitLabelPronunciationTokens: reviewedPlaygroundText('檢查順序', 'ㄐㄧㄢˇ ㄔㄚˊ ㄕㄨㄣˋ ㄒㄩˋ'),
+      requiredSelectionCount: 4,
+      teacherLimitationNote: playgroundTeacherLimitation,
       tokens: Object.freeze([
-        Object.freeze({ id: 'step-stop', text: '先停在安全處' }),
-        Object.freeze({ id: 'step-stay', text: '留在陪同大人身旁' }),
-        Object.freeze({ id: 'step-tell', text: '告訴大人通道受阻' }),
-        Object.freeze({ id: 'step-follow', text: '依大人確認的安全替代路線前進' }),
-        Object.freeze({ id: 'step-run', text: '自己跑去找另一條路' }),
-        Object.freeze({ id: 'step-hide', text: '不告訴任何人，躲到器材後面' }),
+        playgroundToken('step-stop', '先停在安全的地方', 'ㄒㄧㄢ ㄊㄧㄥˊ ㄗㄞˋ ㄢ ㄑㄩㄢˊ ㄉㄜ˙ ㄉㄧˋ ㄈㄤ'),
+        playgroundToken('step-stay', '留在大人身旁', 'ㄌㄧㄡˊ ㄗㄞˋ ㄉㄚˋ ㄖㄣˊ ㄕㄣ ㄆㄤˊ'),
+        playgroundToken('step-tell', '告訴大人前面的路不能走', 'ㄍㄠˋ ㄙㄨˋ ㄉㄚˋ ㄖㄣˊ ㄑㄧㄢˊ ㄇㄧㄢˋ ㄉㄜ˙ ㄌㄨˋ ㄅㄨˋ ㄋㄥˊ ㄗㄡˇ'),
+        playgroundToken('step-follow', '跟著大人走安全的路', 'ㄍㄣ ㄓㄜ˙ ㄉㄚˋ ㄖㄣˊ ㄗㄡˇ ㄢ ㄑㄩㄢˊ ㄉㄜ˙ ㄌㄨˋ'),
+        playgroundToken('step-run', '自己跑去找路', 'ㄗˋ ㄐㄧˇ ㄆㄠˇ ㄑㄩˋ ㄓㄠˇ ㄌㄨˋ'),
+        playgroundToken('step-hide', '躲起來，不告訴大人', 'ㄉㄨㄛˇ ㄑㄧˇ ㄌㄞˊ ㄅㄨˋ ㄍㄠˋ ㄙㄨˋ ㄉㄚˋ ㄖㄣˊ'),
       ]),
       correctOptionIds: Object.freeze(['step-stop', 'step-stay', 'step-tell', 'step-follow']),
-      hints: Object.freeze(['處理順序要先避免繼續接近不確定的地方，再讓大人知道。', '停下、留在陪同者身旁、說明情況，最後跟著確認過的安排。']),
-      incorrectFeedback: '檢查每一步是否讓你留在可照看的安全位置，並讓可信任成人知道；不要自行跑去探索替代路線。',
-      correctFeedback: '你排出先停、留在陪同者身旁、說明狀況，再依確認安排前進的順序。這是模擬決策練習。',
+      hints: Object.freeze([
+        playgroundHint('先停下來。', 'ㄒㄧㄢ ㄊㄧㄥˊ ㄒㄧㄚˋ ㄌㄞˊ'),
+        playgroundHint('不要自己找路，要讓大人知道。', 'ㄅㄨˋ ㄧㄠˋ ㄗˋ ㄐㄧˇ ㄓㄠˇ ㄌㄨˋ ㄧㄠˋ ㄖㄤˋ ㄉㄚˋ ㄖㄣˊ ㄓ ㄉㄠˋ'),
+      ]),
+      incorrectFeedback: '再看每張卡。先停下來，告訴大人，不要自己找路。',
+      incorrectFeedbackPronunciationTokens: reviewedPlaygroundText('再看每張卡。先停下來，告訴大人，不要自己找路。', 'ㄗㄞˋ ㄎㄢˋ ㄇㄟˇ ㄓㄤ ㄎㄚˇ ㄒㄧㄢ ㄊㄧㄥˊ ㄒㄧㄚˋ ㄌㄞˊ ㄍㄠˋ ㄙㄨˋ ㄉㄚˋ ㄖㄣˊ ㄅㄨˋ ㄧㄠˋ ㄗˋ ㄐㄧˇ ㄓㄠˇ ㄌㄨˋ'),
+      correctFeedback: '你選好四個步驟，也排對順序了。',
+      correctFeedbackPronunciationTokens: reviewedPlaygroundText('你選好四個步驟，也排對順序了。', 'ㄋㄧˇ ㄒㄩㄢˇ ㄏㄠˇ ㄙˋ ㄍㄜˋ ㄅㄨˋ ㄗㄡˋ ㄧㄝˇ ㄆㄞˊ ㄉㄨㄟˋ ㄕㄨㄣˋ ㄒㄩˋ ㄌㄜ˙'),
     }),
     Object.freeze({
       stageId: 'transfer-to-unfamiliar-playground-scene', interaction: 'choose_response',
-      prompt: '新情境：遊戲場邊有一片濕滑區，同伴叫你從那裡穿過去。哪一個做法最安全？',
+      prompt: '地上很滑，同伴叫你走過去。怎麼做比較安全？',
+      promptPronunciationTokens: reviewedPlaygroundText('地上很滑，同伴叫你走過去。怎麼做比較安全？', 'ㄉㄧˋ ㄕㄤˋ ㄏㄣˇ ㄏㄨㄚˊ ㄊㄨㄥˊ ㄅㄢˋ ㄐㄧㄠˋ ㄋㄧˇ ㄗㄡˇ ㄍㄨㄛˋ ㄑㄩˋ ㄗㄣˇ ㄇㄜ˙ ㄗㄨㄛˋ ㄅㄧˇ ㄐㄧㄠˋ ㄢ ㄑㄩㄢˊ'),
+      teacherLimitationNote: playgroundTeacherLimitation,
       options: Object.freeze([
-        Object.freeze({ id: 'transfer-stop-tell', text: '先不穿過濕滑處，停在安全位置並告訴陪同的大人。', feedback: '避開看見的風險並讓成人知道，符合情境安全處理。' }),
-        Object.freeze({ id: 'transfer-run', text: '跑快一點穿過去，避免停留。', feedback: '跑過濕滑處可能更容易滑倒，沒有處理風險。' }),
-        Object.freeze({ id: 'transfer-copy', text: '同伴先走，所以不看路也跟著走。', feedback: '跟隨同伴不能取代觀察環境和必要時求助。' }),
+        playgroundOption('transfer-stop-tell', '先不要走過去，停在安全的地方告訴大人。', 'ㄒㄧㄢ ㄅㄨˋ ㄧㄠˋ ㄗㄡˇ ㄍㄨㄛˋ ㄑㄩˋ ㄊㄧㄥˊ ㄗㄞˋ ㄢ ㄑㄩㄢˊ ㄉㄜ˙ ㄉㄧˋ ㄈㄤ ㄍㄠˋ ㄙㄨˋ ㄉㄚˋ ㄖㄣˊ', '你先避開危險，也記得告訴大人。', 'ㄋㄧˇ ㄒㄧㄢ ㄅㄧˋ ㄎㄞ ㄨㄟˊ ㄒㄧㄢˇ ㄧㄝˇ ㄐㄧˋ ㄉㄜ˙ ㄍㄠˋ ㄙㄨˋ ㄉㄚˋ ㄖㄣˊ'),
+        playgroundOption('transfer-run', '跑快一點穿過去。', 'ㄆㄠˇ ㄎㄨㄞˋ ㄧˋ ㄉㄧㄢˇ ㄔㄨㄢ ㄍㄨㄛˋ ㄑㄩˋ', '地上很滑，跑過去容易跌倒。', 'ㄉㄧˋ ㄕㄤˋ ㄏㄣˇ ㄏㄨㄚˊ ㄆㄠˇ ㄍㄨㄛˋ ㄑㄩˋ ㄖㄨㄥˊ ㄧˋ ㄉㄧㄝˊ ㄉㄠˇ'),
+        playgroundOption('transfer-copy', '不看路，跟著同伴走。', 'ㄅㄨˋ ㄎㄢˋ ㄌㄨˋ ㄍㄣ ㄓㄜ˙ ㄊㄨㄥˊ ㄅㄢˋ ㄗㄡˇ', '同伴怎麼做，也要先看地上安不安全。', 'ㄊㄨㄥˊ ㄅㄢˋ ㄗㄣˇ ㄇㄜ˙ ㄗㄨㄛˋ ㄧㄝˇ ㄧㄠˋ ㄒㄧㄢ ㄎㄢˋ ㄉㄧˋ ㄕㄤˋ ㄢ ㄅㄨˋ ㄢ ㄑㄩㄢˊ'),
       ]),
       correctOptionIds: Object.freeze(['transfer-stop-tell']),
-      hints: Object.freeze(['先看見的新線索是地面濕滑，想想通過它會有什麼風險。', '選擇能避開風險、停在安全處並讓陪同成人知道的做法。']),
-      incorrectFeedback: '這題換了場景。不要只跟著同伴或加快速度；根據濕滑線索先避開，再向陪同成人說明。',
-      correctFeedback: '你把「辨認風險、停下避開、告知成人」用到另一個情境。一次螢幕任務不能證明真實生活中的穩定安全行為。',
+      hints: Object.freeze([
+        playgroundHint('先看看地上有什麼。', 'ㄒㄧㄢ ㄎㄢˋ ㄎㄢˋ ㄉㄧˋ ㄕㄤˋ ㄧㄡˇ ㄕㄣˊ ㄇㄜ˙'),
+        playgroundHint('遇到危險時，不要急著跟著別人做。', 'ㄩˋ ㄉㄠˋ ㄨㄟˊ ㄒㄧㄢˇ ㄕˊ ㄅㄨˋ ㄧㄠˋ ㄐㄧˊ ㄓㄜ˙ ㄍㄣ ㄓㄜ˙ ㄅㄧㄝˊ ㄖㄣˊ ㄗㄨㄛˋ'),
+      ]),
+      incorrectFeedback: '再看看地面。地上很滑時，想想怎麼做才安全。',
+      incorrectFeedbackPronunciationTokens: reviewedPlaygroundText('再看看地面。地上很滑時，想想怎麼做才安全。', 'ㄗㄞˋ ㄎㄢˋ ㄎㄢˋ ㄉㄧˋ ㄇㄧㄢˋ ㄉㄧˋ ㄕㄤˋ ㄏㄣˇ ㄏㄨㄚˊ ㄕˊ ㄒㄧㄤˇ ㄒㄧㄤˇ ㄗㄣˇ ㄇㄜ˙ ㄗㄨㄛˋ ㄘㄞˊ ㄢ ㄑㄩㄢˊ'),
+      correctFeedback: '你有先避開危險，也知道要告訴大人。',
+      correctFeedbackPronunciationTokens: reviewedPlaygroundText('你有先避開危險，也知道要告訴大人。', 'ㄋㄧˇ ㄧㄡˇ ㄒㄧㄢ ㄅㄧˋ ㄎㄞ ㄨㄟˊ ㄒㄧㄢˇ ㄧㄝˇ ㄓ ㄉㄠˋ ㄧㄠˋ ㄍㄠˋ ㄙㄨˋ ㄉㄚˋ ㄖㄣˊ'),
     }),
   ]),
   ...noReinforcement, evidencePolicy, teacherReview: notReviewed,

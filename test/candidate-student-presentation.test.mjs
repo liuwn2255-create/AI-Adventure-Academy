@@ -226,6 +226,8 @@ test('assemble_response 清楚分開可選內容與依序組成的答案', () =>
   assert.match(assembleRenderer, /從我的答案移除「\$\{token\.text\}」/);
   assert.match(assembleRenderer, /aria-label', `第 \$\{index \+ 1\} 項：\$\{tokenText\}`/);
   assert.match(assembleRenderer, /aria-label', '我的答案，依點選順序排列'/);
+  assert.match(renderer, /typeof stage\.studentSubmitLabel === 'string' \? stage\.studentSubmitLabel/);
+  assert.match(renderer, /lowGradeAssembleResponse && Array\.isArray\(stage\.studentSubmitLabelPronunciationTokens\)\) appendStudentText\(submit, submitLabel, stage\.studentSubmitLabelPronunciationTokens\)/);
   assert.match(assembleRenderer, /selectionProgress/);
   assert.match(assembleRenderer, /String\(stage\.requiredSelectionCount\)/);
   assert.doesNotMatch(assembleRenderer, /correctOptionIds\.length/);
