@@ -69,7 +69,8 @@ test('挑戰畫面以任務提示和互動方式為主，材料分類進度取�
   assert.equal(materialStage.interaction, 'classify_observations');
   assert.equal(materialStage.observations.length, 3);
   assert.deepEqual(materialStage.correctAssignments, { cloth: 'absorbs', plastic: 'stays', paper: 'absorbs' });
-  assert.match(renderer, /const studentPrompt = element\('p', 'reading-stage-prompt candidate-student-task', '這一關要做什麼：'\)/);
+  assert.match(renderer, /const studentPrompt = element\('p', 'reading-stage-prompt candidate-student-task', ''\)/);
+  assert.match(renderer, /if \(isLowGradeReadingAssistanceEnabled\(activity\.gradeId\)\) appendLowGradeCandidateUiText\(studentPrompt, '這一關要做什麼：', appendStudentText\)/);
   assert.match(renderer, /appendStudentText\(studentPrompt, stage\.prompt, stage\.promptPronunciationTokens\)/);
   assert.match(renderer, /這是單選題，請選 1 個答案/);
   assert.match(renderer, /這是複選題，請選 \$\{answerCount\} 個答案/);
@@ -86,11 +87,10 @@ test('挑戰畫面以任務提示和互動方式為主，材料分類進度取�
   assert.ok(activeFlowStart >= 0 && feedbackStart > activeFlowStart, 'active flow must have an explicit boundary before feedback rendering');
   const activeFlow = renderer.slice(activeFlowStart, feedbackStart);
   assert.doesNotMatch(activeFlow, /reading-task-feedback/);
-  const taskPromptIndex = renderer.indexOf("const studentPrompt = element('p', 'reading-stage-prompt candidate-student-task'");
-  const promptBindingIndex = renderer.indexOf('appendStudentText(studentPrompt, stage.prompt, stage.promptPronunciationTokens)', taskPromptIndex);
-  const interactionIndex = renderer.indexOf("const controls = element('div', 'candidate-classification-board')", promptBindingIndex);
-  const submitIndex = renderer.indexOf("const submit = element('button'", interactionIndex);
-  assert.ok(taskPromptIndex >= 0 && promptBindingIndex > taskPromptIndex && interactionIndex > promptBindingIndex && submitIndex > interactionIndex);
+  assert.match(renderer, /const lowGradeClassifyObservations = stage\.interaction === 'classify_observations'[\s\S]*?isLowGradeReadingAssistanceEnabled\(activity\.gradeId\)/);
+  assert.match(renderer, /appendLowGradeCandidateUiText\(studentPrompt, '這一關要做什麼：', appendStudentText\)/);
+  assert.match(renderer, /appendStudentText\(studentPrompt, stage\.prompt, stage\.promptPronunciationTokens\)/);
+  assert.match(app, /function appendLowGradeCandidateUiText\(parent, text, appendStudentText\)/);
   assert.ok(activeFlow.indexOf('host.append(controls)') < activeFlow.indexOf('appendTeacherDetails();'));
   const feedbackBranch = renderer.slice(feedbackStart);
   assert.ok(feedbackBranch.indexOf("'reading-task-feedback'") < feedbackBranch.indexOf('appendTeacherDetails();'));
@@ -139,10 +139,14 @@ test('共用提交就緒提示依 response 與各互動自己的低年級完成�
   assert.match(submitFlow, /const hasLowGradeClassificationProgress = lowGradeClassifyObservations && Boolean\(classificationProgress\)/);
   assert.match(submitFlow, /const hasLowGradeComposeProgress = lowGradeComposeShape && Number\.isInteger\(composeShapeCapacity\)/);
   assert.match(submitFlow, /const hasLowGradeNumberLineReadiness = lowGradeNumberLine/);
-  assert.match(submitFlow, /if \(\(!hasResponse \|\| hasLowGradeAssembleCount \|\| hasLowGradeClassificationProgress \|\| hasLowGradeComposeProgress \|\| hasLowGradeNumberLineReadiness\) && !hasSpecificReadiness\)/);
+  assert.match(submitFlow, /const hasLowGradeEvidenceReadiness = lowGradeCollectEvidence/);
+  assert.match(submitFlow, /const hasLowGradeChoiceReadiness = lowGradeChooseResponse/);
+  assert.match(submitFlow, /if \(\(!hasResponse \|\| hasLowGradeAssembleCount \|\| hasLowGradeClassificationProgress \|\| hasLowGradeComposeProgress \|\| hasLowGradeNumberLineReadiness \|\| hasLowGradeEvidenceReadiness \|\| hasLowGradeChoiceReadiness\) && !hasSpecificReadiness\)/);
   assert.match(submitFlow, /if \(hasLowGradeNumberLineReadiness\) readinessText = hasResponse \? '可以檢查答案了。' : '還沒放好。'/);
   assert.match(submitFlow, /appendNumberLineUiText\(readiness, readinessText, appendStudentText\)/);
   assert.match(submitFlow, /if \(hasLowGradeAssembleCount\)[\s\S]*?remainingCount > 0 \? `還要選 \$\{remainingCount\} 張。` : '可以檢查答案了。'[\s\S]*?else if \(stage\.interaction === 'collect_evidence'/);
+  assert.match(submitFlow, /if \(hasLowGradeEvidenceReadiness\)[\s\S]*?stage\.requiredSelectionCount - session\.selection\.length[\s\S]*?remainingCount > 0[\s\S]*?可以檢查答案了/u);
+  assert.match(submitFlow, /hasLowGradeChoiceReadiness[\s\S]*?hasResponse[\s\S]*?先選一個答案/u);
   assert.match(submitFlow, /else if \(hasLowGradeClassificationProgress\)[\s\S]*?remainingCount > 0 \? `還要分 \$\{remainingCount\} 張。` : '可以檢查答案了。'/);
   assert.match(submitFlow, /else if \(hasLowGradeClassificationProgress\)[\s\S]*?appendClassifyObservationsUiText\(readiness, '可以檢查答案了。'/);
   const composeReadinessStart = submitFlow.indexOf('const hasLowGradeComposeProgress =');
@@ -437,10 +441,13 @@ test('choose_response 以單選語意呈現並保留既有選取與提交行為'
   assert.ok(chooseGuidanceStart >= 0 && chooseGuidanceEnd > chooseGuidanceStart);
   assert.ok(chooseStart >= 0 && chooseEnd > chooseStart);
 
-  assert.match(chooseGuidance, /'作答方式：請選 1 個答案'/);
+  assert.match(chooseGuidance, /lowGradeChooseResponse[\s\S]*?stage\.studentOperationGuidance \?\? \(stage\.selectionMode === 'multiple' \? '怎麼玩：① 看題目 → ② 選答案 → ③ 檢查答案' : '怎麼玩：① 看題目 → ② 選一個答案 → ③ 檢查答案'\)/);
+  assert.match(app, /'怎麼玩：① 看題目 → ② 選一個答案 → ③ 檢查答案': 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄎㄢˋ ㄊㄧˊ ㄇㄨˋ ㄒㄩㄢˇ ㄧˊ ㄍㄜˋ ㄉㄚˊ ㄢˋ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ'/);
   assert.doesNotMatch(chooseGuidance, /correctOptionIds|correctOptionId|answerCount/);
   assert.match(chooseRenderer, /'選擇答案'/);
-  assert.match(chooseRenderer, /const choice = element\('button', `candidate-category candidate-answer-option\$\{selected \? ' is-selected' : ''\}`, `\$\{selected \? '✓ 已選｜' : ''\}`\)/);
+  assert.match(chooseRenderer, /const choice = element\('button', `candidate-category candidate-answer-option\$\{selected \? ' is-selected' : ''\}`, ''\)/);
+  assert.match(chooseRenderer, /if \(selected\) \{[\s\S]*?document\.createTextNode\('✓ '\)/);
+  assert.match(chooseRenderer, /appendLowGradeCandidateUiText\(choice, '已選｜', appendStudentText\)/);
   assert.match(chooseRenderer, /appendStudentText\(choice, option\.text, option\.pronunciationTokens\)/);
   assert.match(chooseRenderer, /aria-label', `\$\{selected \? '目前已選答案' : '選擇答案'\}「\$\{option\.text\}」`/);
   assert.match(chooseRenderer, /aria-pressed', String\(selected\)/);

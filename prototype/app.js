@@ -132,6 +132,54 @@ function appendClassifyObservationsUiText(parent, text, appendStudentText) {
   appendStudentText(parent, text, classifyObservationsUiPronunciationTokens(text));
 }
 
+const LOW_GRADE_CANDIDATE_UI_PRONUNCIATION = Object.freeze({
+  '這一關要做什麼：': 'ㄓㄜˋ ㄧˋ ㄍㄨㄢ ㄧㄠˋ ㄗㄨㄛˋ ㄕㄣˊ ㄇㄜ˙',
+  '提示 ': 'ㄊㄧˊ ㄕˋ',
+  '怎麼玩：① 看題目 → ② 選一個答案 → ③ 檢查答案': 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄎㄢˋ ㄊㄧˊ ㄇㄨˋ ㄒㄩㄢˇ ㄧˊ ㄍㄜˋ ㄉㄚˊ ㄢˋ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ',
+  '怎麼玩：① 看題目 → ② 選答案 → ③ 檢查答案': 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄎㄢˋ ㄊㄧˊ ㄇㄨˋ ㄒㄩㄢˇ ㄉㄚˊ ㄢˋ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ',
+  '怎麼玩：① 看資料 → ② 選證據 → ③ 檢查答案': 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄎㄢˋ ㄗ ㄌㄧㄠˋ ㄒㄩㄢˇ ㄓㄥˋ ㄐㄩˋ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ',
+  '選擇證據': 'ㄒㄩㄢˇ ㄗㄜˊ ㄓㄥˋ ㄐㄩˋ',
+  '選擇答案': 'ㄒㄩㄢˇ ㄗㄜˊ ㄉㄚˊ ㄢˋ',
+  '已選｜': 'ㄧˇ ㄒㄩㄢˇ',
+  '我的選擇：已選 ': 'ㄨㄛˇ ㄉㄜ˙ ㄒㄩㄢˇ ㄗㄜˊ ㄧˇ ㄒㄩㄢˇ',
+  '我的選擇：': 'ㄨㄛˇ ㄉㄜ˙ ㄒㄩㄢˇ ㄗㄜˊ',
+  '還沒有選擇證據。': 'ㄏㄞˊ ㄇㄟˊ ㄧㄡˇ ㄒㄩㄢˇ ㄗㄜˊ ㄓㄥˋ ㄐㄩˋ',
+  '已選 ': 'ㄧˇ ㄒㄩㄢˇ',
+  ' / ': '',
+  ' 張': 'ㄓㄤ',
+  ' 張。': 'ㄓㄤ',
+  ' 項': 'ㄒㄧㄤˋ',
+  '還要選 ': 'ㄏㄞˊ ㄧㄠˋ ㄒㄩㄢˇ',
+  '可以檢查答案了。': 'ㄎㄜˇ ㄧˇ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ ㄌㄜ˙',
+  '先選一個答案。': 'ㄒㄧㄢ ㄒㄩㄢˇ ㄧˊ ㄍㄜˋ ㄉㄚˊ ㄢˋ',
+  '先選答案再檢查。': 'ㄒㄧㄢ ㄒㄩㄢˇ ㄉㄚˊ ㄢˋ ㄗㄞˋ ㄐㄧㄢˇ ㄔㄚˊ',
+  '先選證據再檢查。': 'ㄒㄧㄢ ㄒㄩㄢˇ ㄓㄥˋ ㄐㄩˋ ㄗㄞˋ ㄐㄧㄢˇ ㄔㄚˊ',
+  '檢查答案': 'ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ',
+  '查看提示': 'ㄔㄚˊ ㄎㄢˋ ㄊㄧˊ ㄕˋ',
+  '已選滿 ': 'ㄧˇ ㄒㄩㄢˇ ㄇㄢˇ',
+  ' 張，先取消一張再選。': 'ㄓㄤ ㄒㄧㄢ ㄑㄩˇ ㄒㄧㄠ ㄧˋ ㄓㄤ ㄗㄞˋ ㄒㄩㄢˇ',
+  ' 項，先取消一張再選。': 'ㄒㄧㄤˋ ㄒㄧㄢ ㄑㄩˇ ㄒㄧㄠ ㄧˋ ㄓㄤ ㄗㄞˋ ㄒㄩㄢˇ',
+});
+
+function lowGradeCandidateUiPronunciationTokens(text) {
+  const readings = LOW_GRADE_CANDIDATE_UI_PRONUNCIATION[text];
+  if (readings === undefined) return undefined;
+  const readingList = readings ? readings.split(/\s+/u) : [];
+  let readingIndex = 0;
+  const tokens = Array.from(text, (character) => {
+    if (!/\p{Script=Han}/u.test(character)) return { text: character };
+    const reading = readingList[readingIndex++];
+    if (!reading) throw new Error(`Missing low-grade candidate UI pronunciation for ${character} in ${text}`);
+    return { text: character, reading };
+  });
+  if (readingIndex !== readingList.length) throw new Error(`Extra low-grade candidate UI pronunciation for ${text}`);
+  return tokens;
+}
+
+function appendLowGradeCandidateUiText(parent, text, appendStudentText) {
+  appendStudentText(parent, text, lowGradeCandidateUiPronunciationTokens(text));
+}
+
 const COMPOSE_SHAPE_UI_PRONUNCIATION = Object.freeze({
   '拼圖板：': 'ㄆㄧㄣ ㄊㄨˊ ㄅㄢˇ',
   ' 排 × ': 'ㄆㄞˊ',
@@ -1003,7 +1051,14 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     if (result.error === 'required_selection_count_reached') {
       const updatedStage = activity.stages[result.session.stageIndex];
       const limitMessage = host.querySelector(`#candidate-selection-limit-${updatedStage.stageId}`);
-      if (limitMessage) limitMessage.textContent = `最多選擇 ${updatedStage.requiredSelectionCount} 項；若要更換，請先取消一個已選項目。`;
+      if (limitMessage && isLowGradeReadingAssistanceEnabled(activity.gradeId)
+        && updatedStage.interaction === 'collect_evidence'
+        && !updatedStage.options?.every((option) => Number.isFinite(option.valueAmount))) {
+        limitMessage.replaceChildren();
+        appendLowGradeCandidateUiText(limitMessage, '已選滿 ', appendStudentText);
+        appendStudentText(limitMessage, String(updatedStage.requiredSelectionCount));
+        appendLowGradeCandidateUiText(limitMessage, ` ${updatedStage.selectionUnitLabel ?? '項'}，先取消一張再選。`, appendStudentText);
+      } else if (limitMessage) limitMessage.textContent = `最多選擇 ${updatedStage.requiredSelectionCount} 項；若要更換，請先取消一個已選項目。`;
     }
     return result;
   };
@@ -1237,7 +1292,9 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     node.append(tbody); wrapper.append(node); host.append(wrapper);
   };
   if (stage.tableView) appendTableView(stage.tableView);
-  const studentPrompt = element('p', 'reading-stage-prompt candidate-student-task', '這一關要做什麼：');
+  const studentPrompt = element('p', 'reading-stage-prompt candidate-student-task', '');
+  if (isLowGradeReadingAssistanceEnabled(activity.gradeId)) appendLowGradeCandidateUiText(studentPrompt, '這一關要做什麼：', appendStudentText);
+  else studentPrompt.textContent = '這一關要做什麼：';
   appendStudentText(studentPrompt, stage.prompt, stage.promptPronunciationTokens);
   host.append(studentPrompt);
   if (isLowGradeReadingAssistanceEnabled(activity.gradeId) && typeof stage.prompt === 'string' && stage.prompt.trim()) {
@@ -1256,6 +1313,11 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     && isLowGradeReadingAssistanceEnabled(activity.gradeId)
     && stage.options?.length > 0
     && stage.options.every((option) => Number.isFinite(option.valueAmount));
+  const lowGradeCollectEvidence = stage.interaction === 'collect_evidence'
+    && isLowGradeReadingAssistanceEnabled(activity.gradeId)
+    && !lowGradeMoney;
+  const lowGradeChooseResponse = stage.interaction === 'choose_response'
+    && isLowGradeReadingAssistanceEnabled(activity.gradeId);
   const lowGradeComposeShape = stage.interaction === 'compose_shape' && isLowGradeReadingAssistanceEnabled(activity.gradeId);
   const composeShapeCapacity = stage.interaction === 'compose_shape'
     ? stage.shapeRules.rows * stage.shapeRules.columns
@@ -1284,12 +1346,16 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
         ? stage.studentOperationGuidance ?? '怎麼玩：① 移動滑桿 → ② 找到數字的位置 → ③ 放好後檢查答案'
         : '操作方式：① 操作 → ② 觀察 → ③ 作答'
     : stage.interaction === 'choose_response'
-      ? stage.selectionMode === 'multiple' ? '作答方式：這題可以選多個答案' : '作答方式：請選 1 個答案'
+      ? lowGradeChooseResponse
+        ? stage.studentOperationGuidance ?? (stage.selectionMode === 'multiple' ? '怎麼玩：① 看題目 → ② 選答案 → ③ 檢查答案' : '怎麼玩：① 看題目 → ② 選一個答案 → ③ 檢查答案')
+        : stage.selectionMode === 'multiple' ? '作答方式：這題可以選多個答案' : '作答方式：請選 1 個答案'
     : stage.interaction === 'collect_evidence'
       ? stage.options?.every((option) => Number.isFinite(option.valueAmount))
         ? lowGradeMoney
           ? stage.studentOperationGuidance ?? '怎麼玩：① 點錢幣 → ② 看合計多少元 → ③ 剛好 17 元再檢查答案'
           : '操作方式：① 看清楚付款需求 → ② 選擇錢幣 → ③ 確認目前合計 → ④ 完成後檢查答案'
+        : lowGradeCollectEvidence
+          ? stage.studentOperationGuidance ?? '怎麼玩：① 看資料 → ② 選證據 → ③ 檢查答案'
         : stage.evidenceRecords?.length
           ? '操作方式：① 看觀察資料 → ② 選出符合題目的證據 → ③ 檢查「我的選擇」 → ④ 完成後檢查答案'
           : stage.context?.length || stage.passageId && activity.passages?.[stage.passageId] || stage.tableView
@@ -1315,6 +1381,10 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     if (Array.isArray(stage.studentOperationGuidancePronunciationTokens)) appendStudentText(responseGuidanceNode, responseGuidance, stage.studentOperationGuidancePronunciationTokens);
     else appendNumberLineUiText(responseGuidanceNode, responseGuidance, appendStudentText);
   } else if (lowGradeBuildArray) appendBuildArrayUiText(responseGuidanceNode, responseGuidance, appendStudentText);
+  else if (lowGradeChooseResponse || lowGradeCollectEvidence) {
+    if (Array.isArray(stage.studentOperationGuidancePronunciationTokens)) appendStudentText(responseGuidanceNode, responseGuidance, stage.studentOperationGuidancePronunciationTokens);
+    else appendLowGradeCandidateUiText(responseGuidanceNode, responseGuidance, appendStudentText);
+  }
   else if (lowGradeMoney) {
     if (Array.isArray(stage.studentOperationGuidancePronunciationTokens)) appendStudentText(responseGuidanceNode, responseGuidance, stage.studentOperationGuidancePronunciationTokens);
     else appendMoneyUiText(responseGuidanceNode, responseGuidance, appendStudentText);
@@ -2691,7 +2761,9 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     }
     const answerSection = element('section', 'candidate-answer-selection');
     answerSection.setAttribute('aria-labelledby', `candidate-answer-heading-${stage.stageId}`);
-    const answerHeading = element('h3', 'candidate-answer-selection-heading', '選擇答案');
+    const answerHeading = element('h3', 'candidate-answer-selection-heading', '');
+    if (lowGradeChooseResponse) appendLowGradeCandidateUiText(answerHeading, '選擇答案', appendStudentText);
+    else answerHeading.textContent = '選擇答案';
     answerHeading.id = `candidate-answer-heading-${stage.stageId}`;
     answerSection.append(answerHeading);
     const choices = element('div', 'candidate-category-list');
@@ -2699,8 +2771,13 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     choices.setAttribute('aria-label', '選擇答案');
     for (const option of stage.options) {
       const selected = session.selection.includes(option.id);
-      const choice = element('button', `candidate-category candidate-answer-option${selected ? ' is-selected' : ''}`, `${selected ? '✓ 已選｜' : ''}`);
+      const choice = element('button', `candidate-category candidate-answer-option${selected ? ' is-selected' : ''}`, '');
       choice.type = 'button';
+      if (selected) {
+        choice.append(document.createTextNode('✓ '));
+        if (lowGradeChooseResponse) appendLowGradeCandidateUiText(choice, '已選｜', appendStudentText);
+        else choice.append(document.createTextNode('已選｜'));
+      }
       appendStudentText(choice, option.text, option.pronunciationTokens);
       choice.setAttribute('aria-pressed', String(selected));
       choice.setAttribute('aria-label', `${selected ? '目前已選答案' : '選擇答案'}「${option.text}」`);
@@ -2716,6 +2793,7 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     evidenceSection.setAttribute('aria-labelledby', `candidate-evidence-heading-${stage.stageId}`);
     const evidenceHeading = element('h3', 'candidate-evidence-selection-heading', '');
     if (lowGradeMoney) appendMoneyUiText(evidenceHeading, '選擇錢幣', appendStudentText);
+    else if (lowGradeCollectEvidence) appendLowGradeCandidateUiText(evidenceHeading, '選擇證據', appendStudentText);
     else evidenceHeading.textContent = isMoneySelection ? '選擇錢幣' : '選擇證據';
     evidenceHeading.id = `candidate-evidence-heading-${stage.stageId}`;
     evidenceSection.append(evidenceHeading);
@@ -2728,6 +2806,9 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       if (selected && lowGradeMoney) {
         choice.append(document.createTextNode('✓ '));
         appendMoneyUiText(choice, '已選｜', appendStudentText);
+      } else if (selected && lowGradeCollectEvidence) {
+        choice.append(document.createTextNode('✓ '));
+        appendLowGradeCandidateUiText(choice, '已選｜', appendStudentText);
       } else if (selected) choice.append(document.createTextNode('✓ 已選｜'));
       appendStudentText(choice, option.text, option.pronunciationTokens);
       choice.type = 'button';
@@ -2747,6 +2828,7 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       : '';
     const hasRequiredSelectionCount = Number.isInteger(stage.requiredSelectionCount);
     const selectionComplete = hasRequiredSelectionCount && session.selection.length === stage.requiredSelectionCount;
+    const selectionUnit = stage.selectionUnitLabel ?? '項';
     const selectionSummary = hasRequiredSelectionCount
       ? `我的選擇：${session.selection.length} / ${stage.requiredSelectionCount}${selectionComplete ? ' ✓' : ''}`
       : session.selection.length
@@ -2762,6 +2844,21 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
         appendMoneyUiText(selectionSummaryNode, ' 枚，目前合計 ', appendStudentText);
         appendStudentText(selectionSummaryNode, String(selectedTotal));
         appendMoneyUiText(selectionSummaryNode, ' 元', appendStudentText);
+      }
+    } else if (lowGradeCollectEvidence) {
+      if (hasRequiredSelectionCount) {
+        appendLowGradeCandidateUiText(selectionSummaryNode, '我的選擇：已選 ', appendStudentText);
+        appendStudentText(selectionSummaryNode, String(session.selection.length));
+        appendLowGradeCandidateUiText(selectionSummaryNode, ' / ', appendStudentText);
+        appendStudentText(selectionSummaryNode, String(stage.requiredSelectionCount));
+        appendLowGradeCandidateUiText(selectionSummaryNode, ` ${selectionUnit}`, appendStudentText);
+      } else if (session.selection.length) {
+        appendLowGradeCandidateUiText(selectionSummaryNode, '我的選擇：已選 ', appendStudentText);
+        appendStudentText(selectionSummaryNode, String(session.selection.length));
+        appendLowGradeCandidateUiText(selectionSummaryNode, ' 項', appendStudentText);
+      } else {
+        appendLowGradeCandidateUiText(selectionSummaryNode, '我的選擇：', appendStudentText);
+        appendLowGradeCandidateUiText(selectionSummaryNode, '還沒有選擇證據。', appendStudentText);
       }
     } else selectionSummaryNode.textContent = selectionSummary;
     if (hasRequiredSelectionCount) {
@@ -3016,7 +3113,12 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     if (session.hintLevel > 0) {
       const hintValue = stage.hints[session.hintLevel - 1];
       const hintText = typeof hintValue === 'string' ? hintValue : hintValue?.text ?? '';
-      const hint = element('p', 'reading-hint', `提示 ${session.hintLevel}：`);
+      const hint = element('p', 'reading-hint', '');
+      if (lowGradeClassifyObservations || lowGradeCollectEvidence || lowGradeChooseResponse) {
+        appendLowGradeCandidateUiText(hint, '提示 ', appendStudentText);
+        appendStudentText(hint, String(session.hintLevel));
+        appendStudentText(hint, '：');
+      } else hint.textContent = `提示 ${session.hintLevel}：`;
       appendStudentText(hint, hintText, typeof hintValue === 'string' ? undefined : hintValue?.pronunciationTokens);
       host.append(hint);
     }
@@ -3131,6 +3233,7 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
         : session.selection.length > 0;
     const submitLabel = lowGradeNumberLine ? '檢查位置'
       : lowGradeMoney ? '檢查答案'
+      : lowGradeCollectEvidence || lowGradeChooseResponse ? '檢查答案'
       : lowGradeComposeShape ? '檢查拼圖'
       : lowGradeClassifyObservations ? '檢查分類'
       : stage.interaction === 'choose_response' && isLowGradeReadingAssistanceEnabled(activity.gradeId) ? '檢查答案'
@@ -3139,6 +3242,7 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     submit.type = 'button'; submit.disabled = !hasResponse;
     if (lowGradeNumberLine) appendNumberLineUiText(submit, submitLabel, appendStudentText);
     else if (lowGradeMoney) appendMoneyUiText(submit, submitLabel, appendStudentText);
+    else if (lowGradeCollectEvidence || lowGradeChooseResponse) appendLowGradeCandidateUiText(submit, submitLabel, appendStudentText);
     else if (lowGradeAssembleResponse) appendAssembleUiText(submit, submitLabel, appendStudentText);
     else if (lowGradeComposeShape) appendComposeShapeUiText(submit, submitLabel, appendStudentText);
     else if (lowGradeClassifyObservations || (stage.interaction === 'choose_response' && isLowGradeReadingAssistanceEnabled(activity.gradeId))) appendClassifyObservationsUiText(submit, submitLabel, appendStudentText);
@@ -3151,10 +3255,20 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     const hasLowGradeClassificationProgress = lowGradeClassifyObservations && Boolean(classificationProgress);
     const hasLowGradeComposeProgress = lowGradeComposeShape && Number.isInteger(composeShapeCapacity);
     const hasLowGradeNumberLineReadiness = lowGradeNumberLine;
-    if ((!hasResponse || hasLowGradeAssembleCount || hasLowGradeClassificationProgress || hasLowGradeComposeProgress || hasLowGradeNumberLineReadiness) && !hasSpecificReadiness) {
+    const hasLowGradeEvidenceReadiness = lowGradeCollectEvidence;
+    const hasLowGradeChoiceReadiness = lowGradeChooseResponse;
+    if ((!hasResponse || hasLowGradeAssembleCount || hasLowGradeClassificationProgress || hasLowGradeComposeProgress || hasLowGradeNumberLineReadiness || hasLowGradeEvidenceReadiness || hasLowGradeChoiceReadiness) && !hasSpecificReadiness) {
       let readinessText = '還沒完成喔！完成上面的作答後，就可以檢查答案。';
       if (hasLowGradeNumberLineReadiness) readinessText = hasResponse ? '可以檢查答案了。' : '還沒放好。';
       else if (lowGradeMoney) readinessText = '還沒選錢幣。';
+      else if (hasLowGradeEvidenceReadiness) {
+        if (Number.isInteger(stage.requiredSelectionCount)) {
+          const remainingCount = stage.requiredSelectionCount - session.selection.length;
+          readinessText = remainingCount > 0 ? `還要選 ${remainingCount} ${stage.selectionUnitLabel ?? '項'}。` : '可以檢查答案了。';
+        } else readinessText = hasResponse ? '可以檢查答案了。' : '先選證據再檢查。';
+      } else if (hasLowGradeChoiceReadiness) readinessText = hasResponse
+        ? '可以檢查答案了。'
+        : stage.selectionMode === 'multiple' ? '先選答案再檢查。' : '先選一個答案。';
       else if (hasLowGradeAssembleCount) {
         const remainingCount = stage.requiredSelectionCount - session.selection.length;
         readinessText = remainingCount > 0 ? `還要選 ${remainingCount} 張。` : '可以檢查答案了。';
@@ -3181,6 +3295,17 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       } else if (lowGradeMoney) {
         readiness.textContent = '';
         appendMoneyUiText(readiness, readinessText, appendStudentText);
+      } else if (hasLowGradeEvidenceReadiness) {
+        readiness.textContent = '';
+        if (Number.isInteger(stage.requiredSelectionCount) && session.selection.length < stage.requiredSelectionCount) {
+          const remainingCount = stage.requiredSelectionCount - session.selection.length;
+          appendLowGradeCandidateUiText(readiness, '還要選 ', appendStudentText);
+          appendStudentText(readiness, String(remainingCount));
+          appendLowGradeCandidateUiText(readiness, ` ${stage.selectionUnitLabel ?? '項'}。`, appendStudentText);
+        } else appendLowGradeCandidateUiText(readiness, readinessText, appendStudentText);
+      } else if (hasLowGradeChoiceReadiness) {
+        readiness.textContent = '';
+        appendLowGradeCandidateUiText(readiness, readinessText, appendStudentText);
       } else if (hasLowGradeAssembleCount) {
         readiness.textContent = '';
         const remainingCount = stage.requiredSelectionCount - session.selection.length;
