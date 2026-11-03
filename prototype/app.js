@@ -145,6 +145,35 @@ const COMPOSE_SHAPE_UI_PRONUNCIATION = Object.freeze({
   '檢查拼圖': 'ㄐㄧㄢˇ ㄔㄚˊ ㄆㄧㄣ ㄊㄨˊ',
 });
 
+const NUMBER_LINE_UI_PRONUNCIATION = Object.freeze({
+  '怎麼玩：① 移動滑桿 → ② 找到數字的位置 → ③ 放好後檢查答案': 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄧˊ ㄉㄨㄥˋ ㄏㄨㄚˊ ㄍㄢˇ ㄓㄠˇ ㄉㄠˋ ㄕㄨˋ ㄗˋ ˙ㄉㄜ ㄨㄟˋ ㄓˋ ㄈㄤˋ ㄏㄠˇ ㄏㄡˋ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ',
+  '移動滑桿，把標記放到正確的數字。': 'ㄧˊ ㄉㄨㄥˋ ㄏㄨㄚˊ ㄍㄢˇ ㄅㄚˇ ㄅㄧㄠ ㄐㄧˋ ㄈㄤˋ ㄉㄠˋ ㄓㄥˋ ㄑㄩㄝˋ ˙ㄉㄜ ㄕㄨˋ ㄗˋ',
+  '目前標記：': 'ㄇㄨˋ ㄑㄧㄢˊ ㄅㄧㄠ ㄐㄧˋ',
+  '尚未放置': 'ㄕㄤˋ ㄨㄟˋ ㄈㄤˋ ㄓˋ',
+  '還沒放好。': 'ㄏㄞˊ ㄇㄟˊ ㄈㄤˋ ㄏㄠˇ',
+  '可以檢查答案了。': 'ㄎㄜˇ ㄧˇ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ ㄌㄜ˙',
+  '檢查位置': 'ㄐㄧㄢˇ ㄔㄚˊ ㄨㄟˋ ㄓˋ',
+});
+
+function numberLineUiPronunciationTokens(text) {
+  const readings = NUMBER_LINE_UI_PRONUNCIATION[text];
+  if (!readings) return undefined;
+  const readingList = readings.split(/\s+/u);
+  let readingIndex = 0;
+  const tokens = Array.from(text, (character) => {
+    if (!/\p{Script=Han}/u.test(character)) return { text: character };
+    const reading = readingList[readingIndex++];
+    if (!reading) throw new Error(`Missing place_number_line_marker UI pronunciation for ${character} in ${text}`);
+    return { text: character, reading };
+  });
+  if (readingIndex !== readingList.length) throw new Error(`Extra place_number_line_marker UI pronunciation for ${text}`);
+  return tokens;
+}
+
+function appendNumberLineUiText(parent, text, appendStudentText) {
+  appendStudentText(parent, text, numberLineUiPronunciationTokens(text));
+}
+
 function composeShapeUiPronunciationTokens(text) {
   const readings = COMPOSE_SHAPE_UI_PRONUNCIATION[text];
   if (!readings) return undefined;
@@ -1188,6 +1217,7 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   const answerCount = stage.correctOptionIds?.length ?? (stage.correctOptionId ? 1 : 0);
   const lowGradeBuildArray = stage.interaction === 'build_array' && isLowGradeReadingAssistanceEnabled(activity.gradeId);
   const lowGradeAssembleResponse = stage.interaction === 'assemble_response' && isLowGradeReadingAssistanceEnabled(activity.gradeId);
+  const lowGradeNumberLine = stage.interaction === 'place_number_line_marker' && isLowGradeReadingAssistanceEnabled(activity.gradeId);
   const lowGradeComposeShape = stage.interaction === 'compose_shape' && isLowGradeReadingAssistanceEnabled(activity.gradeId);
   const composeShapeCapacity = stage.interaction === 'compose_shape'
     ? stage.shapeRules.rows * stage.shapeRules.columns
@@ -1210,6 +1240,10 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     : stage.interaction === 'compose_shape'
       ? lowGradeComposeShape
         ? stage.studentOperationGuidance ?? '操作方式：① 操作 → ② 觀察 → ③ 作答'
+        : '操作方式：① 操作 → ② 觀察 → ③ 作答'
+    : stage.interaction === 'place_number_line_marker'
+      ? lowGradeNumberLine
+        ? stage.studentOperationGuidance ?? '怎麼玩：① 移動滑桿 → ② 找到數字的位置 → ③ 放好後檢查答案'
         : '操作方式：① 操作 → ② 觀察 → ③ 作答'
     : stage.interaction === 'choose_response'
       ? stage.selectionMode === 'multiple' ? '作答方式：這題可以選多個答案' : '作答方式：請選 1 個答案'
@@ -1237,6 +1271,9 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     appendStudentText(responseGuidanceNode, responseGuidance, stage.studentOperationGuidancePronunciationTokens);
   } else if (lowGradeComposeShape && Array.isArray(stage.studentOperationGuidancePronunciationTokens)) {
     appendStudentText(responseGuidanceNode, responseGuidance, stage.studentOperationGuidancePronunciationTokens);
+  } else if (lowGradeNumberLine) {
+    if (Array.isArray(stage.studentOperationGuidancePronunciationTokens)) appendStudentText(responseGuidanceNode, responseGuidance, stage.studentOperationGuidancePronunciationTokens);
+    else appendNumberLineUiText(responseGuidanceNode, responseGuidance, appendStudentText);
   } else if (lowGradeBuildArray) appendBuildArrayUiText(responseGuidanceNode, responseGuidance, appendStudentText);
   else responseGuidanceNode.textContent = responseGuidance;
   host.append(responseGuidanceNode);
@@ -2018,15 +2055,30 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   if (session.phase === 'active' && stage.interaction === 'place_number_line_marker') {
     const { start, end, tickCount } = stage.numberLine;
     const panel = element('section', 'candidate-response-build decimal-number-line');
-    panel.append(element('strong', '', stage.numberLine.valueFormat === 'integer' ? '移動標記，在數線上放置指定數字。' : '拖動標記，在數線上放置小數點。'));
+    const isIntegerNumberLine = stage.numberLine.valueFormat === 'integer';
+    const instruction = lowGradeNumberLine && isIntegerNumberLine
+      ? stage.numberLine.studentInstruction ?? '移動滑桿，把標記放到正確的數字。'
+      : isIntegerNumberLine ? '移動標記，在數線上放置指定數字。' : '拖動標記，在數線上放置小數點。';
+    const instructionNode = element('strong', '');
+    if (lowGradeNumberLine && isIntegerNumberLine) {
+      if (Array.isArray(stage.numberLine.studentInstructionPronunciationTokens)) appendStudentText(instructionNode, instruction, stage.numberLine.studentInstructionPronunciationTokens);
+      else appendNumberLineUiText(instructionNode, instruction, appendStudentText);
+    } else instructionNode.textContent = instruction;
+    panel.append(instructionNode);
     const scale = element('div', 'decimal-number-line-scale');
     const rail = element('div', 'decimal-number-line-rail');
     const marker = element('span', 'decimal-number-line-marker');
     marker.style.left = `${(session.numberLineTick ?? 0) / tickCount * 100}%`;
     rail.append(marker); scale.append(rail);
     const ticks = element('div', 'decimal-number-line-ticks');
+    const majorTickInterval = Number.isInteger(stage.numberLine.majorTickInterval) && stage.numberLine.majorTickInterval > 0
+      ? stage.numberLine.majorTickInterval
+      : null;
     for (let tick = 0; tick <= tickCount; tick += 1) {
-      const item = element('span', 'decimal-number-line-tick', tick === 0 ? String(start) : tick === tickCount ? String(end) : '');
+      const value = start + (end - start) * tick / tickCount;
+      const isEndpoint = tick === 0 || tick === tickCount;
+      const isMajorTick = majorTickInterval !== null && Number.isInteger(value) && (value - start) % majorTickInterval === 0;
+      const item = element('span', 'decimal-number-line-tick', isEndpoint || isMajorTick ? String(value) : '');
       item.style.left = `${tick / tickCount * 100}%`; ticks.append(item);
     }
     scale.append(ticks); panel.append(scale);
@@ -2036,7 +2088,13 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     slider.addEventListener('change', () => dispatch('set_number_line_tick', { tick: Number(slider.value) }));
     panel.append(slider);
     const markerValue = session.numberLineTick === null ? null : start + (end - start) * session.numberLineTick / tickCount;
-    panel.append(element('p', 'candidate-response-line', `目前標記：${markerValue === null ? '尚未放置' : stage.numberLine.valueFormat === 'integer' ? String(markerValue) : markerValue.toFixed(1)}`));
+    const readout = element('p', 'candidate-response-line');
+    if (lowGradeNumberLine) {
+      appendNumberLineUiText(readout, '目前標記：', appendStudentText);
+      if (markerValue === null) appendNumberLineUiText(readout, '尚未放置', appendStudentText);
+      else appendStudentText(readout, isIntegerNumberLine ? String(markerValue) : markerValue.toFixed(1));
+    } else readout.textContent = `目前標記：${markerValue === null ? '尚未放置' : isIntegerNumberLine ? String(markerValue) : markerValue.toFixed(1)}`;
+    panel.append(readout);
     host.append(panel);
   }
   if (session.phase === 'active' && stage.interaction === 'compose_shape') {
@@ -3000,13 +3058,15 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
             : stage.magnetRules.mode === 'materials' ? stage.magnetRules.materials.every(({ id }) => session.magnetModel?.testedObjectIds.includes(id) && session.magnetModel.assignments[id])
               : stage.magnetRules.magnets.every(({ id }) => session.magnetModel?.testedMagnetIds.includes(id)) && Boolean(session.magnetModel?.selectedStrongerMagnetId)
         : session.selection.length > 0;
-    const submitLabel = lowGradeComposeShape ? '檢查拼圖'
+    const submitLabel = lowGradeNumberLine ? '檢查位置'
+      : lowGradeComposeShape ? '檢查拼圖'
       : lowGradeClassifyObservations ? '檢查分類'
       : stage.interaction === 'choose_response' && isLowGradeReadingAssistanceEnabled(activity.gradeId) ? '檢查答案'
         : stage.interaction === 'magnet_interaction' && stage.magnetRules.mode === 'materials' ? '檢查答案' : taskKind === 'english' ? '送出英文回應' : taskKind === 'chinese' ? '檢查答案' : taskKind === 'mathData' ? '完成資料表' : taskKind === 'math' ? '檢查數學解法' : taskKind === 'science' ? '檢查觀察與分類' : taskKind === 'arts' ? '檢查節奏作品' : taskKind === 'living' ? '提交觀察線索' : taskKind === 'hpe' ? '檢查安全分類' : taskKind === 'integrative' ? '檢查步驟順序' : '檢查分類';
     const submit = element('button', 'button button-primary');
     submit.type = 'button'; submit.disabled = !hasResponse;
-    if (lowGradeAssembleResponse) appendAssembleUiText(submit, submitLabel, appendStudentText);
+    if (lowGradeNumberLine) appendNumberLineUiText(submit, submitLabel, appendStudentText);
+    else if (lowGradeAssembleResponse) appendAssembleUiText(submit, submitLabel, appendStudentText);
     else if (lowGradeComposeShape) appendComposeShapeUiText(submit, submitLabel, appendStudentText);
     else if (lowGradeClassifyObservations || (stage.interaction === 'choose_response' && isLowGradeReadingAssistanceEnabled(activity.gradeId))) appendClassifyObservationsUiText(submit, submitLabel, appendStudentText);
     else submit.textContent = submitLabel;
@@ -3017,9 +3077,11 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     const hasLowGradeAssembleCount = lowGradeAssembleResponse && Number.isInteger(stage.requiredSelectionCount);
     const hasLowGradeClassificationProgress = lowGradeClassifyObservations && Boolean(classificationProgress);
     const hasLowGradeComposeProgress = lowGradeComposeShape && Number.isInteger(composeShapeCapacity);
-    if ((!hasResponse || hasLowGradeAssembleCount || hasLowGradeClassificationProgress || hasLowGradeComposeProgress) && !hasSpecificReadiness) {
+    const hasLowGradeNumberLineReadiness = lowGradeNumberLine;
+    if ((!hasResponse || hasLowGradeAssembleCount || hasLowGradeClassificationProgress || hasLowGradeComposeProgress || hasLowGradeNumberLineReadiness) && !hasSpecificReadiness) {
       let readinessText = '還沒完成喔！完成上面的作答後，就可以檢查答案。';
-      if (hasLowGradeAssembleCount) {
+      if (hasLowGradeNumberLineReadiness) readinessText = hasResponse ? '可以檢查答案了。' : '還沒放好。';
+      else if (hasLowGradeAssembleCount) {
         const remainingCount = stage.requiredSelectionCount - session.selection.length;
         readinessText = remainingCount > 0 ? `還要選 ${remainingCount} 張。` : '可以檢查答案了。';
       } else if (hasLowGradeClassificationProgress) {
@@ -3039,7 +3101,10 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
         if (remainingCount > 0) readinessText = `還差 ${remainingCount} 個項目，完成後就可以檢查答案。`;
       }
       const readiness = element('p', 'candidate-submit-readiness', readinessText);
-      if (hasLowGradeAssembleCount) {
+      if (hasLowGradeNumberLineReadiness) {
+        readiness.textContent = '';
+        appendNumberLineUiText(readiness, readinessText, appendStudentText);
+      } else if (hasLowGradeAssembleCount) {
         readiness.textContent = '';
         const remainingCount = stage.requiredSelectionCount - session.selection.length;
         if (remainingCount > 0) {

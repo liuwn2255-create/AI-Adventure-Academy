@@ -1,5 +1,18 @@
 const freeze = (value) => Object.freeze(value);
 
+const reviewedStudentText = (text, readings) => {
+  const readingList = readings.trim().split(/\s+/u);
+  let readingIndex = 0;
+  const pronunciationTokens = Array.from(text, (character) => {
+    if (!/\p{Script=Han}/u.test(character)) return Object.freeze({ text: character });
+    const reading = readingList[readingIndex++];
+    if (!reading) throw new Error(`Missing reviewed pronunciation for ${character} in ${text}`);
+    return Object.freeze({ text: character, reading });
+  });
+  if (readingIndex !== readingList.length) throw new Error(`Extra reviewed pronunciation for ${text}`);
+  return Object.freeze({ text, pronunciationTokens: Object.freeze(pronunciationTokens) });
+};
+
 const candidate = (task) => freeze({
   ...task,
   revision: 1,
@@ -23,8 +36,44 @@ export const OFFICIAL_GAP_CANDIDATE_TASKS = Object.freeze([
     instructions: '讀取數線上的數字標記，將郵件送到指定位置；這是螢幕示意操作，不代表實物操作能力。',
     openQuestions: ['N-1-1明列一年級內容；實際班級何時學到此數域與數線表徵仍由教師確認。'],
     stages: [
-      { stageId: 'deliver-number-42', interaction: 'place_number_line_marker', prompt: '將郵件送到 42 的位置。', hints: ['先找到 40 和 50，再看 42 離哪一端較近。', '每一小格代表 1；從 40 往右數兩格。'], numberLine: { start: 0, end: 50, tickCount: 50, targetTick: 42 }, incorrectFeedback: '回到 40 到 50 的區間，逐格數出 42；不要把刻度間距當成 10。', correctFeedback: '你依等距刻度定位數字；單次定位不代表完整掌握一百以內數。' },
-      { stageId: 'choose-neighbor-check', interaction: 'choose_response', prompt: '若信件在 42，緊接著右邊的一格是哪個數？', hints: ['右邊表示數量變大一格。', '從 42 往後數一個數。'], options: [{ id: '43', text: '43' }, { id: '41', text: '41' }, { id: '52', text: '52' }], correctOptionIds: ['43'], incorrectFeedback: '相鄰刻度只增加 1；回看右方是數字變大的方向。', correctFeedback: '你用鄰數檢查位置；活動沒有評量所有數序與位值能力。' },
+      {
+        stageId: 'deliver-number-42', interaction: 'place_number_line_marker',
+        prompt: '把信送到數線上的 42。',
+        promptPronunciationTokens: reviewedStudentText('把信送到數線上的 42。', 'ㄅㄚˇ ㄒㄧㄣˋ ㄙㄨㄥˋ ㄉㄠˋ ㄕㄨˋ ㄒㄧㄢˋ ㄕㄤˋ ˙ㄉㄜ').pronunciationTokens,
+        studentOperationGuidance: '怎麼玩：① 移動滑桿 → ② 找到數字的位置 → ③ 放好後檢查答案',
+        studentOperationGuidancePronunciationTokens: reviewedStudentText('怎麼玩：① 移動滑桿 → ② 找到數字的位置 → ③ 放好後檢查答案', 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄧˊ ㄉㄨㄥˋ ㄏㄨㄚˊ ㄍㄢˇ ㄓㄠˇ ㄉㄠˋ ㄕㄨˋ ㄗˋ ˙ㄉㄜ ㄨㄟˋ ㄓˋ ㄈㄤˋ ㄏㄠˇ ㄏㄡˋ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ').pronunciationTokens,
+        hints: [
+          reviewedStudentText('先找到 40，再往右數。', 'ㄒㄧㄢ ㄓㄠˇ ㄉㄠˋ ㄗㄞˋ ㄨㄤˇ ㄧㄡˋ ㄕㄨˇ'),
+          reviewedStudentText('從 40 往右數 2 格，就是 42。', 'ㄘㄨㄥˊ ㄨㄤˇ ㄧㄡˋ ㄕㄨˇ ㄍㄜˊ ㄐㄧㄡˋ ㄕˋ'),
+        ],
+        numberLine: {
+          start: 0, end: 50, tickCount: 50, targetTick: 42,
+          valueFormat: 'integer', majorTickInterval: 10,
+          studentInstruction: '移動滑桿，把信放到正確的數字。',
+          studentInstructionPronunciationTokens: reviewedStudentText('移動滑桿，把信放到正確的數字。', 'ㄧˊ ㄉㄨㄥˋ ㄏㄨㄚˊ ㄍㄢˇ ㄅㄚˇ ㄒㄧㄣˋ ㄈㄤˋ ㄉㄠˋ ㄓㄥˋ ㄑㄩㄝˋ ˙ㄉㄜ ㄕㄨˋ ㄗˋ').pronunciationTokens,
+        },
+        incorrectFeedback: '再找一次 40，從 40 往右數 2 格。',
+        incorrectFeedbackPronunciationTokens: reviewedStudentText('再找一次 40，從 40 往右數 2 格。', 'ㄗㄞˋ ㄓㄠˇ ㄧˊ ㄘˋ ㄘㄨㄥˊ ㄨㄤˇ ㄧㄡˋ ㄕㄨˇ ㄍㄜˊ').pronunciationTokens,
+        correctFeedback: '答對了！你把信送到 42 了。',
+        correctFeedbackPronunciationTokens: reviewedStudentText('答對了！你把信送到 42 了。', 'ㄉㄚˊ ㄉㄨㄟˋ ˙ㄌㄜ ㄋㄧˇ ㄅㄚˇ ㄒㄧㄣˋ ㄙㄨㄥˋ ㄉㄠˋ ˙ㄌㄜ').pronunciationTokens,
+        teacherLimitationNote: '單次數線定位不代表學生已完整掌握一百以內的數。',
+      },
+      {
+        stageId: 'choose-neighbor-check', interaction: 'choose_response',
+        prompt: '信在 42。右邊下一格是哪個數？',
+        promptPronunciationTokens: reviewedStudentText('信在 42。右邊下一格是哪個數？', 'ㄒㄧㄣˋ ㄗㄞˋ ㄧㄡˋ ㄅㄧㄢ ㄒㄧㄚˋ ㄧˋ ㄍㄜˊ ㄕˋ ㄋㄚˇ ㄍㄜ˙ ㄕㄨˋ').pronunciationTokens,
+        hints: [
+          reviewedStudentText('往右一格，數字會多 1。', 'ㄨㄤˇ ㄧㄡˋ ㄧˋ ㄍㄜˊ ㄕㄨˋ ㄗˋ ㄏㄨㄟˋ ㄉㄨㄛ'),
+          reviewedStudentText('42 再往後數一個數。', 'ㄗㄞˋ ㄨㄤˇ ㄏㄡˋ ㄕㄨˇ ㄧˊ ㄍㄜˋ ㄕㄨˋ'),
+        ],
+        options: [{ id: '43', text: '43' }, { id: '41', text: '41' }, { id: '52', text: '52' }],
+        correctOptionIds: ['43'],
+        incorrectFeedback: '再想一想：往右一格，數字會多 1。',
+        incorrectFeedbackPronunciationTokens: reviewedStudentText('再想一想：往右一格，數字會多 1。', 'ㄗㄞˋ ㄒㄧㄤˇ ㄧˊ ㄒㄧㄤˇ ㄨㄤˇ ㄧㄡˋ ㄧˋ ㄍㄜˊ ㄕㄨˋ ㄗˋ ㄏㄨㄟˋ ㄉㄨㄛ').pronunciationTokens,
+        correctFeedback: '答對了！42 的右邊下一格是 43。',
+        correctFeedbackPronunciationTokens: reviewedStudentText('答對了！42 的右邊下一格是 43。', 'ㄉㄚˊ ㄉㄨㄟˋ ˙ㄌㄜ ˙ㄉㄜ ㄧㄡˋ ㄅㄧㄢ ㄒㄧㄚˋ ㄧˋ ㄍㄜˊ ㄕˋ').pronunciationTokens,
+        teacherLimitationNote: '本活動不代表已完整評量學生的數序與位值能力。',
+      },
     ],
   }),
   candidate({

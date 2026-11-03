@@ -131,11 +131,17 @@ test('共用提交就緒提示依 response 與各互動自己的低年級完成�
   assert.doesNotMatch(lowGradeClassifyScope, /choose_response|assemble_response/);
   assert.match(lowGradeComposeScope, /stage\.interaction === 'compose_shape' && isLowGradeReadingAssistanceEnabled\(activity\.gradeId\)/);
   assert.doesNotMatch(lowGradeComposeScope, /choose_response|assemble_response|classify_observations/);
+  assert.match(renderer, /const lowGradeNumberLine = stage\.interaction === 'place_number_line_marker' && isLowGradeReadingAssistanceEnabled\(activity\.gradeId\)/);
+  assert.deepEqual(['grade-1', 'grade-2'].map(isLowGradeReadingAssistanceEnabled), [true, true]);
+  assert.deepEqual(['grade-3', 'grade-6'].map(isLowGradeReadingAssistanceEnabled), [false, false]);
   assert.match(submitFlow, /submit\.disabled = !hasResponse/);
   assert.match(submitFlow, /const hasLowGradeAssembleCount = lowGradeAssembleResponse && Number\.isInteger\(stage\.requiredSelectionCount\)/);
   assert.match(submitFlow, /const hasLowGradeClassificationProgress = lowGradeClassifyObservations && Boolean\(classificationProgress\)/);
   assert.match(submitFlow, /const hasLowGradeComposeProgress = lowGradeComposeShape && Number\.isInteger\(composeShapeCapacity\)/);
-  assert.match(submitFlow, /if \(\(!hasResponse \|\| hasLowGradeAssembleCount \|\| hasLowGradeClassificationProgress \|\| hasLowGradeComposeProgress\) && !hasSpecificReadiness\)/);
+  assert.match(submitFlow, /const hasLowGradeNumberLineReadiness = lowGradeNumberLine/);
+  assert.match(submitFlow, /if \(\(!hasResponse \|\| hasLowGradeAssembleCount \|\| hasLowGradeClassificationProgress \|\| hasLowGradeComposeProgress \|\| hasLowGradeNumberLineReadiness\) && !hasSpecificReadiness\)/);
+  assert.match(submitFlow, /if \(hasLowGradeNumberLineReadiness\) readinessText = hasResponse \? '可以檢查答案了。' : '還沒放好。'/);
+  assert.match(submitFlow, /appendNumberLineUiText\(readiness, readinessText, appendStudentText\)/);
   assert.match(submitFlow, /if \(hasLowGradeAssembleCount\)[\s\S]*?remainingCount > 0 \? `還要選 \$\{remainingCount\} 張。` : '可以檢查答案了。'[\s\S]*?else if \(stage\.interaction === 'collect_evidence'/);
   assert.match(submitFlow, /else if \(hasLowGradeClassificationProgress\)[\s\S]*?remainingCount > 0 \? `還要分 \$\{remainingCount\} 張。` : '可以檢查答案了。'/);
   assert.match(submitFlow, /else if \(hasLowGradeClassificationProgress\)[\s\S]*?appendClassifyObservationsUiText\(readiness, '可以檢查答案了。'/);
