@@ -3,6 +3,21 @@ const noReinforcement = Object.freeze({ reinforcementActivityIds: Object.freeze(
 const evidencePolicy = Object.freeze({ persistence: 'memory_only_no_student_records_no_localStorage', completionIsMastery: false, hintAssistedResponseIsIndependentEvidence: false });
 const review = Object.freeze({ status: 'not_reviewed', reviewer: null, reviewedAt: null });
 
+const annotated = (text, readings) => {
+  const readingList = readings.trim() ? readings.trim().split(/\s+/u) : [];
+  let index = 0;
+  const pronunciationTokens = Array.from(text, (character) => {
+    if (!/\p{Script=Han}/u.test(character)) return Object.freeze({ text: character });
+    const reading = readingList[index++];
+    if (!reading) throw new Error(`Missing reviewed pronunciation for ${character} in ${text}`);
+    return Object.freeze({ text: character, reading });
+  });
+  if (index !== readingList.length) throw new Error(`Extra reviewed pronunciation for ${text}`);
+  return Object.freeze({ text, pronunciationTokens: Object.freeze(pronunciationTokens) });
+};
+
+const category = (id, label, readings) => Object.freeze({ id, label, pronunciationTokens: annotated(label, readings).pronunciationTokens });
+
 const makeTask = (task) => Object.freeze({
   revision: 1,
   status: candidate,
@@ -18,40 +33,81 @@ const makeTask = (task) => Object.freeze({
 export const LEARNING_SUBITEM_EXPANSION_TASKS = Object.freeze([
   makeTask({
     activityId: 'ACT-G1-MATH-ZERO-PLACEHOLDER-EXPLORER-CANDIDATE',
-    title: '數字小工坊：0 的位置線索', gradeId: 'grade-1', subjectId: 'mathematics',
+    title: '數字小工坊：看看個位的 0', gradeId: 'grade-1', subjectId: 'mathematics',
     curriculumMapId: 'math-grade1-count-place-value', curriculumCodes: ['N-1-1', 'n-I-1'],
     learningSubitemClaims: ['SUB-MATH-G1-N1-1-ZERO-PLACEHOLDER'],
     curriculumScope: '對照官方一年級學習內容 N-1-1 的位值單位「個」「十」與 0 的位值意義；僅作兩位數個位為0的有限候選練習，不代表完整涵蓋一百以內數。教材與課程順序待教師確認。',
     learningObjective: { objectiveId: 'LO-G1-MATH-ZERO-PLACEHOLDER-01', statement: '比較數字卡上的位值表示，理解個位寫0表示該數沒有個位單位。', status: candidate },
     instructions: '先把數字卡依個位是否有「個」分類，再比較兩個數字卡的十與個。這是畫面上的符號操作，沒有實體積木。',
     stages: Object.freeze([
-      Object.freeze({ stageId: 'sort-zero-ones-cards', interaction: 'classify_observations', prompt: '依卡片表示，把個位是0的數字放在「沒有個位單位」一類，其餘放在另一類。', observations: Object.freeze([
-        { id: 'n10', text: '10：1個十，0個一' }, { id: 'n12', text: '12：1個十，2個一' }, { id: 'n20', text: '20：2個十，0個一' }, { id: 'n21', text: '21：2個十，1個一' },
-      ]), categories: Object.freeze([{ id: 'no-ones', label: '個位沒有個' }, { id: 'has-ones', label: '個位有個' }]), correctAssignments: Object.freeze({ n10: 'no-ones', n12: 'has-ones', n20: 'no-ones', n21: 'has-ones' }),
-      hints: Object.freeze(['看每張卡「個」前面的數字，不要只看十位。', '個位寫0時，表示個位單位有幾個？逐張找出個位為0的卡。']), incorrectFeedback: '請逐張讀「幾個十、幾個一」；分類要看個位單位，不是數字大小。', correctFeedback: '你依個位單位的數量完成分類。再想想20和2代表的十與個有什麼不同。' }),
-      Object.freeze({ stageId: 'explain-twenty-versus-two', interaction: 'choose_response', prompt: '20 和 2 的十位與個位表示不同。哪句話最符合數字卡？', options: Object.freeze([
-        { id: 'two-tens', text: '20 有2個十、0個一；2 有0個十、2個一。', feedback: '把十位和個位分開讀，才能看出兩個數的數量不同。' },
-        { id: 'same-number', text: '20 和2一樣，因為都有數字2。', feedback: '同一個數字寫在不同位置，代表的數量可能不同。' },
-        { id: 'zero-adds-one', text: '0表示再加一個一。', feedback: '個位的0不是多一個；它記錄個位沒有個。' },
-      ]), correctOptionIds: Object.freeze(['two-tens']), hints: Object.freeze(['先說出20有幾個十，再看個位。', '再把2讀成幾個十和幾個一，逐位比較。']), incorrectFeedback: '請分開讀十位和個位；數字相同不代表位置與數量相同。', correctFeedback: '你用位值說明了兩個數的差別。這次選擇題不足以證明能自行解釋其他數字。' }),
+      Object.freeze({ stageId: 'sort-zero-ones-cards', interaction: 'classify_observations',
+        prompt: '看卡片，把個位是 0 的放一類，個位不是 0 的放另一類。',
+        promptPronunciationTokens: annotated('看卡片，把個位是 0 的放一類，個位不是 0 的放另一類。', 'ㄎㄢˋ ㄎㄚˇ ㄆㄧㄢˋ ㄅㄚˇ ㄍㄜˋ ㄨㄟˋ ㄕˋ ㄉㄜ˙ ㄈㄤˋ ㄧˋ ㄌㄟˋ ㄍㄜˋ ㄨㄟˋ ㄅㄨˋ ㄕˋ ㄉㄜ˙ ㄈㄤˋ ㄌㄧㄥˋ ㄧˋ ㄌㄟˋ').pronunciationTokens,
+        studentOperationGuidance: '怎麼玩：① 看每張卡 → ② 幫每張卡選一類 → ③ 全部分好後檢查答案',
+        studentOperationGuidancePronunciationTokens: annotated('怎麼玩：① 看每張卡 → ② 幫每張卡選一類 → ③ 全部分好後檢查答案', 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄎㄢˋ ㄇㄟˇ ㄓㄤ ㄎㄚˇ ㄅㄤ ㄇㄟˇ ㄓㄤ ㄎㄚˇ ㄒㄩㄢˇ ㄧˊ ㄌㄟˋ ㄑㄩㄢˊ ㄅㄨˋ ㄈㄣ ㄏㄠˇ ㄏㄡˋ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ').pronunciationTokens,
+        observations: Object.freeze([
+          { id: 'n10', ...annotated('10：1 個十，0 個一', 'ㄍㄜˋ ㄕˊ ㄍㄜˋ ㄧ') }, { id: 'n12', ...annotated('12：1 個十，2 個一', 'ㄍㄜˋ ㄕˊ ㄍㄜˋ ㄧ') }, { id: 'n20', ...annotated('20：2 個十，0 個一', 'ㄍㄜˋ ㄕˊ ㄍㄜˋ ㄧ') }, { id: 'n21', ...annotated('21：2 個十，1 個一', 'ㄍㄜˋ ㄕˊ ㄍㄜˋ ㄧ') },
+        ]), categories: Object.freeze([category('no-ones', '個位是 0', 'ㄍㄜˋ ㄨㄟˋ ㄕˋ'), category('has-ones', '個位不是 0', 'ㄍㄜˋ ㄨㄟˋ ㄅㄨˋ ㄕˋ')]), correctAssignments: Object.freeze({ n10: 'no-ones', n12: 'has-ones', n20: 'no-ones', n21: 'has-ones' }),
+        hints: Object.freeze([
+          annotated('先看每張卡上的個位數字。', 'ㄒㄧㄢ ㄎㄢˋ ㄇㄟˇ ㄓㄤ ㄎㄚˇ ㄕㄤˋ ㄉㄜ˙ ㄍㄜˋ ㄨㄟˋ ㄕㄨˋ ㄗˋ'),
+          annotated('個位是 0 的卡放一起。', 'ㄍㄜˋ ㄨㄟˋ ㄕˋ ㄉㄜ˙ ㄎㄚˇ ㄈㄤˋ ㄧˋ ㄑㄧˇ'),
+        ]),
+        incorrectFeedback: '再看一次每張卡的個位。', incorrectFeedbackPronunciationTokens: annotated('再看一次每張卡的個位。', 'ㄗㄞˋ ㄎㄢˋ ㄧˊ ㄘˋ ㄇㄟˇ ㄓㄤ ㄎㄚˇ ㄉㄜ˙ ㄍㄜˋ ㄨㄟˋ').pronunciationTokens,
+        correctFeedback: '答對了！你把個位是 0 的卡分在一起。', correctFeedbackPronunciationTokens: annotated('答對了！你把個位是 0 的卡分在一起。', 'ㄉㄚˊ ㄉㄨㄟˋ ㄌㄜ˙ ㄋㄧˇ ㄅㄚˇ ㄍㄜˋ ㄨㄟˋ ㄕˋ ㄉㄜ˙ ㄎㄚˇ ㄈㄣ ㄗㄞˋ ㄧˋ ㄑㄧˇ').pronunciationTokens,
+      }),
+      Object.freeze({ stageId: 'explain-twenty-versus-two', interaction: 'choose_response', prompt: '20 和 2 有什麼不同？選出正確說法。',
+        promptPronunciationTokens: annotated('20 和 2 有什麼不同？選出正確說法。', 'ㄏㄜˊ ㄧㄡˇ ㄕㄣˊ ㄇㄜ˙ ㄅㄨˋ ㄊㄨㄥˊ ㄒㄩㄢˇ ㄔㄨ ㄓㄥˋ ㄑㄩㄝˋ ㄕㄨㄛ ㄈㄚˇ').pronunciationTokens,
+        options: Object.freeze([
+          { id: 'two-tens', ...annotated('20 有 2 個十、0 個一；2 有 0 個十、2 個一。', 'ㄧㄡˇ ㄍㄜˋ ㄕˊ ㄍㄜˋ ㄧ ㄧㄡˇ ㄍㄜˋ ㄕˊ ㄍㄜˋ ㄧ'), feedback: '20 有 2 個十，2 有 2 個一。', feedbackPronunciationTokens: annotated('20 有 2 個十，2 有 2 個一。', 'ㄧㄡˇ ㄍㄜˋ ㄕˊ ㄧㄡˇ ㄍㄜˋ ㄧ').pronunciationTokens },
+          { id: 'same-number', ...annotated('20 和 2 一樣，因為都有數字 2。', 'ㄏㄜˊ ㄧˊ ㄧㄤˋ ㄧㄣ ㄨㄟˋ ㄉㄡ ㄧㄡˇ ㄕㄨˋ ㄗˋ'), feedback: '數字相同，位置不同，表示的數量也可能不同。', feedbackPronunciationTokens: annotated('數字相同，位置不同，表示的數量也可能不同。', 'ㄕㄨˋ ㄗˋ ㄒㄧㄤ ㄊㄨㄥˊ ㄨㄟˋ ㄓˋ ㄅㄨˋ ㄊㄨㄥˊ ㄅㄧㄠˇ ㄕˋ ㄉㄜ˙ ㄕㄨˋ ㄌㄧㄤˋ ㄧㄝˇ ㄎㄜˇ ㄋㄥˊ ㄅㄨˋ ㄊㄨㄥˊ').pronunciationTokens },
+          { id: 'zero-adds-one', ...annotated('0 表示再加一個一。', 'ㄅㄧㄠˇ ㄕˋ ㄗㄞˋ ㄐㄧㄚ ㄧˊ ㄍㄜˋ ㄧ'), feedback: '個位是 0，表示沒有個位的一。', feedbackPronunciationTokens: annotated('個位是 0，表示沒有個位的一。', 'ㄍㄜˋ ㄨㄟˋ ㄕˋ ㄅㄧㄠˇ ㄕˋ ㄇㄟˊ ㄧㄡˇ ㄍㄜˋ ㄨㄟˋ ㄉㄜ˙ ㄧ').pronunciationTokens },
+        ]), correctOptionIds: Object.freeze(['two-tens']),
+        hints: Object.freeze([annotated('先看 20 有幾個十，再看個位。', 'ㄒㄧㄢ ㄎㄢˋ ㄧㄡˇ ㄐㄧˇ ㄍㄜˋ ㄕˊ ㄗㄞˋ ㄎㄢˋ ㄍㄜˋ ㄨㄟˋ'), annotated('再看 2 有幾個十、幾個一。', 'ㄗㄞˋ ㄎㄢˋ ㄧㄡˇ ㄐㄧˇ ㄍㄜˋ ㄕˊ ㄐㄧˇ ㄍㄜˋ ㄧ')]),
+        incorrectFeedback: '請分開看十和一；位置不同，表示的數量也不同。', incorrectFeedbackPronunciationTokens: annotated('請分開看十和一；位置不同，表示的數量也不同。', 'ㄑㄧㄥˇ ㄈㄣ ㄎㄞ ㄎㄢˋ ㄕˊ ㄏㄜˊ ㄧ ㄨㄟˋ ㄓˋ ㄅㄨˋ ㄊㄨㄥˊ ㄅㄧㄠˇ ㄕˋ ㄉㄜ˙ ㄕㄨˋ ㄌㄧㄤˋ ㄧㄝˇ ㄅㄨˋ ㄊㄨㄥˊ').pronunciationTokens,
+        correctFeedback: '答對了！20 有 2 個十，2 有 2 個一。', correctFeedbackPronunciationTokens: annotated('答對了！20 有 2 個十，2 有 2 個一。', 'ㄉㄚˊ ㄉㄨㄟˋ ㄌㄜ˙ ㄧㄡˇ ㄍㄜˋ ㄕˊ ㄧㄡˇ ㄍㄜˋ ㄧ').pronunciationTokens,
+        teacherLimitationNote: '這次選擇題不足以證明能自行解釋其他數字。',
+      }),
     ]),
     openQuestions: Object.freeze(['需教師確認學生是否已使用「個」「十」作位值單位。', '分類和選擇只觀察有限符號判讀，不替代實體積木操作或學生自行說明。']),
   }),
   makeTask({
     activityId: 'ACT-G1-MATH-COMPARISON-DIFFERENCE-NUMBER-LINE-CANDIDATE',
-    title: '小小數線探險：找出相差幾個', gradeId: 'grade-1', subjectId: 'mathematics',
+    title: '小小數線探險：多幾張', gradeId: 'grade-1', subjectId: 'mathematics',
     curriculumMapId: 'math-grade1-add-sub-meaning', curriculumCodes: ['N-1-2', 'R-1-1', 'n-I-2'],
     learningSubitemClaims: ['SUB-MATH-G1-N1-2-COMPARISON-DIFFERENCE'],
     curriculumScope: '只對照 N-1-2 的比較型差量情境。本活動詢問8張比5張多幾張，未知的是比較結果（差量），不設未知加數、被加數、減數或被減數題型；亦不涵蓋全部比較情境或自主列式。',
     learningObjective: { objectiveId: 'LO-G1-MATH-COMPARISON-DIFFERENCE-01', statement: '在數線上操作兩個數量的差，並把差量連回比較型算式。', status: candidate },
     instructions: '情境：小米有8張貼紙，小安有5張。先在數線上找出兩人的數量差，再選出能記錄比較關係的算式。',
     stages: Object.freeze([
-      Object.freeze({ stageId: 'place-sticker-difference', interaction: 'place_number_line_marker', prompt: '把標記放到代表「8張比5張多幾張」的差量位置。數線每格是1。', numberLine: Object.freeze({ start: 0, end: 10, tickCount: 10, targetTick: 3, valueFormat: 'integer' }), hints: Object.freeze(['數線上的差可以從較少的數走到較多的數。', '從5開始往右數到8，每走一格代表多1張；記錄走了幾格。']), incorrectFeedback: '請從較少的5開始往8走，數經過的格數；不要把8張當成差量。', correctFeedback: '你在數線上找到兩個數量之間的差。接著選出比較關係的算式。' }),
-      Object.freeze({ stageId: 'choose-comparison-equation', interaction: 'choose_response', prompt: '哪個算式記錄「8張比5張多幾張」？', options: Object.freeze([
-        { id: 'difference-8-5', text: '8 − 5 = 3', feedback: '比較差量可從較多的數量中減去較少的數量。' },
-        { id: 'sum-8-5', text: '8 + 5 = 13', feedback: '題目問兩人的貼紙合起來，不是問兩者相差多少。' },
-        { id: 'reverse-5-8', text: '5 − 8 = 3', feedback: '依目前情境，從較多的8張扣掉較少的5張。' },
-      ]), correctOptionIds: Object.freeze(['difference-8-5']), hints: Object.freeze(['問題中的「多幾張」是在問兩個數量的差。', '對照你在數線上量到的格數，選能得到同一差量的算式。']), incorrectFeedback: '先分清楚「合起來」與「相差」；再用數線上的差檢查算式。', correctFeedback: '算式和數線上的差一致。單一情境不能代表已掌握各種比較型或未知量問題。' }),
+      Object.freeze({ stageId: 'place-sticker-difference', interaction: 'place_number_line_marker',
+        prompt: '8 張比 5 張多幾張？把標記放到答案。每格是 1。',
+        promptPronunciationTokens: annotated('8 張比 5 張多幾張？把標記放到答案。每格是 1。', 'ㄓㄤ ㄅㄧˇ ㄓㄤ ㄉㄨㄛ ㄐㄧˇ ㄓㄤ ㄅㄚˇ ㄅㄧㄠ ㄐㄧˋ ㄈㄤˋ ㄉㄠˋ ㄉㄚˊ ㄢˋ ㄇㄟˇ ㄍㄜˊ ㄕˋ').pronunciationTokens,
+        numberLine: Object.freeze({
+          start: 0, end: 10, tickCount: 10, targetTick: 3, valueFormat: 'integer', referenceTicks: Object.freeze([5, 8]),
+          studentInstruction: '移動滑桿，把標記放到「多幾張」的答案。',
+          studentInstructionPronunciationTokens: annotated('移動滑桿，把標記放到「多幾張」的答案。', 'ㄧˊ ㄉㄨㄥˋ ㄏㄨㄚˊ ㄍㄢˇ ㄅㄚˇ ㄅㄧㄠ ㄐㄧˋ ㄈㄤˋ ㄉㄠˋ ㄉㄨㄛ ㄐㄧˇ ㄓㄤ ㄉㄜ˙ ㄉㄚˊ ㄢˋ').pronunciationTokens,
+        }),
+        hints: Object.freeze([
+          annotated('數線上的差，可以從較少的數走到較多的數。', 'ㄕㄨˋ ㄒㄧㄢˋ ㄕㄤˋ ㄉㄜ˙ ㄔㄚ ㄎㄜˇ ㄧˇ ㄘㄨㄥˊ ㄐㄧㄠˋ ㄕㄠˇ ㄉㄜ˙ ㄕㄨˋ ㄗㄡˇ ㄉㄠˋ ㄐㄧㄠˋ ㄉㄨㄛ ㄉㄜ˙ ㄕㄨˋ'),
+          annotated('從 5 開始往右數到 8，每走一格就是多 1 張。', 'ㄘㄨㄥˊ ㄎㄞ ㄕˇ ㄨㄤˇ ㄧㄡˋ ㄕㄨˇ ㄉㄠˋ ㄇㄟˇ ㄗㄡˇ ㄧˋ ㄍㄜˊ ㄐㄧㄡˋ ㄕˋ ㄉㄨㄛ ㄓㄤ'),
+        ]),
+        incorrectFeedback: '請從 5 往 8 數，看看走了幾格。', incorrectFeedbackPronunciationTokens: annotated('請從 5 往 8 數，看看走了幾格。', 'ㄑㄧㄥˇ ㄘㄨㄥˊ ㄨㄤˇ ㄕㄨˇ ㄎㄢˋ ㄎㄢˋ ㄗㄡˇ ㄌㄜ˙ ㄐㄧˇ ㄍㄜˊ').pronunciationTokens,
+        correctFeedback: '答對了！你找到多出的張數。', correctFeedbackPronunciationTokens: annotated('答對了！你找到多出的張數。', 'ㄉㄚˊ ㄉㄨㄟˋ ㄌㄜ˙ ㄋㄧˇ ㄓㄠˇ ㄉㄠˋ ㄉㄨㄛ ㄔㄨ ㄉㄜ˙ ㄓㄤ ㄕㄨˋ').pronunciationTokens,
+      }),
+      Object.freeze({ stageId: 'choose-comparison-equation', interaction: 'choose_response', prompt: '哪個算式表示「8 張比 5 張多 3 張」？',
+        promptPronunciationTokens: annotated('哪個算式表示「8 張比 5 張多 3 張」？', 'ㄋㄚˇ ㄍㄜˋ ㄙㄨㄢˋ ㄕˋ ㄅㄧㄠˇ ㄕˋ ㄓㄤ ㄅㄧˇ ㄓㄤ ㄉㄨㄛ ㄓㄤ').pronunciationTokens,
+        options: Object.freeze([
+          { id: 'difference-8-5', ...annotated('8 − 5 = 3', '') },
+          { id: 'sum-8-5', ...annotated('8 + 5 = 13', '') },
+          { id: 'reverse-5-8', ...annotated('5 − 8 = 3', '') },
+        ]), correctOptionIds: Object.freeze(['difference-8-5']),
+        hints: Object.freeze([
+          annotated('先想「多幾張」是在比兩個數量。', 'ㄒㄧㄢ ㄒㄧㄤˇ ㄉㄨㄛ ㄐㄧˇ ㄓㄤ ㄕˋ ㄗㄞˋ ㄅㄧˇ ㄌㄧㄤˇ ㄍㄜˋ ㄕㄨˋ ㄌㄧㄤˋ'),
+          annotated('再看算式的答案是不是 3。', 'ㄗㄞˋ ㄎㄢˋ ㄙㄨㄢˋ ㄕˋ ㄉㄜ˙ ㄉㄚˊ ㄢˋ ㄕˋ ㄅㄨˋ ㄕˋ'),
+        ]),
+        incorrectFeedback: '請重新比較兩個數量，再選算式。', incorrectFeedbackPronunciationTokens: annotated('請重新比較兩個數量，再選算式。', 'ㄑㄧㄥˇ ㄔㄨㄥˊ ㄒㄧㄣ ㄅㄧˇ ㄐㄧㄠˋ ㄌㄧㄤˇ ㄍㄜˋ ㄕㄨˋ ㄌㄧㄤˋ ㄗㄞˋ ㄒㄩㄢˇ ㄙㄨㄢˋ ㄕˋ').pronunciationTokens,
+        correctFeedback: '答對了！算式和數線上的結果一樣。', correctFeedbackPronunciationTokens: annotated('答對了！算式和數線上的結果一樣。', 'ㄉㄚˊ ㄉㄨㄟˋ ㄌㄜ˙ ㄙㄨㄢˋ ㄕˋ ㄏㄜˊ ㄕㄨˋ ㄒㄧㄢˋ ㄕㄤˋ ㄉㄜ˙ ㄐㄧㄝˊ ㄍㄨㄛˇ ㄧˊ ㄧㄤˋ').pronunciationTokens,
+      }),
     ]),
     openQuestions: Object.freeze(['需教師確認「相差」語句與數線操作的先備是否適合目標班級。', '官方 N-1-2 附註排除一年級未知加數、被加數、減數、被減數題型；本活動只問比較差量。數線為畫面模擬，且第二階段為選擇題；未測量學生自行列式或口頭解釋。']),
   }),

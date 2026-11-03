@@ -16,6 +16,18 @@ const task = (definition) => freeze({
   ...definition,
   stages: freeze(definition.stages.map(freeze)),
 });
+const reviewed = (text, readings = '') => {
+  const readingList = readings.trim() ? readings.trim().split(/\s+/u) : [];
+  let index = 0;
+  const pronunciationTokens = Array.from(text, (character) => {
+    if (!/\p{Script=Han}/u.test(character)) return Object.freeze({ text: character });
+    const reading = readingList[index++];
+    if (!reading) throw new Error(`Missing reviewed pronunciation for ${character} in ${text}`);
+    return Object.freeze({ text: character, reading });
+  });
+  if (index !== readingList.length) throw new Error(`Extra reviewed pronunciation for ${text}`);
+  return Object.freeze({ text, pronunciationTokens: Object.freeze(pronunciationTokens) });
+};
 
 export const MATH_CURRICULUM_GAP_TASKS = freeze([
   AREA_GRID_CONSTRUCTION_WORKSHOP,
@@ -65,21 +77,49 @@ export const MATH_CURRICULUM_GAP_TASKS = freeze([
   }),
   task({
     activityId: 'ACT-G1-MATH-MONEY-COUNT-EXCHANGE-CANDIDATE',
-    title: '小小錢幣市集：數錢、換錢與找錢', gradeId: 'grade-1', subjectId: 'mathematics',
+    title: '小小錢幣市集：數錢與找錢', gradeId: 'grade-1', subjectId: 'mathematics',
     curriculumMapId: 'math-grade1-money-count-exchange', curriculumCodes: ['N-1-4', 'n-I-3'],
     curriculumScope: '官方一年級內容 N-1-4 指定 1、5、10、50、100 元，並以操作活動為主進行數錢、換錢、找錢，允許多元策略。本活動用畫面錢幣選取與找零情境局部練習；螢幕操作不等同實體錢幣操作，也不涵蓋所有支付組合，亦不代表已能在真實交易中找零。',
     learningSubitemClaims: ['SUB-MATH-G1-N1-4-MONEY-COUNT-CHANGE'],
-    learningObjective: { objectiveId: 'LO-G1-MATH-MONEY-MARKET-01', statement: '在模擬市集選取合計指定金額的錢幣，並用情境理解找回的金額。', status: candidate },
-    instructions: '使用畫面中的錢幣完成市集交易。每回合都要核對總額；這是記憶體中的模擬操作，不會保存或影響正式遊戲資料。',
+    learningObjective: { objectiveId: 'LO-G1-MATH-MONEY-MARKET-01', statement: '選出指定金額的錢幣，再找出找回的金額。', status: candidate },
+    instructions: '先選出合計 17 元的錢幣，再找出付 20 元後的找零。',
     curriculumAlignment: 'partial',
     coverage: { subitemId: 'SUB-MATH-G1-N1-4-MONEY-COUNT-CHANGE', coveredByInteraction: ['collect_evidence', 'choose_response'], notCovered: ['實體錢幣操作', '所有多元換錢策略', '真實購物與自主策略說明'] },
     stages: [
-      { stageId: 'pay-seventeen-with-coins', interaction: 'collect_evidence', prompt: '選出合起來剛好 17 元的錢幣。', options: [
-        { id: 'coin-10-a', text: '10 元硬幣 A' }, { id: 'coin-5', text: '5 元硬幣' }, { id: 'coin-1-a', text: '1 元硬幣 A' }, { id: 'coin-1-b', text: '1 元硬幣 B' }, { id: 'coin-10-b', text: '另一枚 10 元硬幣' }, { id: 'coin-50', text: '50 元硬幣' },
-      ], correctOptionIds: ['coin-10-a', 'coin-5', 'coin-1-a', 'coin-1-b'], hints: ['先用較大的錢幣組出接近 17 元的金額。', '10 元加 5 元是 15 元，還需要兩個 1 元。'], incorrectFeedback: '請把選到的錢幣金額加起來；剛好 17 元才完成付款。', correctFeedback: '你選出 10+5+1+1=17 元。畫面錢幣是模擬素材，不能替代實體數錢。' },
-      { stageId: 'choose-change-for-twenty', interaction: 'choose_response', prompt: '商品 17 元，付 20 元。應找回多少？', options: [
-        { id: 'change-2', text: '2 元', feedback: '請用付款金額減去商品價格。' }, { id: 'change-3', text: '3 元', feedback: '20 元先付 17 元，剩下的金額是找零。' }, { id: 'change-7', text: '7 元', feedback: '不要把商品價格和付款金額相加；找零是兩者的差。' },
-      ], correctOptionIds: ['change-3'], hints: ['找零是付出的錢減去商品價格。', '用 20−17，逐步從 17 數到 20 也可以。'], incorrectFeedback: '找零代表付款後多出的金額；請檢查 20 元與 17 元相差多少。', correctFeedback: '20−17=3 元。本情境只練一個找零問題，不代表熟練全部數錢與換錢。' },
+      { stageId: 'pay-seventeen-with-coins', interaction: 'collect_evidence', requiredSelectionCount: 4,
+        prompt: '選出合起來剛好 17 元的錢幣。', promptPronunciationTokens: reviewed('選出合起來剛好 17 元的錢幣。', 'ㄒㄩㄢˇ ㄔㄨ ㄏㄜˊ ㄑㄧˇ ㄌㄞˊ ㄍㄤ ㄏㄠˇ ㄩㄢˊ ㄉㄜ˙ ㄑㄧㄢˊ ㄅㄧˋ').pronunciationTokens,
+        studentOperationGuidance: '怎麼玩：① 點錢幣 → ② 看合計多少元 → ③ 剛好 17 元再檢查答案',
+        studentOperationGuidancePronunciationTokens: reviewed('怎麼玩：① 點錢幣 → ② 看合計多少元 → ③ 剛好 17 元再檢查答案', 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄉㄧㄢˇ ㄑㄧㄢˊ ㄅㄧˋ ㄎㄢˋ ㄏㄜˊ ㄐㄧˋ ㄉㄨㄛ ㄕㄠˇ ㄩㄢˊ ㄍㄤ ㄏㄠˇ ㄩㄢˊ ㄗㄞˋ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ').pronunciationTokens,
+        options: [
+          { id: 'coin-10-a', ...reviewed('10 元硬幣 A', 'ㄩㄢˊ ㄧㄥˋ ㄅㄧˋ'), valueAmount: 10 },
+          { id: 'coin-5', ...reviewed('5 元硬幣', 'ㄩㄢˊ ㄧㄥˋ ㄅㄧˋ'), valueAmount: 5 },
+          { id: 'coin-1-a', ...reviewed('1 元硬幣 A', 'ㄩㄢˊ ㄧㄥˋ ㄅㄧˋ'), valueAmount: 1 },
+          { id: 'coin-1-b', ...reviewed('1 元硬幣 B', 'ㄩㄢˊ ㄧㄥˋ ㄅㄧˋ'), valueAmount: 1 },
+          { id: 'coin-10-b', ...reviewed('另一枚 10 元硬幣', 'ㄌㄧㄥˋ ㄧˋ ㄇㄟˊ ㄩㄢˊ ㄧㄥˋ ㄅㄧˋ'), valueAmount: 10 },
+          { id: 'coin-50', ...reviewed('50 元硬幣', 'ㄩㄢˊ ㄧㄥˋ ㄅㄧˋ'), valueAmount: 50 },
+        ],
+        correctOptionIds: ['coin-10-a', 'coin-5', 'coin-1-a', 'coin-1-b'],
+        acceptedOptionSets: [['coin-10-b', 'coin-5', 'coin-1-a', 'coin-1-b']],
+        hints: [
+          reviewed('先選 10 元和 5 元，再看看還差多少。', 'ㄒㄧㄢ ㄒㄩㄢˇ ㄩㄢˊ ㄏㄜˊ ㄩㄢˊ ㄗㄞˋ ㄎㄢˋ ㄎㄢˋ ㄏㄞˊ ㄔㄚ ㄉㄨㄛ ㄕㄠˇ'),
+          reviewed('10 元加 5 元是 15 元，還需要兩個 1 元。', 'ㄩㄢˊ ㄐㄧㄚ ㄩㄢˊ ㄕˋ ㄩㄢˊ ㄏㄞˊ ㄒㄩ ㄧㄠˋ ㄌㄧㄤˇ ㄍㄜˋ ㄩㄢˊ'),
+        ],
+        incorrectFeedback: '請把選到的錢幣加起來，看看是不是 17 元。', incorrectFeedbackPronunciationTokens: reviewed('請把選到的錢幣加起來，看看是不是 17 元。', 'ㄑㄧㄥˇ ㄅㄚˇ ㄒㄩㄢˇ ㄉㄠˋ ㄉㄜ˙ ㄑㄧㄢˊ ㄅㄧˋ ㄐㄧㄚ ㄑㄧˇ ㄌㄞˊ ㄎㄢˋ ㄎㄢˋ ㄕˋ ㄅㄨˋ ㄕˋ ㄩㄢˊ').pronunciationTokens,
+        correctFeedback: '答對了！你選的錢幣合起來是 17 元。', correctFeedbackPronunciationTokens: reviewed('答對了！你選的錢幣合起來是 17 元。', 'ㄉㄚˊ ㄉㄨㄟˋ ㄌㄜ˙ ㄋㄧˇ ㄒㄩㄢˇ ㄉㄜ˙ ㄑㄧㄢˊ ㄅㄧˋ ㄏㄜˊ ㄑㄧˇ ㄌㄞˊ ㄕˋ ㄩㄢˊ').pronunciationTokens,
+        teacherLimitationNote: '畫面錢幣是模擬素材，不能替代實體數錢。',
+      },
+      { stageId: 'choose-change-for-twenty', interaction: 'choose_response', prompt: '商品 17 元，付 20 元，要找回多少元？',
+        promptPronunciationTokens: reviewed('商品 17 元，付 20 元，要找回多少元？', 'ㄕㄤ ㄆㄧㄣˇ ㄩㄢˊ ㄈㄨˋ ㄩㄢˊ ㄧㄠˋ ㄓㄠˇ ㄏㄨㄟˊ ㄉㄨㄛ ㄕㄠˇ ㄩㄢˊ').pronunciationTokens,
+        options: [
+          { id: 'change-2', ...reviewed('2 元', 'ㄩㄢˊ'), feedback: '請用付款金額減去商品價格。', feedbackPronunciationTokens: reviewed('請用付款金額減去商品價格。', 'ㄑㄧㄥˇ ㄩㄥˋ ㄈㄨˋ ㄎㄨㄢˇ ㄐㄧㄣ ㄜˊ ㄐㄧㄢˇ ㄑㄩˋ ㄕㄤ ㄆㄧㄣˇ ㄐㄧㄚˋ ㄍㄜˊ').pronunciationTokens },
+          { id: 'change-3', ...reviewed('3 元', 'ㄩㄢˊ'), feedback: '20 元先付 17 元，剩下的就是找零。', feedbackPronunciationTokens: reviewed('20 元先付 17 元，剩下的就是找零。', 'ㄩㄢˊ ㄒㄧㄢ ㄈㄨˋ ㄩㄢˊ ㄕㄥˋ ㄒㄧㄚˋ ㄉㄜ˙ ㄐㄧㄡˋ ㄕˋ ㄓㄠˇ ㄌㄧㄥˊ').pronunciationTokens },
+          { id: 'change-7', ...reviewed('7 元', 'ㄩㄢˊ'), feedback: '不要把商品價格和付款金額相加。', feedbackPronunciationTokens: reviewed('不要把商品價格和付款金額相加。', 'ㄅㄨˋ ㄧㄠˋ ㄅㄚˇ ㄕㄤ ㄆㄧㄣˇ ㄐㄧㄚˋ ㄍㄜˊ ㄏㄜˊ ㄈㄨˋ ㄎㄨㄢˇ ㄐㄧㄣ ㄜˊ ㄒㄧㄤ ㄐㄧㄚ').pronunciationTokens },
+        ], correctOptionIds: ['change-3'],
+        hints: [reviewed('找零是付出的錢減去商品價格。', 'ㄓㄠˇ ㄌㄧㄥˊ ㄕˋ ㄈㄨˋ ㄔㄨ ㄉㄜ˙ ㄑㄧㄢˊ ㄐㄧㄢˇ ㄑㄩˋ ㄕㄤ ㄆㄧㄣˇ ㄐㄧㄚˋ ㄍㄜˊ'), reviewed('用 20 減 17，也可以從 17 數到 20。', 'ㄩㄥˋ ㄐㄧㄢˇ ㄧㄝˇ ㄎㄜˇ ㄧˇ ㄘㄨㄥˊ ㄕㄨˇ ㄉㄠˋ')],
+        incorrectFeedback: '再算一次付出的錢減掉商品價格。', incorrectFeedbackPronunciationTokens: reviewed('再算一次付出的錢減掉商品價格。', 'ㄗㄞˋ ㄙㄨㄢˋ ㄧˊ ㄘˋ ㄈㄨˋ ㄔㄨ ㄉㄜ˙ ㄑㄧㄢˊ ㄐㄧㄢˇ ㄉㄧㄠˋ ㄕㄤ ㄆㄧㄣˇ ㄐㄧㄚˋ ㄍㄜˊ').pronunciationTokens,
+        correctFeedback: '答對了！你算出找回 3 元。', correctFeedbackPronunciationTokens: reviewed('答對了！你算出找回 3 元。', 'ㄉㄚˊ ㄉㄨㄟˋ ㄌㄜ˙ ㄋㄧˇ ㄙㄨㄢˋ ㄔㄨ ㄓㄠˇ ㄏㄨㄟˊ ㄩㄢˊ').pronunciationTokens,
+        teacherLimitationNote: '本情境只練一個找零問題，不代表熟練全部數錢與換錢。',
+      },
     ],
     openQuestions: ['需教師確認是否已使用 1、5、10 元錢幣情境。', '總綱課綱有年級內容列示，不代表特定學期進度。'],
   }),
@@ -142,7 +182,7 @@ export const MATH_CURRICULUM_GAP_TASKS = freeze([
   }),
   task({
     activityId: 'ACT-G1-MATH-LENGTH-COMPARE-ROPE-CANDIDATE',
-    title: '長度比較小徑：直線、曲線與共同單位', gradeId: 'grade-1', subjectId: 'mathematics',
+    title: '長度比較小徑：看哪條路較長', gradeId: 'grade-1', subjectId: 'mathematics',
     curriculumMapId: 'math-grade1-length-compare', curriculumCodes: ['N-1-5', 'S-1-1', 'n-I-7'],
     curriculumScope: '官方 N-1-5/S-1-1 要求操作性初步認識、直接與間接比較（含個別單位），並包含直線與曲線；該條目明確不教常用單位。本活動以螢幕路徑圖及共同單位模型做比較，涵蓋直接觀察和用共同單位核對兩種情境，不是實體繩測、實測或估測能力評量。',
     learningSubitemClaims: ['SUB-MATH-G1-N1-5-COMPARE-STRAIGHT-CURVED-LENGTH'],
@@ -151,8 +191,32 @@ export const MATH_CURRICULUM_GAP_TASKS = freeze([
     curriculumAlignment: 'partial',
     coverage: { subitemId: 'SUB-MATH-G1-N1-5-COMPARE-STRAIGHT-CURVED-LENGTH', coveredByInteraction: ['classify_observations', 'visual_length_comparison'], notCovered: ['實際拿繩或物件比較', '常用單位與尺測（官方此條目不含）', '學生自行估測及測量誤差'] },
     stages: [
-      { stageId: 'compare-straight-and-curved-paths', interaction: 'classify_observations', prompt: '小徑圖中，哪一條路徑較長？每一組都先看線段，再選較長者或一樣長。', lengthComparison: { unitLabel: '圖形長度（不標常用單位）', comparisons: [{ id: 'path-pair-a', label: '直線路徑 A 與 B', leftUnits: 5, rightUnits: 7, leftKind: '直線', rightKind: '直線' }, { id: 'path-pair-b', label: '彎曲小徑 A 與 B', leftUnits: 8, rightUnits: 6, leftKind: '曲線', rightKind: '曲線' }] }, observations: [{ id: 'path-pair-a', text: '直線路徑 A 與 B' }, { id: 'path-pair-b', text: '彎曲小徑 A 與 B' }], categories: [{ id: 'left-longer', label: '左邊較長' }, { id: 'same-length', label: '一樣長' }, { id: 'right-longer', label: '右邊較長' }], correctAssignments: { 'path-pair-a': 'right-longer', 'path-pair-b': 'left-longer' }, hints: ['比較兩條線從起點到終點所走過的整段路，不只看終點的位置。', '第一組右邊長；第二組左邊長。可逐段沿著線追蹤。'], incorrectFeedback: '把每一組兩條路徑的完整長度相比；曲線也要沿著彎曲路徑看，不能只比直線距離。', correctFeedback: '你比較了直線和曲線的全長。這是螢幕圖示上的直接比較，不等於實體操作。' },
-      { stageId: 'verify-with-common-units', interaction: 'classify_observations', prompt: '兩條彎彎的小路不容易直接看出長短。用相同的小段單位逐段核對，再分類。', lengthComparison: { unitLabel: '相同小段單位（不是公分）', comparisons: [{ id: 'unit-pair-a', label: '溪邊小徑 A 與 B', leftUnits: 6, rightUnits: 6, leftKind: '曲線', rightKind: '曲線' }, { id: 'unit-pair-b', label: '花園小徑 A 與 B', leftUnits: 4, rightUnits: 7, leftKind: '曲線', rightKind: '曲線' }] }, observations: [{ id: 'unit-pair-a', text: '溪邊小徑 A 與 B' }, { id: 'unit-pair-b', text: '花園小徑 A 與 B' }], categories: [{ id: 'left-longer', label: '左邊較長' }, { id: 'same-length', label: '一樣長' }, { id: 'right-longer', label: '右邊較長' }], correctAssignments: { 'unit-pair-a': 'same-length', 'unit-pair-b': 'right-longer' }, hints: ['相同單位要沿著兩條路逐段放，不能留空或重疊。', '第一組兩邊都是 6 段；第二組右邊有 7 段，比左邊 4 段長。'], incorrectFeedback: '請核對兩邊是否使用同樣大小的單位，再比較各自需要幾段。', correctFeedback: '共同單位能幫助比較不容易直接對齊的曲線。實際量測仍需教具操作。' },
+      { stageId: 'compare-straight-and-curved-paths', interaction: 'classify_observations',
+        prompt: '看每組的 A 和 B，選比較長的一條。', promptPronunciationTokens: reviewed('看每組的 A 和 B，選比較長的一條。', 'ㄎㄢˋ ㄇㄟˇ ㄗㄨˇ ㄉㄜ˙ ㄏㄜˊ ㄒㄩㄢˇ ㄅㄧˇ ㄐㄧㄠˋ ㄔㄤˊ ㄉㄜ˙ ㄧˋ ㄊㄧㄠˊ').pronunciationTokens,
+        studentOperationGuidance: '怎麼玩：① 看 A 和 B → ② 選比較長的路 → ③ 每組都選好再檢查',
+        studentOperationGuidancePronunciationTokens: reviewed('怎麼玩：① 看 A 和 B → ② 選比較長的路 → ③ 每組都選好再檢查', 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄎㄢˋ ㄏㄜˊ ㄒㄩㄢˇ ㄅㄧˇ ㄐㄧㄠˋ ㄔㄤˊ ㄉㄜ˙ ㄌㄨˋ ㄇㄟˇ ㄗㄨˇ ㄉㄡ ㄒㄩㄢˇ ㄏㄠˇ ㄗㄞˋ ㄐㄧㄢˇ ㄔㄚˊ').pronunciationTokens,
+        lengthComparison: { unitLabel: '圖形長度', unitLabelPronunciationTokens: reviewed('共同參照：圖形長度', 'ㄍㄨㄥˋ ㄊㄨㄥˊ ㄘㄢ ㄓㄠˋ ㄊㄨˊ ㄒㄧㄥˊ ㄔㄤˊ ㄉㄨˋ').pronunciationTokens, comparisons: [{ id: 'path-pair-a', label: '直線路徑 A 與 B', leftUnits: 5, rightUnits: 7, leftKind: '直線', rightKind: '直線' }, { id: 'path-pair-b', label: '彎曲小徑 A 與 B', leftUnits: 8, rightUnits: 6, leftKind: '曲線', rightKind: '曲線' }] },
+        observations: [{ id: 'path-pair-a', ...reviewed('直線路徑 A 與 B', 'ㄓˊ ㄒㄧㄢˋ ㄌㄨˋ ㄐㄧㄥˋ ㄩˇ'), }, { id: 'path-pair-b', ...reviewed('彎曲小徑 A 與 B', 'ㄨㄢ ㄑㄩ ㄒㄧㄠˇ ㄐㄧㄥˋ ㄩˇ') }],
+        categories: [{ id: 'left-longer', label: '左邊比較長', pronunciationTokens: reviewed('左邊比較長', 'ㄗㄨㄛˇ ㄅㄧㄢ ㄅㄧˇ ㄐㄧㄠˋ ㄔㄤˊ').pronunciationTokens }, { id: 'same-length', label: '一樣長', pronunciationTokens: reviewed('一樣長', 'ㄧˊ ㄧㄤˋ ㄔㄤˊ').pronunciationTokens }, { id: 'right-longer', label: '右邊比較長', pronunciationTokens: reviewed('右邊比較長', 'ㄧㄡˋ ㄅㄧㄢ ㄅㄧˇ ㄐㄧㄠˋ ㄔㄤˊ').pronunciationTokens }],
+        correctAssignments: { 'path-pair-a': 'right-longer', 'path-pair-b': 'left-longer' },
+        hints: [reviewed('從起點看到終點，沿著整條路看。', 'ㄘㄨㄥˊ ㄑㄧˇ ㄉㄧㄢˇ ㄎㄢˋ ㄉㄠˋ ㄓㄨㄥ ㄉㄧㄢˇ ㄧㄢˊ ㄓㄜ˙ ㄓㄥˇ ㄊㄧㄠˊ ㄌㄨˋ ㄎㄢˋ'), reviewed('彎彎的路要沿著線看，可以一段一段數。', 'ㄨㄢ ㄨㄢ ㄉㄜ˙ ㄌㄨˋ ㄧㄠˋ ㄧㄢˊ ㄓㄜ˙ ㄒㄧㄢˋ ㄎㄢˋ ㄎㄜˇ ㄧˇ ㄧˊ ㄉㄨㄢˋ ㄧˊ ㄉㄨㄢˋ ㄕㄨˇ')],
+        incorrectFeedback: '請看完整條路，不要只看終點的位置。', incorrectFeedbackPronunciationTokens: reviewed('請看完整條路，不要只看終點的位置。', 'ㄑㄧㄥˇ ㄎㄢˋ ㄨㄢˊ ㄓㄥˇ ㄊㄧㄠˊ ㄌㄨˋ ㄅㄨˋ ㄧㄠˋ ㄓˇ ㄎㄢˋ ㄓㄨㄥ ㄉㄧㄢˇ ㄉㄜ˙ ㄨㄟˋ ㄓˋ').pronunciationTokens,
+        correctFeedback: '答對了！你比較了 A 和 B 的整段路。', correctFeedbackPronunciationTokens: reviewed('答對了！你比較了 A 和 B 的整段路。', 'ㄉㄚˊ ㄉㄨㄟˋ ㄌㄜ˙ ㄋㄧˇ ㄅㄧˇ ㄐㄧㄠˋ ㄌㄜ˙ ㄏㄜˊ ㄉㄜ˙ ㄓㄥˇ ㄉㄨㄢˋ ㄌㄨˋ').pronunciationTokens,
+        teacherLimitationNote: '這是螢幕上的路徑圖，不是實際拿繩子比較。',
+      },
+      { stageId: 'verify-with-common-units', interaction: 'classify_observations',
+        prompt: '用一樣大的小段，一段一段數，看看哪條路比較長。', promptPronunciationTokens: reviewed('用一樣大的小段，一段一段數，看看哪條路比較長。', 'ㄩㄥˋ ㄧˊ ㄧㄤˋ ㄉㄚˋ ㄉㄜ˙ ㄒㄧㄠˇ ㄉㄨㄢˋ ㄧˊ ㄉㄨㄢˋ ㄧˊ ㄉㄨㄢˋ ㄕㄨˇ ㄎㄢˋ ㄎㄢˋ ㄋㄚˇ ㄊㄧㄠˊ ㄌㄨˋ ㄅㄧˇ ㄐㄧㄠˋ ㄔㄤˊ').pronunciationTokens,
+        studentOperationGuidance: '怎麼玩：① 看 A 和 B → ② 用一樣大的小段數 → ③ 每組都選好再檢查',
+        studentOperationGuidancePronunciationTokens: reviewed('怎麼玩：① 看 A 和 B → ② 用一樣大的小段數 → ③ 每組都選好再檢查', 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄎㄢˋ ㄏㄜˊ ㄩㄥˋ ㄧˊ ㄧㄤˋ ㄉㄚˋ ㄉㄜ˙ ㄒㄧㄠˇ ㄉㄨㄢˋ ㄕㄨˇ ㄇㄟˇ ㄗㄨˇ ㄉㄡ ㄒㄩㄢˇ ㄏㄠˇ ㄗㄞˋ ㄐㄧㄢˇ ㄔㄚˊ').pronunciationTokens,
+        lengthComparison: { unitLabel: '一樣大的小段', unitLabelPronunciationTokens: reviewed('共同參照：一樣大的小段', 'ㄍㄨㄥˋ ㄊㄨㄥˊ ㄘㄢ ㄓㄠˋ ㄧˊ ㄧㄤˋ ㄉㄚˋ ㄉㄜ˙ ㄒㄧㄠˇ ㄉㄨㄢˋ').pronunciationTokens, comparisons: [{ id: 'unit-pair-a', label: '溪邊小路 A 與 B', leftUnits: 6, rightUnits: 6, leftKind: '曲線', rightKind: '曲線' }, { id: 'unit-pair-b', label: '花園小路 A 與 B', leftUnits: 4, rightUnits: 7, leftKind: '曲線', rightKind: '曲線' }] },
+        observations: [{ id: 'unit-pair-a', ...reviewed('溪邊小路 A 與 B', 'ㄒㄧ ㄅㄧㄢ ㄒㄧㄠˇ ㄌㄨˋ ㄩˇ') }, { id: 'unit-pair-b', ...reviewed('花園小路 A 與 B', 'ㄏㄨㄚ ㄩㄢˊ ㄒㄧㄠˇ ㄌㄨˋ ㄩˇ') }],
+        categories: [{ id: 'left-longer', label: '左邊比較長', pronunciationTokens: reviewed('左邊比較長', 'ㄗㄨㄛˇ ㄅㄧㄢ ㄅㄧˇ ㄐㄧㄠˋ ㄔㄤˊ').pronunciationTokens }, { id: 'same-length', label: '一樣長', pronunciationTokens: reviewed('一樣長', 'ㄧˊ ㄧㄤˋ ㄔㄤˊ').pronunciationTokens }, { id: 'right-longer', label: '右邊比較長', pronunciationTokens: reviewed('右邊比較長', 'ㄧㄡˋ ㄅㄧㄢ ㄅㄧˇ ㄐㄧㄠˋ ㄔㄤˊ').pronunciationTokens }],
+        correctAssignments: { 'unit-pair-a': 'same-length', 'unit-pair-b': 'right-longer' },
+        hints: [reviewed('兩邊都用一樣大的小段，再數一數各有幾段。', 'ㄌㄧㄤˇ ㄅㄧㄢ ㄉㄡ ㄩㄥˋ ㄧˊ ㄧㄤˋ ㄉㄚˋ ㄉㄜ˙ ㄒㄧㄠˇ ㄉㄨㄢˋ ㄗㄞˋ ㄕㄨˇ ㄧˊ ㄕㄨˇ ㄍㄜˋ ㄧㄡˇ ㄐㄧˇ ㄉㄨㄢˋ'), reviewed('先沿著兩條路放一樣大的小段，不留空也不重疊。', 'ㄒㄧㄢ ㄧㄢˊ ㄓㄜ˙ ㄌㄧㄤˇ ㄊㄧㄠˊ ㄌㄨˋ ㄈㄤˋ ㄧˊ ㄧㄤˋ ㄉㄚˋ ㄉㄜ˙ ㄒㄧㄠˇ ㄉㄨㄢˋ ㄅㄨˋ ㄌㄧㄡˊ ㄎㄨㄥ ㄧㄝˇ ㄅㄨˋ ㄔㄨㄥˊ ㄉㄧㄝˊ')],
+        incorrectFeedback: '請先確認兩邊用的小段一樣大，再數段數。', incorrectFeedbackPronunciationTokens: reviewed('請先確認兩邊用的小段一樣大，再數段數。', 'ㄑㄧㄥˇ ㄒㄧㄢ ㄑㄩㄝˋ ㄖㄣˋ ㄌㄧㄤˇ ㄅㄧㄢ ㄩㄥˋ ㄉㄜ˙ ㄒㄧㄠˇ ㄉㄨㄢˋ ㄧˊ ㄧㄤˋ ㄉㄚˋ ㄗㄞˋ ㄕㄨˇ ㄉㄨㄢˋ ㄕㄨˋ').pronunciationTokens,
+        correctFeedback: '答對了！你用一樣大的小段比較兩條路。', correctFeedbackPronunciationTokens: reviewed('答對了！你用一樣大的小段比較兩條路。', 'ㄉㄚˊ ㄉㄨㄟˋ ㄌㄜ˙ ㄋㄧˇ ㄩㄥˋ ㄧˊ ㄧㄤˋ ㄉㄚˋ ㄉㄜ˙ ㄒㄧㄠˇ ㄉㄨㄢˋ ㄅㄧˇ ㄐㄧㄠˋ ㄌㄧㄤˇ ㄊㄧㄠˊ ㄌㄨˋ').pronunciationTokens,
+        teacherLimitationNote: '實際量一量還要用教具。',
+      },
     ],
     openQuestions: ['官方表列一年級內容，並屬第一學習階段；不表示某學期順序。', '教師應搭配實物繩、紙條等操作，並確認學生理解「整段路徑」概念。'],
   }),
