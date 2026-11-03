@@ -7,9 +7,29 @@ const evidencePolicy = Object.freeze({
 const noReinforcement = Object.freeze({ reinforcementActivityIds: Object.freeze([]), reinforcementStatus: '尚無連結的補強活動' });
 const notReviewed = Object.freeze({ status: 'not_reviewed', reviewer: null, reviewedAt: null });
 
+const grade1ShapeCopyText = (text, readings) => {
+  const readingList = readings.trim().split(/\s+/u);
+  let readingIndex = 0;
+  const pronunciationTokens = Array.from(text, (character) => {
+    if (!/\p{Script=Han}/u.test(character)) return Object.freeze({ text: character });
+    const reading = readingList[readingIndex++];
+    if (!reading) throw new Error(`Missing reviewed pronunciation for ${character} in ${text}`);
+    return Object.freeze({ text: character, reading });
+  });
+  if (readingIndex !== readingList.length) throw new Error(`Extra reviewed pronunciation for ${text}`);
+  return Object.freeze({ text, pronunciationTokens: Object.freeze(pronunciationTokens) });
+};
+
+const grade1ShapeCopyPiece = (id, label, shape, readings) => Object.freeze({
+  id,
+  label,
+  shape,
+  pronunciationTokens: grade1ShapeCopyText(label, readings).pronunciationTokens,
+});
+
 export const GRADE1_SHAPE_COPY_STUDIO = Object.freeze({
   activityId: 'ACT-G1-MATH-SHAPE-COPY-STUDIO-CANDIDATE', revision: 1,
-  title: '圖形拼拼屋：照樣拼出小屋', gradeId: 'grade-1', subjectId: 'mathematics',
+  title: '格子拼拼板：用正方形填滿格子', gradeId: 'grade-1', subjectId: 'mathematics',
   status: candidateStatus, sourceKind: 'original_interactive_candidate_not_textbook',
   curriculumMapId: 'math-grade1-shape-operation', sourceId: 'mathematics',
   curriculumCodes: ['S-1-2'],
@@ -20,35 +40,52 @@ export const GRADE1_SHAPE_COPY_STUDIO = Object.freeze({
   stages: Object.freeze([
     Object.freeze({
       stageId: 'copy-two-by-two-square', interaction: 'compose_shape',
-      prompt: '把四塊一樣大小的正方形片放滿 2 排、每排 2 格的拼圖板。',
+      prompt: '拼圖板有 2 排，每排 2 格。選 4 片正方形，把格子填滿。',
+      promptPronunciationTokens: grade1ShapeCopyText('拼圖板有 2 排，每排 2 格。選 4 片正方形，把格子填滿。', 'ㄆㄧㄣ ㄊㄨˊ ㄅㄢˇ ㄧㄡˇ ㄆㄞˊ ㄇㄟˇ ㄆㄞˊ ㄍㄜˊ ㄒㄩㄢˇ ㄆㄧㄢˋ ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄅㄚˇ ㄍㄜˊ ˙ㄗ ㄊㄧㄢˊ ㄇㄢˇ').pronunciationTokens,
+      studentOperationGuidance: '怎麼玩：① 點圖形片放進格子 → ② 點已放的圖形片可以取回 → ③ 填滿後檢查答案',
+      studentOperationGuidancePronunciationTokens: grade1ShapeCopyText('怎麼玩：① 點圖形片放進格子 → ② 點已放的圖形片可以取回 → ③ 填滿後檢查答案', 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄉㄧㄢˇ ㄊㄨˊ ㄒㄧㄥˊ ㄆㄧㄢˋ ㄈㄤˋ ㄐㄧㄣˋ ㄍㄜˊ ˙ㄗ ㄉㄧㄢˇ ㄧˇ ㄈㄤˋ ˙ㄉㄜ ㄊㄨˊ ㄒㄧㄥˊ ㄆㄧㄢˋ ㄎㄜˇ ㄧˇ ㄑㄩˇ ㄏㄨㄟˊ ㄊㄧㄢˊ ㄇㄢˇ ㄏㄡˋ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ').pronunciationTokens,
       pieces: Object.freeze([
-        Object.freeze({ id: 'square-a', label: '正方形片 A', shape: 'square' }),
-        Object.freeze({ id: 'square-b', label: '正方形片 B', shape: 'square' }),
-        Object.freeze({ id: 'square-c', label: '正方形片 C', shape: 'square' }),
-        Object.freeze({ id: 'square-d', label: '正方形片 D', shape: 'square' }),
-        Object.freeze({ id: 'triangle-a', label: '三角形片', shape: 'triangle' }),
+        grade1ShapeCopyPiece('square-a', '正方形片 A', 'square', 'ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄆㄧㄢˋ'),
+        grade1ShapeCopyPiece('square-b', '正方形片 B', 'square', 'ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄆㄧㄢˋ'),
+        grade1ShapeCopyPiece('square-c', '正方形片 C', 'square', 'ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄆㄧㄢˋ'),
+        grade1ShapeCopyPiece('square-d', '正方形片 D', 'square', 'ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄆㄧㄢˋ'),
+        grade1ShapeCopyPiece('triangle-a', '三角形片', 'triangle', 'ㄙㄢ ㄐㄧㄠˇ ㄒㄧㄥˊ ㄆㄧㄢˋ'),
       ]),
       shapeRules: Object.freeze({ rows: 2, columns: 2, correctPieceIds: ['square-a', 'square-b', 'square-c', 'square-d'] }),
-      hints: Object.freeze(['先數一數拼圖板有幾格，想想要放幾片。', '每格都要放一片相同形狀的正方形；三角形片不符合提示。']),
-      incorrectFeedback: '拼圖板還需要四個相同形狀的圖形片。請檢查有沒有留空，或放進不同形狀的片。',
-      correctFeedback: '你用四片正方形填滿拼圖板。接著試著複製較長的圖形排列。',
+      hints: Object.freeze([
+        grade1ShapeCopyText('先數一數，一共有幾格。', 'ㄒㄧㄢ ㄕㄨˇ ㄧ˙ ㄕㄨˇ ㄧˊ ㄍㄨㄥˋ ㄧㄡˇ ㄐㄧˇ ㄍㄜˊ'),
+        grade1ShapeCopyText('每一格都要放正方形，不要放三角形。', 'ㄇㄟˇ ㄧˋ ㄍㄜˊ ㄉㄡ ㄧㄠˋ ㄈㄤˋ ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄅㄨˊ ㄧㄠˋ ㄈㄤˋ ㄙㄢ ㄐㄧㄠˇ ㄒㄧㄥˊ'),
+      ]),
+      incorrectFeedback: '再看一次。每一格都要放正方形，不要放三角形。',
+      incorrectFeedbackPronunciationTokens: grade1ShapeCopyText('再看一次。每一格都要放正方形，不要放三角形。', 'ㄗㄞˋ ㄎㄢˋ ㄧˊ ㄘˋ ㄇㄟˇ ㄧˋ ㄍㄜˊ ㄉㄡ ㄧㄠˋ ㄈㄤˋ ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄅㄨˊ ㄧㄠˋ ㄈㄤˋ ㄙㄢ ㄐㄧㄠˇ ㄒㄧㄥˊ').pronunciationTokens,
+      correctFeedback: '答對了！你用 4 片正方形把格子填滿了。',
+      correctFeedbackPronunciationTokens: grade1ShapeCopyText('答對了！你用 4 片正方形把格子填滿了。', 'ㄉㄚˊ ㄉㄨㄟˋ ˙ㄌㄜ ㄋㄧˇ ㄩㄥˋ ㄆㄧㄢˋ ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄅㄚˇ ㄍㄜˊ ˙ㄗ ㄊㄧㄢˊ ㄇㄢˇ ˙ㄌㄜ').pronunciationTokens,
     }),
     Object.freeze({
       stageId: 'copy-three-by-two-rectangle', interaction: 'compose_shape',
-      prompt: '把六塊一樣大小的正方形片放滿 3 排、每排 2 格的長方形拼圖板。',
+      prompt: '拼圖板有 3 排，每排 2 格。選 6 片正方形，把格子填滿。',
+      promptPronunciationTokens: grade1ShapeCopyText('拼圖板有 3 排，每排 2 格。選 6 片正方形，把格子填滿。', 'ㄆㄧㄣ ㄊㄨˊ ㄅㄢˇ ㄧㄡˇ ㄆㄞˊ ㄇㄟˇ ㄆㄞˊ ㄍㄜˊ ㄒㄩㄢˇ ㄆㄧㄢˋ ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄅㄚˇ ㄍㄜˊ ˙ㄗ ㄊㄧㄢˊ ㄇㄢˇ').pronunciationTokens,
+      studentOperationGuidance: '怎麼玩：① 點圖形片放進格子 → ② 點已放的圖形片可以取回 → ③ 填滿後檢查答案',
+      studentOperationGuidancePronunciationTokens: grade1ShapeCopyText('怎麼玩：① 點圖形片放進格子 → ② 點已放的圖形片可以取回 → ③ 填滿後檢查答案', 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄉㄧㄢˇ ㄊㄨˊ ㄒㄧㄥˊ ㄆㄧㄢˋ ㄈㄤˋ ㄐㄧㄣˋ ㄍㄜˊ ˙ㄗ ㄉㄧㄢˇ ㄧˇ ㄈㄤˋ ˙ㄉㄜ ㄊㄨˊ ㄒㄧㄥˊ ㄆㄧㄢˋ ㄎㄜˇ ㄧˇ ㄑㄩˇ ㄏㄨㄟˊ ㄊㄧㄢˊ ㄇㄢˇ ㄏㄡˋ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ').pronunciationTokens,
       pieces: Object.freeze([
-        Object.freeze({ id: 'tile-a', label: '正方形片 A', shape: 'square' }),
-        Object.freeze({ id: 'tile-b', label: '正方形片 B', shape: 'square' }),
-        Object.freeze({ id: 'tile-c', label: '正方形片 C', shape: 'square' }),
-        Object.freeze({ id: 'tile-d', label: '正方形片 D', shape: 'square' }),
-        Object.freeze({ id: 'tile-e', label: '正方形片 E', shape: 'square' }),
-        Object.freeze({ id: 'tile-f', label: '正方形片 F', shape: 'square' }),
-        Object.freeze({ id: 'triangle-b', label: '三角形片', shape: 'triangle' }),
+        grade1ShapeCopyPiece('tile-a', '正方形片 A', 'square', 'ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄆㄧㄢˋ'),
+        grade1ShapeCopyPiece('tile-b', '正方形片 B', 'square', 'ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄆㄧㄢˋ'),
+        grade1ShapeCopyPiece('tile-c', '正方形片 C', 'square', 'ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄆㄧㄢˋ'),
+        grade1ShapeCopyPiece('tile-d', '正方形片 D', 'square', 'ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄆㄧㄢˋ'),
+        grade1ShapeCopyPiece('tile-e', '正方形片 E', 'square', 'ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄆㄧㄢˋ'),
+        grade1ShapeCopyPiece('tile-f', '正方形片 F', 'square', 'ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄆㄧㄢˋ'),
+        grade1ShapeCopyPiece('triangle-b', '三角形片', 'triangle', 'ㄙㄢ ㄐㄧㄠˇ ㄒㄧㄥˊ ㄆㄧㄢˋ'),
       ]),
       shapeRules: Object.freeze({ rows: 3, columns: 2, correctPieceIds: ['tile-a', 'tile-b', 'tile-c', 'tile-d', 'tile-e', 'tile-f'] }),
-      hints: Object.freeze(['先看拼圖板有幾排，再看每排有幾格。', '六個空格都要放入正方形片；逐排檢查有沒有空格或不同形狀。']),
-      incorrectFeedback: '請逐排檢查六個位置。留空或放入三角形片，都沒有照格形複製。',
-      correctFeedback: '你完成了另一種平面拼貼排列。這是螢幕模擬，不代表實體拼貼或立體堆疊能力已確認。',
+      hints: Object.freeze([
+        grade1ShapeCopyText('先數一數，一共有幾格。', 'ㄒㄧㄢ ㄕㄨˇ ㄧ˙ ㄕㄨˇ ㄧˊ ㄍㄨㄥˋ ㄧㄡˇ ㄐㄧˇ ㄍㄜˊ'),
+        grade1ShapeCopyText('每一格都要放正方形，不要放三角形。', 'ㄇㄟˇ ㄧˋ ㄍㄜˊ ㄉㄡ ㄧㄠˋ ㄈㄤˋ ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄅㄨˊ ㄧㄠˋ ㄈㄤˋ ㄙㄢ ㄐㄧㄠˇ ㄒㄧㄥˊ'),
+      ]),
+      incorrectFeedback: '再看一次。每一格都要放正方形，不要放三角形。',
+      incorrectFeedbackPronunciationTokens: grade1ShapeCopyText('再看一次。每一格都要放正方形，不要放三角形。', 'ㄗㄞˋ ㄎㄢˋ ㄧˊ ㄘˋ ㄇㄟˇ ㄧˋ ㄍㄜˊ ㄉㄡ ㄧㄠˋ ㄈㄤˋ ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄅㄨˊ ㄧㄠˋ ㄈㄤˋ ㄙㄢ ㄐㄧㄠˇ ㄒㄧㄥˊ').pronunciationTokens,
+      correctFeedback: '答對了！你用 6 片正方形把格子填滿了。',
+      correctFeedbackPronunciationTokens: grade1ShapeCopyText('答對了！你用 6 片正方形把格子填滿了。', 'ㄉㄚˊ ㄉㄨㄟˋ ˙ㄌㄜ ㄋㄧˇ ㄩㄥˋ ㄆㄧㄢˋ ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄅㄚˇ ㄍㄜˊ ˙ㄗ ㄊㄧㄢˊ ㄇㄢˇ ˙ㄌㄜ').pronunciationTokens,
+      teacherLimitationNote: '本活動為螢幕模擬，不代表實體拼貼或立體堆疊能力已確認。',
     }),
   ]),
   ...noReinforcement, evidencePolicy, teacherReview: notReviewed,

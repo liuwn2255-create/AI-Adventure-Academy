@@ -132,6 +132,38 @@ function appendClassifyObservationsUiText(parent, text, appendStudentText) {
   appendStudentText(parent, text, classifyObservationsUiPronunciationTokens(text));
 }
 
+const COMPOSE_SHAPE_UI_PRONUNCIATION = Object.freeze({
+  '拼圖板：': 'ㄆㄧㄣ ㄊㄨˊ ㄅㄢˇ',
+  ' 排 × ': 'ㄆㄞˊ',
+  ' 格': 'ㄍㄜˊ',
+  '已放 ': 'ㄧˇ ㄈㄤˋ',
+  ' 片': 'ㄆㄧㄢˋ',
+  '空格': 'ㄎㄨㄥ ㄍㄜˊ',
+  '還要放 ': 'ㄏㄞˊ ㄧㄠˋ ㄈㄤˋ',
+  ' 片。': 'ㄆㄧㄢˋ',
+  '可以檢查答案了。': 'ㄎㄜˇ ㄧˇ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ ㄌㄜ˙',
+  '檢查拼圖': 'ㄐㄧㄢˇ ㄔㄚˊ ㄆㄧㄣ ㄊㄨˊ',
+});
+
+function composeShapeUiPronunciationTokens(text) {
+  const readings = COMPOSE_SHAPE_UI_PRONUNCIATION[text];
+  if (!readings) return undefined;
+  const readingList = readings.split(/\s+/u);
+  let readingIndex = 0;
+  const tokens = Array.from(text, (character) => {
+    if (!/\p{Script=Han}/u.test(character)) return { text: character };
+    const reading = readingList[readingIndex++];
+    if (!reading) throw new Error(`Missing compose_shape UI pronunciation for ${character} in ${text}`);
+    return { text: character, reading };
+  });
+  if (readingIndex !== readingList.length) throw new Error(`Extra compose_shape UI pronunciation for ${text}`);
+  return tokens;
+}
+
+function appendComposeShapeUiText(parent, text, appendStudentText) {
+  appendStudentText(parent, text, composeShapeUiPronunciationTokens(text));
+}
+
 function playBuildArrayFeedbackTone(delta) {
   const AudioContextConstructor = globalThis.AudioContext ?? globalThis.webkitAudioContext;
   if (typeof AudioContextConstructor !== 'function') return;
@@ -1156,6 +1188,10 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   const answerCount = stage.correctOptionIds?.length ?? (stage.correctOptionId ? 1 : 0);
   const lowGradeBuildArray = stage.interaction === 'build_array' && isLowGradeReadingAssistanceEnabled(activity.gradeId);
   const lowGradeAssembleResponse = stage.interaction === 'assemble_response' && isLowGradeReadingAssistanceEnabled(activity.gradeId);
+  const lowGradeComposeShape = stage.interaction === 'compose_shape' && isLowGradeReadingAssistanceEnabled(activity.gradeId);
+  const composeShapeCapacity = stage.interaction === 'compose_shape'
+    ? stage.shapeRules.rows * stage.shapeRules.columns
+    : null;
   const lowGradeClassifyObservations = stage.interaction === 'classify_observations'
     && isLowGradeReadingAssistanceEnabled(activity.gradeId)
     && !stage.collectionRules;
@@ -1170,6 +1206,10 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     : stage.interaction === 'build_array'
       ? isLowGradeReadingAssistanceEnabled(activity.gradeId)
         ? '怎麼玩：① 按按鈕排果子 → ② 看排數和每排幾個 → ③ 排好後檢查答案'
+        : '操作方式：① 操作 → ② 觀察 → ③ 作答'
+    : stage.interaction === 'compose_shape'
+      ? lowGradeComposeShape
+        ? stage.studentOperationGuidance ?? '操作方式：① 操作 → ② 觀察 → ③ 作答'
         : '操作方式：① 操作 → ② 觀察 → ③ 作答'
     : stage.interaction === 'choose_response'
       ? stage.selectionMode === 'multiple' ? '作答方式：這題可以選多個答案' : '作答方式：請選 1 個答案'
@@ -1194,6 +1234,8 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   if (lowGradeAssembleResponse && Array.isArray(stage.studentOperationGuidancePronunciationTokens)) {
     appendStudentText(responseGuidanceNode, responseGuidance, stage.studentOperationGuidancePronunciationTokens);
   } else if (lowGradeClassifyObservations && Array.isArray(stage.studentOperationGuidancePronunciationTokens)) {
+    appendStudentText(responseGuidanceNode, responseGuidance, stage.studentOperationGuidancePronunciationTokens);
+  } else if (lowGradeComposeShape && Array.isArray(stage.studentOperationGuidancePronunciationTokens)) {
     appendStudentText(responseGuidanceNode, responseGuidance, stage.studentOperationGuidancePronunciationTokens);
   } else if (lowGradeBuildArray) appendBuildArrayUiText(responseGuidanceNode, responseGuidance, appendStudentText);
   else responseGuidanceNode.textContent = responseGuidance;
@@ -1999,15 +2041,34 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   }
   if (session.phase === 'active' && stage.interaction === 'compose_shape') {
     const panel = element('section', 'candidate-response-build geometry-composer');
-    const selectionCount = stage.shapeRules.selectionCount ?? stage.shapeRules.rows * stage.shapeRules.columns;
-    panel.append(element('strong', '', `拼圖板：${stage.shapeRules.rows} 排 × ${stage.shapeRules.columns} 格（已選 ${session.selection.length}/${selectionCount} 塊）`));
+    const selectionCount = composeShapeCapacity;
+    if (lowGradeComposeShape) {
+      const boardTitle = element('strong', '');
+      appendComposeShapeUiText(boardTitle, '拼圖板：', appendStudentText);
+      appendStudentText(boardTitle, String(stage.shapeRules.rows));
+      appendComposeShapeUiText(boardTitle, ' 排 × ', appendStudentText);
+      appendStudentText(boardTitle, String(stage.shapeRules.columns));
+      appendComposeShapeUiText(boardTitle, ' 格', appendStudentText);
+      const boardProgress = element('p', 'candidate-shape-progress');
+      appendComposeShapeUiText(boardProgress, '已放 ', appendStudentText);
+      appendStudentText(boardProgress, String(session.selection.length));
+      appendStudentText(boardProgress, ' / ');
+      appendStudentText(boardProgress, String(selectionCount));
+      appendComposeShapeUiText(boardProgress, ' 片', appendStudentText);
+      panel.append(boardTitle, boardProgress);
+    } else panel.append(element('strong', '', `拼圖板：${stage.shapeRules.rows} 排 × ${stage.shapeRules.columns} 格（已選 ${session.selection.length}/${selectionCount} 塊）`));
     const board = element('div', 'geometry-composition-grid');
     board.style.gridTemplateColumns = `repeat(${stage.shapeRules.columns}, minmax(36px, 1fr))`;
     for (let slot = 0; slot < stage.shapeRules.rows * stage.shapeRules.columns; slot += 1) {
       const pieceId = session.selection[slot];
       const piece = stage.pieces.find(({ id }) => id === pieceId);
       const cell = element('div', `geometry-composition-cell${piece ? ' is-filled' : ''}`);
-      if (piece) cell.append(createGeometryPiece(piece)); else cell.append(element('span', 'geometry-slot-empty', '放入圖形片'));
+      if (piece) cell.append(createGeometryPiece(piece));
+      else if (lowGradeComposeShape) {
+        const empty = element('span', 'geometry-slot-empty');
+        appendComposeShapeUiText(empty, '空格', appendStudentText);
+        cell.append(empty);
+      } else cell.append(element('span', 'geometry-slot-empty', '放入圖形片'));
       board.append(cell);
     }
     panel.append(board);
@@ -2016,7 +2077,10 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       const selected = session.selection.includes(piece.id);
       const tile = element('button', `candidate-token geometry-piece-button${selected ? ' is-selected' : ''}`);
       tile.type = 'button'; tile.setAttribute('aria-pressed', String(selected)); tile.setAttribute('aria-label', `${piece.label}${selected ? '，已放入拼圖板' : ''}`);
-      tile.append(createGeometryPiece(piece), element('span', '', piece.label));
+      const pieceLabel = element('span', '');
+      if (lowGradeComposeShape) appendStudentText(pieceLabel, piece.label, piece.pronunciationTokens);
+      else pieceLabel.textContent = piece.label;
+      tile.append(createGeometryPiece(piece), pieceLabel);
       tile.addEventListener('click', () => dispatch('toggle_shape_piece', { pieceId: piece.id }));
       tray.append(tile);
     }
@@ -2936,12 +3000,14 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
             : stage.magnetRules.mode === 'materials' ? stage.magnetRules.materials.every(({ id }) => session.magnetModel?.testedObjectIds.includes(id) && session.magnetModel.assignments[id])
               : stage.magnetRules.magnets.every(({ id }) => session.magnetModel?.testedMagnetIds.includes(id)) && Boolean(session.magnetModel?.selectedStrongerMagnetId)
         : session.selection.length > 0;
-    const submitLabel = lowGradeClassifyObservations ? '檢查分類'
+    const submitLabel = lowGradeComposeShape ? '檢查拼圖'
+      : lowGradeClassifyObservations ? '檢查分類'
       : stage.interaction === 'choose_response' && isLowGradeReadingAssistanceEnabled(activity.gradeId) ? '檢查答案'
         : stage.interaction === 'magnet_interaction' && stage.magnetRules.mode === 'materials' ? '檢查答案' : taskKind === 'english' ? '送出英文回應' : taskKind === 'chinese' ? '檢查答案' : taskKind === 'mathData' ? '完成資料表' : taskKind === 'math' ? '檢查數學解法' : taskKind === 'science' ? '檢查觀察與分類' : taskKind === 'arts' ? '檢查節奏作品' : taskKind === 'living' ? '提交觀察線索' : taskKind === 'hpe' ? '檢查安全分類' : taskKind === 'integrative' ? '檢查步驟順序' : '檢查分類';
     const submit = element('button', 'button button-primary');
     submit.type = 'button'; submit.disabled = !hasResponse;
     if (lowGradeAssembleResponse) appendAssembleUiText(submit, submitLabel, appendStudentText);
+    else if (lowGradeComposeShape) appendComposeShapeUiText(submit, submitLabel, appendStudentText);
     else if (lowGradeClassifyObservations || (stage.interaction === 'choose_response' && isLowGradeReadingAssistanceEnabled(activity.gradeId))) appendClassifyObservationsUiText(submit, submitLabel, appendStudentText);
     else submit.textContent = submitLabel;
     submit.addEventListener('click', () => dispatch('submit', { submissionId: `${session.sessionId}:submission:${session.attempts.length + 1}` }));
@@ -2950,7 +3016,8 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     const hasSpecificReadiness = stage.interaction === 'magnet_interaction' && stage.magnetRules.mode === 'materials';
     const hasLowGradeAssembleCount = lowGradeAssembleResponse && Number.isInteger(stage.requiredSelectionCount);
     const hasLowGradeClassificationProgress = lowGradeClassifyObservations && Boolean(classificationProgress);
-    if ((!hasResponse || hasLowGradeAssembleCount || hasLowGradeClassificationProgress) && !hasSpecificReadiness) {
+    const hasLowGradeComposeProgress = lowGradeComposeShape && Number.isInteger(composeShapeCapacity);
+    if ((!hasResponse || hasLowGradeAssembleCount || hasLowGradeClassificationProgress || hasLowGradeComposeProgress) && !hasSpecificReadiness) {
       let readinessText = '還沒完成喔！完成上面的作答後，就可以檢查答案。';
       if (hasLowGradeAssembleCount) {
         const remainingCount = stage.requiredSelectionCount - session.selection.length;
@@ -2958,6 +3025,9 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       } else if (hasLowGradeClassificationProgress) {
         const remainingCount = classificationProgress.totalCount - classificationProgress.completedCount;
         readinessText = remainingCount > 0 ? `還要分 ${remainingCount} 張。` : '可以檢查答案了。';
+      } else if (hasLowGradeComposeProgress) {
+        const remainingCount = composeShapeCapacity - session.selection.length;
+        readinessText = remainingCount > 0 ? `還要放 ${remainingCount} 片。` : '可以檢查答案了。';
       } else if (stage.interaction === 'collect_evidence' && Number.isInteger(stage.requiredSelectionCount)) {
         const remainingCount = stage.requiredSelectionCount - session.selection.length;
         readinessText = `還差 ${remainingCount} 項，完成後就可以檢查答案。`;
@@ -2983,6 +3053,14 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
           appendStudentText(readiness, String(remainingCount));
           appendClassifyObservationsUiText(readiness, ' 張。', appendStudentText);
         } else appendClassifyObservationsUiText(readiness, '可以檢查答案了。', appendStudentText);
+      } else if (hasLowGradeComposeProgress) {
+        readiness.textContent = '';
+        const remainingCount = composeShapeCapacity - session.selection.length;
+        if (remainingCount > 0) {
+          appendComposeShapeUiText(readiness, '還要放 ', appendStudentText);
+          appendStudentText(readiness, String(remainingCount));
+          appendComposeShapeUiText(readiness, ' 片。', appendStudentText);
+        } else appendComposeShapeUiText(readiness, '可以檢查答案了。', appendStudentText);
       }
       readiness.id = readinessId;
       submit.setAttribute('aria-describedby', readinessId);

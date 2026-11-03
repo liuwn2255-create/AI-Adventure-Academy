@@ -114,24 +114,39 @@ test('完成畫面顯示簡短成果並可回遊戲選單，磁力活動仍使�
   assert.match(renderer, /dispatchLearningTask\(session, activity, action, payload\)/);
 });
 
-test('共用提交就緒提示只依既有 hasResponse 與可靠分類進度呈現', () => {
+test('共用提交就緒提示依 response 與各互動自己的低年級完成進度呈現', () => {
   const lowGradeClassifyStart = renderer.indexOf('const lowGradeClassifyObservations =');
   const lowGradeClassifyEnd = renderer.indexOf('const responseGuidance =', lowGradeClassifyStart);
   const lowGradeClassifyScope = renderer.slice(lowGradeClassifyStart, lowGradeClassifyEnd);
+  const lowGradeComposeStart = renderer.indexOf('const lowGradeComposeShape =');
+  const lowGradeComposeEnd = renderer.indexOf('const composeShapeCapacity =', lowGradeComposeStart);
+  const lowGradeComposeScope = renderer.slice(lowGradeComposeStart, lowGradeComposeEnd);
   const submitFlowStart = renderer.indexOf('const submitLabel =');
   const submitFlowEnd = renderer.indexOf('host.append(controls)', submitFlowStart);
   const submitFlow = renderer.slice(submitFlowStart, submitFlowEnd);
   assert.ok(lowGradeClassifyStart >= 0 && lowGradeClassifyEnd > lowGradeClassifyStart);
+  assert.ok(lowGradeComposeStart >= 0 && lowGradeComposeEnd > lowGradeComposeStart);
   assert.ok(submitFlowStart >= 0 && submitFlowEnd > submitFlowStart);
   assert.match(lowGradeClassifyScope, /stage\.interaction === 'classify_observations'[\s\S]*?isLowGradeReadingAssistanceEnabled\(activity\.gradeId\)[\s\S]*?!stage\.collectionRules/);
   assert.doesNotMatch(lowGradeClassifyScope, /choose_response|assemble_response/);
+  assert.match(lowGradeComposeScope, /stage\.interaction === 'compose_shape' && isLowGradeReadingAssistanceEnabled\(activity\.gradeId\)/);
+  assert.doesNotMatch(lowGradeComposeScope, /choose_response|assemble_response|classify_observations/);
   assert.match(submitFlow, /submit\.disabled = !hasResponse/);
   assert.match(submitFlow, /const hasLowGradeAssembleCount = lowGradeAssembleResponse && Number\.isInteger\(stage\.requiredSelectionCount\)/);
   assert.match(submitFlow, /const hasLowGradeClassificationProgress = lowGradeClassifyObservations && Boolean\(classificationProgress\)/);
-  assert.match(submitFlow, /if \(\(!hasResponse \|\| hasLowGradeAssembleCount \|\| hasLowGradeClassificationProgress\) && !hasSpecificReadiness\)/);
+  assert.match(submitFlow, /const hasLowGradeComposeProgress = lowGradeComposeShape && Number\.isInteger\(composeShapeCapacity\)/);
+  assert.match(submitFlow, /if \(\(!hasResponse \|\| hasLowGradeAssembleCount \|\| hasLowGradeClassificationProgress \|\| hasLowGradeComposeProgress\) && !hasSpecificReadiness\)/);
   assert.match(submitFlow, /if \(hasLowGradeAssembleCount\)[\s\S]*?remainingCount > 0 \? `還要選 \$\{remainingCount\} 張。` : '可以檢查答案了。'[\s\S]*?else if \(stage\.interaction === 'collect_evidence'/);
   assert.match(submitFlow, /else if \(hasLowGradeClassificationProgress\)[\s\S]*?remainingCount > 0 \? `還要分 \$\{remainingCount\} 張。` : '可以檢查答案了。'/);
   assert.match(submitFlow, /else if \(hasLowGradeClassificationProgress\)[\s\S]*?appendClassifyObservationsUiText\(readiness, '可以檢查答案了。'/);
+  const composeReadinessStart = submitFlow.indexOf('const hasLowGradeComposeProgress =');
+  const composeReadinessEnd = submitFlow.indexOf("if (stage.interaction === 'magnet_interaction'", composeReadinessStart);
+  const composeReadiness = submitFlow.slice(composeReadinessStart, composeReadinessEnd);
+  assert.ok(composeReadinessStart >= 0 && composeReadinessEnd > composeReadinessStart);
+  assert.match(composeReadiness, /remainingCount = composeShapeCapacity - session\.selection\.length/);
+  assert.match(composeReadiness, /remainingCount > 0 \? `還要放 \$\{remainingCount\} 片。` : '可以檢查答案了。'/);
+  assert.match(composeReadiness, /appendComposeShapeUiText\(readiness, '可以檢查答案了。', appendStudentText\)/);
+  assert.doesNotMatch(composeReadiness, /correctPieceIds|correctPieceOrder/);
   assert.match(submitFlow, /還沒完成喔！完成上面的作答後，就可以檢查答案。/);
   assert.match(submitFlow, /classificationProgress && !stage\.collectionRules/);
   assert.match(submitFlow, /還差 \$\{remainingCount\} 個項目，完成後就可以檢查答案。/);
