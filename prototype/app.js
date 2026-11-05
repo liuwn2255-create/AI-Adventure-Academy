@@ -9,7 +9,7 @@ import { createExplorerPosition, getNearbyObject, interactWithObject, ISLAND_OBJ
 import { canStartNumberSecret, isNumberSecretTreasureUnlocked, NUMBER_SECRET_QUEST_ID } from './numberSecretFlow.js';
 import { CAPACITY_MISSION_CONFIG, CAPACITY_OBSERVATION_SCENARIOS, createCapacityMission, createCapacityObservationSession, createCapacityOnboarding } from './capacityMission.js';
 import { GRADE_CATALOG, getGradeById } from './data/gradeCatalog.js';
-import { CURRICULUM_FRAMEWORK_SOURCE, ELEMENTARY_CURRICULUM_AREAS, GRADE1_SUBJECT_DIRECTORY_GROUPS, GRADE12_DIRECTORY_PRONUNCIATION, SUBJECT_DEFINITIONS, getLearningTaskRelation } from './data/elementaryLearningCatalog.js';
+import { CURRICULUM_FRAMEWORK_SOURCE, ELEMENTARY_CURRICULUM_AREAS, GRADE1_SUBJECT_DIRECTORY_GROUPS, GRADE2_SUBJECT_DIRECTORY_GROUPS, GRADE12_DIRECTORY_PRONUNCIATION, SUBJECT_DEFINITIONS, getLearningTaskRelation } from './data/elementaryLearningCatalog.js';
 import { MOVEMENT_KEYS, createMovementHoldController } from './movementControls.js';
 import { NUMBER_SECRET_LEARNING_UNIT, NUMBER_SECRET_V2_CANDIDATE_SET } from './data/numberSecretLearningUnit.js';
 import { NUMBER_COMPARISON_LEARNING_UNIT } from './data/numberComparisonLearningUnit.js';
@@ -592,8 +592,13 @@ function renderGradeSelection() {
     });
     directory.append(button);
   };
-  if (grade.gradeNumber === 1) {
-    for (const group of GRADE1_SUBJECT_DIRECTORY_GROUPS) {
+  const subjectDirectoryGroups = grade.gradeNumber === 1
+    ? GRADE1_SUBJECT_DIRECTORY_GROUPS
+    : grade.gradeNumber === 2
+      ? GRADE2_SUBJECT_DIRECTORY_GROUPS
+      : null;
+  if (subjectDirectoryGroups) {
+    for (const group of subjectDirectoryGroups) {
       const section = document.createElement('section');
       section.className = 'grade-subject-directory-group';
       section.setAttribute('aria-labelledby', `grade-subject-group-${group.groupId}`);

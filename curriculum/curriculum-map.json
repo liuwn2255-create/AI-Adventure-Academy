@@ -3280,6 +3280,54 @@
         "校本課程進度及教材版本／冊次／頁碼",
         "教師對飲食情境、多元家庭飲食及健康內容的審查"
       ]
+    },
+    {
+      "id": "health-pe-stage1-school-activity-space-resources",
+      "subject": "health_and_physical_education",
+      "focus": "第一學習階段校園運動空間與活動資源候選局部對照 Cb-Ⅰ-3 學校運動活動空間與場域，以及 4c-Ⅰ-1 認識與身體活動相關資源。閱讀示意校園圖例、辨識活動空間是候選教學設計延伸，非官方指定教學方法；數位練習不評量實際場地辨識、使用或身體活動能力。",
+      "gradeRange": [
+        1,
+        2
+      ],
+      "stagePerformanceRange": [
+        1,
+        2
+      ],
+      "sourceId": "health-physical-education",
+      "performanceCodes": [
+        "4c-Ⅰ-1"
+      ],
+      "performanceTexts": [
+        "認識與身體活動相關資源。"
+      ],
+      "contentCodes": [
+        "Cb-Ⅰ-3"
+      ],
+      "contentTexts": [
+        "學校運動活動空間與場域。"
+      ],
+      "page": "伍／四／國民小學教育階段學習表現 4c-Ⅰ-1（PDF頁序26／印刷頁23）；學習內容 Cb-Ⅰ-3（PDF頁序27／印刷頁24）。",
+      "status": "pending_review",
+      "officialTextReviewStatus": "verified_against_official_text",
+      "gradeApplicabilityStatus": "stage_1_grade_1_to_2_local_textbook_and_schedule_pending",
+      "sourceUrl": "https://stv.naer.edu.tw/data/course_outline/pta_18522_1560772_59945.pdf",
+      "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－健康與體育領域",
+      "pageOrSection": "伍／四／國民小學教育階段學習表現 4c-Ⅰ-1（PDF頁序26／印刷頁23）；學習內容 Cb-Ⅰ-3（PDF頁序27／印刷頁24）。第一學習階段涵蓋一、二年級，不指定二年級學期或校本教學順序。",
+      "reviewer": "官方 PDF 條文核對（非教師／課程專業核准）",
+      "reviewDate": "2026-11-05",
+      "verifiedClauses": [
+        "4c-Ⅰ-1",
+        "Cb-Ⅰ-3"
+      ],
+      "candidateAlignmentStatus": "partial_reference_pending_teacher_review",
+      "coverageLimitations": [
+        "示意地圖只練習辨認圖例及活動空間，不代表學生能辨識或使用真實校園場地。",
+        "閱讀校園示意圖是活動設計延伸，不是官方條文明定的方法。"
+      ],
+      "missingEvidence": [
+        "二年級校本課程進度及教材版本／冊次／頁碼",
+        "教師對校園圖例、場域名稱及活動情境的審查"
+      ]
     }
   ],
   "pendingLearningFocuses": [

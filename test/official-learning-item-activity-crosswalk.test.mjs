@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { buildOfficialLearningItemCrosswalk, validateOfficialLearningItemCrosswalk } from '../scripts/official-learning-item-activity-crosswalk.mjs';
+import { GRADE_CATALOG } from '../prototype/data/gradeCatalog.js';
+import { getGradeAdventureSummary } from '../prototype/data/gradeActivityDirectory.js';
 
 test('official item crosswalk preserves the bounded 131-row math inventory and real activity evidence', () => {
   const report = buildOfficialLearningItemCrosswalk();
@@ -15,8 +17,9 @@ test('official item crosswalk preserves the bounded 131-row math inventory and r
   assert.equal(report.scope.fullyEnumeratedOfficialDocumentFamilyCount, 0);
   assert.equal(report.scope.officialElementaryItemTotal, null);
   assert.equal(report.scope.nationalCoverageRate, null);
-  assert.equal(report.registeredProjectFocusCrosswalk.length, 149);
-  assert.equal(report.actualRegisteredActivities.length, 152);
+  assert.equal(report.registeredProjectFocusCrosswalk.length, report.scope.registeredProjectFocusRows);
+  const catalogActivityIds = GRADE_CATALOG.flatMap((grade) => getGradeAdventureSummary(grade).subjects.flatMap((subject) => subject.activities.map(({ activityId }) => activityId))).sort();
+  assert.deepEqual(report.actualRegisteredActivities.map(({ activityId }) => activityId).sort(), catalogActivityIds);
   assert.ok(report.mathOfficialLearningContentItems.find(({ officialCode }) => officialCode === 'N-2-4').activityIds.includes('ACT-G2-MATH-LIFE-ESTIMATION-HUNDREDS-CANDIDATE'));
   assert.ok(report.mathOfficialLearningContentItems.find(({ officialCode }) => officialCode === 'N-2-11').activityIds.includes('ACT-G2-MATH-LENGTH-MEASURE-CONVERT-CANDIDATE'));
   const moneyItem = report.mathOfficialLearningContentItems.find(({ officialCode }) => officialCode === 'N-2-5');

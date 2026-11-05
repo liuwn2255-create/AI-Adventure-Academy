@@ -1,3 +1,4 @@
+import { reviewedTitlePronunciationTokens } from './reviewedTitlePronunciation.js';
 import { AREA_GRID_CONSTRUCTION_WORKSHOP } from './areaGridConstructionWorkshop.js';
 import { WEIGHT_MEASUREMENT_ADVENTURE } from './weightMeasurementAdventure.js';
 
@@ -126,7 +127,7 @@ export const MATH_CURRICULUM_GAP_TASKS = freeze([
   }),
   task({
     activityId: 'ACT-G2-MATH-CLOCK-HANDS-CANDIDATE',
-    title: '鐘面任務台：轉動時針與分針', gradeId: 'grade-2', subjectId: 'mathematics',
+    title: '鐘面任務台：轉動時針與分針', titlePronunciationTokens: reviewedTitlePronunciationTokens('鐘面任務台：轉動時針與分針', 'ㄓㄨㄥ ㄇㄧㄢˋ ㄖㄣˋ ㄨˋ ㄊㄞˊ ㄓㄨㄢˇ ㄉㄨㄥˋ ㄕˊ ㄓㄣ ㄩˇ ㄈㄣ ㄓㄣ'), gradeId: 'grade-2', subjectId: 'mathematics',
     curriculumMapId: 'math-grade2-clock-time-read', curriculumCodes: ['N-2-13', 'n-I-9'],
     curriculumScope: '官方 N-2-13 要求以鐘面操作認識「幾時幾分」、加強五個一數與整時點數，不含秒針。本活動以畫面手動調整兩根指針練習指定時刻及整時點數；不是實體鐘面操作，也不含時間間隔計算。',
     learningSubitemClaims: ['SUB-MATH-G2-N2-13-CLOCK-HOUR-MINUTE-HANDS'],
@@ -256,7 +257,7 @@ export const MATH_CURRICULUM_GAP_TASKS = freeze([
   }),
   task({
     activityId: 'ACT-G2-MATH-SHARE-AND-PACK-PORT-CANDIDATE',
-    title: '補給分裝港：平分與分裝', gradeId: 'grade-2', subjectId: 'mathematics',
+    title: '補給分裝港：平分與分裝', titlePronunciationTokens: reviewedTitlePronunciationTokens('補給分裝港：平分與分裝', 'ㄅㄨˇ ㄐㄧˇ ㄈㄣ ㄓㄨㄤ ㄍㄤˇ ㄆㄧㄥˊ ㄈㄣ ㄩˇ ㄈㄣ ㄓㄨㄤ'), gradeId: 'grade-2', subjectId: 'mathematics',
     curriculumMapId: 'math-grade2-division-sharing-n2-9', curriculumCodes: ['N-2-9', 'n-I-4'],
     curriculumScope: '部分對應官方 N-2-9 與第一學習階段表現 n-I-4：將螢幕物件逐一分配到角色或袋子，觀察平分的每份量與每包固定數量時的包數，連結乘法模式。依官方備註只用十十乘法範圍內可整除的情境；不寫除式、不稱為除法教學、不含餘數，也不替代花片等實物操作。',
     learningSubitemClaims: ['SUB-MATH-G2-N2-9-SHARING-AND-PACKING-MODEL'],

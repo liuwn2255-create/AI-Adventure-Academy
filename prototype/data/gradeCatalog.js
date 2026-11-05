@@ -189,6 +189,8 @@ const CATALOG_TASK_MODULES = Object.freeze({
   'ACT-G1-HPE-SAFE-WARMUP-MOVEMENT-CANDIDATE': 'grade1HpeExpansionActivities.js',
   'ACT-G1-HPE-ACTIVITY-CHOICE-BENEFITS-CANDIDATE': 'grade1HpeExpansionActivities.js',
   'ACT-G1-HPE-FOOD-DIET-HABITS-CANDIDATE': 'grade1HpeExpansionActivities.js',
+  'ACT-G2-HPE-WARMUP-SEQUENCE-CANDIDATE': 'grade2HpeExpansionActivities.js',
+  'ACT-G2-HPE-SCHOOL-ACTIVITY-MAP-CANDIDATE': 'grade2HpeExpansionActivities.js',
   'ACT-G2-MATH-LIFE-ESTIMATION-HUNDREDS-CANDIDATE': 'grade2EstimationAndLengthWorkshops.js',
   'ACT-G2-MATH-LENGTH-MEASURE-CONVERT-CANDIDATE': 'grade2EstimationAndLengthWorkshops.js',
   'ACT-G2-LIVING-CAMPUS-OBSERVATION-CANDIDATE': 'livingCurriculumObservationQuest.js',

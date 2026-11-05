@@ -1,3 +1,5 @@
+import { reviewedTitlePronunciationTokens } from './reviewedTitlePronunciation.js';
+
 const candidate = 'candidate_pending_teacher_review';
 const review = Object.freeze({ status: 'not_reviewed', reviewer: null, reviewedAt: null });
 const evidencePolicy = Object.freeze({ persistence: 'memory_only_no_student_records_no_localStorage', completionIsMastery: false, hintAssistedResponseIsIndependentEvidence: false });
@@ -7,6 +9,7 @@ export const GRADE2_UNKNOWN_QUANTITY_WORKSHOP = Object.freeze({
   activityId: 'ACT-G2-MATH-UNKNOWN-QUANTITY-MODEL-CANDIDATE',
   revision: 1,
   title: '補給方程港：找出藏起來的數',
+  titlePronunciationTokens: reviewedTitlePronunciationTokens('補給方程港：找出藏起來的數', 'ㄅㄨˇ ㄐㄧˇ ㄈㄤ ㄔㄥˊ ㄍㄤˇ ㄓㄠˇ ㄔㄨ ㄘㄤˊ ㄑㄧˇ ㄌㄞˊ ㄉㄜ˙ ㄕㄨˋ'),
   gradeId: 'grade-2',
   subjectId: 'mathematics',
   status: candidate,

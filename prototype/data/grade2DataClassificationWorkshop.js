@@ -1,3 +1,5 @@
+import { reviewedTitlePronunciationTokens } from './reviewedTitlePronunciation.js';
+
 const candidate = 'candidate_pending_teacher_review';
 const evidencePolicy = Object.freeze({ persistence: 'memory_only_no_student_records_no_localStorage', completionIsMastery: false, hintAssistedResponseIsIndependentEvidence: false });
 const teacherReview = Object.freeze({ status: 'not_reviewed', reviewer: null, reviewedAt: null });
@@ -6,6 +8,7 @@ export const GRADE2_DATA_CLASSIFICATION_WORKSHOP = Object.freeze({
   activityId: 'ACT-G2-MATH-DATA-CLASSIFICATION-NESTED-GROUPS-CANDIDATE',
   revision: 1,
   title: '幾何物件分類工坊：先分組，再細分',
+  titlePronunciationTokens: reviewedTitlePronunciationTokens('幾何物件分類工坊：先分組，再細分', 'ㄐㄧˇ ㄏㄜˊ ㄨˋ ㄐㄧㄢˋ ㄈㄣ ㄌㄟˋ ㄍㄨㄥ ㄈㄤ ㄒㄧㄢ ㄈㄣ ㄗㄨˇ ㄗㄞˋ ㄒㄧˋ ㄈㄣ'),
   gradeId: 'grade-2',
   subjectId: 'mathematics',
   status: candidate,

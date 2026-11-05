@@ -1,7 +1,10 @@
+import { reviewedTitlePronunciationTokens } from './reviewedTitlePronunciation.js';
+
 export const LIVING_CURRICULUM_OBSERVATION_QUEST = Object.freeze({
   activityId: 'ACT-G2-LIVING-CAMPUS-OBSERVATION-CANDIDATE',
   revision: 1,
   title: '校園探索隊：整理物品觀察卡',
+  titlePronunciationTokens: reviewedTitlePronunciationTokens('校園探索隊：整理物品觀察卡', 'ㄒㄧㄠˋ ㄩㄢˊ ㄊㄢˋ ㄙㄨㄛˇ ㄉㄨㄟˋ ㄓㄥˇ ㄌㄧˇ ㄨˋ ㄆㄧㄣˇ ㄍㄨㄢ ㄔㄚˊ ㄎㄚˇ'),
   gradeId: 'grade-2',
   subjectId: 'living-curriculum',
   status: 'candidate_pending_teacher_review',

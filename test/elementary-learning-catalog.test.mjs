@@ -6,6 +6,7 @@ import {
   CURRICULUM_FRAMEWORK_SOURCE,
   ELEMENTARY_CURRICULUM_AREAS,
   GRADE1_SUBJECT_DIRECTORY_GROUPS,
+  GRADE2_SUBJECT_DIRECTORY_GROUPS,
   GRADE12_DIRECTORY_PRONUNCIATION,
   LEARNING_TASK_RELATIONS,
   SUBJECT_DEFINITIONS,
@@ -115,7 +116,7 @@ test('一年級目錄以四組呈現完整十一科並保留二十六個既有�
     [6, 9, 6, 5],
   );
 
-  assert.match(app, /if \(grade\.gradeNumber === 1\)\s*\{[\s\S]*?GRADE1_SUBJECT_DIRECTORY_GROUPS[\s\S]*?\} else \{\s*for \(const subject of grade\.subjects\) renderSubjectCard\(subject\);/);
+  assert.match(app, /const subjectDirectoryGroups = grade\.gradeNumber === 1[\s\S]*?GRADE1_SUBJECT_DIRECTORY_GROUPS[\s\S]*?grade\.gradeNumber === 2[\s\S]*?GRADE2_SUBJECT_DIRECTORY_GROUPS[\s\S]*?if \(subjectDirectoryGroups\)[\s\S]*?for \(const subject of grade\.subjects\) renderSubjectCard\(subject\);/);
   for (const grade of GRADE_CATALOG.filter(({ gradeNumber }) => gradeNumber >= 2)) {
     assert.deepEqual(grade.subjects.map(({ subjectId }) => subjectId), SUBJECT_DEFINITIONS.map(({ subjectId }) => subjectId));
   }
@@ -135,6 +136,43 @@ test('二年級數學、國語文、生活課程候選任務由正確科目目�
     assert.deepEqual(subject.existingYearLevelContent.map(({ activityId }) => activityId), ids);
     assert.ok(subject.existingYearLevelContent.every(({ status, runtimeAvailability, entryRoute, progressPersistence }) => status === 'candidate_pending_teacher_review' && runtimeAvailability === 'playable_candidate_prototype' && entryRoute.targetScreen === 'catalog-task' && progressPersistence === 'memory_only_no_student_records_no_localStorage'));
   }
+});
+
+test('二年級學生目錄聚焦四個可玩領域，保留選習、生活統整與延伸說明而不展示空科目卡', async () => {
+  const grade2 = GRADE_CATALOG.find(({ gradeId }) => gradeId === 'grade-2');
+  const formal = GRADE2_SUBJECT_DIRECTORY_GROUPS.find(({ groupId }) => groupId === 'formal-courses');
+  const languageChoice = GRADE2_SUBJECT_DIRECTORY_GROUPS.find(({ groupId }) => groupId === 'language-choice');
+  const integrated = GRADE2_SUBJECT_DIRECTORY_GROUPS.find(({ groupId }) => groupId === 'living-integrated-scopes');
+  const extension = GRADE2_SUBJECT_DIRECTORY_GROUPS.find(({ groupId }) => groupId === 'extension-learning');
+  const app = await readFile(new URL('../prototype/app.js', import.meta.url), 'utf8');
+
+  assert.equal(SUBJECT_DEFINITIONS.length, 11);
+  assert.equal(grade2.subjects.length, 11);
+  assert.deepEqual(formal.subjects.map(({ subjectId }) => subjectId), [
+    'chinese-language', 'mathematics', 'living-curriculum', 'health-physical-education',
+  ]);
+  assert.deepEqual(languageChoice.subjects, []);
+  assert.match(languageChoice.description, /依學生選習及學校開課安排/);
+  assert.deepEqual(integrated.subjects, []);
+  assert.match(integrated.description, /第一學習階段.*由生活課程統整/);
+  assert.deepEqual(extension.subjects, []);
+  assert.match(extension.description, /英語文正式課程自第二學習階段開始.*科技相關內容依學校課程安排/);
+
+  const launchable = grade2.subjects.flatMap(({ existingYearLevelContent }) => existingYearLevelContent.filter(({ entryRoute }) => entryRoute?.directLaunch === true));
+  assert.equal(launchable.length, 22);
+  assert.equal(new Set(launchable.map(({ activityId }) => activityId)).size, 22);
+  assert.deepEqual(
+    formal.subjects.map(({ subjectId }) => grade2.subjects.find((subject) => subject.subjectId === subjectId).existingYearLevelContent.length),
+    [2, 14, 4, 2],
+  );
+  assert.ok(launchable.every(({ status }) => status === 'candidate_pending_teacher_review'));
+  assert.equal(GRADE2_SUBJECT_DIRECTORY_GROUPS.flatMap(({ subjects }) => subjects).length, 4);
+
+  for (const group of GRADE2_SUBJECT_DIRECTORY_GROUPS) {
+    assert.ok(GRADE12_DIRECTORY_PRONUNCIATION[group.title], `reviewed heading pronunciation for ${group.title}`);
+    assert.ok(GRADE12_DIRECTORY_PRONUNCIATION[group.description], `reviewed description pronunciation for ${group.description}`);
+  }
+  assert.match(app, /const subjectDirectoryGroups = grade\.gradeNumber === 1[\s\S]*?GRADE1_SUBJECT_DIRECTORY_GROUPS[\s\S]*?grade\.gradeNumber === 2[\s\S]*?GRADE2_SUBJECT_DIRECTORY_GROUPS/);
 });
 
 test('低年級目錄固定中文有逐字人工注音 tokens，經 renderer 產生 ruby', () => {

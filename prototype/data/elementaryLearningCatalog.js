@@ -26,6 +26,7 @@ import {
   GRADE1_PLAYGROUND_SAFETY_ROUTE,
 } from './earlyGradeCurriculumGapTasks.js';
 import { GRADE1_HPE_EXPANSION_ACTIVITIES } from './grade1HpeExpansionActivities.js';
+import { GRADE2_HPE_EXPANSION_ACTIVITIES } from './grade2HpeExpansionActivities.js';
 import { GRADE4_CANDIDATE_TASKS } from './grade4CandidateTasks.js';
 import { GRADE4_EXPANSION_TASKS } from './grade4ExpansionTasks.js';
 import { GRADE4_ANGLE_EXPLORATION_WORKSHOP } from './grade4AngleExplorationWorkshop.js';
@@ -119,6 +120,7 @@ export const GRADE12_DIRECTORY_PRONUNCIATION = Object.freeze(Object.fromEntries(
   ['國小整合課程', 'ㄍㄨㄛˊ ㄒㄧㄠˇ ㄓㄥˇ ㄏㄜˊ ㄎㄜˋ ㄔㄥˊ'],
   ['課程領域待確認', 'ㄎㄜˋ ㄔㄥˊ ㄌㄧㄥˇ ㄩˋ ㄉㄞˋ ㄑㄩㄝˋ ㄖㄣˋ'],
   ['正式課程', 'ㄓㄥˋ ㄕˋ ㄎㄜˋ ㄔㄥˊ'],
+  ['正式課程入口；候選活動仍待教師審查。', 'ㄓㄥˋ ㄕˋ ㄎㄜˋ ㄔㄥˊ ㄖㄨˋ ㄎㄡˇ ㄏㄡˋ ㄒㄩㄢˇ ㄏㄨㄛˊ ㄉㄨㄥˋ ㄖㄥˊ ㄉㄞˋ ㄐㄧㄠˋ ㄕ ㄕㄣˇ ㄔㄚˊ'],
   ['一年級正式課程入口；候選活動仍待教師審查。', 'ㄧˋ ㄋㄧㄢˊ ㄐㄧˊ ㄓㄥˋ ㄕˋ ㄎㄜˋ ㄔㄥˊ ㄖㄨˋ ㄎㄡˇ ㄏㄡˋ ㄒㄩㄢˇ ㄏㄨㄛˊ ㄉㄨㄥˋ ㄖㄥˊ ㄉㄞˋ ㄐㄧㄠˋ ㄕ ㄕㄣˇ ㄔㄚˊ'],
   ['依選習及學校開課', 'ㄧ ㄒㄩㄢˇ ㄒㄧˊ ㄐㄧˊ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄎㄞ ㄎㄜˋ'],
   ['依學生選習及學校開課安排；不代表所有語別均已開課。', 'ㄧ ㄒㄩㄝˊ ㄕㄥ ㄒㄩㄢˇ ㄒㄧˊ ㄐㄧˊ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄎㄞ ㄎㄜˋ ㄢ ㄆㄞˊ ㄅㄨˋ ㄉㄞˋ ㄅㄧㄠˇ ㄙㄨㄛˇ ㄧㄡˇ ㄩˇ ㄅㄧㄝˊ ㄐㄩㄣ ㄧˇ ㄎㄞ ㄎㄜˋ'],
@@ -127,6 +129,7 @@ export const GRADE12_DIRECTORY_PRONUNCIATION = Object.freeze(Object.fromEntries(
   ['第一學習階段的社會、自然科學、藝術與綜合活動相關內容由生活課程統整。', 'ㄉㄧˋ ㄧ ㄒㄩㄝˊ ㄒㄧˊ ㄐㄧㄝ ㄉㄨㄢˋ ㄉㄜ˙ ㄕㄜˋ ㄏㄨㄟˋ ㄗˋ ㄖㄢˊ ㄎㄜ ㄒㄩㄝˊ ㄧˋ ㄕㄨˋ ㄩˇ ㄗㄨㄥ ㄏㄜˊ ㄏㄨㄛˊ ㄉㄨㄥˋ ㄒㄧㄤ ㄍㄨㄢ ㄋㄟˋ ㄖㄨㄥˊ ㄧㄡˊ ㄕㄥ ㄏㄨㄛˊ ㄎㄜˋ ㄔㄥˊ ㄊㄨㄥˇ ㄓㄥˇ'],
   ['第一學習階段相關內容由生活課程統整；此處不代表一年級獨立必修科目。', 'ㄉㄧˋ ㄧ ㄒㄩㄝˊ ㄒㄧˊ ㄐㄧㄝ ㄉㄨㄢˋ ㄒㄧㄤ ㄍㄨㄢ ㄋㄟˋ ㄖㄨㄥˊ ㄧㄡˊ ㄕㄥ ㄏㄨㄛˊ ㄎㄜˋ ㄔㄥˊ ㄊㄨㄥˇ ㄓㄥˇ ㄘˇ ㄔㄨˋ ㄅㄨˋ ㄉㄞˋ ㄅㄧㄠˇ ㄧˋ ㄋㄧㄢˊ ㄐㄧˊ ㄉㄨˊ ㄌㄧˋ ㄅㄧˋ ㄒㄧㄡ ㄎㄜ ㄇㄨˋ'],
   ['延伸學習', 'ㄧㄢˊ ㄕㄣ ㄒㄩㄝˊ ㄒㄧˊ'],
+  ['英語文正式課程自第二學習階段開始；科技相關內容依學校課程安排。', 'ㄧㄥ ㄩˇ ㄨㄣˊ ㄓㄥˋ ㄕˋ ㄎㄜˋ ㄔㄥˊ ㄗˋ ㄉㄧˋ ㄦˋ ㄒㄩㄝˊ ㄒㄧˊ ㄐㄧㄝ ㄉㄨㄢˋ ㄎㄞ ㄕˇ ㄎㄜ ㄐㄧˋ ㄒㄧㄤ ㄍㄨㄢ ㄋㄟˋ ㄖㄨㄥˊ ㄧ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄎㄜˋ ㄔㄥˊ ㄢ ㄆㄞˊ'],
   ['以下入口提供課程架構資訊；是否另有地方或學校安排，依實際課程確認。', 'ㄧˇ ㄒㄧㄚˋ ㄖㄨˋ ㄎㄡˇ ㄊㄧˊ ㄍㄨㄥ ㄎㄜˋ ㄔㄥˊ ㄐㄧㄚˋ ㄍㄡˋ ㄗ ㄒㄩㄣˋ ㄕˋ ㄈㄡˇ ㄌㄧㄥˋ ㄧㄡˇ ㄉㄧˋ ㄈㄤ ㄏㄨㄛˋ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄢ ㄆㄞˊ ㄧ ㄕˊ ㄐㄧˋ ㄎㄜˋ ㄔㄥˊ ㄑㄩㄝˋ ㄖㄣˋ'],
   ['國家課綱正式課程自第二學習階段開始；地方或學校安排可能不同。', 'ㄍㄨㄛˊ ㄐㄧㄚ ㄎㄜˋ ㄍㄤ ㄓㄥˋ ㄕˋ ㄎㄜˋ ㄔㄥˊ ㄗˋ ㄉㄧˋ ㄦˋ ㄒㄩㄝˊ ㄒㄧˊ ㄐㄧㄝ ㄉㄨㄢˋ ㄎㄞ ㄕˇ ㄉㄧˋ ㄈㄤ ㄏㄨㄛˋ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄢ ㄆㄞˊ ㄎㄜˇ ㄋㄥˊ ㄅㄨˋ ㄊㄨㄥˊ'],
   ['不是一年級獨立正式科技領域；可作跨域或延伸學習。', 'ㄅㄨˋ ㄕˋ ㄧˋ ㄋㄧㄢˊ ㄐㄧˊ ㄉㄨˊ ㄌㄧˋ ㄓㄥˋ ㄕˋ ㄎㄜ ㄐㄧˋ ㄌㄧㄥˇ ㄩˋ ㄎㄜˇ ㄗㄨㄛˋ ㄎㄨㄚˋ ㄩˋ ㄏㄨㄛˋ ㄧㄢˊ ㄕㄣ ㄒㄩㄝˊ ㄒㄧˊ'],
@@ -188,6 +191,39 @@ export const GRADE1_SUBJECT_DIRECTORY_GROUPS = Object.freeze([
         emptyActivityMessage: '不是一年級獨立正式科技領域；可作跨域或延伸學習。',
       }),
     ]),
+  }),
+]);
+
+/** Grade two keeps the stage-one subject definitions in the catalog while the student view foregrounds playable subjects. */
+export const GRADE2_SUBJECT_DIRECTORY_GROUPS = Object.freeze([
+  Object.freeze({
+    groupId: 'formal-courses',
+    title: '正式課程',
+    description: '正式課程入口；候選活動仍待教師審查。',
+    subjects: Object.freeze([
+      Object.freeze({ subjectId: 'chinese-language' }),
+      Object.freeze({ subjectId: 'mathematics' }),
+      Object.freeze({ subjectId: 'living-curriculum' }),
+      Object.freeze({ subjectId: 'health-physical-education' }),
+    ]),
+  }),
+  Object.freeze({
+    groupId: 'language-choice',
+    title: '依選習及學校開課',
+    description: '依學生選習及學校開課安排；不代表所有語別均已開課。',
+    subjects: Object.freeze([]),
+  }),
+  Object.freeze({
+    groupId: 'living-integrated-scopes',
+    title: '生活課程整合範疇',
+    description: '第一學習階段的社會、自然科學、藝術與綜合活動相關內容由生活課程統整。',
+    subjects: Object.freeze([]),
+  }),
+  Object.freeze({
+    groupId: 'extension-learning',
+    title: '延伸學習',
+    description: '英語文正式課程自第二學習階段開始；科技相關內容依學校課程安排。',
+    subjects: Object.freeze([]),
   }),
 ]);
 
@@ -426,6 +462,34 @@ export const LEARNING_TASK_RELATIONS = Object.freeze(mergeRelationsByGradeSubjec
     learningObjectiveTaskLinks: Object.freeze([Object.freeze({ learningObjectiveId: GRADE2_LIVING_RULES_REASON_QUEST.learningObjective.objectiveId, taskIds: Object.freeze([GRADE2_LIVING_RULES_REASON_QUEST.activityId]) })]),
     tasks: Object.freeze([Object.freeze({ taskId: GRADE2_LIVING_RULES_REASON_QUEST.activityId, title: GRADE2_LIVING_RULES_REASON_QUEST.title, taskKind: 'interactive_simulated_shared_rule_effect_classification', levelId: null, runtimeModule: 'prototype/data/earlyGradeCurriculumGapTasks.js', curriculumMapId: GRADE2_LIVING_RULES_REASON_QUEST.curriculumMapId, learningObjectiveIds: Object.freeze([GRADE2_LIVING_RULES_REASON_QUEST.learningObjective.objectiveId]), evidenceType: 'candidate_practice_response_only_memory_only', status: 'playable_candidate_pending_teacher_review' })]),
     relationshipStatus: 'candidate_partial_simulated_stage1_rule_purpose_case_no_real_behavior_evidence',
+  }),
+  Object.freeze({
+    gradeId: 'grade-2', subjectId: 'health-physical-education',
+    curriculumMapIds: Object.freeze(GRADE2_HPE_EXPANSION_ACTIVITIES.map(({ curriculumMapId }) => curriculumMapId)),
+    learningObjectiveIds: Object.freeze(GRADE2_HPE_EXPANSION_ACTIVITIES.map(({ learningObjective }) => learningObjective.objectiveId)),
+    objectiveDefinitions: Object.freeze(GRADE2_HPE_EXPANSION_ACTIVITIES.map(({ curriculumMapId, learningObjective }) => Object.freeze({
+      objectiveId: learningObjective.objectiveId,
+      statement: learningObjective.statement,
+      status: 'candidate_pending_teacher_review',
+      curriculumMapIds: Object.freeze([curriculumMapId]),
+      gradeApplicabilityStatus: 'stage_1_grade_1_to_2_local_schedule_pending',
+    }))),
+    learningObjectiveTaskLinks: Object.freeze(GRADE2_HPE_EXPANSION_ACTIVITIES.map(({ activityId, learningObjective }) => Object.freeze({
+      learningObjectiveId: learningObjective.objectiveId,
+      taskIds: Object.freeze([activityId]),
+    }))),
+    tasks: Object.freeze(GRADE2_HPE_EXPANSION_ACTIVITIES.map((activity) => Object.freeze({
+      taskId: activity.activityId,
+      title: activity.title,
+      taskKind: 'interactive_simulated_health_physical_education_candidate',
+      levelId: null,
+      runtimeModule: 'prototype/data/grade2HpeExpansionActivities.js',
+      curriculumMapId: activity.curriculumMapId,
+      learningObjectiveIds: Object.freeze([activity.learningObjective.objectiveId]),
+      evidenceType: 'candidate_practice_response_only_memory_only',
+      status: 'playable_candidate_pending_teacher_review',
+    }))),
+    relationshipStatus: 'candidate_partial_stage1_reference_grade2_schedule_teacher_review_and_real_world_skill_evidence_pending',
   }),
   Object.freeze({
     gradeId: 'grade-1', subjectId: 'health-physical-education',

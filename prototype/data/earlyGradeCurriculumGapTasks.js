@@ -1,3 +1,5 @@
+import { reviewedTitlePronunciationTokens } from './reviewedTitlePronunciation.js';
+
 const candidateStatus = 'candidate_pending_teacher_review';
 const evidencePolicy = Object.freeze({
   persistence: 'memory_only_no_student_records_no_localStorage',
@@ -95,7 +97,7 @@ export const GRADE1_SHAPE_COPY_STUDIO = Object.freeze({
 
 export const GRADE2_TWO_STEP_MARKET_QUEST = Object.freeze({
   activityId: 'ACT-G2-MATH-TWO-STEP-MARKET-CANDIDATE', revision: 1,
-  title: '市集補給任務：先算一站，再走下一站', gradeId: 'grade-2', subjectId: 'mathematics',
+  title: '市集補給任務：先算一站，再走下一站', titlePronunciationTokens: reviewedTitlePronunciationTokens('市集補給任務：先算一站，再走下一站', 'ㄕˋ ㄐㄧˊ ㄅㄨˇ ㄐㄧˇ ㄖㄣˋ ㄨˋ ㄒㄧㄢ ㄙㄨㄢˋ ㄧˊ ㄓㄢˋ ㄗㄞˋ ㄗㄡˇ ㄒㄧㄚˋ ㄧˊ ㄓㄢˋ'), gradeId: 'grade-2', subjectId: 'mathematics',
   status: candidateStatus, sourceKind: 'original_interactive_candidate_not_textbook',
   curriculumMapId: 'math-grade2-two-step-applications', sourceId: 'mathematics',
   curriculumCodes: ['N-2-8'],
@@ -150,7 +152,7 @@ export const GRADE2_TWO_STEP_MARKET_QUEST = Object.freeze({
 
 export const GRADE2_MONEY_COMBINATION_MARKET = Object.freeze({
   activityId: 'ACT-G2-MATH-MONEY-COMBINATION-MARKET-CANDIDATE', revision: 1,
-  title: '幣值組合市集：選幣付款任務', gradeId: 'grade-2', subjectId: 'mathematics',
+  title: '幣值組合市集：選幣付款任務', titlePronunciationTokens: reviewedTitlePronunciationTokens('幣值組合市集：選幣付款任務', 'ㄅㄧˋ ㄓˊ ㄗㄨˇ ㄏㄜˊ ㄕˋ ㄐㄧˊ ㄒㄩㄢˇ ㄅㄧˋ ㄈㄨˋ ㄎㄨㄢˇ ㄖㄣˋ ㄨˋ'), gradeId: 'grade-2', subjectId: 'mathematics',
   status: candidateStatus, sourceKind: 'original_interactive_candidate_not_textbook',
   curriculumMapId: 'math-grade2-money-combination-problem-solving', sourceId: 'mathematics', curriculumCodes: ['N-2-5', 'n-I-3'],
   curriculumScope: 'N-2-5官方內容為100元、500元、1000元，以操作活動為主兼及計算，容許多元策略並包含已學習的更小幣值；官方備註可與N-2-4估算連結。本活動透過螢幕面額卡多選組合及付款總額核對，提供100、500、1000元三個模擬購物情境。沒有實作找零、實體錢幣操作、學生自主提出所有等值策略或真實交易，故僅部分候選練習。',
@@ -235,7 +237,7 @@ export const GRADE2_MONEY_COMBINATION_MARKET = Object.freeze({
 
 export const GRADE2_LIVING_RULES_REASON_QUEST = Object.freeze({
   activityId: 'ACT-G2-LIVING-RULES-REASON-QUEST-CANDIDATE', revision: 1,
-  title: '一起生活研究所：規則幫了誰？', gradeId: 'grade-2', subjectId: 'living-curriculum',
+  title: '一起生活研究所：規則幫了誰？', titlePronunciationTokens: reviewedTitlePronunciationTokens('一起生活研究所：規則幫了誰？', 'ㄧˋ ㄑㄧˇ ㄕㄥ ㄏㄨㄛˊ ㄧㄢˊ ㄐㄧㄡˋ ㄙㄨㄛˇ ㄍㄨㄟ ㄗㄜˊ ㄅㄤ ㄌㄜ˙ ㄕㄟˊ'), gradeId: 'grade-2', subjectId: 'living-curriculum',
   status: candidateStatus, sourceKind: 'original_simulated_social_situation_candidate_not_textbook',
   curriculumMapId: 'living-curriculum-stage1-shared-rules', sourceId: 'living-curriculum',
   curriculumCodes: ['6-I-3', 'E-I-2'],

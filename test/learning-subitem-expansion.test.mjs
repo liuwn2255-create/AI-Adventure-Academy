@@ -308,6 +308,17 @@ function setValidWrongResponse(session, activity, stage) {
     }
     case 'choose_response':
       return act(session, activity, 'select_option', { optionId: stage.options.find(({ id }) => !stage.correctOptionIds.includes(id)).id });
+    case 'collect_evidence': {
+      const requiredCount = Number.isInteger(stage.requiredSelectionCount) ? stage.requiredSelectionCount : 1;
+      const incorrectOptionIds = stage.options.filter(({ id }) => !stage.correctOptionIds.includes(id)).map(({ id }) => id);
+      const selectionIds = [
+        ...stage.correctOptionIds.slice(0, Math.max(0, requiredCount - 1)),
+        ...incorrectOptionIds,
+      ].slice(0, requiredCount);
+      assert.equal(selectionIds.length, requiredCount, `${activity.activityId}/${stage.stageId} must have a valid wrong selection set`);
+      for (const optionId of selectionIds) session = act(session, activity, 'toggle_evidence', { optionId });
+      return session;
+    }
     case 'place_number_line_marker':
       return act(session, activity, 'set_number_line_tick', { tick: (stage.numberLine.targetTick + 1) % (stage.numberLine.tickCount + 1) });
     case 'classify_observations':
@@ -704,14 +715,17 @@ test('each new activity provides incorrect feedback, hint-assisted retries, stag
 test('coverage distinguishes declared subitem evidence from activity association alone across all registered foci', () => {
   const coverage = buildCoverageInventory({ curriculumMap: map, sources });
   const audit = coverage.learningSubitemAudit;
-  assert.equal(audit.registeredFocusCount, 149);
-  assert.equal(audit.allFocuses.length, 149);
+  const registeredFocusCount = [map.verifiedLearningFocuses, map.supplementalVerifiedLearningFocuses, map.pendingLearningFocuses]
+    .reduce((sum, focuses) => sum + (focuses?.length ?? 0), 0);
+  assert.equal(audit.registeredFocusCount, registeredFocusCount);
+  assert.equal(audit.allFocuses.length, registeredFocusCount);
   assert.equal(audit.generatedTextSplitIsOfficialSubclause, false);
-  assert.equal(audit.explicitlyCuratedSubitemCount, 140);
-  assert.equal(audit.allFocuses.flatMap(({ curatedProjectSubitems }) => curatedProjectSubitems).filter(({ status }) => status === 'inventory_only_not_implemented').length, 32);
+  assert.equal(audit.explicitlyCuratedSubitemCount, definitions.definitions.length);
+  assert.equal(audit.allFocuses.flatMap(({ curatedProjectSubitems }) => curatedProjectSubitems).filter(({ status }) => status === 'inventory_only_not_implemented').length,
+    definitions.definitions.filter(({ status }) => status === 'inventory_only_not_implemented').length);
   assert.equal(audit.focusWithActivityAssociationButNoExplicitSubitemEvidenceCount, audit.focusCountByEvidenceStatus.associated_only_no_explicit_subitem_evidence);
   assert.equal(audit.focusCountByEvidenceStatus.interactive_candidate_subitem_coverage, 94);
-  assert.equal(Object.values(audit.focusCountByEvidenceStatus).reduce((sum, count) => sum + count, 0), 149);
+  assert.equal(Object.values(audit.focusCountByEvidenceStatus).reduce((sum, count) => sum + count, 0), registeredFocusCount);
   assert.ok(audit.allFocuses.some(({ focusId }) => focusId === 'math-grade4-special-quadrilateral-construction'));
   assert.ok(audit.allFocuses.some(({ focusId }) => focusId === 'math-grade4-rectangle-area-perimeter-model'));
   const targeted = audit.allFocuses.filter(({ curatedProjectSubitems }) => curatedProjectSubitems.some(({ activityIds }) => activityIds.length > 0));

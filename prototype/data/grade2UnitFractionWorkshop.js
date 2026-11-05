@@ -1,3 +1,5 @@
+import { reviewedTitlePronunciationTokens } from './reviewedTitlePronunciation.js';
+
 const candidate = 'candidate_pending_teacher_review';
 const review = Object.freeze({ status: 'not_reviewed', reviewer: null, reviewedAt: null });
 const evidencePolicy = Object.freeze({
@@ -39,6 +41,7 @@ export const GRADE2_UNIT_FRACTION_WORKSHOP = Object.freeze({
   activityId: 'ACT-G2-MATH-UNIT-FRACTION-PAPER-FOLD-MODEL-CANDIDATE',
   revision: 1,
   title: '紙帶折分工作坊：認識幾分之一',
+  titlePronunciationTokens: reviewedTitlePronunciationTokens('紙帶折分工作坊：認識幾分之一', 'ㄓˇ ㄉㄞˋ ㄓㄜˊ ㄈㄣ ㄍㄨㄥ ㄗㄨㄛˋ ㄈㄤ ㄖㄣˋ ㄕˋ ㄐㄧˇ ㄈㄣ ㄓ ㄧˋ'),
   gradeId: 'grade-2',
   subjectId: 'mathematics',
   status: candidate,

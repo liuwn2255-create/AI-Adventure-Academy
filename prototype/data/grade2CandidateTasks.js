@@ -1,3 +1,5 @@
+import { reviewedTitlePronunciationTokens } from './reviewedTitlePronunciation.js';
+
 const candidate = 'candidate_pending_teacher_review';
 const evidencePolicy = Object.freeze({ persistence: 'memory_only_no_student_records_no_localStorage', completionIsMastery: false, hintAssistedResponseIsIndependentEvidence: false });
 const noReinforcement = Object.freeze({ reinforcementActivityIds: Object.freeze([]), reinforcementStatus: '尚無連結的補強活動' });
@@ -5,7 +7,7 @@ const review = Object.freeze({ status: 'not_reviewed', reviewer: null, reviewedA
 
 export const GRADE2_MATH_NUMBER_LINE = Object.freeze({
   activityId: 'ACT-G2-MATH-THOUSAND-NUMBER-LINE-CANDIDATE', revision: 1,
-  title: '百數定位站：千數探路', gradeId: 'grade-2', subjectId: 'mathematics', status: candidate,
+  title: '百數定位站：千數探路', titlePronunciationTokens: reviewedTitlePronunciationTokens('百數定位站：千數探路', 'ㄅㄞˇ ㄕㄨˋ ㄉㄧㄥˋ ㄨㄟˋ ㄓㄢˋ ㄑㄧㄢ ㄕㄨˋ ㄊㄢˋ ㄌㄨˋ'), gradeId: 'grade-2', subjectId: 'mathematics', status: candidate,
   sourceKind: 'original_interactive_candidate_not_textbook', curriculumMapId: 'math-grade2-count-place-value', sourceId: 'mathematics', curriculumCodes: ['N-2-1', 'n-I-1'],
   curriculumScope: 'N-2-1明列於官方二年級學習內容表，含一千以內數、位值積木、點數與位值表徵。本活動只練習整百刻度間定位和百／十組成，不超過1000，不代表完整涵蓋N-2-1；校本學期進度待確認。',
   learningObjective: { objectiveId: 'LO-G2-MATH-THOUSAND-NUMBER-LINE-01', statement: '在0至1000的整百刻度數線上定位數值，並連結百、十位表示。', status: candidate },
@@ -20,7 +22,7 @@ export const GRADE2_MATH_NUMBER_LINE = Object.freeze({
 
 export const GRADE2_MATH_COLUMN_CALCULATION = Object.freeze({
   activityId: 'ACT-G2-MATH-PLACE-VALUE-CALCULATION-CANDIDATE', revision: 1,
-  title: '位值修理工：進退位工作臺', gradeId: 'grade-2', subjectId: 'mathematics', status: candidate,
+  title: '位值修理工：進退位工作臺', titlePronunciationTokens: reviewedTitlePronunciationTokens('位值修理工：進退位工作臺', 'ㄨㄟˋ ㄓˊ ㄒㄧㄡ ㄌㄧˇ ㄍㄨㄥ ㄐㄧㄣˋ ㄊㄨㄟˋ ㄨㄟˋ ㄍㄨㄥ ㄗㄨㄛˋ ㄊㄞˊ'), gradeId: 'grade-2', subjectId: 'mathematics', status: candidate,
   sourceKind: 'original_interactive_candidate_not_textbook', curriculumMapId: 'math-grade2-place-value-add-sub', sourceId: 'mathematics', curriculumCodes: ['N-2-2', 'n-I-2'],
   curriculumScope: 'N-2-2明列二年級多位數加減以位值理解計算原理，含加法最多二次進位、減法一次退位及含0題型。本活動僅提供一個兩位數進位與一個一次退位示例，未涵蓋含0、二次進位、應用解題或全部策略。',
   learningObjective: { objectiveId: 'LO-G2-MATH-PLACE-VALUE-CALCULATION-01', statement: '操作選擇加減計算中的位值中間步驟，說明進位與退位後各位數量如何改變。', status: candidate },
@@ -44,7 +46,7 @@ export const GRADE2_MATH_COLUMN_CALCULATION = Object.freeze({
 
 export const GRADE2_MATH_MEASURE_COMPARE = Object.freeze({
   activityId: 'ACT-G2-MATH-CAPACITY-WEIGHT-AREA-COMPARISON-CANDIDATE', revision: 1,
-  title: '量一量比較研究站：面積、容量與重量', gradeId: 'grade-2', subjectId: 'mathematics', status: candidate,
+  title: '量一量比較研究站：面積、容量與重量', titlePronunciationTokens: reviewedTitlePronunciationTokens('量一量比較研究站：面積、容量與重量', 'ㄌㄧㄤˊ ㄧ ㄌㄧㄤˊ ㄅㄧˇ ㄐㄧㄠˋ ㄧㄢˊ ㄐㄧㄡˋ ㄓㄢˋ ㄇㄧㄢˋ ㄐㄧ ㄖㄨㄥˊ ㄌㄧㄤˋ ㄩˇ ㄓㄨㄥˋ ㄌㄧㄤˋ'), gradeId: 'grade-2', subjectId: 'mathematics', status: candidate,
   sourceKind: 'original_simulated_measure_comparison_candidate_not_textbook',
   curriculumMapId: 'math-grade2-capacity-weight-area-compare', sourceId: 'mathematics', curriculumCodes: ['N-2-12', 'n-I-8'],
   curriculumScope: '官方N-2-12要求容量、重量、面積分開學習，含初步認識、直接及間接比較（含個別單位）。本活動分三站讓學生分類比較預先提供的同單位模擬紀錄；不取代實物容器比較、天平秤重、重量量感、百格圖操作或學生自行測量。',
@@ -102,7 +104,7 @@ export const GRADE2_MATH_MEASURE_COMPARE = Object.freeze({
 
 export const GRADE2_CHINESE_TEXT_CLUE = Object.freeze({
   activityId: 'ACT-G2-CHINESE-STORY-CLUE-CANDIDATE', revision: 1,
-  title: '故事線索搜查隊：找出支持答案的句子', gradeId: 'grade-2', subjectId: 'chinese-language', status: candidate,
+  title: '故事線索搜查隊：找出支持答案的句子', titlePronunciationTokens: reviewedTitlePronunciationTokens('故事線索搜查隊：找出支持答案的句子', 'ㄍㄨˋ ㄕˋ ㄒㄧㄢˋ ㄙㄨㄛˇ ㄙㄡ ㄔㄚˊ ㄉㄨㄟˋ ㄓㄠˇ ㄔㄨ ㄓ ㄔˊ ㄉㄚˊ ㄢˋ ㄉㄜ˙ ㄐㄩˋ ㄗ˙'), gradeId: 'grade-2', subjectId: 'chinese-language', status: candidate,
   sourceKind: 'original_text_candidate_not_textbook', curriculumMapId: 'chinese-stage1-word-sentence-story', sourceId: 'chinese-language', curriculumCodes: ['5-I-4', '5-I-6', 'Ad-I-3'],
   curriculumScope: '國語文第一學習階段（一、二年級）閱讀與故事文本參照；原創短文只練習重要訊息與文本線索，不代表二年級學期安排或整體閱讀能力。',
   learningObjective: { objectiveId: 'LO-G2-CHINESE-TEXT-CLUE-01', statement: '從短篇故事中蒐集支持人物行動理解的文字線索，並依線索選擇解釋。', status: candidate },
@@ -117,7 +119,7 @@ export const GRADE2_CHINESE_TEXT_CLUE = Object.freeze({
 
 export const GRADE2_CHINESE_CONTEXT_WORDS = Object.freeze({
   activityId: 'ACT-G2-CHINESE-CONTEXT-WORDS-CANDIDATE', revision: 1,
-  title: '語境偵探：同一個詞看前後句', gradeId: 'grade-2', subjectId: 'chinese-language', status: candidate,
+  title: '語境偵探：同一個詞看前後句', titlePronunciationTokens: reviewedTitlePronunciationTokens('語境偵探：同一個詞看前後句', 'ㄩˇ ㄐㄧㄥˋ ㄓㄣ ㄊㄢˋ ㄊㄨㄥˊ ㄧˊ ㄍㄜˋ ㄘˊ ㄎㄢˋ ㄑㄧㄢˊ ㄏㄡˋ ㄐㄩˋ'), gradeId: 'grade-2', subjectId: 'chinese-language', status: candidate,
   sourceKind: 'original_language_candidate_not_textbook', curriculumMapId: 'chinese-stage1-word-sentence-story', sourceId: 'chinese-language', curriculumCodes: ['Ab-I-5', 'Ab-I-6', 'Ac-I-2'],
   curriculumScope: '國語文第一學習階段語詞認念／使用與簡易句型的局部候選參照。本活動使用少量常見詞語情境，不代表識字、詞彙或句型整體能力，也不確認二年級學期進度。',
   learningObjective: { objectiveId: 'LO-G2-CHINESE-CONTEXT-WORDS-01', statement: '利用前後文線索辨認同一詞語在句中的意思，並將詞卡放入合適語境。', status: candidate },
@@ -132,7 +134,7 @@ export const GRADE2_CHINESE_CONTEXT_WORDS = Object.freeze({
 
 export const GRADE2_LIVING_CHANGE_INQUIRY = Object.freeze({
   activityId: 'ACT-G2-LIVING-CHANGE-CLUE-CANDIDATE', revision: 1,
-  title: '生活觀察隊：找出前後變化', gradeId: 'grade-2', subjectId: 'living-curriculum', status: candidate,
+  title: '生活觀察隊：找出前後變化', titlePronunciationTokens: reviewedTitlePronunciationTokens('生活觀察隊：找出前後變化', 'ㄕㄥ ㄏㄨㄛˊ ㄍㄨㄢ ㄔㄚˊ ㄉㄨㄟˋ ㄓㄠˇ ㄔㄨ ㄑㄧㄢˊ ㄏㄡˋ ㄅㄧㄢˋ ㄏㄨㄚˋ'), gradeId: 'grade-2', subjectId: 'living-curriculum', status: candidate,
   sourceKind: 'original_simulated_observation_candidate_not_textbook', curriculumMapId: 'living-curriculum-stage1-change-inquiry', sourceId: 'living-curriculum', curriculumCodes: ['2-I-2', '2-I-4', 'A-I-2'],
   curriculumScope: '生活課程第一學習階段（一、二年級）觀察變化與探究參照。本任務只讀取虛構的前後紀錄，無法證明實地觀察、因果判斷或實際生活探究能力。',
   learningObjective: { objectiveId: 'LO-G2-LIVING-CHANGE-INQUIRY-01', statement: '比較同一情境的前後觀察紀錄，指出可直接觀察到的變化並區分未被紀錄證明的原因。', status: candidate },
@@ -147,7 +149,7 @@ export const GRADE2_LIVING_CHANGE_INQUIRY = Object.freeze({
 
 export const GRADE2_LIVING_INQUIRY_PLAN = Object.freeze({
   activityId: 'ACT-G2-LIVING-INQUIRY-PLAN-CANDIDATE', revision: 1,
-  title: '小小探究家：安排觀察步驟', gradeId: 'grade-2', subjectId: 'living-curriculum', status: candidate,
+  title: '小小探究家：安排觀察步驟', titlePronunciationTokens: reviewedTitlePronunciationTokens('小小探究家：安排觀察步驟', 'ㄒㄧㄠˇ ㄒㄧㄠˇ ㄊㄢˋ ㄐㄧㄡˋ ㄐㄧㄚ ㄢ ㄆㄞˊ ㄍㄨㄢ ㄔㄚˊ ㄅㄨˋ ㄗㄡˋ'), gradeId: 'grade-2', subjectId: 'living-curriculum', status: candidate,
   sourceKind: 'original_simulated_inquiry_candidate_not_textbook', curriculumMapId: 'living-curriculum-stage1-observation-inquiry', sourceId: 'living-curriculum', curriculumCodes: ['2-I-1', '2-I-4', '2-I-5', 'C-I-3'],
   curriculumScope: '生活課程第一學習階段的感官探索、發現問題與運用探究方法之局部參照。本活動只排序模擬的觀察程序並分類可用紀錄工具；不等同實際動手探究或完成真實問題解決。',
   learningObjective: { objectiveId: 'LO-G2-LIVING-INQUIRY-PLAN-01', statement: '依探究目標排列簡單的觀察流程，並為觀察項目選擇合適的紀錄工具。', status: candidate },

@@ -1,3 +1,5 @@
+import { reviewedTitlePronunciationTokens } from './reviewedTitlePronunciation.js';
+
 const candidate = 'candidate_pending_teacher_review';
 const noReinforcement = Object.freeze({ reinforcementActivityIds: Object.freeze([]), reinforcementStatus: '尚無連結的補強活動' });
 const evidencePolicy = Object.freeze({ persistence: 'memory_only_no_student_records_no_localStorage', completionIsMastery: false, hintAssistedResponseIsIndependentEvidence: false });
@@ -115,7 +117,7 @@ export const LEARNING_SUBITEM_EXPANSION_TASKS = Object.freeze([
   }),
   makeTask({
     activityId: 'ACT-G2-MATH-ZERO-TENS-ADDITION-CANDIDATE',
-    title: '位值修理站：加法裡的0十', gradeId: 'grade-2', subjectId: 'mathematics',
+    title: '位值修理站：加法裡的0十', titlePronunciationTokens: reviewedTitlePronunciationTokens('位值修理站：加法裡的0十', 'ㄨㄟˋ ㄓˊ ㄒㄧㄡ ㄌㄧˇ ㄓㄢˋ ㄐㄧㄚ ㄈㄚˇ ㄌㄧˇ ㄉㄜ˙ ㄕˊ'), gradeId: 'grade-2', subjectId: 'mathematics',
     curriculumMapId: 'math-grade2-place-value-add-sub', curriculumCodes: ['N-2-2', 'n-I-2'],
     learningSubitemClaims: ['SUB-MATH-G2-N2-2-ZERO-PLACEHOLDER-CALCULATION'],
     curriculumScope: '對照 N-2-2 多位數加減以位值理解計算原理及含0題型；活動只操作兩個加法例子的分位步驟，不涵蓋所有含0型態、減法退位或完整自主直式。',
@@ -138,7 +140,7 @@ export const LEARNING_SUBITEM_EXPANSION_TASKS = Object.freeze([
   }),
   makeTask({
     activityId: 'ACT-G2-MATH-TWO-CARRY-ADDITION-CANDIDATE',
-    title: '進位接力：兩次整理位值', gradeId: 'grade-2', subjectId: 'mathematics',
+    title: '進位接力：兩次整理位值', titlePronunciationTokens: reviewedTitlePronunciationTokens('進位接力：兩次整理位值', 'ㄐㄧㄣˋ ㄨㄟˋ ㄐㄧㄝ ㄌㄧˋ ㄌㄧㄤˇ ㄘˋ ㄓㄥˇ ㄌㄧˇ ㄨㄟˋ ㄓˊ'), gradeId: 'grade-2', subjectId: 'mathematics',
     curriculumMapId: 'math-grade2-place-value-add-sub', curriculumCodes: ['N-2-2', 'n-I-2'],
     learningSubitemClaims: ['SUB-MATH-G2-N2-2-UP-TO-TWO-CARRIES'],
     curriculumScope: '對照 N-2-2 加法最多二次進位的官方學習內容；僅操作兩個三位數例子中的兩次進位步驟，不代表已涵蓋減法、各數位組合或完整自主計算。年級學期與教材安排待教師確認。',

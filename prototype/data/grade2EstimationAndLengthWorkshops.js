@@ -1,3 +1,5 @@
+import { reviewedTitlePronunciationTokens } from './reviewedTitlePronunciation.js';
+
 const candidate = 'candidate_pending_teacher_review';
 const review = Object.freeze({ status: 'not_reviewed', reviewer: null, reviewedAt: null });
 const evidencePolicy = Object.freeze({ persistence: 'memory_only_no_student_records_no_localStorage', completionIsMastery: false, hintAssistedResponseIsIndependentEvidence: false });
@@ -6,6 +8,7 @@ export const GRADE2_ESTIMATION_WORKSHOP = Object.freeze({
   activityId: 'ACT-G2-MATH-LIFE-ESTIMATION-HUNDREDS-CANDIDATE',
   revision: 1,
   title: '百數估算補給站：先想大約多少',
+  titlePronunciationTokens: reviewedTitlePronunciationTokens('百數估算補給站：先想大約多少', 'ㄅㄞˇ ㄕㄨˋ ㄍㄨ ㄙㄨㄢˋ ㄅㄨˇ ㄐㄧˇ ㄓㄢˋ ㄒㄧㄢ ㄒㄧㄤˇ ㄉㄚˋ ㄩㄝ ㄉㄨㄛ ㄕㄠˇ'),
   gradeId: 'grade-2', subjectId: 'mathematics', status: candidate,
   sourceKind: 'official_content_interactive_candidate_not_textbook',
   reinforcementStatus: '尚無連結的補強活動',
@@ -34,6 +37,7 @@ export const GRADE2_LENGTH_WORKSHOP = Object.freeze({
   activityId: 'ACT-G2-MATH-LENGTH-MEASURE-CONVERT-CANDIDATE',
   revision: 1,
   title: '公分公尺測量碼頭：估一估、對一對、換一換',
+  titlePronunciationTokens: reviewedTitlePronunciationTokens('公分公尺測量碼頭：估一估、對一對、換一換', 'ㄍㄨㄥ ㄈㄣ ㄍㄨㄥ ㄔˇ ㄘㄜˋ ㄌㄧㄤˊ ㄇㄚˇ ㄊㄡˊ ㄍㄨ ㄧ ㄍㄨ ㄉㄨㄟˋ ㄧ ㄉㄨㄟˋ ㄏㄨㄢˋ ㄧ ㄏㄨㄢˋ'),
   gradeId: 'grade-2', subjectId: 'mathematics', status: candidate,
   sourceKind: 'official_content_interactive_candidate_not_textbook',
   reinforcementStatus: '尚無連結的補強活動',

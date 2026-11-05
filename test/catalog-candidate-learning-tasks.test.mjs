@@ -66,7 +66,7 @@ test('三個跨領域候選活動都有唯一識別、課綱來源和可達的�
 
   for (const task of CATALOG_CANDIDATE_TASKS) {
     assert.equal(task.status, 'candidate_pending_teacher_review');
-    assert.equal(task.teacherReview.status, 'not_reviewed');
+    assert.ok(['not_reviewed', 'pending_teacher_review'].includes(task.teacherReview.status), `${task.activityId} must remain unreviewed`);
     assert.equal(task.evidencePolicy.persistence, 'memory_only_no_student_records_no_localStorage');
     assert.equal(task.evidencePolicy.completionIsMastery, false);
     assert.equal(task.reinforcementStatus, '尚無連結的補強活動');
