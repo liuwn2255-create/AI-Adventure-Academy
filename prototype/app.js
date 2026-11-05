@@ -456,7 +456,12 @@ let lastExplorerDirection = 'down';
 const movementHoldController = createMovementHoldController((direction) => moveExplorerInScene(direction));
 
 // Keep the home screen usable even if later, nonessential rendering initialization fails.
-document.getElementById('start-button').addEventListener('click', () => showScreen('select'));
+document.getElementById('start-button').addEventListener('click', () => {
+  selectedGradeId = null;
+  selectedSubjectId = null;
+  renderGradeSelection();
+  showScreen('select');
+});
 document.querySelector('.brand')?.addEventListener('click', (event) => {
   event.preventDefault();
   window.history.replaceState(window.history.state, '', '#home');
