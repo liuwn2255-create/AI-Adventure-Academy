@@ -9,6 +9,7 @@ import { GRADE1_MATH_COUNTER_STORY } from './grade1MathCounterStory.js';
 import { GRADE1_MATH_CLASSIFICATION_WORKSHOP } from './grade1MathClassificationWorkshop.js';
 import { GRADE1_CHINESE_SENTENCE_TRAIN } from './grade1ChineseSentenceTrain.js';
 import { GRADE1_CHINESE_STORY_CARDS } from './grade1ChineseStoryCards.js';
+import { GRADE1_CHINESE_EXPANSION_ACTIVITIES } from './grade1ChineseExpansionActivities.js';
 import { GRADE1_LIVING_OBJECT_SORT } from './grade1LivingObjectSort.js';
 import { GRADE1_LIVING_CHANGE_DETECTIVE } from './grade1LivingChangeDetective.js';
 import {
@@ -147,18 +148,25 @@ export const LEARNING_TASK_RELATIONS = Object.freeze(mergeRelationsByGradeSubjec
   Object.freeze({
     gradeId: 'grade-1', subjectId: 'chinese-language',
     curriculumMapIds: Object.freeze(['chinese-stage1-word-sentence-story']),
-    learningObjectiveIds: Object.freeze([GRADE1_CHINESE_SENTENCE_TRAIN.learningObjective.objectiveId, GRADE1_CHINESE_STORY_CARDS.learningObjective.objectiveId]),
+    learningObjectiveIds: Object.freeze([
+      GRADE1_CHINESE_SENTENCE_TRAIN.learningObjective.objectiveId,
+      GRADE1_CHINESE_STORY_CARDS.learningObjective.objectiveId,
+      ...GRADE1_CHINESE_EXPANSION_ACTIVITIES.map(({ learningObjective }) => learningObjective.objectiveId),
+    ]),
     objectiveDefinitions: Object.freeze([
       Object.freeze({ objectiveId: GRADE1_CHINESE_SENTENCE_TRAIN.learningObjective.objectiveId, statement: GRADE1_CHINESE_SENTENCE_TRAIN.learningObjective.statement, status: 'candidate_pending_teacher_review', curriculumMapIds: Object.freeze(['chinese-stage1-word-sentence-story']), gradeApplicabilityStatus: 'stage_1_grade_1_to_2_local_schedule_pending' }),
       Object.freeze({ objectiveId: GRADE1_CHINESE_STORY_CARDS.learningObjective.objectiveId, statement: GRADE1_CHINESE_STORY_CARDS.learningObjective.statement, status: 'candidate_pending_teacher_review', curriculumMapIds: Object.freeze(['chinese-stage1-word-sentence-story']), gradeApplicabilityStatus: 'stage_1_grade_1_to_2_local_schedule_pending' }),
+      ...GRADE1_CHINESE_EXPANSION_ACTIVITIES.map(({ learningObjective }) => Object.freeze({ objectiveId: learningObjective.objectiveId, statement: learningObjective.statement, status: 'candidate_pending_teacher_review', curriculumMapIds: Object.freeze(['chinese-stage1-word-sentence-story']), gradeApplicabilityStatus: 'stage_1_grade_1_to_2_local_schedule_pending' })),
     ]),
     learningObjectiveTaskLinks: Object.freeze([
       Object.freeze({ learningObjectiveId: GRADE1_CHINESE_SENTENCE_TRAIN.learningObjective.objectiveId, taskIds: Object.freeze([GRADE1_CHINESE_SENTENCE_TRAIN.activityId]) }),
       Object.freeze({ learningObjectiveId: GRADE1_CHINESE_STORY_CARDS.learningObjective.objectiveId, taskIds: Object.freeze([GRADE1_CHINESE_STORY_CARDS.activityId]) }),
+      ...GRADE1_CHINESE_EXPANSION_ACTIVITIES.map(({ activityId, learningObjective }) => Object.freeze({ learningObjectiveId: learningObjective.objectiveId, taskIds: Object.freeze([activityId]) })),
     ]),
     tasks: Object.freeze([
       Object.freeze({ taskId: GRADE1_CHINESE_SENTENCE_TRAIN.activityId, taskKind: 'interactive_sentence_card_assembly', levelId: null, runtimeModule: 'prototype/data/grade1ChineseSentenceTrain.js', curriculumMapId: 'chinese-stage1-word-sentence-story', learningObjectiveIds: Object.freeze([GRADE1_CHINESE_SENTENCE_TRAIN.learningObjective.objectiveId]), evidenceType: 'candidate_practice_response_only_memory_only', status: 'playable_candidate_pending_teacher_review' }),
       Object.freeze({ taskId: GRADE1_CHINESE_STORY_CARDS.activityId, taskKind: 'interactive_story_event_ordering', levelId: null, runtimeModule: 'prototype/data/grade1ChineseStoryCards.js', curriculumMapId: 'chinese-stage1-word-sentence-story', learningObjectiveIds: Object.freeze([GRADE1_CHINESE_STORY_CARDS.learningObjective.objectiveId]), evidenceType: 'candidate_practice_response_only_memory_only', status: 'playable_candidate_pending_teacher_review' }),
+      ...GRADE1_CHINESE_EXPANSION_ACTIVITIES.map((task) => Object.freeze({ taskId: task.activityId, taskKind: 'interactive_grade1_chinese_candidate', levelId: null, runtimeModule: task.runtimeModule, curriculumMapId: task.curriculumMapId, learningObjectiveIds: Object.freeze([task.learningObjective.objectiveId]), evidenceType: 'candidate_practice_response_only_memory_only', status: 'playable_candidate_pending_teacher_review' })),
     ]),
     relationshipStatus: 'candidate_links_first_stage_refs_not_grade_schedule_or_full_literacy_coverage',
   }),

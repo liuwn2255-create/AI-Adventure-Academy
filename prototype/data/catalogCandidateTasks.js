@@ -19,6 +19,7 @@ import { GRADE1_MATH_QUANTITY_GARDEN } from './grade1MathQuantityGarden.js';
 import { GRADE1_MATH_COUNTER_STORY } from './grade1MathCounterStory.js';
 import { GRADE1_CHINESE_SENTENCE_TRAIN } from './grade1ChineseSentenceTrain.js';
 import { GRADE1_CHINESE_STORY_CARDS } from './grade1ChineseStoryCards.js';
+import { GRADE1_CHINESE_EXPANSION_ACTIVITIES } from './grade1ChineseExpansionActivities.js';
 import { GRADE1_LIVING_OBJECT_SORT } from './grade1LivingObjectSort.js';
 import { GRADE1_LIVING_CHANGE_DETECTIVE } from './grade1LivingChangeDetective.js';
 import { GRADE1_MATH_CLASSIFICATION_WORKSHOP } from './grade1MathClassificationWorkshop.js';
@@ -76,6 +77,7 @@ export const CATALOG_CANDIDATE_TASKS = Object.freeze([
   GRADE1_MATH_COUNTER_STORY,
   GRADE1_CHINESE_SENTENCE_TRAIN,
   GRADE1_CHINESE_STORY_CARDS,
+  ...GRADE1_CHINESE_EXPANSION_ACTIVITIES,
   GRADE1_LIVING_OBJECT_SORT,
   GRADE1_LIVING_CHANGE_DETECTIVE,
   GRADE1_MATH_CLASSIFICATION_WORKSHOP,

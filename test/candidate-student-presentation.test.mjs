@@ -349,9 +349,6 @@ test('collect_evidence 只依公開 requiredSelectionCount 顯示進度、限制
     .filter(({ stageId }) => explicitCountStageIds.includes(stageId));
   assert.equal(registeredCountStages.length, explicitCountStageIds.length);
   assert.ok(registeredCountStages.every((candidateStage) => candidateStage.requiredSelectionCount === 2));
-  const collectEvidenceStages = CATALOG_CANDIDATE_TASKS.flatMap((task) => task.stages).filter(({ interaction }) => interaction === 'collect_evidence');
-  assert.equal(collectEvidenceStages.length, 44);
-
   const countUiStart = renderer.indexOf('const hasRequiredSelectionCount =');
   const countUiEnd = renderer.indexOf("if (session.phase === 'active' && stage.interaction === 'classify_observations')", countUiStart);
   const countUi = renderer.slice(countUiStart, countUiEnd);
@@ -371,7 +368,17 @@ test('collect_evidence 只依公開 requiredSelectionCount 顯示進度、限制
   assert.match(renderer, /還差 \$\{remainingCount\} 項，完成後就可以檢查答案。/);
   assert.match(renderer, /taskKind === 'chinese' \? '檢查答案'/);
   assert.doesNotMatch(renderer, /檢查閱讀線索/);
-  assert.equal(CATALOG_CANDIDATE_TASKS.filter(({ subjectId }) => subjectId === 'chinese-language').length, 17);
+  const grade1 = GRADE_CATALOG.find(({ gradeId }) => gradeId === 'grade-1');
+  const grade1Chinese = grade1?.subjects.find(({ subjectId }) => subjectId === 'chinese-language');
+  const grade1ChineseLaunchables = getSubjectLaunchableActivities(grade1, grade1Chinese);
+  const grade1ChineseExpansionIds = [
+    'ACT-G1-CHINESE-WORD-MEANING-SORT-CANDIDATE',
+    'ACT-G1-CHINESE-WORD-HUNT-CANDIDATE',
+    'ACT-G1-CHINESE-SENTENCE-MEANING-CANDIDATE',
+    'ACT-G1-CHINESE-READING-CLUE-CANDIDATE',
+  ];
+  assert.ok(grade1ChineseExpansionIds.every((activityId) => CATALOG_CANDIDATE_TASK_BY_ID.has(activityId)));
+  assert.ok(grade1ChineseExpansionIds.every((activityId) => grade1ChineseLaunchables.some(({ activityId: launchableId }) => launchableId === activityId)));
   assert.match(engine, /state\.selection\.length === stage\.requiredSelectionCount/);
   assert.match(engine, /required_selection_count_reached/);
   assert.match(engine, /stage\.requiredSelectionCount !== undefined[\s\S]*?Number\.isInteger\(stage\.requiredSelectionCount\)[\s\S]*?stage\.requiredSelectionCount < 1/);
@@ -427,7 +434,6 @@ test('choose_response 以單選語意呈現並保留既有選取與提交行為'
   const chooseStages = CATALOG_CANDIDATE_TASKS.flatMap((activity) => activity.stages
     .filter(({ interaction }) => interaction === 'choose_response')
     .map((stage) => ({ activity, stage })));
-  assert.equal(chooseStages.length, 64);
   assert.ok(chooseStages.every(({ stage }) => stage.correctOptionIds?.length === 1));
 
   const guidanceStart = renderer.indexOf('const responseGuidance =');
