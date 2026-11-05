@@ -1982,8 +1982,12 @@
       "status": "verified_in_official_guideline_grade_content",
       "officialTextReviewStatus": "verified_against_official_text",
       "gradeApplicabilityStatus": "grade_1_content_code_local_schedule_pending",
-      "performanceCodes": [],
-      "performanceTexts": [],
+      "performanceCodes": [
+        "s-I-1"
+      ],
+      "performanceTexts": [
+        "從操作活動，初步認識物體與常見幾何形體的幾何特徵。"
+      ],
       "contentCodes": [
         "S-1-2"
       ],
@@ -1992,13 +1996,14 @@
       ],
       "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf",
       "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－數學領域",
-      "pageOrSection": "伍／二／一年級學習內容表 S-1-2，官方 PDF 頁序第22頁；表列對應表現 s-I-1。PDF頁序以1起算，不表示學期或教材順序。",
+      "pageOrSection": "伍／一／第一學習階段學習表現表「空間與形狀」s-I-1，官方 PDF 頁序第18頁；伍／二／一年級學習內容表 S-1-2，官方 PDF 頁序第22頁，該列明確對應 s-I-1。PDF頁序以1起算；第一學習階段包含一、二年級，頁序不表示學期或教材順序。",
       "reviewer": "官方 PDF 條文核對（非教師課程審查）",
       "reviewDate": "2026-10-23",
       "verifiedClauses": [
-        "S-1-2"
+        "S-1-2",
+        "s-I-1"
       ],
-      "notes": "直接核對官方數學領綱一年級表格；課綱條目要求的操作範圍較本候選活動廣。教材版本、班級進度與教師適切性仍待確認。"
+      "notes": "官方一年級 S-1-2 表格明列對應第一學習階段表現 s-I-1；s-I-1 要求透過操作初步認識物體與常見幾何形體的幾何特徵。此候選使用螢幕圖形片複製平面格形，僅支持部分操作經驗，不等同實體操作，也不涵蓋立體形體；教材版本、班級進度與教師適切性仍待確認。"
     },
     {
       "id": "math-grade2-two-step-applications",
