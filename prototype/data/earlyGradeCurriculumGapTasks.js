@@ -30,6 +30,7 @@ const grade1ShapeCopyPiece = (id, label, shape, readings) => Object.freeze({
 export const GRADE1_SHAPE_COPY_STUDIO = Object.freeze({
   activityId: 'ACT-G1-MATH-SHAPE-COPY-STUDIO-CANDIDATE', revision: 1,
   title: '格子拼拼板：用正方形填滿格子', gradeId: 'grade-1', subjectId: 'mathematics',
+  titlePronunciationTokens: grade1ShapeCopyText('格子拼拼板：用正方形填滿格子', 'ㄍㄜˊ ˙ㄗ ㄆㄧㄣ ㄆㄧㄣ ㄅㄢˇ ㄩㄥˋ ㄓㄥˋ ㄈㄤ ㄒㄧㄥˊ ㄊㄧㄢˊ ㄇㄢˇ ㄍㄜˊ ˙ㄗ').pronunciationTokens,
   status: candidateStatus, sourceKind: 'original_interactive_candidate_not_textbook',
   curriculumMapId: 'math-grade1-shape-operation', sourceId: 'mathematics',
   curriculumCodes: ['S-1-2'],
@@ -306,6 +307,7 @@ const playgroundTeacherLimitation = '本活動只提供虛構螢幕情境練習�
 export const GRADE1_PLAYGROUND_SAFETY_ROUTE = Object.freeze({
   activityId: 'ACT-G1-HPE-PLAYGROUND-SAFETY-ROUTE-CANDIDATE', revision: 1,
   title: '安全路線小隊：遊戲場與上下學任務', gradeId: 'grade-1', subjectId: 'health-physical-education',
+  titlePronunciationTokens: reviewedPlaygroundText('安全路線小隊：遊戲場與上下學任務', 'ㄢ ㄑㄩㄢˊ ㄌㄨˋ ㄒㄧㄢˋ ㄒㄧㄠˇ ㄉㄨㄟˋ ㄧㄡˊ ㄒㄧˋ ㄔㄤˇ ㄩˇ ㄕㄤˋ ㄒㄧㄚˋ ㄒㄩㄝˊ ㄖㄣˋ ㄨˋ'),
   status: candidateStatus, sourceKind: 'original_simulated_safety_scenario_candidate_not_textbook',
   curriculumMapId: 'health-pe-stage1-playground-and-school-route-safety', sourceId: 'health-physical-education',
   curriculumCodes: ['Ba-Ⅰ-1'],

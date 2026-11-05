@@ -30,6 +30,7 @@ export const GRADE1_LIVING_CHANGE_DETECTIVE = Object.freeze({
   activityId: 'ACT-G1-LIVING-CHANGE-DETECTIVE-CANDIDATE',
   revision: 1,
   title: '生活變化偵探：找出前後不同',
+  titlePronunciationTokens: reviewed('生活變化偵探：找出前後不同', 'ㄕㄥ ㄏㄨㄛˊ ㄅㄧㄢˋ ㄏㄨㄚˋ ㄓㄣ ㄊㄢˋ ㄓㄠˇ ㄔㄨ ㄑㄧㄢˊ ㄏㄡˋ ㄅㄨˋ ㄊㄨㄥˊ'),
   gradeId: 'grade-1',
   subjectId: 'living-curriculum',
   status: 'candidate_pending_teacher_review',

@@ -6,9 +6,11 @@ import {
   CURRICULUM_FRAMEWORK_SOURCE,
   ELEMENTARY_CURRICULUM_AREAS,
   GRADE1_SUBJECT_DIRECTORY_GROUPS,
+  GRADE12_DIRECTORY_PRONUNCIATION,
   LEARNING_TASK_RELATIONS,
   SUBJECT_DEFINITIONS,
 } from '../prototype/data/elementaryLearningCatalog.js';
+import { renderStudentText } from '../prototype/studentTextRenderer.js';
 
 const readJson = async (path) => JSON.parse(await readFile(new URL(path, import.meta.url), 'utf8'));
 
@@ -132,5 +134,17 @@ test('二年級數學、國語文、生活課程候選任務由正確科目目�
     assert.equal(subject.developmentStatus, 'playable_candidate_prototype');
     assert.deepEqual(subject.existingYearLevelContent.map(({ activityId }) => activityId), ids);
     assert.ok(subject.existingYearLevelContent.every(({ status, runtimeAvailability, entryRoute, progressPersistence }) => status === 'candidate_pending_teacher_review' && runtimeAvailability === 'playable_candidate_prototype' && entryRoute.targetScreen === 'catalog-task' && progressPersistence === 'memory_only_no_student_records_no_localStorage'));
+  }
+});
+
+test('低年級目錄固定中文有逐字人工注音 tokens，經 renderer 產生 ruby', () => {
+  for (const [text, tokens] of Object.entries(GRADE12_DIRECTORY_PRONUNCIATION)) {
+    assert.equal(tokens.map(({ text: tokenText }) => tokenText).join(''), text, `token text aligns: ${text}`);
+    for (const token of tokens) {
+      if (/^\p{Script=Han}$/u.test(token.text)) assert.ok(token.reading, `Han reading exists: ${token.text} in ${text}`);
+      else assert.equal(token.reading, undefined, `non-Han has no reading: ${token.text} in ${text}`);
+    }
+    const html = renderStudentText(text, tokens);
+    assert.equal((html.match(/class="zhuyin-pair"/gu) ?? []).length, Array.from(text).filter((character) => /^\p{Script=Han}$/u.test(character)).length, `ruby pairs render: ${text}`);
   }
 });

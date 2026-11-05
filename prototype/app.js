@@ -9,7 +9,7 @@ import { createExplorerPosition, getNearbyObject, interactWithObject, ISLAND_OBJ
 import { canStartNumberSecret, isNumberSecretTreasureUnlocked, NUMBER_SECRET_QUEST_ID } from './numberSecretFlow.js';
 import { CAPACITY_MISSION_CONFIG, CAPACITY_OBSERVATION_SCENARIOS, createCapacityMission, createCapacityObservationSession, createCapacityOnboarding } from './capacityMission.js';
 import { GRADE_CATALOG, getGradeById } from './data/gradeCatalog.js';
-import { CURRICULUM_FRAMEWORK_SOURCE, ELEMENTARY_CURRICULUM_AREAS, GRADE1_SUBJECT_DIRECTORY_GROUPS, SUBJECT_DEFINITIONS, getLearningTaskRelation } from './data/elementaryLearningCatalog.js';
+import { CURRICULUM_FRAMEWORK_SOURCE, ELEMENTARY_CURRICULUM_AREAS, GRADE1_SUBJECT_DIRECTORY_GROUPS, GRADE12_DIRECTORY_PRONUNCIATION, SUBJECT_DEFINITIONS, getLearningTaskRelation } from './data/elementaryLearningCatalog.js';
 import { MOVEMENT_KEYS, createMovementHoldController } from './movementControls.js';
 import { NUMBER_SECRET_LEARNING_UNIT, NUMBER_SECRET_V2_CANDIDATE_SET } from './data/numberSecretLearningUnit.js';
 import { NUMBER_COMPARISON_LEARNING_UNIT } from './data/numberComparisonLearningUnit.js';
@@ -38,6 +38,42 @@ import { getGradeAdventureSummary, getSubjectDirectorySummary, getSubjectLauncha
 import { createLearningTaskSession, dispatchLearningTask } from './learningTaskEngine.js';
 import { isSpeechEnabled, setSpeechEnabled, speak } from './speechService.js';
 import { isLowGradeReadingAssistanceEnabled, renderStudentText } from './studentTextRenderer.js';
+
+function appendCatalogStudentText(parent, text, gradeId, pronunciationTokens) {
+  if (!isLowGradeReadingAssistanceEnabled(gradeId) || !Array.isArray(pronunciationTokens) || pronunciationTokens.length === 0) {
+    parent.append(document.createTextNode(text ?? ''));
+    return;
+  }
+  const annotated = document.createElement('span');
+  annotated.className = 'candidate-zhuyin-text';
+  annotated.innerHTML = renderStudentText(text, pronunciationTokens);
+  parent.append(annotated);
+}
+
+function appendGradeDirectoryText(parent, text, gradeId) {
+  appendCatalogStudentText(parent, text, gradeId, GRADE12_DIRECTORY_PRONUNCIATION[text]);
+}
+
+function getActivityTitlePronunciationSegments(activity) {
+  const title = activity?.title;
+  const tokens = activity?.titlePronunciationTokens;
+  if (typeof title !== 'string' || !Array.isArray(tokens) || tokens.map(({ text }) => text).join('') !== title) return {};
+  const characters = Array.from(title);
+  const separatorIndex = characters.findIndex((character) => character === '：' || character === ':');
+  if (separatorIndex < 0) return {};
+  const titleText = characters.slice(0, separatorIndex).join('');
+  let descriptionStart = separatorIndex + 1;
+  while (descriptionStart < characters.length && /\s/u.test(characters[descriptionStart])) descriptionStart += 1;
+  let descriptionEnd = characters.length;
+  while (descriptionEnd > descriptionStart && /\s/u.test(characters[descriptionEnd - 1])) descriptionEnd -= 1;
+  const descriptionText = characters.slice(descriptionStart, descriptionEnd).join('');
+  const titleTokens = tokens.slice(0, separatorIndex);
+  const descriptionTokens = tokens.slice(descriptionStart, descriptionEnd);
+  return {
+    titleTokens: titleTokens.map(({ text }) => text).join('') === titleText ? titleTokens : undefined,
+    descriptionTokens: descriptionTokens.map(({ text }) => text).join('') === descriptionText ? descriptionTokens : undefined,
+  };
+}
 
 const BUILD_ARRAY_UI_PRONUNCIATION = Object.freeze({
   '怎麼玩：① 按按鈕排果子 → ② 看排數和每排幾個 → ③ 排好後檢查答案': 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄢˋ ㄢˋ ㄋㄧㄡˇ ㄆㄞˊ ㄍㄨㄛˇ ㄗ˙ ㄎㄢˋ ㄆㄞˊ ㄕㄨˋ ㄏㄜˊ ㄇㄟˇ ㄆㄞˊ ㄐㄧˇ ㄍㄜˋ ㄆㄞˊ ㄏㄠˇ ㄏㄡˋ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ',
@@ -133,6 +169,7 @@ function appendClassifyObservationsUiText(parent, text, appendStudentText) {
 }
 
 const LOW_GRADE_CANDIDATE_UI_PRONUNCIATION = Object.freeze({
+  '挑戰 ': 'ㄊㄧㄠˇ ㄓㄢˋ',
   '這一關要做什麼：': 'ㄓㄜˋ ㄧˋ ㄍㄨㄢ ㄧㄠˋ ㄗㄨㄛˋ ㄕㄣˊ ㄇㄜ˙',
   '提示 ': 'ㄊㄧˊ ㄕˋ',
   '怎麼玩：① 看題目 → ② 選一個答案 → ③ 檢查答案': 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄎㄢˋ ㄊㄧˊ ㄇㄨˋ ㄒㄩㄢˇ ㄧˊ ㄍㄜˋ ㄉㄚˊ ㄢˋ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ',
@@ -533,14 +570,15 @@ function renderGradeSelection() {
     button.classList.toggle('is-selected', subject.subjectId === selectedSubjectId);
     const area = ELEMENTARY_CURRICULUM_AREAS.find(({ areaId }) => areaId === subject.areaId);
     const name = document.createElement('strong');
-    name.textContent = subject.name;
+    appendGradeDirectoryText(name, subject.name, grade.gradeId);
     const areaLabel = document.createElement('span');
-    areaLabel.textContent = subject.areaId === 'life-course' ? '國小整合課程' : area?.name ?? '課程領域待確認';
+    appendGradeDirectoryText(areaLabel, subject.areaId === 'life-course' ? '國小整合課程' : area?.name ?? '課程領域待確認', grade.gradeId);
     const status = document.createElement('small');
     status.className = 'grade-subject-card-status';
-    status.textContent = subjectActivities.length > 0
-      ? `${subjectActivities.length} 個遊戲`
-      : emptyActivityMessage || '目前尚無可開始的遊戲';
+    if (subjectActivities.length > 0) {
+      appendCatalogStudentText(status, String(subjectActivities.length), grade.gradeId);
+      appendGradeDirectoryText(status, ' 個遊戲', grade.gradeId);
+    } else appendGradeDirectoryText(status, emptyActivityMessage || '目前尚無可開始的遊戲', grade.gradeId);
     button.append(areaLabel, name, status);
     button.addEventListener('click', () => {
       selectedSubjectId = subject.subjectId;
@@ -562,11 +600,11 @@ function renderGradeSelection() {
       heading.id = `grade-subject-group-${group.groupId}`;
       heading.className = 'grade-subject-directory-group-title';
       heading.style.gridColumn = '1 / -1';
-      heading.textContent = group.title;
+      appendGradeDirectoryText(heading, group.title, grade.gradeId);
       const description = document.createElement('p');
       description.className = 'grade-subject-directory-group-description';
       description.style.gridColumn = '1 / -1';
-      description.textContent = group.description;
+      appendGradeDirectoryText(description, group.description, grade.gradeId);
       section.append(heading, description);
       directory.append(section);
       for (const entry of group.subjects) {
@@ -698,24 +736,30 @@ function renderGradeSelection() {
       const card = document.createElement('article');
       card.className = 'student-game-card';
       card.dataset.activityId = activity.activityId;
+      const titlePronunciationSegments = getActivityTitlePronunciationSegments(activity);
       const title = document.createElement('h5');
-      title.textContent = activity.title?.split(/[：:]/, 1)[0] ?? '學習冒險';
+      const studentCardTitle = activity.title?.split(/[：:]/, 1)[0] ?? '學習冒險';
+      appendCatalogStudentText(title, studentCardTitle, grade.gradeId, activity.studentCardTitlePronunciationTokens ?? titlePronunciationSegments.titleTokens);
       const description = document.createElement('p');
       const titleSummary = activity.title?.split(/[：:]/).slice(1).join('：').trim();
-      description.textContent = titleSummary
+      const studentCardDescription = titleSummary
         ? titleSummary.replace('比吸起數量', '比較磁力強弱')
         : activity.learningObjective?.statement ?? activity.instructions ?? '動手完成任務挑戰。';
+      appendCatalogStudentText(description, studentCardDescription, grade.gradeId, activity.studentCardDescriptionPronunciationTokens ?? titlePronunciationSegments.descriptionTokens);
       const challengeCount = document.createElement('small');
       challengeCount.className = 'student-game-card-challenges';
-      challengeCount.textContent = isCandidateActivity ? `${activity.stages?.length ?? 0} 個挑戰` : '閱讀任務';
+      if (isCandidateActivity) {
+        appendCatalogStudentText(challengeCount, String(activity.stages?.length ?? 0), grade.gradeId);
+        appendGradeDirectoryText(challengeCount, ' 個挑戰', grade.gradeId);
+      } else appendGradeDirectoryText(challengeCount, '閱讀任務', grade.gradeId);
       const status = document.createElement('small');
       status.className = 'student-game-card-status';
-      status.textContent = isCandidateActivity ? '候選活動・待教師審查' : '閱讀任務';
+      appendGradeDirectoryText(status, isCandidateActivity ? '候選活動・待教師審查' : '閱讀任務', grade.gradeId);
       const launch = document.createElement('button');
       launch.type = 'button';
       launch.className = 'button button-primary catalog-task-launch';
       launch.dataset.activityId = activity.activityId;
-      launch.textContent = isCandidateActivity ? '開始挑戰' : '開始閱讀任務';
+      appendGradeDirectoryText(launch, isCandidateActivity ? '開始挑戰' : '開始閱讀任務', grade.gradeId);
       launch.addEventListener('click', () => {
         if (isCandidateActivity) startCatalogCandidateTask(activity.activityId);
         else if (activity.entryRoute?.directLaunch === true && activity.entryRoute.targetScreen === 'reading-quest') {
@@ -1279,7 +1323,14 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     return;
   }
   if (!stage) return;
-  host.append(element('h2', 'reading-stage-heading', `挑戰 ${session.stageIndex + 1}／${activity.stages.length}`));
+  const stageHeading = element('h2', 'reading-stage-heading', '');
+  if (isLowGradeReadingAssistanceEnabled(activity.gradeId)) {
+    appendLowGradeCandidateUiText(stageHeading, '挑戰 ', appendStudentText);
+    appendStudentText(stageHeading, String(session.stageIndex + 1));
+    appendStudentText(stageHeading, '／');
+    appendStudentText(stageHeading, String(activity.stages.length));
+  } else stageHeading.textContent = `挑戰 ${session.stageIndex + 1}／${activity.stages.length}`;
+  host.append(stageHeading);
   if (stage.context?.length) {
     const dialogue = element('article', 'candidate-context-card');
     dialogue.setAttribute('aria-label', '情境資料');
@@ -3528,7 +3579,10 @@ function startCatalogCandidateTask(activityId, routeContext = null) {
   activeCandidateRouteContext = routeContext;
   activeCatalogTask = activity;
   activeCatalogTaskSession = createLearningTaskSession(activity, `${activity.activityId}:catalog-session`);
-  document.getElementById('catalog-task-title').textContent = activity.title?.split(/[：:]/, 1)[0] ?? activity.title;
+  const catalogTaskTitle = document.getElementById('catalog-task-title');
+  catalogTaskTitle.replaceChildren();
+  const titlePronunciationSegments = getActivityTitlePronunciationSegments(activity);
+  appendCatalogStudentText(catalogTaskTitle, activity.title?.split(/[：:]/, 1)[0] ?? activity.title, activity.gradeId, activity.studentTitlePronunciationTokens ?? titlePronunciationSegments.titleTokens);
     const kind = activity.subjectId === 'mathematics' ? 'math' : activity.subjectId === 'chinese-language' ? 'chinese' : activity.subjectId === 'english-language' ? 'english' : activity.subjectId === 'natural-science' ? 'science' : activity.subjectId === 'social-studies' ? 'social' : activity.subjectId === 'arts' ? 'arts' : activity.subjectId === 'living-curriculum' ? 'living' : activity.subjectId === 'health-physical-education' ? 'hpe' : 'integrative';
   renderReusableCandidateTask(activity, activeCatalogTaskSession, document.getElementById('catalog-task-content'), (session) => { activeCatalogTaskSession = session; }, kind);
   showScreen('catalog-task');

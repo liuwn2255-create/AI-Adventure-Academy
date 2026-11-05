@@ -19,6 +19,7 @@ const reviewedHint = (text, readings) => Object.freeze({
 export const GRADE1_CHINESE_STORY_CARDS = Object.freeze({
   activityId: 'ACT-G1-CHINESE-STORY-CARDS-CANDIDATE', revision: 1,
   title: '故事卡排排隊：找回小球', gradeId: 'grade-1', subjectId: 'chinese-language',
+  titlePronunciationTokens: reviewedPronunciationTokens('故事卡排排隊：找回小球', 'ㄍㄨˋ ㄕˋ ㄎㄚˇ ㄆㄞˊ ㄆㄞˊ ㄉㄨㄟˋ ㄓㄠˇ ㄏㄨㄟˊ ㄒㄧㄠˇ ㄑㄧㄡˊ'),
   status: 'candidate_pending_teacher_review', sourceKind: 'original_short_story_candidate_not_textbook',
   curriculumMapId: 'chinese-stage1-word-sentence-story', sourceId: 'chinese-language', curriculumCodes: ['5-I-4', '5-I-6', 'Ad-I-3', 'Ba-I-1'],
   curriculumScope: '對照第一學習階段文本重要訊息、圖像／故事結構輔助理解與故事文本；活動只檢視簡短原創故事的事件順序，不代表完整閱讀理解能力或一年級學期進度。',

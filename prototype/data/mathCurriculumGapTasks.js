@@ -78,6 +78,7 @@ export const MATH_CURRICULUM_GAP_TASKS = freeze([
   task({
     activityId: 'ACT-G1-MATH-MONEY-COUNT-EXCHANGE-CANDIDATE',
     title: '小小錢幣市集：數錢與找錢', gradeId: 'grade-1', subjectId: 'mathematics',
+    titlePronunciationTokens: reviewed('小小錢幣市集：數錢與找錢', 'ㄒㄧㄠˇ ㄒㄧㄠˇ ㄑㄧㄢˊ ㄅㄧˋ ㄕˋ ㄐㄧˊ ㄕㄨˇ ㄑㄧㄢˊ ㄩˇ ㄓㄠˇ ㄑㄧㄢˊ').pronunciationTokens,
     curriculumMapId: 'math-grade1-money-count-exchange', curriculumCodes: ['N-1-4', 'n-I-3'],
     curriculumScope: '官方一年級內容 N-1-4 指定 1、5、10、50、100 元，並以操作活動為主進行數錢、換錢、找錢，允許多元策略。本活動用畫面錢幣選取與找零情境局部練習；螢幕操作不等同實體錢幣操作，也不涵蓋所有支付組合，亦不代表已能在真實交易中找零。',
     learningSubitemClaims: ['SUB-MATH-G1-N1-4-MONEY-COUNT-CHANGE'],
@@ -183,6 +184,7 @@ export const MATH_CURRICULUM_GAP_TASKS = freeze([
   task({
     activityId: 'ACT-G1-MATH-LENGTH-COMPARE-ROPE-CANDIDATE',
     title: '長度比較小徑：看哪條路較長', gradeId: 'grade-1', subjectId: 'mathematics',
+    titlePronunciationTokens: reviewed('長度比較小徑：看哪條路較長', 'ㄔㄤˊ ㄉㄨˋ ㄅㄧˇ ㄐㄧㄠˋ ㄒㄧㄠˇ ㄐㄧㄥˋ ㄎㄢˋ ㄋㄚˇ ㄊㄧㄠˊ ㄌㄨˋ ㄐㄧㄠˋ ㄔㄤˊ').pronunciationTokens,
     curriculumMapId: 'math-grade1-length-compare', curriculumCodes: ['N-1-5', 'S-1-1', 'n-I-7'],
     curriculumScope: '官方 N-1-5/S-1-1 要求操作性初步認識、直接與間接比較（含個別單位），並包含直線與曲線；該條目明確不教常用單位。本活動以螢幕路徑圖及共同單位模型做比較，涵蓋直接觀察和用共同單位核對兩種情境，不是實體繩測、實測或估測能力評量。',
     learningSubitemClaims: ['SUB-MATH-G1-N1-5-COMPARE-STRAIGHT-CURVED-LENGTH'],

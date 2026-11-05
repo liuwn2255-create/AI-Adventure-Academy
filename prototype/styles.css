@@ -61,7 +61,7 @@
 .grade-semester-status{margin:0;color:#647b84;font-size:.78rem;line-height:1.5}
 .grade-subject-directory{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
 .grade-subject-card{display:grid;align-content:start;justify-items:start;gap:5px;min-width:0;min-height:92px;padding:11px;border:2px solid #c6e1e5;border-radius:14px;background:#fff;color:#214c63;text-align:left;cursor:pointer}
-.grade-subject-card span{color:#398098;font-size:.68rem;font-weight:850}
+.grade-subject-card>span{color:#398098;font-size:.68rem;font-weight:850}
 .grade-subject-card strong{font-size:.84rem;line-height:1.35;overflow-wrap:anywhere}
 .grade-subject-card small{color:#647b84;font-size:.67rem;line-height:1.35}
 .grade-subject-card:hover,.grade-subject-card.is-selected{border-color:#e1b637;background:#fff9df}
@@ -581,6 +581,33 @@
 .candidate-answer-option.is-selected{border:3px solid #246e5d;font-weight:900}
 .candidate-answer-option:focus-visible{outline:3px solid #f5b62c;outline-offset:2px}
 .candidate-zhuyin-text{line-height:1.55;letter-spacing:normal;word-spacing:normal}.zhuyin-pair{display:inline-grid;grid-template-columns:auto 1.16em;align-items:center;column-gap:.06em;margin-inline:.01em;vertical-align:middle;white-space:nowrap}.zhuyin-hanzi{grid-column:1;grid-row:1;writing-mode:horizontal-tb;text-orientation:mixed}.zhuyin-reading{position:relative;grid-column:2;grid-row:1;display:flex;flex-direction:column;align-items:center;justify-content:center;width:1.16em;height:1.78em;min-width:1.16em;box-sizing:border-box;font-size:1em;line-height:1;font-weight:750;color:var(--muted)}.zhuyin-glyph-column{display:flex;flex-direction:column;align-items:center;justify-content:center;width:.68em;height:100%;line-height:.94}.zhuyin-glyph{display:block;font-size:.62em;line-height:.94}.zhuyin-tone{position:absolute;right:.02em;top:50%;transform:translateY(-50%);font-size:.48em;line-height:1}.zhuyin-tone-neutral{top:.02em;transform:none}.candidate-answer-option{white-space:normal;line-height:1.55}.candidate-answer-option .candidate-zhuyin-text{display:inline-block;padding-block:.12em}
+.grade-subject-card>strong .candidate-zhuyin-text,.student-game-card h5 .candidate-zhuyin-text{--directory-reading-width:1.20em;--directory-cell-height:2.20em;--directory-glyph-track:.72em;--directory-tone-track:.48em;--directory-glyph-size:.82em;--directory-tone-size:.60em;line-height:2.3;overflow-wrap:anywhere}
+.grade-subject-card>span .candidate-zhuyin-text,.grade-subject-card>small .candidate-zhuyin-text,.student-game-card p .candidate-zhuyin-text,.student-game-card-challenges .candidate-zhuyin-text,.student-game-card-status .candidate-zhuyin-text,.student-game-card .catalog-task-launch .candidate-zhuyin-text{--directory-reading-width:1.06em;--directory-cell-height:1.95em;--directory-glyph-track:.66em;--directory-tone-track:.40em;--directory-glyph-size:.72em;--directory-tone-size:.54em;line-height:2.05;overflow-wrap:anywhere}
+.grade-subject-card .candidate-zhuyin-text .zhuyin-pair,.student-game-card .candidate-zhuyin-text .zhuyin-pair{grid-template-columns:auto var(--directory-reading-width);grid-template-rows:var(--directory-cell-height);column-gap:.04em;vertical-align:middle}
+.grade-subject-card .candidate-zhuyin-text .zhuyin-hanzi,.student-game-card .candidate-zhuyin-text .zhuyin-hanzi{line-height:1}
+.grade-subject-card .candidate-zhuyin-text .zhuyin-reading,.student-game-card .candidate-zhuyin-text .zhuyin-reading{display:grid;grid-template-columns:var(--directory-glyph-track) var(--directory-tone-track);align-items:center;justify-content:start;width:var(--directory-reading-width);min-width:var(--directory-reading-width);height:var(--directory-cell-height);line-height:1}
+.grade-subject-card .candidate-zhuyin-text .zhuyin-glyph-column,.student-game-card .candidate-zhuyin-text .zhuyin-glyph-column{grid-column:1;width:var(--directory-glyph-track);height:100%;line-height:.94}
+.grade-subject-card .candidate-zhuyin-text .zhuyin-glyph,.student-game-card .candidate-zhuyin-text .zhuyin-glyph{font-size:var(--directory-glyph-size)}
+.grade-subject-card .candidate-zhuyin-text .zhuyin-tone,.student-game-card .candidate-zhuyin-text .zhuyin-tone{position:static;grid-column:2;align-self:center;justify-self:center;transform:none;font-size:var(--directory-tone-size)}
+.grade-subject-card .candidate-zhuyin-text .zhuyin-tone-neutral,.student-game-card .candidate-zhuyin-text .zhuyin-tone-neutral{align-self:start;margin-top:.02em}
+.student-game-card .catalog-task-launch .candidate-zhuyin-text{display:inline-block;line-height:2.2;max-width:100%;overflow-wrap:anywhere}
+.student-game-card .catalog-task-launch .candidate-zhuyin-text{--directory-reading-width:1.20em;--directory-cell-height:2.10em;--directory-glyph-track:.72em;--directory-tone-track:.48em;--directory-glyph-size:.72em;--directory-tone-size:.54em;line-height:2.25;color:#FFFFFF}
+.student-game-card .catalog-task-launch .candidate-zhuyin-text .zhuyin-pair{column-gap:.08em}
+.student-game-card .catalog-task-launch .candidate-zhuyin-text .zhuyin-reading,.student-game-card .catalog-task-launch .candidate-zhuyin-text .zhuyin-tone{color:#FFFFFF}
+.grade-subject-card .zhuyin-pair,.student-game-card .zhuyin-pair{grid-template-columns:auto 1.02em;grid-template-rows:1.78em;column-gap:.04em;vertical-align:middle}
+.grade-subject-card .zhuyin-hanzi,.student-game-card .zhuyin-hanzi{line-height:1}
+.grade-subject-card .zhuyin-reading,.student-game-card .zhuyin-reading{width:1.02em;min-width:1.02em;height:1.78em;line-height:1}
+
+/* Low-grade annotated game title, prompt copy, and answer-check control. */
+.candidate-task-screen #catalog-task-title .candidate-zhuyin-text{font-size:.6em;line-height:1.55;letter-spacing:normal}
+.candidate-task-screen .candidate-student-task:has(> .candidate-zhuyin-text + .candidate-zhuyin-text)>.candidate-zhuyin-text{line-height:1.9}
+.candidate-task-screen .candidate-student-response-guidance .candidate-zhuyin-text{line-height:1.9}
+.candidate-task-screen .button-primary>.candidate-zhuyin-text{display:inline-block;max-width:100%;line-height:2.2;color:#fff;overflow-wrap:anywhere}
+.candidate-task-screen .button-primary>.candidate-zhuyin-text .zhuyin-pair{grid-template-columns:auto 1.24em;grid-template-rows:2em;column-gap:.10em}
+.candidate-task-screen .button-primary>.candidate-zhuyin-text .zhuyin-reading{width:1.24em;min-width:1.24em;height:2em;color:#fff}
+.candidate-task-screen .button-primary>.candidate-zhuyin-text .zhuyin-tone{color:#fff}
+.grade-subject-card .zhuyin-glyph-column,.student-game-card .zhuyin-glyph-column{align-self:flex-start;width:.62em;margin-left:.03em}
+.grade-subject-card .zhuyin-glyph,.student-game-card .zhuyin-glyph{font-size:.68em}
 .candidate-prompt-speech{display:block;min-height:44px;margin:4px 0 10px;padding:9px 16px;font-weight:800}
 .candidate-order-heading{margin:12px 0 4px;color:#24566c;font-size:1rem}
 .candidate-order-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:10px;min-width:0;padding:10px;border:1px solid #bfd7df;border-radius:13px;background:#fff}

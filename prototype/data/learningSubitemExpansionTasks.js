@@ -34,6 +34,7 @@ export const LEARNING_SUBITEM_EXPANSION_TASKS = Object.freeze([
   makeTask({
     activityId: 'ACT-G1-MATH-ZERO-PLACEHOLDER-EXPLORER-CANDIDATE',
     title: '數字小工坊：看看個位的 0', gradeId: 'grade-1', subjectId: 'mathematics',
+    titlePronunciationTokens: annotated('數字小工坊：看看個位的 0', 'ㄕㄨˋ ㄗˋ ㄒㄧㄠˇ ㄍㄨㄥ ㄈㄤ ㄎㄢˋ ˙ㄎㄢ ㄍㄜˋ ㄨㄟˋ ㄉㄜ˙').pronunciationTokens,
     curriculumMapId: 'math-grade1-count-place-value', curriculumCodes: ['N-1-1', 'n-I-1'],
     learningSubitemClaims: ['SUB-MATH-G1-N1-1-ZERO-PLACEHOLDER'],
     curriculumScope: '對照官方一年級學習內容 N-1-1 的位值單位「個」「十」與 0 的位值意義；僅作兩位數個位為0的有限候選練習，不代表完整涵蓋一百以內數。教材與課程順序待教師確認。',
@@ -73,6 +74,7 @@ export const LEARNING_SUBITEM_EXPANSION_TASKS = Object.freeze([
   makeTask({
     activityId: 'ACT-G1-MATH-COMPARISON-DIFFERENCE-NUMBER-LINE-CANDIDATE',
     title: '小小數線探險：多幾張', gradeId: 'grade-1', subjectId: 'mathematics',
+    titlePronunciationTokens: annotated('小小數線探險：多幾張', 'ㄒㄧㄠˇ ㄒㄧㄠˇ ㄕㄨˋ ㄒㄧㄢˋ ㄊㄢˋ ㄒㄧㄢˇ ㄉㄨㄛ ㄐㄧˇ ㄓㄤ').pronunciationTokens,
     curriculumMapId: 'math-grade1-add-sub-meaning', curriculumCodes: ['N-1-2', 'R-1-1', 'n-I-2'],
     learningSubitemClaims: ['SUB-MATH-G1-N1-2-COMPARISON-DIFFERENCE'],
     curriculumScope: '只對照 N-1-2 的比較型差量情境。本活動詢問8張比5張多幾張，未知的是比較結果（差量），不設未知加數、被加數、減數或被減數題型；亦不涵蓋全部比較情境或自主列式。',

@@ -88,6 +88,57 @@ export const SUBJECT_DEFINITIONS = Object.freeze([
   Object.freeze({ subjectId: 'health-physical-education', learningMapSubjectId: 'health_and_physical_education', name: '健康與體育', areaId: 'health-physical-education', frameworkEntryStatus: 'verified_framework_entry_grade_scope_pending' }),
 ]);
 
+// Each reading string below was supplied and reviewed for its exact visible text.
+// This helper only packages those readings into the renderer's existing token contract.
+function reviewedDirectoryTokens(text, readings) {
+  const syllables = readings ? readings.split(/\s+/u) : [];
+  let index = 0;
+  const tokens = Array.from(text, (character) => {
+    if (!/\p{Script=Han}/u.test(character)) return Object.freeze({ text: character });
+    const reading = syllables[index++];
+    if (!reading) throw new Error(`Missing reviewed directory pronunciation for ${character} in ${text}`);
+    return Object.freeze({ text: character, reading });
+  });
+  if (index !== syllables.length) throw new Error(`Extra reviewed directory pronunciation for ${text}`);
+  return Object.freeze(tokens);
+}
+
+export const GRADE12_DIRECTORY_PRONUNCIATION = Object.freeze(Object.fromEntries([
+  ['國語文', 'ㄍㄨㄛˊ ㄩˇ ㄨㄣˊ'],
+  ['本土語文／臺灣手語／新住民語文', 'ㄅㄣˇ ㄊㄨˇ ㄩˇ ㄨㄣˊ ㄊㄞˊ ㄨㄢ ㄕㄡˇ ㄩˇ ㄒㄧㄣ ㄓㄨˋ ㄇㄧㄣˊ ㄩˇ ㄨㄣˊ'],
+  ['英語文', 'ㄧㄥ ㄩˇ ㄨㄣˊ'],
+  ['數學', 'ㄕㄨˋ ㄒㄩㄝˊ'],
+  ['生活課程', 'ㄕㄥ ㄏㄨㄛˊ ㄎㄜˋ ㄔㄥˊ'],
+  ['社會', 'ㄕㄜˋ ㄏㄨㄟˋ'],
+  ['自然科學', 'ㄗˋ ㄖㄢˊ ㄎㄜ ㄒㄩㄝˊ'],
+  ['藝術', 'ㄧˋ ㄕㄨˋ'],
+  ['綜合活動', 'ㄗㄨㄥ ㄏㄜˊ ㄏㄨㄛˊ ㄉㄨㄥˋ'],
+  ['科技', 'ㄎㄜ ㄐㄧˋ'],
+  ['健康與體育', 'ㄐㄧㄢˋ ㄎㄤ ㄩˇ ㄊㄧˇ ㄩˋ'],
+  ['語文', 'ㄩˇ ㄨㄣˊ'],
+  ['國小整合課程', 'ㄍㄨㄛˊ ㄒㄧㄠˇ ㄓㄥˇ ㄏㄜˊ ㄎㄜˋ ㄔㄥˊ'],
+  ['課程領域待確認', 'ㄎㄜˋ ㄔㄥˊ ㄌㄧㄥˇ ㄩˋ ㄉㄞˋ ㄑㄩㄝˋ ㄖㄣˋ'],
+  ['正式課程', 'ㄓㄥˋ ㄕˋ ㄎㄜˋ ㄔㄥˊ'],
+  ['一年級正式課程入口；候選活動仍待教師審查。', 'ㄧˋ ㄋㄧㄢˊ ㄐㄧˊ ㄓㄥˋ ㄕˋ ㄎㄜˋ ㄔㄥˊ ㄖㄨˋ ㄎㄡˇ ㄏㄡˋ ㄒㄩㄢˇ ㄏㄨㄛˊ ㄉㄨㄥˋ ㄖㄥˊ ㄉㄞˋ ㄐㄧㄠˋ ㄕ ㄕㄣˇ ㄔㄚˊ'],
+  ['依選習及學校開課', 'ㄧ ㄒㄩㄢˇ ㄒㄧˊ ㄐㄧˊ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄎㄞ ㄎㄜˋ'],
+  ['依學生選習及學校開課安排；不代表所有語別均已開課。', 'ㄧ ㄒㄩㄝˊ ㄕㄥ ㄒㄩㄢˇ ㄒㄧˊ ㄐㄧˊ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄎㄞ ㄎㄜˋ ㄢ ㄆㄞˊ ㄅㄨˋ ㄉㄞˋ ㄅㄧㄠˇ ㄙㄨㄛˇ ㄧㄡˇ ㄩˇ ㄅㄧㄝˊ ㄐㄩㄣ ㄧˇ ㄎㄞ ㄎㄜˋ'],
+  ['依學生選習及學校開課安排；目前沒有對應活動。', 'ㄧ ㄒㄩㄝˊ ㄕㄥ ㄒㄩㄢˇ ㄒㄧˊ ㄐㄧˊ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄎㄞ ㄎㄜˋ ㄢ ㄆㄞˊ ㄇㄨˋ ㄑㄧㄢˊ ㄇㄟˊ ㄧㄡˇ ㄉㄨㄟˋ ㄧㄥˋ ㄏㄨㄛˊ ㄉㄨㄥˋ'],
+  ['生活課程整合範疇', 'ㄕㄥ ㄏㄨㄛˊ ㄎㄜˋ ㄔㄥˊ ㄓㄥˇ ㄏㄜˊ ㄈㄢˋ ㄔㄡˊ'],
+  ['第一學習階段的社會、自然科學、藝術與綜合活動相關內容由生活課程統整。', 'ㄉㄧˋ ㄧ ㄒㄩㄝˊ ㄒㄧˊ ㄐㄧㄝ ㄉㄨㄢˋ ㄉㄜ˙ ㄕㄜˋ ㄏㄨㄟˋ ㄗˋ ㄖㄢˊ ㄎㄜ ㄒㄩㄝˊ ㄧˋ ㄕㄨˋ ㄩˇ ㄗㄨㄥ ㄏㄜˊ ㄏㄨㄛˊ ㄉㄨㄥˋ ㄒㄧㄤ ㄍㄨㄢ ㄋㄟˋ ㄖㄨㄥˊ ㄧㄡˊ ㄕㄥ ㄏㄨㄛˊ ㄎㄜˋ ㄔㄥˊ ㄊㄨㄥˇ ㄓㄥˇ'],
+  ['第一學習階段相關內容由生活課程統整；此處不代表一年級獨立必修科目。', 'ㄉㄧˋ ㄧ ㄒㄩㄝˊ ㄒㄧˊ ㄐㄧㄝ ㄉㄨㄢˋ ㄒㄧㄤ ㄍㄨㄢ ㄋㄟˋ ㄖㄨㄥˊ ㄧㄡˊ ㄕㄥ ㄏㄨㄛˊ ㄎㄜˋ ㄔㄥˊ ㄊㄨㄥˇ ㄓㄥˇ ㄘˇ ㄔㄨˋ ㄅㄨˋ ㄉㄞˋ ㄅㄧㄠˇ ㄧˋ ㄋㄧㄢˊ ㄐㄧˊ ㄉㄨˊ ㄌㄧˋ ㄅㄧˋ ㄒㄧㄡ ㄎㄜ ㄇㄨˋ'],
+  ['延伸學習', 'ㄧㄢˊ ㄕㄣ ㄒㄩㄝˊ ㄒㄧˊ'],
+  ['以下入口提供課程架構資訊；是否另有地方或學校安排，依實際課程確認。', 'ㄧˇ ㄒㄧㄚˋ ㄖㄨˋ ㄎㄡˇ ㄊㄧˊ ㄍㄨㄥ ㄎㄜˋ ㄔㄥˊ ㄐㄧㄚˋ ㄍㄡˋ ㄗ ㄒㄩㄣˋ ㄕˋ ㄈㄡˇ ㄌㄧㄥˋ ㄧㄡˇ ㄉㄧˋ ㄈㄤ ㄏㄨㄛˋ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄢ ㄆㄞˊ ㄧ ㄕˊ ㄐㄧˋ ㄎㄜˋ ㄔㄥˊ ㄑㄩㄝˋ ㄖㄣˋ'],
+  ['國家課綱正式課程自第二學習階段開始；地方或學校安排可能不同。', 'ㄍㄨㄛˊ ㄐㄧㄚ ㄎㄜˋ ㄍㄤ ㄓㄥˋ ㄕˋ ㄎㄜˋ ㄔㄥˊ ㄗˋ ㄉㄧˋ ㄦˋ ㄒㄩㄝˊ ㄒㄧˊ ㄐㄧㄝ ㄉㄨㄢˋ ㄎㄞ ㄕˇ ㄉㄧˋ ㄈㄤ ㄏㄨㄛˋ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄢ ㄆㄞˊ ㄎㄜˇ ㄋㄥˊ ㄅㄨˋ ㄊㄨㄥˊ'],
+  ['不是一年級獨立正式科技領域；可作跨域或延伸學習。', 'ㄅㄨˋ ㄕˋ ㄧˋ ㄋㄧㄢˊ ㄐㄧˊ ㄉㄨˊ ㄌㄧˋ ㄓㄥˋ ㄕˋ ㄎㄜ ㄐㄧˋ ㄌㄧㄥˇ ㄩˋ ㄎㄜˇ ㄗㄨㄛˋ ㄎㄨㄚˋ ㄩˋ ㄏㄨㄛˋ ㄧㄢˊ ㄕㄣ ㄒㄩㄝˊ ㄒㄧˊ'],
+  [' 個遊戲', 'ㄍㄜˋ ㄧㄡˊ ㄒㄧˋ'],
+  ['目前尚無可開始的遊戲', 'ㄇㄨˋ ㄑㄧㄢˊ ㄕㄤˋ ㄨˊ ㄎㄜˇ ㄎㄞ ㄕˇ ㄉㄜ˙ ㄧㄡˊ ㄒㄧˋ'],
+  ['候選活動・待教師審查', 'ㄏㄡˋ ㄒㄩㄢˇ ㄏㄨㄛˊ ㄉㄨㄥˋ ㄉㄞˋ ㄐㄧㄠˋ ㄕ ㄕㄣˇ ㄔㄚˊ'],
+  ['開始挑戰', 'ㄎㄞ ㄕˇ ㄊㄧㄠˇ ㄓㄢˋ'],
+  [' 個挑戰', 'ㄍㄜˋ ㄊㄧㄠˇ ㄓㄢˋ'],
+  ['閱讀任務', 'ㄩㄝˋ ㄉㄨˊ ㄖㄣˋ ㄨˋ'],
+  ['開始閱讀任務', 'ㄎㄞ ㄕˇ ㄩㄝˋ ㄉㄨˊ ㄖㄣˋ ㄨˋ'],
+].map(([text, readings]) => [text, reviewedDirectoryTokens(text, readings)])));
+
 /** Grade-one directory groups explain first-stage course structure without removing subject entries. */
 export const GRADE1_SUBJECT_DIRECTORY_GROUPS = Object.freeze([
   Object.freeze({

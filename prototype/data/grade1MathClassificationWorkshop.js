@@ -30,6 +30,7 @@ const option = (id, text, readings, feedback, feedbackReadings) => Object.freeze
 export const GRADE1_MATH_CLASSIFICATION_WORKSHOP = Object.freeze({
   activityId: 'ACT-G1-MATH-SIMPLE-CLASSIFICATION-CANDIDATE', revision: 1,
   title: '分類小小研究站：同一組物品，兩種分法', gradeId: 'grade-1', subjectId: 'mathematics',
+  titlePronunciationTokens: annotated('分類小小研究站：同一組物品，兩種分法', 'ㄈㄣ ㄌㄟˋ ㄒㄧㄠˇ ㄒㄧㄠˇ ㄧㄢˊ ㄐㄧㄡˋ ㄓㄢˋ ㄊㄨㄥˊ ㄧˋ ㄗㄨˇ ㄨˋ ㄆㄧㄣˇ ㄌㄧㄤˇ ㄓㄨㄥˇ ㄈㄣ ㄈㄚˇ').pronunciationTokens,
   status: 'candidate_pending_teacher_review', sourceKind: 'original_simulated_classification_candidate_not_textbook',
   curriculumMapId: 'math-grade1-simple-classification', sourceId: 'mathematics', curriculumCodes: ['D-1-1', 'd-I-1'],
   learningSubitemClaims: Object.freeze(['SUB-MATH-G1-D1-1-SAME-DATA-TWO-CLASSIFICATIONS']),

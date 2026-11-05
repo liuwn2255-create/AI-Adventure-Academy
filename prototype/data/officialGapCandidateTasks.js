@@ -29,7 +29,8 @@ const candidate = (task) => freeze({
 export const OFFICIAL_GAP_CANDIDATE_TASKS = Object.freeze([
   candidate({
     activityId: 'ACT-G1-MATH-NUMBER-LINE-POST-CANDIDATE', gradeId: 'grade-1', subjectId: 'mathematics',
-    title: '數字郵局：把信送到數線', curriculumMapId: 'math-grade1-count-place-value', sourceId: 'mathematics',
+    title: '數字郵局：把信送到數線', titlePronunciationTokens: reviewedStudentText('數字郵局：把信送到數線', 'ㄕㄨˋ ㄗˋ ㄧㄡˊ ㄐㄩˊ ㄅㄚˇ ㄒㄧㄣˋ ㄙㄨㄥˋ ㄉㄠˋ ㄕㄨˋ ㄒㄧㄢˋ').pronunciationTokens,
+    curriculumMapId: 'math-grade1-count-place-value', sourceId: 'mathematics',
     curriculumCodes: freeze(['N-1-1']),
     curriculumScope: '部分對應官方一年級 N-1-1「一百以內的數」：在有限刻度的示意數線定位數字，並辨識數字前後的鄰數。未涵蓋完整點數、位值單位、百數表徵或實物操作。',
     learningObjective: freeze({ objectiveId: 'LO-G1-MATH-NUMBER-LINE-POST-CANDIDATE-01', statement: '依數線等距刻度定位兩位數，並用相鄰刻度檢查位置。', status: 'candidate_pending_teacher_review' }),

@@ -522,7 +522,7 @@ test('學生冒險入口分成年級、科目、遊戲三層並只在三年級�
   assert.match(selectionRenderer, /const isCandidateActivity = CATALOG_CANDIDATE_TASK_BY_ID\.has\(activity\.activityId\)/);
   assert.match(selectionRenderer, /activity\.entryRoute\?\.directLaunch === true && activity\.entryRoute\.targetScreen === 'reading-quest'/);
   assert.match(selectionRenderer, /grade-subject-open-reading'\)\.click\(\)/);
-  assert.match(selectionRenderer, /launch\.textContent = isCandidateActivity \? '開始挑戰' : '開始閱讀任務'/);
+  assert.match(selectionRenderer, /appendGradeDirectoryText\(launch, isCandidateActivity \? '開始挑戰' : '開始閱讀任務', grade\.gradeId\)/);
   assert.match(selectionRenderer, /if \(isCandidateActivity\) startCatalogCandidateTask\(activity\.activityId\);[\s\S]*?else if \(activity\.entryRoute\?\.directLaunch === true && activity\.entryRoute\.targetScreen === 'reading-quest'\)[\s\S]*?grade-subject-open-reading'\)\.click\(\)/);
   assert.match(selectionRenderer, /grade-subject-open-reading'\)\.hidden = true/);
   assert.match(app, /grade-subject-open-reading'\)\.addEventListener\('click',[\s\S]*?readingQuestSession = createLearningTaskSession\(STORY_FOREST_READING_QUEST\)[\s\S]*?showScreen\('reading-quest'\)/);
@@ -564,4 +564,20 @@ test('學生冒險入口分成年級、科目、遊戲三層並只在三年級�
   assert.ok(!chineseActivities.some(({ activityId }) => activityId === 'ACT-G3-MATH-DATA-TABLE-WORKSHOP-CANDIDATE'));
   assert.ok(getSubjectLaunchableActivities(grade3, math).some(({ activityId }) => activityId === 'ACT-G3-MATH-DATA-TABLE-WORKSHOP-CANDIDATE'));
   assert.ok(CATALOG_CANDIDATE_TASK_BY_ID.has('ACT-G3-CHINESE-STORY-CLUE-RESCUE-CANDIDATE'));
+});
+
+test('低年級目錄與關卡標題使用人工注音，缺少活動 metadata 時安全保留原文', () => {
+  assert.match(app, /function appendCatalogStudentText\(parent, text, gradeId, pronunciationTokens\)\s*\{[\s\S]*?!isLowGradeReadingAssistanceEnabled\(gradeId\)[\s\S]*?renderStudentText\(text, pronunciationTokens\)/);
+  assert.match(app, /appendGradeDirectoryText\(name, subject\.name, grade\.gradeId\)/);
+  assert.match(app, /appendGradeDirectoryText\(areaLabel,[\s\S]*?grade\.gradeId\)/);
+  assert.match(app, /appendGradeDirectoryText\(heading, group\.title, grade\.gradeId\)/);
+  assert.match(app, /appendGradeDirectoryText\(description, group\.description, grade\.gradeId\)/);
+  assert.match(app, /appendGradeDirectoryText\(status, emptyActivityMessage \|\| '目前尚無可開始的遊戲', grade\.gradeId\)/);
+  assert.match(app, /function getActivityTitlePronunciationSegments\(activity\)[\s\S]*?tokens\.map\(\(\{ text \}\) => text\)\.join\(''\) !== title[\s\S]*?tokens\.slice\(0, separatorIndex\)[\s\S]*?tokens\.slice\(descriptionStart, descriptionEnd\)/);
+  assert.match(app, /appendCatalogStudentText\(title, studentCardTitle, grade\.gradeId, activity\.studentCardTitlePronunciationTokens \?\? titlePronunciationSegments\.titleTokens\)/);
+  assert.match(app, /appendCatalogStudentText\(description, studentCardDescription, grade\.gradeId, activity\.studentCardDescriptionPronunciationTokens \?\? titlePronunciationSegments\.descriptionTokens\)/);
+  assert.match(app, /appendCatalogStudentText\(catalogTaskTitle,[\s\S]*?activity\.studentTitlePronunciationTokens \?\? titlePronunciationSegments\.titleTokens\)/);
+  assert.match(app, /if \(isLowGradeReadingAssistanceEnabled\(activity\.gradeId\)\) \{\s*appendLowGradeCandidateUiText\(stageHeading, '挑戰 ', appendStudentText\)/);
+  assert.match(app, /else stageHeading\.textContent = `挑戰 \$\{session\.stageIndex \+ 1\}／\$\{activity\.stages\.length\}`/);
+  assert.match(app, /parent\.append\(document\.createTextNode\(text \?\? ''\)\)/);
 });

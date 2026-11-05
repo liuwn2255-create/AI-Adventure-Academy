@@ -22,6 +22,7 @@ const reviewedHint = (text, readings) => Object.freeze({
 export const GRADE1_MATH_QUANTITY_GARDEN = Object.freeze({
   activityId: 'ACT-G1-MATH-QUANTITY-GARDEN-CANDIDATE', revision: 1,
   title: '數字果園：數量裝箱', gradeId: 'grade-1', subjectId: 'mathematics',
+  titlePronunciationTokens: reviewedPronunciationTokens('數字果園：數量裝箱', 'ㄕㄨˋ ㄗˋ ㄍㄨㄛˇ ㄩㄢˊ ㄕㄨˋ ㄌㄧㄤˋ ㄓㄨㄤ ㄒㄧㄤ'),
   status: 'candidate_pending_teacher_review', sourceKind: 'original_interactive_candidate_not_textbook',
   curriculumMapId: 'math-grade1-count-place-value', sourceId: 'mathematics', curriculumCodes: ['N-1-1', 'n-I-1'],
   curriculumScope: '官方一年級內容 N-1-1：一百以內的數及操作、多少與順序、個與十位值；本活動只局部練習少量物件陣列點數與數量符號連結，不代表完整涵蓋 N-1-1。',

@@ -7,6 +7,8 @@ import { CATALOG_CANDIDATE_TASKS } from '../prototype/data/catalogCandidateTasks
 import { getGradeById } from '../prototype/data/gradeCatalog.js';
 import { getLearningTaskRelation } from '../prototype/data/elementaryLearningCatalog.js';
 import { createLearningTaskSession, dispatchLearningTask, validateLearningTask } from '../prototype/learningTaskEngine.js';
+import { GRADE1_CHINESE_SENTENCE_TRAIN } from '../prototype/data/grade1ChineseSentenceTrain.js';
+import { renderStudentText } from '../prototype/studentTextRenderer.js';
 
 const ids = [
   'ACT-G1-CHINESE-WORD-MEANING-SORT-CANDIDATE',
@@ -196,4 +198,38 @@ test('短文線索小偵探：明示訊息可選取作答，不排序故事且�
   session = dispatch(session, activity, 'next');
   session = answerWrongThenRight(session, activity, response, response.stageId);
   assert.equal(dispatch(session, activity, 'next').phase, 'completed');
+});
+
+test('五個指定國語活動的完整標題可安全切分並以既有 renderer 產生標題與描述 ruby', () => {
+  const activities = [...GRADE1_CHINESE_EXPANSION_ACTIVITIES, GRADE1_CHINESE_SENTENCE_TRAIN]
+    .filter(({ activityId }) => [
+      'ACT-G1-CHINESE-WORD-MEANING-SORT-CANDIDATE',
+      'ACT-G1-CHINESE-WORD-HUNT-CANDIDATE',
+      'ACT-G1-CHINESE-SENTENCE-MEANING-CANDIDATE',
+      'ACT-G1-CHINESE-READING-CLUE-CANDIDATE',
+      'ACT-G1-CHINESE-SENTENCE-TRAIN-CANDIDATE',
+    ].includes(activityId));
+  assert.equal(activities.length, 5);
+  for (const activity of activities) {
+    assertPronunciation(activity.title, activity.titlePronunciationTokens, `${activity.activityId} title`);
+    const characters = Array.from(activity.title);
+    const separatorIndex = characters.indexOf('：');
+    assert.ok(separatorIndex > 0, `${activity.activityId} has the expected title separator`);
+    let descriptionStart = separatorIndex + 1;
+    while (/\s/u.test(characters[descriptionStart] ?? '')) descriptionStart += 1;
+    let descriptionEnd = characters.length;
+    while (descriptionEnd > descriptionStart && /\s/u.test(characters[descriptionEnd - 1])) descriptionEnd -= 1;
+    const titleText = characters.slice(0, separatorIndex).join('');
+    const descriptionText = characters.slice(descriptionStart, descriptionEnd).join('');
+    const titleTokens = activity.titlePronunciationTokens.slice(0, separatorIndex);
+    const descriptionTokens = activity.titlePronunciationTokens.slice(descriptionStart, descriptionEnd);
+    assertPronunciation(titleText, titleTokens, `${activity.activityId} card/open title`);
+    assertPronunciation(descriptionText, descriptionTokens, `${activity.activityId} card description`);
+    for (const [text, tokens] of [[titleText, titleTokens], [descriptionText, descriptionTokens]]) {
+      const markup = renderStudentText(text, tokens);
+      assert.equal((markup.match(/class="zhuyin-pair"/gu) ?? []).length, Array.from(text).filter((character) => han.test(character)).length);
+    }
+    assert.equal(activity.titlePronunciationTokens[separatorIndex].text, '：');
+    assert.equal(activity.titlePronunciationTokens[separatorIndex].reading, undefined);
+  }
 });

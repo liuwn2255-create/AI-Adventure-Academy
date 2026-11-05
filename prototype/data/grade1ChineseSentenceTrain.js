@@ -23,6 +23,7 @@ const reviewedHint = (text, readings) => Object.freeze({
 export const GRADE1_CHINESE_SENTENCE_TRAIN = Object.freeze({
   activityId: 'ACT-G1-CHINESE-SENTENCE-TRAIN-CANDIDATE', revision: 1,
   title: '句子列車：詞卡排一排', gradeId: 'grade-1', subjectId: 'chinese-language',
+  titlePronunciationTokens: reviewedPronunciationTokens('句子列車：詞卡排一排', 'ㄐㄩˋ ㄗ˙ ㄌㄧㄝˋ ㄔㄜ ㄘˊ ㄎㄚˇ ㄆㄞˊ ㄧˋ ㄆㄞˊ'),
   status: 'candidate_pending_teacher_review', sourceKind: 'original_language_candidate_not_textbook',
   curriculumMapId: 'chinese-stage1-word-sentence-story', sourceId: 'chinese-language', curriculumCodes: ['Ac-I-2', 'Ab-I-6'],
   curriculumScope: '對照國語文第一學習階段基本句型與語詞運用；年級細目按第一學習階段呈現，不推定一年級學期進度。原創例句，不代表官方詞表或教材。',

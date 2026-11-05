@@ -25,6 +25,7 @@ export const GRADE1_LIVING_OBJECT_SORT = Object.freeze({
   activityId: 'ACT-G1-LIVING-OBJECT-SORT-CANDIDATE',
   revision: 1,
   title: '生活探索隊：自然物與人造物',
+  titlePronunciationTokens: reviewed('生活探索隊：自然物與人造物', 'ㄕㄥ ㄏㄨㄛˊ ㄊㄢˋ ㄙㄨㄛˇ ㄉㄨㄟˋ ㄗˋ ㄖㄢˊ ㄨˋ ㄩˇ ㄖㄣˊ ㄗㄠˋ ㄨˋ'),
   gradeId: 'grade-1',
   subjectId: 'living-curriculum',
   status: 'candidate_pending_teacher_review',

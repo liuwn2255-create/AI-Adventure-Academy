@@ -35,6 +35,7 @@ const teacherLimitation = '本活動以螢幕情境練習，不代表學生已�
 
 const hygiene = Object.freeze({
   activityId: 'ACT-G1-HPE-HYGIENE-HABITS-CANDIDATE', revision: 1, title: '健康小偵探：衛生習慣與洗手',
+  titlePronunciationTokens: reviewed('健康小偵探：衛生習慣與洗手'),
   gradeId: 'grade-1', subjectId: 'health-physical-education', status: 'candidate_pending_teacher_review',
   sourceKind: 'curriculum_aligned_simulated_candidate', curriculumMapId: 'health-pe-stage1-personal-hygiene-habits',
   sourceId: 'health-physical-education', curriculumCodes: Object.freeze(['Da-Ⅰ-1', '1a-Ⅰ-2', '4a-Ⅰ-2']),
@@ -61,6 +62,7 @@ const hygiene = Object.freeze({
 
 const warmup = Object.freeze({
   activityId:'ACT-G1-HPE-SAFE-WARMUP-MOVEMENT-CANDIDATE',revision:1,title:'暖身安全小隊：運動前的準備',gradeId:'grade-1',subjectId:'health-physical-education',status:'candidate_pending_teacher_review',sourceKind:'curriculum_aligned_simulated_candidate',curriculumMapId:'health-pe-stage1-safe-warmup-and-movement',sourceId:'health-physical-education',curriculumCodes:Object.freeze(['Bc-Ⅰ-1','3c-Ⅰ-2']),curriculumScope:'第一學習階段局部參照，尚待教師審查；螢幕選答不評量實際暖身技能。',learningObjective:Object.freeze({objectiveId:'LO-G1-HPE-SAFE-WARMUP-01',statement:'辨認運動前慢慢活動身體的做法。',status:'candidate_pending_teacher_review'}),instructions:'在螢幕情境中辨認暖身和安全做法，不作為實際運動能力評量。',learningSubitemClaims:Object.freeze([]),
+  titlePronunciationTokens:reviewed('暖身安全小隊：運動前的準備'),
   stages:Object.freeze([
     classify('classify-warmup-actions','看每張卡，分出慢慢活動身體和一開始就很用力的做法。',[
       ['walk-and-shoulders','慢慢走一走，再輕輕轉轉肩膀。'],['move-wrists-ankles','輕輕活動手腕和腳踝。'],['sprint-at-once','一開始就全力衝刺。'],['jump-without-warmup','沒有先活動，就立刻跳得很高。'],
@@ -73,6 +75,7 @@ const warmup = Object.freeze({
 
 const activityChoice = Object.freeze({
   activityId:'ACT-G1-HPE-ACTIVITY-CHOICE-BENEFITS-CANDIDATE',revision:1,title:'活力運動家：運動益處與活動選擇',gradeId:'grade-1',subjectId:'health-physical-education',status:'candidate_pending_teacher_review',sourceKind:'curriculum_aligned_simulated_candidate',curriculumMapId:'health-pe-stage1-activity-choice-and-benefits',sourceId:'health-physical-education',curriculumCodes:Object.freeze(['Cb-Ⅰ-1','4c-Ⅰ-2']),curriculumScope:'第一學習階段局部參照；螢幕分類與選答只練習安全線索及活動選擇，不代表實際運動或運動能力。',learningObjective:Object.freeze({objectiveId:'LO-G1-HPE-ACTIVITY-CHOICE-01',statement:'依活動空間與規則辨認安全線索，並選擇符合情境的身體活動。',status:'candidate_pending_teacher_review'}),instructions:'在螢幕情境中觀察活動線索並作選擇，不評量實際運動能力。',learningSubitemClaims:Object.freeze([]),
+  titlePronunciationTokens:reviewed('活力運動家：運動益處與活動選擇'),
   stages:Object.freeze([
     classify('classify-sport-safety-clues','看體育活動卡：有安全空間和規則嗎？分出可以照規則活動和要先停下來看的情況。',[
       ['pass-under-rule','在操場空地，照老師的規則傳球。'],['rope-check-space','跳繩前先看四周，和同學保持距離。'],['chase-in-hallway','在走廊追球，旁邊有人走過。'],['swing-near-classmate','揮球拍時，旁邊站著同學。'],
@@ -85,6 +88,7 @@ const activityChoice = Object.freeze({
 
 const food = Object.freeze({
   activityId:'ACT-G1-HPE-FOOD-DIET-HABITS-CANDIDATE',revision:1,title:'健康生活家：認識食物與飲食習慣',gradeId:'grade-1',subjectId:'health-physical-education',status:'candidate_pending_teacher_review',sourceKind:'curriculum_aligned_simulated_candidate',curriculumMapId:'health-pe-stage1-food-and-diet-habits',sourceId:'health-physical-education',curriculumCodes:Object.freeze(['Ea-Ⅰ-1','Ea-Ⅰ-2','1a-Ⅰ-2','4a-Ⅰ-2']),curriculumScope:'第一學習階段局部參照，尚待教師審查；不將食物二分為好壞，也不作醫療營養建議。',learningObjective:Object.freeze({objectiveId:'LO-G1-HPE-FOOD-HABITS-01',statement:'辨認常見食物，並思考符合自己食量的取餐做法。',status:'candidate_pending_teacher_review'}),instructions:'在螢幕情境中認識常見食物與取餐做法，不評量真實飲食習慣。',learningSubitemClaims:Object.freeze([]),
+  titlePronunciationTokens:reviewed('健康生活家：認識食物與飲食習慣'),
   stages:Object.freeze([
     classify('classify-common-foods','看每張卡，把常見食物和不是食物的東西分開。',[
       ['rice-bowl','一碗白飯'],['apple','一顆蘋果'],['egg','一顆雞蛋'],['pencil','一支鉛筆'],['ball','一顆球'],['book','一本書'],

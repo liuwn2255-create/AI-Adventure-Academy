@@ -28,6 +28,7 @@ const operationGuidancePronunciationTokens = reviewedPronunciationTokens(
 export const GRADE1_MATH_COUNTER_STORY = Object.freeze({
   activityId: 'ACT-G1-MATH-COUNTER-STORY-CANDIDATE', revision: 1,
   title: '花片故事劇場：合起來與拿走', gradeId: 'grade-1', subjectId: 'mathematics',
+  titlePronunciationTokens: reviewedPronunciationTokens('花片故事劇場：合起來與拿走', 'ㄏㄨㄚ ㄆㄧㄢˋ ㄍㄨˋ ㄕˋ ㄐㄩˋ ㄔㄤˇ ㄏㄜˊ ㄑㄧˇ ㄌㄞˊ ㄩˇ ㄋㄚˊ ㄗㄡˇ'),
   status: 'candidate_pending_teacher_review', sourceKind: 'original_interactive_candidate_not_textbook',
   curriculumMapId: 'math-grade1-add-sub-meaning', sourceId: 'mathematics', curriculumCodes: ['N-1-2', 'N-1-3', 'R-1-1', 'n-I-2'],
   curriculumScope: '官方一年級加減意義與基本加減法候選局部參照；情境數量小於 10。只練習合起來與拿走的模型，並不代表涵蓋所有加減應用類型或達到熟練標準。',
