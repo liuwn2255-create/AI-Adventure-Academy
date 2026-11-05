@@ -88,6 +88,58 @@ export const SUBJECT_DEFINITIONS = Object.freeze([
   Object.freeze({ subjectId: 'health-physical-education', learningMapSubjectId: 'health_and_physical_education', name: '健康與體育', areaId: 'health-physical-education', frameworkEntryStatus: 'verified_framework_entry_grade_scope_pending' }),
 ]);
 
+/** Grade-one directory groups explain first-stage course structure without removing subject entries. */
+export const GRADE1_SUBJECT_DIRECTORY_GROUPS = Object.freeze([
+  Object.freeze({
+    groupId: 'formal-courses',
+    title: '正式課程',
+    description: '一年級正式課程入口；候選活動仍待教師審查。',
+    subjects: Object.freeze([
+      Object.freeze({ subjectId: 'chinese-language' }),
+      Object.freeze({ subjectId: 'mathematics' }),
+      Object.freeze({ subjectId: 'living-curriculum' }),
+      Object.freeze({ subjectId: 'health-physical-education' }),
+    ]),
+  }),
+  Object.freeze({
+    groupId: 'language-choice',
+    title: '依選習及學校開課',
+    description: '依學生選習及學校開課安排；不代表所有語別均已開課。',
+    subjects: Object.freeze([
+      Object.freeze({
+        subjectId: 'national-and-new-resident-languages',
+        emptyActivityMessage: '依學生選習及學校開課安排；目前沒有對應活動。',
+      }),
+    ]),
+  }),
+  Object.freeze({
+    groupId: 'living-integrated-scopes',
+    title: '生活課程整合範疇',
+    description: '第一學習階段的社會、自然科學、藝術與綜合活動相關內容由生活課程統整。',
+    subjects: Object.freeze([
+      ...['social-studies', 'natural-science', 'arts', 'integrative-activities'].map((subjectId) => Object.freeze({
+        subjectId,
+        emptyActivityMessage: '第一學習階段相關內容由生活課程統整；此處不代表一年級獨立必修科目。',
+      })),
+    ]),
+  }),
+  Object.freeze({
+    groupId: 'extension-learning',
+    title: '延伸學習',
+    description: '以下入口提供課程架構資訊；是否另有地方或學校安排，依實際課程確認。',
+    subjects: Object.freeze([
+      Object.freeze({
+        subjectId: 'english-language',
+        emptyActivityMessage: '國家課綱正式課程自第二學習階段開始；地方或學校安排可能不同。',
+      }),
+      Object.freeze({
+        subjectId: 'technology',
+        emptyActivityMessage: '不是一年級獨立正式科技領域；可作跨域或延伸學習。',
+      }),
+    ]),
+  }),
+]);
+
 export const LEARNING_DATA_BOUNDARIES = Object.freeze({
   officialCurriculum: Object.freeze({ owner: 'curriculum/learning-map.json and curriculum/curriculum-map.json', status: 'source_records_with_per_record_review_status' }),
   designedActivities: Object.freeze({ owner: 'curriculum/learning-activity-map.json and prototype data modules', status: 'separate_from_official_curriculum' }),

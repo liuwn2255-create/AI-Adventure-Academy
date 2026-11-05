@@ -9,7 +9,7 @@ import { createExplorerPosition, getNearbyObject, interactWithObject, ISLAND_OBJ
 import { canStartNumberSecret, isNumberSecretTreasureUnlocked, NUMBER_SECRET_QUEST_ID } from './numberSecretFlow.js';
 import { CAPACITY_MISSION_CONFIG, CAPACITY_OBSERVATION_SCENARIOS, createCapacityMission, createCapacityObservationSession, createCapacityOnboarding } from './capacityMission.js';
 import { GRADE_CATALOG, getGradeById } from './data/gradeCatalog.js';
-import { CURRICULUM_FRAMEWORK_SOURCE, ELEMENTARY_CURRICULUM_AREAS, SUBJECT_DEFINITIONS, getLearningTaskRelation } from './data/elementaryLearningCatalog.js';
+import { CURRICULUM_FRAMEWORK_SOURCE, ELEMENTARY_CURRICULUM_AREAS, GRADE1_SUBJECT_DIRECTORY_GROUPS, SUBJECT_DEFINITIONS, getLearningTaskRelation } from './data/elementaryLearningCatalog.js';
 import { MOVEMENT_KEYS, createMovementHoldController } from './movementControls.js';
 import { NUMBER_SECRET_LEARNING_UNIT, NUMBER_SECRET_V2_CANDIDATE_SET } from './data/numberSecretLearningUnit.js';
 import { NUMBER_COMPARISON_LEARNING_UNIT } from './data/numberComparisonLearningUnit.js';
@@ -523,7 +523,7 @@ function renderGradeSelection() {
   const directory = document.getElementById('grade-subject-directory');
   directory.replaceChildren();
   directory.hidden = hasSelectedSubject;
-  for (const subject of grade.subjects) {
+  const renderSubjectCard = (subject, emptyActivityMessage = '') => {
     const subjectActivities = getSubjectLaunchableActivities(grade, subject);
     const button = document.createElement('button');
     button.type = 'button';
@@ -538,7 +538,9 @@ function renderGradeSelection() {
     areaLabel.textContent = subject.areaId === 'life-course' ? '國小整合課程' : area?.name ?? '課程領域待確認';
     const status = document.createElement('small');
     status.className = 'grade-subject-card-status';
-    status.textContent = subjectActivities.length > 0 ? `${subjectActivities.length} 個遊戲` : '目前尚無可開始的遊戲';
+    status.textContent = subjectActivities.length > 0
+      ? `${subjectActivities.length} 個遊戲`
+      : emptyActivityMessage || '目前尚無可開始的遊戲';
     button.append(areaLabel, name, status);
     button.addEventListener('click', () => {
       selectedSubjectId = subject.subjectId;
@@ -546,10 +548,42 @@ function renderGradeSelection() {
       renderGradeSelection();
     });
     directory.append(button);
+  };
+  if (grade.gradeNumber === 1) {
+    for (const group of GRADE1_SUBJECT_DIRECTORY_GROUPS) {
+      const section = document.createElement('section');
+      section.className = 'grade-subject-directory-group';
+      section.setAttribute('aria-labelledby', `grade-subject-group-${group.groupId}`);
+      section.style.gridColumn = '1 / -1';
+      section.style.display = 'grid';
+      section.style.gridTemplateColumns = 'repeat(auto-fit, minmax(min(100%, 150px), 1fr))';
+      section.style.gap = '9px';
+      const heading = document.createElement('h3');
+      heading.id = `grade-subject-group-${group.groupId}`;
+      heading.className = 'grade-subject-directory-group-title';
+      heading.style.gridColumn = '1 / -1';
+      heading.textContent = group.title;
+      const description = document.createElement('p');
+      description.className = 'grade-subject-directory-group-description';
+      description.style.gridColumn = '1 / -1';
+      description.textContent = group.description;
+      section.append(heading, description);
+      directory.append(section);
+      for (const entry of group.subjects) {
+        const groupedSubject = grade.subjects.find(({ subjectId }) => subjectId === entry.subjectId);
+        if (groupedSubject) renderSubjectCard(groupedSubject, entry.emptyActivityMessage);
+      }
+    }
+  } else {
+    for (const subject of grade.subjects) renderSubjectCard(subject);
   }
 
   const subject = hasSelectedSubject ? grade.subjects.find(({ subjectId }) => subjectId === selectedSubjectId) : null;
     const area = ELEMENTARY_CURRICULUM_AREAS.find(({ areaId }) => areaId === subject?.areaId);
+  const subjectDirectoryMessage = grade.gradeNumber === 1 && subject
+    ? GRADE1_SUBJECT_DIRECTORY_GROUPS.flatMap(({ subjects }) => subjects).find(({ subjectId }) => subjectId === subject.subjectId)?.emptyActivityMessage
+      ?? '此為一年級課程架構入口，目前沒有對應活動。'
+    : '';
   const subjectSummary = getSubjectDirectorySummary(grade, subject);
   const subjectActivities = subjectSummary.activities;
   const detail = document.getElementById('grade-subject-detail');
@@ -561,7 +595,7 @@ function renderGradeSelection() {
       ? `${subjectActivities.length} 個已註冊入口可啟動候選活動；均待教師審查`
       : subject.existingYearLevelContent.length > 0
         ? '目前只有舊原型／目錄參照，尚無已註冊的活動啟動入口'
-        : '目前尚無可啟動的遊戲活動；這是課程架構入口，不代表課綱已建置';
+        : subjectDirectoryMessage || '目前尚無可啟動的遊戲活動；這是課程架構入口，不代表課綱已建置';
     const areaName = subject.areaId === 'life-course' ? '國小生活課程' : area?.name ?? '課程領域待確認';
     document.getElementById('grade-subject-detail-copy').textContent = `${areaName}；官方框架來源：${CURRICULUM_FRAMEWORK_SOURCE.documentTitle}，${CURRICULUM_FRAMEWORK_SOURCE.verifiedLocations.map(({ table, printedPage }) => `${table}（印刷頁 ${printedPage}）`).join('、')}。此來源核對的是總綱領域架構，不代表 ${grade.name} 年級細目、學期順序或教材版本已確認。`;
     const taskList = document.getElementById('grade-subject-task-list');
@@ -582,7 +616,7 @@ function renderGradeSelection() {
       ? `此科目有 ${subjectSummary.activityCount} 個已註冊的活動入口；${subjectSummary.candidatePendingTeacherReviewCount} 個仍待教師審查。${referenceNotes.length ? `另有${referenceNotes.join('；')}。` : ''}活動完成不等於課綱完整涵蓋或正式精熟。`
       : referenceNotes.length
         ? `目前沒有已註冊的候選活動入口。${referenceNotes.join('；')}。`
-        : '目前沒有已註冊的可玩活動；此科目卡片只呈現課程架構，並非課綱完成證據。';
+        : subjectDirectoryMessage || '目前沒有已註冊的可玩活動；此科目卡片只呈現課程架構，並非課綱完成證據。';
     taskList.append(entrySummary);
     const relation = getLearningTaskRelation(grade.gradeId, subject.subjectId);
     if (relation) {
@@ -654,7 +688,7 @@ function renderGradeSelection() {
     } else {
       const emptyGames = document.createElement('p');
       emptyGames.className = 'student-game-list-empty';
-      emptyGames.textContent = '目前還沒有可開始的遊戲。';
+      emptyGames.textContent = subjectDirectoryMessage || '目前還沒有可開始的遊戲。';
       extraLaunches.append(emptyGames);
     }
     for (const activity of subjectActivities) {
