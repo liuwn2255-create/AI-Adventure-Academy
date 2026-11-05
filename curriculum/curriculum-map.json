@@ -2851,11 +2851,11 @@
       "contentTexts": [
         "遊戲場所與上下學情境的安全須知。"
       ],
-      "sourceUrl": "https://www.naer.edu.tw/upload/1/16/doc/814/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E5%81%A5%E5%BA%B7%E8%88%87%E9%AB%94%E8%82%B2%E9%A0%98%E5%9F%9F.pdf",
+      "sourceUrl": "https://stv.naer.edu.tw/data/course_outline/pta_18522_1560772_59945.pdf",
       "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－健康與體育領域",
-      "pageOrSection": "伍／四／各教育階段學習重點／（一）第一學習階段／2.學習內容，Ba-Ⅰ-1；印刷頁14（官方 PDF 解析標記 P16）。總綱界定第一學習階段為國小一、二年級；一年級入口為專案配置，不代表官方年級或學期順序。",
-      "reviewer": "直接核對官方 NAER PDF 原文（非教師審查）",
-      "reviewDate": "2026-10-23",
+      "pageOrSection": "伍／四／國民小學教育階段學習內容 Ba-Ⅰ-1，PDF頁序26／印刷頁23。頁序以 1 起算；第一學習階段涵蓋一、二年級，不指定一年級學期或校本順序。",
+      "reviewer": "官方 NAER PDF 條文核對（非教師／課程專業核准）",
+      "reviewDate": "2026-11-05",
       "verifiedClauses": [
         "Ba-Ⅰ-1"
       ],
@@ -3078,6 +3078,203 @@
         "學生口頭說明分類依據與教師觀察尚未評量。"
       ],
       "notes": "官方 D-2-1 表格備註明示非正式表格與統計圖表教學；活動以分組盤呈現，且不冒稱實地調查。官方代碼是二年級內容表配置，表現 d-I-1 適用第一學習階段，並非學期安排。"
+    },
+    {
+      "id": "health-pe-stage1-personal-hygiene-habits",
+      "subject": "health_and_physical_education",
+      "focus": "第一學習階段個人衛生候選局部對照 Da-Ⅰ-1 日常生活中的基本衛生習慣，以及 1a-Ⅰ-2、4a-Ⅰ-2。數位題目僅練習辨認或排序衛生情境，不能證明學生已在日常生活中養成習慣或實際操作健康技能。",
+      "gradeRange": [
+        1,
+        2
+      ],
+      "stagePerformanceRange": [
+        1,
+        2
+      ],
+      "sourceId": "health-physical-education",
+      "performanceCodes": [
+        "1a-Ⅰ-2",
+        "4a-Ⅰ-2"
+      ],
+      "performanceTexts": [
+        "認識健康的生活習慣。",
+        "養成健康的生活習慣。"
+      ],
+      "contentCodes": [
+        "Da-Ⅰ-1"
+      ],
+      "contentTexts": [
+        "日常生活中的基本衛生習慣。"
+      ],
+      "page": "伍／四／國民小學教育階段學習表現，1a-Ⅰ-2、4a-Ⅰ-2；學習內容 Da-Ⅰ-1。PDF頁序23、25、28（印刷頁20、22、25）。",
+      "status": "pending_review",
+      "officialTextReviewStatus": "verified_against_official_text",
+      "gradeApplicabilityStatus": "stage_1_grade_1_to_2_local_textbook_and_schedule_pending",
+      "sourceUrl": "https://stv.naer.edu.tw/data/course_outline/pta_18522_1560772_59945.pdf",
+      "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－健康與體育領域",
+      "pageOrSection": "伍／四／國民小學教育階段學習表現 1a-Ⅰ-2（PDF頁序23／印刷頁20）、4a-Ⅰ-2（PDF頁序25／印刷頁22）；學習內容 Da-Ⅰ-1（PDF頁序28／印刷頁25）。",
+      "reviewer": "官方 PDF 條文核對（非教師／課程專業核准）",
+      "reviewDate": "2026-11-05",
+      "verifiedClauses": [
+        "1a-Ⅰ-2",
+        "4a-Ⅰ-2",
+        "Da-Ⅰ-1"
+      ],
+      "candidateAlignmentStatus": "partial_reference_pending_teacher_review",
+      "coverageLimitations": [
+        "數位辨認或排序不等同實際執行衛生技能，也不能證明健康習慣已養成。"
+      ],
+      "missingEvidence": [
+        "校本課程進度及教材版本／冊次／頁碼",
+        "教師對衛生步驟、年齡適切性及健康內容的審查"
+      ]
+    },
+    {
+      "id": "health-pe-stage1-safe-warmup-and-movement",
+      "subject": "health_and_physical_education",
+      "focus": "第一學習階段安全活動候選局部對照 Bc-Ⅰ-1 各項暖身伸展動作與 3c-Ⅰ-2 表現安全的身體活動行為。主題聚焦活動前暖身與安全動作，不重做既有 Ba-Ⅰ-1 的遊戲場風險、上下學路線受阻、離開成人或濕滑地面情境。",
+      "gradeRange": [
+        1,
+        2
+      ],
+      "stagePerformanceRange": [
+        1,
+        2
+      ],
+      "sourceId": "health-physical-education",
+      "performanceCodes": [
+        "3c-Ⅰ-2"
+      ],
+      "performanceTexts": [
+        "表現安全的身體活動行為。"
+      ],
+      "contentCodes": [
+        "Bc-Ⅰ-1"
+      ],
+      "contentTexts": [
+        "各項暖身伸展動作。"
+      ],
+      "page": "伍／四／國民小學教育階段學習表現 3c-Ⅰ-2；學習內容 Bc-Ⅰ-1。PDF頁序25、27（印刷頁22、24）。",
+      "status": "pending_review",
+      "officialTextReviewStatus": "verified_against_official_text",
+      "gradeApplicabilityStatus": "stage_1_grade_1_to_2_local_textbook_and_schedule_pending",
+      "sourceUrl": "https://stv.naer.edu.tw/data/course_outline/pta_18522_1560772_59945.pdf",
+      "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－健康與體育領域",
+      "pageOrSection": "伍／四／國民小學教育階段學習表現 3c-Ⅰ-2（PDF頁序25／印刷頁22）；學習內容 Bc-Ⅰ-1（PDF頁序27／印刷頁24）。",
+      "reviewer": "官方 PDF 條文核對（非教師／課程專業核准）",
+      "reviewDate": "2026-11-05",
+      "verifiedClauses": [
+        "3c-Ⅰ-2",
+        "Bc-Ⅰ-1"
+      ],
+      "candidateAlignmentStatus": "partial_reference_pending_teacher_review",
+      "coverageLimitations": [
+        "螢幕圖卡判斷不能證明學生會實際暖身、伸展或在身體活動中持續表現安全行為；需搭配教師引導的實作評量。"
+      ],
+      "missingEvidence": [
+        "校本課程進度及教材版本／冊次／頁碼",
+        "教師對暖身動作安全性與實作評量方式的審查"
+      ]
+    },
+    {
+      "id": "health-pe-stage1-activity-choice-and-benefits",
+      "subject": "health_and_physical_education",
+      "focus": "第一學習階段身體活動候選局部對照 Cb-Ⅰ-1 運動安全常識、運動對身體健康的益處，以及 4c-Ⅰ-2 選擇適合個人的身體活動。數位選答只呈現情境知識或選擇練習，不是實際運動、體能或持續參與證據。",
+      "gradeRange": [
+        1,
+        2
+      ],
+      "stagePerformanceRange": [
+        1,
+        2
+      ],
+      "sourceId": "health-physical-education",
+      "performanceCodes": [
+        "4c-Ⅰ-2"
+      ],
+      "performanceTexts": [
+        "選擇適合個人的身體活動。"
+      ],
+      "contentCodes": [
+        "Cb-Ⅰ-1"
+      ],
+      "contentTexts": [
+        "運動安全常識、運動對身體健康的益處。"
+      ],
+      "page": "伍／四／國民小學教育階段學習表現 4c-Ⅰ-2；學習內容 Cb-Ⅰ-1。PDF頁序26、27（印刷頁23、24）。",
+      "status": "pending_review",
+      "officialTextReviewStatus": "verified_against_official_text",
+      "gradeApplicabilityStatus": "stage_1_grade_1_to_2_local_textbook_and_schedule_pending",
+      "sourceUrl": "https://stv.naer.edu.tw/data/course_outline/pta_18522_1560772_59945.pdf",
+      "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－健康與體育領域",
+      "pageOrSection": "伍／四／國民小學教育階段學習表現 4c-Ⅰ-2（PDF頁序26／印刷頁23）；學習內容 Cb-Ⅰ-1（PDF頁序27／印刷頁24）。",
+      "reviewer": "官方 PDF 條文核對（非教師／課程專業核准）",
+      "reviewDate": "2026-11-05",
+      "verifiedClauses": [
+        "4c-Ⅰ-2",
+        "Cb-Ⅰ-1"
+      ],
+      "candidateAlignmentStatus": "partial_reference_pending_teacher_review",
+      "coverageLimitations": [
+        "模擬情境的選擇不能證明個人化判斷、實際身體活動、運動安全行為或運動帶來的身體健康效益。"
+      ],
+      "missingEvidence": [
+        "校本課程進度及教材版本／冊次／頁碼",
+        "教師對個人差異、運動安全及實際活動驗證方式的審查"
+      ]
+    },
+    {
+      "id": "health-pe-stage1-food-and-diet-habits",
+      "subject": "health_and_physical_education",
+      "focus": "第一學習階段飲食候選局部對照 Ea-Ⅰ-1 生活中常見的食物與珍惜食物、Ea-Ⅰ-2 基本的飲食習慣，以及 1a-Ⅰ-2、4a-Ⅰ-2。內容不將食物二分為好或壞；不延伸到沒有直接對應證據的休息主題。",
+      "gradeRange": [
+        1,
+        2
+      ],
+      "stagePerformanceRange": [
+        1,
+        2
+      ],
+      "sourceId": "health-physical-education",
+      "performanceCodes": [
+        "1a-Ⅰ-2",
+        "4a-Ⅰ-2"
+      ],
+      "performanceTexts": [
+        "認識健康的生活習慣。",
+        "養成健康的生活習慣。"
+      ],
+      "contentCodes": [
+        "Ea-Ⅰ-1",
+        "Ea-Ⅰ-2"
+      ],
+      "contentTexts": [
+        "生活中常見的食物與珍惜食物。",
+        "基本的飲食習慣。"
+      ],
+      "page": "伍／四／國民小學教育階段學習表現 1a-Ⅰ-2、4a-Ⅰ-2；學習內容 Ea-Ⅰ-1、Ea-Ⅰ-2。PDF頁序23、25、28（印刷頁20、22、25）。",
+      "status": "pending_review",
+      "officialTextReviewStatus": "verified_against_official_text",
+      "gradeApplicabilityStatus": "stage_1_grade_1_to_2_local_textbook_and_schedule_pending",
+      "sourceUrl": "https://stv.naer.edu.tw/data/course_outline/pta_18522_1560772_59945.pdf",
+      "documentTitle": "十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校－健康與體育領域",
+      "pageOrSection": "伍／四／國民小學教育階段學習表現 1a-Ⅰ-2（PDF頁序23／印刷頁20）、4a-Ⅰ-2（PDF頁序25／印刷頁22）；學習內容 Ea-Ⅰ-1、Ea-Ⅰ-2（PDF頁序28／印刷頁25）。",
+      "reviewer": "官方 PDF 條文核對（非教師／課程專業核准）",
+      "reviewDate": "2026-11-05",
+      "verifiedClauses": [
+        "1a-Ⅰ-2",
+        "4a-Ⅰ-2",
+        "Ea-Ⅰ-1",
+        "Ea-Ⅰ-2"
+      ],
+      "candidateAlignmentStatus": "partial_reference_pending_teacher_review",
+      "coverageLimitations": [
+        "螢幕題目只能練習辨認食物與飲食情境，不能證明學生已養成飲食習慣；不得將食物簡化為好壞二分。"
+      ],
+      "missingEvidence": [
+        "校本課程進度及教材版本／冊次／頁碼",
+        "教師對飲食情境、多元家庭飲食及健康內容的審查"
+      ]
     }
   ],
   "pendingLearningFocuses": [

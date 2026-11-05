@@ -172,7 +172,7 @@ test('order_items 共用呈現說明順序操作、位置與可存取移動控�
   const orderGuidanceStart = renderer.indexOf('const lowGradeOrderItems =');
   const orderGuidanceEnd = renderer.indexOf('const responseGuidanceNode =', orderGuidanceStart);
   const orderGuidance = renderer.slice(orderGuidanceStart, orderGuidanceEnd);
-  const lowGradeOrderPresentationStart = renderer.indexOf('if (lowGradeOrderItems && typeof stage.studentOperationGuidance', orderGuidanceEnd);
+  const lowGradeOrderPresentationStart = renderer.indexOf('if (lowGradeOrderItems) {', orderGuidanceEnd);
   const lowGradeOrderPresentationEnd = renderer.indexOf('else if (lowGradeAssembleResponse', lowGradeOrderPresentationStart);
   const lowGradeOrderPresentation = renderer.slice(lowGradeOrderPresentationStart, lowGradeOrderPresentationEnd);
   const orderStart = renderer.indexOf("if (session.phase === 'active' && stage.interaction === 'order_items')");
@@ -184,7 +184,9 @@ test('order_items 共用呈現說明順序操作、位置與可存取移動控�
   assert.match(orderGuidance, /stage\.studentOperationGuidance \?\? '怎麼玩：① 看故事卡 → ② 用「上移／下移」排順序 → ③ 檢查答案'/);
   assert.match(orderGuidance, /: '操作方式：① 看清楚題目 → ② 用「上移／下移」調整順序 → ③ 排好後檢查答案'/);
   assert.ok(lowGradeOrderPresentationStart >= 0 && lowGradeOrderPresentationEnd > lowGradeOrderPresentationStart);
-  assert.match(lowGradeOrderPresentation, /appendStudentText\(responseGuidanceNode, responseGuidance, stage\.studentOperationGuidancePronunciationTokens\)/);
+  assert.match(lowGradeOrderPresentation, /Array\.isArray\(stage\.studentOperationGuidancePronunciationTokens\)/);
+  assert.match(lowGradeOrderPresentation, /orderItemsUiPronunciationTokens\(responseGuidance\)/);
+  assert.match(lowGradeOrderPresentation, /appendStudentText\(responseGuidanceNode, responseGuidance, guidanceTokens\)/);
   assert.match(app, /const appendStudentText = \(parent, text, pronunciationTokens\) => \{[\s\S]*?!Array\.isArray\(pronunciationTokens\)[\s\S]*?parent\.append\(document\.createTextNode\(text \?\? ''\)\)/);
   assert.equal(isLowGradeReadingAssistanceEnabled('grade-1'), true);
   assert.equal(isLowGradeReadingAssistanceEnabled('grade-2'), true);

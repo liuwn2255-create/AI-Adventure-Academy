@@ -25,6 +25,7 @@ import {
   GRADE2_LIVING_RULES_REASON_QUEST,
   GRADE1_PLAYGROUND_SAFETY_ROUTE,
 } from './earlyGradeCurriculumGapTasks.js';
+import { GRADE1_HPE_EXPANSION_ACTIVITIES } from './grade1HpeExpansionActivities.js';
 import { GRADE4_CANDIDATE_TASKS } from './grade4CandidateTasks.js';
 import { GRADE4_EXPANSION_TASKS } from './grade4ExpansionTasks.js';
 import { GRADE4_ANGLE_EXPLORATION_WORKSHOP } from './grade4AngleExplorationWorkshop.js';
@@ -325,18 +326,18 @@ export const LEARNING_TASK_RELATIONS = Object.freeze(mergeRelationsByGradeSubjec
   }),
   Object.freeze({
     gradeId: 'grade-1', subjectId: 'health-physical-education',
-    curriculumMapIds: Object.freeze([GRADE1_PLAYGROUND_SAFETY_ROUTE.curriculumMapId]),
-    learningObjectiveIds: Object.freeze([GRADE1_PLAYGROUND_SAFETY_ROUTE.learningObjective.objectiveId]),
-    objectiveDefinitions: Object.freeze([Object.freeze({
-      objectiveId: GRADE1_PLAYGROUND_SAFETY_ROUTE.learningObjective.objectiveId,
-      statement: GRADE1_PLAYGROUND_SAFETY_ROUTE.learningObjective.statement,
+    curriculumMapIds: Object.freeze([GRADE1_PLAYGROUND_SAFETY_ROUTE, ...GRADE1_HPE_EXPANSION_ACTIVITIES].map(({ curriculumMapId }) => curriculumMapId)),
+    learningObjectiveIds: Object.freeze([GRADE1_PLAYGROUND_SAFETY_ROUTE, ...GRADE1_HPE_EXPANSION_ACTIVITIES].map(({ learningObjective }) => learningObjective.objectiveId)),
+    objectiveDefinitions: Object.freeze([GRADE1_PLAYGROUND_SAFETY_ROUTE, ...GRADE1_HPE_EXPANSION_ACTIVITIES].map((activity) => Object.freeze({
+      objectiveId: activity.learningObjective.objectiveId,
+      statement: activity.learningObjective.statement,
       status: 'candidate_pending_teacher_review',
-      curriculumMapIds: Object.freeze([GRADE1_PLAYGROUND_SAFETY_ROUTE.curriculumMapId]),
+      curriculumMapIds: Object.freeze([activity.curriculumMapId]),
       gradeApplicabilityStatus: 'stage_1_grade_1_to_2_game_directory_grade1_is_not_official_schedule',
-    })]),
-    learningObjectiveTaskLinks: Object.freeze([Object.freeze({ learningObjectiveId: GRADE1_PLAYGROUND_SAFETY_ROUTE.learningObjective.objectiveId, taskIds: Object.freeze([GRADE1_PLAYGROUND_SAFETY_ROUTE.activityId]) })]),
-    tasks: Object.freeze([Object.freeze({ taskId: GRADE1_PLAYGROUND_SAFETY_ROUTE.activityId, title: GRADE1_PLAYGROUND_SAFETY_ROUTE.title, taskKind: 'interactive_simulated_safety_classification_route_sequence_and_transfer', levelId: null, runtimeModule: 'prototype/data/earlyGradeCurriculumGapTasks.js', curriculumMapId: GRADE1_PLAYGROUND_SAFETY_ROUTE.curriculumMapId, learningObjectiveIds: Object.freeze([GRADE1_PLAYGROUND_SAFETY_ROUTE.learningObjective.objectiveId]), evidenceType: 'candidate_practice_response_only_memory_only', status: 'playable_candidate_pending_teacher_review' })]),
-    relationshipStatus: 'candidate_partial_simulated_safety_scenario_not_real_world_or_motor_skill_evidence',
+    }))),
+    learningObjectiveTaskLinks: Object.freeze([GRADE1_PLAYGROUND_SAFETY_ROUTE, ...GRADE1_HPE_EXPANSION_ACTIVITIES].map((activity) => Object.freeze({ learningObjectiveId: activity.learningObjective.objectiveId, taskIds: Object.freeze([activity.activityId]) }))),
+    tasks: Object.freeze([GRADE1_PLAYGROUND_SAFETY_ROUTE, ...GRADE1_HPE_EXPANSION_ACTIVITIES].map((activity) => Object.freeze({ taskId: activity.activityId, title: activity.title, taskKind: 'interactive_simulated_health_physical_education_candidate', levelId: null, runtimeModule: activity === GRADE1_PLAYGROUND_SAFETY_ROUTE ? 'prototype/data/earlyGradeCurriculumGapTasks.js' : 'prototype/data/grade1HpeExpansionActivities.js', curriculumMapId: activity.curriculumMapId, learningObjectiveIds: Object.freeze([activity.learningObjective.objectiveId]), evidenceType: 'candidate_practice_response_only_memory_only', status: 'playable_candidate_pending_teacher_review' }))),
+    relationshipStatus: 'candidate_partial_simulated_health_habits_safety_and_activity_choice_not_real_world_or_motor_skill_evidence',
   }),
   Object.freeze({
     gradeId: 'grade-4', subjectId: 'health-physical-education',

@@ -275,6 +275,33 @@ function appendComposeShapeUiText(parent, text, appendStudentText) {
   appendStudentText(parent, text, composeShapeUiPronunciationTokens(text));
 }
 
+const ORDER_ITEMS_UI_PRONUNCIATION = Object.freeze({
+  '目前順序': 'ㄇㄨˋ ㄑㄧㄢˊ ㄕㄨㄣˋ ㄒㄩˋ',
+  '上移': 'ㄕㄤˋ ㄧˊ',
+  '下移': 'ㄒㄧㄚˋ ㄧˊ',
+  '檢查順序': 'ㄐㄧㄢˇ ㄔㄚˊ ㄕㄨㄣˋ ㄒㄩˋ',
+  '怎麼玩：① 看故事卡 → ② 用「上移／下移」排順序 → ③ 檢查答案': 'ㄗㄣˇ ㄇㄜ˙ ㄨㄢˊ ㄎㄢˋ ㄍㄨˋ ㄕˋ ㄎㄚˇ ㄩㄥˋ ㄕㄤˋ ㄧˊ ㄒㄧㄚˋ ㄧˊ ㄆㄞˊ ㄕㄨㄣˋ ㄒㄩˋ ㄐㄧㄢˇ ㄔㄚˊ ㄉㄚˊ ㄢˋ',
+});
+
+function orderItemsUiPronunciationTokens(text) {
+  const readings = ORDER_ITEMS_UI_PRONUNCIATION[text];
+  if (!readings) return undefined;
+  const readingList = readings.split(/\s+/u);
+  let readingIndex = 0;
+  const tokens = Array.from(text, (character) => {
+    if (!/\p{Script=Han}/u.test(character)) return { text: character };
+    const reading = readingList[readingIndex++];
+    if (!reading) throw new Error(`Missing order_items UI pronunciation for ${character} in ${text}`);
+    return { text: character, reading };
+  });
+  if (readingIndex !== readingList.length) throw new Error(`Extra order_items UI pronunciation for ${text}`);
+  return tokens;
+}
+
+function appendOrderItemsUiText(parent, text, appendStudentText) {
+  appendStudentText(parent, text, orderItemsUiPronunciationTokens(text));
+}
+
 function playBuildArrayFeedbackTone(delta) {
   const AudioContextConstructor = globalThis.AudioContext ?? globalThis.webkitAudioContext;
   if (typeof AudioContextConstructor !== 'function') return;
@@ -1372,8 +1399,11 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
         ? answerCount === 1 ? '這是單選題，請選 1 個答案。' : `這是複選題，請選 ${answerCount} 個答案。`
         : '操作方式：① 操作 → ② 觀察 → ③ 作答';
   const responseGuidanceNode = element('p', 'candidate-student-response-guidance');
-  if (lowGradeOrderItems && typeof stage.studentOperationGuidance === 'string') {
-    appendStudentText(responseGuidanceNode, responseGuidance, stage.studentOperationGuidancePronunciationTokens);
+  if (lowGradeOrderItems) {
+    const guidanceTokens = Array.isArray(stage.studentOperationGuidancePronunciationTokens)
+      ? stage.studentOperationGuidancePronunciationTokens
+      : orderItemsUiPronunciationTokens(responseGuidance);
+    appendStudentText(responseGuidanceNode, responseGuidance, guidanceTokens);
   } else if (lowGradeAssembleResponse && Array.isArray(stage.studentOperationGuidancePronunciationTokens)) {
     appendStudentText(responseGuidanceNode, responseGuidance, stage.studentOperationGuidancePronunciationTokens);
   } else if (lowGradeClassifyObservations && Array.isArray(stage.studentOperationGuidancePronunciationTokens)) {
@@ -1415,7 +1445,10 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
   }
   if (stage.deriveFromPrevious && Number.isInteger(session.previousStepResult)) host.append(element('p', 'candidate-intermediate-result', `第一步中間結果：${session.previousStepResult}。請把這個數量帶到第二步。`));
   if (session.phase === 'active' && stage.interaction === 'order_items') {
-    host.append(element('h3', 'candidate-order-heading', '目前順序'));
+    const orderHeading = element('h3', 'candidate-order-heading');
+    if (lowGradeOrderItems) appendOrderItemsUiText(orderHeading, '目前順序', appendStudentText);
+    else orderHeading.textContent = '目前順序';
+    host.append(orderHeading);
     const board = element('ol', 'candidate-order-board');
     board.setAttribute('aria-label', '目前順序');
     for (const [index, itemId] of session.orderedItems.entries()) {
@@ -1430,12 +1463,18 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       const positionLabel = lowGradeOrderItems && index < 20 ? String.fromCodePoint(0x2460 + index) : String(index + 1);
       row.append(element('span', 'candidate-order-position', positionLabel), itemTextNode);
       const controls = element('span', 'candidate-order-controls');
-      const up = element('button', 'candidate-token', '上移'); up.type = 'button'; up.disabled = index === 0; up.setAttribute('aria-label', `將「${itemText}」上移${up.disabled ? '；這一項已經在最上面' : ''}`); if (up.disabled) up.title = '這一項已經在最上面';
+      const up = element('button', 'candidate-token');
+      if (lowGradeOrderItems) appendOrderItemsUiText(up, '上移', appendStudentText);
+      else up.textContent = '上移';
+      up.type = 'button'; up.disabled = index === 0; up.setAttribute('aria-label', `將「${itemText}」上移${up.disabled ? '；這一項已經在最上面' : ''}`); if (up.disabled && !lowGradeOrderItems) up.title = '這一項已經在最上面';
       up.addEventListener('click', () => {
         dispatch('move_ordered_item', { itemId, toIndex: index - 1 });
         [...host.querySelectorAll('.candidate-order-row')].find((candidateRow) => candidateRow.dataset.orderItemId === itemId)?.focus();
       });
-      const down = element('button', 'candidate-token', '下移'); down.type = 'button'; down.disabled = index === session.orderedItems.length - 1; down.setAttribute('aria-label', `將「${itemText}」下移${down.disabled ? '；這一項已經在最下面' : ''}`); if (down.disabled) down.title = '這一項已經在最下面';
+      const down = element('button', 'candidate-token');
+      if (lowGradeOrderItems) appendOrderItemsUiText(down, '下移', appendStudentText);
+      else down.textContent = '下移';
+      down.type = 'button'; down.disabled = index === session.orderedItems.length - 1; down.setAttribute('aria-label', `將「${itemText}」下移${down.disabled ? '；這一項已經在最下面' : ''}`); if (down.disabled && !lowGradeOrderItems) down.title = '這一項已經在最下面';
       down.addEventListener('click', () => {
         dispatch('move_ordered_item', { itemId, toIndex: index + 1 });
         [...host.querySelectorAll('.candidate-order-row')].find((candidateRow) => candidateRow.dataset.orderItemId === itemId)?.focus();
@@ -3241,11 +3280,13 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       : lowGradeCollectEvidence || lowGradeChooseResponse ? '檢查答案'
       : lowGradeComposeShape ? '檢查拼圖'
       : lowGradeClassifyObservations ? '檢查分類'
+      : lowGradeOrderItems ? '檢查順序'
       : stage.interaction === 'choose_response' && isLowGradeReadingAssistanceEnabled(activity.gradeId) ? '檢查答案'
         : stage.interaction === 'magnet_interaction' && stage.magnetRules.mode === 'materials' ? '檢查答案' : taskKind === 'english' ? '送出英文回應' : taskKind === 'chinese' ? '檢查答案' : taskKind === 'mathData' ? '完成資料表' : taskKind === 'math' ? '檢查數學解法' : taskKind === 'science' ? '檢查觀察與分類' : taskKind === 'arts' ? '檢查節奏作品' : taskKind === 'living' ? '提交觀察線索' : taskKind === 'hpe' ? '檢查安全分類' : taskKind === 'integrative' ? '檢查步驟順序' : '檢查分類';
     const submit = element('button', 'button button-primary');
     submit.type = 'button'; submit.disabled = !hasResponse;
-    if (lowGradeAssembleResponse && Array.isArray(stage.studentSubmitLabelPronunciationTokens)) appendStudentText(submit, submitLabel, stage.studentSubmitLabelPronunciationTokens);
+    if (lowGradeOrderItems) appendStudentText(submit, submitLabel, stage.studentSubmitLabelPronunciationTokens ?? orderItemsUiPronunciationTokens(submitLabel));
+    else if (lowGradeAssembleResponse && Array.isArray(stage.studentSubmitLabelPronunciationTokens)) appendStudentText(submit, submitLabel, stage.studentSubmitLabelPronunciationTokens);
     else if (lowGradeNumberLine) appendNumberLineUiText(submit, submitLabel, appendStudentText);
     else if (lowGradeMoney) appendMoneyUiText(submit, submitLabel, appendStudentText);
     else if (lowGradeCollectEvidence || lowGradeChooseResponse) appendLowGradeCandidateUiText(submit, submitLabel, appendStudentText);
