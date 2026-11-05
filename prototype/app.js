@@ -1306,6 +1306,7 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     host.append(listen);
   }
   const answerCount = stage.correctOptionIds?.length ?? (stage.correctOptionId ? 1 : 0);
+  const lowGradeOrderItems = stage.interaction === 'order_items' && isLowGradeReadingAssistanceEnabled(activity.gradeId);
   const lowGradeBuildArray = stage.interaction === 'build_array' && isLowGradeReadingAssistanceEnabled(activity.gradeId);
   const lowGradeAssembleResponse = stage.interaction === 'assemble_response' && isLowGradeReadingAssistanceEnabled(activity.gradeId);
   const lowGradeNumberLine = stage.interaction === 'place_number_line_marker' && isLowGradeReadingAssistanceEnabled(activity.gradeId);
@@ -1326,8 +1327,8 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
     && isLowGradeReadingAssistanceEnabled(activity.gradeId)
     && !stage.collectionRules;
   const responseGuidance = stage.interaction === 'order_items'
-    ? isLowGradeReadingAssistanceEnabled(activity.gradeId)
-      ? '怎麼玩：① 看故事卡 → ② 用「上移／下移」排順序 → ③ 檢查答案'
+    ? lowGradeOrderItems
+      ? stage.studentOperationGuidance ?? '怎麼玩：① 看故事卡 → ② 用「上移／下移」排順序 → ③ 檢查答案'
       : '操作方式：① 看清楚題目 → ② 用「上移／下移」調整順序 → ③ 排好後檢查答案'
     : stage.interaction === 'assemble_response'
       ? isLowGradeReadingAssistanceEnabled(activity.gradeId)
@@ -1371,7 +1372,9 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
         ? answerCount === 1 ? '這是單選題，請選 1 個答案。' : `這是複選題，請選 ${answerCount} 個答案。`
         : '操作方式：① 操作 → ② 觀察 → ③ 作答';
   const responseGuidanceNode = element('p', 'candidate-student-response-guidance');
-  if (lowGradeAssembleResponse && Array.isArray(stage.studentOperationGuidancePronunciationTokens)) {
+  if (lowGradeOrderItems && typeof stage.studentOperationGuidance === 'string') {
+    appendStudentText(responseGuidanceNode, responseGuidance, stage.studentOperationGuidancePronunciationTokens);
+  } else if (lowGradeAssembleResponse && Array.isArray(stage.studentOperationGuidancePronunciationTokens)) {
     appendStudentText(responseGuidanceNode, responseGuidance, stage.studentOperationGuidancePronunciationTokens);
   } else if (lowGradeClassifyObservations && Array.isArray(stage.studentOperationGuidancePronunciationTokens)) {
     appendStudentText(responseGuidanceNode, responseGuidance, stage.studentOperationGuidancePronunciationTokens);
@@ -1424,7 +1427,8 @@ function renderReusableCandidateTask(activity, session, host, updateSession, tas
       row.setAttribute('aria-label', `第 ${index + 1} 項：${itemText}`);
       const itemTextNode = element('span', 'candidate-order-text');
       appendStudentText(itemTextNode, itemText, item?.pronunciationTokens);
-      row.append(element('span', 'candidate-order-position', String(index + 1)), itemTextNode);
+      const positionLabel = lowGradeOrderItems && index < 20 ? String.fromCodePoint(0x2460 + index) : String(index + 1);
+      row.append(element('span', 'candidate-order-position', positionLabel), itemTextNode);
       const controls = element('span', 'candidate-order-controls');
       const up = element('button', 'candidate-token', '上移'); up.type = 'button'; up.disabled = index === 0; up.setAttribute('aria-label', `將「${itemText}」上移${up.disabled ? '；這一項已經在最上面' : ''}`); if (up.disabled) up.title = '這一項已經在最上面';
       up.addEventListener('click', () => {

@@ -169,15 +169,33 @@ test('共用提交就緒提示依 response 與各互動自己的低年級完成�
 });
 
 test('order_items 共用呈現說明順序操作、位置與可存取移動控制', () => {
+  const orderGuidanceStart = renderer.indexOf('const lowGradeOrderItems =');
+  const orderGuidanceEnd = renderer.indexOf('const responseGuidanceNode =', orderGuidanceStart);
+  const orderGuidance = renderer.slice(orderGuidanceStart, orderGuidanceEnd);
+  const lowGradeOrderPresentationStart = renderer.indexOf('if (lowGradeOrderItems && typeof stage.studentOperationGuidance', orderGuidanceEnd);
+  const lowGradeOrderPresentationEnd = renderer.indexOf('else if (lowGradeAssembleResponse', lowGradeOrderPresentationStart);
+  const lowGradeOrderPresentation = renderer.slice(lowGradeOrderPresentationStart, lowGradeOrderPresentationEnd);
   const orderStart = renderer.indexOf("if (session.phase === 'active' && stage.interaction === 'order_items')");
   const orderEnd = renderer.indexOf('if (stage.circleDiagram', orderStart);
   const orderRenderer = renderer.slice(orderStart, orderEnd);
+  assert.ok(orderGuidanceStart >= 0 && orderGuidanceEnd > orderGuidanceStart);
   assert.ok(orderStart >= 0 && orderEnd > orderStart);
-  assert.match(renderer, /操作方式：① 看清楚題目 → ② 用「上移／下移」調整順序 → ③ 排好後檢查答案/);
+  assert.match(orderGuidance, /stage\.interaction === 'order_items' && isLowGradeReadingAssistanceEnabled\(activity\.gradeId\)/);
+  assert.match(orderGuidance, /stage\.studentOperationGuidance \?\? '怎麼玩：① 看故事卡 → ② 用「上移／下移」排順序 → ③ 檢查答案'/);
+  assert.match(orderGuidance, /: '操作方式：① 看清楚題目 → ② 用「上移／下移」調整順序 → ③ 排好後檢查答案'/);
+  assert.ok(lowGradeOrderPresentationStart >= 0 && lowGradeOrderPresentationEnd > lowGradeOrderPresentationStart);
+  assert.match(lowGradeOrderPresentation, /appendStudentText\(responseGuidanceNode, responseGuidance, stage\.studentOperationGuidancePronunciationTokens\)/);
+  assert.match(app, /const appendStudentText = \(parent, text, pronunciationTokens\) => \{[\s\S]*?!Array\.isArray\(pronunciationTokens\)[\s\S]*?parent\.append\(document\.createTextNode\(text \?\? ''\)\)/);
+  assert.equal(isLowGradeReadingAssistanceEnabled('grade-1'), true);
+  assert.equal(isLowGradeReadingAssistanceEnabled('grade-2'), true);
+  assert.equal(isLowGradeReadingAssistanceEnabled('grade-3'), false);
   assert.doesNotMatch(orderRenderer, /hasResponse|submit\.disabled/);
   assert.match(orderRenderer, /'目前順序'/);
   assert.match(orderRenderer, /session\.orderedItems\.entries\(\)/);
-  assert.match(orderRenderer, /candidate-order-position', String\(index \+ 1\)/);
+  assert.match(orderRenderer, /const positionLabel = lowGradeOrderItems && index < 20 \? String\.fromCodePoint\(0x2460 \+ index\) : String\(index \+ 1\)/);
+  assert.match(orderRenderer, /candidate-order-position', positionLabel/);
+  assert.equal(Array.from({ length: 3 }, (_, index) => String.fromCodePoint(0x2460 + index)).join(''), '①②③');
+  assert.match(orderRenderer, /index < 20[\s\S]*?: String\(index \+ 1\)/);
   assert.match(orderRenderer, /dispatch\('move_ordered_item', \{ itemId, toIndex: index - 1 \}\)/);
   assert.match(orderRenderer, /dispatch\('move_ordered_item', \{ itemId, toIndex: index \+ 1 \}\)/);
   assert.match(orderRenderer, /up\.disabled = index === 0/);

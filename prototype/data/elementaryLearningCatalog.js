@@ -12,6 +12,7 @@ import { GRADE1_CHINESE_STORY_CARDS } from './grade1ChineseStoryCards.js';
 import { GRADE1_CHINESE_EXPANSION_ACTIVITIES } from './grade1ChineseExpansionActivities.js';
 import { GRADE1_LIVING_OBJECT_SORT } from './grade1LivingObjectSort.js';
 import { GRADE1_LIVING_CHANGE_DETECTIVE } from './grade1LivingChangeDetective.js';
+import { GRADE1_LIVING_EXPANSION_ACTIVITIES } from './grade1LivingExpansionActivities.js';
 import {
   GRADE2_MATH_NUMBER_LINE, GRADE2_MATH_COLUMN_CALCULATION, GRADE2_MATH_MEASURE_COMPARE,
   GRADE2_CHINESE_TEXT_CLUE, GRADE2_CHINESE_CONTEXT_WORDS,
@@ -172,19 +173,22 @@ export const LEARNING_TASK_RELATIONS = Object.freeze(mergeRelationsByGradeSubjec
   }),
   Object.freeze({
     gradeId: 'grade-1', subjectId: 'living-curriculum',
-    curriculumMapIds: Object.freeze(['living-curriculum-stage1-observation-inquiry', 'living-curriculum-stage1-change-inquiry']),
-    learningObjectiveIds: Object.freeze([GRADE1_LIVING_OBJECT_SORT.learningObjective.objectiveId, GRADE1_LIVING_CHANGE_DETECTIVE.learningObjective.objectiveId]),
+    curriculumMapIds: Object.freeze([...new Set(['living-curriculum-stage1-observation-inquiry', 'living-curriculum-stage1-change-inquiry', ...GRADE1_LIVING_EXPANSION_ACTIVITIES.map(({ curriculumMapId }) => curriculumMapId)])]),
+    learningObjectiveIds: Object.freeze([GRADE1_LIVING_OBJECT_SORT.learningObjective.objectiveId, GRADE1_LIVING_CHANGE_DETECTIVE.learningObjective.objectiveId, ...GRADE1_LIVING_EXPANSION_ACTIVITIES.map(({ learningObjective }) => learningObjective.objectiveId)]),
     objectiveDefinitions: Object.freeze([
       Object.freeze({ objectiveId: GRADE1_LIVING_OBJECT_SORT.learningObjective.objectiveId, statement: GRADE1_LIVING_OBJECT_SORT.learningObjective.statement, status: 'candidate_pending_teacher_review', curriculumMapIds: Object.freeze(['living-curriculum-stage1-observation-inquiry']), gradeApplicabilityStatus: 'stage_1_grade_1_to_2_local_schedule_pending' }),
       Object.freeze({ objectiveId: GRADE1_LIVING_CHANGE_DETECTIVE.learningObjective.objectiveId, statement: GRADE1_LIVING_CHANGE_DETECTIVE.learningObjective.statement, status: 'candidate_pending_teacher_review', curriculumMapIds: Object.freeze(['living-curriculum-stage1-change-inquiry']), gradeApplicabilityStatus: 'stage_1_grade_1_to_2_local_schedule_pending' }),
+      ...GRADE1_LIVING_EXPANSION_ACTIVITIES.map((task) => Object.freeze({ objectiveId: task.learningObjective.objectiveId, statement: task.learningObjective.statement, status: 'candidate_pending_teacher_review', curriculumMapIds: Object.freeze([task.curriculumMapId]), gradeApplicabilityStatus: 'stage_1_grade_1_to_2_local_schedule_pending' })),
     ]),
     learningObjectiveTaskLinks: Object.freeze([
       Object.freeze({ learningObjectiveId: GRADE1_LIVING_OBJECT_SORT.learningObjective.objectiveId, taskIds: Object.freeze([GRADE1_LIVING_OBJECT_SORT.activityId]) }),
       Object.freeze({ learningObjectiveId: GRADE1_LIVING_CHANGE_DETECTIVE.learningObjective.objectiveId, taskIds: Object.freeze([GRADE1_LIVING_CHANGE_DETECTIVE.activityId]) }),
+      ...GRADE1_LIVING_EXPANSION_ACTIVITIES.map((task) => Object.freeze({ learningObjectiveId: task.learningObjective.objectiveId, taskIds: Object.freeze([task.activityId]) })),
     ]),
     tasks: Object.freeze([
       Object.freeze({ taskId: GRADE1_LIVING_OBJECT_SORT.activityId, taskKind: 'interactive_observation_classification', levelId: null, runtimeModule: 'prototype/data/grade1LivingObjectSort.js', curriculumMapId: 'living-curriculum-stage1-observation-inquiry', learningObjectiveIds: Object.freeze([GRADE1_LIVING_OBJECT_SORT.learningObjective.objectiveId]), evidenceType: 'candidate_practice_response_only_memory_only', status: 'playable_candidate_pending_teacher_review' }),
       Object.freeze({ taskId: GRADE1_LIVING_CHANGE_DETECTIVE.activityId, taskKind: 'interactive_before_after_evidence_collection', levelId: null, runtimeModule: 'prototype/data/grade1LivingChangeDetective.js', curriculumMapId: 'living-curriculum-stage1-change-inquiry', learningObjectiveIds: Object.freeze([GRADE1_LIVING_CHANGE_DETECTIVE.learningObjective.objectiveId]), evidenceType: 'candidate_practice_response_only_memory_only', status: 'playable_candidate_pending_teacher_review' }),
+      ...GRADE1_LIVING_EXPANSION_ACTIVITIES.map((task) => Object.freeze({ taskId: task.activityId, taskKind: 'interactive_grade1_living_candidate', levelId: null, runtimeModule: task.runtimeModule, curriculumMapId: task.curriculumMapId, learningObjectiveIds: Object.freeze([task.learningObjective.objectiveId]), evidenceType: 'candidate_practice_response_only_memory_only', status: 'playable_candidate_pending_teacher_review' })),
     ]),
     relationshipStatus: 'candidate_simulated_observation_partial_links_stage_1_refs_real_world_teacher_review_pending',
   }),
