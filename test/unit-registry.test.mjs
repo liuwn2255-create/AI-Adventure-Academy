@@ -69,6 +69,33 @@ function approvedTestBundle() {
   return bundle;
 }
 
+function approvedTestQuestion(overrides = {}) {
+  const unit = base.registry.units[0];
+  const source = base.sources.sources.find(({ id }) => id === 'mathematics');
+  const review = Object.fromEntries(['curriculum', 'gradeLevelFit', 'answer', 'explanation'].map((key) => [key, {
+    status: 'approved', reviewer: `Synthetic ${key} reviewer`, reviewerRole: '測試 fixture',
+    reviewDate: '2026-10-20', revision: 4, unitRevision: unit.revision,
+    notes: '未附教材證據；此合成測試題不主張特定教材。',
+  }]));
+  return {
+    schemaVersion: 2, id: 'q-test', revision: 4, unitId: unit.unitId, unitRevision: unit.revision,
+    subject: unit.subject, grade: 3, prompt: '測試題幹',
+    interaction: { type: 'single_choice', options: [
+      { optionId: 'option-a', text: '選項甲' }, { optionId: 'option-b', text: '選項乙' },
+    ], answerId: 'option-a' },
+    explanation: '測試解釋', prerequisites: [],
+    curriculumMappings: [{
+      sourceId: source.id, sourceUrl: source.url, documentTitle: source.documentTitle,
+      publicationInfo: source.publicationInfo,
+      locations: [{ kind: 'content', code: 'N-3-1', pageOrSection: 'PDF頁序25', gradeScope: 'grade_level_content' }],
+      verificationStatus: 'verified', verifiedBy: 'Synthetic curriculum reviewer', verifiedAt: '2026-10-20', notes: null,
+    }],
+    textbookEvidence: [], review, publicationStatus: 'approved',
+    publicationRecord: { publisher: 'Synthetic independent publisher', publishedAt: '2026-10-20T12:00:00Z', revision: 4 },
+    ...overrides,
+  };
+}
+
 test('現有候選登錄及外鍵有效，且不虛構班級授課紀錄', () => {
   assert.deepEqual(validateRegistryBundle(clone(base)), []);
   const unit = base.registry.units[0];
@@ -207,11 +234,50 @@ test('班級 ready_for_class 缺少授課／先備確認證據時失敗', () => 
 test('共用發布入口接受僅存在於測試中的核准完整單元', () => {
   const registryBundle = approvedTestBundle();
   assert.deepEqual(validateRegistryBundle(clone(registryBundle)), []);
-  const question = { id: 'q-test', revision: 4, unitId: 'M3-NUM-01', unitRevision: 1, subject: 'mathematics' };
+  const question = approvedTestQuestion();
   assert.deepEqual(validateQuestionPublication({ question, registryBundle }), []);
   const publishedQuestion = { ...question, publicationStatus: 'published' };
   const level = { interactions: [{ questionRefs: [{ questionId: 'q-test', revision: 4 }] }] };
   assert.deepEqual(validateLevelPublication({ level, questions: [publishedQuestion], registryBundle }), []);
+});
+
+test('題目發布檢查完整驗證 schema v2、題型、課綱證據、四項審查及發布紀錄', () => {
+  const registryBundle = approvedTestBundle();
+  const valid = approvedTestQuestion();
+  assert.deepEqual(validateQuestionPublication({ question: valid, registryBundle }), []);
+
+  const badSchema = { ...valid, schemaVersion: 1 };
+  assert.ok(codes(validateQuestionPublication({ question: badSchema, registryBundle })).includes('schema'));
+  const badInteraction = { ...valid, interaction: { ...valid.interaction, type: 'free_text' } };
+  assert.ok(codes(validateQuestionPublication({ question: badInteraction, registryBundle })).includes('enum'));
+  const badAnswer = { ...valid, interaction: { ...valid.interaction, answerId: 'missing-option' } };
+  assert.ok(codes(validateQuestionPublication({ question: badAnswer, registryBundle })).includes('foreign_key'));
+
+  const badMapping = structuredClone(valid);
+  badMapping.curriculumMappings[0].verificationStatus = 'pending_verification';
+  assert.ok(codes(validateQuestionPublication({ question: badMapping, registryBundle })).includes('approval_gate'));
+  const missingSource = structuredClone(valid);
+  missingSource.curriculumMappings[0].sourceId = 'missing-source';
+  assert.ok(codes(validateQuestionPublication({ question: missingSource, registryBundle })).includes('foreign_key'));
+
+  const badReview = structuredClone(valid);
+  badReview.review.answer.revision += 1;
+  assert.ok(codes(validateQuestionPublication({ question: badReview, registryBundle })).includes('revision_mismatch'));
+  const unapprovedReview = structuredClone(valid);
+  unapprovedReview.review.explanation.status = 'pending_review';
+  assert.ok(codes(validateQuestionPublication({ question: unapprovedReview, registryBundle })).includes('approval_gate'));
+
+  const missingPublicationRecord = { ...valid, publicationRecord: null };
+  assert.ok(codes(validateQuestionPublication({ question: missingPublicationRecord, registryBundle })).includes('required'));
+  const wrongPublicationRevision = { ...valid, publicationRecord: { ...valid.publicationRecord, revision: 3 } };
+  assert.ok(codes(validateQuestionPublication({ question: wrongPublicationRevision, registryBundle })).includes('revision_mismatch'));
+  const reviewerPublishes = { ...valid, publicationRecord: { ...valid.publicationRecord, publisher: valid.review.answer.reviewer } };
+  assert.ok(codes(validateQuestionPublication({ question: reviewerPublishes, registryBundle })).includes('reviewer_conflict'));
+
+  const unexplainedEmptyEvidence = structuredClone(valid);
+  for (const item of Object.values(unexplainedEmptyEvidence.review)) item.notes = null;
+  assert.ok(codes(validateQuestionPublication({ question: unexplainedEmptyEvidence, registryBundle })).includes('required'));
+  assert.deepEqual(validateQuestionPublication({ question: valid, registryBundle }), []);
 });
 
 test('共用發布入口拒絕缺少核准證據或無效課綱來源／地圖引用', () => {
@@ -229,7 +295,9 @@ test('共用發布入口拒絕缺少核准證據或無效課綱來源／地圖�
 
 test('共用發布檢查不修改輸入，舊單元版題目／關卡不會被自動改綁', () => {
   const registryBundle = approvedTestBundle();
-  const question = { id: 'old-q', revision: 9, unitId: 'M3-NUM-01', unitRevision: 1 };
+  const question = approvedTestQuestion({ id: 'old-q', revision: 9, publicationRecord: {
+    publisher: 'Synthetic independent publisher', publishedAt: '2026-10-20T12:00:00Z', revision: 9,
+  } });
   const level = { interactions: [{ questionRefs: [{ questionId: 'old-q', revision: 9 }] }] };
   const questions = [{ ...question, publicationStatus: 'published' }];
   const before = JSON.stringify({ registryBundle, question, level, questions });
@@ -255,4 +323,37 @@ test('共用發布檢查不修改輸入，舊單元版題目／關卡不會被�
   assert.equal(level.interactions[0].questionRefs[0].revision, 9);
   assert.equal(JSON.stringify({ registryBundle, question, level, questions }), beforeCall);
   assert.notEqual(before, beforeCall);
+});
+
+test('關卡發布拒絕重複 questionId@revision 並重驗引用題目的完整發布條件', () => {
+  const registryBundle = approvedTestBundle();
+  const question = { ...approvedTestQuestion(), publicationStatus: 'published' };
+  const level = { interactions: [{ questionRefs: [
+    { questionId: question.id, revision: question.revision },
+    { questionId: question.id, revision: question.revision },
+  ] }] };
+  const duplicateReference = validateLevelPublication({ level, questions: [question], registryBundle });
+  assert.ok(codes(duplicateReference).includes('duplicate'));
+
+  const duplicateQuestionData = validateLevelPublication({
+    level: { interactions: [{ questionRefs: [{ questionId: question.id, revision: question.revision }] }] },
+    questions: [question, structuredClone(question)], registryBundle,
+  });
+  assert.ok(codes(duplicateQuestionData).includes('duplicate'));
+
+  const incompletePublishedQuestion = structuredClone(question);
+  incompletePublishedQuestion.review.curriculum.status = 'returned';
+  const fullPublicationErrors = validateLevelPublication({
+    level: { interactions: [{ questionRefs: [{ questionId: question.id, revision: question.revision }] }] },
+    questions: [incompletePublishedQuestion], registryBundle,
+  });
+  assert.ok(codes(fullPublicationErrors).includes('approval_gate'));
+
+  const staleUnitQuestion = structuredClone(question);
+  staleUnitQuestion.unitRevision = 99;
+  const staleUnitErrors = validateLevelPublication({
+    level: { interactions: [{ questionRefs: [{ questionId: question.id, revision: question.revision }] }] },
+    questions: [staleUnitQuestion], registryBundle,
+  });
+  assert.equal(codes(staleUnitErrors).filter((code) => code === 'stale_unit_revision').length, 1);
 });
