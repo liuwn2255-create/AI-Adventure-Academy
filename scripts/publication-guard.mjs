@@ -11,11 +11,22 @@ const PUBLICATION_STATUSES = new Set(['draft', 'pending_review', 'returned', 'ap
 const nonEmpty = (value) => typeof value === 'string' && value.trim().length > 0;
 const positiveInt = (value) => Number.isInteger(value) && value > 0;
 const unique = (items) => new Set(items).size === items.length;
-const isReviewDate = (value) => typeof value === 'string'
-  && /^\d{4}-\d{2}-\d{2}$/.test(value)
-  && !Number.isNaN(Date.parse(`${value}T00:00:00Z`));
+function isCalendarDate(value) {
+  if (typeof value !== 'string') return false;
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+  if (!match) return false;
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  if (month < 1 || month > 12 || day < 1) return false;
+  const leapYear = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+  const daysInMonth = [31, leapYear ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  return day <= daysInMonth[month - 1];
+}
+const isReviewDate = isCalendarDate;
 const isDateTime = (value) => typeof value === 'string'
   && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/.test(value)
+  && isCalendarDate(value.slice(0, 10))
   && !Number.isNaN(Date.parse(value));
 
 function issue(path, code, message) {
@@ -36,7 +47,7 @@ function validateQuestionPublicationData(question, registryBundle, expectedStatu
     return [issue('question', 'type', '題目必須為物件')];
   }
   const errors = [];
-  const requiredStrings = ['id', 'unitId', 'prompt', 'explanation'];
+  const requiredStrings = ['id', 'unitId', 'language', 'prompt', 'explanation', 'difficulty'];
   for (const key of requiredStrings) if (!nonEmpty(question[key])) errors.push(issue(key, 'required', `${key} 必須為非空字串`));
   if (question.schemaVersion !== 2) errors.push(issue('schemaVersion', 'schema', '發布只支援題目 schemaVersion 2'));
   if (!positiveInt(question.revision)) errors.push(issue('revision', 'type', '題目 revision 必須為正整數'));
@@ -88,7 +99,10 @@ function validateQuestionPublicationData(question, registryBundle, expectedStatu
   }
 
   const sources = registryBundle?.sources?.sources;
-  const sourceIds = new Set(Array.isArray(sources) ? sources.map((source) => source?.id) : []);
+  const sourceById = new Map(Array.isArray(sources)
+    ? sources.filter((source) => nonEmpty(source?.id)).map((source) => [source.id, source])
+    : []);
+  const sourceIds = new Set(sourceById.keys());
   if (!Array.isArray(question.curriculumMappings) || question.curriculumMappings.length === 0) {
     errors.push(issue('curriculumMappings', 'required', '發布題目至少需要一筆課綱來源 mapping'));
   } else {
@@ -100,6 +114,10 @@ function validateQuestionPublicationData(question, registryBundle, expectedStatu
       }
       if (!nonEmpty(mapping.sourceId) || !sourceIds.has(mapping.sourceId)) errors.push(issue(`${path}.sourceId`, 'foreign_key', 'sourceId 必須引用已登錄來源'));
       if (!isHttpUrl(mapping.sourceUrl)) errors.push(issue(`${path}.sourceUrl`, 'format', 'sourceUrl 必須是有效 HTTP(S) 官方來源網址'));
+      const registeredSource = sourceById.get(mapping.sourceId);
+      if (registeredSource && mapping.sourceUrl !== registeredSource.url) {
+        errors.push(issue(`${path}.sourceUrl`, 'source_mismatch', 'sourceUrl 必須與 sourceId 對應的正式登錄網址完全一致'));
+      }
       for (const key of ['documentTitle', 'publicationInfo']) {
         if (!nonEmpty(mapping[key])) errors.push(issue(`${path}.${key}`, 'required', `${key} 必須為非空字串`));
       }

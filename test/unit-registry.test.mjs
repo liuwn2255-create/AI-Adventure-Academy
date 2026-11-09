@@ -79,11 +79,11 @@ function approvedTestQuestion(overrides = {}) {
   }]));
   return {
     schemaVersion: 2, id: 'q-test', revision: 4, unitId: unit.unitId, unitRevision: unit.revision,
-    subject: unit.subject, grade: 3, prompt: '測試題幹',
+    subject: unit.subject, grade: 3, language: 'zh-Hant-TW', prompt: '測試題幹',
     interaction: { type: 'single_choice', options: [
       { optionId: 'option-a', text: '選項甲' }, { optionId: 'option-b', text: '選項乙' },
     ], answerId: 'option-a' },
-    explanation: '測試解釋', prerequisites: [],
+    explanation: '測試解釋', difficulty: 'introductory', prerequisites: [],
     curriculumMappings: [{
       sourceId: source.id, sourceUrl: source.url, documentTitle: source.documentTitle,
       publicationInfo: source.publicationInfo,
@@ -278,6 +278,63 @@ test('題目發布檢查完整驗證 schema v2、題型、課綱證據、四項�
   for (const item of Object.values(unexplainedEmptyEvidence.review)) item.notes = null;
   assert.ok(codes(validateQuestionPublication({ question: unexplainedEmptyEvidence, registryBundle })).includes('required'));
   assert.deepEqual(validateQuestionPublication({ question: valid, registryBundle }), []);
+});
+
+test('題目發布要求 language 與非空 difficulty，但不推定未定義的 difficulty enum', () => {
+  const registryBundle = approvedTestBundle();
+  const valid = approvedTestQuestion();
+  assert.deepEqual(validateQuestionPublication({ question: valid, registryBundle }), []);
+
+  const missingLanguage = structuredClone(valid);
+  delete missingLanguage.language;
+  assert.ok(validateQuestionPublication({ question: missingLanguage, registryBundle })
+    .some((error) => error.path === 'question.language' && error.code === 'required'));
+
+  const missingDifficulty = structuredClone(valid);
+  delete missingDifficulty.difficulty;
+  assert.ok(validateQuestionPublication({ question: missingDifficulty, registryBundle })
+    .some((error) => error.path === 'question.difficulty' && error.code === 'required'));
+
+  const emptyDifficulty = { ...valid, difficulty: '  ' };
+  assert.ok(validateQuestionPublication({ question: emptyDifficulty, registryBundle })
+    .some((error) => error.path === 'question.difficulty' && error.code === 'required'));
+});
+
+test('課綱 sourceUrl 必須與 sourceId 的正式登錄來源一致', () => {
+  const registryBundle = approvedTestBundle();
+  const valid = approvedTestQuestion();
+  assert.deepEqual(validateQuestionPublication({ question: valid, registryBundle }), []);
+
+  const mismatchedUrl = structuredClone(valid);
+  mismatchedUrl.curriculumMappings[0].sourceUrl = 'https://example.org/different-official-guideline.pdf';
+  assert.ok(validateQuestionPublication({ question: mismatchedUrl, registryBundle })
+    .some((error) => error.path === 'question.curriculumMappings[0].sourceUrl'
+      && error.code === 'source_mismatch'));
+});
+
+test('題目核對、審查及發布日期拒絕不存在的日曆日期並接受有效日期', () => {
+  const registryBundle = approvedTestBundle();
+  const valid = approvedTestQuestion();
+  const leapDay = structuredClone(valid);
+  leapDay.curriculumMappings[0].verifiedAt = '2024-02-29';
+  for (const review of Object.values(leapDay.review)) review.reviewDate = '2024-02-29';
+  leapDay.publicationRecord.publishedAt = '2024-02-29T23:59:59.123+08:00';
+  assert.deepEqual(validateQuestionPublication({ question: leapDay, registryBundle }), []);
+
+  const invalidVerifiedAt = structuredClone(valid);
+  invalidVerifiedAt.curriculumMappings[0].verifiedAt = '2026-02-30';
+  assert.ok(validateQuestionPublication({ question: invalidVerifiedAt, registryBundle })
+    .some((error) => error.path === 'question.curriculumMappings[0].verifiedAt' && error.code === 'format'));
+
+  const invalidReviewDate = structuredClone(valid);
+  invalidReviewDate.review.answer.reviewDate = '2026-02-30';
+  assert.ok(validateQuestionPublication({ question: invalidReviewDate, registryBundle })
+    .some((error) => error.path === 'question.review.answer.reviewDate' && error.code === 'format'));
+
+  const invalidPublishedAt = structuredClone(valid);
+  invalidPublishedAt.publicationRecord.publishedAt = '2026-02-30T12:00:00Z';
+  assert.ok(validateQuestionPublication({ question: invalidPublishedAt, registryBundle })
+    .some((error) => error.path === 'question.publicationRecord.publishedAt' && error.code === 'format'));
 });
 
 test('共用發布入口拒絕缺少核准證據或無效課綱來源／地圖引用', () => {
