@@ -1,4 +1,5 @@
 import test from 'node:test';
+import eduEvidence from '../curriculum/edu-01-candidate-evidence.json' with { type: 'json' };
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { CATALOG_CANDIDATE_TASKS, getCatalogCandidateTasksForSubject } from '../prototype/data/catalogCandidateTasks.js';
@@ -43,7 +44,8 @@ test('grade-4 official content batch records all 26 code rows across PDF pages 2
   assert.ok(expressionOrderAudit.evidenceStageIds.includes('calculate-parentheses-first'));
   const equivalentAudit = batch.activityAudit.find(({ code }) => code === 'N-4-6');
   assert.deepEqual(equivalentAudit.activityIds, [task.activityId]);
-  assert.deepEqual(equivalentAudit.evidenceStageIds, task.stages.map(({ stageId }) => stageId));
+  const supplement = eduEvidence.supplements.find(({ activityId }) => activityId === task.activityId);
+  assert.deepEqual([...equivalentAudit.evidenceStageIds, ...supplement.evidenceStageIds], task.stages.map(({ stageId }) => stageId));
   assert.match(batch.sourceLocation, /PDF頁序28–31/);
   assert.match(batch.nextWorkPosition, /五年級學習內容表/);
   for (const row of batch.clauses) {
@@ -74,11 +76,14 @@ test('grade-4 equivalent-fraction candidate is registered at the grade-four math
   const definition = definitions.definitions.find(({ subitemId }) => subitemId === 'SUB-MATH-G4-N4-6-EQUIVALENT-FRACTIONS-MODEL-TRANSFER');
   assert.ok(definition);
   assert.deepEqual(definition.activityIds, [task.activityId]);
-  assert.deepEqual(definition.evidenceStageIds, task.stages.map(({ stageId }) => stageId));
+  const supplement = eduEvidence.supplements.find(({ subitemId }) => subitemId === definition.subitemId);
+  assert.deepEqual([...definition.evidenceStageIds, ...supplement.evidenceStageIds], task.stages.map(({ stageId }) => stageId));
   assert.equal(definition.status, 'candidate_partial_interaction');
-  assert.equal(task.stages.length, 3);
-  assert.ok(task.stages.every(({ interaction, hints }) => interaction === 'compose_shape' && hints.length >= 2));
-  assert.match(task.curriculumScope, /未涵蓋簡單異分母分數加減及簡單分數與小數互換/);
+  assert.deepEqual(task.stages.map(({ interaction }) => interaction), [
+    'compose_shape', 'compose_shape', 'compose_shape', 'compose_shape', 'place_number_line_marker',
+  ]);
+  assert.ok(task.stages.every(({ hints }) => hints.length >= 2));
+  assert.match(task.curriculumScope, /未涵蓋異分母比較、減法及更多互換例/);
   assert.ok(CATALOG_CANDIDATE_TASKS.filter(({ gradeId, subjectId }) => gradeId === 'grade-4' && subjectId === 'mathematics').length >= 6);
 });
 
@@ -88,12 +93,14 @@ function act(session, action, payload = {}) {
   return result.session;
 }
 
-function compose(session, stage, wrong) {
-  const correct = new Set(stage.shapeRules.correctPieceIds);
-  const selected = wrong
-    ? stage.pieces.filter(({ id }) => !correct.has(id)).slice(0, stage.shapeRules.selectionCount)
-    : stage.pieces.filter(({ id }) => correct.has(id));
-  for (const piece of selected) session = act(session, 'toggle_shape_piece', { pieceId: piece.id });
+function answer(session, stage, wrong) {
+  if (stage.interaction === 'place_number_line_marker') {
+    return act(session, 'set_number_line_tick', { tick: stage.numberLine.targetTick + Number(wrong) });
+  }
+  const correct = stage.shapeRules.correctPieceIds;
+  const extra = stage.pieces.find(({ id }) => !correct.includes(id));
+  const selected = wrong ? [...correct.slice(0, -1), extra.id] : correct;
+  for (const pieceId of selected) session = act(session, 'toggle_shape_piece', { pieceId });
   return session;
 }
 
@@ -103,13 +110,13 @@ test('equivalence activity accepts valid tile actions, explains errors, retries,
     const stage = task.stages[index];
     session = act(session, 'hint');
     session = act(session, 'hint');
-    session = compose(session, stage, true);
+    session = answer(session, stage, true);
     let result = dispatchLearningTask(session, task, 'submit', { submissionId: `g4-frac-wrong-${index}` });
     assert.equal(result.changed, true);
     assert.equal(result.session.lastFeedback.correct, false);
-    assert.match(result.session.lastFeedback.text, /相同|比較|檢查/);
+    assert.match(result.session.lastFeedback.text, /相同|比較|檢查|同一個單位/);
     session = act(result.session, 'retry');
-    session = compose(session, stage, false);
+    session = answer(session, stage, false);
     result = dispatchLearningTask(session, task, 'submit', { submissionId: `g4-frac-correct-${index}` });
     assert.equal(result.session.lastFeedback.correct, true);
     session = act(result.session, 'next');

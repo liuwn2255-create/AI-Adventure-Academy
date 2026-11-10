@@ -1,0 +1,60 @@
+{
+  "teacherReview": "pending",
+  "supplements": [
+    {
+      "curriculumCode": "N-3-10",
+      "subitemId": "SUB-MATH-G3-N3-10-TENTHS-NUMBER-LINE-MARKER",
+      "activityId": "ACT-G3-MATH-DECIMAL-NUMBER-LINE-CANDIDATE",
+      "evidenceStageIds": [
+        "add-five-tenths-from-one-point-two",
+        "subtract-six-tenths-transfer"
+      ],
+      "scope": "在十分位數線定位 0.4 與 1.6，另以等距小格表示一位小數加法及跨整數減法的結果。這是局部候選表徵練習。",
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "curriculumCode": "N-3-5",
+      "subitemId": "SUB-MATH-G3-N3-5-PLACE-VALUE-DIVISION",
+      "activityId": "ACT-G3-MATH-MULTIPLICATION-DIVISION-CALCULATION-CANDIDATE",
+      "evidenceStageIds": [
+        "divide-23-by-4-remainder",
+        "divide-29-by-6-remainder-transfer"
+      ],
+      "scope": "按位值分配整除例並保留商中的 0。另用兩個二位數分組例求商與餘數，其中一題驗算；完整非整除直式與學生說明仍待補強。",
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "curriculumCode": "N-4-13",
+      "subitemId": "SUB-MATH-G4-N4-13-CROSS-PERIOD-ELAPSED-TIME",
+      "activityId": "ACT-G4-MATH-ELAPSED-TIME-TRANSIT-CANDIDATE",
+      "evidenceStageIds": [
+        "subtract-cross-hour-time",
+        "transfer-elapsed-time-to-minutes"
+      ],
+      "scope": "拆分跨午與跨日的 24 小時制加法情境，另由兩個模擬班車的起訖時刻求經過時間，並將小時與分鐘換算成分鐘。仍缺多種日常情境。",
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "curriculumCode": "N-4-5",
+      "subitemId": "SUB-MATH-G4-N4-5-FRACTION-BAR-REPRESENT-COMPARE",
+      "activityId": "ACT-G4-MATH-FRACTION-TILES-CANDIDATE",
+      "evidenceStageIds": [
+        "build-seven-fourths",
+        "transfer-mixed-number-addition"
+      ],
+      "scope": "以等大拼片表示真分數、比較同分母分數，並對照 7/4 與 1 又 3/4 及遷移至一個同分母加法例。仍缺更多轉換、減法與整數倍。",
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "curriculumCode": "N-4-6",
+      "subitemId": "SUB-MATH-G4-N4-6-EQUIVALENT-FRACTIONS-MODEL-TRANSFER",
+      "activityId": "ACT-G4-MATH-FRACTION-EQUIVALENCE-MODEL-CANDIDATE",
+      "evidenceStageIds": [
+        "add-half-and-quarter",
+        "transfer-half-to-decimal"
+      ],
+      "scope": "用同樣大的分數帶建構等值關係，再用四分之一片表示 1/2＋1/4，並以十分位數線定位 1/2＝0.5。仍缺異分母比較、減法及更多互換例。",
+      "status": "candidate_partial_interaction"
+    }
+  ]
+}

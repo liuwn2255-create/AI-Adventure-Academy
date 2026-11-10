@@ -81,6 +81,22 @@ test('乘除計算互動核算位值步驟，錯誤定位、重試、含0題及�
   session = fillCalculation(session, task, 3);
   result = submit(session, task, 'calc-right-4'); assert.equal(result.session.phase, 'success');
   session = advance(result.session, task);
+  for (const [index, dividend, divisor] of [[4, 23, 4], [5, 29, 6]]) {
+    const stage = task.stages[index];
+    const values = Object.fromEntries(stage.calculationSteps.map(step => [step.id, step.expectedValue]));
+    assert.equal(values.quotient, Math.floor(dividend / divisor));
+    assert.equal(values.used, values.quotient * divisor);
+    assert.equal(values.remainder, dividend % divisor);
+    if ('check-total' in values) assert.equal(values['check-total'], dividend);
+    session = fillCalculation(session, task, index, true, 'remainder');
+    result = submit(session, task, `remainder-${index}-wrong`);
+    assert.equal(result.session.phase, 'feedback');
+    session = dispatchLearningTask(result.session, task, 'retry').session;
+    session = fillCalculation(session, task, index);
+    result = submit(session, task, `remainder-${index}-right`);
+    assert.equal(result.session.phase, 'success');
+    session = advance(result.session, task);
+  }
   assert.equal(session.phase, 'completed');
   assert.equal(dispatchLearningTask(session, task, 'restart').session.attempts.length, 0);
 });
