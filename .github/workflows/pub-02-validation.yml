@@ -1,0 +1,25 @@
+name: PUB-02 validation
+on:
+  push:
+    branches:
+      - pub-02-publication-security
+  pull_request:
+    paths:
+      - 'scripts/cloudflare-access-auth.mjs'
+      - 'scripts/cloudflare-publication-worker.mjs'
+      - 'test/cloudflare-publication.test.mjs'
+      - 'migrations/0001_publication.sql'
+      - '.github/workflows/pub-02-validation.yml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/cloudflare-access-auth.mjs
+      - run: node --check scripts/cloudflare-publication-worker.mjs
+      - run: node --test test/cloudflare-publication.test.mjs test/publication-service.test.mjs test/unit-registry.test.mjs
