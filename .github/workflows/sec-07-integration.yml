@@ -18,7 +18,7 @@ jobs:
         run: |
           for f in scripts/candidate-ingress.mjs scripts/audited-review-pipeline.mjs scripts/d1-review-decision-service.mjs scripts/d1-reviewed-question-store.mjs scripts/trusted-approval-bridge.mjs scripts/publication-service.mjs; do node --check "$f"; done
       - name: Full isolated Node regression
-        run: node --test test/sec-06-candidate-ingress.test.mjs test/sec-05-audited-chain.test.mjs test/sec-04-review-decisions.test.mjs test/sec-03-reviewer-persistence.test.mjs test/sec-02-approval-bridge.test.mjs test/sec-01-hardening.test.mjs test/pub-03-integration.test.mjs test/game-publication-reader.test.mjs test/cloudflare-publication.test.mjs test/teacher-review.test.mjs test/publication-service.test.mjs test/unit-registry.test.mjs
+        run: node --test test/sec-07-security-chain.test.mjs test/sec-06-candidate-ingress.test.mjs test/sec-05-audited-chain.test.mjs test/sec-04-review-decisions.test.mjs test/sec-03-reviewer-persistence.test.mjs test/sec-02-approval-bridge.test.mjs test/sec-01-hardening.test.mjs test/pub-03-integration.test.mjs test/game-publication-reader.test.mjs test/cloudflare-publication.test.mjs test/teacher-review.test.mjs test/publication-service.test.mjs test/unit-registry.test.mjs
       - name: SQLite migrations
         run: |
           python3 test/sec-02-sqlite-migration.py
