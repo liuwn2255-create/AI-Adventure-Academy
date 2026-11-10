@@ -1,0 +1,37 @@
+name: SEC-13 local D1 end to end
+on:
+  push:
+    branches: [sec-13-level-review-chain]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  local-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --no-package-lock wrangler@4
+      - name: Regression
+        run: node --test test/unit-registry.test.mjs test/sec-01-hardening.test.mjs test/pub-03-integration.test.mjs test/sec-07-security-chain.test.mjs test/sec-09-review-http.test.mjs test/sec-10-worker-route.test.mjs test/cloudflare-publication.test.mjs test/game-publication-reader.test.mjs
+      - name: Apply isolated D1 migrations
+        run: |
+          set -euo pipefail
+          mkdir -p .tmp/sec13
+          for migration in migrations/000{1,2,3,4,5,6}_*.sql; do
+            npx wrangler d1 execute sec13_local_only --config wrangler.sec13.json --local --persist-to .tmp/sec13 --file "$migration"
+          done
+      - name: Execute actual local D1 security chain
+        run: |
+          set -euo pipefail
+          npx wrangler dev --config wrangler.sec13.json --local --persist-to .tmp/sec13 --ip 127.0.0.1 --port 8790 > .tmp/sec13.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true; cat .tmp/sec13.log' EXIT
+          for i in $(seq 1 45); do
+            if curl -fsS http://127.0.0.1:8790/ >/dev/null; then break; fi
+            sleep 1
+          done
+          node --input-type=module -e "import {approvedTestBundle,approvedTestQuestion} from './test/sec-12-fixture.mjs'; const r=await fetch('http://127.0.0.1:8790/',{method:'POST',body:JSON.stringify({bundle:approvedTestBundle(),question:approvedTestQuestion()})}); const body=await r.json(); console.log(JSON.stringify(body)); if(!r.ok||body.ok!==true) process.exit(1);"
