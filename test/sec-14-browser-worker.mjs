@@ -19,7 +19,7 @@ const level=await request.json();await env.PUBLICATION_DB.prepare('INSERT INTO l
 return Response.json(await createLevelReviewService({database:env.PUBLICATION_DB,authorize:(a,r)=>a.role===r,registryBundle:bundle}).seed({id:level.id,revision:level.revision},{id:'editor',role:'curriculum_editor'}));
 }
 if(!url.pathname.startsWith('/api/'))return env.ASSETS.fetch(request);
-const role=request.headers.get('x-test-role');const actor={id:'browser-test',role};
+const role=request.headers.get('x-test-role');const actor={id:'browser-test-'+role,role};
 const auth=async()=>actor;
 return createCloudflareIntegratedWorker({workspace:createReviewWorkspace({reviewer:auth,publisher:auth}),reviewWorker:createCloudflareReviewWorker({authenticate:auth}),publicationWorker:createCloudflarePublicationWorker({authenticate:auth})}).fetch(request,{...env,REGISTRY_BUNDLE_JSON:JSON.stringify(bundle)});
 }};
