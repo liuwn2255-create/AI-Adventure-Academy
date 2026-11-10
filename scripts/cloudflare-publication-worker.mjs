@@ -70,7 +70,9 @@ export function createCloudflarePublicationWorker({
     const routes = { '/api/questions/publish': 'question', '/api/levels/publish': 'level' };
     const kind = routes[url.pathname];
     if (request.method !== 'POST' || !kind) return reply(404, { error: 'not_found' });
-    const principal = await authenticate(request, env);
+    let principal;
+    try { principal = await authenticate(request, env); }
+    catch { return reply(401, { error: 'unauthorized' }); }
     if (!principal || principal.role !== 'publisher' || typeof principal.id !== 'string' || !principal.id) return reply(401, { error: 'unauthorized' });
     if (Number(request.headers.get('content-length') || 0) > 1048576) return reply(413, { error: 'too_large' });
     let entity;
