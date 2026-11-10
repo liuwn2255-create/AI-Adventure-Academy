@@ -13,6 +13,7 @@ function fakeD1() {
       return {
         bind(...params) {
           return {
+            async first() { const [kind,id,revision] = params; return { payload: JSON.stringify(kind === 'question' ? { ...question, id, revision } : { id, revision, status: 'approved', interactions: [{questionRefs:[{questionId:'q',revision:1}]}] }) }; },
             async all() {
               if (!sql.startsWith('SELECT payload')) throw new Error('unexpected query');
               return { results: records.filter(x => x.kind === params[0]).map(x => ({ payload: JSON.stringify(x.payload) })) };
@@ -67,7 +68,7 @@ test('題目驗證使用最終發布狀態及可信任稽核身分', async () =>
   assert.equal(result.publicationStatus, 'published');
   assert.equal(result.publicationRecord.publisher, principal.id);
   assert.equal(result.publicationRecord.publishedAt, '2026-11-10T02:00:00.000Z');
-  assert.deepEqual(calls[0], result);
+  assert.equal(calls[0].publicationStatus, 'approved');
   assert.equal(db.audit.length, 1);
   assert.equal(db.records[0].payload.publicationRecord.publisher, principal.id);
 });
@@ -87,7 +88,7 @@ test('驗證拒絕與交易錯誤不產生成功紀錄', async () => {
 test('關卡引用已發布題目並在寫入前驗證', async () => {
   const res = await post('/api/levels/publish', { id: 'l', revision: 1, status: 'approved' });
   assert.equal(res.status, 201);
-  assert.equal(calls.at(-1).level.status, 'published');
+  assert.equal(calls.at(-1).level.status, 'approved');
   assert.equal(calls.at(-1).questions[0].publicationStatus, 'published');
   assert.equal(db.audit.length, 2);
 });

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createGamePublicationReader, createGamePublicationHttp } from '../scripts/game-publication-reader.mjs';
 const q = { id: 'q1', revision: 2, publicationStatus: 'published' };
-const l = { id: 'l1', revision: 1, status: 'published', questionRefs: [{ questionId: 'q1', revision: 2 }] };
+const l = { id: 'l1', revision: 1, status: 'published', interactions: [{ questionRefs: [{ questionId: 'q1', revision: 2 }] }] };
 const db = rows => ({
   prepare(sql) {
     assert.match(sql, /^SELECT entity_id, revision, payload FROM publication_records/);
@@ -13,8 +13,8 @@ const db = rows => ({
 });
 const rows = [
   {kind:'question',item:q}, {kind:'level',item:l},
-  {kind:'level',item:{...l,id:'missing',questionRefs:[{questionId:'q1',revision:1}]}},
-  {kind:'level',item:{...l,id:'malformed',questionRefs:[]}},
+  {kind:'level',item:{...l,id:'missing',interactions:[{questionRefs:[{questionId:'q1',revision:1}]}]}},
+  {kind:'level',item:{...l,id:'malformed',interactions:[{questionRefs:[]}]}},
 ];
 test('只讀取已發布精確版本，拒絕缺題目引用關卡',async()=>{
   const snapshot=await createGamePublicationReader({database:db(rows)}).snapshot();
