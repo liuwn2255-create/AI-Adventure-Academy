@@ -37,3 +37,14 @@ test('未認證拒絕發布且不觸碰 D1', async () => {
     { ...env, PUBLICATION_DB: {} });
   assert.equal(response.status, 401);
 });
+
+test('SEC-11: missing Access configuration rejects publication without touching D1', async () => {
+  let touched = false;
+  const db = { prepare() { touched = true; throw Error('unexpected database access'); }, batch() { touched = true; throw Error('unexpected database write'); } };
+  for (const path of ['/api/questions/publish', '/api/levels/publish']) {
+    const response = await worker.fetch(new Request('https://example.org' + path, { method: 'POST' }), { PUBLICATION_DB: db });
+    assert.equal(response.status, 401);
+    assert.deepEqual(await response.json(), { error: 'unauthorized' });
+  }
+  assert.equal(touched, false);
+});
