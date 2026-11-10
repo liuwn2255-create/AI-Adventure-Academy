@@ -13,7 +13,7 @@ function fakeD1() {
       return {
         bind(...params) {
           return {
-            async first() { const [kind,id,revision] = params; return { payload: JSON.stringify(kind === 'question' ? { ...question, id, revision } : { id, revision, status: 'approved', interactions: [{questionRefs:[{questionId:'q',revision:1}]}] }) }; },
+            async first() { const [kind,id,revision] = params; return { payload: JSON.stringify(kind === 'question' ? { ...question, id, revision, prompt: revision === 2 ? 'reject' : 'ok' } : { id, revision, status: 'approved', interactions: [{questionRefs:[{questionId:'q',revision:1}]}] }) }; },
             async all() {
               if (!sql.startsWith('SELECT payload')) throw new Error('unexpected query');
               return { results: records.filter(x => x.kind === params[0]).map(x => ({ payload: JSON.stringify(x.payload) })) };
@@ -81,7 +81,7 @@ test('重複版本、較舊版本及未核准資料拒絕且無額外稽核', as
 test('驗證拒絕與交易錯誤不產生成功紀錄', async () => {
   assert.equal((await post('/api/questions/publish', { ...question, revision: 2, prompt: 'reject' })).status, 422);
   db.fail();
-  assert.equal((await post('/api/questions/publish', { ...question, revision: 2 })).status, 409);
+  assert.equal((await post('/api/questions/publish', { ...question, revision: 3 })).status, 409);
   assert.equal(db.records.length, 1);
   assert.equal(db.audit.length, 1);
 });
