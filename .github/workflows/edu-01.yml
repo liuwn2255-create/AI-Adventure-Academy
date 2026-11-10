@@ -1,0 +1,25 @@
+name: EDU-01 curriculum supplements
+on:
+  push:
+    branches: [edu-01-curriculum-evidence-gaps]
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Candidate interactions and curriculum evidence
+        run: |
+          node --test test/grade3-math-core-gaps-workshops.test.mjs test/grade3-math-new-workshops.test.mjs test/learning-subitem-expansion.test.mjs
+          node scripts/math-curriculum-audit.mjs
+      - name: Candidate activities in Chromium
+        run: |
+          npm install --no-save --package-lock=false playwright
+          npx playwright install chromium
+          PROTOTYPE_PORT=4175 node scripts/serve-prototype.mjs > /tmp/edu-01.log 2>&1 &
+          server=$!
+          trap 'kill "$server"' EXIT
+          for i in $(seq 1 30); do curl -fsS http://127.0.0.1:4175/ >/dev/null && break; sleep 1; done
+          node scripts/edu-01-browser-acceptance.mjs

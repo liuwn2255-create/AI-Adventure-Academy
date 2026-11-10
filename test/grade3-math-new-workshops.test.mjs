@@ -140,6 +140,18 @@ test('十分位數線定位校驗刻度與小數位置，錯誤後可重試並�
   assert.equal(result.session.phase, 'success');
   session = result.session;
   session = dispatchLearningTask(session, activity, 'next').session;
+  for (const [index, expectedValue] of [[2, 1.7], [3, 1.8]]) {
+    const { start, end, tickCount, targetTick } = activity.stages[index].numberLine;
+    assert.ok(Math.abs(start + (end - start) * targetTick / tickCount - expectedValue) < 1e-10);
+    session = dispatchLearningTask(session, activity, 'set_number_line_tick', { tick: targetTick + 1 }).session;
+    result = submit(session, activity, `decimal-wrong-${index + 1}`);
+    assert.equal(result.session.phase, 'feedback');
+    session = dispatchLearningTask(result.session, activity, 'retry').session;
+    session = dispatchLearningTask(session, activity, 'set_number_line_tick', { tick: targetTick }).session;
+    result = submit(session, activity, `decimal-right-${index + 1}`);
+    assert.equal(result.session.phase, 'success');
+    session = dispatchLearningTask(result.session, activity, 'next').session;
+  }
   assert.equal(session.phase, 'completed');
   assert.equal(dispatchLearningTask(session, activity, 'restart').session.phase, 'intro');
 });

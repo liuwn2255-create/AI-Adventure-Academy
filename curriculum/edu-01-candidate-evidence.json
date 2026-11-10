@@ -1,0 +1,27 @@
+{
+  "teacherReview": "pending",
+  "supplements": [
+    {
+      "curriculumCode": "N-3-10",
+      "subitemId": "SUB-MATH-G3-N3-10-TENTHS-NUMBER-LINE-MARKER",
+      "activityId": "ACT-G3-MATH-DECIMAL-NUMBER-LINE-CANDIDATE",
+      "evidenceStageIds": [
+        "add-five-tenths-from-one-point-two",
+        "subtract-six-tenths-transfer"
+      ],
+      "scope": "在十分位數線定位 0.4 與 1.6，另以等距小格表示一位小數加法及跨整數減法的結果。這是局部候選表徵練習。",
+      "status": "candidate_partial_interaction"
+    },
+    {
+      "curriculumCode": "N-3-5",
+      "subitemId": "SUB-MATH-G3-N3-5-PLACE-VALUE-DIVISION",
+      "activityId": "ACT-G3-MATH-MULTIPLICATION-DIVISION-CALCULATION-CANDIDATE",
+      "evidenceStageIds": [
+        "divide-23-by-4-remainder",
+        "divide-29-by-6-remainder-transfer"
+      ],
+      "scope": "按位值分配整除例並保留商中的 0。另用兩個二位數分組例求商與餘數，其中一題驗算；完整非整除直式與學生說明仍待補強。",
+      "status": "candidate_partial_interaction"
+    }
+  ]
+}
