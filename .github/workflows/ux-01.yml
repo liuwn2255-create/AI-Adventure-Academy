@@ -12,3 +12,10 @@ jobs:
           node-version: 22
       - run: node --test test/learning-progress-pilot.test.mjs test/learning-unit-flow.test.mjs test/map-progress.test.mjs
       - run: node --check prototype/app.js && node --check prototype/learning-progress-page.js
+      - name: Browser review acceptance
+        run: |
+          npm install --no-save --package-lock=false playwright
+          npx playwright install chromium
+          PROTOTYPE_PORT=4175 node scripts/serve-prototype.mjs > /tmp/ux01.log 2>&1 &
+          for i in $(seq 1 30); do curl -fsS http://127.0.0.1:4175/ >/dev/null && break; sleep 1; done
+          node test/ux-01-browser.mjs
