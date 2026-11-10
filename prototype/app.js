@@ -1,3 +1,4 @@
+import { saveLearningPilot } from './learningProgressPilot.js';
 import { NUMBER_COMPARISON_LEVEL, NUMBER_SECRET_LEVEL, PLACE_VALUE_LEVEL } from './data/levelCatalog.js';
 import { MATH_LEVEL_DIRECTORY } from './data/mathLevelDirectory.js';
 import { numberSecretChallenge } from './data/numberSecretQuestions.js';
@@ -5353,6 +5354,7 @@ function dispatchLearning(action, payload) {
   const result = dispatchLearningUnit(numberSecretLearningSession, action, payload);
   if (!result.changed) return;
   numberSecretLearningSession = result.session;
+  saveLearningPilot(globalThis.localStorage, numberSecretLearningSession);
   renderNumberSecretLearningUnit();
 }
 
@@ -5698,6 +5700,7 @@ function startNumberSecretLearningUnit() {
     return;
   }
   numberSecretLearningSession = createNumberSecretLearningSession();
+  saveLearningPilot(globalThis.localStorage, numberSecretLearningSession);
   renderNumberSecretLearningUnit();
 }
 
