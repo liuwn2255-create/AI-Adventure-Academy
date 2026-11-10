@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PUB-04 教師審核介面（本機示範）</title>
+<style>body{font-family:system-ui,sans-serif;max-width:780px;margin:40px auto;padding:0 18px;line-height:1.6;color:#182b40}fieldset{border:1px solid #bdc9d5;border-radius:10px;padding:16px}button,select,textarea,input{font:inherit;padding:8px}button{margin:6px}textarea{width:95%;min-height:70px}.notice{background:#f4f7fb;padding:12px;border-radius:8px}</style></head>
+<body><h1>教師題目審核（本機示範）</h1><p class="notice">這是未連接正式資料庫的離線示範。此畫面不能完成正式教師簽核或發布。</p>
+<fieldset><legend>待審題目</legend><p id="question">示範題目：3 公升等於多少毫升？</p><label>審核項目 <select id="area"><option value="curriculum">課綱對應</option><option value="gradeLevelFit">年級適切性</option><option value="answer">答案正確性</option><option value="explanation">解析品質</option></select></label><p><label>審核意見 <textarea id="notes" placeholder="退回時必填"></textarea></label></p><button id="approve">示範核准</button><button id="return">示範退回</button><p id="result" role="status"></p></fieldset>
+<script type="module">
+import { createTeacherReviewService, createMemoryTeacherReviewStore } from '../scripts/teacher-review-service.mjs';
+const actor = { id:'demo-teacher', role:'reviewer' };
+const store = createMemoryTeacherReviewStore([{ id:'demo-1', version:1, publicationStatus:'pending_review', review:{} }]);
+const service = createTeacherReviewService({ store, authorize:(a,role)=>a?.role===role });
+let version=1;
+for(const action of ['approve','return']){
+  document.getElementById(action).addEventListener('click', async()=>{
+    const outcome=await service.decide({ id:'demo-1', area:document.getElementById('area').value,
+      action, notes:document.getElementById('notes').value, expectedVersion:version },actor);
+    if(outcome.ok) version=outcome.record.version;
+    document.getElementById('result').textContent=outcome.ok
+      ? '示範紀錄已更新：'+outcome.record.publicationStatus+'，版本 '+version
+      : '未更新：'+outcome.error;
+  });
+}
+</script></body></html>

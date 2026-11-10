@@ -1,0 +1,18 @@
+name: PUB-04 teacher review validation
+on:
+  push:
+    branches:
+      - pub-04-teacher-review
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/teacher-review-service.mjs
+      - run: node --check test/teacher-review.test.mjs
+      - run: node --test test/teacher-review.test.mjs test/pub-03-integration.test.mjs test/cloudflare-publication.test.mjs test/publication-service.test.mjs test/unit-registry.test.mjs
