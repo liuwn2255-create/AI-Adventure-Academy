@@ -41,7 +41,7 @@ async function publish(kind, entity, principal, env, validators, clock) {
         publicationRecord: { publisher: principal.id, publishedAt: at, revision: entity.revision } }
     : { ...approved, status: 'published' };
   const errors = kind === 'question'
-    ? validators.question({ question: approved, registryBundle })
+    ? validators.question({ question: { ...approved, publicationRecord: published.publicationRecord }, registryBundle })
     : validators.level({ level: approved, questions: await list(env.PUBLICATION_DB, 'question'), registryBundle });
   if (errors.length) return reply(422, { error: 'publication_rejected', details: errors });
   const db = env.PUBLICATION_DB;
