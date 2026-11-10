@@ -240,7 +240,7 @@ async function playStop(stop, viewport) {
   await clickText('開始挑戰');
   const stages = [];
   for (const stage of task.stages) stages.push(await completeStage(task, stage, true));
-  await waitFor('document.body.innerText.includes("候選任務完成！")', `${stop.activityId} completed`);
+  await waitFor('document.querySelector(".candidate-student-completion-title")?.textContent==="挑戰完成！"', `${stop.activityId} completed`);
   const attempts = `完成 ${task.stages.length} 個階段，共 ${task.stages.length * 2} 次作答嘗試`;
   if (!await evaluate(`document.querySelector("#catalog-task-content")?.innerText.includes(${JSON.stringify(attempts)})`)) throw new Error(`${stop.activityId}: wrong/retry attempt count missing`);
   const story = await evaluate('document.querySelector("#catalog-task-content .candidate-route-story-progress")?.innerText');
