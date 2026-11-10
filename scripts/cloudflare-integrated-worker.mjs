@@ -3,7 +3,7 @@
 import { createCloudflareReviewWorker } from './cloudflare-review-worker.mjs';
 import { createCloudflarePublicationWorker } from './cloudflare-publication-worker.mjs';
 
-const reviewPaths=new Set(['/api/review/decisions','/api/review/approvals']);
+const reviewPaths=new Set(['/api/review/decisions','/api/review/approvals','/api/review/levels/decisions']);
 const publishPaths=new Set(['/api/questions/publish','/api/levels/publish']);
 const reject=(status,error)=>Response.json({error},{status,headers:{'cache-control':'no-store'}});
 
