@@ -253,7 +253,7 @@ async function playStop(stop, viewport) {
   if (nextExpected) {
     const nextTask = tasksById.get(nextExpected.activityId);
     await clickText(nextExpected.missionTitle, { exact: false });
-    await waitFor(`document.querySelector("#catalog-task-title")?.textContent===${JSON.stringify(nextTask.title)}`, `next activity ${nextExpected.activityId}`);
+    await waitFor(`document.querySelector("#catalog-task-title")?.textContent===${JSON.stringify(nextTask.title.split(/[：:]/,1)[0])}`, `next activity ${nextExpected.activityId}`);
     result.nextActivityId = nextExpected.activityId;
     result.nextActivityTitle = nextTask.title;
   }
@@ -273,7 +273,7 @@ try {
     const map = await navigateMap();
     const localBefore = await evaluate('JSON.stringify(Object.entries(localStorage).sort(([a],[b])=>a.localeCompare(b)))');
     await clickText('開始數字島修復任務');
-    await waitFor(`document.querySelector("#catalog-task-title")?.textContent===${JSON.stringify(tasksById.get(route.stops[0].activityId).title)}`, 'first route task');
+    await waitFor(`document.querySelector("#catalog-task-title")?.textContent===${JSON.stringify(tasksById.get(route.stops[0].activityId).title.split(/[：:]/,1)[0])}`, 'first route task');
     const stopResults = [];
     for (const stop of route.stops) stopResults.push(await playStop(stop, viewport));
     if (stopResults.length !== 10 || stopResults.some(({ order }, i) => order !== i + 1)) throw new Error(`Route sequence invalid at ${viewport.name}`);
@@ -286,14 +286,14 @@ try {
     if (completedCount !== 10) throw new Error(`Map did not show ten in-memory completed stops: ${completedCount}`);
     const mapLayout = await layout(viewport);
     await clickText('重新開始主線');
-    await waitFor(`document.querySelector("#catalog-task-title")?.textContent===${JSON.stringify(tasksById.get(route.stops[0].activityId).title)}`, 'restart from first stop');
+    await waitFor(`document.querySelector("#catalog-task-title")?.textContent===${JSON.stringify(tasksById.get(route.stops[0].activityId).title.split(/[：:]/,1)[0])}`, 'restart from first stop');
     await clickOne('#catalog-task-screen [data-go="select"]');
     await waitFor('document.querySelector("#grade3-math-adventure-map")', 'map after restart intro return');
     const progressAfterRestart = await evaluate('document.querySelector("#grade3-math-repair-mainline .grade3-math-mainline-progress")?.textContent');
     if (!progressAfterRestart?.includes('0/10')) throw new Error(`Restart did not clear candidate in-memory route: ${progressAfterRestart}`);
     const individual = route.stops[3];
     await clickOne(`#grade3-math-adventure-regions button[data-activity-id="${individual.activityId}"]`);
-    await waitFor(`document.querySelector("#catalog-task-title")?.textContent===${JSON.stringify(tasksById.get(individual.activityId).title)}`, 'individual station entry from map');
+    await waitFor(`document.querySelector("#catalog-task-title")?.textContent===${JSON.stringify(tasksById.get(individual.activityId).title.split(/[：:]/,1)[0])}`, 'individual station entry from map');
     await clickOne('#catalog-task-screen [data-go="select"]');
     await waitFor('document.querySelector("#grade3-math-adventure-map")', 'return from individual activity to map');
     if (localBefore !== await evaluate('JSON.stringify(Object.entries(localStorage).sort(([a],[b])=>a.localeCompare(b)))')) throw new Error(`localStorage changed after map/restart/individual entry at ${viewport.name}`);
