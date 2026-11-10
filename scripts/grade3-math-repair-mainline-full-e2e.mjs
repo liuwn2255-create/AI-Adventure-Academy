@@ -237,7 +237,7 @@ async function playStop(stop, viewport) {
   if (!task) throw new Error(`Missing route activity: ${stop.activityId}`);
   await waitFor(`document.querySelector("#catalog-task-screen") && !document.querySelector("#catalog-task-screen").hidden && document.querySelector("#catalog-task-title")?.textContent===${JSON.stringify(task.title.split(/[：:]/,1)[0])}`, `entered ${stop.activityId}`);
   const localBefore = await evaluate('JSON.stringify(Object.entries(localStorage).sort(([a],[b])=>a.localeCompare(b)))');
-  await clickText('開始數學挑戰');
+  await clickText('開始挑戰');
   const stages = [];
   for (const stage of task.stages) stages.push(await completeStage(task, stage, true));
   await waitFor('document.body.innerText.includes("候選任務完成！")', `${stop.activityId} completed`);
