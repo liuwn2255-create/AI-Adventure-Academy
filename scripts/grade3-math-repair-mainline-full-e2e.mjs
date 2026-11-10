@@ -205,7 +205,7 @@ async function answerStage(task, stage, wrong) {
   if (!state.screen.includes('catalog-task')) throw new Error(`Unexpected screen during stage interaction: ${state.screen}`);
 }
 
-async function completeStage(task, stage, wrong) {
+async function completeStage(task, stage) {
   await waitFor(`document.body.innerText.includes(${JSON.stringify(stage.prompt)})`, `${task.activityId}/${stage.stageId} prompt`);
   await clickText('查看提示');
   const hint1 = await evaluate('document.querySelector("#catalog-task-content .reading-hint")?.textContent.trim()');
@@ -239,10 +239,10 @@ async function playStop(stop, viewport) {
   const localBefore = await evaluate('JSON.stringify(Object.entries(localStorage).sort(([a],[b])=>a.localeCompare(b)))');
   await clickText('開始挑戰');
   const stages = [];
-  for (const stage of task.stages) stages.push(await completeStage(task, stage, true));
+  for (const stage of task.stages) stages.push(await completeStage(task, stage));
   await waitFor('document.querySelector(".candidate-student-completion-title")?.textContent==="挑戰完成！"', `${stop.activityId} completed`);
   const attempts = `完成 ${task.stages.length} 個階段，共 ${task.stages.length * 2} 次作答嘗試`;
-  if (!await evaluate(`document.querySelector("#catalog-task-content")?.innerText.includes(${JSON.stringify(attempts)})`)) throw new Error(`${stop.activityId}: wrong/retry attempt count missing`);
+  if (!await evaluate(`document.querySelector("#catalog-task-content .candidate-teacher-info-content")?.textContent.includes(${JSON.stringify(attempts)})`)) throw new Error(`${stop.activityId}: wrong/retry attempt count missing`);
   const story = await evaluate('document.querySelector("#catalog-task-content .candidate-route-story-progress")?.innerText');
   if (!story?.includes(`修復進度 ${stop.order}/10`) && stop.order < 10) throw new Error(`Missing route narrative progress after stop ${stop.order}: ${story}`);
   const finalTitle = stop.order === 10 ? await evaluate('document.querySelector("#catalog-task-content .candidate-route-finale-title")?.textContent') : null;

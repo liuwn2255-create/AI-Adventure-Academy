@@ -74,18 +74,18 @@ async function screenshot(name) {
 async function localStorageSnapshot() { return evaluate('JSON.stringify(Object.entries(localStorage).sort(([a],[b])=>a.localeCompare(b)))'); }
 
 const subjectNames = { 'chinese-language': '國語文', mathematics: '數學', 'natural-science': '自然科學', 'english-language': '英語文', 'social-studies': '社會', arts: '藝術', 'integrative-activities': '綜合活動', 'health-physical-education': '健康與體育' };
-const startLabels = { 'chinese-language': '開始國語閱讀冒險', mathematics: '開始數學挑戰', 'natural-science': '開始整理觀察紀錄', 'english-language': '開始情境對話', 'social-studies': '開始社區資料探險', arts: '開始視覺創作', 'integrative-activities': '開始排學習步驟', 'health-physical-education': '開始安全巡檢' };
 
 async function arrangeOrder(stage, correct) {
-  let current = await evaluate('[...document.querySelectorAll(".candidate-order-row")].map(r=>r.querySelector(".candidate-order-text")?.textContent)');
-  const idFromText = (text) => stage.items.find(({ text: itemText }) => itemText === text)?.id;
-  const target = correct ? [...stage.correctItemIds] : [...stage.correctItemIds];
+  const readOrder = () => evaluate('[...document.querySelectorAll(".candidate-order-row")].map(row => row.dataset.orderItemId)');
+  const target = [...stage.correctItemIds];
   if (!correct && target.length > 1) [target[0], target[1]] = [target[1], target[0]];
-  for (let i = 0; i < target.length; i += 1) {
-    let index = current.map(idFromText).indexOf(target[i]);
-    while (index > i) { await clickSelector(`.candidate-order-row:nth-of-type(${index + 1}) button[aria-label^="將第 ${index + 1} 件往前移"]`); index -= 1; }
-    while (index < i) { await clickSelector(`.candidate-order-row:nth-of-type(${index + 1}) button[aria-label^="將第 ${index + 1} 件往後移"]`); index += 1; }
-    current = await evaluate('[...document.querySelectorAll(".candidate-order-row")].map(r=>r.querySelector(".candidate-order-text")?.textContent)');
+  for (const [position, id] of target.entries()) {
+    let index = (await readOrder()).indexOf(id);
+    if (index < position) throw new Error(`Ordered item unavailable: ${id}`);
+    while (index > position) {
+      await clickSelector(`.candidate-order-row[data-order-item-id="${id}"] button[aria-label*="」上移"]`);
+      index -= 1;
+    }
   }
 }
 async function respond(task, stage, mode) {
@@ -134,11 +134,11 @@ async function playTask(task, viewportName, replayPass = false) {
     await clickSelector(`[data-route-activity-id="${task.activityId}"]`);
   }
   await waitFor('document.querySelector("#catalog-task-screen")?.hidden === false', `task ${task.activityId}`);
-  await waitFor(`document.querySelector("#catalog-task-title")?.textContent === ${JSON.stringify(task.title)}`, `${task.title} title`);
+  await waitFor(`document.querySelector("#catalog-task-title")?.textContent === ${JSON.stringify(task.title.split(/[：:]/, 1)[0])}`, `${task.title} title`);
   const layouts = [await inspectLayout()];
   const storageBefore = await localStorageSnapshot();
   await screenshot(`${task.activityId}-${viewportName}-intro${replayPass ? '-replay' : ''}`);
-  await clickText(startLabels[task.subjectId]);
+  await clickText('開始挑戰');
   await waitFor('document.querySelector(".reading-stage-heading")', `${task.activityId} first stage`);
   for (const [index, stage] of task.stages.entries()) {
     if (index > 0) await clickText('繼續下一個挑戰');
@@ -158,8 +158,9 @@ async function playTask(task, viewportName, replayPass = false) {
     await waitFor('document.body.innerText.includes("繼續下一個挑戰")', `${task.activityId}/${stage.stageId} correct feedback`);
   }
   await clickText('繼續下一個挑戰');
-  await waitFor('document.body.innerText.includes("候選任務完成！")', `${task.activityId} completion`);
-  await waitFor(`document.body.innerText.includes("完成 ${task.stages.length} 個階段")`, `${task.activityId} attempts summary`);
+  await waitFor('document.querySelector(".candidate-student-completion-title")?.textContent === "挑戰完成！"', `${task.activityId} completion`);
+  const attempts = await evaluate('document.querySelectorAll("#catalog-task-content .candidate-attempt-list > li").length');
+  if (attempts !== task.stages.length * 2) throw new Error(`${task.activityId}: expected ${task.stages.length * 2} attempts, found ${attempts}`);
   if (!replayPass) await waitFor('document.querySelector(".candidate-route-next")', `${task.activityId} route continuity`);
   layouts.push(await inspectLayout());
   const completionScreenshot = await screenshot(`${task.activityId}-${viewportName}-complete${replayPass ? '-replay' : ''}`);
@@ -187,7 +188,7 @@ try {
       activities.push(await playTask(task, viewport.name));
       if (index === 0) {
         await clickText('再玩一次');
-        await waitFor(`document.body.innerText.includes(${JSON.stringify(startLabels[task.subjectId])})`, 'replay introduction');
+        await waitFor(`document.querySelector(".candidate-student-intro")`, 'replay introduction');
         activities.push(await playTask(task, viewport.name, true));
       }
     }
