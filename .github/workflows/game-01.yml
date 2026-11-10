@@ -1,0 +1,26 @@
+name: GAME-01 playflow
+on:
+  push:
+    branches: [game-01-student-playflow]
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test test/movement-controls.test.mjs test/map-progress.test.mjs test/level-engine.test.mjs test/grade3-math-repair-mainline.test.mjs test/grade4-candidate-learning-route.test.mjs
+      - name: Existing desktop browser acceptance
+        run: |
+          export PROTOTYPE_PORT=4175
+          node scripts/serve-prototype.mjs > /tmp/prototype.log 2>&1 &
+          npx --yes playwright install chromium
+          CHROME=$(find "$HOME/.cache/ms-playwright" -type f -name chrome | head -1)
+          test -n "$CHROME"
+          "$CHROME" --headless --no-sandbox --disable-dev-shm-usage --remote-debugging-port=9222 --user-data-dir=/tmp/game01-browser http://127.0.0.1:4175/ > /tmp/chrome.log 2>&1 &
+          for i in $(seq 1 30); do curl -fsS http://127.0.0.1:9222/json/list && break; sleep 1; done
+          export CDP_URL=http://127.0.0.1:9222
+          export PROTOTYPE_URL=http://127.0.0.1:4175/
+          node scripts/grade3-math-repair-mainline-full-e2e.mjs
+          node scripts/grade4-candidate-route-browser-acceptance.mjs
