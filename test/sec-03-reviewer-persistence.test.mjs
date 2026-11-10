@@ -47,9 +47,9 @@ test('未授權、偽造其他教師、審核未完成一律不寫入',async()=>
 });
 test('D1 已審核快照可被 SEC-02 橋接讀取；重複版本不可覆寫',async()=>{
   const db=fakeD1(), store=createD1ReviewedQuestionStore({database:db,authorize});
-  assert.equal((await store.saveApproved(q,teacher)).ok,true);
-  assert.equal((await store.saveApproved(q,teacher)).error,'review_write_conflict');
+  assert.equal((await store.saveApproved(q,teacher)).error,'direct_approval_disabled');
+  assert.equal(db.reviews.size,0);
   const bridge=createTrustedApprovalBridge({database:db,loadReviewedQuestion:store.loadReviewedQuestion,authorize});
-  assert.equal((await bridge.promote({id:'q1',revision:1},teacher)).ok,true);
-  assert.equal(JSON.parse(db.approvals.get('question@q1@1').payload).review.answer.reviewer,'teacher-1');
+  assert.equal((await bridge.promote({id:'q1',revision:1},teacher)).error,'approval_incomplete');
+  assert.equal(db.approvals.size,0);
 });

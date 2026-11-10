@@ -20,26 +20,6 @@ export function createD1ReviewedQuestionStore({ database, authorize, clock = () 
       // Use the audited SEC-04/05 decision chain instead.
       return {ok:false,error:'direct_approval_disabled'};
     },
-    /* legacy implementation retained only as historical reference
-    async deprecatedSaveApproved(question, actor) {
-      if (!authorize(actor, 'reviewer') || !idOk(actor?.id)) return {ok:false,error:'forbidden'};
-      if (!isApproved(question)) return {ok:false,error:'approval_incomplete'};
-      // A signed-in teacher may submit their own review, but cannot claim to
-      // have reviewed other areas on behalf of other teachers without a
-      // separate, trusted per-decision workflow. All four reviews must match.
-      if (!REVIEW_AREAS.every(area => question.review[area].reviewer === actor.id)) {
-        return {ok:false,error:'reviewer_mismatch'};
-      }
-      const at=clock().toISOString();
-      try {
-        await database.batch([
-          database.prepare('INSERT INTO reviewed_questions (entity_id, revision, payload, reviewer_id, approved_at) VALUES (?, ?, ?, ?, ?)')
-            .bind(question.id,question.revision,JSON.stringify(question),actor.id,at),
-        ]);
-      } catch { return {ok:false,error:'review_write_conflict'}; }
-      return {ok:true,id:question.id,revision:question.revision};
-    },
-    */
     async loadReviewedQuestion(id,revision) {
       if (!idOk(id) || !revOk(revision)) return null;
       const row=await database.prepare('SELECT payload FROM reviewed_questions WHERE entity_id = ? AND revision = ?')
