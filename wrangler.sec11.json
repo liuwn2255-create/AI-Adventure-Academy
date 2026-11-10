@@ -1,7 +1,7 @@
 {
   "name": "sec-11-local-security-validation",
   "main": "scripts/cloudflare-integrated-worker.mjs",
-  "compatibility_date": "2025-04-01",
+  "compatibility_date": "2025-09-01",
   "workers_dev": false,
   "d1_databases": [
     {
@@ -10,5 +10,8 @@
       "database_id": "00000000-0000-4000-8000-000000000011",
       "migrations_dir": "migrations"
     }
+  ],
+  "compatibility_flags": [
+    "nodejs_compat"
   ]
 }
