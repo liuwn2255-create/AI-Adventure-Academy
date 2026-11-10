@@ -1,0 +1,24 @@
+name: PUB-01 validation
+on:
+  pull_request:
+    paths:
+      - 'scripts/publication-service.mjs'
+      - 'scripts/publication-http.mjs'
+      - 'test/publication-service.test.mjs'
+      - '.github/workflows/pub-01-validation.yml'
+  push:
+    branches:
+      - pub-01-publication-service
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/publication-service.mjs
+      - run: node --check scripts/publication-http.mjs
+      - run: node --test test/publication-service.test.mjs test/unit-registry.test.mjs
