@@ -24,7 +24,7 @@ test('Cloudflare Access RS256 驗簽與權限白名單', async () => {
   assert.equal(await authenticatePublisher(req(token({ exp: now - 1 })), env, fetcher, () => now * 1000), null);
   assert.equal(await authenticatePublisher(req(token({ aud: ['wrong'] })), env, fetcher, () => now * 1000), null);
   assert.equal(await authenticatePublisher(req(token({ iss: 'https://evil.example' })), env, fetcher, () => now * 1000), null);
-  assert.equal(await authenticatePublisher(req(token()).replace(/.$/, 'A')), env, fetcher, () => now * 1000), null);
+  assert.equal(await authenticatePublisher(req(token().slice(0, -2) + (token().slice(-2, -1) === 'A' ? 'B' : 'A') + token().slice(-1))), env, fetcher, () => now * 1000), null);
 });
 test('未配置資料庫 fail closed', async () => {
   const response = await worker.fetch(new Request('https://example.org/api/questions/publish', { method: 'POST' }), {});
