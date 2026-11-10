@@ -37,3 +37,20 @@ jobs:
             sleep 1
           done
           node --input-type=module -e "import {approvedTestBundle,approvedTestQuestion} from './test/sec-12-fixture.mjs'; const r=await fetch('http://127.0.0.1:8790/',{method:'POST',body:JSON.stringify({bundle:approvedTestBundle(),question:approvedTestQuestion()})}); const body=await r.json(); console.log(JSON.stringify(body)); if(!r.ok||body.ok!==true) process.exit(1);"
+      - name: Browser acceptance with isolated Worker and D1
+        run: |
+          set -euo pipefail
+          npm install --no-save --no-package-lock wrangler@4 playwright
+          npx playwright install chromium --with-deps
+          mkdir -p .tmp/sec14
+          for migration in migrations/000{1,2,3,4,5,6}_*.sql; do
+            npx wrangler d1 execute sec14_local_only --config wrangler.sec14.json --local --persist-to .tmp/sec14 --file "$migration"
+          done
+          npx wrangler dev --config wrangler.sec14.json --local --persist-to .tmp/sec14 --ip 127.0.0.1 --port 8791 > .tmp/sec14.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true; cat .tmp/sec14.log' EXIT
+          for i in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:8791/review-workspace.html >/dev/null; then break; fi
+            sleep 1
+          done
+          node test/sec-14-browser.mjs
