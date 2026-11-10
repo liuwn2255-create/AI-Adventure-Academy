@@ -24,10 +24,14 @@ function isCalendarDate(value) {
   return day <= daysInMonth[month - 1];
 }
 const isReviewDate = isCalendarDate;
-const isDateTime = (value) => typeof value === 'string'
-  && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/.test(value)
-  && isCalendarDate(value.slice(0, 10))
-  && !Number.isNaN(Date.parse(value));
+function isDateTime(value) {
+  if (typeof value !== 'string') return false;
+  const m = /^(\d{4}-\d{2}-\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.\d+)?(Z|[+-](\d{2}):(\d{2}))$/.exec(value);
+  if (!m || !isCalendarDate(m[1])) return false;
+  return Number(m[2]) <= 23 && Number(m[3]) <= 59 && Number(m[4]) <= 59
+    && (m[6] === undefined || (Number(m[6]) <= 23 && Number(m[7]) <= 59))
+    && !Number.isNaN(Date.parse(value));
+}
 
 function issue(path, code, message) {
   return { path, code, message };
@@ -103,6 +107,8 @@ function validateQuestionPublicationData(question, registryBundle, expectedStatu
     ? sources.filter((source) => nonEmpty(source?.id)).map((source) => [source.id, source])
     : []);
   const sourceIds = new Set(sourceById.keys());
+  const verifiedFocuses = [...(registryBundle?.curriculumMap?.verifiedLearningFocuses ?? []),
+    ...(registryBundle?.curriculumMap?.supplementalVerifiedLearningFocuses ?? [])];
   if (!Array.isArray(question.curriculumMappings) || question.curriculumMappings.length === 0) {
     errors.push(issue('curriculumMappings', 'required', '發布題目至少需要一筆課綱來源 mapping'));
   } else {
@@ -135,6 +141,14 @@ function validateQuestionPublicationData(question, registryBundle, expectedStatu
           }
           for (const key of ['kind', 'code', 'pageOrSection', 'gradeScope']) {
             if (!nonEmpty(location[key])) errors.push(issue(`${locationPath}.${key}`, 'required', `${key} 必須為非空字串`));
+          }
+          if (nonEmpty(location.code) && registeredSource && !verifiedFocuses.some((focus) =>
+            focus?.sourceId === mapping.sourceId
+            && focus?.officialTextReviewStatus === 'verified_against_official_text'
+            && Array.isArray(focus.verifiedClauses)
+            && focus.verifiedClauses.includes(location.code))) {
+            errors.push(issue(`${locationPath}.code`, 'unverified_mapping',
+              '課綱代碼未出現在相同來源的已核實條文清單'));
           }
         });
       }

@@ -26,6 +26,11 @@ const codes = (errors) => errors.map((error) => error.code);
 
 function approvedTestBundle() {
   const bundle = clone(base);
+  // Synthetic proof exists only in this test fixture, never in official curriculum data.
+  bundle.curriculumMap.verifiedLearningFocuses[0].sourceId = 'mathematics';
+  bundle.curriculumMap.verifiedLearningFocuses[0].officialTextReviewStatus = 'verified_against_official_text';
+  bundle.curriculumMap.verifiedLearningFocuses[0].verifiedClauses = [
+    ...(bundle.curriculumMap.verifiedLearningFocuses[0].verifiedClauses ?? []), 'N-3-1'];
   const unit = bundle.registry.units[0];
   const scopeRef = `scope:${unit.unitId}@${unit.revision}`;
   const mapRef = `curriculum-map:${unit.curriculumMapIds[0]}`;
@@ -413,4 +418,21 @@ test('關卡發布拒絕重複 questionId@revision 並重驗引用題目的完�
     questions: [staleUnitQuestion], registryBundle,
   });
   assert.equal(codes(staleUnitErrors).filter((code) => code === 'stale_unit_revision').length, 1);
+});
+
+
+test('AUTO-02 拒絕來源未核實的課綱條文', () => {
+  const registryBundle = approvedTestBundle();
+  const question = approvedTestQuestion();
+  question.curriculumMappings[0].locations[0].code = 'NOT-VERIFIED';
+  assert.ok(codes(validateQuestionPublication({ question, registryBundle })).includes('unverified_mapping'));
+});
+
+test('AUTO-02 拒絕非法時鐘與時區值', () => {
+  const registryBundle = approvedTestBundle();
+  for (const publishedAt of ['2026-10-20T24:00:00Z', '2026-10-20T12:60:00Z', '2026-10-20T12:00:60Z', '2026-10-20T12:00:00+24:00', '2026-10-20T12:00:00+08:60']) {
+    const question = approvedTestQuestion();
+    question.publicationRecord.publishedAt = publishedAt;
+    assert.ok(codes(validateQuestionPublication({ question, registryBundle })).includes('format'), publishedAt);
+  }
 });
