@@ -16,6 +16,12 @@ export function createD1ReviewedQuestionStore({ database, authorize, clock = () 
   if (!database?.prepare || !database?.batch || typeof authorize !== 'function') throw new TypeError('D1 and authorization required');
   return {
     async saveApproved(question, actor) {
+      // SEC-06: legacy direct-approved snapshot path is permanently disabled.
+      // Use the audited SEC-04/05 decision chain instead.
+      return {ok:false,error:'direct_approval_disabled'};
+    },
+    /* legacy implementation retained only as historical reference
+    async deprecatedSaveApproved(question, actor) {
       if (!authorize(actor, 'reviewer') || !idOk(actor?.id)) return {ok:false,error:'forbidden'};
       if (!isApproved(question)) return {ok:false,error:'approval_incomplete'};
       // A signed-in teacher may submit their own review, but cannot claim to
@@ -33,6 +39,7 @@ export function createD1ReviewedQuestionStore({ database, authorize, clock = () 
       } catch { return {ok:false,error:'review_write_conflict'}; }
       return {ok:true,id:question.id,revision:question.revision};
     },
+    */
     async loadReviewedQuestion(id,revision) {
       if (!idOk(id) || !revOk(revision)) return null;
       const row=await database.prepare('SELECT payload FROM reviewed_questions WHERE entity_id = ? AND revision = ?')
