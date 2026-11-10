@@ -8,7 +8,7 @@ async function list(db, kind) {
   const result = await db.prepare('SELECT payload FROM publication_records WHERE kind = ?').bind(kind).all();
   return result.results.map((row) => JSON.parse(row.payload));
 }
-async function publish(kind, entity, principal, env) {
+async function publish(kind, entity, principal, env, validators, clock) {
   if (!entity || typeof entity !== 'object' || Array.isArray(entity) || !validId(entity.id) || !validRev(entity.revision)) {
     return reply(400, { error: 'invalid_payload' });
   }
@@ -20,14 +20,16 @@ async function publish(kind, entity, principal, env) {
   }
   const registryBundle = JSON.parse(env.REGISTRY_BUNDLE_JSON || 'null');
   if (!registryBundle) return reply(503, { error: 'registry_unavailable' });
-  const errors = kind === 'question'
-    ? validateQuestionPublication({ question: entity, registryBundle })
-    : validateLevelPublication({ level: entity, questions: await list(env.PUBLICATION_DB, 'question'), registryBundle });
-  if (errors.length) return reply(422, { error: 'publication_rejected', details: errors });
+  // Build the exact immutable record before validation; never trust client audit fields.
+  const at = clock().toISOString();
   const published = kind === 'question'
-    ? { ...entity, publicationStatus: 'published' }
+    ? { ...entity, publicationStatus: 'published',
+        publicationRecord: { publisher: principal.id, publishedAt: at, revision: entity.revision } }
     : { ...entity, status: 'published' };
-  const at = new Date().toISOString();
+  const errors = kind === 'question'
+    ? validators.question({ question: published, registryBundle })
+    : validators.level({ level: published, questions: await list(env.PUBLICATION_DB, 'question'), registryBundle });
+  if (errors.length) return reply(422, { error: 'publication_rejected', details: errors });
   const db = env.PUBLICATION_DB;
   try {
     await db.batch([
@@ -42,15 +44,20 @@ async function publish(kind, entity, principal, env) {
   }
   return reply(201, { result: published });
 }
-export default {
+export function createCloudflarePublicationWorker({
+  authenticate = authenticatePublisher,
+  validators = { question: validateQuestionPublication, level: validateLevelPublication },
+  clock = () => new Date(),
+} = {}) {
+  return {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (!env.PUBLICATION_DB) return reply(503, { error: 'database_unavailable' });
     const routes = { '/api/questions/publish': 'question', '/api/levels/publish': 'level' };
     const kind = routes[url.pathname];
     if (request.method !== 'POST' || !kind) return reply(404, { error: 'not_found' });
-    const principal = await authenticatePublisher(request, env);
-    if (!principal) return reply(401, { error: 'unauthorized' });
+    const principal = await authenticate(request, env);
+    if (!principal || principal.role !== 'publisher' || typeof principal.id !== 'string' || !principal.id) return reply(401, { error: 'unauthorized' });
     if (Number(request.headers.get('content-length') || 0) > 1048576) return reply(413, { error: 'too_large' });
     let entity;
     try {
@@ -58,7 +65,9 @@ export default {
       if (new TextEncoder().encode(raw).length > 1048576) return reply(413, { error: 'too_large' });
       entity = JSON.parse(raw);
     } catch { return reply(400, { error: 'invalid_json' }); }
-    try { return await publish(kind, entity, principal, env); }
+    try { return await publish(kind, entity, principal, env, validators, clock); }
     catch { return reply(503, { error: 'publication_unavailable' }); }
   },
-};
+  };
+}
+export default createCloudflarePublicationWorker();
