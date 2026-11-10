@@ -1,11 +1,11 @@
 export const DECIMAL_NUMBER_LINE_WORKSHOP = Object.freeze({
-  activityId: 'ACT-G3-MATH-DECIMAL-NUMBER-LINE-CANDIDATE', revision: 1,
+  activityId: 'ACT-G3-MATH-DECIMAL-NUMBER-LINE-CANDIDATE', revision: 2,
   title: '小數探索站：十分位數線任務', gradeId: 'grade-3', subjectId: 'mathematics',
   status: 'candidate_pending_teacher_review', sourceKind: 'original_candidate_game_content_not_from_textbook',
   curriculumMapId: 'math-grade3-n-3-10-one-decimal', sourceId: 'mathematics', curriculumCodes: ['N-3-10', 'n-II-7'], curriculumAlignment: 'partial',
-  curriculumScope: '官方三年級 N-3-10 包含認識一位小數、小數點、十分位位值表徵與比較、加減及解題；本活動僅用 0–1、1–2 的十分位數線定位一位小數，屬局部表徵練習，不含小數加減、直式或完整應用。n-II-7 是第二學習階段表現，不表示特定學期。官方數學領綱 PDF 伍／二／三年級學習內容表 N-3-10 P26。',
+  curriculumScope: '官方三年級 N-3-10 包含認識一位小數、小數點、十分位位值表徵與比較、加減及解題；本活動以十分位數線定位一位小數，並加入兩個一位小數加減結果定位候選練習；不含完整直式或應用。n-II-7 是第二學習階段表現，不表示特定學期。官方數學領綱 PDF 伍／二／三年級學習內容表 N-3-10 P26。',
   learningSubitemClaims: Object.freeze(['SUB-MATH-G3-N3-10-TENTHS-NUMBER-LINE-MARKER']),
-  learningObjective: { objectiveId: 'LO-G3-MATH-DECIMAL-NUMBER-LINE-CANDIDATE-01', statement: '在等距十分位數線上移動標記，將一位小數放到相應位置。', status: 'candidate_pending_teacher_review' },
+  learningObjective: { objectiveId: 'LO-G3-MATH-DECIMAL-NUMBER-LINE-CANDIDATE-01', statement: '在等距十分位數線上移動標記，將一位小數放到相應位置，並用十分位小格表示加減結果。', status: 'candidate_pending_teacher_review' },
   instructions: '探索站把一段連續長度平均分成 10 個相等小段。使用下方滑桿移動標記，把指定的一位小數放到數線上；完成後再換一段範圍練習。',
   stages: Object.freeze([
     Object.freeze({ stageId: 'place-four-tenths', interaction: 'place_number_line_marker', prompt: '把標記放在 0.4 的位置。數線從 0 到 1，分成 10 個相等的小段。',
@@ -18,9 +18,11 @@ export const DECIMAL_NUMBER_LINE_WORKSHOP = Object.freeze({
       hints: Object.freeze(['先找到整數 1，再從 1 往 2 的方向數十分位小格。', '1.6 比 1 多六個十分之一；請依小格位置移動標記。']),
       incorrectFeedback: '標記要在 1 和 2 之間。從 1 起算小格，確認每一格代表十分之一。',
       correctFeedback: '1.6 位於 1 與 2 之間，超過 1 六個十分之一。這不能證明已掌握小數比較、加減或位值表徵。' }),
+    Object.freeze({ stageId: 'add-five-tenths-from-one-point-two', interaction: 'place_number_line_marker', prompt: '從 1.2 往右移 0.5。把標記放在結果的位置。', numberLine: Object.freeze({ start: 1, end: 2, tickCount: 10, targetTick: 7 }), hints: ['每格是 0.1。先找到 1.2。','往右數五格，表示加上五個十分之一。'], incorrectFeedback: '從 1.2 往右數五格，不是從 1 開始。', correctFeedback: '1.2＋0.5＝1.7。這是加法結果的數線定位練習。' }),
+    Object.freeze({ stageId: 'subtract-six-tenths-transfer', interaction: 'place_number_line_marker', prompt: '從 2.4 往左移 0.6。把標記放在結果的位置。', numberLine: Object.freeze({ start: 1, end: 3, tickCount: 20, targetTick: 8 }), hints: ['每格是 0.1。先找到 2.4。','往左數六格，經過 2.0。'], incorrectFeedback: '減法向左移動，跨過 2.0 後再數兩格。', correctFeedback: '2.4－0.6＝1.8。這是跨整數的候選數線定位練習。' }),
   ]),
   reinforcementActivityIds: Object.freeze([]), reinforcementStatus: '尚無連結的補強活動',
   evidencePolicy: Object.freeze({ persistence: 'memory_only_no_student_records_no_localStorage', completionIsMastery: false, hintAssistedResponseIsIndependentEvidence: false }),
   teacherReview: Object.freeze({ status: 'not_reviewed', reviewer: null, reviewedAt: null }),
-  openQuestions: Object.freeze(['需教師確認學生是否已學習十分位、小數點與整數數線的連結。', '數線標示和滑桿可觀察定位，不能代表能自行寫出數字、比較或計算小數。', '教科書版本、學期進度、文字讀取與滑桿操作適切性待教師確認。']),
+  openQuestions: Object.freeze(['需教師確認學生是否已學習十分位、小數點與整數數線的連結。', '數線標示和滑桿可觀察定位，不能代表能自行寫出數字、完整比較或直式計算小數。', '教科書版本、學期進度、文字讀取與滑桿操作適切性待教師確認。']),
 });
