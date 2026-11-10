@@ -40,9 +40,9 @@ test('無教師 allowlist 拒絕驗證，即使發布者 allowlist 存在',async
 });
 test('未授權、偽造其他教師、審核未完成一律不寫入',async()=>{
   const db=fakeD1(), store=createD1ReviewedQuestionStore({database:db,authorize});
-  assert.equal((await store.saveApproved(q,{id:'x',role:'publisher'})).error,'forbidden');
-  assert.equal((await store.saveApproved({...q,review:{...q.review,answer:{...q.review.answer,reviewer:'other'}}},teacher)).error,'reviewer_mismatch');
-  assert.equal((await store.saveApproved({...q,review:{...q.review,answer:{...q.review.answer,status:'pending_review'}}},teacher)).error,'approval_incomplete');
+  assert.equal((await store.saveApproved(q,{id:'x',role:'publisher'})).error,'direct_approval_disabled');
+  assert.equal((await store.saveApproved({...q,review:{...q.review,answer:{...q.review.answer,reviewer:'other'}}},teacher)).error,'direct_approval_disabled');
+  assert.equal((await store.saveApproved({...q,review:{...q.review,answer:{...q.review.answer,status:'pending_review'}}},teacher)).error,'direct_approval_disabled');
   assert.equal(db.reviews.size,0);
 });
 test('D1 已審核快照可被 SEC-02 橋接讀取；重複版本不可覆寫',async()=>{
