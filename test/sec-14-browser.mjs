@@ -19,6 +19,13 @@ for(const area of ['gradeLevelFit','answer','explanation']){await section.locato
 const approvalResponse=page.waitForResponse(r=>r.url().endsWith('/api/review/approvals')&&r.request().method()==='POST');await section.getByRole('button',{name:'建立核准快照'}).click();const ar=await approvalResponse;assert.equal(ar.status(),200,await ar.text());await page.getByText('操作成功',{exact:true}).waitFor();
 await page.getByText('稽核歷史').waitFor();
 const pub=await browser.newContext({extraHTTPHeaders:{'x-test-role':'publisher'}});const p=await pub.newPage();await p.goto(base+'/review-workspace.html');await p.getByText('目前角色：publisher').waitFor();assert.equal(await p.getByRole('button',{name:'核准',exact:true}).count(),0);await p.getByRole('button',{name:'發布',exact:true}).click();await p.getByText('已發布或已有更新版本').waitFor();
+const level={id:'sec14-browser-level',revision:1,status:'draft',interactions:[{questionRefs:[{questionId:q.id,revision:q.revision}]}]};
+const lr=await fetch(base+'/__level_fixture',{method:'POST',body:JSON.stringify(level)});assert.equal((await lr.json()).ok,true);
+await page.getByRole('button',{name:'重新整理'}).click();
+const ls=page.locator('section').filter({hasText:'level '+level.id+' /'});
+await ls.locator('textarea').fill('Return for review');await ls.getByRole('button',{name:'退回',exact:true}).click();await page.getByText('操作成功',{exact:true}).waitFor();
+await ls.locator('textarea').fill('Reviewed level');await ls.getByRole('button',{name:'核准',exact:true}).click();await page.getByText('操作成功',{exact:true}).waitFor();
+await p.getByRole('button',{name:'重新整理'}).click();const lp=p.locator('section').filter({hasText:'level '+level.id+' /'});await lp.getByRole('button',{name:'發布',exact:true}).click();await lp.getByText('已發布或已有更新版本').waitFor();
 const anon=await browser.newPage();await anon.goto(base+'/review-workspace.html');await anon.getByText('無法載入：unauthorized').waitFor();
 console.log('SEC-14 browser: teacher review, stale version, approval, audit, publisher publication, anonymous denial PASS');
 }finally{await browser.close();}
