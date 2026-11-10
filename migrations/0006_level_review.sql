@@ -1,0 +1,11 @@
+CREATE TABLE level_candidate_source (entity_id TEXT NOT NULL, revision INTEGER NOT NULL CHECK(revision>0), payload TEXT NOT NULL, PRIMARY KEY(entity_id,revision));
+CREATE TABLE level_review_candidates (entity_id TEXT NOT NULL, revision INTEGER NOT NULL, version INTEGER NOT NULL CHECK(version>0), payload TEXT NOT NULL, PRIMARY KEY(entity_id,revision));
+CREATE TABLE level_review_audit (entity_id TEXT NOT NULL, revision INTEGER NOT NULL, version INTEGER NOT NULL, action TEXT NOT NULL CHECK(action IN ('approve','return')), actor_id TEXT NOT NULL, decided_at TEXT NOT NULL, notes TEXT NOT NULL, PRIMARY KEY(entity_id,revision,version));
+CREATE TRIGGER level_source_no_update BEFORE UPDATE ON level_candidate_source BEGIN SELECT RAISE(ABORT,'immutable source'); END;
+CREATE TRIGGER level_source_no_delete BEFORE DELETE ON level_candidate_source BEGIN SELECT RAISE(ABORT,'immutable source'); END;
+CREATE TRIGGER level_candidate_no_delete BEFORE DELETE ON level_review_candidates BEGIN SELECT RAISE(ABORT,'immutable candidate'); END;
+CREATE TRIGGER level_candidate_lock BEFORE UPDATE ON level_review_candidates WHEN NEW.entity_id!=OLD.entity_id OR NEW.revision!=OLD.revision OR NEW.version!=OLD.version+1 OR json_extract(OLD.payload,'$.status')='approved' BEGIN SELECT RAISE(ABORT,'version lock'); END;
+CREATE TRIGGER level_audit_guard BEFORE INSERT ON level_review_audit WHEN NOT EXISTS(SELECT 1 FROM level_review_candidates WHERE entity_id=NEW.entity_id AND revision=NEW.revision AND version=NEW.version) BEGIN SELECT RAISE(ABORT,'stale decision'); END;
+CREATE TRIGGER level_audit_no_update BEFORE UPDATE ON level_review_audit BEGIN SELECT RAISE(ABORT,'immutable audit'); END;
+CREATE TRIGGER level_audit_no_delete BEFORE DELETE ON level_review_audit BEGIN SELECT RAISE(ABORT,'immutable audit'); END;
+CREATE TRIGGER level_approval_guard BEFORE INSERT ON publication_approvals WHEN NEW.kind='level' AND NOT EXISTS(SELECT 1 FROM level_review_candidates c JOIN level_review_audit a ON a.entity_id=c.entity_id AND a.revision=c.revision AND a.version=c.version WHERE c.entity_id=NEW.entity_id AND c.revision=NEW.revision AND c.payload=NEW.payload AND json_extract(c.payload,'$.status')='approved' AND a.action='approve' AND a.actor_id=NEW.reviewer_id AND a.decided_at=NEW.approved_at) BEGIN SELECT RAISE(ABORT,'trusted level review required'); END;

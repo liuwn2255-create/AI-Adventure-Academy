@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createReviewWorkspace} from '../scripts/review-workspace.mjs';
+import {createCloudflareIntegratedWorker} from '../scripts/cloudflare-integrated-worker.mjs';
+const req=new Request('https://local.test/api/review/workspace');
+const make=(role)=>{let queries=[];const actor=async()=>({id:'test',role});const workspace=createReviewWorkspace({reviewer:actor,publisher:actor});const env={PUBLICATION_DB:{prepare(sql){queries.push(sql);return {all:async()=>({results:[]})};}}};return {app:createCloudflareIntegratedWorker({workspace}),env,queries};};
+test('workspace denies anonymous without DB reads',async()=>{const {app,env,queries}=make('anonymous');assert.equal((await app.fetch(req,env)).status,401);assert.equal(queries.length,0);});
+test('publisher sees approval metadata only',async()=>{const {app,env,queries}=make('publisher');const r=await app.fetch(req,env);assert.equal(r.status,200);assert.deepEqual(Object.keys(await r.json()).sort(),['approvals','published','role']);assert.equal(queries.length,2);});
+test('reviewer sees candidates and audit',async()=>{const {app,env,queries}=make('reviewer');const r=await app.fetch(req,env);assert.equal(r.status,200);assert.equal((await r.json()).role,'reviewer');assert.equal(queries.length,6);});
+test('workspace rejects POST',async()=>{const {app,env,queries}=make('reviewer');assert.equal((await app.fetch(new Request(req.url,{method:'POST'}),env)).status,404);assert.equal(queries.length,0);});

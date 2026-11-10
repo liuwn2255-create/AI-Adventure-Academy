@@ -1,0 +1,60 @@
+name: SEC-11 local Workers and D1
+on:
+  push:
+    branches: [sec-11-local-worker-d1-validation]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  local-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Wrangler CLI locally (no deploy)
+        run: npm install --no-save --no-package-lock wrangler@4
+      - name: Apply all five migrations to isolated local D1
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .tmp/sec11-d1
+          for migration in migrations/000{1,2,3,4,5}_*.sql; do
+            echo "Applying local migration: $migration"
+            npx wrangler d1 execute sec11_local_only --config wrangler.sec11.json --local --persist-to .tmp/sec11-d1 --file "$migration"
+          done
+          npx wrangler d1 execute sec11_local_only --config wrangler.sec11.json --local --persist-to .tmp/sec11-d1 --command "SELECT name FROM sqlite_master WHERE type='table' AND name IN ('publication_records','publication_approvals','reviewed_questions','review_candidates','review_decision_audit','candidate_source') ORDER BY name;"
+      - name: Verify migration tables and immutable triggers
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --test test/cloudflare-publication.test.mjs test/sec-10-worker-route.test.mjs test/sec-09-review-http.test.mjs test/sec-07-security-chain.test.mjs
+          python test/sec-02-sqlite-migration.py
+          python test/sec-03-sqlite-migration.py
+          python test/sec-04-sqlite-migration.py
+          python test/sec-06-sqlite-migration.py
+      - name: Start isolated local Worker runtime and probe fail-closed routes
+        shell: bash
+        run: |
+          set -euo pipefail
+          npx wrangler dev --config wrangler.sec11.json --local --persist-to .tmp/sec11-d1 --ip 127.0.0.1 --port 8789 > .tmp/sec11-worker.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true; cat .tmp/sec11-worker.log' EXIT
+          ready=0
+          for i in $(seq 1 45); do
+            if curl -fsS -o /dev/null http://127.0.0.1:8789/api/unknown; then ready=1; break; fi
+            if curl -sS -o /dev/null http://127.0.0.1:8789/api/unknown; then ready=1; break; fi
+            sleep 1
+          done
+          test "$ready" = 1
+          status=$(curl -sS -o .tmp/sec11-unknown.json -w '%{http_code}' http://127.0.0.1:8789/api/unknown)
+          test "$status" = 404
+          for path in /api/review/decisions /api/review/approvals /api/questions/publish /api/levels/publish; do
+            status=$(curl -sS -o .tmp/sec11-response.json -w '%{http_code}' -X POST -H 'content-type: application/json' --data '{"id":"sec11-probe","revision":1}' "http://127.0.0.1:8789$path")
+            echo "$path => $status"
+            test "$status" = 401
+          done
+          status=$(curl -sS -o .tmp/sec11-seed.json -w '%{http_code}' -X POST -H 'content-type: application/json' --data '{}' http://127.0.0.1:8789/api/review/candidates)
+          test "$status" = 404

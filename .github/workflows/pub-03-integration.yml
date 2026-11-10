@@ -1,0 +1,23 @@
+name: PUB-03 integration validation
+on:
+  push:
+    branches:
+      - pub-03-integration-tests
+  pull_request:
+    paths:
+      - 'scripts/cloudflare-publication-worker.mjs'
+      - 'test/pub-03-integration.test.mjs'
+      - '.github/workflows/pub-03-integration.yml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/cloudflare-publication-worker.mjs
+      - run: node --check test/pub-03-integration.test.mjs
+      - run: node --test test/pub-03-integration.test.mjs test/cloudflare-publication.test.mjs test/publication-service.test.mjs test/unit-registry.test.mjs

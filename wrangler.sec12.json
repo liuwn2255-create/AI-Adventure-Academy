@@ -1,0 +1,17 @@
+{
+  "name": "sec-12-local-only",
+  "main": "test/sec-12-local-worker.mjs",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "workers_dev": false,
+  "d1_databases": [
+    {
+      "binding": "PUBLICATION_DB",
+      "database_name": "sec12_local_only",
+      "database_id": "00000000-0000-4000-8000-000000000012",
+      "migrations_dir": "migrations"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "sec14-local-only",
+  "main": "test/sec-14-browser-worker.mjs",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "workers_dev": false,
+  "assets": {
+    "directory": "./prototype",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "d1_databases": [
+    {
+      "binding": "PUBLICATION_DB",
+      "database_name": "sec14_local_only",
+      "database_id": "00000000-0000-4000-8000-000000000014",
+      "migrations_dir": "migrations"
+    }
+  ]
+}

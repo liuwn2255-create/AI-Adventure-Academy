@@ -1,0 +1,15 @@
+name: SEC-01 validation
+on:
+  push:
+    branches: [sec-01-publication-hardening]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test test/sec-01-hardening.test.mjs test/pub-03-integration.test.mjs test/game-publication-reader.test.mjs test/cloudflare-publication.test.mjs test/teacher-review.test.mjs test/publication-service.test.mjs test/unit-registry.test.mjs
