@@ -30,7 +30,7 @@ export function createD1ReviewDecisionService({ database, authorize, clock = () 
       next.review ??= {};
       const at=clock().toISOString();
       next.review[area]={status:action==='approve'?'approved':'returned',reviewer:actor.id,
-        reviewerRole:'reviewer',reviewedAt:at,notes:notes.trim()};
+        reviewerRole:'reviewer',reviewedAt:at,reviewDate:at.slice(0,10),revision:current.revision,unitRevision:current.unitRevision,notes:notes.trim()};
       next.publicationStatus=action==='return'?'returned'
         : REVIEW_AREAS.every(key=>next.review[key]?.status==='approved')?'approved':'pending_review';
       next.version=expectedVersion+1;
