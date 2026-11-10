@@ -17,7 +17,7 @@ const progressPresentation = renderer.slice(renderer.indexOf('const classificati
 const classifyBoardStart = renderer.indexOf("if (session.phase === 'active' && stage.interaction === 'classify_observations')");
 const classifyBoardEnd = renderer.indexOf("if (session.phase === 'active' && stage.interaction === 'build_frequency_table')", classifyBoardStart);
 const classifyBoard = renderer.slice(classifyBoardStart, classifyBoardEnd);
-const submitLabelStart = renderer.indexOf('const submitLabel = lowGradeClassifyObservations');
+const submitLabelStart = renderer.indexOf('const submitLabel =');
 const submitLabelEnd = renderer.indexOf("\n    submit.addEventListener('click'", submitLabelStart);
 const submitPresentation = renderer.slice(submitLabelStart, submitLabelEnd);
 const classifyUiHelperStart = app.indexOf('const CLASSIFY_OBSERVATIONS_UI_PRONUNCIATION =');
@@ -112,7 +112,7 @@ test('引導、分類進度、readiness 與送出按鈕只在低年級分類呈�
   assert.match(classifyBoard, /appendStudentText\(legend, observation\.text, observation\.pronunciationTokens\)/u);
   assert.match(classifyBoard, /appendStudentText\(choice, category\.label, category\.pronunciationTokens\)/u);
   assert.match(classifyBoard, /aria-pressed/u);
-  assert.match(submitPresentation, /const submitLabel = lowGradeClassifyObservations \? '檢查分類'/u);
+  assert.match(submitPresentation, /lowGradeClassifyObservations \? '檢查分類'/u);
   assert.match(submitPresentation, /stage\.interaction === 'choose_response'.*?'檢查答案'/u);
   assert.doesNotMatch(submitPresentation, /choose_response[^\n]*檢查分類/u, 'choose_response must not receive the classify CTA');
   assert.match(submitPresentation, /taskKind === 'math' \? '檢查數學解法'/u, 'non-low-grade math submit wording remains available');

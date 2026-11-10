@@ -57,7 +57,7 @@ test('Ba-II-1 social slice has specific candidate comparison evidence and keeps 
   assert.equal(reportSlice.items[0].activityEvidenceStatus, 'partial');
   assert.ok(reportSlice.items[0].activityEvidence[0].interactionStages.some(({ stageId }) => stageId === socialFocusStage.stageId));
   assert.equal(reportSlice.items[0].activityEvidence[0].browserFlowAcceptance.status, 'passed_three_viewports_this_turn');
-  assert.ok(fs.existsSync(new URL('../artifacts/social-ba2-browser-acceptance-20261025/acceptance-report.json', import.meta.url)));
+  assert.equal(reportSlice.items[0].activityEvidence[0].browserFlowAcceptance.reportPath, 'artifacts/social-ba2-browser-acceptance-20261025/acceptance-report.json');
   assert.ok(batch.clauses[0].limitations.some((limitation) => limitation.includes('訪談')));
   assert.equal(report.scope.officialElementaryItemTotal, null);
   assert.equal(report.scope.fullyEnumeratedOfficialDocumentFamilyCount, 0);

@@ -4603,7 +4603,7 @@
         },
         {
           "objectiveId": "LO-G1-MATH-MONEY-MARKET-01",
-          "statement": "在模擬市集選取合計指定金額的錢幣，並用情境理解找回的金額。",
+          "statement": "選出指定金額的錢幣，再找出找回的金額。",
           "status": "candidate_pending_teacher_review",
           "curriculumMapIds": [
             "math-grade1-money-count-exchange"
@@ -4705,7 +4705,7 @@
         },
         {
           "taskId": "ACT-G1-MATH-SHAPE-COPY-STUDIO-CANDIDATE",
-          "title": "圖形拼拼屋：照樣拼出小屋",
+          "title": "格子拼拼板：用正方形填滿格子",
           "taskKind": "interactive_plane_shape_piece_copy_and_composition",
           "levelId": null,
           "runtimeModule": "prototype/data/earlyGradeCurriculumGapTasks.js",
@@ -4744,7 +4744,7 @@
         },
         {
           "taskId": "ACT-G1-MATH-ZERO-PLACEHOLDER-EXPLORER-CANDIDATE",
-          "title": "數字小工坊：0 的位置線索",
+          "title": "數字小工坊：看看個位的 0",
           "taskKind": "classify_observations_then_choose_response",
           "levelId": null,
           "runtimeModule": "prototype/data/learningSubitemExpansionTasks.js",
@@ -4757,7 +4757,7 @@
         },
         {
           "taskId": "ACT-G1-MATH-COMPARISON-DIFFERENCE-NUMBER-LINE-CANDIDATE",
-          "title": "小小數線探險：找出相差幾個",
+          "title": "小小數線探險：多幾張",
           "taskKind": "place_number_line_marker_then_choose_response",
           "levelId": null,
           "runtimeModule": "prototype/data/learningSubitemExpansionTasks.js",
@@ -4770,7 +4770,7 @@
         },
         {
           "taskId": "ACT-G1-MATH-MONEY-COUNT-EXCHANGE-CANDIDATE",
-          "title": "小小錢幣市集：數錢、換錢與找錢",
+          "title": "小小錢幣市集：數錢與找錢",
           "taskKind": "collect_evidence_then_choose_response",
           "levelId": null,
           "runtimeModule": "prototype/data/mathCurriculumGapTasks.js",
@@ -4783,7 +4783,7 @@
         },
         {
           "taskId": "ACT-G1-MATH-LENGTH-COMPARE-ROPE-CANDIDATE",
-          "title": "長度比較小徑：直線、曲線與共同單位",
+          "title": "長度比較小徑：看哪條路較長",
           "taskKind": "classify_observations_then_classify_observations",
           "levelId": null,
           "runtimeModule": "prototype/data/mathCurriculumGapTasks.js",
@@ -4805,7 +4805,11 @@
       ],
       "learningObjectiveIds": [
         "LO-G1-CHINESE-SENTENCE-TRAIN-01",
-        "LO-G1-CHINESE-STORY-CARDS-01"
+        "LO-G1-CHINESE-STORY-CARDS-01",
+        "LO-G1-CHINESE-WORD-MEANING-SORT-01",
+        "LO-G1-CHINESE-WORD-HUNT-01",
+        "LO-G1-CHINESE-SENTENCE-MEANING-01",
+        "LO-G1-CHINESE-READING-CLUE-01"
       ],
       "objectiveDefinitions": [
         {
@@ -4825,6 +4829,42 @@
             "chinese-stage1-word-sentence-story"
           ],
           "gradeApplicabilityStatus": "stage_1_grade_1_to_2_local_schedule_pending"
+        },
+        {
+          "objectiveId": "LO-G1-CHINESE-WORD-MEANING-SORT-01",
+          "statement": "認讀生活中常見的詞語，並依詞語明確的意思分類。",
+          "status": "candidate_pending_teacher_review",
+          "curriculumMapIds": [
+            "chinese-stage1-word-sentence-story"
+          ],
+          "gradeApplicabilityStatus": "stage_1_grade_1_to_2_local_schedule_pending"
+        },
+        {
+          "objectiveId": "LO-G1-CHINESE-WORD-HUNT-01",
+          "statement": "在短句中辨認指定的常用詞語。",
+          "status": "candidate_pending_teacher_review",
+          "curriculumMapIds": [
+            "chinese-stage1-word-sentence-story"
+          ],
+          "gradeApplicabilityStatus": "stage_1_grade_1_to_2_local_schedule_pending"
+        },
+        {
+          "objectiveId": "LO-G1-CHINESE-SENTENCE-MEANING-01",
+          "statement": "讀懂短句明確說出的事情，辨認人物、動作或地點。",
+          "status": "candidate_pending_teacher_review",
+          "curriculumMapIds": [
+            "chinese-stage1-word-sentence-story"
+          ],
+          "gradeApplicabilityStatus": "stage_1_grade_1_to_2_local_schedule_pending"
+        },
+        {
+          "objectiveId": "LO-G1-CHINESE-READING-CLUE-01",
+          "statement": "回到極短短文，找出問題明確詢問的重要訊息。",
+          "status": "candidate_pending_teacher_review",
+          "curriculumMapIds": [
+            "chinese-stage1-word-sentence-story"
+          ],
+          "gradeApplicabilityStatus": "stage_1_grade_1_to_2_local_schedule_pending"
         }
       ],
       "learningObjectiveTaskLinks": [
@@ -4838,6 +4878,30 @@
           "learningObjectiveId": "LO-G1-CHINESE-STORY-CARDS-01",
           "taskIds": [
             "ACT-G1-CHINESE-STORY-CARDS-CANDIDATE"
+          ]
+        },
+        {
+          "learningObjectiveId": "LO-G1-CHINESE-WORD-MEANING-SORT-01",
+          "taskIds": [
+            "ACT-G1-CHINESE-WORD-MEANING-SORT-CANDIDATE"
+          ]
+        },
+        {
+          "learningObjectiveId": "LO-G1-CHINESE-WORD-HUNT-01",
+          "taskIds": [
+            "ACT-G1-CHINESE-WORD-HUNT-CANDIDATE"
+          ]
+        },
+        {
+          "learningObjectiveId": "LO-G1-CHINESE-SENTENCE-MEANING-01",
+          "taskIds": [
+            "ACT-G1-CHINESE-SENTENCE-MEANING-CANDIDATE"
+          ]
+        },
+        {
+          "learningObjectiveId": "LO-G1-CHINESE-READING-CLUE-01",
+          "taskIds": [
+            "ACT-G1-CHINESE-READING-CLUE-CANDIDATE"
           ]
         }
       ],
@@ -4867,6 +4931,58 @@
           ],
           "evidenceType": "candidate_practice_response_only_memory_only",
           "status": "playable_candidate_pending_teacher_review"
+        },
+        {
+          "taskId": "ACT-G1-CHINESE-WORD-MEANING-SORT-CANDIDATE",
+          "title": null,
+          "taskKind": "interactive_grade1_chinese_candidate",
+          "levelId": null,
+          "runtimeModule": "prototype/data/grade1ChineseExpansionActivities.js",
+          "curriculumMapId": "chinese-stage1-word-sentence-story",
+          "learningObjectiveIds": [
+            "LO-G1-CHINESE-WORD-MEANING-SORT-01"
+          ],
+          "evidenceType": "candidate_practice_response_only_memory_only",
+          "status": "playable_candidate_pending_teacher_review"
+        },
+        {
+          "taskId": "ACT-G1-CHINESE-WORD-HUNT-CANDIDATE",
+          "title": null,
+          "taskKind": "interactive_grade1_chinese_candidate",
+          "levelId": null,
+          "runtimeModule": "prototype/data/grade1ChineseExpansionActivities.js",
+          "curriculumMapId": "chinese-stage1-word-sentence-story",
+          "learningObjectiveIds": [
+            "LO-G1-CHINESE-WORD-HUNT-01"
+          ],
+          "evidenceType": "candidate_practice_response_only_memory_only",
+          "status": "playable_candidate_pending_teacher_review"
+        },
+        {
+          "taskId": "ACT-G1-CHINESE-SENTENCE-MEANING-CANDIDATE",
+          "title": null,
+          "taskKind": "interactive_grade1_chinese_candidate",
+          "levelId": null,
+          "runtimeModule": "prototype/data/grade1ChineseExpansionActivities.js",
+          "curriculumMapId": "chinese-stage1-word-sentence-story",
+          "learningObjectiveIds": [
+            "LO-G1-CHINESE-SENTENCE-MEANING-01"
+          ],
+          "evidenceType": "candidate_practice_response_only_memory_only",
+          "status": "playable_candidate_pending_teacher_review"
+        },
+        {
+          "taskId": "ACT-G1-CHINESE-READING-CLUE-CANDIDATE",
+          "title": null,
+          "taskKind": "interactive_grade1_chinese_candidate",
+          "levelId": null,
+          "runtimeModule": "prototype/data/grade1ChineseExpansionActivities.js",
+          "curriculumMapId": "chinese-stage1-word-sentence-story",
+          "learningObjectiveIds": [
+            "LO-G1-CHINESE-READING-CLUE-01"
+          ],
+          "evidenceType": "candidate_practice_response_only_memory_only",
+          "status": "playable_candidate_pending_teacher_review"
         }
       ],
       "relationshipStatus": "candidate_links_first_stage_refs_not_grade_schedule_or_full_literacy_coverage"
@@ -4876,11 +4992,16 @@
       "subjectId": "living_curriculum",
       "curriculumMapIds": [
         "living-curriculum-stage1-observation-inquiry",
-        "living-curriculum-stage1-change-inquiry"
+        "living-curriculum-stage1-change-inquiry",
+        "living-curriculum-stage1-shared-rules"
       ],
       "learningObjectiveIds": [
         "LO-G1-LIVING-OBJECT-SORT-01",
-        "LO-G1-LIVING-CHANGE-DETECTIVE-01"
+        "LO-G1-LIVING-CHANGE-DETECTIVE-01",
+        "LO-G1-LIVING-SHARED-PLAY-RULES-01",
+        "LO-G1-LIVING-CAMPUS-CLUE-HUNT-01",
+        "LO-G1-LIVING-SMALL-PROBLEM-SOLVER-01",
+        "LO-G1-LIVING-OBSERVATION-MINI-INQUIRY-01"
       ],
       "objectiveDefinitions": [
         {
@@ -4900,6 +5021,42 @@
             "living-curriculum-stage1-change-inquiry"
           ],
           "gradeApplicabilityStatus": "stage_1_grade_1_to_2_local_schedule_pending"
+        },
+        {
+          "objectiveId": "LO-G1-LIVING-SHARED-PLAY-RULES-01",
+          "statement": "辨認一起閱讀時能幫助大家輪流的做法，並選擇符合約定的下一步。",
+          "status": "candidate_pending_teacher_review",
+          "curriculumMapIds": [
+            "living-curriculum-stage1-shared-rules"
+          ],
+          "gradeApplicabilityStatus": "stage_1_grade_1_to_2_local_schedule_pending"
+        },
+        {
+          "objectiveId": "LO-G1-LIVING-CAMPUS-CLUE-HUNT-01",
+          "statement": "依校園地點卡的明確文字，找出並分類有植物與沒有植物的紀錄。",
+          "status": "candidate_pending_teacher_review",
+          "curriculumMapIds": [
+            "living-curriculum-stage1-observation-inquiry"
+          ],
+          "gradeApplicabilityStatus": "stage_1_grade_1_to_2_local_schedule_pending"
+        },
+        {
+          "objectiveId": "LO-G1-LIVING-SMALL-PROBLEM-SOLVER-01",
+          "statement": "從明確線索找出畫紙與資料夾的位置，再依線索順序排出找回步驟。",
+          "status": "candidate_pending_teacher_review",
+          "curriculumMapIds": [
+            "living-curriculum-stage1-observation-inquiry"
+          ],
+          "gradeApplicabilityStatus": "stage_1_grade_1_to_2_local_schedule_pending"
+        },
+        {
+          "objectiveId": "LO-G1-LIVING-OBSERVATION-MINI-INQUIRY-01",
+          "statement": "依同一天下午兩個地點的紀錄，練習安排觀察步驟並找出指定紀錄。",
+          "status": "candidate_pending_teacher_review",
+          "curriculumMapIds": [
+            "living-curriculum-stage1-observation-inquiry"
+          ],
+          "gradeApplicabilityStatus": "stage_1_grade_1_to_2_local_schedule_pending"
         }
       ],
       "learningObjectiveTaskLinks": [
@@ -4913,6 +5070,30 @@
           "learningObjectiveId": "LO-G1-LIVING-CHANGE-DETECTIVE-01",
           "taskIds": [
             "ACT-G1-LIVING-CHANGE-DETECTIVE-CANDIDATE"
+          ]
+        },
+        {
+          "learningObjectiveId": "LO-G1-LIVING-SHARED-PLAY-RULES-01",
+          "taskIds": [
+            "ACT-G1-LIVING-SHARED-PLAY-RULES-CANDIDATE"
+          ]
+        },
+        {
+          "learningObjectiveId": "LO-G1-LIVING-CAMPUS-CLUE-HUNT-01",
+          "taskIds": [
+            "ACT-G1-LIVING-CAMPUS-CLUE-HUNT-CANDIDATE"
+          ]
+        },
+        {
+          "learningObjectiveId": "LO-G1-LIVING-SMALL-PROBLEM-SOLVER-01",
+          "taskIds": [
+            "ACT-G1-LIVING-SMALL-PROBLEM-SOLVER-CANDIDATE"
+          ]
+        },
+        {
+          "learningObjectiveId": "LO-G1-LIVING-OBSERVATION-MINI-INQUIRY-01",
+          "taskIds": [
+            "ACT-G1-LIVING-OBSERVATION-MINI-INQUIRY-CANDIDATE"
           ]
         }
       ],
@@ -4939,6 +5120,58 @@
           "curriculumMapId": "living-curriculum-stage1-change-inquiry",
           "learningObjectiveIds": [
             "LO-G1-LIVING-CHANGE-DETECTIVE-01"
+          ],
+          "evidenceType": "candidate_practice_response_only_memory_only",
+          "status": "playable_candidate_pending_teacher_review"
+        },
+        {
+          "taskId": "ACT-G1-LIVING-SHARED-PLAY-RULES-CANDIDATE",
+          "title": null,
+          "taskKind": "interactive_grade1_living_candidate",
+          "levelId": null,
+          "runtimeModule": "prototype/data/grade1LivingExpansionActivities.js",
+          "curriculumMapId": "living-curriculum-stage1-shared-rules",
+          "learningObjectiveIds": [
+            "LO-G1-LIVING-SHARED-PLAY-RULES-01"
+          ],
+          "evidenceType": "candidate_practice_response_only_memory_only",
+          "status": "playable_candidate_pending_teacher_review"
+        },
+        {
+          "taskId": "ACT-G1-LIVING-CAMPUS-CLUE-HUNT-CANDIDATE",
+          "title": null,
+          "taskKind": "interactive_grade1_living_candidate",
+          "levelId": null,
+          "runtimeModule": "prototype/data/grade1LivingExpansionActivities.js",
+          "curriculumMapId": "living-curriculum-stage1-observation-inquiry",
+          "learningObjectiveIds": [
+            "LO-G1-LIVING-CAMPUS-CLUE-HUNT-01"
+          ],
+          "evidenceType": "candidate_practice_response_only_memory_only",
+          "status": "playable_candidate_pending_teacher_review"
+        },
+        {
+          "taskId": "ACT-G1-LIVING-SMALL-PROBLEM-SOLVER-CANDIDATE",
+          "title": null,
+          "taskKind": "interactive_grade1_living_candidate",
+          "levelId": null,
+          "runtimeModule": "prototype/data/grade1LivingExpansionActivities.js",
+          "curriculumMapId": "living-curriculum-stage1-observation-inquiry",
+          "learningObjectiveIds": [
+            "LO-G1-LIVING-SMALL-PROBLEM-SOLVER-01"
+          ],
+          "evidenceType": "candidate_practice_response_only_memory_only",
+          "status": "playable_candidate_pending_teacher_review"
+        },
+        {
+          "taskId": "ACT-G1-LIVING-OBSERVATION-MINI-INQUIRY-CANDIDATE",
+          "title": null,
+          "taskKind": "interactive_grade1_living_candidate",
+          "levelId": null,
+          "runtimeModule": "prototype/data/grade1LivingExpansionActivities.js",
+          "curriculumMapId": "living-curriculum-stage1-observation-inquiry",
+          "learningObjectiveIds": [
+            "LO-G1-LIVING-OBSERVATION-MINI-INQUIRY-01"
           ],
           "evidenceType": "candidate_practice_response_only_memory_only",
           "status": "playable_candidate_pending_teacher_review"
@@ -5588,13 +5821,96 @@
       "relationshipStatus": "candidate_partial_links_first_stage_refs_simulated_tasks_are_not_real_world_observation_or_mastery"
     },
     {
+      "gradeId": "grade-2",
+      "subjectId": "health_and_physical_education",
+      "curriculumMapIds": [
+        "health-pe-stage1-safe-warmup-and-movement",
+        "health-pe-stage1-school-activity-space-resources"
+      ],
+      "learningObjectiveIds": [
+        "LO-G2-HPE-WARMUP-SEQUENCE-01",
+        "LO-G2-HPE-SCHOOL-ACTIVITY-MAP-01"
+      ],
+      "objectiveDefinitions": [
+        {
+          "objectiveId": "LO-G2-HPE-WARMUP-SEQUENCE-01",
+          "statement": "依題目情境中的教師安排，整理活動前的步驟順序。",
+          "status": "candidate_pending_teacher_review",
+          "curriculumMapIds": [
+            "health-pe-stage1-safe-warmup-and-movement"
+          ],
+          "gradeApplicabilityStatus": "stage_1_grade_1_to_2_local_schedule_pending"
+        },
+        {
+          "objectiveId": "LO-G2-HPE-SCHOOL-ACTIVITY-MAP-01",
+          "statement": "依簡化示意圖與圖例，辨認不同活動對應的區域。",
+          "status": "candidate_pending_teacher_review",
+          "curriculumMapIds": [
+            "health-pe-stage1-school-activity-space-resources"
+          ],
+          "gradeApplicabilityStatus": "stage_1_grade_1_to_2_local_schedule_pending"
+        }
+      ],
+      "learningObjectiveTaskLinks": [
+        {
+          "learningObjectiveId": "LO-G2-HPE-WARMUP-SEQUENCE-01",
+          "taskIds": [
+            "ACT-G2-HPE-WARMUP-SEQUENCE-CANDIDATE"
+          ]
+        },
+        {
+          "learningObjectiveId": "LO-G2-HPE-SCHOOL-ACTIVITY-MAP-01",
+          "taskIds": [
+            "ACT-G2-HPE-SCHOOL-ACTIVITY-MAP-CANDIDATE"
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "taskId": "ACT-G2-HPE-WARMUP-SEQUENCE-CANDIDATE",
+          "title": "暖身順序小隊：準備好再開始",
+          "taskKind": "interactive_simulated_health_physical_education_candidate",
+          "levelId": null,
+          "runtimeModule": "prototype/data/grade2HpeExpansionActivities.js",
+          "curriculumMapId": "health-pe-stage1-safe-warmup-and-movement",
+          "learningObjectiveIds": [
+            "LO-G2-HPE-WARMUP-SEQUENCE-01"
+          ],
+          "evidenceType": "candidate_practice_response_only_memory_only",
+          "status": "playable_candidate_pending_teacher_review"
+        },
+        {
+          "taskId": "ACT-G2-HPE-SCHOOL-ACTIVITY-MAP-CANDIDATE",
+          "title": "校園活動地圖：找對活動空間",
+          "taskKind": "interactive_simulated_health_physical_education_candidate",
+          "levelId": null,
+          "runtimeModule": "prototype/data/grade2HpeExpansionActivities.js",
+          "curriculumMapId": "health-pe-stage1-school-activity-space-resources",
+          "learningObjectiveIds": [
+            "LO-G2-HPE-SCHOOL-ACTIVITY-MAP-01"
+          ],
+          "evidenceType": "candidate_practice_response_only_memory_only",
+          "status": "playable_candidate_pending_teacher_review"
+        }
+      ],
+      "relationshipStatus": "candidate_partial_stage1_reference_grade2_schedule_teacher_review_and_real_world_skill_evidence_pending"
+    },
+    {
       "gradeId": "grade-1",
       "subjectId": "health_and_physical_education",
       "curriculumMapIds": [
-        "health-pe-stage1-playground-and-school-route-safety"
+        "health-pe-stage1-playground-and-school-route-safety",
+        "health-pe-stage1-personal-hygiene-habits",
+        "health-pe-stage1-safe-warmup-and-movement",
+        "health-pe-stage1-activity-choice-and-benefits",
+        "health-pe-stage1-food-and-diet-habits"
       ],
       "learningObjectiveIds": [
-        "LO-G1-HPE-PLAYGROUND-SAFETY-01"
+        "LO-G1-HPE-PLAYGROUND-SAFETY-01",
+        "LO-G1-HPE-HYGIENE-HABITS-01",
+        "LO-G1-HPE-SAFE-WARMUP-01",
+        "LO-G1-HPE-ACTIVITY-CHOICE-01",
+        "LO-G1-HPE-FOOD-HABITS-01"
       ],
       "objectiveDefinitions": [
         {
@@ -5605,6 +5921,42 @@
             "health-pe-stage1-playground-and-school-route-safety"
           ],
           "gradeApplicabilityStatus": "stage_1_grade_1_to_2_game_directory_grade1_is_not_official_schedule"
+        },
+        {
+          "objectiveId": "LO-G1-HPE-HYGIENE-HABITS-01",
+          "statement": "辨認洗手做法，並排列簡單洗手步驟。",
+          "status": "candidate_pending_teacher_review",
+          "curriculumMapIds": [
+            "health-pe-stage1-personal-hygiene-habits"
+          ],
+          "gradeApplicabilityStatus": "stage_1_grade_1_to_2_game_directory_grade1_is_not_official_schedule"
+        },
+        {
+          "objectiveId": "LO-G1-HPE-SAFE-WARMUP-01",
+          "statement": "辨認運動前慢慢活動身體的做法。",
+          "status": "candidate_pending_teacher_review",
+          "curriculumMapIds": [
+            "health-pe-stage1-safe-warmup-and-movement"
+          ],
+          "gradeApplicabilityStatus": "stage_1_grade_1_to_2_game_directory_grade1_is_not_official_schedule"
+        },
+        {
+          "objectiveId": "LO-G1-HPE-ACTIVITY-CHOICE-01",
+          "statement": "依活動空間與規則辨認安全線索，並選擇符合情境的身體活動。",
+          "status": "candidate_pending_teacher_review",
+          "curriculumMapIds": [
+            "health-pe-stage1-activity-choice-and-benefits"
+          ],
+          "gradeApplicabilityStatus": "stage_1_grade_1_to_2_game_directory_grade1_is_not_official_schedule"
+        },
+        {
+          "objectiveId": "LO-G1-HPE-FOOD-HABITS-01",
+          "statement": "辨認常見食物，並思考符合自己食量的取餐做法。",
+          "status": "candidate_pending_teacher_review",
+          "curriculumMapIds": [
+            "health-pe-stage1-food-and-diet-habits"
+          ],
+          "gradeApplicabilityStatus": "stage_1_grade_1_to_2_game_directory_grade1_is_not_official_schedule"
         }
       ],
       "learningObjectiveTaskLinks": [
@@ -5613,13 +5965,37 @@
           "taskIds": [
             "ACT-G1-HPE-PLAYGROUND-SAFETY-ROUTE-CANDIDATE"
           ]
+        },
+        {
+          "learningObjectiveId": "LO-G1-HPE-HYGIENE-HABITS-01",
+          "taskIds": [
+            "ACT-G1-HPE-HYGIENE-HABITS-CANDIDATE"
+          ]
+        },
+        {
+          "learningObjectiveId": "LO-G1-HPE-SAFE-WARMUP-01",
+          "taskIds": [
+            "ACT-G1-HPE-SAFE-WARMUP-MOVEMENT-CANDIDATE"
+          ]
+        },
+        {
+          "learningObjectiveId": "LO-G1-HPE-ACTIVITY-CHOICE-01",
+          "taskIds": [
+            "ACT-G1-HPE-ACTIVITY-CHOICE-BENEFITS-CANDIDATE"
+          ]
+        },
+        {
+          "learningObjectiveId": "LO-G1-HPE-FOOD-HABITS-01",
+          "taskIds": [
+            "ACT-G1-HPE-FOOD-DIET-HABITS-CANDIDATE"
+          ]
         }
       ],
       "tasks": [
         {
           "taskId": "ACT-G1-HPE-PLAYGROUND-SAFETY-ROUTE-CANDIDATE",
           "title": "安全路線小隊：遊戲場與上下學任務",
-          "taskKind": "interactive_simulated_safety_classification_route_sequence_and_transfer",
+          "taskKind": "interactive_simulated_health_physical_education_candidate",
           "levelId": null,
           "runtimeModule": "prototype/data/earlyGradeCurriculumGapTasks.js",
           "curriculumMapId": "health-pe-stage1-playground-and-school-route-safety",
@@ -5628,9 +6004,61 @@
           ],
           "evidenceType": "candidate_practice_response_only_memory_only",
           "status": "playable_candidate_pending_teacher_review"
+        },
+        {
+          "taskId": "ACT-G1-HPE-HYGIENE-HABITS-CANDIDATE",
+          "title": "健康小偵探：衛生習慣與洗手",
+          "taskKind": "interactive_simulated_health_physical_education_candidate",
+          "levelId": null,
+          "runtimeModule": "prototype/data/grade1HpeExpansionActivities.js",
+          "curriculumMapId": "health-pe-stage1-personal-hygiene-habits",
+          "learningObjectiveIds": [
+            "LO-G1-HPE-HYGIENE-HABITS-01"
+          ],
+          "evidenceType": "candidate_practice_response_only_memory_only",
+          "status": "playable_candidate_pending_teacher_review"
+        },
+        {
+          "taskId": "ACT-G1-HPE-SAFE-WARMUP-MOVEMENT-CANDIDATE",
+          "title": "暖身安全小隊：運動前的準備",
+          "taskKind": "interactive_simulated_health_physical_education_candidate",
+          "levelId": null,
+          "runtimeModule": "prototype/data/grade1HpeExpansionActivities.js",
+          "curriculumMapId": "health-pe-stage1-safe-warmup-and-movement",
+          "learningObjectiveIds": [
+            "LO-G1-HPE-SAFE-WARMUP-01"
+          ],
+          "evidenceType": "candidate_practice_response_only_memory_only",
+          "status": "playable_candidate_pending_teacher_review"
+        },
+        {
+          "taskId": "ACT-G1-HPE-ACTIVITY-CHOICE-BENEFITS-CANDIDATE",
+          "title": "活力運動家：運動益處與活動選擇",
+          "taskKind": "interactive_simulated_health_physical_education_candidate",
+          "levelId": null,
+          "runtimeModule": "prototype/data/grade1HpeExpansionActivities.js",
+          "curriculumMapId": "health-pe-stage1-activity-choice-and-benefits",
+          "learningObjectiveIds": [
+            "LO-G1-HPE-ACTIVITY-CHOICE-01"
+          ],
+          "evidenceType": "candidate_practice_response_only_memory_only",
+          "status": "playable_candidate_pending_teacher_review"
+        },
+        {
+          "taskId": "ACT-G1-HPE-FOOD-DIET-HABITS-CANDIDATE",
+          "title": "健康生活家：認識食物與飲食習慣",
+          "taskKind": "interactive_simulated_health_physical_education_candidate",
+          "levelId": null,
+          "runtimeModule": "prototype/data/grade1HpeExpansionActivities.js",
+          "curriculumMapId": "health-pe-stage1-food-and-diet-habits",
+          "learningObjectiveIds": [
+            "LO-G1-HPE-FOOD-HABITS-01"
+          ],
+          "evidenceType": "candidate_practice_response_only_memory_only",
+          "status": "playable_candidate_pending_teacher_review"
         }
       ],
-      "relationshipStatus": "candidate_partial_simulated_safety_scenario_not_real_world_or_motor_skill_evidence"
+      "relationshipStatus": "candidate_partial_simulated_health_habits_safety_and_activity_choice_not_real_world_or_motor_skill_evidence"
     },
     {
       "gradeId": "grade-4",
@@ -5836,7 +6264,7 @@
       "objectiveDefinitions": [
         {
           "objectiveId": "LO-G4-MATH-FRACTION-TILES-CANDIDATE-01",
-          "statement": "用等大的單位拼片表示分數、比較分母相同的分數，並把表示方法轉用到新分數帶。",
+          "statement": "用等大的單位拼片表示分數、比較分母相同的分數，並用四分之一拼片連結假分數、帶分數與一個同分母加法例。",
           "status": "candidate_pending_teacher_review",
           "curriculumMapIds": [
             "math-grade4-common-denominator-fractions"
@@ -5845,7 +6273,7 @@
         },
         {
           "objectiveId": "LO-G4-MATH-FRACTION-EQUIVALENCE-MODEL-CANDIDATE-01",
-          "statement": "在相同大小的整體上操作不同等分拼片，說明被選取的部分雖然片數不同，仍可表示相同的量。",
+          "statement": "在相同大小的整體上操作不同等分拼片，辨認不同片數可表示相同的量，並在加法與十分位數線上使用等值表示。",
           "status": "candidate_pending_teacher_review",
           "curriculumMapIds": [
             "math-grade4-equivalent-fractions"
@@ -6025,7 +6453,7 @@
         },
         {
           "objectiveId": "LO-G4-MATH-ELAPSED-TIME-01",
-          "statement": "把經過時間拆成容易計算的區段，求跨午或跨日的到達時刻。",
+          "statement": "把經過時間拆成容易計算的區段，求跨午或跨日的到達時刻，或依起訖時刻算出經過時間並換算單位。",
           "status": "candidate_pending_teacher_review",
           "curriculumMapIds": [
             "math-grade4-elapsed-time-add-subtract"
@@ -6186,7 +6614,7 @@
         {
           "taskId": "ACT-G4-MATH-FRACTION-TILES-CANDIDATE",
           "title": null,
-          "taskKind": "compose_shape_then_choose_response_then_compose_shape",
+          "taskKind": "compose_shape_then_choose_response_then_compose_shape_then_compose_shape_then_choose_response",
           "levelId": null,
           "runtimeModule": "prototype/data/grade4CandidateTasks.js",
           "curriculumMapId": "math-grade4-common-denominator-fractions",
@@ -6199,7 +6627,7 @@
         {
           "taskId": "ACT-G4-MATH-FRACTION-EQUIVALENCE-MODEL-CANDIDATE",
           "title": null,
-          "taskKind": "compose_shape_then_compose_shape_then_compose_shape",
+          "taskKind": "compose_shape_then_compose_shape_then_compose_shape_then_compose_shape_then_place_number_line_marker",
           "levelId": null,
           "runtimeModule": "prototype/data/grade4CandidateTasks.js",
           "curriculumMapId": "math-grade4-equivalent-fractions",
@@ -6459,7 +6887,7 @@
         {
           "taskId": "ACT-G4-MATH-ELAPSED-TIME-TRANSIT-CANDIDATE",
           "title": "跨午跨日車站：時間接力計算",
-          "taskKind": "complete_calculation_steps_then_choose_response_then_complete_calculation_steps_then_choose_response",
+          "taskKind": "complete_calculation_steps_then_choose_response_then_complete_calculation_steps_then_choose_response_then_complete_calculation_steps_then_complete_calculation_steps",
           "levelId": null,
           "runtimeModule": "prototype/data/mathCurriculumGapTasks.js",
           "curriculumMapId": "math-grade4-elapsed-time-add-subtract",

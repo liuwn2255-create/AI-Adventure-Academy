@@ -10,8 +10,8 @@ const rendererStart = app.indexOf('function renderReusableCandidateTask(');
 const rendererEnd = app.indexOf('\nfunction renderCandidateRoutes(', rendererStart);
 const renderer = app.slice(rendererStart, rendererEnd);
 const composePronunciationStart = app.indexOf('const COMPOSE_SHAPE_UI_PRONUNCIATION = Object.freeze({');
-const composePronunciationEnd = app.indexOf('\n});\n\nfunction composeShapeUiPronunciationTokens', composePronunciationStart);
-const lowGradeComposePronunciationSlice = app.slice(composePronunciationStart, composePronunciationEnd + 3);
+const composePronunciationEnd = app.indexOf('\n});', composePronunciationStart);
+const lowGradeComposePronunciationSlice = app.slice(composePronunciationStart, composePronunciationEnd + 4);
 
 function assertReviewedPronunciation(text, tokens) {
   assert.ok(Array.isArray(tokens), `pronunciation metadata required for ${text}`);

@@ -63,8 +63,11 @@ test('兩關主要學生文字與選項回饋都有逐字人工注音，數字�
 
 test('Grade 1–2 build_array 操作說明具體，Grade 3–6 保留原說明', async () => {
   const app = await readFile(new URL('../prototype/app.js', import.meta.url), 'utf8');
-  const branch = app.match(/stage\.interaction === 'build_array'[\s\S]{0,260}?stage\.interaction === 'choose_response'/u)?.[0];
-  assert.ok(branch, 'build_array guidance branch should exist');
+  const guidanceStart = app.indexOf('const responseGuidance =');
+  const guidanceEnd = app.indexOf('const responseGuidanceNode =', guidanceStart);
+  const branch = app.slice(guidanceStart, guidanceEnd);
+  assert.ok(guidanceStart >= 0 && guidanceEnd > guidanceStart, 'response guidance block should exist');
+  assert.match(branch, /stage\.interaction === 'build_array'[\s\S]*?stage\.interaction === 'compose_shape'/u, 'build_array guidance branch should exist');
   assert.match(branch, /isLowGradeReadingAssistanceEnabled\(activity\.gradeId\)/u);
   assert.match(branch, /怎麼玩：① 按按鈕排果子 → ② 看排數和每排幾個 → ③ 排好後檢查答案/u);
   assert.match(branch, /操作方式：① 操作 → ② 觀察 → ③ 作答/u);
@@ -104,8 +107,10 @@ test('低年級 build_array 固定操作與狀態文字使用人工注音，數�
 
 test('build_array 四個按鈕保留原 action，僅在 state 實際改變後播放單次操作音', async () => {
   const app = await readFile(new URL('../prototype/app.js', import.meta.url), 'utf8');
-  const controls = app.match(/for \(const \[label, dimension, delta\] of \[\['少一排'[\s\S]*?controls\.append\(control\);\n    \}/u)?.[0];
-  assert.ok(controls, 'the four build_array buttons should be rendered together');
+  const controlsStart = app.indexOf("for (const [label, dimension, delta] of [['少一排'");
+  const controlsEnd = app.indexOf('panel.append(controls);', controlsStart);
+  const controls = app.slice(controlsStart, controlsEnd);
+  assert.ok(controlsStart >= 0 && controlsEnd > controlsStart, 'the four build_array buttons should be rendered together');
   assert.match(controls, /control\.type = 'button'/u);
   assert.match(controls, /control\.addEventListener\('click'/u);
   assert.match(controls, /dispatch\('adjust_array_dimension', \{ dimension, delta \}\)/u);

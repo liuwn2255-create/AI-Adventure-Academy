@@ -17,7 +17,7 @@ test('一至六年級入口活動數由共用註冊資料和明確的專用啟�
   const total = summaries.reduce((sum, summary) => sum + summary.activityCount, 0);
   assert.equal(total, CATALOG_CANDIDATE_TASKS.length + DEDICATED_GRADE_ACTIVITY_IDS.length);
   assert.equal(total, new Set(summaries.flatMap(({ subjects }) => subjects.flatMap(({ activities }) => activities.map(({ activityId }) => activityId)))).size);
-  assert.deepEqual(summaries.map(({ activityCount }) => activityCount), [14, 20, 38, 45, 14, 21]);
+  assert.deepEqual(summaries.map(({ activityCount }) => activityCount), [26, 22, 38, 45, 14, 21]);
   assert.ok(summaries.every(({ candidatePendingTeacherReviewCount, activityCount }) => candidatePendingTeacherReviewCount === activityCount));
 });
 
@@ -73,8 +73,8 @@ test('學生入口依序提示年級、科目與遊戲，並以動態卡片啟�
   assert.match(app, /第 2 步｜選擇科目/);
   assert.match(app, /第 3 步｜選一個遊戲開始探險/);
   assert.match(app, /找到 \$\{subjectActivities\.length\} 個可以挑戰的遊戲/);
-  assert.match(app, /\$\{activity\.stages\?\.length \?\? 0\} 個挑戰/);
-  assert.match(app, /launch\.textContent = isCandidateActivity \? '開始挑戰' : '開始閱讀任務'/);
+  assert.match(app, /appendGradeDirectoryText\(challengeCount, ' 個挑戰', grade\.gradeId\)/);
+  assert.match(app, /appendGradeDirectoryText\(launch, isCandidateActivity \? '開始挑戰' : '開始閱讀任務', grade\.gradeId\)/);
   assert.match(app, /if \(isCandidateActivity\) startCatalogCandidateTask\(activity\.activityId\)/);
   assert.match(app, /launch\.dataset\.activityId = activity\.activityId/);
   assert.match(app, /startCatalogCandidateTask\(activity\.activityId\)/);

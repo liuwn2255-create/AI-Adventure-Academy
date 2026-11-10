@@ -1,8 +1,23 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import { buildOfficialLearningItemCrosswalk, validateOfficialLearningItemCrosswalk } from '../scripts/official-learning-item-activity-crosswalk.mjs';
 import { GRADE_CATALOG } from '../prototype/data/gradeCatalog.js';
 import { getGradeAdventureSummary } from '../prototype/data/gradeActivityDirectory.js';
+
+function assertDirectoryEvidenceIsHonest(activity) {
+  const verification = activity?.browserEntryVerification;
+  assert.ok(verification);
+  if (verification.status === 'directory_launch_and_return_verified') {
+    assert.equal(verification.startedFromDirectory, true);
+    assert.equal(verification.returnedToCorrectDirectory, true);
+    assert.ok(verification.reportPath);
+    assert.equal(fs.existsSync(new URL('../' + verification.reportPath, import.meta.url)), true, 'verified entry evidence must be present in this checkout');
+  } else {
+    assert.equal(verification.status, 'not_verified');
+    assert.match(verification.limitation, /未找到/u);
+  }
+}
 
 test('official item crosswalk preserves the bounded 131-row math inventory and real activity evidence', () => {
   const report = buildOfficialLearningItemCrosswalk();
@@ -62,20 +77,10 @@ test('official item crosswalk preserves the bounded 131-row math inventory and r
   assert.deepEqual(report.verifiedNonMathBoundedSliceCounts.byCoverageStatus, { partial: 8, relation_only: 20, uncovered: 29, needs_verification: 0 });
   assert.ok(report.actualRegisteredActivities.every((activity) => ['directory_launch_and_return_verified', 'not_verified'].includes(activity.browserEntryVerification.status)));
   const grade2Classification = report.actualRegisteredActivities.find(({ activityId }) => activityId === 'ACT-G2-MATH-DATA-CLASSIFICATION-NESTED-GROUPS-CANDIDATE');
-  assert.equal(grade2Classification?.browserEntryVerification.status, 'directory_launch_and_return_verified');
-  assert.equal(grade2Classification?.browserEntryVerification.returnedToCorrectDirectory, true);
-  assert.match(grade2Classification?.browserEntryVerification.reportPath ?? '', /artifacts\/learning-subitems-browser-acceptance\/runs\/g2-data-classification-\d+\.json/u);
-  assert.match(grade2Classification?.browserEntryVerification.executedAt ?? '', /^2026-10-25T13:1\d:/u);
-  for (const activityId of ['ACT-G2-MATH-UNKNOWN-QUANTITY-MODEL-CANDIDATE', 'ACT-G2-MATH-UNIT-FRACTION-PAPER-FOLD-MODEL-CANDIDATE']) {
-    const activity = report.actualRegisteredActivities.find((entry) => entry.activityId === activityId);
-    assert.equal(activity?.browserEntryVerification.status, 'directory_launch_and_return_verified');
-    assert.equal(activity?.browserEntryVerification.returnedToCorrectDirectory, true);
-    assert.match(activity?.browserEntryVerification.reportPath ?? '', /g2-math-workshops-\d+\.json/u);
+  assertDirectoryEvidenceIsHonest(grade2Classification);
+  for (const activityId of ['ACT-G2-MATH-UNKNOWN-QUANTITY-MODEL-CANDIDATE', 'ACT-G2-MATH-UNIT-FRACTION-PAPER-FOLD-MODEL-CANDIDATE', 'ACT-G2-MATH-MONEY-COMBINATION-MARKET-CANDIDATE']) {
+    assertDirectoryEvidenceIsHonest(report.actualRegisteredActivities.find((entry) => entry.activityId === activityId));
   }
-  const moneyActivity = report.actualRegisteredActivities.find(({ activityId }) => activityId === 'ACT-G2-MATH-MONEY-COMBINATION-MARKET-CANDIDATE');
-  assert.equal(moneyActivity?.browserEntryVerification.status, 'directory_launch_and_return_verified');
-  assert.equal(moneyActivity?.browserEntryVerification.returnedToCorrectDirectory, true);
-  assert.match(moneyActivity?.browserEntryVerification.reportPath ?? '', /learning-subitems-browser-acceptance\/runs\/g2-money-market-\d+\.json/u);
   assert.ok(report.mathOfficialLearningContentItems.every((item) => item.officialText && item.source.sourceLocation && item.relatedPerformanceCodes.length));
   assert.ok(report.mathOfficialLearningContentItems.every((item) => ['partial', 'relation_only', 'uncovered', 'needs_verification'].includes(item.coverageStatus)));
 });

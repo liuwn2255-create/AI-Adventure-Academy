@@ -58,7 +58,9 @@ function setResponse(task, stage, session, correct) {
       break;
     }
     case 'collect_evidence': {
-      const ids = correct ? stage.correctOptionIds : [stage.options.find(({ id }) => !stage.correctOptionIds.includes(id)).id];
+      const requiredCount = stage.requiredSelectionCount ?? stage.correctOptionIds.length;
+      const ids = stage.correctOptionIds.slice(0, requiredCount);
+      if (!correct) ids[requiredCount - 1] = stage.options.find(({ id }) => !stage.correctOptionIds.includes(id)).id;
       for (const optionId of ids) choose('toggle_evidence', { optionId });
       break;
     }

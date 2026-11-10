@@ -120,7 +120,9 @@ function perform(session, task, stage, wrong) {
       return session;
     }
     case 'collect_evidence': {
-      const ids = wrong ? [stage.options.find(({ id }) => !stage.correctOptionIds.includes(id)).id] : stage.correctOptionIds;
+      const requiredCount = stage.requiredSelectionCount ?? stage.correctOptionIds.length;
+      const ids = stage.correctOptionIds.slice(0, requiredCount);
+      if (wrong) ids[requiredCount - 1] = stage.options.find(({ id }) => !stage.correctOptionIds.includes(id)).id;
       for (const optionId of ids) session = act(session, task, 'toggle_evidence', { optionId });
       return session;
     }

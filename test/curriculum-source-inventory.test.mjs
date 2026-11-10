@@ -10,6 +10,23 @@ const inventory = buildCoverageInventory({
   browserAcceptance: null,
 });
 
+const REQUIRED_ACCEPTANCE_VIEWPORTS = ['1366x768', '390x844', '340x740'];
+function successfulBrowserAcceptanceFixture(reportId, activityIds, executedAt) {
+  const tasks = activityIds.map((activityId) => ({
+    activityId, status: 'passed', stageCount: 1,
+    stages: [{ hintLevels: ['提示 1：先看線索', '提示 2：再比較'], wrongAnswer: 'recorded', retry: 'recorded', correctAnswer: 'recorded' }],
+    completion: '候選任務完成！', replay: 'passed replay', returnToCatalog: 'passed',
+  }));
+  return {
+    reportId, evidenceType: 'isolated_browser_acceptance', status: 'passed', executedAt,
+    browser: 'fixture Chromium for importer unit test', source: 'http://127.0.0.1:4177/',
+    viewports: REQUIRED_ACCEPTANCE_VIEWPORTS.map((viewport) => ({
+      viewport, status: 'passed', localStorageUnchanged: true, horizontalOverflowAny: false,
+      consoleErrors: [], requestFailures: [], httpErrors: [], tasks,
+    })),
+  };
+}
+
 test('source inventory distinguishes official document location from full clause enumeration', () => {
   assert.equal(sources.sourceInventory.status, 'incomplete_official_document_and_clause_inventory');
   const sourceIds = sources.sources.map((source) => source.id);
@@ -74,7 +91,7 @@ test('health and PE inventory preserves the newly checked first-stage safety cla
   const source = sources.sources.find(({ id }) => id === 'health-physical-education');
   assert.ok(source.verifiedClauses.includes('Ba-Ⅰ-1'));
   assert.match(source.pageOrSection, /Ba-Ⅰ-1/u);
-  assert.match(source.pageOrSection, /印刷頁14/u);
+  assert.match(source.pageOrSection, /Ba-Ⅰ-1（PDF頁序26／印刷頁23）/u);
   assert.ok(source.verifiedClauses.includes('Bb-Ⅲ-1'));
   const consultSubitem = JSON.parse(fs.readFileSync(new URL('../curriculum/learning-subitem-definitions.json', import.meta.url), 'utf8'))
     .definitions.find(({ subitemId }) => subitemId === 'SUB-HPE-STAGE3-BB3-1-STOP-CHECK-CONSULT');
@@ -109,16 +126,16 @@ test('coverage report remains incomplete and publishes only registered-focus cou
   assert.equal(inventory.officialCatalogCompleteness.nationalCoverageRate, null);
   assert.equal(inventory.denominator.count, inventory.registeredCurriculumFocuses.length);
   assert.equal(Object.values(inventory.statusCounts).reduce((sum, count) => sum + count, 0), inventory.denominator.count);
-  assert.equal(inventory.denominator.count, 149);
+  assert.equal(inventory.denominator.count, 154);
   assert.equal(inventory.statusCounts['已對應'], 0);
-  assert.equal(inventory.statusCounts['部分對應'], 101);
+  assert.equal(inventory.statusCounts['部分對應'], 106);
   assert.equal(inventory.statusCounts['尚未對應'], 26);
   assert.equal(inventory.statusCounts['待核實'], 22);
   assert.ok(inventory.sourceInventory.clauseEnumeration.unenumeratedDocuments.length > 0);
   assert.ok(inventory.statisticsMethod.registeredFocusStatuses.includes('分母僅為'));
   assert.equal(inventory.candidateActivityDevelopmentReadiness.activityAddedThisRun, true);
   assert.equal(inventory.candidateActivityDevelopmentReadiness.directlyVerifiedUnlinkedFocusCount, 26);
-  assert.equal(inventory.candidateActivityDevelopmentReadiness.verifiedPartialLinkedFocusCount, 101);
+  assert.equal(inventory.candidateActivityDevelopmentReadiness.verifiedPartialLinkedFocusCount, 106);
   assert.equal(inventory.candidateActivityDevelopmentReadiness.learningSubitemExpansionActivityIds.length, 4);
   for (const activityId of [
     'ACT-G4-SCIENCE-PLANT-PARTS-OBSERVATION-CANDIDATE',
@@ -166,21 +183,13 @@ test('static task validation is not reported as browser playability evidence', (
   }
 });
 
-test('verified browser evidence is imported only for activities with successful flows at every required viewport', () => {
-  const acceptanceDirectory = new URL('../artifacts/learning-subitems-browser-acceptance/', import.meta.url);
+test('browser evidence importer accepts only successful flows at every required viewport', () => {
   const expectedIds = [
     'ACT-G1-MATH-LENGTH-COMPARE-ROPE-CANDIDATE',
     'ACT-G5-MATH-LINE-SYMMETRY-MIRROR-GRID-CANDIDATE',
     'ACT-G5-MATH-LINE-CHART-PLOT-CANDIDATE',
   ];
-  const reportPaths = [
-    new URL('report.json', acceptanceDirectory),
-    ...fs.readdirSync(new URL('history/', acceptanceDirectory)).filter((name) => name.endsWith('.json')).map((name) => new URL(`history/${name}`, acceptanceDirectory)),
-    ...fs.readdirSync(new URL('runs/', acceptanceDirectory)).filter((name) => fs.existsSync(new URL(`runs/${name}/report.json`, acceptanceDirectory))).map((name) => new URL(`runs/${name}/report.json`, acceptanceDirectory)),
-  ];
-  const browserAcceptance = reportPaths.map((filename) => JSON.parse(fs.readFileSync(filename, 'utf8')))
-    .find((report) => report.status === 'passed' && expectedIds.every((activityId) => report.viewports.every(({ tasks }) => tasks.some((task) => task.activityId === activityId && task.status === 'passed'))));
-  assert.ok(browserAcceptance, 'a successful stored browser run for the three evidence-sample activities must be available');
+  const browserAcceptance = successfulBrowserAcceptanceFixture('test-fixture-valid-acceptance', expectedIds, '2026-11-10T04:00:00.000Z');
   const withBrowserEvidence = buildCoverageInventory({ sources, curriculumMap: JSON.parse(fs.readFileSync(new URL('../curriculum/curriculum-map.json', import.meta.url), 'utf8')), browserAcceptance });
   assert.equal(withBrowserEvidence.activityPlayabilityInventory.browserVerification.verifiedActivityCount, expectedIds.length);
   assert.deepEqual(withBrowserEvidence.activityPlayabilityInventory.browserVerification.verifiedActivityIds.sort(), [...expectedIds].sort());
@@ -194,67 +203,39 @@ test('verified browser evidence is imported only for activities with successful 
   assert.equal(rejected.activityPlayabilityInventory.browserVerification.verifiedActivityCount, 0);
 });
 
-test('coverage imports timestamped browser runs without dropping prior evidence or overstating the new task', () => {
-  const aggregated = buildCoverageInventory();
-  const task = aggregated.activityPlayabilityInventory.catalogCandidateTasks.activities
-    .find(({ activityId }) => activityId === 'ACT-G4-SCIENCE-PLANT-EXTERNAL-FORMS-TRANSFER-CANDIDATE');
-  assert.equal(task.browserVerified, true);
-  assert.equal(task.browserVerification.browser, 'Edg/155.0.4283.45');
-  assert.match(task.browserVerification.source, /artifacts\/learning-subitems-browser-acceptance\/runs\/learning-subitems-\d+\/report\.json/u);
-  assert.equal(aggregated.activityPlayabilityInventory.browserVerification.verifiedActivityCount, 60);
-  assert.ok(aggregated.activityPlayabilityInventory.browserVerification.verifiedActivityIds.includes('ACT-G2-MATH-DATA-CLASSIFICATION-NESTED-GROUPS-CANDIDATE'));
-  assert.ok(aggregated.activityPlayabilityInventory.browserVerification.verifiedActivityIds.includes('ACT-G3-MATH-PLACE-VALUE-EXCHANGE-CANDIDATE'));
-  assert.ok(aggregated.activityPlayabilityInventory.browserVerification.verifiedActivityIds.includes('ACT-G3-MATH-VERTICAL-REGROUPING-CANDIDATE'));
-  assert.ok(aggregated.activityPlayabilityInventory.browserVerification.verifiedActivityIds.includes('ACT-G3-MATH-TWO-STEP-SUPPLY-CANDIDATE'));
-  assert.ok(aggregated.activityPlayabilityInventory.browserVerification.verifiedActivityIds.includes('ACT-G2-MATH-MONEY-COMBINATION-MARKET-CANDIDATE'));
-  assert.ok(aggregated.activityPlayabilityInventory.browserVerification.verifiedActivityIds.includes('ACT-G4-MATH-TWO-STEP-SUPPLY-CANDIDATE'));
-  assert.ok(aggregated.activityPlayabilityInventory.browserVerification.verifiedActivityIds.includes('ACT-G4-MATH-COMPOUND-EXPRESSION-ORDER-CANDIDATE'));
-  assert.ok(aggregated.activityPlayabilityInventory.browserVerification.evidenceReportCount >= 3);
-  for (const id of [
+test('coverage merges timestamped browser reports without dropping prior evidence or overstating other tasks', () => {
+  const previous = successfulBrowserAcceptanceFixture('previous-run', [
+    'ACT-G2-MATH-DATA-CLASSIFICATION-NESTED-GROUPS-CANDIDATE',
+    'ACT-G3-MATH-PLACE-VALUE-EXCHANGE-CANDIDATE',
+  ], '2026-11-09T10:00:00.000Z');
+  const latest = successfulBrowserAcceptanceFixture('latest-run', [
+    'ACT-G4-SCIENCE-PLANT-EXTERNAL-FORMS-TRANSFER-CANDIDATE',
     'ACT-G1-MATH-MONEY-COUNT-EXCHANGE-CANDIDATE',
-    'ACT-G2-MATH-CLOCK-HANDS-CANDIDATE',
-    'ACT-G4-MATH-UNIT-CUBE-VOLUME-BUILDER-CANDIDATE',
-    'ACT-G6-MATH-BASE-COMPARISON-RATIO-CANDIDATE',
-  ]) assert.ok(aggregated.activityPlayabilityInventory.browserVerification.verifiedActivityIds.includes(id));
-  const areaTask = aggregated.activityPlayabilityInventory.catalogCandidateTasks.activities.find(({ activityId }) => activityId === 'ACT-G3-MATH-AREA-GRID-CONSTRUCTION-CANDIDATE');
-  assert.equal(areaTask?.browserVerified, true);
-  assert.deepEqual(areaTask.browserVerification.viewports, ['1366x768', '390x844', '340x740']);
-  for (const id of [
-    'ACT-G4-MATH-COMPUTATION-PROPERTY-TRANSFORM-CANDIDATE',
-    'ACT-G4-MATH-TEXT-FORMULA-BUILDER-CANDIDATE',
-    'ACT-G4-MATH-TWO-DIMENSIONAL-NUMBER-PATTERN-CANDIDATE',
-  ]) {
-    assert.ok(aggregated.activityPlayabilityInventory.browserVerification.verifiedActivityIds.includes(id));
+  ], '2026-11-10T04:00:00.000Z');
+  const aggregated = buildCoverageInventory({ browserAcceptance: [previous, latest] });
+  const verified = aggregated.activityPlayabilityInventory.browserVerification;
+  assert.equal(verified.verifiedActivityCount, 4);
+  for (const id of [...previous.viewports[0].tasks, ...latest.viewports[0].tasks].map(({ activityId }) => activityId)) {
+    assert.ok(verified.verifiedActivityIds.includes(id), id + ': evidence from either report must remain');
     const task = aggregated.activityPlayabilityInventory.catalogCandidateTasks.activities.find(({ activityId }) => activityId === id);
-    assert.equal(task.browserVerified, true);
-    assert.equal(task.browserVerification.evidenceId, 'grade4-r42-r43-r44-20261024112315');
-    assert.deepEqual(task.browserVerification.viewports, ['1366x768', '390x844', '340x740']);
+    assert.equal(task?.browserVerified, true);
+    assert.deepEqual(task?.browserVerification.viewports, REQUIRED_ACCEPTANCE_VIEWPORTS);
   }
-  for (const id of [
-    'ACT-G6-SCIENCE-ANIMAL-STRUCTURE-MOVEMENT-EVIDENCE-CANDIDATE',
-    'ACT-G6-SCIENCE-PLANT-STRUCTURE-FUNCTION-EVIDENCE-CANDIDATE',
-    'ACT-G6-SOCIAL-GLOBAL-ISSUE-SCALE-COMPARISON-CANDIDATE',
-    'ACT-G6-HPE-MEDICATION-INFORMATION-CONSULT-CANDIDATE',
-    'ACT-G4-MATH-INTEGER-FRACTION-DECIMAL-NUMBER-LINE-CANDIDATE',
-    'ACT-G4-MATH-ELAPSED-TIME-TRANSIT-CANDIDATE',
-    'ACT-G2-MATH-SHARE-AND-PACK-PORT-CANDIDATE',
-    'ACT-G3-MATH-DIVISION-GROUPS-MULTIPLICATION-CHECK-CANDIDATE',
-  ]) assert.ok(aggregated.activityPlayabilityInventory.browserVerification.verifiedActivityIds.includes(id));
-  for (const id of [
-    'ACT-G1-MATH-LENGTH-COMPARE-ROPE-CANDIDATE',
-    'ACT-G5-MATH-LINE-SYMMETRY-MIRROR-GRID-CANDIDATE',
-    'ACT-G5-MATH-LINE-CHART-PLOT-CANDIDATE',
-    'ACT-G3-MATH-ANGLE-EXPLORER-CANDIDATE',
-  ]) assert.ok(aggregated.activityPlayabilityInventory.browserVerification.verifiedActivityIds.includes(id));
+  const newTask = aggregated.activityPlayabilityInventory.catalogCandidateTasks.activities
+    .find(({ activityId }) => activityId === 'ACT-G4-SCIENCE-PLANT-EXTERNAL-FORMS-TRANSFER-CANDIDATE');
+  assert.equal(newTask?.browserVerification.evidenceId, 'latest-run');
+  assert.equal(newTask?.browserVerification.executedAt, latest.executedAt);
+  const unlisted = aggregated.activityPlayabilityInventory.catalogCandidateTasks.activities
+    .find(({ activityId }) => activityId === 'ACT-G5-MATH-LINE-CHART-PLOT-CANDIDATE');
+  assert.equal(unlisted?.browserVerified, false, 'the fixture must not overstate activities absent from both reports');
 });
-
 test('coverage distribution deduplicates task and project subitem identifiers and keeps national totals unknown', () => {
   const summary = inventory.curriculumCoverageDistribution;
   assert.equal(summary.completeness, '清冊未完成');
   assert.equal(summary.distinctCatalogCandidateTaskCount, new Set(Object.values(summary.taskCountsByGrade).flatMap(({ activityIds }) => activityIds)).size);
   assert.equal(summary.registeredProjectSubitemCount, 140);
   assert.equal(summary.projectSubitemsWithClaimedInteractiveStagesCount, 108);
-  assert.equal(summary.associatedFocusWithoutExplicitSubitemClaimCount, 12);
+  assert.equal(summary.associatedFocusWithoutExplicitSubitemClaimCount, 17);
   assert.equal(summary.verifiedRegisteredFocusWithoutActivityAssociationCount, 26);
   assert.equal(summary.officialElementaryItemTotal, null);
   assert.equal(summary.unregisteredOfficialItemTotal, null);

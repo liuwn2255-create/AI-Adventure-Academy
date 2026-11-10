@@ -137,7 +137,7 @@ test('低年級數線 presentation 使用人工注音、主要刻度標籤與既
   const numberLine = stageSource("if (session.phase === 'active' && stage.interaction === 'place_number_line_marker')", "if (session.phase === 'active' && stage.interaction === 'compose_shape')");
   assert.match(numberLine, /majorTickInterval/u);
   assert.match(numberLine, /const value = start \+ \(end - start\) \* tick \/ tickCount/u);
-  assert.match(numberLine, /isEndpoint \|\| isMajorTick \? String\(value\)/u);
+  assert.match(numberLine, /isEndpoint \|\| isMajorTick \|\| isReferenceTick \? String\(value\) : ''/u);
   const dataLine = activity.stages[0].numberLine;
   const displayedMajorLabels = Array.from({ length: dataLine.tickCount + 1 }, (_, tick) => dataLine.start + (dataLine.end - dataLine.start) * tick / dataLine.tickCount)
     .filter((value, tick) => tick === 0 || tick === dataLine.tickCount || (Number.isInteger(value) && (value - dataLine.start) % dataLine.majorTickInterval === 0));
@@ -152,7 +152,7 @@ test('低年級數線 presentation 使用人工注音、主要刻度標籤與既
   assert.match(renderer, /stage\.interaction === 'place_number_line_marker'\s*\?\s*Number\.isInteger\(session\.numberLineTick\)/u);
   assert.match(renderer, /const hasLowGradeNumberLineReadiness = lowGradeNumberLine;/u);
   assert.match(renderer, /if \(hasLowGradeNumberLineReadiness\) readinessText = hasResponse \? '可以檢查答案了。' : '還沒放好。';/u);
-  assert.match(renderer, /\|\| hasLowGradeNumberLineReadiness\) && !hasSpecificReadiness/u);
+  assert.match(renderer, /hasLowGradeNumberLineReadiness \|\| hasLowGradeEvidenceReadiness[\s\S]*?&& !hasSpecificReadiness/u);
   assert.match(renderer, /appendNumberLineUiText\(readiness, readinessText, appendStudentText\)/u);
 
   const submit = stageSource('const submitLabel =', 'const readinessId =');
