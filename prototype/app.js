@@ -1,3 +1,4 @@
+import { saveLearningPilot } from './learningProgressPilot.js';
 import { NUMBER_COMPARISON_LEVEL, NUMBER_SECRET_LEVEL, PLACE_VALUE_LEVEL } from './data/levelCatalog.js';
 import { MATH_LEVEL_DIRECTORY } from './data/mathLevelDirectory.js';
 import { numberSecretChallenge } from './data/numberSecretQuestions.js';
@@ -5353,6 +5354,7 @@ function dispatchLearning(action, payload) {
   const result = dispatchLearningUnit(numberSecretLearningSession, action, payload);
   if (!result.changed) return;
   numberSecretLearningSession = result.session;
+  saveLearningPilot(globalThis.localStorage, numberSecretLearningSession);
   renderNumberSecretLearningUnit();
 }
 
@@ -5576,7 +5578,7 @@ function renderNumberSecretLearningUnit() {
     progress.textContent = '學習目標・候選內容';
     content.append(learningElement('h3', '準備探索千位數了嗎？', 'number-secret-question'));
     content.append(learningElement('p', '先認識一個千，再看數字在千位時表示多少。接著會有循序練習、錯誤補強和待教師審查的獨立候選檢核。'));
-    content.append(learningElement('p', '這是學習單元原型；檢核結果不會變成正式評量或學習紀錄。', 'prototype-note'));
+    content.append(learningElement('p', '這是學習單元原型。本機學習回顧會保留練習次數與答對次數；候選檢核結果僅供本輪查看。', 'prototype-note'));
     addAction('開始學習流程', 'start', 'button button-primary');
     addAction('開啟第二版候選試作（僅開發測試）', 'v2_candidate_start');
   } else if (session.phase === 'lesson') {
@@ -5698,6 +5700,7 @@ function startNumberSecretLearningUnit() {
     return;
   }
   numberSecretLearningSession = createNumberSecretLearningSession();
+  saveLearningPilot(globalThis.localStorage, numberSecretLearningSession);
   renderNumberSecretLearningUnit();
 }
 
