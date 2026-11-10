@@ -1,0 +1,172 @@
+name: INT-01 academy integration
+on:
+  push:
+    branches:
+      - int-01-academy-integration
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  full-integration:
+    if: github.ref == 'refs/heads/int-01-academy-integration'
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install isolated browser and Worker test dependencies
+        run: npm install --no-save --no-package-lock wrangler@4 playwright
+
+      - name: Install Chromium and Linux dependencies
+        run: npx playwright install --with-deps chromium
+
+      - name: Check JavaScript syntax
+        run: |
+          set -euo pipefail
+          find prototype scripts test -type f -name '*.js' -print0 | xargs -0 -r -n 1 node --check
+          find prototype scripts test -type f -name '*.mjs' -print0 | xargs -0 -r -n 1 node --check
+
+      - name: Apply isolated SEC-14 local D1 migrations
+        run: |
+          set -euo pipefail
+          rm -rf .tmp/int01-sec14
+          mkdir -p .tmp/int01-sec14
+          for migration in migrations/000{1,2,3,4,5,6}_*.sql; do
+            npx wrangler d1 execute sec14_local_only --config wrangler.sec14.json --local --persist-to .tmp/int01-sec14 --file "$migration"
+          done
+
+      - name: Full regression and real browser acceptance
+        shell: bash
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_SERVER_URL: ${{ github.server_url }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_STEP_SUMMARY: ${{ github.step_summary }}
+        run: |
+          set -uo pipefail
+          mkdir -p .tmp/int01
+          PROTOTYPE_PORT=4175 node scripts/serve-prototype.mjs > .tmp/int01/prototype.log 2>&1 &
+          prototype_pid=$!
+          setsid npx wrangler dev --config wrangler.sec14.json --local --persist-to .tmp/int01-sec14 --ip 127.0.0.1 --port 8791 > .tmp/int01/sec14-worker.log 2>&1 &
+          worker_pid=$!
+          chrome_pid=""
+          cleanup() {
+            set +e
+            if [ -n "$chrome_pid" ]; then kill "$chrome_pid" 2>/dev/null; fi
+            kill -- "-$worker_pid" 2>/dev/null
+            kill "$prototype_pid" 2>/dev/null
+            wait "$worker_pid" "$prototype_pid" 2>/dev/null
+          }
+          trap cleanup EXIT
+
+          run_check() {
+            local name="$1"
+            shift
+            local log=".tmp/int01/$name.log"
+            "$@" > "$log" 2>&1
+            local rc=$?
+            cat "$log"
+            echo "$rc" > ".tmp/int01/$name.exit"
+            return 0
+          }
+
+          wait_for_url() {
+            local url="$1"
+            local label="$2"
+            for attempt in $(seq 1 60); do
+              if curl -fsS "$url" >/dev/null; then
+                echo "$label ready at $url"
+                return 0
+              fi
+              sleep 1
+            done
+            echo "$label failed to become ready: $url" >&2
+            return 1
+          }
+
+          wait_for_url http://127.0.0.1:4175/ prototype || exit 1
+          wait_for_url http://127.0.0.1:8791/review-workspace.html sec14-worker || exit 1
+
+          run_check full-regression node --test --test-reporter=spec
+          full_rc=$(cat .tmp/int01/full-regression.exit)
+
+          # Reset only the workflow-created local D1 before the dedicated SEC-14 browser flow.
+          kill -- "-$worker_pid" 2>/dev/null
+          wait "$worker_pid" 2>/dev/null
+          rm -rf .tmp/int01-sec14
+          mkdir -p .tmp/int01-sec14
+          migration_rc=0
+          for migration in migrations/000{1,2,3,4,5,6}_*.sql; do
+            npx wrangler d1 execute sec14_local_only --config wrangler.sec14.json --local --persist-to .tmp/int01-sec14 --file "$migration" > ".tmp/int01/migration-$(basename "$migration").log" 2>&1
+            current_migration_rc=$?
+            cat ".tmp/int01/migration-$(basename "$migration").log"
+            if [ "$current_migration_rc" -ne 0 ]; then
+              migration_rc=$current_migration_rc
+              break
+            fi
+          done
+
+          sec14_rc=1
+          if [ "$migration_rc" -eq 0 ]; then
+            setsid npx wrangler dev --config wrangler.sec14.json --local --persist-to .tmp/int01-sec14 --ip 127.0.0.1 --port 8791 > .tmp/int01/sec14-worker.log 2>&1 &
+            worker_pid=$!
+            if wait_for_url http://127.0.0.1:8791/review-workspace.html sec14-worker; then
+              run_check sec14-browser node test/sec-14-browser.mjs
+              sec14_rc=$(cat .tmp/int01/sec14-browser.exit)
+            fi
+          fi
+
+          CHROME_PATH=$(node --input-type=module -e "import {chromium} from 'playwright'; process.stdout.write(chromium.executablePath())")
+          "$CHROME_PATH" --headless --no-sandbox --disable-dev-shm-usage --remote-debugging-port=9222 --user-data-dir=/tmp/int01-game-browser http://127.0.0.1:4175/ > .tmp/int01/chromium.log 2>&1 &
+          chrome_pid=$!
+          wait_for_url http://127.0.0.1:9222/json/list chromium-cdp || true
+          export CDP_URL=http://127.0.0.1:9222
+          export PROTOTYPE_URL=http://127.0.0.1:4175/
+          run_check game01-grade3 env REPORT_PATH=.tmp/int01/game01-grade3-report.json node scripts/grade3-math-repair-mainline-full-e2e.mjs
+          run_check game01-grade4 env ACCEPTANCE_OUTPUT=.tmp/int01/game01-grade4 node scripts/grade4-candidate-route-browser-acceptance.mjs
+          run_check edu01-five-materials node scripts/edu-01-browser-acceptance.mjs
+          run_check ux01-mobile node test/ux-01-browser.mjs
+
+          total=$(sed -n 's/^ℹ tests //p' .tmp/int01/full-regression.log | tail -n 1 | tr -d '\r')
+          passed=$(sed -n 's/^ℹ pass //p' .tmp/int01/full-regression.log | tail -n 1 | tr -d '\r')
+          failed=$(sed -n 's/^ℹ fail //p' .tmp/int01/full-regression.log | tail -n 1 | tr -d '\r')
+          total=${total:-unknown}
+          passed=${passed:-unknown}
+          failed=${failed:-unknown}
+
+          game3_rc=$(cat .tmp/int01/game01-grade3.exit)
+          game4_rc=$(cat .tmp/int01/game01-grade4.exit)
+          edu_rc=$(cat .tmp/int01/edu01-five-materials.exit)
+          ux_rc=$(cat .tmp/int01/ux01-mobile.exit)
+          {
+            echo '# INT-01 integrated technical acceptance'
+            echo
+            echo "- Commit: $GITHUB_SHA"
+            echo "- Workflow run: [$GITHUB_RUN_ID]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)"
+            echo "- Full regression: $passed/$total passed; $failed failed (exit $full_rc)"
+            echo "- SEC-14 real browser review/publication flow: $([ "$sec14_rc" = 0 ] && echo PASS || echo FAIL)"
+            echo "- GAME-01 Grade 3 and Grade 4 desktop/mobile routes: $([ "$game3_rc" = 0 ] && [ "$game4_rc" = 0 ] && echo PASS || echo FAIL)"
+            echo "- EDU-01 five candidate materials: $([ "$edu_rc" = 0 ] && echo PASS || echo FAIL)"
+            echo "- UX-01 mobile learning/progress flow: $([ "$ux_rc" = 0 ] && echo PASS || echo FAIL)"
+            echo
+            echo 'All learning materials remain candidates pending teacher review. Automated acceptance does not establish educational approval, a complete national curriculum inventory, student mastery, or production deployment.'
+          } > .tmp/int01/technical-acceptance.md
+          cat .tmp/int01/technical-acceptance.md >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$full_rc" -ne 0 ] || [ "$sec14_rc" -ne 0 ] || [ "$game3_rc" -ne 0 ] || [ "$game4_rc" -ne 0 ] || [ "$edu_rc" -ne 0 ] || [ "$ux_rc" -ne 0 ]; then
+            exit 1
+          fi
+
+      - name: Upload exact-commit logs and acceptance record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int-01-technical-acceptance-${{ github.sha }}
+          path: .tmp/int01/
+          if-no-files-found: warn
