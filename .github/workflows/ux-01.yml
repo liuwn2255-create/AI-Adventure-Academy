@@ -1,0 +1,14 @@
+name: UX-01 learning pilot
+on:
+  push:
+    branches: [ux-01-learning-progress-pilot]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test test/learning-progress-pilot.test.mjs test/learning-unit-flow.test.mjs test/map-progress.test.mjs
+      - run: node --check prototype/app.js && node --check prototype/learning-progress-page.js
