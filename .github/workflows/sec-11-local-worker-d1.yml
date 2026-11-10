@@ -30,7 +30,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          node --test test/sec-10-worker-route.test.mjs test/sec-09-review-http.test.mjs test/sec-07-security-chain.test.mjs
+          node --test test/cloudflare-publication.test.mjs test/sec-10-worker-route.test.mjs test/sec-09-review-http.test.mjs test/sec-07-security-chain.test.mjs
           python test/sec-02-sqlite-migration.py
           python test/sec-03-sqlite-migration.py
           python test/sec-04-sqlite-migration.py
