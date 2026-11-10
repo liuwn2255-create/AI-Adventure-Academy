@@ -3,11 +3,13 @@
 import { createCloudflareReviewWorker } from './cloudflare-review-worker.mjs';
 import { createCloudflarePublicationWorker } from './cloudflare-publication-worker.mjs';
 
+import {createReviewWorkspace} from './review-workspace.mjs';
 const reviewPaths=new Set(['/api/review/decisions','/api/review/approvals','/api/review/levels/decisions']);
 const publishPaths=new Set(['/api/questions/publish','/api/levels/publish']);
 const reject=(status,error)=>Response.json({error},{status,headers:{'cache-control':'no-store'}});
 
 export function createCloudflareIntegratedWorker({
+  workspace=createReviewWorkspace(),
   reviewWorker=createCloudflareReviewWorker(),
   publicationWorker=createCloudflarePublicationWorker(),
 }={}) {
@@ -17,6 +19,7 @@ export function createCloudflareIntegratedWorker({
     async fetch(request,env,ctx) {
       const pathname=new URL(request.url).pathname;
       // Routing is exact; a caller cannot choose a handler with a body field.
+      if(pathname==='/api/review/workspace') return workspace.fetch(request,env,ctx);
       if(reviewPaths.has(pathname)) return reviewWorker.fetch(request,env,ctx);
       if(publishPaths.has(pathname)) return publicationWorker.fetch(request,env,ctx);
       return reject(404,'not_found');
