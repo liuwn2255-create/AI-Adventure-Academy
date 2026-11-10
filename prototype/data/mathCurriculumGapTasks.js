@@ -1,10 +1,11 @@
+import { applyGrade4MathSupplement } from './grade4MathSupplements.js';
 import { reviewedTitlePronunciationTokens } from './reviewedTitlePronunciation.js';
 import { AREA_GRID_CONSTRUCTION_WORKSHOP } from './areaGridConstructionWorkshop.js';
 import { WEIGHT_MEASUREMENT_ADVENTURE } from './weightMeasurementAdventure.js';
 
 const freeze = (value) => Object.freeze(value);
 const candidate = 'candidate_pending_teacher_review';
-const task = (definition) => freeze({
+const task = (definition) => freeze(applyGrade4MathSupplement({
   revision: 1,
   status: candidate,
   sourceKind: 'official_math_clause_candidate_interaction_not_textbook',
@@ -16,7 +17,7 @@ const task = (definition) => freeze({
   teacherReview: freeze({ status: 'not_reviewed', reviewer: null, reviewedAt: null }),
   ...definition,
   stages: freeze(definition.stages.map(freeze)),
-});
+}));
 const reviewed = (text, readings = '') => {
   const readingList = readings.trim() ? readings.trim().split(/\s+/u) : [];
   let index = 0;

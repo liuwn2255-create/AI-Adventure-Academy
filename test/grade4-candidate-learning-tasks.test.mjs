@@ -29,6 +29,9 @@ function answer(session, task, stage, correct) {
       const fromIndex = state.orderedItems.indexOf(ids[targetIndex]);
       if (fromIndex !== targetIndex) state = dispatchLearningTask(state, task, 'move_ordered_item', { itemId: ids[targetIndex], toIndex: targetIndex }).session;
     }
+  } else if (stage.interaction === 'place_number_line_marker') {
+    const tick = stage.numberLine.targetTick + Number(!correct);
+    state = dispatchLearningTask(state, task, 'set_number_line_tick', { tick }).session;
   } else if (stage.interaction === 'compose_shape') {
     const count = stage.shapeRules.selectionCount ?? stage.shapeRules.rows * stage.shapeRules.columns;
     let ids = stage.shapeRules.correctPieceIds;

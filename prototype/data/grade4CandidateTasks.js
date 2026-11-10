@@ -1,5 +1,6 @@
+import { applyGrade4MathSupplement } from './grade4MathSupplements.js';
 const freezeStage = (stage) => Object.freeze(stage);
-const candidate = (task) => Object.freeze({
+const candidate = (task) => Object.freeze(applyGrade4MathSupplement({
   ...task,
   gradeId: 'grade-4',
   sourceId: ({ mathematics: 'mathematics', 'chinese-language': 'chinese-language', 'natural-science': 'natural-science' })[task.subjectId],
@@ -12,7 +13,7 @@ const candidate = (task) => Object.freeze({
   teacherReview: Object.freeze({ status: 'not_reviewed', reviewer: null, reviewedAt: null }),
   openQuestions: Object.freeze(task.openQuestions ?? []),
   stages: Object.freeze(task.stages.map(freezeStage)),
-});
+}));
 
 export const GRADE4_MATH_FRACTION_TILES = candidate({
   activityId: 'ACT-G4-MATH-FRACTION-TILES-CANDIDATE', subjectId: 'mathematics',

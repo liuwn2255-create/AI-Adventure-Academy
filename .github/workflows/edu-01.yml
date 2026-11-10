@@ -12,9 +12,9 @@ jobs:
           node-version: 22
       - name: Candidate interactions and curriculum evidence
         run: |
-          node --test test/grade3-math-core-gaps-workshops.test.mjs test/grade3-math-new-workshops.test.mjs test/learning-subitem-expansion.test.mjs
+          node --test test/grade3-math-core-gaps-workshops.test.mjs test/grade3-math-new-workshops.test.mjs test/grade4-candidate-learning-tasks.test.mjs test/grade4-candidate-route-depth.test.mjs test/math-grade4-curriculum-batch.test.mjs test/learning-subitem-expansion.test.mjs
           node scripts/math-curriculum-audit.mjs
-      - name: Candidate activities in Chromium
+      - name: Five candidate activities in Chromium
         run: |
           npm install --no-save --package-lock=false playwright
           npx playwright install chromium

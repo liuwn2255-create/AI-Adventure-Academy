@@ -40,7 +40,7 @@ try {
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   assert.equal(evidence.teacherReview, 'pending');
-  assert.equal(evidence.supplements.length, 2);
+  assert.equal(evidence.supplements.length, 5);
   for (const definition of evidence.supplements) {
     const task = CATALOG_CANDIDATE_TASK_BY_ID.get(definition.activityId);
     const stageIds = task.stages.map(({ stageId }) => stageId);
