@@ -235,7 +235,7 @@ async function completeStage(task, stage, wrong) {
 async function playStop(stop, viewport) {
   const task = tasksById.get(stop.activityId);
   if (!task) throw new Error(`Missing route activity: ${stop.activityId}`);
-  await waitFor(`document.querySelector("#catalog-task-screen") && !document.querySelector("#catalog-task-screen").hidden && document.querySelector("#catalog-task-title")?.textContent===${JSON.stringify(task.title)}`, `entered ${stop.activityId}`);
+  await waitFor(`document.querySelector("#catalog-task-screen") && !document.querySelector("#catalog-task-screen").hidden && document.querySelector("#catalog-task-title")?.textContent===${JSON.stringify(task.title.split(/[：:]/,1)[0])}`, `entered ${stop.activityId}`);
   const localBefore = await evaluate('JSON.stringify(Object.entries(localStorage).sort(([a],[b])=>a.localeCompare(b)))');
   await clickText('開始數學挑戰');
   const stages = [];
