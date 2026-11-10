@@ -15,7 +15,7 @@
 - EDU-01 五項候選教材瀏覽器流程。
 - UX-01 390px 行動裝置學習進度流程。
 
-workflow 會在完整測試後重置其自行建立的本機 D1，再執行 SEC-14 瀏覽器流程；這只清除 CI 暫存資料。
+SEC-14 瀏覽器流程由完整測試中的現有 test/sec-14-browser.mjs 執行，並使用 workflow 先套用 migrations 建立的隔離本機 D1。CI 結束時 Runner 會丟棄此資料。
 
 ## 結果解讀限制
 
