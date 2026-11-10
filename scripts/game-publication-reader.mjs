@@ -6,8 +6,13 @@ const isPublished = (kind, item) => item && typeof item === 'object'
   && isId(item.id) && isRev(item.revision)
   && (kind === 'question' ? item.publicationStatus === 'published' : item.status === 'published');
 function refs(level) {
-  if (!Array.isArray(level.questionRefs)) return null;
-  return level.questionRefs.map(ref => ({ id: ref.questionId, revision: ref.revision }));
+  if (!Array.isArray(level.interactions) || !level.interactions.length) return null;
+  const references = [];
+  for (const interaction of level.interactions) {
+    if (!Array.isArray(interaction?.questionRefs) || !interaction.questionRefs.length) return null;
+    for (const ref of interaction.questionRefs) references.push({ id: ref?.questionId, revision: ref?.revision });
+  }
+  return references;
 }
 export function createGamePublicationReader({ database }) {
   if (!database || typeof database.prepare !== 'function') throw new TypeError('D1 database required');

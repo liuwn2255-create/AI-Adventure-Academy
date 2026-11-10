@@ -14,21 +14,35 @@ async function publish(kind, entity, principal, env, validators, clock) {
   }
   if ((kind === 'question' && entity.publicationStatus !== 'approved')
       || (kind === 'level' && entity.status !== 'approved')) return reply(422, { error: 'not_approved' });
+  // Resolve the entire approved payload from the server-controlled review store.
+  // The request supplies only the identity of the approved revision.
+  let approved;
+  try {
+    const result = await env.PUBLICATION_DB.prepare(
+      'SELECT payload FROM publication_approvals WHERE kind = ? AND entity_id = ? AND revision = ?'
+    ).bind(kind, entity.id, entity.revision).first();
+    if (!result?.payload) return reply(422, { error: 'trusted_approval_required' });
+    approved = JSON.parse(result.payload);
+  } catch { return reply(503, { error: 'approval_store_unavailable' }); }
+  if (!approved || approved.id !== entity.id || approved.revision !== entity.revision
+    || (kind === 'question' ? approved.publicationStatus !== 'approved' : approved.status !== 'approved')) {
+    return reply(422, { error: 'trusted_approval_invalid' });
+  }
   const existing = await list(env.PUBLICATION_DB, kind);
   if (existing.some((x) => x.id === entity.id && x.revision >= entity.revision)) {
     return reply(409, { error: 'revision_conflict' });
   }
   const registryBundle = JSON.parse(env.REGISTRY_BUNDLE_JSON || 'null');
   if (!registryBundle) return reply(503, { error: 'registry_unavailable' });
-  // Build the exact immutable record before validation; never trust client audit fields.
+  // Use only the server-stored approved entity; client-supplied review fields are ignored.
   const at = clock().toISOString();
   const published = kind === 'question'
-    ? { ...entity, publicationStatus: 'published',
+    ? { ...approved, publicationStatus: 'published',
         publicationRecord: { publisher: principal.id, publishedAt: at, revision: entity.revision } }
-    : { ...entity, status: 'published' };
+    : { ...approved, status: 'published' };
   const errors = kind === 'question'
-    ? validators.question({ question: published, registryBundle })
-    : validators.level({ level: published, questions: await list(env.PUBLICATION_DB, 'question'), registryBundle });
+    ? validators.question({ question: approved, registryBundle })
+    : validators.level({ level: approved, questions: await list(env.PUBLICATION_DB, 'question'), registryBundle });
   if (errors.length) return reply(422, { error: 'publication_rejected', details: errors });
   const db = env.PUBLICATION_DB;
   try {
