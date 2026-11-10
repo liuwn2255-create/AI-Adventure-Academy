@@ -438,12 +438,26 @@ export function validateNewLevelReferences(level, questions, registry) {
   const errors = [];
   if (!isObject(level) || !Array.isArray(level.interactions)) return [{ path: 'level.interactions', code: 'required', message: '關卡必須有 interactions 陣列' }];
   const byQuestionKey = new Map();
-  for (const q of questions ?? []) byQuestionKey.set(`${q.id ?? q.questionId}@${q.revision}`, q);
+  for (const [index, q] of (questions ?? []).entries()) {
+    const id = q?.id ?? q?.questionId;
+    if (!nonEmpty(id) || !positiveInt(q?.revision)) continue;
+    const key = `${id}@${q.revision}`;
+    if (byQuestionKey.has(key)) issue(errors, `questions[${index}]`, `題目集合含重複的精確版本 ${key}`, 'duplicate');
+    else byQuestionKey.set(key, q);
+  }
+  const referencedKeys = new Set();
   for (const [i, interaction] of level.interactions.entries()) {
     if (!Array.isArray(interaction?.questionRefs)) continue;
     for (const [j, ref] of interaction.questionRefs.entries()) {
       const p = `level.interactions[${i}].questionRefs[${j}]`;
-      const q = byQuestionKey.get(`${ref?.questionId}@${ref?.revision}`);
+      if (!nonEmpty(ref?.questionId) || !positiveInt(ref?.revision)) {
+        issue(errors, p, '題目引用必須有 questionId 與正整數 revision', 'required');
+        continue;
+      }
+      const key = `${ref.questionId}@${ref.revision}`;
+      if (referencedKeys.has(key)) issue(errors, p, `關卡不得重複引用精確題目版本 ${key}`, 'duplicate');
+      referencedKeys.add(key);
+      const q = byQuestionKey.get(key);
       if (!q) {
         issue(errors, p, '關卡引用的題目或精確 revision 不存在', 'foreign_key');
         continue;

@@ -1,0 +1,21 @@
+name: AUTO-02 validation
+on:
+  pull_request:
+    paths:
+      - 'scripts/publication-guard.mjs'
+      - 'scripts/unit-registry-validator.mjs'
+      - 'test/unit-registry.test.mjs'
+      - '.github/workflows/auto-02-validation.yml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/publication-guard.mjs
+      - run: node --check test/unit-registry.test.mjs
+      - run: node --test test/unit-registry.test.mjs
