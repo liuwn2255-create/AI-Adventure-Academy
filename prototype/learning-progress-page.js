@@ -1,0 +1,4 @@
+import {readLearningPilot,clearLearningPilot} from './learningProgressPilot.js';
+const list=document.getElementById('records'),status=document.getElementById('status');
+function render(){list.replaceChildren();const rows=readLearningPilot(localStorage);for(const r of rows){const li=document.createElement('li');li.textContent='千位數的秘密：'+(r.completed?'練習已完成':'學習中')+'；練習 '+r.attempts+' 次，正確 '+r.correct+' 次。'+(r.correct<r.attempts?' 建議回顧位值與數字表示。':'');list.append(li);}status.textContent=rows.length?'以上為候選練習紀錄，尚未正式評量。':'目前沒有學習紀錄。';}
+document.getElementById('clear').addEventListener('click',()=>{if(confirm('確定清除本機學習紀錄？')){if(clearLearningPilot(localStorage))render();else status.textContent='無法清除紀錄。';}});render();
